@@ -280,8 +280,8 @@ select.unfold:                                    ; preds = %.lr.ph
   br i1 %.not47, label %59, label %.backedge
 
 59:                                               ; preds = %55, %52
-  call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
-  %60 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #6
+  call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %60 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #5
   br i1 %60, label %61, label %67
 
 61:                                               ; preds = %59
@@ -289,16 +289,16 @@ select.unfold:                                    ; preds = %.lr.ph
   %63 = load i32, ptr %5, align 4
   %64 = load i32, ptr %25, align 4
   %65 = load i32, ptr %26, align 4
-  %66 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %65) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.fsm_search_avail) #6
+  %66 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %65) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.fsm_search_avail) #5
   br label %67
 
 67:                                               ; preds = %59, %61
   br i1 %.04058, label %.preheader, label %68
 
 68:                                               ; preds = %67
-  call void @LockBuffer(i32 noundef %0, i32 noundef 0) #6
-  call void @LockBuffer(i32 noundef %0, i32 noundef 2) #6
+  call void @LockBuffer(i32 noundef %0, i32 noundef 0) #5
+  call void @LockBuffer(i32 noundef %0, i32 noundef 2) #5
   br label %.preheader
 
 .preheader:                                       ; preds = %68, %67
@@ -341,7 +341,7 @@ select.unfold:                                    ; preds = %.lr.ph
   br i1 %.not30.i, label %fsm_rebuild_page.exit, label %69, !llvm.loop !7
 
 fsm_rebuild_page.exit:                            ; preds = %83
-  call void @MarkBufferDirtyHint(i32 noundef %0, i1 noundef zeroext false) #6
+  call void @MarkBufferDirtyHint(i32 noundef %0, i1 noundef zeroext false) #5
   %84 = load i8, ptr %22, align 4
   %85 = icmp ult i8 %84, %1
   br i1 %85, label %.loopexit, label %27
@@ -372,8 +372,8 @@ declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local zeroext i1 @fsm_truncate_avail(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 28
   %4 = add i32 %1, 4095
   %5 = sext i32 %4 to i64
@@ -438,15 +438,14 @@ fsm_rebuild_page.exit:                            ; preds = %24, %2, %._crit_edg
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #5
+declare i8 @llvm.umax.i8(i8, i8) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

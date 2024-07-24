@@ -30,7 +30,7 @@ define hidden i64 @crc16_plain_reflect(i64 noundef %0, i64 noundef %1) local_unn
   ret i64 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define zeroext i16 @crc16_plain_update(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not8 = icmp eq i64 %2, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -57,7 +57,7 @@ define zeroext i16 @crc16_plain_update(i16 noundef zeroext %0, ptr nocapture nou
   ret i16 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define zeroext i16 @crc16_8005_noreflect_noxor(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %.not8 = icmp eq i64 %1, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -86,7 +86,7 @@ define zeroext i16 @crc16_8005_noreflect_noxor(ptr nocapture noundef readonly %0
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

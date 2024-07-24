@@ -1867,34 +1867,34 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %74 = load i32, ptr %18, align 4
   %75 = load i32, ptr %25, align 8
   call void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32 noundef %73, i32 noundef %74, i32 noundef %63, ptr noundef nonnull %54, ptr noundef nonnull %17, ptr noundef %66, i32 noundef %.0150.us, i32 noundef %spec.select.us, i32 noundef %75, i32 noundef %29, i32 noundef %30)
-  br label %76
+  %76 = load ptr, ptr %61, align 8
+  br label %77
 
-76:                                               ; preds = %.lr.ph.us, %76
-  %.0143289.us = phi i32 [ 0, %.lr.ph.us ], [ %94, %76 ]
-  %77 = icmp uge i32 %.0143289.us, %22
-  %78 = zext i1 %77 to i64
-  %79 = and i32 %.0143289.us, 2147483646
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds [6 x [64 x i16]], ptr %17, i64 0, i64 %80
-  %82 = shl i32 %.0143289.us, 3
-  %83 = and i32 %82, 8
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds i16, ptr %81, i64 %84
-  %86 = load ptr, ptr %61, align 8
-  %87 = getelementptr inbounds [2 x [64 x i16]], ptr %86, i64 0, i64 %78
-  call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef nonnull %85, ptr noundef nonnull %15, i32 noundef %21, ptr noundef %87)
+77:                                               ; preds = %.lr.ph.us, %77
+  %.0143289.us = phi i32 [ 0, %.lr.ph.us ], [ %94, %77 ]
+  %78 = icmp uge i32 %.0143289.us, %22
+  %79 = zext i1 %78 to i64
+  %80 = and i32 %.0143289.us, 2147483646
+  %81 = zext nneg i32 %80 to i64
+  %82 = getelementptr inbounds [6 x [64 x i16]], ptr %17, i64 0, i64 %81
+  %83 = shl i32 %.0143289.us, 3
+  %84 = and i32 %83, 8
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds i16, ptr %82, i64 %85
+  %87 = getelementptr inbounds [2 x [64 x i16]], ptr %76, i64 0, i64 %79
+  call fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr noundef nonnull %86, ptr noundef nonnull %15, i32 noundef %21, ptr noundef %87)
   %88 = icmp ugt i32 %.0143289.us, %22
   %89 = zext i1 %88 to i64
-  %90 = add nuw nsw i64 %78, %89
+  %90 = add nuw nsw i64 %79, %89
   %91 = load i16, ptr %15, align 16
   %92 = sext i16 %91 to i32
   %93 = getelementptr inbounds [3 x i32], ptr %16, i64 0, i64 %90
   store i32 %92, ptr %93, align 4
   %94 = add nuw nsw i32 %.0143289.us, 1
   %exitcond.not = icmp eq i32 %94, %.fr330
-  br i1 %exitcond.not, label %..loopexit279_crit_edge.us, label %76, !llvm.loop !51
+  br i1 %exitcond.not, label %..loopexit279_crit_edge.us, label %77, !llvm.loop !51
 
-..loopexit279_crit_edge.us:                       ; preds = %76
+..loopexit279_crit_edge.us:                       ; preds = %77
   %95 = load i32, ptr %49, align 4
   %96 = icmp slt i32 %67, %95
   br i1 %96, label %.lr.ph.us, label %.loopexit280, !llvm.loop !52
@@ -4170,7 +4170,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg12convertToYUVEiiiPsS1_PKhiiiii(i32
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN2cv5mjpegL11aan_fdct8x8EPKsPsiS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #14 {
   %5 = alloca [64 x i32], align 16
   %6 = zext nneg i32 %2 to i64
@@ -5876,7 +5876,7 @@ attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

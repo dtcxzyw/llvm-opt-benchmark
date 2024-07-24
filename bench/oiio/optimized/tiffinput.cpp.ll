@@ -6249,7 +6249,7 @@ for.end21:                                        ; preds = %for.cond2.for.inc19
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN18OpenImageIO_v2_6_09TIFFInput14palette_to_rgbEiPKhPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this, i32 noundef %n, ptr nocapture noundef readonly %palettepels, ptr nocapture noundef writeonly %rgb) local_unnamed_addr #16 align 2 {
 entry:
   %m_bitspersample = getelementptr inbounds i8, ptr %this, i64 298
@@ -6316,7 +6316,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN18OpenImageIO_v2_6_09TIFFInput14palette_to_rgbEiPKtPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this, i32 noundef %n, ptr nocapture noundef readonly %palettepels, ptr nocapture noundef writeonly %rgb) local_unnamed_addr #16 align 2 {
 entry:
   %m_bitspersample = getelementptr inbounds i8, ptr %this, i64 298
@@ -7883,8 +7883,8 @@ _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %ent
 
 declare i32 @TIFFReadScanline(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbIhEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef readonly %cmyk, i64 noundef %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef %rgb_stride) unnamed_addr #16 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbIhEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef readonly %cmyk, i64 noundef %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef %rgb_stride) unnamed_addr #17 {
 entry:
   %tobool.not35 = icmp eq i32 %n, 0
   br i1 %tobool.not35, label %for.end, label %for.body
@@ -7946,8 +7946,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbItEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef readonly %cmyk, i64 noundef %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef %rgb_stride) unnamed_addr #16 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L11cmyk_to_rgbItEEviPKT_mPS1_m(i32 noundef %n, ptr nocapture noundef readonly %cmyk, i64 noundef %cmyk_stride, ptr nocapture noundef writeonly %rgb, i64 noundef %rgb_stride) unnamed_addr #17 {
 entry:
   %tobool.not35 = icmp eq i32 %n, 0
   br i1 %tobool.not35, label %for.end, label %for.body
@@ -51663,7 +51663,7 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

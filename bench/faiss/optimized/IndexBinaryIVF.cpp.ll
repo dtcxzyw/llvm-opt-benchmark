@@ -6964,7 +6964,7 @@ define internal noundef i32 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16H
   ret i32 %7
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EE10scan_codesEmPKhPKlPiPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2, ptr noalias nocapture noundef readonly %3, ptr noalias nocapture noundef %4, ptr noalias nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -7254,7 +7254,7 @@ define internal noundef i32 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16H
   ret i32 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EE10scan_codesEmPKhPKlPiPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2, ptr noalias nocapture noundef readonly %3, ptr noalias nocapture noundef %4, ptr noalias nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -7550,7 +7550,7 @@ define internal noundef i32 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17H
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EE10scan_codesEmPKhPKlPiPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2, ptr noalias nocapture noundef readonly %3, ptr noalias nocapture noundef %4, ptr noalias nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -7804,7 +7804,7 @@ define internal noundef i32 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17H
   ret i32 %17
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EE10scan_codesEmPKhPKlPiPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2, ptr noalias nocapture noundef readonly %3, ptr noalias nocapture noundef %4, ptr noalias nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -8066,7 +8066,7 @@ define internal noundef i32 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17H
   ret i32 %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EE10scan_codesEmPKhPKlPiPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2, ptr noalias nocapture noundef readonly %3, ptr noalias nocapture noundef %4, ptr noalias nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -8326,7 +8326,7 @@ define internal noundef i32 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17H
   ret i32 %9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EE10scan_codesEmPKhPKlPiPlm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2, ptr noalias nocapture noundef readonly %3, ptr noalias nocapture noundef %4, ptr noalias nocapture noundef %5, i64 noundef %6) unnamed_addr #15 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -24818,7 +24818,7 @@ attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

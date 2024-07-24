@@ -5057,8 +5057,8 @@ done:                                             ; preds = %while.cond317.for.i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @imdct_step3_iter0_loop(i32 noundef %n, ptr nocapture noundef %e, i32 noundef %i_off, i32 noundef %k_off, ptr nocapture noundef readonly %A) local_unnamed_addr #28 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @imdct_step3_iter0_loop(i32 noundef %n, ptr nocapture noundef %e, i32 noundef %i_off, i32 noundef %k_off, ptr nocapture noundef readonly %A) local_unnamed_addr #24 {
 entry:
   %shr = ashr i32 %n, 2
   %cmp76 = icmp sgt i32 %shr, 0
@@ -5199,8 +5199,8 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #21
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @imdct_step3_inner_r_loop(i32 noundef %lim, ptr nocapture noundef %e, i32 noundef %d0, i32 noundef %k_off, ptr nocapture noundef readonly %A, i32 noundef %k1) local_unnamed_addr #28 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @imdct_step3_inner_r_loop(i32 noundef %lim, ptr nocapture noundef %e, i32 noundef %d0, i32 noundef %k_off, ptr nocapture noundef readonly %A, i32 noundef %k1) local_unnamed_addr #24 {
 entry:
   %shr = ashr i32 %lim, 2
   %cmp79 = icmp sgt i32 %shr, 0
@@ -5339,8 +5339,8 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @imdct_step3_inner_s_loop(i32 noundef %n, ptr nocapture noundef %e, i32 noundef %i_off, i32 noundef %k_off, ptr nocapture noundef readonly %A, i32 noundef %a_off, i32 noundef %k0) local_unnamed_addr #28 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @imdct_step3_inner_s_loop(i32 noundef %n, ptr nocapture noundef %e, i32 noundef %i_off, i32 noundef %k_off, ptr nocapture noundef readonly %A, i32 noundef %a_off, i32 noundef %k0) local_unnamed_addr #24 {
 entry:
   %cmp86 = icmp sgt i32 %n, 0
   br i1 %cmp86, label %for.body.lr.ph, label %for.end
@@ -16349,8 +16349,8 @@ if.end2:                                          ; preds = %if.then1, %entry
   ret i32 %spec.select
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @convert_channels_short_interleaved(i32 noundef %buf_c, ptr nocapture noundef writeonly %buffer, i32 noundef %data_c, ptr nocapture noundef readonly %data, i32 noundef %d_offset, i32 noundef %len) local_unnamed_addr #28 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @convert_channels_short_interleaved(i32 noundef %buf_c, ptr nocapture noundef writeonly %buffer, i32 noundef %data_c, ptr nocapture noundef readonly %data, i32 noundef %d_offset, i32 noundef %len) local_unnamed_addr #14 {
 entry:
   %cmp = icmp ne i32 %buf_c, %data_c
   %cmp1 = icmp slt i32 %buf_c, 3

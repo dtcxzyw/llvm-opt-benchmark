@@ -130975,8 +130975,8 @@ define internal fastcc void @string_skip_until(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @string_match(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc range(i32 0, 2) i32 @string_match(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #30 {
   %4 = load i32, ptr %1, align 4
   %5 = load i8, ptr %2, align 1
   %.not13 = icmp eq i8 %5, 0

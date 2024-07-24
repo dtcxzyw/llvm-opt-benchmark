@@ -29,7 +29,7 @@ define void @PHP_XXH32Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #17
+  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #16
   %.not19 = icmp eq ptr %4, null
   br i1 %.not19, label %.sink.split, label %5
 
@@ -86,7 +86,7 @@ define void @PHP_XXH32Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %XXH_INLINE_XXH32_update.exit, label %5
@@ -222,8 +222,8 @@ XXH_INLINE_XXH32_update.exit:                     ; preds = %3, %.loopexit.i, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -306,12 +306,12 @@ XXH_INLINE_XXH32_digest.exit:                     ; preds = %.lr.ph27.i.i, %.pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH32Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define noundef i32 @PHP_XXH32Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false)
   ret i32 0
 }
 
-declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
@@ -321,7 +321,7 @@ define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, 
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @php_hash_unserialize_spec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.1) #17
+  %8 = tail call i32 @php_hash_unserialize_spec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.1) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.thread
 
@@ -338,10 +338,10 @@ define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @PHP_XXH64Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
@@ -350,7 +350,7 @@ define void @PHP_XXH64Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   br i1 %.not, label %22, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #17
+  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #16
   %.not19 = icmp eq ptr %4, null
   br i1 %.not19, label %.sink.split, label %5
 
@@ -403,7 +403,7 @@ define void @PHP_XXH64Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %XXH_INLINE_XXH64_update.exit, label %5
@@ -559,8 +559,8 @@ XXH_INLINE_XXH64_update.exit:                     ; preds = %3, %.loopexit.i, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 31
   br i1 %4, label %5, label %45
@@ -695,7 +695,7 @@ XXH_INLINE_XXH64_digest.exit:                     ; preds = %.lr.ph39.i.i, %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH64Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define noundef i32 @PHP_XXH64Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   ret i32 0
 }
@@ -708,7 +708,7 @@ define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, 
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @php_hash_unserialize_spec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.4) #17
+  %8 = tail call i32 @php_hash_unserialize_spec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.4) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.thread
 
@@ -725,13 +725,13 @@ define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #7 {
+define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %0, i8 0, i64 576, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit67, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #17
+  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #16
   %.not61.not = icmp eq ptr %4, null
   br i1 %.not61.not, label %.thread75, label %5
 
@@ -748,12 +748,12 @@ define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #7 {
 
 12:                                               ; preds = %5, %9
   %.052 = phi ptr [ %11, %9 ], [ %4, %5 ]
-  %13 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #17
+  %13 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #16
   %.not62 = icmp eq ptr %13, null
   br i1 %.not62, label %.thread, label %15
 
 .thread75:                                        ; preds = %3
-  %14 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #17
+  %14 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #16
   %.not6277 = icmp eq ptr %14, null
   br i1 %.not6277, label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit67, label %15
 
@@ -774,7 +774,7 @@ define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #7 {
   br i1 %.not61.not, label %70, label %24
 
 24:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.5) #17
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.5) #16
   br label %113
 
 .thread:                                          ; preds = %12
@@ -827,7 +827,7 @@ define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #7 {
   %49 = sub i64 0, %29
   %50 = insertelement <2 x i64> poison, i64 %29, i64 0
   %51 = insertelement <2 x i64> %50, i64 %49, i64 1
-  %52 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %48) #17, !srcloc !4
+  %52 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %48) #16, !srcloc !4
   br label %53
 
 53:                                               ; preds = %53, %47
@@ -881,7 +881,7 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %31, %XXH3_initCusto
   br i1 %73, label %.critedge, label %74
 
 74:                                               ; preds = %70
-  %75 = tail call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %.054) #17
+  %75 = tail call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %.054) #16
   br i1 %75, label %.critedge, label %113
 
 .critedge:                                        ; preds = %70, %74
@@ -892,7 +892,7 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %31, %XXH3_initCusto
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %.critedge
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 136, i64 noundef %78) #17
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 136, i64 noundef %78) #16
   br label %113
 
 81:                                               ; preds = %.critedge
@@ -900,7 +900,7 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %31, %XXH3_initCusto
   br i1 %82, label %83, label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
 83:                                               ; preds = %81
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, i64 noundef 256) #17
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, i64 noundef 256) #16
   %.pre = load ptr, ptr %.054, align 8
   br label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
@@ -972,13 +972,13 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit67:     ; preds = %.thread, %.thread75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_64_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #8 {
+define void @PHP_XXH3_64_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #7 {
   tail call fastcc void @XXH3_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #9 {
+define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = alloca i64, align 8
   %4 = alloca [64 x i8], align 16
   %5 = alloca [8 x i64], align 16
@@ -1157,21 +1157,21 @@ XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH3_64_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define noundef i32 @PHP_XXH3_64_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false)
   ret i32 0
 }
 
-declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #4
+declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #7 {
+define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %0, i8 0, i64 576, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit67, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #17
+  %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #16
   %.not61.not = icmp eq ptr %4, null
   br i1 %.not61.not, label %.thread75, label %5
 
@@ -1188,12 +1188,12 @@ define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #7 {
 
 12:                                               ; preds = %5, %9
   %.052 = phi ptr [ %11, %9 ], [ %4, %5 ]
-  %13 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #17
+  %13 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #16
   %.not62 = icmp eq ptr %13, null
   br i1 %.not62, label %.thread, label %15
 
 .thread75:                                        ; preds = %3
-  %14 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #17
+  %14 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 6) #16
   %.not6277 = icmp eq ptr %14, null
   br i1 %.not6277, label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit67, label %15
 
@@ -1214,7 +1214,7 @@ define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #7 {
   br i1 %.not61.not, label %70, label %24
 
 24:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6) #17
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6) #16
   br label %113
 
 .thread:                                          ; preds = %12
@@ -1267,7 +1267,7 @@ define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #7 {
   %49 = sub i64 0, %29
   %50 = insertelement <2 x i64> poison, i64 %29, i64 0
   %51 = insertelement <2 x i64> %50, i64 %49, i64 1
-  %52 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %48) #17, !srcloc !4
+  %52 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %48) #16, !srcloc !4
   br label %53
 
 53:                                               ; preds = %53, %47
@@ -1321,7 +1321,7 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %31, %XXH3_initCusto
   br i1 %73, label %.critedge, label %74
 
 74:                                               ; preds = %70
-  %75 = tail call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %.054) #17
+  %75 = tail call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %.054) #16
   br i1 %75, label %.critedge, label %113
 
 .critedge:                                        ; preds = %70, %74
@@ -1332,7 +1332,7 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %31, %XXH3_initCusto
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %.critedge
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 136, i64 noundef %78) #17
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 136, i64 noundef %78) #16
   br label %113
 
 81:                                               ; preds = %.critedge
@@ -1340,7 +1340,7 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %31, %XXH3_initCusto
   br i1 %82, label %83, label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
 83:                                               ; preds = %81
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6, i64 noundef 256) #17
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6, i64 noundef 256) #16
   %.pre = load ptr, ptr %.054, align 8
   br label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
@@ -1412,13 +1412,13 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit67:    ; preds = %.thread, %.thread75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_128_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #8 {
+define void @PHP_XXH3_128_Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #7 {
   tail call fastcc void @XXH3_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #9 {
+define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = alloca i64, align 8
   %4 = alloca [64 x i8], align 16
   %5 = alloca [8 x i64], align 16
@@ -1643,29 +1643,29 @@ XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH3_128_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define noundef i32 @PHP_XXH3_128_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false)
   ret i32 0
 }
 
-declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
-declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #10
+declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
-declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare zeroext i1 @_try_convert_to_string(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @_try_convert_to_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr noalias noundef %1, i64 noundef %2) unnamed_addr #9 {
+define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr noalias noundef %1, i64 noundef %2) unnamed_addr #8 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %196, label %5
 
@@ -2012,7 +2012,7 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3, i64 noundef %4, ptr noalias nocapture noundef readonly %5, i64 noundef %6) unnamed_addr #11 {
+define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3, i64 noundef %4, ptr noalias nocapture noundef readonly %5, i64 noundef %6) unnamed_addr #10 {
   %8 = load i64, ptr %1, align 8
   %9 = sub i64 %2, %8
   %.not = icmp ugt i64 %9, %4
@@ -2207,10 +2207,10 @@ XXH3_accumulate.exit41:                           ; preds = %XXH3_accumulate_512
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #12
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #13 {
+define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
   %5 = icmp ult i64 %1, 17
   br i1 %5, label %6, label %110
 
@@ -2651,7 +2651,7 @@ XXH3_len_0to16_64b.exit:                          ; preds = %97, %67, %38, %8, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #13 {
+define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly %3) unnamed_addr #12 {
   %5 = icmp ult i64 %1, 17
   br i1 %5, label %6, label %163
 
@@ -3279,47 +3279,46 @@ XXH3_len_129to240_128b.exit:                      ; preds = %382, %367
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #14
+declare i32 @llvm.bswap.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #14
+declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #14
+declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #14
+declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #13 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

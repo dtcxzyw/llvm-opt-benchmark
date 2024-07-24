@@ -3626,8 +3626,8 @@ define noundef zeroext i1 @_ZN6Unpack10UnpReadBufEv(ptr nocapture noundef nonnul
   ret i1 %.012
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Unpack8InitHuffEv(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN6Unpack8InitHuffEv(ptr nocapture noundef nonnull align 8 dereferenceable(59688) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20890
   %3 = getelementptr inbounds i8, ptr %0, i64 19866
   %4 = getelementptr inbounds i8, ptr %0, i64 20378
@@ -5375,8 +5375,8 @@ define noundef i32 @_ZN6Unpack9DecodeNumEjjPjS0_(ptr noundef nonnull align 8 der
   ret i32 %25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Unpack8CorrHuffEPtPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(59688) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN6Unpack8CorrHuffEPtPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(59688) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 align 2 {
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %11

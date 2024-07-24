@@ -112,7 +112,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_init(ptr nocapture noundef 
 13:                                               ; preds = %3
   %14 = load i64, ptr @H5E_RESOURCE_g, align 8
   %15 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_init, i32 noundef 829, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.1) #16
+  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_init, i32 noundef 829, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.1) #15
   br label %17
 
 17:                                               ; preds = %3, %13
@@ -132,14 +132,14 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_create(ptr nocapture nounde
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = call i32 @H5B_create(ptr noundef %8, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %2, ptr noundef nonnull %9) #16
+  %10 = call i32 @H5B_create(ptr noundef %8, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %2, ptr noundef nonnull %9) #15
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %1
   %13 = load i64, ptr @H5E_DATASET_g, align 8
   %14 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %15 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.4) #16
+  %15 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.4) #15
   br label %16
 
 16:                                               ; preds = %1, %12
@@ -184,14 +184,14 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_insert(ptr nocapture nounde
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i32 @H5B_insert(ptr noundef %4, ptr noundef nonnull @H5B_BTREE, i64 noundef %8, ptr noundef %1) #16
+  %9 = tail call i32 @H5B_insert(ptr noundef %4, ptr noundef nonnull @H5B_BTREE, i64 noundef %8, ptr noundef %1) #15
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3
   %12 = load i64, ptr @H5E_IO_g, align 8
   %13 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_insert, i32 noundef 991, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.5) #16
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_insert, i32 noundef 991, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.5) #15
   br label %15
 
 15:                                               ; preds = %3, %11
@@ -208,14 +208,14 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_get_addr(ptr nocapture noun
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = call i32 @H5B_find(ptr noundef %4, ptr noundef nonnull @H5B_BTREE, i64 noundef %8, ptr noundef nonnull %3, ptr noundef %1) #16
+  %9 = call i32 @H5B_find(ptr noundef %4, ptr noundef nonnull @H5B_BTREE, i64 noundef %8, ptr noundef nonnull %3, ptr noundef %1) #15
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
   %12 = load i64, ptr @H5E_DATASET_g, align 8
   %13 = load i64, ptr @H5E_CANTFIND_g, align 8
-  %14 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_get_addr, i32 noundef 1028, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.6) #16
+  %14 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_get_addr, i32 noundef 1028, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.6) #15
   br label %15
 
 15:                                               ; preds = %2, %11
@@ -247,14 +247,14 @@ define internal i32 @H5D__btree_idx_iterate(ptr nocapture noundef readonly %0, p
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = call i32 @H5B_iterate(ptr noundef %13, ptr noundef nonnull @H5B_BTREE, i64 noundef %15, ptr noundef nonnull @H5D__btree_idx_iterate_cb, ptr noundef nonnull %4) #16
+  %16 = call i32 @H5B_iterate(ptr noundef %13, ptr noundef nonnull @H5B_BTREE, i64 noundef %15, ptr noundef nonnull @H5D__btree_idx_iterate_cb, ptr noundef nonnull %4) #15
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %3
   %19 = load i64, ptr @H5E_DATASET_g, align 8
   %20 = load i64, ptr @H5E_BADITER_g, align 8
-  %21 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_iterate, i32 noundef 1133, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.7) #16
+  %21 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_iterate, i32 noundef 1133, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.7) #15
   br label %22
 
 22:                                               ; preds = %18, %3
@@ -268,14 +268,14 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_remove(ptr nocapture nounde
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i32 @H5B_remove(ptr noundef %3, ptr noundef nonnull @H5B_BTREE, i64 noundef %7, ptr noundef %1) #16
+  %8 = tail call i32 @H5B_remove(ptr noundef %3, ptr noundef nonnull @H5B_BTREE, i64 noundef %7, ptr noundef %1) #15
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %2
   %11 = load i64, ptr @H5E_DATASET_g, align 8
   %12 = load i64, ptr @H5E_CANTDELETE_g, align 8
-  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_remove, i32 noundef 1166, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.9) #16
+  %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_remove, i32 noundef 1166, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.9) #15
   br label %14
 
 14:                                               ; preds = %2, %10
@@ -306,7 +306,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr nocapture nounde
 14:                                               ; preds = %8
   %15 = load i64, ptr @H5E_DATASET_g, align 8
   %16 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1207, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.1) #16
+  %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1207, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.1) #15
   br label %46
 
 18:                                               ; preds = %8
@@ -319,14 +319,14 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr nocapture nounde
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = call i32 @H5B_delete(ptr noundef %22, ptr noundef nonnull @H5B_BTREE, i64 noundef %24, ptr noundef nonnull %3) #16
+  %25 = call i32 @H5B_delete(ptr noundef %22, ptr noundef nonnull @H5B_BTREE, i64 noundef %24, ptr noundef nonnull %3) #15
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %18
   %28 = load i64, ptr @H5E_DATASET_g, align 8
   %29 = load i64, ptr @H5E_CANTDELETE_g, align 8
-  %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1216, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.10) #16
+  %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1216, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.10) #15
   br label %46
 
 31:                                               ; preds = %18
@@ -338,18 +338,18 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr nocapture nounde
 35:                                               ; preds = %31
   %36 = load i64, ptr @H5E_DATASET_g, align 8
   %37 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1220, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.11) #16
+  %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1220, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.11) #15
   br label %46
 
 39:                                               ; preds = %31
-  %40 = call i32 @H5UC_decr(ptr noundef nonnull %33) #16
+  %40 = call i32 @H5UC_decr(ptr noundef nonnull %33) #15
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
   %43 = load i64, ptr @H5E_DATASET_g, align 8
   %44 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %45 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1222, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.12) #16
+  %45 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_delete, i32 noundef 1222, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.12) #15
   br label %46
 
 46:                                               ; preds = %1, %39, %42, %35, %27, %14
@@ -362,7 +362,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture no
   %3 = alloca %struct.H5D_chunk_common_ud_t, align 8
   %4 = alloca i64, align 8
   store i64 -1, ptr %4, align 8
-  call void @H5AC_tag(i64 noundef 2, ptr noundef nonnull %4) #16
+  call void @H5AC_tag(i64 noundef 2, ptr noundef nonnull %4) #15
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -375,7 +375,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture no
 12:                                               ; preds = %2
   %13 = load i64, ptr @H5E_RESOURCE_g, align 8
   %14 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %15 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1259, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.13) #16
+  %15 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1259, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.13) #15
   br label %43
 
 16:                                               ; preds = %2
@@ -391,7 +391,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture no
 24:                                               ; preds = %16
   %25 = load i64, ptr @H5E_RESOURCE_g, align 8
   %26 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1262, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.14) #16
+  %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1262, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.14) #15
   br label %43
 
 28:                                               ; preds = %16
@@ -403,7 +403,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture no
   store ptr %30, ptr %31, align 8
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 8
-  %34 = call i32 @H5B_create(ptr noundef %32, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %3, ptr noundef nonnull %33) #16
+  %34 = call i32 @H5B_create(ptr noundef %32, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %3, ptr noundef nonnull %33) #15
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %H5D__btree_idx_create.exit
 
@@ -414,17 +414,17 @@ H5D__btree_idx_create.exit:                       ; preds = %28
 36:                                               ; preds = %28
   %37 = load i64, ptr @H5E_DATASET_g, align 8
   %38 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.4) #16
+  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.4) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %40 = load i64, ptr @H5E_IO_g, align 8
   %41 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1266, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.15) #16
+  %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1266, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.15) #15
   br label %43
 
 43:                                               ; preds = %H5D__btree_idx_create.exit, %36, %24, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %24 ], [ -1, %36 ], [ 0, %H5D__btree_idx_create.exit ]
   %44 = load i64, ptr %4, align 8
-  call void @H5AC_tag(i64 noundef %44, ptr noundef null) #16
+  call void @H5AC_tag(i64 noundef %44, ptr noundef null) #15
   ret i32 %.0
 }
 
@@ -432,14 +432,14 @@ H5D__btree_idx_create.exit:                       ; preds = %28
 define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @H5UC_decr(ptr noundef %4) #16
+  %5 = tail call i32 @H5UC_decr(ptr noundef %4) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.sink.split, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @H5UC_decr(ptr noundef %9) #16
+  %10 = tail call i32 @H5UC_decr(ptr noundef %9) #15
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.sink.split, label %15
 
@@ -447,7 +447,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr nocapture
   %.sink = phi i32 [ 1294, %2 ], [ 1296, %7 ]
   %12 = load i64, ptr @H5E_DATASET_g, align 8
   %13 = load i64, ptr @H5E_CANTDEC_g, align 8
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_shutdown, i32 noundef %.sink, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.12) #16
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_shutdown, i32 noundef %.sink, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.12) #15
   br label %15
 
 15:                                               ; preds = %.sink.split, %7
@@ -471,14 +471,14 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_size(ptr nocapture noundef 
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = call i32 @H5B_get_info(ptr noundef %11, ptr noundef nonnull @H5B_BTREE, i64 noundef %13, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %3) #16
+  %14 = call i32 @H5B_get_info(ptr noundef %11, ptr noundef nonnull @H5B_BTREE, i64 noundef %13, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %3) #15
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %2
   %17 = load i64, ptr @H5E_BTREE_g, align 8
   %18 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %19 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_size, i32 noundef 1336, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.7) #16
+  %19 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_size, i32 noundef 1336, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.7) #15
   br label %22
 
 20:                                               ; preds = %2
@@ -510,7 +510,7 @@ define internal noundef i32 @H5D__btree_idx_reset(ptr nocapture noundef writeonl
 define internal noundef i32 @H5D__btree_idx_dump(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, i64 noundef %4) #16
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, i64 noundef %4) #15
   ret i32 0
 }
 
@@ -526,18 +526,18 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_dest(ptr nocapture noundef 
 7:                                                ; preds = %1
   %8 = load i64, ptr @H5E_IO_g, align 8
   %9 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_dest, i32 noundef 1415, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.11) #16
+  %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_dest, i32 noundef 1415, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.11) #15
   br label %18
 
 11:                                               ; preds = %1
-  %12 = tail call i32 @H5UC_decr(ptr noundef nonnull %5) #16
+  %12 = tail call i32 @H5UC_decr(ptr noundef nonnull %5) #15
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11
   %15 = load i64, ptr @H5E_IO_g, align 8
   %16 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_dest, i32 noundef 1417, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.12) #16
+  %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_dest, i32 noundef 1417, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.12) #15
   br label %18
 
 18:                                               ; preds = %11, %14, %7
@@ -572,7 +572,7 @@ define range(i32 -1, 1) i32 @H5D_btree_debug(ptr noundef %0, i64 noundef %1, ptr
 17:                                               ; preds = %._crit_edge
   %18 = load i64, ptr @H5E_RESOURCE_g, align 8
   %19 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D_btree_debug, i32 noundef 1457, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.1) #16
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D_btree_debug, i32 noundef 1457, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.1) #15
   br label %40
 
 21:                                               ; preds = %._crit_edge
@@ -583,7 +583,7 @@ define range(i32 -1, 1) i32 @H5D_btree_debug(ptr noundef %0, i64 noundef %1, ptr
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 %5, ptr %24, align 8
-  %25 = call i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %8) #16
+  %25 = call i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %8) #15
   %26 = getelementptr inbounds i8, ptr %9, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -592,18 +592,18 @@ define range(i32 -1, 1) i32 @H5D_btree_debug(ptr noundef %0, i64 noundef %1, ptr
 29:                                               ; preds = %21
   %30 = load i64, ptr @H5E_IO_g, align 8
   %31 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D_btree_debug, i32 noundef 1473, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #16
+  %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D_btree_debug, i32 noundef 1473, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #15
   br label %40
 
 33:                                               ; preds = %21
-  %34 = call i32 @H5UC_decr(ptr noundef nonnull %27) #16
+  %34 = call i32 @H5UC_decr(ptr noundef nonnull %27) #15
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
   %37 = load i64, ptr @H5E_IO_g, align 8
   %38 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D_btree_debug, i32 noundef 1475, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.3) #16
+  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D_btree_debug, i32 noundef 1475, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.3) #15
   br label %40
 
 40:                                               ; preds = %17, %29, %36, %33
@@ -621,32 +621,32 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__btree_shared_create(ptr nounde
   %6 = shl i32 %5, 3
   %7 = add i32 %6, 8
   %8 = zext i32 %7 to i64
-  %9 = tail call ptr @H5B_shared_new(ptr noundef %0, ptr noundef nonnull @H5B_BTREE, i64 noundef %8) #16
+  %9 = tail call ptr @H5B_shared_new(ptr noundef %0, ptr noundef nonnull @H5B_BTREE, i64 noundef %8) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3
   %12 = load i64, ptr @H5E_DATASET_g, align 8
   %13 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_create, i32 noundef 780, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.17) #16
+  %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_create, i32 noundef 780, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.17) #15
   br label %.thread
 
 15:                                               ; preds = %3
-  %16 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_layout_chunk_t_reg_free_list) #16
+  %16 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_layout_chunk_t_reg_free_list) #15
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
   %19 = load i64, ptr @H5E_DATASET_g, align 8
   %20 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_create, i32 noundef 784, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.18) #16
+  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_create, i32 noundef 784, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.18) #15
   br label %.thread
 
 22:                                               ; preds = %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1896) %16, ptr noundef nonnull align 8 dereferenceable(1896) %2, i64 1896, i1 false)
   %23 = getelementptr inbounds i8, ptr %9, i64 72
   store ptr %16, ptr %23, align 8
-  %24 = tail call ptr @H5UC_create(ptr noundef nonnull %9, ptr noundef nonnull @H5D__btree_shared_free) #16
+  %24 = tail call ptr @H5UC_create(ptr noundef nonnull %9, ptr noundef nonnull @H5D__btree_shared_free) #15
   %25 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
@@ -655,8 +655,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__btree_shared_create(ptr nounde
 27:                                               ; preds = %22
   %28 = load i64, ptr @H5E_DATASET_g, align 8
   %29 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_create, i32 noundef 790, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.19) #16
-  %31 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_layout_chunk_t_reg_free_list, ptr noundef nonnull %16) #16
+  %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_create, i32 noundef 790, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.19) #15
+  %31 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_layout_chunk_t_reg_free_list, ptr noundef nonnull %16) #15
   br label %.thread
 
 .thread:                                          ; preds = %18, %11, %22, %27
@@ -688,14 +688,14 @@ define internal i32 @H5D__btree_idx_iterate_cb(ptr nocapture readnone %0, ptr no
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = call i32 %9(ptr noundef nonnull %6, ptr noundef %11) #16
+  %12 = call i32 %9(ptr noundef nonnull %6, ptr noundef %11) #15
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %5
   %15 = load i64, ptr @H5E_DATASET_g, align 8
   %16 = load i64, ptr @H5E_CALLBACK_g, align 8
-  %17 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_iterate_cb, i32 noundef 1091, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.8) #16
+  %17 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_iterate_cb, i32 noundef 1091, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.8) #15
   br label %18
 
 18:                                               ; preds = %14, %5
@@ -726,16 +726,16 @@ declare ptr @H5UC_create(ptr noundef, ptr noundef) local_unnamed_addr #7
 define internal range(i32 -1, 1) i32 @H5D__btree_shared_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_layout_chunk_t_reg_free_list, ptr noundef %3) #16
+  %4 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_layout_chunk_t_reg_free_list, ptr noundef %3) #15
   store ptr %4, ptr %2, align 8
-  %5 = tail call i32 @H5B_shared_free(ptr noundef %0) #16
+  %5 = tail call i32 @H5B_shared_free(ptr noundef %0) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load i64, ptr @H5E_DATASET_g, align 8
   %9 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_free, i32 noundef 748, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.21) #16
+  %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_shared_free, i32 noundef 748, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.21) #15
   br label %11
 
 11:                                               ; preds = %1, %7
@@ -1126,7 +1126,7 @@ H5D__btree_cmp3.exit:                             ; preds = %20, %22
 H5D__btree_cmp3.exit.thread49:                    ; preds = %.lr.ph.i24.i, %H5VM_vector_cmp_u.exit.thread32.i, %H5D__btree_cmp3.exit
   %54 = load i64, ptr @H5E_STORAGE_g, align 8
   %55 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 533, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.22) #16
+  %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 533, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.22) #15
   br label %117
 
 H5D__btree_cmp3.exit.thread:                      ; preds = %36, %47, %H5VM_vector_cmp_u.exit.i, %31, %27, %22, %16, %H5D__btree_cmp3.exit
@@ -1263,7 +1263,7 @@ H5D__chunk_disjoint.exit:                         ; preds = %.lr.ph.i44, %.lr.ph
 H5D__chunk_disjoint.exit.thread:                  ; preds = %H5VM_vector_cmp_u.exit.thread, %H5D__chunk_disjoint.exit
   %114 = load i64, ptr @H5E_IO_g, align 8
   %115 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 572, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.22) #16
+  %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_insert, i32 noundef 572, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.22) #15
   br label %117
 
 117:                                              ; preds = %69, %73, %._crit_edge, %H5D__chunk_disjoint.exit.thread, %H5D__btree_cmp3.exit.thread49
@@ -1276,14 +1276,14 @@ define internal range(i32 -1, 6) i32 @H5D__btree_remove(ptr noundef %0, i64 noun
   %8 = getelementptr inbounds i8, ptr %2, i64 264
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = tail call i32 @H5MF_xfree(ptr noundef %0, i32 noundef 3, i64 noundef %1, i64 noundef %10) #16
+  %11 = tail call i32 @H5MF_xfree(ptr noundef %0, i32 noundef 3, i64 noundef %1, i64 noundef %10) #15
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %7
   %14 = load i64, ptr @H5E_STORAGE_g, align 8
   %15 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_remove, i32 noundef 601, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.23) #16
+  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_remove, i32 noundef 601, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.23) #15
   br label %18
 
 17:                                               ; preds = %7
@@ -1308,7 +1308,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr nocapture nounde
 9:                                                ; preds = %3
   %10 = load i64, ptr @H5E_DATASET_g, align 8
   %11 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_decode_key, i32 noundef 636, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.24) #16
+  %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_decode_key, i32 noundef 636, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.24) #15
   br label %.loopexit
 
 13:                                               ; preds = %3
@@ -1377,7 +1377,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr nocapture nounde
 58:                                               ; preds = %53
   %59 = load i64, ptr @H5E_DATASET_g, align 8
   %60 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_decode_key, i32 noundef 642, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.25, i32 noundef %.05060) #16
+  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_decode_key, i32 noundef 642, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.25, i32 noundef %.05060) #15
   br label %.loopexit
 
 62:                                               ; preds = %53
@@ -1407,7 +1407,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr nocapture nounde
 75:                                               ; preds = %71
   %76 = load i64, ptr @H5E_DATASET_g, align 8
   %77 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_decode_key, i32 noundef 647, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.26) #16
+  %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_decode_key, i32 noundef 647, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.26) #15
   br label %.loopexit
 
 79:                                               ; preds = %71
@@ -1424,8 +1424,8 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr nocapture nounde
   ret i32 %.051
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 264
@@ -1515,11 +1515,11 @@ define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonl
 define internal noundef i32 @H5D__btree_debug_key(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #5 {
   %6 = getelementptr inbounds i8, ptr %3, i64 264
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %1, ptr noundef nonnull @.str.28, i32 noundef %2, ptr noundef nonnull @.str.29, i32 noundef %7) #16
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %1, ptr noundef nonnull @.str.28, i32 noundef %2, ptr noundef nonnull @.str.29, i32 noundef %7) #15
   %9 = getelementptr inbounds i8, ptr %3, i64 268
   %10 = load i32, ptr %9, align 4
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %1, ptr noundef nonnull @.str.28, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %10) #16
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %1, ptr noundef nonnull @.str.28, i32 noundef %2, ptr noundef nonnull @.str.33) #16
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %1, ptr noundef nonnull @.str.28, i32 noundef %2, ptr noundef nonnull @.str.31, i32 noundef %10) #15
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %1, ptr noundef nonnull @.str.28, i32 noundef %2, ptr noundef nonnull @.str.33) #15
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   %.not23 = icmp eq i32 %14, 0
@@ -1537,7 +1537,7 @@ define internal noundef i32 @H5D__btree_debug_key(ptr nocapture noundef %0, i32 
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
   %23 = mul i64 %17, %22
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull %15, i64 noundef %23) #16
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull %15, i64 noundef %23) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %13, align 8
   %26 = zext i32 %25 to i64
@@ -1552,13 +1552,13 @@ define internal noundef i32 @H5D__btree_debug_key(ptr nocapture noundef %0, i32 
 declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1573,10 +1573,9 @@ attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

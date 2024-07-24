@@ -74,36 +74,36 @@ define dso_local range(i32 -1, 1) i32 @PrepareClientEncoding(i32 noundef %0) loc
   br i1 %or.cond5, label %.thread, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i1 @IsTransactionState() #13
+  %11 = tail call zeroext i1 @IsTransactionState() #12
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @FindDefaultConversionProc(i32 noundef %0, i32 noundef %6) #13
+  %13 = tail call i32 @FindDefaultConversionProc(i32 noundef %0, i32 noundef %6) #12
   %.not44 = icmp eq i32 %13, 0
   br i1 %.not44, label %.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @FindDefaultConversionProc(i32 noundef %6, i32 noundef %0) #13
+  %15 = tail call i32 @FindDefaultConversionProc(i32 noundef %6, i32 noundef %0) #12
   %.not45 = icmp eq i32 %15, 0
   br i1 %.not45, label %.thread, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @TopMemoryContext, align 8
-  %18 = tail call ptr @MemoryContextAlloc(ptr noundef %17, i64 noundef 104) #13
+  %18 = tail call ptr @MemoryContextAlloc(ptr noundef %17, i64 noundef 104) #12
   store i32 %6, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 4
   store i32 %0, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %18, i64 8
   %21 = load ptr, ptr @TopMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %13, ptr noundef nonnull %20, ptr noundef %21) #13
+  tail call void @fmgr_info_cxt(i32 noundef %13, ptr noundef nonnull %20, ptr noundef %21) #12
   %22 = getelementptr inbounds i8, ptr %18, i64 56
   %23 = load ptr, ptr @TopMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %15, ptr noundef nonnull %22, ptr noundef %23) #13
+  tail call void @fmgr_info_cxt(i32 noundef %15, ptr noundef nonnull %22, ptr noundef %23) #12
   %24 = load ptr, ptr @TopMemoryContext, align 8
   %25 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %24, ptr @CurrentMemoryContext, align 8
   %26 = load ptr, ptr @ConvProcList, align 8
-  %27 = tail call ptr @lcons(ptr noundef nonnull %18, ptr noundef %26) #13
+  %27 = tail call ptr @lcons(ptr noundef nonnull %18, ptr noundef %26) #12
   store ptr %27, ptr @ConvProcList, align 8
   store ptr %25, ptr @CurrentMemoryContext, align 8
   br label %.thread
@@ -249,9 +249,9 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 39:                                               ; preds = %34
   %40 = load ptr, ptr @ConvProcList, align 8
   %41 = add i32 %.sroa.5.039, -1
-  %42 = tail call ptr @list_delete_nth_cell(ptr noundef %40, i32 noundef %.sroa.5.039) #13
+  %42 = tail call ptr @list_delete_nth_cell(ptr noundef %40, i32 noundef %.sroa.5.039) #12
   store ptr %42, ptr @ConvProcList, align 8
-  tail call void @pfree(ptr noundef nonnull %27) #13
+  tail call void @pfree(ptr noundef nonnull %27) #12
   br label %43
 
 43:                                               ; preds = %22, %30, %39, %36
@@ -298,17 +298,17 @@ define dso_local void @InitializeClientEncoding() local_unnamed_addr #0 {
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %4, %0
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
   tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 1088) #13
+  %10 = tail call i32 @errcode(i32 noundef 1088) #12
   %11 = load i32, ptr @pending_client_encoding, align 4
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @DatabaseEncoding, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %14, ptr noundef %16) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 300, ptr noundef nonnull @__func__.InitializeClientEncoding) #13
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %14, ptr noundef %16) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 300, ptr noundef nonnull @__func__.InitializeClientEncoding) #12
   unreachable
 
 18:                                               ; preds = %4
@@ -321,15 +321,15 @@ define dso_local void @InitializeClientEncoding() local_unnamed_addr #0 {
   ]
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @FindDefaultConversionProc(i32 noundef 6, i32 noundef %21) #13
+  %23 = tail call i32 @FindDefaultConversionProc(i32 noundef 6, i32 noundef %21) #12
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @TopMemoryContext, align 8
-  %26 = tail call ptr @MemoryContextAlloc(ptr noundef %25, i64 noundef 48) #13
+  %26 = tail call ptr @MemoryContextAlloc(ptr noundef %25, i64 noundef 48) #12
   %27 = load ptr, ptr @TopMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %23, ptr noundef %26, ptr noundef %27) #13
+  tail call void @fmgr_info_cxt(i32 noundef %23, ptr noundef %26, ptr noundef %27) #12
   store ptr %26, ptr @Utf8ToServerConvProc, align 8
   br label %28
 
@@ -385,7 +385,7 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
   %11 = sext i32 %3 to i64
   %12 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %11, i32 5
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1) #13
+  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1) #12
   %.not.i = icmp eq i32 %14, %1
   br i1 %.not.i, label %pg_verify_mbstr.exit, label %15
 
@@ -393,33 +393,33 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
   %16 = sext i32 %14 to i64
   %17 = getelementptr i8, ptr %0, i64 %16
   %18 = sub i32 %1, %14
-  tail call void @report_invalid_encoding(i32 noundef %3, ptr noundef %17, i32 noundef %18) #15
+  tail call void @report_invalid_encoding(i32 noundef %3, ptr noundef %17, i32 noundef %18) #14
   unreachable
 
 19:                                               ; preds = %8
-  %20 = tail call zeroext i1 @IsTransactionState() #13
+  %20 = tail call zeroext i1 @IsTransactionState() #12
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 380, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #13
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 380, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #12
   unreachable
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @FindDefaultConversionProc(i32 noundef %2, i32 noundef %3) #13
+  %25 = tail call i32 @FindDefaultConversionProc(i32 noundef %2, i32 noundef %3) #12
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 52461700) #13
-  %29 = tail call ptr @pg_encoding_to_char_private(i32 noundef %2) #13
-  %30 = tail call ptr @pg_encoding_to_char_private(i32 noundef %3) #13
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %29, ptr noundef %30) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 388, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #13
+  %28 = tail call i32 @errcode(i32 noundef 52461700) #12
+  %29 = tail call ptr @pg_encoding_to_char_private(i32 noundef %2) #12
+  %30 = tail call ptr @pg_encoding_to_char_private(i32 noundef %3) #12
+  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %29, ptr noundef %30) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 388, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #12
   unreachable
 
 32:                                               ; preds = %24
@@ -427,32 +427,32 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
   %34 = load ptr, ptr @CurrentMemoryContext, align 8
   %35 = shl nuw nsw i64 %33, 2
   %36 = or disjoint i64 %35, 1
-  %37 = tail call ptr @MemoryContextAllocHuge(ptr noundef %34, i64 noundef %36) #13
+  %37 = tail call ptr @MemoryContextAllocHuge(ptr noundef %34, i64 noundef %36) #12
   %38 = sext i32 %2 to i64
   %39 = sext i32 %3 to i64
   %40 = ptrtoint ptr %0 to i64
   %41 = ptrtoint ptr %37 to i64
-  %42 = tail call i64 @OidFunctionCall6Coll(i32 noundef %25, i32 noundef 0, i64 noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %33, i64 noundef 0) #13
+  %42 = tail call i64 @OidFunctionCall6Coll(i32 noundef %25, i32 noundef 0, i64 noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %33, i64 noundef 0) #12
   %43 = icmp ugt i32 %1, 1000000
   br i1 %43, label %44, label %pg_verify_mbstr.exit
 
 44:                                               ; preds = %32
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #15
   %46 = icmp ugt i64 %45, 1073741822
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %44
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 @errcode(i32 noundef 261) #13
-  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #13
-  %51 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 432, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #13
+  %49 = tail call i32 @errcode(i32 noundef 261) #12
+  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #12
+  %51 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 432, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #12
   unreachable
 
 52:                                               ; preds = %44
   %53 = add nuw nsw i64 %45, 1
-  %54 = tail call ptr @repalloc(ptr noundef %37, i64 noundef %53) #13
+  %54 = tail call ptr @repalloc(ptr noundef %37, i64 noundef %53) #12
   br label %pg_verify_mbstr.exit
 
 pg_verify_mbstr.exit:                             ; preds = %10, %32, %52, %4
@@ -465,7 +465,7 @@ define dso_local zeroext i1 @pg_verify_mbstr(i32 noundef %0, ptr noundef %1, i32
   %5 = sext i32 %0 to i64
   %6 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 5
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #13
+  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #12
   %.not = icmp eq i32 %8, %2
   %brmerge = or i1 %.not, %3
   br i1 %brmerge, label %13, label %9
@@ -474,7 +474,7 @@ define dso_local zeroext i1 @pg_verify_mbstr(i32 noundef %0, ptr noundef %1, i32
   %10 = sext i32 %8 to i64
   %11 = getelementptr i8, ptr %1, i64 %10
   %12 = sub i32 %2, %8
-  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef %11, i32 noundef %12) #15
+  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef %11, i32 noundef %12) #14
   unreachable
 
 13:                                               ; preds = %4
@@ -511,7 +511,7 @@ define dso_local i32 @pg_do_encoding_conversion_buf(i32 noundef %0, i32 noundef 
   %17 = ptrtoint ptr %5 to i64
   %18 = sext i32 %spec.select to i64
   %19 = zext i1 %7 to i64
-  %20 = tail call i64 @OidFunctionCall6Coll(i32 noundef %0, i32 noundef 0, i64 noundef %14, i64 noundef %15, i64 noundef %16, i64 noundef %17, i64 noundef %18, i64 noundef %19) #13
+  %20 = tail call i64 @OidFunctionCall6Coll(i32 noundef %0, i32 noundef 0, i64 noundef %14, i64 noundef %15, i64 noundef %16, i64 noundef %17, i64 noundef %18, i64 noundef %19) #12
   %21 = trunc i64 %20 to i32
   ret i32 %21
 }
@@ -525,8 +525,8 @@ define dso_local i64 @pg_convert_to(ptr nocapture noundef readonly %0) local_unn
   %6 = load ptr, ptr @DatabaseEncoding, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
-  %9 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %8) #13
-  %10 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @pg_convert, i32 noundef 0, i64 noundef %3, i64 noundef %9, i64 noundef %5) #13
+  %9 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %8) #12
+  %10 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @pg_convert, i32 noundef 0, i64 noundef %3, i64 noundef %9, i64 noundef %5) #12
   ret i64 %10
 }
 
@@ -541,24 +541,24 @@ define dso_local i64 @pg_convert(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #13
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
   %6 = getelementptr i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call i32 @pg_char_to_encoding_private(ptr noundef %8) #13
+  %9 = tail call i32 @pg_char_to_encoding_private(ptr noundef %8) #12
   %10 = getelementptr i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call i32 @pg_char_to_encoding_private(ptr noundef %12) #13
+  %13 = tail call i32 @pg_char_to_encoding_private(ptr noundef %12) #12
   %14 = icmp slt i32 %9, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %1
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %8) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.pg_convert) #13
+  %17 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %8) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.pg_convert) #12
   unreachable
 
 19:                                               ; preds = %1
@@ -566,11 +566,11 @@ define dso_local i64 @pg_convert(ptr nocapture noundef readonly %0) #0 {
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %12) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 575, ptr noundef nonnull @__func__.pg_convert) #13
+  %23 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %12) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 575, ptr noundef nonnull @__func__.pg_convert) #12
   unreachable
 
 25:                                               ; preds = %19
@@ -616,7 +616,7 @@ define dso_local i64 @pg_convert(ptr nocapture noundef readonly %0) #0 {
   %51 = zext nneg i32 %9 to i64
   %52 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %51, i32 5
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef nonnull %50, i32 noundef %48) #13
+  %54 = tail call i32 %53(ptr noundef nonnull %50, i32 noundef %48) #12
   %.not.i = icmp eq i32 %54, %48
   br i1 %.not.i, label %pg_verify_mbstr.exit, label %55
 
@@ -624,7 +624,7 @@ define dso_local i64 @pg_convert(ptr nocapture noundef readonly %0) #0 {
   %56 = sext i32 %54 to i64
   %57 = getelementptr i8, ptr %50, i64 %56
   %58 = sub i32 %48, %54
-  tail call void @report_invalid_encoding(i32 noundef %9, ptr noundef %57, i32 noundef %58) #15
+  tail call void @report_invalid_encoding(i32 noundef %9, ptr noundef %57, i32 noundef %58) #14
   unreachable
 
 pg_verify_mbstr.exit:                             ; preds = %47
@@ -633,25 +633,25 @@ pg_verify_mbstr.exit:                             ; preds = %47
   br i1 %60, label %73, label %61
 
 61:                                               ; preds = %pg_verify_mbstr.exit
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #16
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #15
   %63 = trunc i64 %62 to i32
   %64 = add i32 %63, 4
   %65 = sext i32 %64 to i64
-  %66 = tail call ptr @palloc(i64 noundef %65) #13
+  %66 = tail call ptr @palloc(i64 noundef %65) #12
   %67 = shl i32 %64, 2
   store i32 %67, ptr %66, align 4
   %68 = getelementptr inbounds i8, ptr %66, i64 4
   %sext = shl i64 %62, 32
   %69 = ashr exact i64 %sext, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr align 1 %59, i64 %69, i1 false)
-  tail call void @pfree(ptr noundef %59) #13
+  tail call void @pfree(ptr noundef %59) #12
   %70 = load i64, ptr %2, align 8
   %71 = inttoptr i64 %70 to ptr
   %.not48 = icmp eq ptr %5, %71
   br i1 %.not48, label %73, label %72
 
 72:                                               ; preds = %61
-  tail call void @pfree(ptr noundef nonnull %5) #13
+  tail call void @pfree(ptr noundef nonnull %5) #12
   br label %73
 
 73:                                               ; preds = %72, %61, %pg_verify_mbstr.exit
@@ -669,8 +669,8 @@ define dso_local i64 @pg_convert_from(ptr nocapture noundef readonly %0) local_u
   %6 = load ptr, ptr @DatabaseEncoding, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
-  %9 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %8) #13
-  %10 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @pg_convert, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %9) #13
+  %9 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %8) #12
+  %10 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @pg_convert, i32 noundef 0, i64 noundef %3, i64 noundef %5, i64 noundef %9) #12
   ret i64 %10
 }
 
@@ -688,20 +688,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @length_in_encoding(ptr 
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #13
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
   %6 = getelementptr i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call i32 @pg_char_to_encoding_private(ptr noundef %8) #13
+  %9 = tail call i32 @pg_char_to_encoding_private(ptr noundef %8) #12
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %8) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 629, ptr noundef nonnull @__func__.length_in_encoding) #13
+  %13 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %8) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 629, ptr noundef nonnull @__func__.length_in_encoding) #12
   unreachable
 
 15:                                               ; preds = %1
@@ -751,20 +751,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @length_in_encoding(ptr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @pg_encoding_max_length(i32 noundef %0) #13
+  %5 = tail call i32 @pg_encoding_max_length(i32 noundef %0) #12
   %6 = icmp slt i32 %5, 2
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
   %8 = sext i32 %2 to i64
-  %9 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %8) #16
+  %9 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %8) #15
   %10 = icmp eq ptr %9, null
   %brmerge = or i1 %10, %3
   %.mux = select i1 %10, i32 %2, i32 -1
   br i1 %brmerge, label %.loopexit, label %11
 
 11:                                               ; preds = %7
-  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %9, i32 noundef 1) #15
+  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %9, i32 noundef 1) #14
   unreachable
 
 12:                                               ; preds = %4
@@ -802,11 +802,11 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %3, label %.loopexit, label %24
 
 24:                                               ; preds = %23
-  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03347, i32 noundef %.03545) #15
+  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03347, i32 noundef %.03545) #14
   unreachable
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call i32 %15(ptr noundef nonnull %.03347, i32 noundef %.03545) #13
+  %26 = tail call i32 %15(ptr noundef nonnull %.03347, i32 noundef %.03545) #12
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %30
 
@@ -814,7 +814,7 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %3, label %.loopexit, label %29
 
 29:                                               ; preds = %28
-  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03347, i32 noundef %.03545) #15
+  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03347, i32 noundef %.03545) #14
   unreachable
 
 30:                                               ; preds = %25
@@ -880,7 +880,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   %12 = sext i32 %8 to i64
   %13 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %12, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0, i32 noundef %1) #13
+  %15 = tail call i32 %14(ptr noundef %0, i32 noundef %1) #12
   %.not.i = icmp eq i32 %15, %1
   br i1 %.not.i, label %pg_verify_mbstr.exit, label %16
 
@@ -888,7 +888,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   %17 = sext i32 %15 to i64
   %18 = getelementptr i8, ptr %0, i64 %17
   %19 = sub i32 %1, %15
-  tail call void @report_invalid_encoding(i32 noundef %8, ptr noundef %18, i32 noundef %19) #15
+  tail call void @report_invalid_encoding(i32 noundef %8, ptr noundef %18, i32 noundef %19) #14
   unreachable
 
 20:                                               ; preds = %5
@@ -907,7 +907,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = zext nneg i32 %2 to i64
   %25 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %24, i32 5
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %0, i32 noundef %1) #13
+  %27 = tail call i32 %26(ptr noundef %0, i32 noundef %1) #12
   %.not.i36 = icmp eq i32 %27, %1
   br i1 %.not.i36, label %pg_verify_mbstr.exit, label %28
 
@@ -915,7 +915,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   %29 = sext i32 %27 to i64
   %30 = getelementptr i8, ptr %0, i64 %29
   %31 = sub i32 %1, %27
-  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %30, i32 noundef %31) #15
+  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %30, i32 noundef %31) #14
   unreachable
 
 32:                                               ; preds = %.lr.ph
@@ -932,14 +932,14 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr i8, ptr %0, i64 %indvars.iv
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 17301634) #13
+  %38 = tail call i32 @errcode(i32 noundef 17301634) #12
   %39 = load ptr, ptr @pg_enc2name_tbl, align 8
   %40 = load i8, ptr %36, align 1
   %41 = zext i8 %40 to i32
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %39, i32 noundef %41) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 716, ptr noundef nonnull @__func__.pg_any_to_server) #13
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %39, i32 noundef %41) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 716, ptr noundef nonnull @__func__.pg_any_to_server) #12
   unreachable
 
 43:                                               ; preds = %20
@@ -983,33 +983,33 @@ define internal fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, 
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   %8 = shl nuw nsw i64 %6, 2
   %9 = or disjoint i64 %8, 1
-  %10 = tail call ptr @MemoryContextAllocHuge(ptr noundef %7, i64 noundef %9) #13
+  %10 = tail call ptr @MemoryContextAllocHuge(ptr noundef %7, i64 noundef %9) #12
   %11 = sext i32 %.022 to i64
   %12 = sext i32 %.021 to i64
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sext i32 %1 to i64
-  %16 = tail call i64 @FunctionCall6Coll(ptr noundef nonnull %.020, i32 noundef 0, i64 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef 0) #13
+  %16 = tail call i64 @FunctionCall6Coll(ptr noundef nonnull %.020, i32 noundef 0, i64 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef 0) #12
   %17 = icmp sgt i32 %1, 1000000
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %5
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #16
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #15
   %20 = icmp ugt i64 %19, 1073741822
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 261) #13
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #13
-  %25 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 844, ptr noundef nonnull @__func__.perform_default_encoding_conversion) #13
+  %23 = tail call i32 @errcode(i32 noundef 261) #12
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #12
+  %25 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 844, ptr noundef nonnull @__func__.perform_default_encoding_conversion) #12
   unreachable
 
 26:                                               ; preds = %18
   %27 = add nuw nsw i64 %19, 1
-  %28 = tail call ptr @repalloc(ptr noundef %10, i64 noundef %27) #13
+  %28 = tail call ptr @repalloc(ptr noundef %10, i64 noundef %27) #12
   br label %29
 
 29:                                               ; preds = %5, %26, %3
@@ -1042,7 +1042,7 @@ define dso_local ptr @pg_server_to_client(ptr noundef %0, i32 noundef %1) local_
   %16 = sext i32 %5 to i64
   %17 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %16, i32 5
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef %0, i32 noundef %1) #13
+  %19 = tail call i32 %18(ptr noundef %0, i32 noundef %1) #12
   %.not.i.i = icmp eq i32 %19, %1
   br i1 %.not.i.i, label %pg_server_to_any.exit, label %20
 
@@ -1050,7 +1050,7 @@ define dso_local ptr @pg_server_to_client(ptr noundef %0, i32 noundef %1) local_
   %21 = sext i32 %19 to i64
   %22 = getelementptr i8, ptr %0, i64 %21
   %23 = sub i32 %1, %19
-  tail call void @report_invalid_encoding(i32 noundef %5, ptr noundef %22, i32 noundef %23) #15
+  tail call void @report_invalid_encoding(i32 noundef %5, ptr noundef %22, i32 noundef %23) #14
   unreachable
 
 24:                                               ; preds = %13
@@ -1084,7 +1084,7 @@ define dso_local ptr @pg_server_to_any(ptr noundef %0, i32 noundef %1, i32 nound
   %14 = sext i32 %2 to i64
   %15 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %14, i32 5
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, i32 noundef %1) #13
+  %17 = tail call i32 %16(ptr noundef %0, i32 noundef %1) #12
   %.not.i = icmp eq i32 %17, %1
   br i1 %.not.i, label %pg_verify_mbstr.exit, label %18
 
@@ -1092,7 +1092,7 @@ define dso_local ptr @pg_server_to_any(ptr noundef %0, i32 noundef %1, i32 nound
   %19 = sext i32 %17 to i64
   %20 = getelementptr i8, ptr %0, i64 %19
   %21 = sub i32 %1, %17
-  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %20, i32 noundef %21) #15
+  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %20, i32 noundef %21) #14
   unreachable
 
 22:                                               ; preds = %11
@@ -1123,11 +1123,11 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 16801924) #13
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 878, ptr noundef nonnull @__func__.pg_unicode_to_server) #13
+  %8 = tail call i32 @errcode(i32 noundef 16801924) #12
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 878, ptr noundef nonnull @__func__.pg_unicode_to_server) #12
   unreachable
 
 10:                                               ; preds = %2
@@ -1149,8 +1149,8 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
-  %21 = tail call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef %1) #13
-  %22 = tail call i32 @pg_utf_mblen_private(ptr noundef %1) #13
+  %21 = tail call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef %1) #12
+  %22 = tail call i32 @pg_utf_mblen_private(ptr noundef %1) #12
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %1, i64 %23
   store i8 0, ptr %24, align 1
@@ -1162,19 +1162,19 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %25
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 @errcode(i32 noundef 1088) #13
+  %30 = tail call i32 @errcode(i32 noundef 1088) #12
   %31 = load ptr, ptr getelementptr (i8, ptr @pg_enc2name_tbl, i64 96), align 8
   %32 = load ptr, ptr @DatabaseEncoding, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %31, ptr noundef %33) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 903, ptr noundef nonnull @__func__.pg_unicode_to_server) #13
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %31, ptr noundef %33) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 903, ptr noundef nonnull @__func__.pg_unicode_to_server) #12
   unreachable
 
 35:                                               ; preds = %25
-  %36 = call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef nonnull %3) #13
-  %37 = call i32 @pg_utf_mblen_private(ptr noundef nonnull %3) #13
+  %36 = call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef nonnull %3) #12
+  %37 = call i32 @pg_utf_mblen_private(ptr noundef nonnull %3) #12
   %38 = sext i32 %37 to i64
   %39 = getelementptr [5 x i8], ptr %3, i64 0, i64 %38
   store i8 0, ptr %39, align 1
@@ -1182,7 +1182,7 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
   %41 = sext i32 %18 to i64
   %42 = ptrtoint ptr %3 to i64
   %43 = ptrtoint ptr %1 to i64
-  %44 = call i64 @FunctionCall6Coll(ptr noundef %40, i32 noundef 0, i64 noundef 6, i64 noundef %41, i64 noundef %42, i64 noundef %43, i64 noundef %38, i64 noundef 0) #13
+  %44 = call i64 @FunctionCall6Coll(ptr noundef %40, i32 noundef 0, i64 noundef 6, i64 noundef %41, i64 noundef %42, i64 noundef %43, i64 noundef %38, i64 noundef 0) #12
   br label %45
 
 45:                                               ; preds = %35, %20, %12
@@ -1221,8 +1221,8 @@ define dso_local zeroext i1 @pg_unicode_to_server_noerror(i32 noundef %0, ptr no
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11
-  %17 = tail call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef %1) #13
-  %18 = tail call i32 @pg_utf_mblen_private(ptr noundef %1) #13
+  %17 = tail call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef %1) #12
+  %18 = tail call i32 @pg_utf_mblen_private(ptr noundef %1) #12
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %1, i64 %19
   store i8 0, ptr %20, align 1
@@ -1234,8 +1234,8 @@ define dso_local zeroext i1 @pg_unicode_to_server_noerror(i32 noundef %0, ptr no
   br i1 %23, label %36, label %24
 
 24:                                               ; preds = %21
-  %25 = call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef nonnull %3) #13
-  %26 = call i32 @pg_utf_mblen_private(ptr noundef nonnull %3) #13
+  %25 = call ptr @unicode_to_utf8(i32 noundef %0, ptr noundef nonnull %3) #12
+  %26 = call i32 @pg_utf_mblen_private(ptr noundef nonnull %3) #12
   %27 = sext i32 %26 to i64
   %28 = getelementptr [5 x i8], ptr %3, i64 0, i64 %27
   store i8 0, ptr %28, align 1
@@ -1243,7 +1243,7 @@ define dso_local zeroext i1 @pg_unicode_to_server_noerror(i32 noundef %0, ptr no
   %30 = sext i32 %14 to i64
   %31 = ptrtoint ptr %3 to i64
   %32 = ptrtoint ptr %1 to i64
-  %33 = call i64 @FunctionCall6Coll(ptr noundef %29, i32 noundef 0, i64 noundef 6, i64 noundef %30, i64 noundef %31, i64 noundef %32, i64 noundef %27, i64 noundef 1) #13
+  %33 = call i64 @FunctionCall6Coll(ptr noundef %29, i32 noundef 0, i64 noundef 6, i64 noundef %30, i64 noundef %31, i64 noundef %32, i64 noundef %27, i64 noundef 1) #12
   %34 = trunc i64 %33 to i32
   %35 = icmp eq i32 %26, %34
   br label %36
@@ -1261,9 +1261,9 @@ define dso_local i32 @pg_mb2wchar(ptr noundef %0, ptr noundef %1) local_unnamed_
   %6 = zext i32 %5 to i64
   %7 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %10 = trunc i64 %9 to i32
-  %11 = tail call i32 %8(ptr noundef %0, ptr noundef %1, i32 noundef %10) #13
+  %11 = tail call i32 %8(ptr noundef %0, ptr noundef %1, i32 noundef %10) #12
   ret i32 %11
 }
 
@@ -1275,7 +1275,7 @@ define dso_local i32 @pg_mb2wchar_with_len(ptr noundef %0, ptr noundef %1, i32 n
   %7 = zext i32 %6 to i64
   %8 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %2) #13
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12
   ret i32 %10
 }
 
@@ -1284,7 +1284,7 @@ define dso_local i32 @pg_encoding_mb2wchar_with_len(i32 noundef %0, ptr noundef 
   %5 = sext i32 %0 to i64
   %6 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #13
+  %8 = tail call i32 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #12
   ret i32 %8
 }
 
@@ -1296,9 +1296,9 @@ define dso_local i32 @pg_wchar2mb(ptr noundef %0, ptr noundef %1) local_unnamed_
   %6 = zext i32 %5 to i64
   %7 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %6, i32 1
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @pg_wchar_strlen(ptr noundef %0) #13
+  %9 = tail call i64 @pg_wchar_strlen(ptr noundef %0) #12
   %10 = trunc i64 %9 to i32
-  %11 = tail call i32 %8(ptr noundef %0, ptr noundef %1, i32 noundef %10) #13
+  %11 = tail call i32 %8(ptr noundef %0, ptr noundef %1, i32 noundef %10) #12
   ret i32 %11
 }
 
@@ -1312,7 +1312,7 @@ define dso_local i32 @pg_wchar2mb_with_len(ptr noundef %0, ptr noundef %1, i32 n
   %7 = zext i32 %6 to i64
   %8 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %7, i32 1
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %2) #13
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12
   ret i32 %10
 }
 
@@ -1321,7 +1321,7 @@ define dso_local i32 @pg_encoding_wchar2mb_with_len(i32 noundef %0, ptr noundef 
   %5 = sext i32 %0 to i64
   %6 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 1
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #13
+  %8 = tail call i32 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #12
   ret i32 %8
 }
 
@@ -1333,7 +1333,7 @@ define dso_local i32 @pg_mblen(ptr noundef %0) local_unnamed_addr #0 {
   %5 = zext i32 %4 to i64
   %6 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 2
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %0) #13
+  %8 = tail call i32 %7(ptr noundef %0) #12
   ret i32 %8
 }
 
@@ -1345,7 +1345,7 @@ define dso_local i32 @pg_dsplen(ptr noundef %0) local_unnamed_addr #0 {
   %5 = zext i32 %4 to i64
   %6 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 3
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %0) #13
+  %8 = tail call i32 %7(ptr noundef %0) #12
   ret i32 %8
 }
 
@@ -1366,7 +1366,7 @@ define dso_local i32 @pg_mbstrlen(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
 10:                                               ; preds = %1
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %12 = trunc i64 %11 to i32
   br label %.loopexit
 
@@ -1379,7 +1379,7 @@ define dso_local i32 @pg_mbstrlen(ptr noundef %0) local_unnamed_addr #0 {
   %16 = zext i32 %15 to i64
   %17 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %16, i32 2
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef nonnull %.069) #13
+  %19 = tail call i32 %18(ptr noundef nonnull %.069) #12
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %.069, i64 %20
   %22 = add i32 %.010, 1
@@ -1433,7 +1433,7 @@ define dso_local i32 @pg_mbstrlen_with_len(ptr noundef %0, i32 noundef %1) local
   %16 = zext i32 %15 to i64
   %17 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %16, i32 2
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef nonnull %.01213) #13
+  %19 = tail call i32 %18(ptr noundef nonnull %.01213) #12
   %20 = sub i32 %.01114, %19
   %21 = sext i32 %19 to i64
   %22 = getelementptr i8, ptr %.01213, i64 %21
@@ -1451,7 +1451,7 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
   %4 = load ptr, ptr @DatabaseEncoding, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = tail call i32 @pg_encoding_max_length(i32 noundef %6) #13
+  %7 = tail call i32 @pg_encoding_max_length(i32 noundef %6) #12
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %16
 
@@ -1496,7 +1496,7 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not.i, label %pg_encoding_mbcliplen.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = tail call i32 %19(ptr noundef nonnull %.02229.i) #13
+  %23 = tail call i32 %19(ptr noundef nonnull %.02229.i) #12
   %24 = add i32 %23, %.02130.i
   %25 = icmp sgt i32 %24, %2
   br i1 %25, label %pg_encoding_mbcliplen.exit, label %26
@@ -1519,7 +1519,7 @@ pg_encoding_mbcliplen.exit:                       ; preds = %.lr.ph.i, %22, %26,
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @pg_encoding_max_length(i32 noundef %0) #13
+  %5 = tail call i32 @pg_encoding_max_length(i32 noundef %0) #12
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %14
 
@@ -1564,7 +1564,7 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
   br i1 %.not, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = tail call i32 %17(ptr noundef nonnull %.02229) #13
+  %21 = tail call i32 %17(ptr noundef nonnull %.02229) #12
   %22 = add i32 %21, %.02130
   %23 = icmp sgt i32 %22, %3
   br i1 %23, label %.critedge, label %24
@@ -1643,7 +1643,7 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = zext i32 %23 to i64
   %25 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %24, i32 2
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef nonnull %.01824) #13
+  %27 = tail call i32 %26(ptr noundef nonnull %.01824) #12
   %28 = add i32 %.01626, 1
   %29 = icmp sgt i32 %28, %2
   br i1 %29, label %.critedge, label %30
@@ -1667,10 +1667,10 @@ define dso_local void @SetDatabaseEncoding(i32 noundef %0) local_unnamed_addr #0
   br i1 %or.cond, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1165, ptr noundef nonnull @__func__.SetDatabaseEncoding) #13
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1165, ptr noundef nonnull @__func__.SetDatabaseEncoding) #12
   unreachable
 
 5:                                                ; preds = %1
@@ -1693,7 +1693,7 @@ define dso_local i64 @getdatabaseencoding(ptr nocapture noundef readnone %0) loc
   %2 = load ptr, ptr @DatabaseEncoding, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
-  %5 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %4) #13
+  %5 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %4) #12
   ret i64 %5
 }
 
@@ -1702,7 +1702,7 @@ define dso_local i64 @pg_client_encoding(ptr nocapture noundef readnone %0) loca
   %2 = load ptr, ptr @ClientEncoding, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
-  %5 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %4) #13
+  %5 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %4) #12
   ret i64 %5
 }
 
@@ -1711,7 +1711,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @PG_char_to_encoding(ptr
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pg_char_to_encoding_private(ptr noundef %4) #13
+  %5 = tail call i32 @pg_char_to_encoding_private(ptr noundef %4) #12
   %6 = sext i32 %5 to i64
   ret i64 %6
 }
@@ -1721,9 +1721,9 @@ define dso_local i64 @PG_encoding_to_char(ptr nocapture noundef readonly %0) loc
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @pg_encoding_to_char_private(i32 noundef %4) #13
+  %5 = tail call ptr @pg_encoding_to_char_private(i32 noundef %4) #12
   %6 = ptrtoint ptr %5 to i64
-  %7 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %6) #13
+  %7 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %6) #12
   ret i64 %7
 }
 
@@ -1747,8 +1747,8 @@ define dso_local nonnull ptr @pg_database_encoding_character_incrementer() local
   ret ptr %switch.select2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @pg_utf8_increment(ptr nocapture noundef %0, i32 noundef %1) #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal noundef zeroext i1 @pg_utf8_increment(ptr nocapture noundef %0, i32 noundef %1) #6 {
   switch i32 %1, label %20 [
     i32 4, label %3
     i32 3, label %7
@@ -1806,7 +1806,7 @@ define internal noundef zeroext i1 @pg_utf8_increment(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @pg_eucjp_increment(ptr nocapture noundef %0, i32 noundef %1) #9 {
+define internal noundef zeroext i1 @pg_eucjp_increment(ptr nocapture noundef %0, i32 noundef %1) #8 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %30 [
     i8 -114, label %4
@@ -1944,7 +1944,7 @@ define internal noundef zeroext i1 @pg_generic_charinc(ptr noundef %0, i32 nound
 14:                                               ; preds = %12
   %15 = add nuw i8 %13, 1
   store i8 %15, ptr %5, align 1
-  %16 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1) #13
+  %16 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1) #12
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %18, label %12, !llvm.loop !16
 
@@ -1960,7 +1960,7 @@ define dso_local zeroext i1 @pg_verifymbstr(ptr noundef %0, i32 noundef %1, i1 n
   %7 = sext i32 %6 to i64
   %8 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %7, i32 5
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #13
+  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #12
   %.not.i = icmp eq i32 %10, %1
   %brmerge.i = or i1 %.not.i, %2
   br i1 %brmerge.i, label %pg_verify_mbstr.exit, label %11
@@ -1969,7 +1969,7 @@ define dso_local zeroext i1 @pg_verifymbstr(ptr noundef %0, i32 noundef %1, i1 n
   %12 = sext i32 %10 to i64
   %13 = getelementptr i8, ptr %0, i64 %12
   %14 = sub i32 %1, %10
-  tail call void @report_invalid_encoding(i32 noundef %6, ptr noundef %13, i32 noundef %14) #15
+  tail call void @report_invalid_encoding(i32 noundef %6, ptr noundef %13, i32 noundef %14) #14
   unreachable
 
 pg_verify_mbstr.exit:                             ; preds = %3
@@ -1977,9 +1977,9 @@ pg_verify_mbstr.exit:                             ; preds = %3
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @report_invalid_encoding(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #10 {
+define dso_local void @report_invalid_encoding(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = alloca [41 x i8], align 16
-  %5 = tail call i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) #13
+  %5 = tail call i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) #12
   %6 = tail call i32 @llvm.smin.i32(i32 %5, i32 %2)
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -1997,14 +1997,14 @@ define dso_local void @report_invalid_encoding(i32 noundef %0, ptr noundef %1, i
   %12 = getelementptr i8, ptr %1, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.01921, ptr noundef nonnull @.str.17, i32 noundef %14) #13
+  %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.01921, ptr noundef nonnull @.str.17, i32 noundef %14) #12
   %16 = sext i32 %15 to i64
   %17 = getelementptr i8, ptr %.01921, i64 %16
   %18 = icmp ult i64 %indvars.iv, %10
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %11
-  %20 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %17, ptr noundef nonnull @.str.18) #13
+  %20 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %17, ptr noundef nonnull @.str.18) #12
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %17, i64 %21
   br label %23
@@ -2016,14 +2016,14 @@ define dso_local void @report_invalid_encoding(i32 noundef %0, ptr noundef %1, i
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %23, %3
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %24)
-  %25 = call i32 @errcode(i32 noundef 17301634) #13
+  %25 = call i32 @errcode(i32 noundef 17301634) #12
   %26 = sext i32 %0 to i64
   %27 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %28, ptr noundef nonnull %4) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1721, ptr noundef nonnull @__func__.report_invalid_encoding) #13
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %28, ptr noundef nonnull %4) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1721, ptr noundef nonnull @__func__.report_invalid_encoding) #12
   unreachable
 }
 
@@ -2036,10 +2036,10 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
   br i1 %or.cond, label %9, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %0) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1677, ptr noundef nonnull @__func__.check_encoding_conversion_args) #13
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %0) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1677, ptr noundef nonnull @__func__.check_encoding_conversion_args) #12
   unreachable
 
 9:                                                ; preds = %5
@@ -2049,7 +2049,7 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
   br i1 %or.cond3, label %12, label %21
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %13)
   %14 = zext nneg i32 %3 to i64
   %15 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %14
@@ -2057,8 +2057,8 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
   %17 = zext nneg i32 %0 to i64
   %18 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef %19) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1681, ptr noundef nonnull @__func__.check_encoding_conversion_args) #13
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef %19) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1681, ptr noundef nonnull @__func__.check_encoding_conversion_args) #12
   unreachable
 
 21:                                               ; preds = %9
@@ -2066,10 +2066,10 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
   br i1 %or.cond5, label %25, label %22
 
 22:                                               ; preds = %21
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %1) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1683, ptr noundef nonnull @__func__.check_encoding_conversion_args) #13
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1683, ptr noundef nonnull @__func__.check_encoding_conversion_args) #12
   unreachable
 
 25:                                               ; preds = %21
@@ -2079,7 +2079,7 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
   br i1 %or.cond7, label %28, label %37
 
 28:                                               ; preds = %25
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %29)
   %30 = zext nneg i32 %4 to i64
   %31 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %30
@@ -2087,8 +2087,8 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
   %33 = zext nneg i32 %1 to i64
   %34 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %32, ptr noundef %35) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1687, ptr noundef nonnull @__func__.check_encoding_conversion_args) #13
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %32, ptr noundef %35) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1687, ptr noundef nonnull @__func__.check_encoding_conversion_args) #12
   unreachable
 
 37:                                               ; preds = %25
@@ -2096,10 +2096,10 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %37
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1689, ptr noundef nonnull @__func__.check_encoding_conversion_args) #13
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1689, ptr noundef nonnull @__func__.check_encoding_conversion_args) #12
   unreachable
 
 42:                                               ; preds = %37
@@ -2111,9 +2111,9 @@ declare i32 @pg_encoding_mblen(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @report_untranslatable_char(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define dso_local void @report_untranslatable_char(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = alloca [41 x i8], align 16
-  %6 = tail call i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %2) #13
+  %6 = tail call i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %2) #12
   %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 %3)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -2131,14 +2131,14 @@ define dso_local void @report_untranslatable_char(i32 noundef %0, i32 noundef %1
   %13 = getelementptr i8, ptr %2, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.02022, ptr noundef nonnull @.str.17, i32 noundef %15) #13
+  %16 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.02022, ptr noundef nonnull @.str.17, i32 noundef %15) #12
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %.02022, i64 %17
   %19 = icmp ult i64 %indvars.iv, %11
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %12
-  %21 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %18, ptr noundef nonnull @.str.18) #13
+  %21 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %18, ptr noundef nonnull @.str.18) #12
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %18, i64 %22
   br label %24
@@ -2150,28 +2150,28 @@ define dso_local void @report_untranslatable_char(i32 noundef %0, i32 noundef %1
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %24, %4
-  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %25)
-  %26 = call i32 @errcode(i32 noundef 84017282) #13
+  %26 = call i32 @errcode(i32 noundef 84017282) #12
   %27 = sext i32 %0 to i64
   %28 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %1 to i64
   %31 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %5, ptr noundef %29, ptr noundef %32) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1755, ptr noundef nonnull @__func__.report_untranslatable_char) #13
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %5, ptr noundef %29, ptr noundef %32) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1755, ptr noundef nonnull @__func__.report_untranslatable_char) #12
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2181,15 +2181,14 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

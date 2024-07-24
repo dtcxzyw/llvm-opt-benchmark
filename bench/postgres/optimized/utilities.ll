@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @create_s() local_unnamed_addr #0 {
-  %1 = tail call ptr @palloc(i64 noundef 10) #10
+  %1 = tail call ptr @palloc(i64 noundef 10) #9
   %2 = icmp eq ptr %1, null
   br i1 %2, label %6, label %3
 
@@ -32,7 +32,7 @@ define hidden void @lose_s(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 -8
-  tail call void @pfree(ptr noundef %4) #10
+  tail call void @pfree(ptr noundef %4) #9
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -1164,7 +1164,7 @@ define hidden i32 @find_among(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %51, label %.loopexit.sink.split, label %52
 
 52:                                               ; preds = %47
-  %53 = tail call i32 %50(ptr noundef nonnull %0) #10
+  %53 = tail call i32 %50(ptr noundef nonnull %0) #9
   %54 = load i32, ptr %45, align 8
   %55 = add i32 %54, %5
   store i32 %55, ptr %4, align 8
@@ -1293,7 +1293,7 @@ define hidden i32 @find_among_b(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %58, label %.loopexit.sink.split, label %59
 
 59:                                               ; preds = %54
-  %60 = tail call i32 %57(ptr noundef nonnull %0) #10
+  %60 = tail call i32 %57(ptr noundef nonnull %0) #9
   %61 = load i32, ptr %52, align 8
   %62 = sub i32 %5, %61
   store i32 %62, ptr %4, align 8
@@ -1323,7 +1323,7 @@ define hidden range(i32 -1, 1) i32 @replace_s(ptr nocapture noundef %0, i32 noun
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @palloc(i64 noundef 10) #10
+  %10 = tail call ptr @palloc(i64 noundef 10) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %create_s.exit.thread, label %create_s.exit
 
@@ -1360,12 +1360,12 @@ create_s.exit:                                    ; preds = %9
   %26 = add i32 %21, 21
   %27 = sext i32 %26 to i64
   %28 = add nsw i64 %27, 8
-  %29 = tail call ptr @repalloc(ptr noundef nonnull %22, i64 noundef %28) #10
+  %29 = tail call ptr @repalloc(ptr noundef nonnull %22, i64 noundef %28) #9
   %30 = icmp eq ptr %29, null
   br i1 %30, label %increase_size.exit.thread, label %increase_size.exit
 
 increase_size.exit.thread:                        ; preds = %25
-  tail call void @pfree(ptr noundef nonnull %22) #10
+  tail call void @pfree(ptr noundef nonnull %22) #9
   store ptr null, ptr %0, align 8
   br label %61
 
@@ -1670,7 +1670,7 @@ slice_check.exit.thread:                          ; preds = %2, %6, %10, %14, %s
 
 20:                                               ; preds = %slice_check.exit.thread
   %21 = getelementptr i8, ptr %1, i64 -8
-  tail call void @pfree(ptr noundef %21) #10
+  tail call void @pfree(ptr noundef %21) #9
   br label %lose_s.exit
 
 22:                                               ; preds = %slice_check.exit
@@ -1684,12 +1684,12 @@ slice_check.exit.thread:                          ; preds = %2, %6, %10, %14, %s
   %28 = add i32 %23, 21
   %29 = sext i32 %28 to i64
   %30 = add nsw i64 %29, 8
-  %31 = tail call ptr @repalloc(ptr noundef nonnull %24, i64 noundef %30) #10
+  %31 = tail call ptr @repalloc(ptr noundef nonnull %24, i64 noundef %30) #9
   %32 = icmp eq ptr %31, null
   br i1 %32, label %increase_size.exit.thread, label %increase_size.exit
 
 increase_size.exit.thread:                        ; preds = %27
-  tail call void @pfree(ptr noundef nonnull %24) #10
+  tail call void @pfree(ptr noundef nonnull %24) #9
   br label %lose_s.exit
 
 increase_size.exit:                               ; preds = %27
@@ -1734,12 +1734,12 @@ define hidden ptr @assign_to(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %9 = add i32 %4, 21
   %10 = sext i32 %9 to i64
   %11 = add nsw i64 %10, 8
-  %12 = tail call ptr @repalloc(ptr noundef nonnull %5, i64 noundef %11) #10
+  %12 = tail call ptr @repalloc(ptr noundef nonnull %5, i64 noundef %11) #9
   %13 = icmp eq ptr %12, null
   br i1 %13, label %increase_size.exit.thread, label %increase_size.exit
 
 increase_size.exit.thread:                        ; preds = %8
-  tail call void @pfree(ptr noundef nonnull %5) #10
+  tail call void @pfree(ptr noundef nonnull %5) #9
   br label %21
 
 increase_size.exit:                               ; preds = %8
@@ -1763,8 +1763,8 @@ increase_size.exit:                               ; preds = %8
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @len_utf8(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define hidden i32 @len_utf8(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 -4
   %3 = load i32, ptr %2, align 4
   %.not10 = icmp eq i32 %3, 0
@@ -1791,16 +1791,16 @@ define hidden i32 @len_utf8(ptr nocapture noundef readonly %0) local_unnamed_add
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1808,11 +1808,10 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -26123,7 +26123,7 @@ define hidden void @_ZN5State21_sub_Op_ReverseBytesVEPK4Node(ptr nocapture nound
   br i1 %.not21, label %15, label %.thread26
 
 15:                                               ; preds = %12
-  %16 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %16 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %17 = icmp eq i32 %16, 64
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %17, label %18, label %27
@@ -26164,7 +26164,7 @@ define hidden void @_ZN5State21_sub_Op_ReverseBytesVEPK4Node(ptr nocapture nound
   br i1 %.not22, label %36, label %39
 
 36:                                               ; preds = %33
-  %37 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %37 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %38 = icmp ult i32 %37, 64
   br i1 %38, label %._crit_edge, label %.thread
 
@@ -27164,7 +27164,7 @@ define hidden void @_ZN5State20_sub_Op_CompressBitsEPK4Node(ptr noundef nonnull 
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp ne i32 %22, 3
@@ -27225,7 +27225,7 @@ define hidden void @_ZN5State20_sub_Op_CompressBitsEPK4Node(ptr noundef nonnull 
   %52 = load ptr, ptr %1, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = icmp ne i32 %57, 3
@@ -27423,7 +27423,7 @@ define hidden void @_ZN5State20_sub_Op_CompressBitsEPK4Node(ptr noundef nonnull 
   %162 = load ptr, ptr %1, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 40
   %164 = load ptr, ptr %163, align 8
-  %165 = tail call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %165 = tail call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %166 = getelementptr inbounds i8, ptr %165, i64 16
   %167 = load i32, ptr %166, align 8
   %168 = icmp ne i32 %167, 4
@@ -27494,7 +27494,7 @@ define hidden void @_ZN5State20_sub_Op_CompressBitsEPK4Node(ptr noundef nonnull 
   %201 = load ptr, ptr %1, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 40
   %203 = load ptr, ptr %202, align 8
-  %204 = tail call noundef ptr %203(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %204 = tail call noundef ptr %203(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %205 = getelementptr inbounds i8, ptr %204, i64 16
   %206 = load i32, ptr %205, align 8
   %207 = icmp ne i32 %206, 4
@@ -27682,7 +27682,7 @@ define hidden void @_ZN5State18_sub_Op_ExpandBitsEPK4Node(ptr noundef nonnull al
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp ne i32 %22, 3
@@ -27743,7 +27743,7 @@ define hidden void @_ZN5State18_sub_Op_ExpandBitsEPK4Node(ptr noundef nonnull al
   %52 = load ptr, ptr %1, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = icmp ne i32 %57, 3
@@ -27941,7 +27941,7 @@ define hidden void @_ZN5State18_sub_Op_ExpandBitsEPK4Node(ptr noundef nonnull al
   %162 = load ptr, ptr %1, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 40
   %164 = load ptr, ptr %163, align 8
-  %165 = tail call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %165 = tail call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %166 = getelementptr inbounds i8, ptr %165, i64 16
   %167 = load i32, ptr %166, align 8
   %168 = icmp ne i32 %167, 4
@@ -28012,7 +28012,7 @@ define hidden void @_ZN5State18_sub_Op_ExpandBitsEPK4Node(ptr noundef nonnull al
   %201 = load ptr, ptr %1, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 40
   %203 = load ptr, ptr %202, align 8
-  %204 = tail call noundef ptr %203(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %204 = tail call noundef ptr %203(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %205 = getelementptr inbounds i8, ptr %204, i64 16
   %206 = load i32, ptr %205, align 8
   %207 = icmp ne i32 %206, 4
@@ -29758,14 +29758,14 @@ define hidden void @_ZN5State14_sub_Op_CMoveIEPK4Node(ptr noundef nonnull align 
   br i1 %.not536, label %.thread, label %580
 
 580:                                              ; preds = %568
-  %581 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %576) #9
+  %581 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %576) #8
   %.not.i = icmp eq ptr %581, null
   br i1 %.not.i, label %582, label %_ZNK4Node7get_intEv.exit
 
 582:                                              ; preds = %580
   %583 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %583, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit:                         ; preds = %580
@@ -30154,14 +30154,14 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %580
   br i1 %.not537, label %.thread572, label %801
 
 801:                                              ; preds = %789
-  %802 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %797) #9
+  %802 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %797) #8
   %.not.i500 = icmp eq ptr %802, null
   br i1 %.not.i500, label %803, label %_ZNK4Node7get_intEv.exit501
 
 803:                                              ; preds = %801
   %804 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %804, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit501:                      ; preds = %801
@@ -30550,14 +30550,14 @@ _ZNK4Node7get_intEv.exit501:                      ; preds = %801
   br i1 %.not538, label %.thread512, label %1022
 
 1022:                                             ; preds = %1010
-  %1023 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1018) #9
+  %1023 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1018) #8
   %.not.i502 = icmp eq ptr %1023, null
   br i1 %.not.i502, label %1024, label %_ZNK4Node7get_intEv.exit503
 
 1024:                                             ; preds = %1022
   %1025 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1025, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit503:                      ; preds = %1022
@@ -30733,14 +30733,14 @@ _ZNK4Node7get_intEv.exit503:                      ; preds = %1022
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4Node7get_intEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #2 comdat align 2 {
-  %2 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #9
+  %2 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 5:                                                ; preds = %1
@@ -31521,14 +31521,14 @@ define hidden void @_ZN5State14_sub_Op_CMoveLEPK4Node(ptr noundef nonnull align 
   br i1 %.not483, label %.thread, label %448
 
 448:                                              ; preds = %436
-  %449 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %444) #9
+  %449 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %444) #8
   %.not.i = icmp eq ptr %449, null
   br i1 %.not.i, label %450, label %_ZNK4Node8get_longEv.exit
 
 450:                                              ; preds = %448
   %451 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %451, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit:                        ; preds = %448
@@ -31885,14 +31885,14 @@ _ZNK4Node8get_longEv.exit:                        ; preds = %448
   br i1 %.not484, label %.thread519, label %651
 
 651:                                              ; preds = %639
-  %652 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %647) #9
+  %652 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %647) #8
   %.not.i449 = icmp eq ptr %652, null
   br i1 %.not.i449, label %653, label %_ZNK4Node8get_longEv.exit450
 
 653:                                              ; preds = %651
   %654 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %654, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit450:                     ; preds = %651
@@ -32411,14 +32411,14 @@ _ZNK4Node8get_longEv.exit450:                     ; preds = %651
   br i1 %.not485, label %.thread461, label %945
 
 945:                                              ; preds = %933
-  %946 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %941) #9
+  %946 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %941) #8
   %.not.i451 = icmp eq ptr %946, null
   br i1 %.not.i451, label %947, label %_ZNK4Node8get_longEv.exit452
 
 947:                                              ; preds = %945
   %948 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %948, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit452:                     ; preds = %945
@@ -36890,7 +36890,7 @@ define hidden void @_ZN5State12_sub_Op_CmpPEPK4Node(ptr nocapture noundef nonnul
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 40
   %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef ptr %178(ptr noundef nonnull align 8 dereferenceable(52) %175) #9
+  %179 = tail call noundef ptr %178(ptr noundef nonnull align 8 dereferenceable(52) %175) #8
   %180 = getelementptr inbounds i8, ptr %179, i64 16
   %181 = load i32, ptr %180, align 8
   %182 = zext i32 %181 to i64
@@ -39766,7 +39766,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddBEPK4Node(ptr nocapture noundef 
   br i1 %.not22, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %17, label %34, label %18
 
@@ -39819,7 +39819,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddBEPK4Node(ptr nocapture noundef 
   br i1 %.not26, label %.thread43, label %45
 
 45:                                               ; preds = %41
-  %46 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %46 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr34.pre = load ptr, ptr %3, align 8
   br i1 %46, label %47, label %56
 
@@ -39862,7 +39862,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddBEPK4Node(ptr nocapture noundef 
   br i1 %.not30, label %.thread35, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %68 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   br i1 %68, label %69, label %.thread35
 
 69:                                               ; preds = %67
@@ -39922,7 +39922,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddSEPK4Node(ptr nocapture noundef 
   br i1 %.not22, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %17, label %34, label %18
 
@@ -39980,7 +39980,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddSEPK4Node(ptr nocapture noundef 
   br i1 %47, label %48, label %.thread43
 
 48:                                               ; preds = %45
-  %49 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %49 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr34.pre = load ptr, ptr %3, align 8
   br i1 %49, label %50, label %59
 
@@ -40023,7 +40023,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddSEPK4Node(ptr nocapture noundef 
   br i1 %.not30, label %.thread35, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %71 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   br i1 %71, label %72, label %.thread35
 
 72:                                               ; preds = %70
@@ -40081,7 +40081,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddIEPK4Node(ptr nocapture noundef 
   br i1 %.not22, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %17, label %34, label %18
 
@@ -40134,7 +40134,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddIEPK4Node(ptr nocapture noundef 
   br i1 %.not26, label %.thread43, label %45
 
 45:                                               ; preds = %41
-  %46 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %46 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr34.pre = load ptr, ptr %3, align 8
   br i1 %46, label %47, label %56
 
@@ -40177,7 +40177,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddIEPK4Node(ptr nocapture noundef 
   br i1 %.not30, label %.thread35, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %68 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   br i1 %68, label %69, label %.thread35
 
 69:                                               ; preds = %67
@@ -40235,7 +40235,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddLEPK4Node(ptr nocapture noundef 
   br i1 %.not21, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %17 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %17, label %39, label %18
 
@@ -40298,7 +40298,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddLEPK4Node(ptr nocapture noundef 
   br i1 %.not25, label %.thread42, label %50
 
 50:                                               ; preds = %46
-  %51 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %51 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   %.pr33.pre = load ptr, ptr %3, align 8
   br i1 %51, label %52, label %61
 
@@ -40341,7 +40341,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddLEPK4Node(ptr nocapture noundef 
   br i1 %.not29, label %.thread34, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #9
+  %73 = tail call noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   br i1 %73, label %74, label %.thread34
 
 74:                                               ; preds = %72
@@ -41246,7 +41246,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndSetNEPK4Node(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5State12_sub_Op_ConNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call noundef i64 @_ZNK4Node13get_narrowconEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %3 = tail call noundef i64 @_ZNK4Node13get_narrowconEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.thread, label %15
 
@@ -41376,7 +41376,7 @@ define hidden void @_ZN5State12_sub_Op_ConDEPK4Node(ptr nocapture noundef nonnul
   store i32 235, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 1474
   store i16 639, ptr %12, align 2
-  %13 = tail call noundef double @_ZNK4Node4getdEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %13 = tail call noundef double @_ZNK4Node4getdEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %14 = tail call i1 @llvm.is.fpclass.f64(double %13, i32 64)
   br i1 %14, label %.thread, label %17
 
@@ -41463,7 +41463,7 @@ define hidden void @_ZN5State12_sub_Op_ConFEPK4Node(ptr nocapture noundef nonnul
   store i32 235, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 1472
   store i16 637, ptr %12, align 8
-  %13 = tail call noundef float @_ZNK4Node4getfEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %13 = tail call noundef float @_ZNK4Node4getfEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %14 = tail call i1 @llvm.is.fpclass.f32(float %13, i32 64)
   br i1 %14, label %.thread, label %17
 
@@ -41530,14 +41530,14 @@ declare noundef float @_ZNK4Node4getfEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5State12_sub_Op_ConIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %3 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %_ZNK4Node7get_intEv.exit
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit:                         ; preds = %2
@@ -41583,14 +41583,14 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %2
   br i1 %21, label %.thread, label %32
 
 .thread:                                          ; preds = %17, %8, %11, %14, %20
-  %22 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %22 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %.not.i105 = icmp eq ptr %22, null
   br i1 %.not.i105, label %23, label %_ZNK4Node7get_intEv.exit106
 
 23:                                               ; preds = %.thread
   %24 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %24, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
@@ -42005,14 +42005,14 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5State12_sub_Op_ConLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %3 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %_ZNK4Node8get_longEv.exit
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit:                        ; preds = %2
@@ -42102,14 +42102,14 @@ _ZNK4Node8get_longEv.exit:                        ; preds = %2
   br label %42
 
 42:                                               ; preds = %20, %17, %14, %11, %8, %_ZNK4Node8get_longEv.exit, %23
-  %43 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %43 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %.not.i156 = icmp eq ptr %43, null
   br i1 %.not.i156, label %44, label %_ZNK4Node8get_longEv.exit157
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %45, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit157:                     ; preds = %42
@@ -42129,14 +42129,14 @@ _ZNK4Node8get_longEv.exit157:                     ; preds = %42
   br label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread: ; preds = %_ZNK4Node8get_longEv.exit157, %50
-  %53 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %53 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %.not.i159 = icmp eq ptr %53, null
   br i1 %.not.i159, label %54, label %_ZNK4Node8get_longEv.exit160
 
 54:                                               ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
   %55 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %55, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit160:                     ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
@@ -42667,7 +42667,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br i1 %10, label %11, label %43
 
 11:                                               ; preds = %2
-  %12 = tail call noundef i64 @_ZNK4Node7get_ptrEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %12 = tail call noundef i64 @_ZNK4Node7get_ptrEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %13 = icmp ult i64 %12, 2147483648
   br i1 %13, label %14, label %43
 
@@ -42731,7 +42731,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %43
 
 43:                                               ; preds = %14, %11, %2
-  %44 = tail call noundef i64 @_ZNK4Node7get_ptrEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %44 = tail call noundef i64 @_ZNK4Node7get_ptrEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %46, label %._crit_edge
 
@@ -47996,7 +47996,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %16) #9
+  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %16) #8
   %.not40 = icmp eq i8 %17, 10
   br i1 %.not40, label %37, label %18
 
@@ -48010,7 +48010,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %24) #9
+  %25 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %24) #8
   %26 = icmp ult i32 %25, 64
   br i1 %26, label %27, label %37
 
@@ -48049,7 +48049,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %48) #9
+  %49 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %48) #8
   %50 = icmp eq i8 %49, 10
   br i1 %50, label %51, label %85
 
@@ -48063,7 +48063,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   %55 = load ptr, ptr %45, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %57) #9
+  %58 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %57) #8
   %59 = icmp ult i32 %58, 64
   br i1 %59, label %60, label %85
 
@@ -48132,7 +48132,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %96) #9
+  %97 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %96) #8
   %98 = icmp eq i8 %97, 8
   br i1 %98, label %99, label %..thread87_crit_edge
 
@@ -48212,7 +48212,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8
-  %137 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %136) #9
+  %137 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %136) #8
   %138 = icmp eq i8 %137, 9
   br i1 %138, label %139, label %172
 
@@ -48228,7 +48228,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   br i1 %.not114, label %144, label %147
 
 144:                                              ; preds = %142
-  %145 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %145 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %146 = icmp eq i32 %145, 64
   br i1 %146, label %147, label %172
 
@@ -48306,11 +48306,11 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture 
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
-  %188 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %187) #9
+  %188 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %187) #8
   %189 = load ptr, ptr %184, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
-  %192 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %191) #9
+  %192 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %191) #8
   %193 = and i8 %188, -2
   %194 = icmp eq i8 %193, 10
   br i1 %194, label %195, label %.thread96
@@ -48397,11 +48397,11 @@ _ZL33is_clz_non_subword_predicate_evex9BasicTypei.exit: ; preds = %195
   %239 = load ptr, ptr %238, align 8
   %240 = getelementptr inbounds i8, ptr %239, i64 8
   %241 = load ptr, ptr %240, align 8
-  %242 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %241) #9
+  %242 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %241) #8
   %243 = load ptr, ptr %238, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 8
   %245 = load ptr, ptr %244, align 8
-  %246 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %245) #9
+  %246 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %245) #8
   %247 = and i8 %242, -2
   %248 = icmp eq i8 %247, 10
   br i1 %248, label %249, label %.thread100
@@ -49253,7 +49253,7 @@ define hidden void @_ZN5State27_sub_Op_CountTrailingZerosVEPK4Node(ptr nocapture
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %19) #9
+  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %19) #8
   %21 = icmp ult i32 %20, 64
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %21, label %22, label %31
@@ -49292,7 +49292,7 @@ define hidden void @_ZN5State27_sub_Op_CountTrailingZerosVEPK4Node(ptr nocapture
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %41) #9
+  %42 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %41) #8
   %43 = icmp eq i8 %42, 8
   br i1 %43, label %44, label %._crit_edge
 
@@ -49372,7 +49372,7 @@ define hidden void @_ZN5State27_sub_Op_CountTrailingZerosVEPK4Node(ptr nocapture
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %82) #9
+  %83 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %82) #8
   %84 = icmp eq i8 %83, 9
   br i1 %84, label %85, label %.thread53
 
@@ -49388,7 +49388,7 @@ define hidden void @_ZN5State27_sub_Op_CountTrailingZerosVEPK4Node(ptr nocapture
   br i1 %.not63, label %90, label %93
 
 90:                                               ; preds = %88
-  %91 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %91 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %92 = icmp eq i32 %91, 64
   br i1 %92, label %93, label %.thread53
 
@@ -49457,11 +49457,11 @@ define hidden void @_ZN5State27_sub_Op_CountTrailingZerosVEPK4Node(ptr nocapture
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %128) #9
+  %129 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %128) #8
   %130 = load ptr, ptr %125, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %132) #9
+  %133 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %132) #8
   %134 = and i8 %129, -2
   %135 = icmp eq i8 %134, 10
   br i1 %135, label %136, label %.thread57
@@ -49603,7 +49603,7 @@ define hidden void @_ZN5State15_sub_Op_DecodeNEPK4Node(ptr noundef nonnull align
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 4
@@ -49613,7 +49613,7 @@ define hidden void @_ZN5State15_sub_Op_DecodeNEPK4Node(ptr noundef nonnull align
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 2
@@ -49686,7 +49686,7 @@ define hidden void @_ZN5State15_sub_Op_DecodeNEPK4Node(ptr noundef nonnull align
   %58 = load ptr, ptr %1, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %61 = tail call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %62 = getelementptr inbounds i8, ptr %61, i64 40
   %63 = load i32, ptr %62, align 8
   %.not53 = icmp eq i32 %63, 4
@@ -49700,7 +49700,7 @@ define hidden void @_ZN5State15_sub_Op_DecodeNEPK4Node(ptr noundef nonnull align
   %65 = load ptr, ptr %1, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 40
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %68 = tail call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %69 = getelementptr inbounds i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8
   %.not54 = icmp eq i32 %70, 2
@@ -52037,7 +52037,7 @@ define hidden void @_ZN5State15_sub_Op_EncodePEPK4Node(ptr nocapture noundef non
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %22 [
@@ -52099,7 +52099,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %16, %19, %22
   %42 = load ptr, ptr %1, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8
   switch i32 %47, label %54 [
@@ -56544,7 +56544,7 @@ define hidden void @_ZN5State12_sub_Op_MaxDEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond, label %19, label %.thread36
 
 19:                                               ; preds = %12
-  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %20, label %21, label %40
 
@@ -56606,7 +56606,7 @@ define hidden void @_ZN5State12_sub_Op_MaxDEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond3, label %54, label %.thread
 
 54:                                               ; preds = %47
-  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %54
@@ -56745,7 +56745,7 @@ define hidden void @_ZN5State12_sub_Op_MaxFEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond, label %19, label %.thread36
 
 19:                                               ; preds = %12
-  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %20, label %21, label %40
 
@@ -56807,7 +56807,7 @@ define hidden void @_ZN5State12_sub_Op_MaxFEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond3, label %54, label %.thread
 
 54:                                               ; preds = %47
-  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %54
@@ -56971,7 +56971,7 @@ define hidden void @_ZN5State25_sub_Op_MemBarReleaseLockEPK4Node(ptr nocapture n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5State22_sub_Op_MemBarVolatileEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = tail call noundef zeroext i1 @_ZN7Matcher23post_store_load_barrierEPK4Node(ptr noundef %1) #9
+  %3 = tail call noundef zeroext i1 @_ZN7Matcher23post_store_load_barrierEPK4Node(ptr noundef %1) #8
   br i1 %3, label %.thread, label %5
 
 .thread:                                          ; preds = %2
@@ -57094,7 +57094,7 @@ define hidden void @_ZN5State12_sub_Op_MinFEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond, label %19, label %.thread36
 
 19:                                               ; preds = %12
-  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %20, label %21, label %40
 
@@ -57156,7 +57156,7 @@ define hidden void @_ZN5State12_sub_Op_MinFEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond3, label %54, label %.thread
 
 54:                                               ; preds = %47
-  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %54
@@ -57293,7 +57293,7 @@ define hidden void @_ZN5State12_sub_Op_MinDEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond, label %19, label %.thread36
 
 19:                                               ; preds = %12
-  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %20, label %21, label %40
 
@@ -57355,7 +57355,7 @@ define hidden void @_ZN5State12_sub_Op_MinDEPK4Node(ptr nocapture noundef nonnul
   br i1 %or.cond3, label %54, label %.thread
 
 54:                                               ; preds = %47
-  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #9
+  %55 = tail call noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef %1) #8
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %54
@@ -66095,7 +66095,7 @@ define hidden void @_ZN5State18_sub_Op_PopCountVIEPK4Node(ptr nocapture noundef 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %16) #9
+  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %16) #8
   %18 = add i8 %17, -4
   %switch.and.i.i = and i8 %18, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -66162,7 +66162,7 @@ _ZL28is_vector_popcount_predicate9BasicType.exit.thread: ; preds = %19, %_ZL28is
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %50) #9
+  %51 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %50) #8
   %52 = add i8 %51, -4
   %switch.and.i.i34 = and i8 %52, -6
   %switch.selectcmp.i.i35 = icmp eq i8 %switch.and.i.i34, 0
@@ -66254,7 +66254,7 @@ _ZL28is_vector_popcount_predicate9BasicType.exit37.thread44: ; preds = %56, %82,
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %99) #9
+  %100 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %99) #8
   %101 = add i8 %100, -4
   %switch.and.i.i38 = and i8 %101, -6
   %switch.selectcmp.i.i39 = icmp eq i8 %switch.and.i.i38, 0
@@ -66349,7 +66349,7 @@ define hidden void @_ZN5State18_sub_Op_PopCountVLEPK4Node(ptr nocapture noundef 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %16) #9
+  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %16) #8
   %18 = add i8 %17, -4
   %switch.and.i.i = and i8 %18, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -66416,7 +66416,7 @@ _ZL28is_vector_popcount_predicate9BasicType.exit.thread: ; preds = %19, %_ZL28is
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %50) #9
+  %51 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %50) #8
   %52 = add i8 %51, -4
   %switch.and.i.i34 = and i8 %52, -6
   %switch.selectcmp.i.i35 = icmp eq i8 %switch.and.i.i34, 0
@@ -66508,7 +66508,7 @@ _ZL28is_vector_popcount_predicate9BasicType.exit37.thread44: ; preds = %56, %82,
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %99) #9
+  %100 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %99) #8
   %101 = add i8 %100, -4
   %switch.and.i.i38 = and i8 %101, -6
   %switch.selectcmp.i.i39 = icmp eq i8 %switch.and.i.i38, 0
@@ -69975,7 +69975,7 @@ define hidden void @_ZN5State24_sub_Op_RoundDoubleModeVEPK4Node(ptr nocapture no
   br i1 %.not27, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %18 = icmp eq i32 %17, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %18, label %19, label %32
@@ -70025,7 +70025,7 @@ define hidden void @_ZN5State24_sub_Op_RoundDoubleModeVEPK4Node(ptr nocapture no
   br i1 %.not31, label %.thread72, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %44 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %45 = icmp ult i32 %44, 8
   %.pr50.pre = load ptr, ptr %3, align 8
   br i1 %45, label %46, label %74
@@ -70104,7 +70104,7 @@ define hidden void @_ZN5State24_sub_Op_RoundDoubleModeVEPK4Node(ptr nocapture no
   br i1 %.not35, label %.thread51.thread, label %85
 
 85:                                               ; preds = %81
-  %86 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %86 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %87 = icmp eq i32 %86, 8
   %.pr54.pr.pre = load ptr, ptr %3, align 8
   br i1 %87, label %88, label %.thread51
@@ -70183,7 +70183,7 @@ define hidden void @_ZN5State24_sub_Op_RoundDoubleModeVEPK4Node(ptr nocapture no
   br i1 %.not39, label %.thread55, label %126
 
 126:                                              ; preds = %122
-  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %128 = icmp ult i32 %127, 8
   br i1 %128, label %129, label %.thread55
 
@@ -70273,7 +70273,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
@@ -70351,7 +70351,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %63 = load ptr, ptr %1, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %66 = tail call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 8
   %69 = zext i32 %68 to i64
@@ -70540,7 +70540,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %170 = load ptr, ptr %1, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 40
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call noundef ptr %172(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %173 = tail call noundef ptr %172(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load i32, ptr %174, align 8
   %176 = zext i32 %175 to i64
@@ -70729,7 +70729,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %276 = load ptr, ptr %1, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 40
   %278 = load ptr, ptr %277, align 8
-  %279 = tail call noundef ptr %278(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %279 = tail call noundef ptr %278(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %280 = getelementptr inbounds i8, ptr %279, i64 16
   %281 = load i32, ptr %280, align 8
   %282 = zext i32 %281 to i64
@@ -70912,7 +70912,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %380 = load ptr, ptr %1, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 40
   %382 = load ptr, ptr %381, align 8
-  %383 = tail call noundef ptr %382(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %383 = tail call noundef ptr %382(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %384 = getelementptr inbounds i8, ptr %383, i64 16
   %385 = load i32, ptr %384, align 8
   %386 = zext i32 %385 to i64
@@ -70980,7 +70980,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %420 = load ptr, ptr %1, align 8
   %421 = getelementptr inbounds i8, ptr %420, i64 40
   %422 = load ptr, ptr %421, align 8
-  %423 = tail call noundef ptr %422(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %423 = tail call noundef ptr %422(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %424 = getelementptr inbounds i8, ptr %423, i64 16
   %425 = load i32, ptr %424, align 8
   %426 = zext i32 %425 to i64
@@ -71185,7 +71185,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %536 = load ptr, ptr %1, align 8
   %537 = getelementptr inbounds i8, ptr %536, i64 40
   %538 = load ptr, ptr %537, align 8
-  %539 = tail call noundef ptr %538(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %539 = tail call noundef ptr %538(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %540 = getelementptr inbounds i8, ptr %539, i64 16
   %541 = load i32, ptr %540, align 8
   %542 = zext i32 %541 to i64
@@ -71390,7 +71390,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
   %651 = load ptr, ptr %1, align 8
   %652 = getelementptr inbounds i8, ptr %651, i64 40
   %653 = load ptr, ptr %652, align 8
-  %654 = tail call noundef ptr %653(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %654 = tail call noundef ptr %653(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %655 = getelementptr inbounds i8, ptr %654, i64 16
   %656 = load i32, ptr %655, align 8
   %657 = zext i32 %656 to i64
@@ -71844,7 +71844,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
@@ -71922,7 +71922,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %63 = load ptr, ptr %1, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %66 = tail call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 8
   %69 = zext i32 %68 to i64
@@ -72111,7 +72111,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %170 = load ptr, ptr %1, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 40
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call noundef ptr %172(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %173 = tail call noundef ptr %172(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load i32, ptr %174, align 8
   %176 = zext i32 %175 to i64
@@ -72300,7 +72300,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %276 = load ptr, ptr %1, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 40
   %278 = load ptr, ptr %277, align 8
-  %279 = tail call noundef ptr %278(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %279 = tail call noundef ptr %278(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %280 = getelementptr inbounds i8, ptr %279, i64 16
   %281 = load i32, ptr %280, align 8
   %282 = zext i32 %281 to i64
@@ -72483,7 +72483,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %380 = load ptr, ptr %1, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 40
   %382 = load ptr, ptr %381, align 8
-  %383 = tail call noundef ptr %382(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %383 = tail call noundef ptr %382(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %384 = getelementptr inbounds i8, ptr %383, i64 16
   %385 = load i32, ptr %384, align 8
   %386 = zext i32 %385 to i64
@@ -72551,7 +72551,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %420 = load ptr, ptr %1, align 8
   %421 = getelementptr inbounds i8, ptr %420, i64 40
   %422 = load ptr, ptr %421, align 8
-  %423 = tail call noundef ptr %422(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %423 = tail call noundef ptr %422(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %424 = getelementptr inbounds i8, ptr %423, i64 16
   %425 = load i32, ptr %424, align 8
   %426 = zext i32 %425 to i64
@@ -72756,7 +72756,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %536 = load ptr, ptr %1, align 8
   %537 = getelementptr inbounds i8, ptr %536, i64 40
   %538 = load ptr, ptr %537, align 8
-  %539 = tail call noundef ptr %538(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %539 = tail call noundef ptr %538(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %540 = getelementptr inbounds i8, ptr %539, i64 16
   %541 = load i32, ptr %540, align 8
   %542 = zext i32 %541 to i64
@@ -72961,7 +72961,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
   %651 = load ptr, ptr %1, align 8
   %652 = getelementptr inbounds i8, ptr %651, i64 40
   %653 = load ptr, ptr %652, align 8
-  %654 = tail call noundef ptr %653(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %654 = tail call noundef ptr %653(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %655 = getelementptr inbounds i8, ptr %654, i64 16
   %656 = load i32, ptr %655, align 8
   %657 = zext i32 %656 to i64
@@ -74016,7 +74016,7 @@ define hidden void @_ZN5State16_sub_Op_SignumVFEPK4Node(ptr nocapture noundef no
   br i1 %.not21, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %21 = icmp eq i32 %20, 64
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %21, label %._crit_edge, label %36
@@ -74077,7 +74077,7 @@ define hidden void @_ZN5State16_sub_Op_SignumVFEPK4Node(ptr nocapture noundef no
   br i1 %.not22, label %50, label %.thread
 
 50:                                               ; preds = %47
-  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %52 = icmp ult i32 %51, 33
   br i1 %52, label %53, label %.thread
 
@@ -74168,7 +74168,7 @@ define hidden void @_ZN5State16_sub_Op_SignumVDEPK4Node(ptr nocapture noundef no
   br i1 %.not21, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %21 = icmp eq i32 %20, 64
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %21, label %._crit_edge, label %36
@@ -74229,7 +74229,7 @@ define hidden void @_ZN5State16_sub_Op_SignumVDEPK4Node(ptr nocapture noundef no
   br i1 %.not22, label %50, label %.thread
 
 50:                                               ; preds = %47
-  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %52 = icmp ult i32 %51, 33
   br i1 %52, label %53, label %.thread
 
@@ -76806,14 +76806,14 @@ define hidden void @_ZN5State14_sub_Op_StoreLEPK4Node(ptr noundef nonnull align 
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %108) #9
+  %109 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %108) #8
   %.not.i = icmp eq ptr %109, null
   br i1 %.not.i, label %110, label %_ZNK4Node8get_longEv.exit
 
 110:                                              ; preds = %100
   %111 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %111, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit:                        ; preds = %100
@@ -77043,14 +77043,14 @@ _ZNK4Node8get_longEv.exit:                        ; preds = %100
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 16
   %254 = load ptr, ptr %253, align 8
-  %255 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %254) #9
+  %255 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %254) #8
   %.not.i266 = icmp eq ptr %255, null
   br i1 %.not.i266, label %256, label %_ZNK4Node8get_longEv.exit267
 
 256:                                              ; preds = %246
   %257 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %257, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node8get_longEv.exit267:                     ; preds = %246
@@ -84266,7 +84266,7 @@ define hidden void @_ZN5State19_sub_Op_MacroLogicVEPK4Node(ptr nocapture noundef
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %80) #9
+  %81 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %80) #8
   %82 = icmp ugt i32 %81, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %82, label %83, label %111
@@ -89176,7 +89176,7 @@ define hidden void @_ZN5State13_sub_Op_AddVBEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -89262,7 +89262,7 @@ define hidden void @_ZN5State13_sub_Op_AddVBEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -89603,7 +89603,7 @@ define hidden void @_ZN5State13_sub_Op_AddVSEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -89689,7 +89689,7 @@ define hidden void @_ZN5State13_sub_Op_AddVSEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -90176,7 +90176,7 @@ define hidden void @_ZN5State13_sub_Op_AddVIEPK4Node(ptr noundef nonnull align 8
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %166) #9
+  %167 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %166) #8
   %168 = icmp ugt i32 %167, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %168, label %169, label %197
@@ -90262,7 +90262,7 @@ define hidden void @_ZN5State13_sub_Op_AddVIEPK4Node(ptr noundef nonnull align 8
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8
-  %216 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %215) #9
+  %216 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %215) #8
   %217 = icmp ugt i32 %216, 8
   %.pr111.pre = load ptr, ptr %3, align 8
   br i1 %217, label %218, label %246
@@ -90495,7 +90495,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVIEPK4Node(ptr noundef nonnul
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 9
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %39
@@ -90553,7 +90553,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVIEPK4Node(ptr noundef nonnul
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #9
+  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #8
   %56 = icmp eq i8 %55, 8
   br i1 %56, label %57, label %._crit_edge
 
@@ -90759,7 +90759,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVIEPK4Node(ptr noundef nonnul
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #9
+  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #8
   %168 = icmp eq i8 %167, 8
   br i1 %168, label %169, label %..thread163_crit_edge
 
@@ -90965,7 +90965,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVIEPK4Node(ptr noundef nonnul
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 16
   %277 = load ptr, ptr %276, align 8
-  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #9
+  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #8
   %279 = icmp eq i8 %278, 10
   br i1 %279, label %280, label %.thread167
 
@@ -91274,7 +91274,7 @@ define hidden void @_ZN5State13_sub_Op_AddVLEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -91360,7 +91360,7 @@ define hidden void @_ZN5State13_sub_Op_AddVLEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -91593,7 +91593,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVLEPK4Node(ptr nocapture noun
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 11
   br i1 %22, label %23, label %._crit_edge
 
@@ -91672,7 +91672,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVLEPK4Node(ptr nocapture noun
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %62) #9
+  %63 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %62) #8
   %64 = icmp eq i8 %63, 11
   br i1 %64, label %65, label %.thread
 
@@ -91971,7 +91971,7 @@ define hidden void @_ZN5State13_sub_Op_AddVFEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -92057,7 +92057,7 @@ define hidden void @_ZN5State13_sub_Op_AddVFEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -92290,7 +92290,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVFEPK4Node(ptr nocapture noun
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 16
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %41
@@ -92353,7 +92353,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVFEPK4Node(ptr nocapture noun
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #9
+  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #8
   %58 = icmp eq i32 %57, 8
   %.pr46.pre = load ptr, ptr %3, align 8
   br i1 %58, label %59, label %111
@@ -92486,7 +92486,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVFEPK4Node(ptr nocapture noun
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #9
+  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #8
   %128 = icmp ult i32 %127, 5
   br i1 %128, label %129, label %.thread47
 
@@ -92733,7 +92733,7 @@ define hidden void @_ZN5State13_sub_Op_AddVDEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -92819,7 +92819,7 @@ define hidden void @_ZN5State13_sub_Op_AddVDEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -93052,7 +93052,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVDEPK4Node(ptr nocapture noun
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %41
@@ -93115,7 +93115,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVDEPK4Node(ptr nocapture noun
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #9
+  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #8
   %58 = icmp eq i32 %57, 4
   %.pr46.pre = load ptr, ptr %3, align 8
   br i1 %58, label %59, label %111
@@ -93248,7 +93248,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVDEPK4Node(ptr nocapture noun
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #9
+  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #8
   %128 = icmp eq i32 %127, 2
   br i1 %128, label %129, label %.thread47
 
@@ -93495,7 +93495,7 @@ define hidden void @_ZN5State13_sub_Op_SubVBEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -93836,7 +93836,7 @@ define hidden void @_ZN5State13_sub_Op_SubVSEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -94177,7 +94177,7 @@ define hidden void @_ZN5State13_sub_Op_SubVIEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -94518,7 +94518,7 @@ define hidden void @_ZN5State13_sub_Op_SubVLEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -94859,7 +94859,7 @@ define hidden void @_ZN5State13_sub_Op_SubVFEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -95200,7 +95200,7 @@ define hidden void @_ZN5State13_sub_Op_SubVDEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -95432,7 +95432,7 @@ define hidden void @_ZN5State13_sub_Op_MulVBEPK4Node(ptr nocapture noundef nonnu
   br i1 %or.cond, label %19, label %.thread
 
 19:                                               ; preds = %12
-  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %21 = icmp ugt i32 %20, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %21, label %22, label %35
@@ -95485,7 +95485,7 @@ define hidden void @_ZN5State13_sub_Op_MulVBEPK4Node(ptr nocapture noundef nonnu
   br i1 %or.cond3, label %49, label %.thread50
 
 49:                                               ; preds = %42
-  %50 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %50 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %51 = icmp ugt i32 %50, 8
   %.pr38.pre = load ptr, ptr %3, align 8
   br i1 %51, label %52, label %80
@@ -95564,7 +95564,7 @@ define hidden void @_ZN5State13_sub_Op_MulVBEPK4Node(ptr nocapture noundef nonnu
   br i1 %.not29, label %.thread39, label %91
 
 91:                                               ; preds = %87
-  %92 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %92 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %93 = icmp ult i32 %92, 9
   br i1 %93, label %94, label %.thread39
 
@@ -95761,7 +95761,7 @@ define hidden void @_ZN5State13_sub_Op_MulVSEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -95847,7 +95847,7 @@ define hidden void @_ZN5State13_sub_Op_MulVSEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -96188,7 +96188,7 @@ define hidden void @_ZN5State13_sub_Op_MulVIEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -96274,7 +96274,7 @@ define hidden void @_ZN5State13_sub_Op_MulVIEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -96507,7 +96507,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnul
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 8
   br i1 %22, label %23, label %._crit_edge
 
@@ -96519,7 +96519,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnul
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 64
   %.pr.pre173 = load ptr, ptr %3, align 8
   br i1 %28, label %29, label %45
@@ -96578,7 +96578,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnul
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %60) #9
+  %61 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %60) #8
   %62 = icmp eq i8 %61, 8
   br i1 %62, label %63, label %._crit_edge175
 
@@ -96590,7 +96590,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnul
   %64 = load ptr, ptr %57, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %66) #9
+  %67 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %66) #8
   %68 = icmp ult i32 %67, 33
   %.pr164.pre176 = load ptr, ptr %3, align 8
   br i1 %68, label %69, label %160
@@ -96786,7 +96786,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnul
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %175) #9
+  %176 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %175) #8
   %177 = icmp eq i8 %176, 9
   %.pr168.pr.pre = load ptr, ptr %3, align 8
   br i1 %177, label %178, label %.thread165
@@ -96981,7 +96981,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnul
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 16
   %283 = load ptr, ptr %282, align 8
-  %284 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %283) #9
+  %284 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %283) #8
   %285 = icmp eq i8 %284, 10
   br i1 %285, label %286, label %.thread169
 
@@ -97286,7 +97286,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
   br i1 %or.cond, label %80, label %122
 
 80:                                               ; preds = %73
-  %81 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %81 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %82 = icmp eq i32 %81, 64
   br i1 %82, label %83, label %86
 
@@ -97297,7 +97297,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
   br i1 %.not111, label %93, label %86
 
 86:                                               ; preds = %83, %80
-  %87 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %87 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %88 = icmp ult i32 %87, 64
   br i1 %88, label %89, label %122
 
@@ -97452,7 +97452,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
   br i1 %.not65, label %217, label %175
 
 175:                                              ; preds = %171
-  %176 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %176 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %177 = icmp eq i32 %176, 64
   br i1 %177, label %178, label %181
 
@@ -97463,7 +97463,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
   br i1 %.not112, label %181, label %188
 
 181:                                              ; preds = %178, %175
-  %182 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %182 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %183 = icmp ugt i32 %182, 8
   br i1 %183, label %184, label %217
 
@@ -97548,7 +97548,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
   br i1 %.not69, label %.thread103, label %229
 
 229:                                              ; preds = %225
-  %230 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %230 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %231 = icmp eq i32 %230, 64
   br i1 %231, label %232, label %235
 
@@ -97559,7 +97559,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
   br i1 %.not113, label %235, label %242
 
 235:                                              ; preds = %232, %229
-  %236 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %236 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %237 = icmp ugt i32 %236, 8
   br i1 %237, label %238, label %.thread103
 
@@ -97644,7 +97644,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
   br i1 %.not73, label %.thread107, label %282
 
 282:                                              ; preds = %278
-  %283 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %283 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %284 = icmp eq i32 %283, 64
   %.pre = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %285 = and i64 %.pre, 268435456
@@ -97740,7 +97740,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVLEPK4Node(ptr nocapture noun
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 11
   br i1 %22, label %23, label %._crit_edge
 
@@ -97819,7 +97819,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVLEPK4Node(ptr nocapture noun
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %62) #9
+  %63 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %62) #8
   %64 = icmp eq i8 %63, 11
   br i1 %64, label %65, label %.thread
 
@@ -98118,7 +98118,7 @@ define hidden void @_ZN5State13_sub_Op_MulVFEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -98204,7 +98204,7 @@ define hidden void @_ZN5State13_sub_Op_MulVFEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -98437,7 +98437,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVFEPK4Node(ptr nocapture noun
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 16
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %41
@@ -98500,7 +98500,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVFEPK4Node(ptr nocapture noun
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #9
+  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #8
   %58 = icmp eq i32 %57, 8
   %.pr46.pre = load ptr, ptr %3, align 8
   br i1 %58, label %59, label %111
@@ -98633,7 +98633,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVFEPK4Node(ptr nocapture noun
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #9
+  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #8
   %128 = icmp ult i32 %127, 5
   br i1 %128, label %129, label %.thread47
 
@@ -98880,7 +98880,7 @@ define hidden void @_ZN5State13_sub_Op_MulVDEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -98966,7 +98966,7 @@ define hidden void @_ZN5State13_sub_Op_MulVDEPK4Node(ptr nocapture noundef nonnu
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -99199,7 +99199,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVDEPK4Node(ptr nocapture noun
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %41
@@ -99262,7 +99262,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVDEPK4Node(ptr nocapture noun
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #9
+  %57 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %56) #8
   %58 = icmp eq i32 %57, 4
   %.pr46.pre = load ptr, ptr %3, align 8
   br i1 %58, label %59, label %111
@@ -99395,7 +99395,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVDEPK4Node(ptr nocapture noun
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #9
+  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %126) #8
   %128 = icmp eq i32 %127, 2
   br i1 %128, label %129, label %.thread47
 
@@ -99781,7 +99781,7 @@ define hidden void @_ZN5State13_sub_Op_FmaVDEPK4Node(ptr nocapture noundef nonnu
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %76) #9
+  %77 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %76) #8
   %78 = icmp ugt i32 %77, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %78, label %79, label %107
@@ -100043,7 +100043,7 @@ define hidden void @_ZN5State13_sub_Op_FmaVFEPK4Node(ptr nocapture noundef nonnu
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %76) #9
+  %77 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %76) #8
   %78 = icmp ugt i32 %77, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %78, label %79, label %107
@@ -100312,7 +100312,7 @@ define hidden void @_ZN5State13_sub_Op_DivVFEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -100653,7 +100653,7 @@ define hidden void @_ZN5State13_sub_Op_DivVDEPK4Node(ptr nocapture noundef nonnu
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -100854,8 +100854,8 @@ define hidden void @_ZN5State13_sub_Op_DivVDEPK4Node(ptr nocapture noundef nonnu
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -100950,8 +100950,8 @@ define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr nocapture noundef nonnu
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -101046,8 +101046,8 @@ define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr nocapture noundef nonnu
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -101142,8 +101142,8 @@ define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr nocapture noundef nonnu
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN5State13_sub_Op_AbsVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -101257,7 +101257,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVFEPK4Node(ptr nocapture noundef nonnu
   br i1 %or.cond, label %12, label %.thread23
 
 12:                                               ; preds = %5
-  %13 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %13 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %14 = icmp eq i32 %13, 4
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %14, label %15, label %24
@@ -101292,7 +101292,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVFEPK4Node(ptr nocapture noundef nonnu
   br i1 %or.cond17, label %30, label %.thread
 
 30:                                               ; preds = %.thread23
-  %31 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %31 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %.not12 = icmp eq i32 %31, 4
   br i1 %.not12, label %.thread, label %32
 
@@ -101400,7 +101400,7 @@ define hidden void @_ZN5State13_sub_Op_NegVFEPK4Node(ptr nocapture noundef nonnu
   br i1 %or.cond, label %12, label %.thread23
 
 12:                                               ; preds = %5
-  %13 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %13 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %14 = icmp eq i32 %13, 4
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %14, label %15, label %24
@@ -101435,7 +101435,7 @@ define hidden void @_ZN5State13_sub_Op_NegVFEPK4Node(ptr nocapture noundef nonnu
   br i1 %or.cond17, label %30, label %.thread
 
 30:                                               ; preds = %.thread23
-  %31 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %31 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %.not12 = icmp eq i32 %31, 4
   br i1 %.not12, label %.thread, label %32
 
@@ -101581,7 +101581,7 @@ define hidden void @_ZN5State14_sub_Op_SqrtVDEPK4Node(ptr nocapture noundef nonn
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #9
+  %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #8
   %35 = icmp ugt i32 %34, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %35, label %36, label %60
@@ -101756,7 +101756,7 @@ define hidden void @_ZN5State14_sub_Op_SqrtVFEPK4Node(ptr nocapture noundef nonn
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #9
+  %34 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %33) #8
   %35 = icmp ugt i32 %34, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %35, label %36, label %60
@@ -101998,7 +101998,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not84, label %40, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %18 = icmp eq i32 %17, 64
   br i1 %18, label %19, label %40
 
@@ -102060,7 +102060,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not88, label %91, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %53 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %54 = icmp ult i32 %53, 33
   br i1 %54, label %55, label %91
 
@@ -102151,7 +102151,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not92, label %.thread151, label %103
 
 103:                                              ; preds = %99
-  %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %105 = icmp eq i32 %104, 32
   br i1 %105, label %106, label %.thread151
 
@@ -102242,7 +102242,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not96, label %192, label %153
 
 153:                                              ; preds = %149
-  %154 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %154 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %155 = icmp eq i32 %154, 16
   br i1 %155, label %156, label %192
 
@@ -102333,7 +102333,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not100, label %.thread160, label %204
 
 204:                                              ; preds = %200
-  %205 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %205 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %206 = icmp ult i32 %205, 9
   br i1 %206, label %207, label %.thread160
 
@@ -102424,7 +102424,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not104, label %.thread, label %254
 
 254:                                              ; preds = %250
-  %255 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %255 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %256 = icmp eq i32 %255, 64
   br i1 %256, label %257, label %._crit_edge
 
@@ -102514,7 +102514,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not108, label %.thread169.thread, label %300
 
 300:                                              ; preds = %296
-  %301 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %301 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %302 = icmp eq i32 %301, 32
   br i1 %302, label %303, label %..thread169_crit_edge
 
@@ -102604,7 +102604,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not112, label %.thread258, label %345
 
 345:                                              ; preds = %341
-  %346 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %346 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %347 = icmp eq i32 %346, 16
   br i1 %347, label %348, label %._crit_edge221
 
@@ -102697,7 +102697,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not116, label %.thread178.thread, label %393
 
 393:                                              ; preds = %389
-  %394 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %394 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %395 = icmp eq i32 %394, 16
   br i1 %395, label %396, label %..thread178_crit_edge
 
@@ -102790,7 +102790,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not121, label %.thread182, label %440
 
 440:                                              ; preds = %436
-  %441 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %441 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %442 = icmp ult i32 %441, 9
   br i1 %442, label %443, label %.thread182
 
@@ -103139,7 +103139,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVSEPK4Node(ptr noundef nonnull alig
   br i1 %.not65, label %200, label %161
 
 161:                                              ; preds = %157
-  %162 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %162 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %163 = icmp eq i32 %162, 16
   br i1 %163, label %164, label %200
 
@@ -103230,7 +103230,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVSEPK4Node(ptr noundef nonnull alig
   br i1 %.not69, label %251, label %212
 
 212:                                              ; preds = %208
-  %213 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %213 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %214 = icmp ult i32 %213, 9
   br i1 %214, label %215, label %251
 
@@ -104209,7 +104209,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not84, label %40, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %18 = icmp eq i32 %17, 64
   br i1 %18, label %19, label %40
 
@@ -104271,7 +104271,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not88, label %91, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %53 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %54 = icmp ult i32 %53, 33
   br i1 %54, label %55, label %91
 
@@ -104362,7 +104362,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not92, label %.thread151, label %103
 
 103:                                              ; preds = %99
-  %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %105 = icmp eq i32 %104, 32
   br i1 %105, label %106, label %.thread151
 
@@ -104453,7 +104453,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not96, label %192, label %153
 
 153:                                              ; preds = %149
-  %154 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %154 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %155 = icmp eq i32 %154, 16
   br i1 %155, label %156, label %192
 
@@ -104544,7 +104544,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not100, label %.thread160, label %204
 
 204:                                              ; preds = %200
-  %205 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %205 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %206 = icmp ult i32 %205, 9
   br i1 %206, label %207, label %.thread160
 
@@ -104635,7 +104635,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not104, label %.thread, label %254
 
 254:                                              ; preds = %250
-  %255 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %255 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %256 = icmp eq i32 %255, 64
   br i1 %256, label %257, label %._crit_edge
 
@@ -104725,7 +104725,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not108, label %.thread169.thread, label %300
 
 300:                                              ; preds = %296
-  %301 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %301 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %302 = icmp eq i32 %301, 32
   br i1 %302, label %303, label %..thread169_crit_edge
 
@@ -104815,7 +104815,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not112, label %.thread258, label %345
 
 345:                                              ; preds = %341
-  %346 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %346 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %347 = icmp eq i32 %346, 16
   br i1 %347, label %348, label %._crit_edge221
 
@@ -104908,7 +104908,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not116, label %.thread178.thread, label %393
 
 393:                                              ; preds = %389
-  %394 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %394 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %395 = icmp eq i32 %394, 16
   br i1 %395, label %396, label %..thread178_crit_edge
 
@@ -105001,7 +105001,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVBEPK4Node(ptr noundef nonnull alig
   br i1 %.not121, label %.thread182, label %440
 
 440:                                              ; preds = %436
-  %441 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %441 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %442 = icmp ult i32 %441, 9
   br i1 %442, label %443, label %.thread182
 
@@ -105350,7 +105350,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVSEPK4Node(ptr noundef nonnull alig
   br i1 %.not65, label %200, label %161
 
 161:                                              ; preds = %157
-  %162 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %162 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %163 = icmp eq i32 %162, 16
   br i1 %163, label %164, label %200
 
@@ -105441,7 +105441,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVSEPK4Node(ptr noundef nonnull alig
   br i1 %.not69, label %251, label %212
 
 212:                                              ; preds = %208
-  %213 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %213 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %214 = icmp ult i32 %213, 9
   br i1 %214, label %215, label %251
 
@@ -106273,7 +106273,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVLEPK4Node(ptr noundef nonnull alig
   br i1 %.not73, label %.thread140, label %160
 
 160:                                              ; preds = %156
-  %161 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %161 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %162 = icmp ult i32 %161, 5
   br i1 %162, label %163, label %._crit_edge
 
@@ -106528,7 +106528,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not84, label %40, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %18 = icmp eq i32 %17, 64
   br i1 %18, label %19, label %40
 
@@ -106590,7 +106590,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not88, label %91, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %53 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %54 = icmp ult i32 %53, 33
   br i1 %54, label %55, label %91
 
@@ -106681,7 +106681,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not92, label %.thread151, label %103
 
 103:                                              ; preds = %99
-  %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %104 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %105 = icmp eq i32 %104, 32
   br i1 %105, label %106, label %.thread151
 
@@ -106772,7 +106772,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not96, label %192, label %153
 
 153:                                              ; preds = %149
-  %154 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %154 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %155 = icmp eq i32 %154, 16
   br i1 %155, label %156, label %192
 
@@ -106863,7 +106863,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not100, label %.thread160, label %204
 
 204:                                              ; preds = %200
-  %205 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %205 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %206 = icmp ult i32 %205, 9
   br i1 %206, label %207, label %.thread160
 
@@ -106954,7 +106954,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not104, label %.thread, label %254
 
 254:                                              ; preds = %250
-  %255 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %255 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %256 = icmp eq i32 %255, 64
   br i1 %256, label %257, label %._crit_edge
 
@@ -107044,7 +107044,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not108, label %.thread169.thread, label %300
 
 300:                                              ; preds = %296
-  %301 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %301 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %302 = icmp eq i32 %301, 32
   br i1 %302, label %303, label %..thread169_crit_edge
 
@@ -107134,7 +107134,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not112, label %.thread258, label %345
 
 345:                                              ; preds = %341
-  %346 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %346 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %347 = icmp eq i32 %346, 16
   br i1 %347, label %348, label %._crit_edge221
 
@@ -107227,7 +107227,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not116, label %.thread178.thread, label %393
 
 393:                                              ; preds = %389
-  %394 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %394 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %395 = icmp eq i32 %394, 16
   br i1 %395, label %396, label %..thread178_crit_edge
 
@@ -107320,7 +107320,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVBEPK4Node(ptr noundef nonnull ali
   br i1 %.not121, label %.thread182, label %440
 
 440:                                              ; preds = %436
-  %441 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %441 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %442 = icmp ult i32 %441, 9
   br i1 %442, label %443, label %.thread182
 
@@ -107669,7 +107669,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVSEPK4Node(ptr noundef nonnull ali
   br i1 %.not65, label %200, label %161
 
 161:                                              ; preds = %157
-  %162 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %162 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %163 = icmp eq i32 %162, 16
   br i1 %163, label %164, label %200
 
@@ -107760,7 +107760,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVSEPK4Node(ptr noundef nonnull ali
   br i1 %.not69, label %251, label %212
 
 212:                                              ; preds = %208
-  %213 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %213 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %214 = icmp ult i32 %213, 9
   br i1 %214, label %215, label %251
 
@@ -108851,7 +108851,7 @@ define hidden void @_ZN5State12_sub_Op_AndVEPK4Node(ptr nocapture noundef nonnul
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -108937,7 +108937,7 @@ define hidden void @_ZN5State12_sub_Op_AndVEPK4Node(ptr nocapture noundef nonnul
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -109170,7 +109170,7 @@ define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 9
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %39
@@ -109228,7 +109228,7 @@ define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #9
+  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #8
   %56 = icmp eq i8 %55, 8
   br i1 %56, label %57, label %._crit_edge
 
@@ -109434,7 +109434,7 @@ define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #9
+  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #8
   %168 = icmp eq i8 %167, 8
   br i1 %168, label %169, label %..thread222_crit_edge
 
@@ -109640,7 +109640,7 @@ define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 16
   %277 = load ptr, ptr %276, align 8
-  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #9
+  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #8
   %279 = icmp eq i8 %278, 11
   br i1 %279, label %280, label %._crit_edge255
 
@@ -109719,7 +109719,7 @@ define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds i8, ptr %317, i64 16
   %319 = load ptr, ptr %318, align 8
-  %320 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %319) #9
+  %320 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %319) #8
   %321 = icmp eq i8 %320, 11
   br i1 %321, label %322, label %..thread231_crit_edge
 
@@ -109909,7 +109909,7 @@ define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds i8, ptr %419, i64 16
   %421 = load ptr, ptr %420, align 8
-  %422 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %421) #9
+  %422 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %421) #8
   %423 = icmp eq i8 %422, 10
   br i1 %423, label %424, label %.thread235
 
@@ -110218,7 +110218,7 @@ define hidden void @_ZN5State11_sub_Op_OrVEPK4Node(ptr nocapture noundef nonnull
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -110304,7 +110304,7 @@ define hidden void @_ZN5State11_sub_Op_OrVEPK4Node(ptr nocapture noundef nonnull
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -110537,7 +110537,7 @@ define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 9
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %39
@@ -110595,7 +110595,7 @@ define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull 
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #9
+  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #8
   %56 = icmp eq i8 %55, 8
   br i1 %56, label %57, label %._crit_edge
 
@@ -110801,7 +110801,7 @@ define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull 
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #9
+  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #8
   %168 = icmp eq i8 %167, 8
   br i1 %168, label %169, label %..thread222_crit_edge
 
@@ -111007,7 +111007,7 @@ define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull 
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 16
   %277 = load ptr, ptr %276, align 8
-  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #9
+  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #8
   %279 = icmp eq i8 %278, 11
   br i1 %279, label %280, label %._crit_edge255
 
@@ -111086,7 +111086,7 @@ define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull 
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds i8, ptr %317, i64 16
   %319 = load ptr, ptr %318, align 8
-  %320 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %319) #9
+  %320 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %319) #8
   %321 = icmp eq i8 %320, 11
   br i1 %321, label %322, label %..thread231_crit_edge
 
@@ -111276,7 +111276,7 @@ define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull 
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds i8, ptr %419, i64 16
   %421 = load ptr, ptr %420, align 8
-  %422 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %421) #9
+  %422 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %421) #8
   %423 = icmp eq i8 %422, 10
   br i1 %423, label %424, label %.thread235
 
@@ -111585,7 +111585,7 @@ define hidden void @_ZN5State12_sub_Op_XorVEPK4Node(ptr nocapture noundef nonnul
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ugt i32 %85, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %86, label %87, label %115
@@ -111671,7 +111671,7 @@ define hidden void @_ZN5State12_sub_Op_XorVEPK4Node(ptr nocapture noundef nonnul
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #9
+  %134 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %133) #8
   %135 = icmp ugt i32 %134, 8
   %.pr81.pre = load ptr, ptr %3, align 8
   br i1 %135, label %136, label %164
@@ -111904,7 +111904,7 @@ define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 9
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %22, label %23, label %39
@@ -111962,7 +111962,7 @@ define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #9
+  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %54) #8
   %56 = icmp eq i8 %55, 8
   br i1 %56, label %57, label %._crit_edge
 
@@ -112168,7 +112168,7 @@ define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #9
+  %167 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %166) #8
   %168 = icmp eq i8 %167, 8
   br i1 %168, label %169, label %..thread222_crit_edge
 
@@ -112374,7 +112374,7 @@ define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 16
   %277 = load ptr, ptr %276, align 8
-  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #9
+  %278 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %277) #8
   %279 = icmp eq i8 %278, 11
   br i1 %279, label %280, label %._crit_edge255
 
@@ -112453,7 +112453,7 @@ define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds i8, ptr %317, i64 16
   %319 = load ptr, ptr %318, align 8
-  %320 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %319) #9
+  %320 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %319) #8
   %321 = icmp eq i8 %320, 11
   br i1 %321, label %322, label %..thread231_crit_edge
 
@@ -112643,7 +112643,7 @@ define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds i8, ptr %419, i64 16
   %421 = load ptr, ptr %420, align 8
-  %422 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %421) #9
+  %422 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %421) #8
   %423 = icmp eq i8 %422, 10
   br i1 %423, label %424, label %.thread235
 
@@ -112945,7 +112945,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not84, label %.thread, label %77
 
 77:                                               ; preds = %73
-  %78 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %78 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %79 = icmp eq i32 %78, 64
   br i1 %79, label %80, label %._crit_edge
 
@@ -112954,7 +112954,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br label %112
 
 80:                                               ; preds = %77
-  %81 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %81 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %82 = and i8 %81, -2
   %83 = icmp eq i8 %82, 6
   %.pr.pre174 = load ptr, ptr %3, align 8
@@ -113035,7 +113035,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not88, label %.thread212, label %123
 
 123:                                              ; preds = %119
-  %124 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %124 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %125 = icmp ult i32 %124, 33
   br i1 %125, label %126, label %._crit_edge176
 
@@ -113044,7 +113044,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br label %160
 
 126:                                              ; preds = %123
-  %127 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %127 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %128 = and i8 %127, -2
   %129 = icmp eq i8 %128, 6
   %130 = load i32, ptr @UseAVX, align 4
@@ -113128,7 +113128,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not92, label %.thread143.thread, label %171
 
 171:                                              ; preds = %167
-  %172 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %172 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %173 = icmp eq i32 %172, 64
   br i1 %173, label %177, label %174
 
@@ -113143,7 +113143,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br label %.thread143
 
 177:                                              ; preds = %174, %171
-  %178 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %178 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %179 = icmp eq i8 %178, 11
   %.pr146.pr.pre179 = load ptr, ptr %3, align 8
   br i1 %179, label %180, label %.thread143
@@ -113223,12 +113223,12 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not96, label %258, label %218
 
 218:                                              ; preds = %214
-  %219 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %219 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %220 = icmp ult i32 %219, 33
   br i1 %220, label %221, label %258
 
 221:                                              ; preds = %218
-  %222 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %222 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %223 = icmp eq i8 %222, 11
   %224 = load i32, ptr @UseAVX, align 4
   %225 = icmp sgt i32 %224, 0
@@ -113316,7 +113316,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not100, label %.thread152.thread, label %270
 
 270:                                              ; preds = %266
-  %271 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %271 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %272 = icmp eq i32 %271, 16
   br i1 %272, label %273, label %..thread152_crit_edge
 
@@ -113325,7 +113325,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br label %.thread152
 
 273:                                              ; preds = %270
-  %274 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %274 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %275 = icmp eq i8 %274, 11
   %276 = load i32, ptr @UseAVX, align 4
   %277 = icmp eq i32 %276, 0
@@ -113408,7 +113408,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not104, label %.thread223, label %316
 
 316:                                              ; preds = %312
-  %317 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %317 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %318 = add i8 %317, -4
   %switch.and.i.i = and i8 %318, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -113422,7 +113422,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br label %354
 
 321:                                              ; preds = %316
-  %322 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %322 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %323 = icmp ne i8 %322, 11
   %324 = load i32, ptr @UseAVX, align 4
   %325 = icmp sgt i32 %324, 0
@@ -113505,7 +113505,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not108, label %.thread161, label %365
 
 365:                                              ; preds = %361
-  %366 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %366 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %367 = add i8 %366, -4
   %switch.and.i.i133 = and i8 %367, -6
   %switch.selectcmp.i.i134 = icmp eq i8 %switch.and.i.i133, 0
@@ -113515,7 +113515,7 @@ define hidden void @_ZN5State12_sub_Op_MinVEPK4Node(ptr noundef nonnull align 8 
   br i1 %spec.select.i135, label %370, label %.thread161
 
 370:                                              ; preds = %365
-  %371 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %371 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %372 = icmp ne i8 %371, 11
   %373 = load i32, ptr @UseAVX, align 4
   %374 = icmp eq i32 %373, 0
@@ -113708,7 +113708,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not84, label %.thread, label %77
 
 77:                                               ; preds = %73
-  %78 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %78 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %79 = icmp eq i32 %78, 64
   br i1 %79, label %80, label %._crit_edge
 
@@ -113717,7 +113717,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br label %112
 
 80:                                               ; preds = %77
-  %81 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %81 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %82 = and i8 %81, -2
   %83 = icmp eq i8 %82, 6
   %.pr.pre174 = load ptr, ptr %3, align 8
@@ -113798,7 +113798,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not88, label %.thread212, label %123
 
 123:                                              ; preds = %119
-  %124 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %124 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %125 = icmp ult i32 %124, 33
   br i1 %125, label %126, label %._crit_edge176
 
@@ -113807,7 +113807,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br label %160
 
 126:                                              ; preds = %123
-  %127 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %127 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %128 = and i8 %127, -2
   %129 = icmp eq i8 %128, 6
   %130 = load i32, ptr @UseAVX, align 4
@@ -113891,7 +113891,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not92, label %.thread143.thread, label %171
 
 171:                                              ; preds = %167
-  %172 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %172 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %173 = icmp eq i32 %172, 64
   br i1 %173, label %177, label %174
 
@@ -113906,7 +113906,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br label %.thread143
 
 177:                                              ; preds = %174, %171
-  %178 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %178 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %179 = icmp eq i8 %178, 11
   %.pr146.pr.pre179 = load ptr, ptr %3, align 8
   br i1 %179, label %180, label %.thread143
@@ -113986,12 +113986,12 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not96, label %258, label %218
 
 218:                                              ; preds = %214
-  %219 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %219 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %220 = icmp ult i32 %219, 33
   br i1 %220, label %221, label %258
 
 221:                                              ; preds = %218
-  %222 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %222 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %223 = icmp eq i8 %222, 11
   %224 = load i32, ptr @UseAVX, align 4
   %225 = icmp sgt i32 %224, 0
@@ -114079,7 +114079,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not100, label %.thread152.thread, label %270
 
 270:                                              ; preds = %266
-  %271 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %271 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %272 = icmp eq i32 %271, 16
   br i1 %272, label %273, label %..thread152_crit_edge
 
@@ -114088,7 +114088,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br label %.thread152
 
 273:                                              ; preds = %270
-  %274 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %274 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %275 = icmp eq i8 %274, 11
   %276 = load i32, ptr @UseAVX, align 4
   %277 = icmp eq i32 %276, 0
@@ -114171,7 +114171,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not104, label %.thread223, label %316
 
 316:                                              ; preds = %312
-  %317 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %317 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %318 = add i8 %317, -4
   %switch.and.i.i = and i8 %318, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -114185,7 +114185,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br label %354
 
 321:                                              ; preds = %316
-  %322 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %322 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %323 = icmp ne i8 %322, 11
   %324 = load i32, ptr @UseAVX, align 4
   %325 = icmp sgt i32 %324, 0
@@ -114268,7 +114268,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not108, label %.thread161, label %365
 
 365:                                              ; preds = %361
-  %366 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %366 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %367 = add i8 %366, -4
   %switch.and.i.i133 = and i8 %367, -6
   %switch.selectcmp.i.i134 = icmp eq i8 %switch.and.i.i133, 0
@@ -114278,7 +114278,7 @@ define hidden void @_ZN5State12_sub_Op_MaxVEPK4Node(ptr noundef nonnull align 8 
   br i1 %spec.select.i135, label %370, label %.thread161
 
 370:                                              ; preds = %365
-  %371 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %371 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %372 = icmp ne i8 %371, 11
   %373 = load i32, ptr @UseAVX, align 4
   %374 = icmp eq i32 %373, 0
@@ -114370,7 +114370,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 7
   br i1 %22, label %23, label %._crit_edge
 
@@ -114382,7 +114382,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #8
   %28 = icmp ugt i32 %27, 3
   %.pr.pre483 = load ptr, ptr %3, align 8
   br i1 %28, label %29, label %48
@@ -114447,7 +114447,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %63) #9
+  %64 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %63) #8
   %65 = icmp eq i8 %64, 7
   br i1 %65, label %66, label %._crit_edge485
 
@@ -114459,7 +114459,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %67 = load ptr, ptr %60, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %69) #9
+  %70 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %69) #8
   %71 = icmp eq i32 %70, 2
   %.pr375.pre486 = load ptr, ptr %3, align 8
   br i1 %71, label %72, label %124
@@ -114593,14 +114593,14 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %139) #9
+  %140 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %139) #8
   %141 = icmp eq i8 %140, 7
   br i1 %141, label %142, label %.thread376
 
 142:                                              ; preds = %135
   %143 = load ptr, ptr %1, align 8
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call noundef i32 %144(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %145 = tail call noundef i32 %144(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %146 = icmp eq i32 %145, 421
   br i1 %146, label %147, label %157
 
@@ -114611,7 +114611,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 40
   %153 = load ptr, ptr %152, align 8
-  %154 = tail call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(52) %150) #9
+  %154 = tail call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(52) %150) #8
   %155 = load ptr, ptr @_ZN5TypeD7POS_INFE, align 8
   %156 = icmp eq ptr %154, %155
   br i1 %156, label %172, label %157
@@ -114619,7 +114619,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
 157:                                              ; preds = %147, %142
   %158 = load ptr, ptr %1, align 8
   %159 = load ptr, ptr %158, align 8
-  %160 = tail call noundef i32 %159(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %160 = tail call noundef i32 %159(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %161 = icmp eq i32 %160, 422
   br i1 %161, label %162, label %.thread376
 
@@ -114630,7 +114630,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 40
   %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef ptr %168(ptr noundef nonnull align 8 dereferenceable(52) %165) #9
+  %169 = tail call noundef ptr %168(ptr noundef nonnull align 8 dereferenceable(52) %165) #8
   %170 = load ptr, ptr @_ZN5TypeD7NEG_INFE, align 8
   %171 = icmp eq ptr %169, %170
   br i1 %171, label %172, label %.thread376
@@ -114639,7 +114639,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %173 = load ptr, ptr %136, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %175) #9
+  %176 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %175) #8
   %177 = icmp ugt i32 %176, 3
   br i1 %177, label %178, label %.thread376
 
@@ -114772,14 +114772,14 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 16
   %246 = load ptr, ptr %245, align 8
-  %247 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %246) #9
+  %247 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %246) #8
   %248 = icmp eq i8 %247, 7
   br i1 %248, label %249, label %338
 
 249:                                              ; preds = %242
   %250 = load ptr, ptr %1, align 8
   %251 = load ptr, ptr %250, align 8
-  %252 = tail call noundef i32 %251(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %252 = tail call noundef i32 %251(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %253 = icmp eq i32 %252, 421
   br i1 %253, label %254, label %264
 
@@ -114790,7 +114790,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %258 = load ptr, ptr %257, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 40
   %260 = load ptr, ptr %259, align 8
-  %261 = tail call noundef ptr %260(ptr noundef nonnull align 8 dereferenceable(52) %257) #9
+  %261 = tail call noundef ptr %260(ptr noundef nonnull align 8 dereferenceable(52) %257) #8
   %262 = load ptr, ptr @_ZN5TypeD7POS_INFE, align 8
   %263 = icmp eq ptr %261, %262
   br i1 %263, label %279, label %264
@@ -114798,7 +114798,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
 264:                                              ; preds = %254, %249
   %265 = load ptr, ptr %1, align 8
   %266 = load ptr, ptr %265, align 8
-  %267 = tail call noundef i32 %266(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %267 = tail call noundef i32 %266(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %268 = icmp eq i32 %267, 422
   br i1 %268, label %269, label %338
 
@@ -114809,7 +114809,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 40
   %275 = load ptr, ptr %274, align 8
-  %276 = tail call noundef ptr %275(ptr noundef nonnull align 8 dereferenceable(52) %272) #9
+  %276 = tail call noundef ptr %275(ptr noundef nonnull align 8 dereferenceable(52) %272) #8
   %277 = load ptr, ptr @_ZN5TypeD7NEG_INFE, align 8
   %278 = icmp eq ptr %276, %277
   br i1 %278, label %279, label %338
@@ -114818,7 +114818,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %280 = load ptr, ptr %243, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 16
   %282 = load ptr, ptr %281, align 8
-  %283 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %282) #9
+  %283 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %282) #8
   %284 = icmp eq i32 %283, 2
   br i1 %284, label %285, label %338
 
@@ -114951,7 +114951,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 16
   %354 = load ptr, ptr %353, align 8
-  %355 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %354) #9
+  %355 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %354) #8
   %356 = icmp eq i8 %355, 6
   br i1 %356, label %357, label %..thread385_crit_edge
 
@@ -114963,7 +114963,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %358 = load ptr, ptr %351, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %360) #9
+  %361 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %360) #8
   %362 = icmp ugt i32 %361, 3
   %.pr388.pr.pr.pre488 = load ptr, ptr %3, align 8
   br i1 %362, label %363, label %.thread385
@@ -115028,7 +115028,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %394 = load ptr, ptr %393, align 8
   %395 = getelementptr inbounds i8, ptr %394, i64 16
   %396 = load ptr, ptr %395, align 8
-  %397 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %396) #9
+  %397 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %396) #8
   %398 = icmp eq i8 %397, 6
   br i1 %398, label %399, label %._crit_edge490
 
@@ -115040,7 +115040,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %400 = load ptr, ptr %393, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 16
   %402 = load ptr, ptr %401, align 8
-  %403 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %402) #9
+  %403 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %402) #8
   %404 = icmp eq i32 %403, 2
   %.pr392.pre491 = load ptr, ptr %3, align 8
   br i1 %404, label %405, label %457
@@ -115174,14 +115174,14 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 16
   %472 = load ptr, ptr %471, align 8
-  %473 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %472) #9
+  %473 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %472) #8
   %474 = icmp eq i8 %473, 6
   br i1 %474, label %475, label %.thread394
 
 475:                                              ; preds = %468
   %476 = load ptr, ptr %1, align 8
   %477 = load ptr, ptr %476, align 8
-  %478 = tail call noundef i32 %477(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %478 = tail call noundef i32 %477(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %479 = icmp eq i32 %478, 421
   br i1 %479, label %480, label %490
 
@@ -115192,7 +115192,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr inbounds i8, ptr %484, i64 40
   %486 = load ptr, ptr %485, align 8
-  %487 = tail call noundef ptr %486(ptr noundef nonnull align 8 dereferenceable(52) %483) #9
+  %487 = tail call noundef ptr %486(ptr noundef nonnull align 8 dereferenceable(52) %483) #8
   %488 = load ptr, ptr @_ZN5TypeF7POS_INFE, align 8
   %489 = icmp eq ptr %487, %488
   br i1 %489, label %505, label %490
@@ -115200,7 +115200,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
 490:                                              ; preds = %480, %475
   %491 = load ptr, ptr %1, align 8
   %492 = load ptr, ptr %491, align 8
-  %493 = tail call noundef i32 %492(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %493 = tail call noundef i32 %492(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %494 = icmp eq i32 %493, 422
   br i1 %494, label %495, label %.thread394
 
@@ -115211,7 +115211,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds i8, ptr %499, i64 40
   %501 = load ptr, ptr %500, align 8
-  %502 = tail call noundef ptr %501(ptr noundef nonnull align 8 dereferenceable(52) %498) #9
+  %502 = tail call noundef ptr %501(ptr noundef nonnull align 8 dereferenceable(52) %498) #8
   %503 = load ptr, ptr @_ZN5TypeF7NEG_INFE, align 8
   %504 = icmp eq ptr %502, %503
   br i1 %504, label %505, label %.thread394
@@ -115220,7 +115220,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %506 = load ptr, ptr %469, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 16
   %508 = load ptr, ptr %507, align 8
-  %509 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %508) #9
+  %509 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %508) #8
   %510 = icmp ugt i32 %509, 3
   br i1 %510, label %511, label %.thread394
 
@@ -115353,14 +115353,14 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %577 = load ptr, ptr %576, align 8
   %578 = getelementptr inbounds i8, ptr %577, i64 16
   %579 = load ptr, ptr %578, align 8
-  %580 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %579) #9
+  %580 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %579) #8
   %581 = icmp eq i8 %580, 6
   br i1 %581, label %582, label %671
 
 582:                                              ; preds = %575
   %583 = load ptr, ptr %1, align 8
   %584 = load ptr, ptr %583, align 8
-  %585 = tail call noundef i32 %584(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %585 = tail call noundef i32 %584(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %586 = icmp eq i32 %585, 421
   br i1 %586, label %587, label %597
 
@@ -115371,7 +115371,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %591 = load ptr, ptr %590, align 8
   %592 = getelementptr inbounds i8, ptr %591, i64 40
   %593 = load ptr, ptr %592, align 8
-  %594 = tail call noundef ptr %593(ptr noundef nonnull align 8 dereferenceable(52) %590) #9
+  %594 = tail call noundef ptr %593(ptr noundef nonnull align 8 dereferenceable(52) %590) #8
   %595 = load ptr, ptr @_ZN5TypeF7POS_INFE, align 8
   %596 = icmp eq ptr %594, %595
   br i1 %596, label %612, label %597
@@ -115379,7 +115379,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
 597:                                              ; preds = %587, %582
   %598 = load ptr, ptr %1, align 8
   %599 = load ptr, ptr %598, align 8
-  %600 = tail call noundef i32 %599(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %600 = tail call noundef i32 %599(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %601 = icmp eq i32 %600, 422
   br i1 %601, label %602, label %671
 
@@ -115390,7 +115390,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %606 = load ptr, ptr %605, align 8
   %607 = getelementptr inbounds i8, ptr %606, i64 40
   %608 = load ptr, ptr %607, align 8
-  %609 = tail call noundef ptr %608(ptr noundef nonnull align 8 dereferenceable(52) %605) #9
+  %609 = tail call noundef ptr %608(ptr noundef nonnull align 8 dereferenceable(52) %605) #8
   %610 = load ptr, ptr @_ZN5TypeF7NEG_INFE, align 8
   %611 = icmp eq ptr %609, %610
   br i1 %611, label %612, label %671
@@ -115399,7 +115399,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %613 = load ptr, ptr %576, align 8
   %614 = getelementptr inbounds i8, ptr %613, i64 16
   %615 = load ptr, ptr %614, align 8
-  %616 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %615) #9
+  %616 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %615) #8
   %617 = icmp eq i32 %616, 2
   br i1 %617, label %618, label %671
 
@@ -115532,7 +115532,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %685 = load ptr, ptr %684, align 8
   %686 = getelementptr inbounds i8, ptr %685, i64 16
   %687 = load ptr, ptr %686, align 8
-  %688 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %687) #9
+  %688 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %687) #8
   %689 = icmp eq i8 %688, 9
   %.pr406.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %689, label %690, label %.thread403
@@ -115590,7 +115590,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %718 = load ptr, ptr %717, align 8
   %719 = getelementptr inbounds i8, ptr %718, i64 16
   %720 = load ptr, ptr %719, align 8
-  %721 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %720) #9
+  %721 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %720) #8
   %722 = icmp eq i8 %721, 8
   br i1 %722, label %723, label %._crit_edge494
 
@@ -115796,7 +115796,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %830 = load ptr, ptr %829, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 16
   %832 = load ptr, ptr %831, align 8
-  %833 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %832) #9
+  %833 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %832) #8
   %834 = icmp eq i8 %833, 8
   br i1 %834, label %835, label %..thread412_crit_edge
 
@@ -116002,7 +116002,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %941 = load ptr, ptr %940, align 8
   %942 = getelementptr inbounds i8, ptr %941, i64 16
   %943 = load ptr, ptr %942, align 8
-  %944 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %943) #9
+  %944 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %943) #8
   %945 = icmp eq i8 %944, 11
   br i1 %945, label %946, label %._crit_edge499
 
@@ -116081,7 +116081,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %983 = load ptr, ptr %982, align 8
   %984 = getelementptr inbounds i8, ptr %983, i64 16
   %985 = load ptr, ptr %984, align 8
-  %986 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %985) #9
+  %986 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %985) #8
   %987 = icmp eq i8 %986, 11
   br i1 %987, label %988, label %..thread421_crit_edge
 
@@ -116271,7 +116271,7 @@ define hidden void @_ZN5State21_sub_Op_MinReductionVEPK4Node(ptr noundef nonnull
   %1085 = load ptr, ptr %1084, align 8
   %1086 = getelementptr inbounds i8, ptr %1085, i64 16
   %1087 = load ptr, ptr %1086, align 8
-  %1088 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1087) #9
+  %1088 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1087) #8
   %1089 = icmp eq i8 %1088, 10
   br i1 %1089, label %1090, label %.thread425
 
@@ -116472,7 +116472,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i8 %21, 7
   br i1 %22, label %23, label %._crit_edge
 
@@ -116484,7 +116484,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #8
   %28 = icmp ugt i32 %27, 3
   %.pr.pre483 = load ptr, ptr %3, align 8
   br i1 %28, label %29, label %48
@@ -116549,7 +116549,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %63) #9
+  %64 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %63) #8
   %65 = icmp eq i8 %64, 7
   br i1 %65, label %66, label %._crit_edge485
 
@@ -116561,7 +116561,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %67 = load ptr, ptr %60, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %69) #9
+  %70 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %69) #8
   %71 = icmp eq i32 %70, 2
   %.pr375.pre486 = load ptr, ptr %3, align 8
   br i1 %71, label %72, label %124
@@ -116695,14 +116695,14 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %139) #9
+  %140 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %139) #8
   %141 = icmp eq i8 %140, 7
   br i1 %141, label %142, label %.thread376
 
 142:                                              ; preds = %135
   %143 = load ptr, ptr %1, align 8
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call noundef i32 %144(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %145 = tail call noundef i32 %144(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %146 = icmp eq i32 %145, 421
   br i1 %146, label %147, label %157
 
@@ -116713,7 +116713,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 40
   %153 = load ptr, ptr %152, align 8
-  %154 = tail call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(52) %150) #9
+  %154 = tail call noundef ptr %153(ptr noundef nonnull align 8 dereferenceable(52) %150) #8
   %155 = load ptr, ptr @_ZN5TypeD7POS_INFE, align 8
   %156 = icmp eq ptr %154, %155
   br i1 %156, label %172, label %157
@@ -116721,7 +116721,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
 157:                                              ; preds = %147, %142
   %158 = load ptr, ptr %1, align 8
   %159 = load ptr, ptr %158, align 8
-  %160 = tail call noundef i32 %159(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %160 = tail call noundef i32 %159(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %161 = icmp eq i32 %160, 422
   br i1 %161, label %162, label %.thread376
 
@@ -116732,7 +116732,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 40
   %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef ptr %168(ptr noundef nonnull align 8 dereferenceable(52) %165) #9
+  %169 = tail call noundef ptr %168(ptr noundef nonnull align 8 dereferenceable(52) %165) #8
   %170 = load ptr, ptr @_ZN5TypeD7NEG_INFE, align 8
   %171 = icmp eq ptr %169, %170
   br i1 %171, label %172, label %.thread376
@@ -116741,7 +116741,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %173 = load ptr, ptr %136, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %175) #9
+  %176 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %175) #8
   %177 = icmp ugt i32 %176, 3
   br i1 %177, label %178, label %.thread376
 
@@ -116874,14 +116874,14 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 16
   %246 = load ptr, ptr %245, align 8
-  %247 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %246) #9
+  %247 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %246) #8
   %248 = icmp eq i8 %247, 7
   br i1 %248, label %249, label %338
 
 249:                                              ; preds = %242
   %250 = load ptr, ptr %1, align 8
   %251 = load ptr, ptr %250, align 8
-  %252 = tail call noundef i32 %251(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %252 = tail call noundef i32 %251(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %253 = icmp eq i32 %252, 421
   br i1 %253, label %254, label %264
 
@@ -116892,7 +116892,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %258 = load ptr, ptr %257, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 40
   %260 = load ptr, ptr %259, align 8
-  %261 = tail call noundef ptr %260(ptr noundef nonnull align 8 dereferenceable(52) %257) #9
+  %261 = tail call noundef ptr %260(ptr noundef nonnull align 8 dereferenceable(52) %257) #8
   %262 = load ptr, ptr @_ZN5TypeD7POS_INFE, align 8
   %263 = icmp eq ptr %261, %262
   br i1 %263, label %279, label %264
@@ -116900,7 +116900,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
 264:                                              ; preds = %254, %249
   %265 = load ptr, ptr %1, align 8
   %266 = load ptr, ptr %265, align 8
-  %267 = tail call noundef i32 %266(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %267 = tail call noundef i32 %266(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %268 = icmp eq i32 %267, 422
   br i1 %268, label %269, label %338
 
@@ -116911,7 +116911,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 40
   %275 = load ptr, ptr %274, align 8
-  %276 = tail call noundef ptr %275(ptr noundef nonnull align 8 dereferenceable(52) %272) #9
+  %276 = tail call noundef ptr %275(ptr noundef nonnull align 8 dereferenceable(52) %272) #8
   %277 = load ptr, ptr @_ZN5TypeD7NEG_INFE, align 8
   %278 = icmp eq ptr %276, %277
   br i1 %278, label %279, label %338
@@ -116920,7 +116920,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %280 = load ptr, ptr %243, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 16
   %282 = load ptr, ptr %281, align 8
-  %283 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %282) #9
+  %283 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %282) #8
   %284 = icmp eq i32 %283, 2
   br i1 %284, label %285, label %338
 
@@ -117053,7 +117053,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 16
   %354 = load ptr, ptr %353, align 8
-  %355 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %354) #9
+  %355 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %354) #8
   %356 = icmp eq i8 %355, 6
   br i1 %356, label %357, label %..thread385_crit_edge
 
@@ -117065,7 +117065,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %358 = load ptr, ptr %351, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %360) #9
+  %361 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %360) #8
   %362 = icmp ugt i32 %361, 3
   %.pr388.pr.pr.pre488 = load ptr, ptr %3, align 8
   br i1 %362, label %363, label %.thread385
@@ -117130,7 +117130,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %394 = load ptr, ptr %393, align 8
   %395 = getelementptr inbounds i8, ptr %394, i64 16
   %396 = load ptr, ptr %395, align 8
-  %397 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %396) #9
+  %397 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %396) #8
   %398 = icmp eq i8 %397, 6
   br i1 %398, label %399, label %._crit_edge490
 
@@ -117142,7 +117142,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %400 = load ptr, ptr %393, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 16
   %402 = load ptr, ptr %401, align 8
-  %403 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %402) #9
+  %403 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %402) #8
   %404 = icmp eq i32 %403, 2
   %.pr392.pre491 = load ptr, ptr %3, align 8
   br i1 %404, label %405, label %457
@@ -117276,14 +117276,14 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 16
   %472 = load ptr, ptr %471, align 8
-  %473 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %472) #9
+  %473 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %472) #8
   %474 = icmp eq i8 %473, 6
   br i1 %474, label %475, label %.thread394
 
 475:                                              ; preds = %468
   %476 = load ptr, ptr %1, align 8
   %477 = load ptr, ptr %476, align 8
-  %478 = tail call noundef i32 %477(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %478 = tail call noundef i32 %477(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %479 = icmp eq i32 %478, 421
   br i1 %479, label %480, label %490
 
@@ -117294,7 +117294,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr inbounds i8, ptr %484, i64 40
   %486 = load ptr, ptr %485, align 8
-  %487 = tail call noundef ptr %486(ptr noundef nonnull align 8 dereferenceable(52) %483) #9
+  %487 = tail call noundef ptr %486(ptr noundef nonnull align 8 dereferenceable(52) %483) #8
   %488 = load ptr, ptr @_ZN5TypeF7POS_INFE, align 8
   %489 = icmp eq ptr %487, %488
   br i1 %489, label %505, label %490
@@ -117302,7 +117302,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
 490:                                              ; preds = %480, %475
   %491 = load ptr, ptr %1, align 8
   %492 = load ptr, ptr %491, align 8
-  %493 = tail call noundef i32 %492(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %493 = tail call noundef i32 %492(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %494 = icmp eq i32 %493, 422
   br i1 %494, label %495, label %.thread394
 
@@ -117313,7 +117313,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds i8, ptr %499, i64 40
   %501 = load ptr, ptr %500, align 8
-  %502 = tail call noundef ptr %501(ptr noundef nonnull align 8 dereferenceable(52) %498) #9
+  %502 = tail call noundef ptr %501(ptr noundef nonnull align 8 dereferenceable(52) %498) #8
   %503 = load ptr, ptr @_ZN5TypeF7NEG_INFE, align 8
   %504 = icmp eq ptr %502, %503
   br i1 %504, label %505, label %.thread394
@@ -117322,7 +117322,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %506 = load ptr, ptr %469, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 16
   %508 = load ptr, ptr %507, align 8
-  %509 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %508) #9
+  %509 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %508) #8
   %510 = icmp ugt i32 %509, 3
   br i1 %510, label %511, label %.thread394
 
@@ -117455,14 +117455,14 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %577 = load ptr, ptr %576, align 8
   %578 = getelementptr inbounds i8, ptr %577, i64 16
   %579 = load ptr, ptr %578, align 8
-  %580 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %579) #9
+  %580 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %579) #8
   %581 = icmp eq i8 %580, 6
   br i1 %581, label %582, label %671
 
 582:                                              ; preds = %575
   %583 = load ptr, ptr %1, align 8
   %584 = load ptr, ptr %583, align 8
-  %585 = tail call noundef i32 %584(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %585 = tail call noundef i32 %584(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %586 = icmp eq i32 %585, 421
   br i1 %586, label %587, label %597
 
@@ -117473,7 +117473,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %591 = load ptr, ptr %590, align 8
   %592 = getelementptr inbounds i8, ptr %591, i64 40
   %593 = load ptr, ptr %592, align 8
-  %594 = tail call noundef ptr %593(ptr noundef nonnull align 8 dereferenceable(52) %590) #9
+  %594 = tail call noundef ptr %593(ptr noundef nonnull align 8 dereferenceable(52) %590) #8
   %595 = load ptr, ptr @_ZN5TypeF7POS_INFE, align 8
   %596 = icmp eq ptr %594, %595
   br i1 %596, label %612, label %597
@@ -117481,7 +117481,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
 597:                                              ; preds = %587, %582
   %598 = load ptr, ptr %1, align 8
   %599 = load ptr, ptr %598, align 8
-  %600 = tail call noundef i32 %599(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %600 = tail call noundef i32 %599(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %601 = icmp eq i32 %600, 422
   br i1 %601, label %602, label %671
 
@@ -117492,7 +117492,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %606 = load ptr, ptr %605, align 8
   %607 = getelementptr inbounds i8, ptr %606, i64 40
   %608 = load ptr, ptr %607, align 8
-  %609 = tail call noundef ptr %608(ptr noundef nonnull align 8 dereferenceable(52) %605) #9
+  %609 = tail call noundef ptr %608(ptr noundef nonnull align 8 dereferenceable(52) %605) #8
   %610 = load ptr, ptr @_ZN5TypeF7NEG_INFE, align 8
   %611 = icmp eq ptr %609, %610
   br i1 %611, label %612, label %671
@@ -117501,7 +117501,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %613 = load ptr, ptr %576, align 8
   %614 = getelementptr inbounds i8, ptr %613, i64 16
   %615 = load ptr, ptr %614, align 8
-  %616 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %615) #9
+  %616 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %615) #8
   %617 = icmp eq i32 %616, 2
   br i1 %617, label %618, label %671
 
@@ -117634,7 +117634,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %685 = load ptr, ptr %684, align 8
   %686 = getelementptr inbounds i8, ptr %685, i64 16
   %687 = load ptr, ptr %686, align 8
-  %688 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %687) #9
+  %688 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %687) #8
   %689 = icmp eq i8 %688, 9
   %.pr406.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %689, label %690, label %.thread403
@@ -117692,7 +117692,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %718 = load ptr, ptr %717, align 8
   %719 = getelementptr inbounds i8, ptr %718, i64 16
   %720 = load ptr, ptr %719, align 8
-  %721 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %720) #9
+  %721 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %720) #8
   %722 = icmp eq i8 %721, 8
   br i1 %722, label %723, label %._crit_edge494
 
@@ -117898,7 +117898,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %830 = load ptr, ptr %829, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 16
   %832 = load ptr, ptr %831, align 8
-  %833 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %832) #9
+  %833 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %832) #8
   %834 = icmp eq i8 %833, 8
   br i1 %834, label %835, label %..thread412_crit_edge
 
@@ -118104,7 +118104,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %941 = load ptr, ptr %940, align 8
   %942 = getelementptr inbounds i8, ptr %941, i64 16
   %943 = load ptr, ptr %942, align 8
-  %944 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %943) #9
+  %944 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %943) #8
   %945 = icmp eq i8 %944, 11
   br i1 %945, label %946, label %._crit_edge499
 
@@ -118183,7 +118183,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %983 = load ptr, ptr %982, align 8
   %984 = getelementptr inbounds i8, ptr %983, i64 16
   %985 = load ptr, ptr %984, align 8
-  %986 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %985) #9
+  %986 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %985) #8
   %987 = icmp eq i8 %986, 11
   br i1 %987, label %988, label %..thread421_crit_edge
 
@@ -118373,7 +118373,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
   %1085 = load ptr, ptr %1084, align 8
   %1086 = getelementptr inbounds i8, ptr %1085, i64 16
   %1087 = load ptr, ptr %1086, align 8
-  %1088 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1087) #9
+  %1088 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1087) #8
   %1089 = icmp eq i8 %1088, 10
   br i1 %1089, label %1090, label %.thread425
 
@@ -118576,7 +118576,7 @@ define hidden void @_ZN5State17_sub_Op_CompressVEPK4Node(ptr nocapture noundef n
   br i1 %.not21, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %21 = icmp eq i32 %20, 64
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %21, label %._crit_edge, label %36
@@ -118637,7 +118637,7 @@ define hidden void @_ZN5State17_sub_Op_CompressVEPK4Node(ptr nocapture noundef n
   br i1 %.not22, label %50, label %.thread
 
 50:                                               ; preds = %47
-  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %52 = icmp ult i32 %51, 33
   br i1 %52, label %53, label %.thread
 
@@ -118756,7 +118756,7 @@ define hidden void @_ZN5State15_sub_Op_ExpandVEPK4Node(ptr nocapture noundef non
   br i1 %.not21, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %21 = icmp eq i32 %20, 64
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %21, label %._crit_edge, label %36
@@ -118817,7 +118817,7 @@ define hidden void @_ZN5State15_sub_Op_ExpandVEPK4Node(ptr nocapture noundef non
   br i1 %.not22, label %50, label %.thread
 
 50:                                               ; preds = %47
-  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %51 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %52 = icmp ult i32 %51, 33
   br i1 %52, label %53, label %.thread
 
@@ -118946,7 +118946,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br i1 %.not47, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %17 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %18 = add i8 %17, -4
   %switch.and.i = and i8 %18, -6
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
@@ -118957,7 +118957,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br label %35
 
 19:                                               ; preds = %16
-  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %21 = icmp ugt i32 %20, 8
   %.pr.pre121 = load ptr, ptr %3, align 8
   br i1 %21, label %22, label %35
@@ -119008,7 +119008,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br i1 %.not51, label %.thread150, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %47 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %48 = add i8 %47, -4
   %switch.and.i82 = and i8 %48, -6
   %switch.selectcmp.i83 = icmp eq i8 %switch.and.i82, 0
@@ -119019,7 +119019,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br label %80
 
 49:                                               ; preds = %46
-  %50 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %50 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %51 = icmp ult i32 %50, 9
   %.pr94.pre124 = load ptr, ptr %3, align 8
   br i1 %51, label %52, label %80
@@ -119099,7 +119099,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br i1 %.not55, label %.thread95.thread, label %91
 
 91:                                               ; preds = %87
-  %92 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %92 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %93 = add i8 %92, -4
   %switch.and.i84 = and i8 %93, -6
   %switch.selectcmp.i85 = icmp eq i8 %switch.and.i84, 0
@@ -119110,7 +119110,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br label %.thread95
 
 94:                                               ; preds = %91
-  %95 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %95 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %96 = icmp ugt i32 %95, 8
   %.pr98.pr.pre126 = load ptr, ptr %3, align 8
   br i1 %96, label %97, label %.thread95
@@ -119190,7 +119190,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br i1 %.not59, label %.thread158, label %135
 
 135:                                              ; preds = %131
-  %136 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %136 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %137 = add i8 %136, -4
   %switch.and.i86 = and i8 %137, -6
   %switch.selectcmp.i87 = icmp eq i8 %switch.and.i86, 0
@@ -119201,7 +119201,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br label %169
 
 138:                                              ; preds = %135
-  %139 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %139 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %140 = icmp ult i32 %139, 9
   %.pr102.pre129 = load ptr, ptr %3, align 8
   br i1 %140, label %141, label %169
@@ -119287,7 +119287,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br i1 %.not119, label %183, label %186
 
 183:                                              ; preds = %180
-  %184 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %184 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %185 = icmp eq i32 %184, 64
   br i1 %185, label %186, label %..thread104_crit_edge
 
@@ -119296,7 +119296,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br label %.thread104
 
 186:                                              ; preds = %183, %180
-  %187 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %187 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %188 = add i8 %187, -4
   %switch.and.i88 = and i8 %188, -6
   %switch.selectcmp.i89 = icmp eq i8 %switch.and.i88, 0
@@ -119384,14 +119384,14 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorGatherEPK4Node(ptr noundef nonn
   br i1 %.not120, label %230, label %.thread108
 
 230:                                              ; preds = %227
-  %231 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %231 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %232 = add i8 %231, -4
   %switch.and.i90 = and i8 %232, -6
   %switch.selectcmp.i91 = icmp eq i8 %switch.and.i90, 0
   br i1 %switch.selectcmp.i91, label %.thread108, label %233
 
 233:                                              ; preds = %230
-  %234 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %234 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %235 = icmp ult i32 %234, 33
   br i1 %235, label %236, label %.thread108
 
@@ -119482,7 +119482,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %21 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %22 = add i8 %21, -4
   %switch.and.i = and i8 %22, -6
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
@@ -119493,7 +119493,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %39
 
 23:                                               ; preds = %20
-  %24 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %24 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %25 = icmp ugt i32 %24, 8
   %.pr.pre196 = load ptr, ptr %3, align 8
   br i1 %25, label %26, label %39
@@ -119550,7 +119550,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %53, label %.thread242, label %54
 
 54:                                               ; preds = %50
-  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %55 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %56 = add i8 %55, -4
   %switch.and.i127 = and i8 %56, -6
   %switch.selectcmp.i128 = icmp eq i8 %switch.and.i127, 0
@@ -119561,7 +119561,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %88
 
 57:                                               ; preds = %54
-  %58 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %58 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %59 = icmp ult i32 %58, 9
   %.pr145.pre199 = load ptr, ptr %3, align 8
   br i1 %59, label %60, label %88
@@ -119647,7 +119647,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %102, label %.thread146.thread, label %103
 
 103:                                              ; preds = %99
-  %104 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %104 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %105 = add i8 %104, -4
   %switch.and.i129 = and i8 %105, -6
   %switch.selectcmp.i130 = icmp eq i8 %switch.and.i129, 0
@@ -119658,7 +119658,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %.thread146
 
 106:                                              ; preds = %103
-  %107 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %107 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %108 = icmp ugt i32 %107, 8
   %.pr149.pr.pre201 = load ptr, ptr %3, align 8
   br i1 %108, label %109, label %.thread146
@@ -119744,7 +119744,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %150, label %.thread250, label %151
 
 151:                                              ; preds = %147
-  %152 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %152 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %153 = add i8 %152, -4
   %switch.and.i131 = and i8 %153, -6
   %switch.selectcmp.i132 = icmp eq i8 %switch.and.i131, 0
@@ -119755,7 +119755,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %185
 
 154:                                              ; preds = %151
-  %155 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %155 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %156 = icmp ult i32 %155, 9
   %.pr153.pre204 = load ptr, ptr %3, align 8
   br i1 %156, label %157, label %185
@@ -119841,7 +119841,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %.not191, label %.thread155.thread, label %199
 
 199:                                              ; preds = %196
-  %200 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %200 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %201 = add i8 %200, -4
   %switch.and.i133 = and i8 %201, -6
   %switch.selectcmp.i134 = icmp eq i8 %switch.and.i133, 0
@@ -119852,7 +119852,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %.thread155
 
 202:                                              ; preds = %199
-  %203 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %203 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %204 = icmp ugt i32 %203, 8
   %.pr158.pr.pr.pre206 = load ptr, ptr %3, align 8
   br i1 %204, label %205, label %.thread155
@@ -119938,7 +119938,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %.not192, label %.thread258, label %246
 
 246:                                              ; preds = %243
-  %247 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %247 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %248 = add i8 %247, -4
   %switch.and.i135 = and i8 %248, -6
   %switch.selectcmp.i136 = icmp eq i8 %switch.and.i135, 0
@@ -119949,7 +119949,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %280
 
 249:                                              ; preds = %246
-  %250 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %250 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %251 = icmp ult i32 %250, 9
   %.pr162.pre209 = load ptr, ptr %3, align 8
   br i1 %251, label %252, label %280
@@ -120035,7 +120035,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %.not193, label %.thread164.thread, label %294
 
 294:                                              ; preds = %291
-  %295 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %295 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %296 = add i8 %295, -4
   %switch.and.i137 = and i8 %296, -6
   %switch.selectcmp.i138 = icmp eq i8 %switch.and.i137, 0
@@ -120046,7 +120046,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %.thread164
 
 297:                                              ; preds = %294
-  %298 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %298 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %299 = icmp ugt i32 %298, 8
   %.pr167.pr.pr.pre211 = load ptr, ptr %3, align 8
   br i1 %299, label %300, label %.thread164
@@ -120132,7 +120132,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %.not194, label %.thread266, label %341
 
 341:                                              ; preds = %338
-  %342 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %342 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %343 = add i8 %342, -4
   %switch.and.i139 = and i8 %343, -6
   %switch.selectcmp.i140 = icmp eq i8 %switch.and.i139, 0
@@ -120143,7 +120143,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br label %375
 
 344:                                              ; preds = %341
-  %345 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %345 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %346 = icmp ult i32 %345, 9
   %.pr171.pre214 = load ptr, ptr %3, align 8
   br i1 %346, label %347, label %375
@@ -120229,12 +120229,12 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
   br i1 %.not195, label %389, label %392
 
 389:                                              ; preds = %386
-  %390 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %390 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %391 = icmp eq i32 %390, 64
   br i1 %391, label %392, label %.thread173
 
 392:                                              ; preds = %389, %386
-  %393 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %393 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %394 = add i8 %393, -4
   %switch.and.i141 = and i8 %394, -6
   %switch.selectcmp.i142 = icmp eq i8 %switch.and.i141, 0
@@ -120497,7 +120497,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorMaskedEPK4Node(ptr nocapture no
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(52) %20) #9
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(52) %20) #8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp ne i32 %26, 11
@@ -120558,7 +120558,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorMaskedEPK4Node(ptr nocapture no
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 40
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(52) %56) #9
+  %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(52) %56) #8
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = icmp ne i32 %62, 11
@@ -120658,7 +120658,7 @@ define hidden void @_ZN5State25_sub_Op_StoreVectorMaskedEPK4Node(ptr nocapture n
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(52) %24) #9
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(52) %24) #8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp ne i32 %30, 11
@@ -120717,7 +120717,7 @@ define hidden void @_ZN5State25_sub_Op_StoreVectorMaskedEPK4Node(ptr nocapture n
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 40
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(52) %60) #9
+  %64 = tail call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(52) %60) #8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = icmp ne i32 %66, 11
@@ -120968,7 +120968,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskTrueCountEPK4Node(ptr noundef n
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %17) #8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp ne i32 %23, 11
@@ -121016,7 +121016,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskTrueCountEPK4Node(ptr noundef n
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(52) %47) #9
+  %51 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(52) %47) #8
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = icmp ne i32 %53, 11
@@ -121201,7 +121201,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskTrueCountEPK4Node(ptr noundef n
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 40
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call noundef ptr %155(ptr noundef nonnull align 8 dereferenceable(52) %152) #9
+  %156 = tail call noundef ptr %155(ptr noundef nonnull align 8 dereferenceable(52) %152) #8
   %157 = getelementptr inbounds i8, ptr %156, i64 16
   %158 = load i32, ptr %157, align 8
   %159 = icmp ne i32 %158, 11
@@ -121400,7 +121400,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskFirstTrueEPK4Node(ptr noundef n
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(52) %20) #9
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(52) %20) #8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp ne i32 %26, 11
@@ -121451,7 +121451,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskFirstTrueEPK4Node(ptr noundef n
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(52) %52) #9
+  %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(52) %52) #8
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = icmp ne i32 %58, 11
@@ -121639,7 +121639,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskFirstTrueEPK4Node(ptr noundef n
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 40
   %162 = load ptr, ptr %161, align 8
-  %163 = tail call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(52) %159) #9
+  %163 = tail call noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(52) %159) #8
   %164 = getelementptr inbounds i8, ptr %163, i64 16
   %165 = load i32, ptr %164, align 8
   %166 = icmp ne i32 %165, 11
@@ -121834,7 +121834,7 @@ define hidden void @_ZN5State26_sub_Op_VectorMaskLastTrueEPK4Node(ptr noundef no
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %17) #8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp ne i32 %23, 11
@@ -121882,7 +121882,7 @@ define hidden void @_ZN5State26_sub_Op_VectorMaskLastTrueEPK4Node(ptr noundef no
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(52) %47) #9
+  %51 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(52) %47) #8
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = icmp ne i32 %53, 11
@@ -122067,7 +122067,7 @@ define hidden void @_ZN5State26_sub_Op_VectorMaskLastTrueEPK4Node(ptr noundef no
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 40
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call noundef ptr %155(ptr noundef nonnull align 8 dereferenceable(52) %152) #9
+  %156 = tail call noundef ptr %155(ptr noundef nonnull align 8 dereferenceable(52) %152) #8
   %157 = getelementptr inbounds i8, ptr %156, i64 16
   %158 = load i32, ptr %157, align 8
   %159 = icmp ne i32 %158, 11
@@ -122262,7 +122262,7 @@ define hidden void @_ZN5State24_sub_Op_VectorMaskToLongEPK4Node(ptr noundef nonn
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %17) #9
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %17) #8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp ne i32 %23, 11
@@ -122320,7 +122320,7 @@ define hidden void @_ZN5State24_sub_Op_VectorMaskToLongEPK4Node(ptr noundef nonn
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(52) %52) #9
+  %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(52) %52) #8
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = icmp ne i32 %58, 11
@@ -122489,7 +122489,7 @@ define hidden void @_ZN5State24_sub_Op_VectorMaskToLongEPK4Node(ptr noundef nonn
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 40
   %151 = load ptr, ptr %150, align 8
-  %152 = tail call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(52) %148) #9
+  %152 = tail call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(52) %148) #8
   %153 = getelementptr inbounds i8, ptr %152, i64 16
   %154 = load i32, ptr %153, align 8
   %155 = icmp ne i32 %154, 11
@@ -122660,7 +122660,7 @@ define hidden void @_ZN5State24_sub_Op_VectorLongToMaskEPK4Node(ptr nocapture no
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp ne i32 %15, 11
@@ -122695,7 +122695,7 @@ define hidden void @_ZN5State24_sub_Op_VectorLongToMaskEPK4Node(ptr nocapture no
   %28 = load ptr, ptr %1, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = icmp ne i32 %33, 11
@@ -122708,7 +122708,7 @@ define hidden void @_ZN5State24_sub_Op_VectorLongToMaskEPK4Node(ptr nocapture no
   br label %49
 
 37:                                               ; preds = %27
-  %38 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %1) #9
+  %38 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %1) #8
   %39 = icmp ugt i32 %38, 8
   %.pr26.pre31 = load ptr, ptr %3, align 8
   br i1 %39, label %40, label %49
@@ -122744,7 +122744,7 @@ define hidden void @_ZN5State24_sub_Op_VectorLongToMaskEPK4Node(ptr nocapture no
   %54 = load ptr, ptr %1, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %57 = tail call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = icmp ne i32 %59, 11
@@ -122753,7 +122753,7 @@ define hidden void @_ZN5State24_sub_Op_VectorLongToMaskEPK4Node(ptr nocapture no
   br i1 %62, label %63, label %.thread27
 
 63:                                               ; preds = %53
-  %64 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %1) #9
+  %64 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %1) #8
   %65 = icmp ult i32 %64, 9
   br i1 %65, label %66, label %.thread27
 
@@ -122821,7 +122821,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not160, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %10 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %11 = icmp eq i8 %10, 7
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %11, label %12, label %21
@@ -122853,7 +122853,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not162, label %.thread590, label %25
 
 25:                                               ; preds = %.thread
-  %26 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %26 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %27 = icmp eq i8 %26, 7
   %.pr268.pre = load ptr, ptr %3, align 8
   br i1 %27, label %28, label %52
@@ -122918,7 +122918,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond, label %59, label %.thread269.thread
 
 59:                                               ; preds = %.thread590
-  %60 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %60 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %61 = icmp eq i8 %60, 7
   %.pr272.pr.pre = load ptr, ptr %3, align 8
   br i1 %61, label %62, label %.thread269
@@ -122983,7 +122983,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond3, label %92, label %.thread598
 
 92:                                               ; preds = %.thread269.thread
-  %93 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %93 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %94 = icmp eq i8 %93, 7
   %.pr276.pre = load ptr, ptr %3, align 8
   br i1 %94, label %95, label %119
@@ -123048,7 +123048,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond5, label %126, label %.thread278.thread
 
 126:                                              ; preds = %.thread598
-  %127 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %127 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %128 = icmp eq i8 %127, 7
   %.pr281.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %128, label %129, label %.thread278
@@ -123110,7 +123110,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not167, label %.thread606, label %156
 
 156:                                              ; preds = %.thread278.thread
-  %157 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %157 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %158 = icmp eq i8 %157, 6
   %.pr285.pre = load ptr, ptr %3, align 8
   br i1 %158, label %159, label %183
@@ -123172,7 +123172,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not169, label %.thread287.thread, label %187
 
 187:                                              ; preds = %.thread606
-  %188 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %188 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %189 = icmp eq i8 %188, 6
   %.pr290.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %189, label %190, label %.thread287
@@ -123237,7 +123237,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond7, label %220, label %.thread614
 
 220:                                              ; preds = %.thread287.thread
-  %221 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %221 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %222 = icmp eq i8 %221, 6
   %.pr294.pre = load ptr, ptr %3, align 8
   br i1 %222, label %223, label %247
@@ -123302,7 +123302,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond9, label %254, label %.thread296.thread
 
 254:                                              ; preds = %.thread614
-  %255 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %255 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %256 = icmp eq i8 %255, 6
   %.pr299.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %256, label %257, label %.thread296
@@ -123367,7 +123367,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond11, label %287, label %.thread622
 
 287:                                              ; preds = %.thread296.thread
-  %288 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %288 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %289 = icmp eq i8 %288, 6
   %.pr303.pre = load ptr, ptr %3, align 8
   br i1 %289, label %290, label %314
@@ -123432,7 +123432,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond13, label %321, label %.thread305.thread
 
 321:                                              ; preds = %.thread622
-  %322 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %322 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %323 = icmp eq i8 %322, 11
   %.pr308.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %323, label %324, label %.thread305
@@ -123494,7 +123494,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not175, label %.thread630, label %351
 
 351:                                              ; preds = %.thread305.thread
-  %352 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %352 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %353 = icmp eq i8 %352, 11
   %.pr312.pre = load ptr, ptr %3, align 8
   br i1 %353, label %354, label %378
@@ -123556,7 +123556,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not177, label %.thread314.thread, label %382
 
 382:                                              ; preds = %.thread630
-  %383 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %383 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %384 = icmp eq i8 %383, 11
   %.pr317.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %384, label %385, label %.thread314
@@ -123618,7 +123618,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not179, label %.thread638, label %412
 
 412:                                              ; preds = %.thread314.thread
-  %413 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %413 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %414 = icmp eq i8 %413, 11
   %.pr321.pre = load ptr, ptr %3, align 8
   br i1 %414, label %415, label %439
@@ -123680,7 +123680,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not181, label %.thread323.thread, label %443
 
 443:                                              ; preds = %.thread638
-  %444 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %444 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %445 = icmp eq i8 %444, 11
   %.pr326.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %445, label %446, label %.thread323
@@ -123745,7 +123745,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond15, label %476, label %.thread646
 
 476:                                              ; preds = %.thread323.thread
-  %477 = tail call noundef zeroext i1 @_ZN7Matcher27is_non_long_integral_vectorEPK4Node(ptr noundef %1) #9
+  %477 = tail call noundef zeroext i1 @_ZN7Matcher27is_non_long_integral_vectorEPK4Node(ptr noundef %1) #8
   %.pr330.pre = load ptr, ptr %3, align 8
   br i1 %477, label %478, label %502
 
@@ -123806,7 +123806,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not184, label %.thread332.thread, label %506
 
 506:                                              ; preds = %.thread646
-  %507 = tail call noundef zeroext i1 @_ZN7Matcher27is_non_long_integral_vectorEPK4Node(ptr noundef %1) #9
+  %507 = tail call noundef zeroext i1 @_ZN7Matcher27is_non_long_integral_vectorEPK4Node(ptr noundef %1) #8
   %.pr335.pr.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %507, label %508, label %.thread332
 
@@ -123867,7 +123867,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not186, label %.thread654, label %535
 
 535:                                              ; preds = %.thread332.thread
-  %536 = tail call noundef zeroext i1 @_ZN7Matcher27is_non_long_integral_vectorEPK4Node(ptr noundef %1) #9
+  %536 = tail call noundef zeroext i1 @_ZN7Matcher27is_non_long_integral_vectorEPK4Node(ptr noundef %1) #8
   %.pr339.pre = load ptr, ptr %3, align 8
   br i1 %536, label %537, label %561
 
@@ -123928,7 +123928,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not188, label %.thread341.thread, label %565
 
 565:                                              ; preds = %.thread654
-  %566 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %566 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %567 = icmp eq i8 %566, 10
   %.pr344.pr.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %567, label %568, label %.thread341
@@ -123990,7 +123990,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not190, label %.thread662, label %595
 
 595:                                              ; preds = %.thread341.thread
-  %596 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %596 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %597 = icmp eq i8 %596, 10
   %.pr348.pre = load ptr, ptr %3, align 8
   br i1 %597, label %598, label %622
@@ -124055,7 +124055,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond17, label %629, label %.thread350.thread
 
 629:                                              ; preds = %.thread662
-  %630 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %630 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %631 = icmp eq i8 %630, 9
   %.pr353.pr.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %631, label %632, label %.thread350
@@ -124117,7 +124117,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not193, label %.thread670, label %659
 
 659:                                              ; preds = %.thread350.thread
-  %660 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %660 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %661 = icmp eq i8 %660, 9
   %.pr357.pre = load ptr, ptr %3, align 8
   br i1 %661, label %662, label %686
@@ -124182,7 +124182,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %or.cond19, label %693, label %.thread359.thread
 
 693:                                              ; preds = %.thread670
-  %694 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %694 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %695 = icmp eq i8 %694, 8
   %.pr362.pr.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %695, label %696, label %.thread359
@@ -124244,7 +124244,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
   br i1 %.not196, label %.thread363, label %723
 
 723:                                              ; preds = %.thread359.thread
-  %724 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %724 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %725 = icmp eq i8 %724, 8
   br i1 %725, label %726, label %.thread363
 
@@ -124320,7 +124320,7 @@ define hidden void @_ZN5State15_sub_Op_RoundVFEPK4Node(ptr nocapture noundef non
   br i1 %.not17, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %13 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %14 = icmp eq i32 %13, 64
   br i1 %14, label %15, label %._crit_edge
 
@@ -124329,7 +124329,7 @@ define hidden void @_ZN5State15_sub_Op_RoundVFEPK4Node(ptr nocapture noundef non
   br label %27
 
 15:                                               ; preds = %12, %9
-  %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %17 = icmp eq i8 %16, 10
   %.pr.pre19 = load ptr, ptr %3, align 8
   br i1 %17, label %18, label %27
@@ -124368,12 +124368,12 @@ define hidden void @_ZN5State15_sub_Op_RoundVFEPK4Node(ptr nocapture noundef non
   br i1 %.not18, label %34, label %.thread
 
 34:                                               ; preds = %31
-  %35 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %35 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %36 = icmp ult i32 %35, 64
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %34
-  %38 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %38 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %39 = icmp eq i8 %38, 10
   br i1 %39, label %40, label %.thread
 
@@ -124441,7 +124441,7 @@ define hidden void @_ZN5State15_sub_Op_RoundVDEPK4Node(ptr nocapture noundef non
   br i1 %.not3, label %22, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %10 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %11 = icmp eq i8 %10, 11
   br i1 %11, label %12, label %22
 
@@ -124496,7 +124496,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractBEPK4Node(ptr noundef nonnull alig
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 32
   br i1 %22, label %29, label %23
 
@@ -124504,7 +124504,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractBEPK4Node(ptr noundef nonnull alig
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 64
   br i1 %28, label %29, label %46
 
@@ -124563,7 +124563,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractBEPK4Node(ptr noundef nonnull alig
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %61) #9
+  %62 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %61) #8
   %63 = icmp ult i32 %62, 17
   br i1 %63, label %64, label %.thread
 
@@ -124764,7 +124764,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractSEPK4Node(ptr noundef nonnull alig
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 32
   br i1 %22, label %29, label %23
 
@@ -124772,7 +124772,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractSEPK4Node(ptr noundef nonnull alig
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 64
   br i1 %28, label %29, label %46
 
@@ -124831,7 +124831,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractSEPK4Node(ptr noundef nonnull alig
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %61) #9
+  %62 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %61) #8
   %63 = icmp ult i32 %62, 17
   br i1 %63, label %64, label %.thread
 
@@ -125032,7 +125032,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractIEPK4Node(ptr noundef nonnull alig
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 32
   br i1 %22, label %29, label %23
 
@@ -125040,7 +125040,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractIEPK4Node(ptr noundef nonnull alig
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 64
   br i1 %28, label %29, label %46
 
@@ -125099,7 +125099,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractIEPK4Node(ptr noundef nonnull alig
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %61) #9
+  %62 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %61) #8
   %63 = icmp ult i32 %62, 17
   br i1 %63, label %64, label %.thread
 
@@ -125300,7 +125300,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractLEPK4Node(ptr nocapture noundef no
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %29, label %23
 
@@ -125308,7 +125308,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractLEPK4Node(ptr nocapture noundef no
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 8
   br i1 %28, label %29, label %51
 
@@ -125377,7 +125377,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractLEPK4Node(ptr nocapture noundef no
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %66) #9
+  %67 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %66) #8
   %68 = icmp ult i32 %67, 3
   br i1 %68, label %69, label %.thread
 
@@ -125562,7 +125562,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractFEPK4Node(ptr nocapture noundef no
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 8
   br i1 %22, label %29, label %23
 
@@ -125570,7 +125570,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractFEPK4Node(ptr nocapture noundef no
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 16
   br i1 %28, label %29, label %49
 
@@ -125635,7 +125635,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractFEPK4Node(ptr nocapture noundef no
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %64) #9
+  %65 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %64) #8
   %66 = icmp ult i32 %65, 5
   br i1 %66, label %67, label %.thread
 
@@ -125774,7 +125774,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractDEPK4Node(ptr nocapture noundef no
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %29, label %23
 
@@ -125782,7 +125782,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractDEPK4Node(ptr nocapture noundef no
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 8
   br i1 %28, label %29, label %49
 
@@ -125847,7 +125847,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractDEPK4Node(ptr nocapture noundef no
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %64) #9
+  %65 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %64) #8
   %66 = icmp eq i32 %65, 2
   br i1 %66, label %67, label %.thread
 
@@ -126014,7 +126014,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
   %38 = icmp ne i32 %37, 11
@@ -126035,7 +126035,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %47) #9
+  %48 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %47) #8
   %49 = add i8 %48, -4
   %switch.and.i.i = and i8 %49, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -126098,7 +126098,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   %80 = load ptr, ptr %1, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %84 = getelementptr inbounds i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8
   %86 = icmp ne i32 %85, 11
@@ -126115,7 +126115,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %97) #9
+  %98 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %97) #8
   %99 = icmp eq i32 %98, 64
   br i1 %99, label %100, label %126
 
@@ -126127,7 +126127,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %107) #9
+  %108 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %107) #8
   %109 = add i8 %108, -4
   %switch.and.i.i137 = and i8 %109, -6
   %switch.selectcmp.i.i138 = icmp eq i8 %switch.and.i.i137, 0
@@ -126185,7 +126185,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   %139 = load ptr, ptr %1, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 40
   %141 = load ptr, ptr %140, align 8
-  %142 = tail call noundef ptr %141(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %142 = tail call noundef ptr %141(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %143 = getelementptr inbounds i8, ptr %142, i64 16
   %144 = load i32, ptr %143, align 8
   %145 = icmp ne i32 %144, 11
@@ -126198,14 +126198,14 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskCmpEPK4Node(ptr noundef nonnull
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8
-  %153 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %152) #9
+  %153 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %152) #8
   %.not.i = icmp eq ptr %153, null
   br i1 %.not.i, label %154, label %_ZNK4Node7get_intEv.exit
 
 154:                                              ; preds = %148
   %155 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %155, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit:                         ; preds = %148
@@ -126223,7 +126223,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %148
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
-  %167 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %166) #9
+  %167 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %166) #8
   %168 = icmp ugt i32 %167, 3
   br i1 %168, label %169, label %.thread164
 
@@ -126235,7 +126235,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %148
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %176) #9
+  %177 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %176) #8
   %178 = icmp ult i32 %177, 33
   br i1 %178, label %179, label %.thread164
 
@@ -126247,7 +126247,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %148
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8
-  %187 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %186) #9
+  %187 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %186) #8
   %188 = add i8 %187, -4
   %switch.and.i.i141 = and i8 %188, -6
   %switch.selectcmp.i.i142 = icmp eq i8 %switch.and.i.i141, 0
@@ -126334,7 +126334,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %148
   %232 = load ptr, ptr %1, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 40
   %234 = load ptr, ptr %233, align 8
-  %235 = tail call noundef ptr %234(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %235 = tail call noundef ptr %234(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %236 = getelementptr inbounds i8, ptr %235, i64 16
   %237 = load i32, ptr %236, align 8
   %238 = icmp ne i32 %237, 11
@@ -126347,14 +126347,14 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %148
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 16
   %245 = load ptr, ptr %244, align 8
-  %246 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %245) #9
+  %246 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %245) #8
   %.not.i145 = icmp eq ptr %246, null
   br i1 %.not.i145, label %247, label %_ZNK4Node7get_intEv.exit146
 
 247:                                              ; preds = %241
   %248 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %248, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit146:                      ; preds = %241
@@ -126372,7 +126372,7 @@ _ZNK4Node7get_intEv.exit146:                      ; preds = %241
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8
-  %260 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %259) #9
+  %260 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %259) #8
   %261 = icmp ugt i32 %260, 3
   br i1 %261, label %262, label %331
 
@@ -126384,7 +126384,7 @@ _ZNK4Node7get_intEv.exit146:                      ; preds = %241
   %267 = load ptr, ptr %266, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 8
   %269 = load ptr, ptr %268, align 8
-  %270 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %269) #9
+  %270 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %269) #8
   %271 = icmp ult i32 %270, 33
   br i1 %271, label %272, label %331
 
@@ -126396,7 +126396,7 @@ _ZNK4Node7get_intEv.exit146:                      ; preds = %241
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 8
   %279 = load ptr, ptr %278, align 8
-  %280 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %279) #9
+  %280 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %279) #8
   %281 = add i8 %280, -4
   %switch.and.i.i147 = and i8 %281, -6
   %switch.selectcmp.i.i148 = icmp eq i8 %switch.and.i.i147, 0
@@ -126507,7 +126507,7 @@ _ZNK4Node7get_intEv.exit146:                      ; preds = %241
   %344 = load ptr, ptr %1, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 40
   %346 = load ptr, ptr %345, align 8
-  %347 = tail call noundef ptr %346(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %347 = tail call noundef ptr %346(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %348 = getelementptr inbounds i8, ptr %347, i64 16
   %349 = load i32, ptr %348, align 8
   %350 = icmp ne i32 %349, 11
@@ -126520,14 +126520,14 @@ _ZNK4Node7get_intEv.exit146:                      ; preds = %241
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 16
   %357 = load ptr, ptr %356, align 8
-  %358 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %357) #9
+  %358 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %357) #8
   %.not.i151 = icmp eq ptr %358, null
   br i1 %.not.i151, label %359, label %_ZNK4Node7get_intEv.exit152
 
 359:                                              ; preds = %353
   %360 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %360, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
 _ZNK4Node7get_intEv.exit152:                      ; preds = %353
@@ -126545,7 +126545,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %369 = load ptr, ptr %368, align 8
   %370 = getelementptr inbounds i8, ptr %369, i64 8
   %371 = load ptr, ptr %370, align 8
-  %372 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %371) #9
+  %372 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %371) #8
   %373 = icmp ugt i32 %372, 3
   br i1 %373, label %374, label %.thread173
 
@@ -126557,7 +126557,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %379 = load ptr, ptr %378, align 8
   %380 = getelementptr inbounds i8, ptr %379, i64 8
   %381 = load ptr, ptr %380, align 8
-  %382 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %381) #9
+  %382 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %381) #8
   %383 = icmp ult i32 %382, 33
   br i1 %383, label %384, label %.thread173
 
@@ -126569,7 +126569,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %389 = load ptr, ptr %388, align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 8
   %391 = load ptr, ptr %390, align 8
-  %392 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %391) #9
+  %392 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %391) #8
   %393 = add i8 %392, -4
   %switch.and.i.i153 = and i8 %393, -6
   %switch.selectcmp.i.i154 = icmp eq i8 %switch.and.i.i153, 0
@@ -126680,7 +126680,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %455 = load ptr, ptr %1, align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 40
   %457 = load ptr, ptr %456, align 8
-  %458 = tail call noundef ptr %457(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %458 = tail call noundef ptr %457(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %459 = getelementptr inbounds i8, ptr %458, i64 16
   %460 = load i32, ptr %459, align 8
   %461 = icmp ne i32 %460, 11
@@ -126701,7 +126701,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %468 = load ptr, ptr %467, align 8
   %469 = getelementptr inbounds i8, ptr %468, i64 8
   %470 = load ptr, ptr %469, align 8
-  %471 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %470) #9
+  %471 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %470) #8
   %472 = and i8 %471, -2
   %473 = icmp eq i8 %472, 6
   %.pr180.pre212 = load ptr, ptr %3, align 8
@@ -126765,7 +126765,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %507 = load ptr, ptr %506, align 8
   %508 = getelementptr inbounds i8, ptr %507, i64 8
   %509 = load ptr, ptr %508, align 8
-  %510 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %509) #9
+  %510 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %509) #8
   %511 = icmp eq i32 %510, 64
   br i1 %511, label %512, label %.thread182
 
@@ -126773,7 +126773,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %513 = load ptr, ptr %1, align 8
   %514 = getelementptr inbounds i8, ptr %513, i64 40
   %515 = load ptr, ptr %514, align 8
-  %516 = tail call noundef ptr %515(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %516 = tail call noundef ptr %515(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %517 = getelementptr inbounds i8, ptr %516, i64 16
   %518 = load i32, ptr %517, align 8
   %519 = icmp ne i32 %518, 11
@@ -126789,7 +126789,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %527 = load ptr, ptr %526, align 8
   %528 = getelementptr inbounds i8, ptr %527, i64 8
   %529 = load ptr, ptr %528, align 8
-  %530 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %529) #9
+  %530 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %529) #8
   %531 = and i8 %530, -2
   %532 = icmp eq i8 %531, 6
   br i1 %532, label %533, label %.thread182
@@ -126872,7 +126872,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %574 = load ptr, ptr %1, align 8
   %575 = getelementptr inbounds i8, ptr %574, i64 40
   %576 = load ptr, ptr %575, align 8
-  %577 = tail call noundef ptr %576(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %577 = tail call noundef ptr %576(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %578 = getelementptr inbounds i8, ptr %577, i64 16
   %579 = load i32, ptr %578, align 8
   %580 = icmp ne i32 %579, 11
@@ -126889,7 +126889,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %589 = load ptr, ptr %588, align 8
   %590 = getelementptr inbounds i8, ptr %589, i64 8
   %591 = load ptr, ptr %590, align 8
-  %592 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %591) #9
+  %592 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %591) #8
   %593 = icmp ugt i32 %592, 7
   br i1 %593, label %594, label %.thread186
 
@@ -126901,7 +126901,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %599 = load ptr, ptr %598, align 8
   %600 = getelementptr inbounds i8, ptr %599, i64 8
   %601 = load ptr, ptr %600, align 8
-  %602 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %601) #9
+  %602 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %601) #8
   %603 = icmp ult i32 %602, 33
   br i1 %603, label %604, label %.thread186
 
@@ -126913,7 +126913,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %353
   %609 = load ptr, ptr %608, align 8
   %610 = getelementptr inbounds i8, ptr %609, i64 8
   %611 = load ptr, ptr %610, align 8
-  %612 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %611) #9
+  %612 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %611) #8
   %613 = and i8 %612, -2
   %614 = icmp eq i8 %613, 6
   br i1 %614, label %615, label %.thread186
@@ -126986,12 +126986,12 @@ define hidden void @_ZN5State22_sub_Op_VectorMaskCastEPK4Node(ptr nocapture noun
   br i1 %.not13, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %10 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %14) #9
+  %15 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %14) #8
   %.not14 = icmp eq i32 %10, %15
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %.not14, label %25, label %16
@@ -127023,12 +127023,12 @@ define hidden void @_ZN5State22_sub_Op_VectorMaskCastEPK4Node(ptr nocapture noun
   br i1 %.not16, label %.thread32, label %29
 
 29:                                               ; preds = %.thread
-  %30 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %30 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %34) #9
+  %35 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %34) #8
   %36 = icmp eq i32 %30, %35
   %.pr23.pre = load ptr, ptr %3, align 8
   br i1 %36, label %37, label %60
@@ -127133,7 +127133,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #9
+  %21 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %20) #8
   %22 = icmp ugt i32 %21, 15
   br i1 %22, label %32, label %23
 
@@ -127141,7 +127141,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #9
+  %27 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %26) #8
   %28 = icmp eq i32 %27, 8
   br i1 %28, label %29, label %43
 
@@ -127196,7 +127196,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %59) #9
+  %60 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %59) #8
   %61 = icmp ult i32 %60, 8
   br i1 %61, label %71, label %62
 
@@ -127204,7 +127204,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %63 = load ptr, ptr %56, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %65) #9
+  %66 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %65) #8
   %67 = icmp eq i32 %66, 8
   br i1 %67, label %68, label %92
 
@@ -127274,7 +127274,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %108) #9
+  %109 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %108) #8
   %110 = icmp ult i32 %109, 8
   br i1 %110, label %120, label %111
 
@@ -127282,7 +127282,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %112 = load ptr, ptr %105, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %114) #9
+  %115 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %114) #8
   %116 = icmp eq i32 %115, 8
   br i1 %116, label %117, label %.thread61
 
@@ -127352,7 +127352,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
-  %157 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %156) #9
+  %157 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %156) #8
   %158 = icmp ugt i32 %157, 15
   %.pr68.pre = load ptr, ptr %3, align 8
   br i1 %158, label %159, label %175
@@ -127410,7 +127410,7 @@ define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef 
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 8
   %190 = load ptr, ptr %189, align 8
-  %191 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %190) #9
+  %191 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %190) #8
   %192 = icmp ult i32 %191, 16
   br i1 %192, label %193, label %.thread70
 
@@ -127477,7 +127477,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(52) %20) #9
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(52) %20) #8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp ne i32 %26, 11
@@ -127486,7 +127486,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   br i1 %.not55, label %48, label %28
 
 28:                                               ; preds = %16
-  %29 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #9
+  %29 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %30 = add i8 %29, -4
   %switch.and.i = and i8 %30, -6
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
@@ -127544,7 +127544,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   br i1 %.not59, label %.thread, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %61 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %62 = icmp eq i32 %61, 64
   br i1 %62, label %63, label %._crit_edge
 
@@ -127560,7 +127560,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(52) %67) #9
+  %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(52) %67) #8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp ne i32 %73, 11
@@ -127659,7 +127659,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 40
   %129 = load ptr, ptr %128, align 8
-  %130 = tail call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(52) %126) #9
+  %130 = tail call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(52) %126) #8
   %131 = getelementptr inbounds i8, ptr %130, i64 16
   %132 = load i32, ptr %131, align 8
   %133 = icmp ne i32 %132, 11
@@ -127672,7 +127672,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   br label %.thread97
 
 136:                                              ; preds = %122
-  %137 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %137 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %138 = icmp ult i32 %137, 33
   %.pr100.pr.pre125 = load ptr, ptr %3, align 8
   br i1 %138, label %139, label %.thread97
@@ -127767,7 +127767,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 40
   %190 = load ptr, ptr %189, align 8
-  %191 = tail call noundef ptr %190(ptr noundef nonnull align 8 dereferenceable(52) %187) #9
+  %191 = tail call noundef ptr %190(ptr noundef nonnull align 8 dereferenceable(52) %187) #8
   %192 = getelementptr inbounds i8, ptr %191, i64 16
   %193 = load i32, ptr %192, align 8
   %194 = icmp ne i32 %193, 11
@@ -127776,12 +127776,12 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   br i1 %196, label %197, label %234
 
 197:                                              ; preds = %183
-  %198 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %198 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %199 = icmp ult i32 %198, 33
   br i1 %199, label %200, label %234
 
 200:                                              ; preds = %197
-  %201 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #9
+  %201 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %202 = add i8 %201, -4
   %switch.and.i.i = and i8 %202, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -127880,7 +127880,7 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 40
   %259 = load ptr, ptr %258, align 8
-  %260 = tail call noundef ptr %259(ptr noundef nonnull align 8 dereferenceable(52) %256) #9
+  %260 = tail call noundef ptr %259(ptr noundef nonnull align 8 dereferenceable(52) %256) #8
   %261 = getelementptr inbounds i8, ptr %260, i64 16
   %262 = load i32, ptr %261, align 8
   %263 = icmp ne i32 %262, 11
@@ -127889,12 +127889,12 @@ define hidden void @_ZN5State19_sub_Op_VectorBlendEPK4Node(ptr noundef nonnull a
   br i1 %265, label %266, label %.thread106
 
 266:                                              ; preds = %252
-  %267 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %267 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %268 = icmp ult i32 %267, 33
   br i1 %268, label %269, label %.thread106
 
 269:                                              ; preds = %266
-  %270 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #9
+  %270 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %271 = add i8 %270, -4
   %switch.and.i.i91 = and i8 %271, -6
   %switch.selectcmp.i.i92 = icmp eq i8 %switch.and.i.i91, 0
@@ -128097,14 +128097,14 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not100, label %76, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %40 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   switch i8 %40, label %76 [
     i8 11, label %41
     i8 7, label %41
   ]
 
 41:                                               ; preds = %39, %39
-  %42 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %42 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %43 = icmp eq i32 %42, 8
   br i1 %43, label %47, label %44
 
@@ -128189,14 +128189,14 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not104, label %125, label %88
 
 88:                                               ; preds = %84
-  %89 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %89 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   switch i8 %89, label %125 [
     i8 11, label %90
     i8 7, label %90
   ]
 
 90:                                               ; preds = %88, %88
-  %91 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %91 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %92 = icmp ult i32 %91, 8
   br i1 %92, label %93, label %125
 
@@ -128281,12 +128281,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not108, label %.thread190, label %137
 
 137:                                              ; preds = %133
-  %138 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %138 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %139 = icmp eq i8 %138, 10
   br i1 %139, label %145, label %140
 
 140:                                              ; preds = %137
-  %141 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %141 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %142 = icmp eq i8 %141, 6
   %143 = load i32, ptr @UseAVX, align 4
   %144 = icmp sgt i32 %143, 0
@@ -128373,12 +128373,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not112, label %224, label %186
 
 186:                                              ; preds = %182
-  %187 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %187 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %188 = icmp eq i8 %187, 10
   br i1 %188, label %194, label %189
 
 189:                                              ; preds = %186
-  %190 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %190 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %191 = icmp eq i8 %190, 6
   %192 = load i32, ptr @UseAVX, align 4
   %193 = icmp eq i32 %192, 0
@@ -128465,7 +128465,7 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not116, label %.thread199.thread, label %236
 
 236:                                              ; preds = %232
-  %237 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %237 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %238 = icmp eq i8 %237, 9
   br i1 %238, label %239, label %..thread199_crit_edge
 
@@ -128555,12 +128555,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not120, label %318, label %280
 
 280:                                              ; preds = %276
-  %281 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %281 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %282 = icmp eq i8 %281, 9
   br i1 %282, label %283, label %318
 
 283:                                              ; preds = %280
-  %284 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %284 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %285 = icmp eq i32 %284, 16
   br i1 %285, label %286, label %318
 
@@ -128645,12 +128645,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not124, label %.thread208, label %330
 
 330:                                              ; preds = %326
-  %331 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %331 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %332 = icmp eq i8 %331, 9
   br i1 %332, label %333, label %.thread208
 
 333:                                              ; preds = %330
-  %334 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %334 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %335 = icmp ult i32 %334, 9
   br i1 %335, label %336, label %.thread208
 
@@ -128735,12 +128735,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not128, label %417, label %379
 
 379:                                              ; preds = %375
-  %380 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %380 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %381 = icmp eq i8 %380, 8
   br i1 %381, label %382, label %417
 
 382:                                              ; preds = %379
-  %383 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %383 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %384 = icmp ugt i32 %383, 31
   br i1 %384, label %385, label %417
 
@@ -128825,12 +128825,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not132, label %.thread217, label %429
 
 429:                                              ; preds = %425
-  %430 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %430 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %431 = icmp eq i8 %430, 8
   br i1 %431, label %432, label %.thread217
 
 432:                                              ; preds = %429
-  %433 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %433 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %434 = icmp ugt i32 %433, 32
   br i1 %434, label %435, label %.thread217
 
@@ -128915,12 +128915,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not136, label %516, label %478
 
 478:                                              ; preds = %474
-  %479 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %479 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %480 = icmp eq i8 %479, 8
   br i1 %480, label %481, label %516
 
 481:                                              ; preds = %478
-  %482 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %482 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %483 = icmp eq i32 %482, 32
   br i1 %483, label %484, label %516
 
@@ -129005,12 +129005,12 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
   br i1 %.not140, label %.thread226, label %528
 
 528:                                              ; preds = %524
-  %529 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %529 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %530 = icmp eq i8 %529, 8
   br i1 %530, label %531, label %.thread226
 
 531:                                              ; preds = %528
-  %532 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %532 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %533 = icmp ult i32 %532, 32
   br i1 %533, label %534, label %.thread226
 
@@ -129089,7 +129089,7 @@ define hidden void @_ZN5State22_sub_Op_VectorLoadMaskEPK4Node(ptr nocapture noun
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp ne i32 %18, 11
@@ -129138,7 +129138,7 @@ define hidden void @_ZN5State22_sub_Op_VectorLoadMaskEPK4Node(ptr nocapture noun
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = icmp ne i32 %42, 11
@@ -129196,7 +129196,7 @@ define hidden void @_ZN5State22_sub_Op_VectorLoadMaskEPK4Node(ptr nocapture noun
   %67 = load ptr, ptr %1, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 40
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %70 = tail call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = icmp ne i32 %72, 11
@@ -129244,14 +129244,14 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br i1 %.not49, label %27, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %10 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   switch i8 %10, label %27 [
     i8 11, label %11
     i8 7, label %11
   ]
 
 11:                                               ; preds = %9, %9
-  %12 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %12 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %13 = icmp eq i32 %12, 8
   br i1 %13, label %17, label %14
 
@@ -129289,14 +129289,14 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br i1 %.not51, label %65, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %33 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   switch i8 %33, label %65 [
     i8 11, label %34
     i8 7, label %34
   ]
 
 34:                                               ; preds = %32, %32
-  %35 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %35 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %36 = icmp ult i32 %35, 8
   br i1 %36, label %37, label %65
 
@@ -129364,12 +129364,12 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br i1 %.not53, label %.thread89, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %71 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %72 = icmp eq i8 %71, 10
   br i1 %72, label %78, label %73
 
 73:                                               ; preds = %70
-  %74 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %74 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %75 = icmp eq i8 %74, 6
   %76 = load i32, ptr @UseAVX, align 4
   %77 = icmp sgt i32 %76, 0
@@ -129439,12 +129439,12 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br i1 %.not55, label %.thread, label %108
 
 108:                                              ; preds = %104
-  %109 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %109 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %110 = icmp eq i8 %109, 10
   br i1 %110, label %114, label %111
 
 111:                                              ; preds = %108
-  %112 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %112 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %113 = icmp eq i8 %112, 6
   br i1 %113, label %114, label %._crit_edge
 
@@ -129453,7 +129453,7 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br label %143
 
 114:                                              ; preds = %111, %108
-  %115 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %115 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %116 = icmp eq i32 %115, 4
   %117 = load i32, ptr @UseAVX, align 4
   %118 = icmp eq i32 %117, 0
@@ -129519,7 +129519,7 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br i1 %.not57, label %.thread98.thread, label %147
 
 147:                                              ; preds = %.thread
-  %148 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %148 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %149 = icmp eq i8 %148, 9
   br i1 %149, label %150, label %..thread98_crit_edge
 
@@ -129592,12 +129592,12 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br i1 %.not59, label %214, label %180
 
 180:                                              ; preds = %.thread98.thread
-  %181 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %181 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %182 = icmp eq i8 %181, 9
   br i1 %182, label %183, label %214
 
 183:                                              ; preds = %180
-  %184 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %184 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %185 = icmp ult i32 %184, 17
   br i1 %185, label %186, label %214
 
@@ -129665,7 +129665,7 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
   br i1 %.not61, label %.thread107, label %219
 
 219:                                              ; preds = %215
-  %220 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %220 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %221 = icmp eq i8 %220, 8
   br i1 %221, label %222, label %.thread107
 
@@ -129817,7 +129817,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(52) %39) #9
+  %43 = tail call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(52) %39) #8
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = icmp ne i32 %45, 11
@@ -129889,7 +129889,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(52) %79) #9
+  %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(52) %79) #8
   %84 = getelementptr inbounds i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8
   %86 = icmp ne i32 %85, 11
@@ -129993,7 +129993,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 40
   %140 = load ptr, ptr %139, align 8
-  %141 = tail call noundef ptr %140(ptr noundef nonnull align 8 dereferenceable(52) %137) #9
+  %141 = tail call noundef ptr %140(ptr noundef nonnull align 8 dereferenceable(52) %137) #8
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   %143 = load i32, ptr %142, align 8
   %144 = icmp ne i32 %143, 11
@@ -130086,7 +130086,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 40
   %195 = load ptr, ptr %194, align 8
-  %196 = tail call noundef ptr %195(ptr noundef nonnull align 8 dereferenceable(52) %192) #9
+  %196 = tail call noundef ptr %195(ptr noundef nonnull align 8 dereferenceable(52) %192) #8
   %197 = getelementptr inbounds i8, ptr %196, i64 16
   %198 = load i32, ptr %197, align 8
   %199 = icmp ne i32 %198, 11
@@ -130172,7 +130172,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   br i1 %or.cond5, label %244, label %.thread155.thread
 
 244:                                              ; preds = %237
-  %245 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %245 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %246 = icmp eq i32 %245, 4
   %.pr158.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %246, label %247, label %.thread155
@@ -130254,7 +130254,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   br i1 %or.cond7, label %288, label %.thread249
 
 288:                                              ; preds = %281
-  %289 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %289 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %290 = icmp eq i32 %289, 2
   %.pr162.pre = load ptr, ptr %3, align 8
   br i1 %290, label %291, label %319
@@ -130336,7 +130336,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   br i1 %or.cond9, label %333, label %.thread164.thread
 
 333:                                              ; preds = %326
-  %334 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %334 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %335 = icmp ult i32 %334, 9
   br i1 %335, label %336, label %..thread164_crit_edge
 
@@ -130352,7 +130352,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   %341 = load ptr, ptr %340, align 8
   %342 = getelementptr inbounds i8, ptr %341, i64 40
   %343 = load ptr, ptr %342, align 8
-  %344 = tail call noundef ptr %343(ptr noundef nonnull align 8 dereferenceable(52) %340) #9
+  %344 = tail call noundef ptr %343(ptr noundef nonnull align 8 dereferenceable(52) %340) #8
   %345 = getelementptr inbounds i8, ptr %344, i64 16
   %346 = load i32, ptr %345, align 8
   %347 = icmp ne i32 %346, 11
@@ -130436,7 +130436,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   br i1 %.not106, label %.thread257, label %388
 
 388:                                              ; preds = %384
-  %389 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %389 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %390 = icmp ult i32 %389, 17
   br i1 %390, label %391, label %._crit_edge204
 
@@ -130452,7 +130452,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   %396 = load ptr, ptr %395, align 8
   %397 = getelementptr inbounds i8, ptr %396, i64 40
   %398 = load ptr, ptr %397, align 8
-  %399 = tail call noundef ptr %398(ptr noundef nonnull align 8 dereferenceable(52) %395) #9
+  %399 = tail call noundef ptr %398(ptr noundef nonnull align 8 dereferenceable(52) %395) #8
   %400 = getelementptr inbounds i8, ptr %399, i64 16
   %401 = load i32, ptr %400, align 8
   %402 = icmp ne i32 %401, 11
@@ -130536,7 +130536,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   br i1 %.not110, label %.thread173, label %444
 
 444:                                              ; preds = %440
-  %445 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %445 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %446 = icmp ult i32 %445, 64
   br i1 %446, label %447, label %.thread173
 
@@ -130548,7 +130548,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
   %452 = load ptr, ptr %451, align 8
   %453 = getelementptr inbounds i8, ptr %452, i64 40
   %454 = load ptr, ptr %453, align 8
-  %455 = tail call noundef ptr %454(ptr noundef nonnull align 8 dereferenceable(52) %451) #9
+  %455 = tail call noundef ptr %454(ptr noundef nonnull align 8 dereferenceable(52) %451) #8
   %456 = getelementptr inbounds i8, ptr %455, i64 16
   %457 = load i32, ptr %456, align 8
   %458 = icmp ne i32 %457, 11
@@ -130627,7 +130627,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp ne i32 %15, 11
@@ -130644,8 +130644,8 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %21) #9
-  %23 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %21) #8
+  %23 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %24 = icmp ugt i32 %22, %23
   %.pr.pre198 = load ptr, ptr %3, align 8
   br i1 %24, label %25, label %34
@@ -130684,7 +130684,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %42 = load ptr, ptr %1, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = icmp ne i32 %47, 11
@@ -130697,7 +130697,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %53) #9
+  %54 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %53) #8
   %55 = icmp ugt i32 %54, 4
   br i1 %55, label %56, label %88
 
@@ -130705,8 +130705,8 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %57 = load ptr, ptr %50, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %59) #9
-  %61 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %60 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %59) #8
+  %61 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %62 = icmp ult i32 %60, %61
   br i1 %62, label %63, label %88
 
@@ -130774,7 +130774,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %97 = load ptr, ptr %1, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 40
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %100 = tail call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %101 = getelementptr inbounds i8, ptr %100, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = icmp ne i32 %102, 11
@@ -130787,7 +130787,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %108) #9
+  %109 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %108) #8
   %110 = icmp eq i32 %109, 4
   br i1 %110, label %111, label %.thread142
 
@@ -130795,8 +130795,8 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %112 = load ptr, ptr %105, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %114) #9
-  %116 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %115 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %114) #8
+  %116 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %117 = icmp ult i32 %115, %116
   br i1 %117, label %118, label %.thread142
 
@@ -130865,8 +130865,8 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8
-  %155 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %154) #9
-  %156 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %155 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %154) #8
+  %156 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %157 = icmp ult i32 %155, %156
   %.pr149.pre = load ptr, ptr %3, align 8
   br i1 %157, label %158, label %182
@@ -130931,7 +130931,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %187 = load ptr, ptr %1, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 40
   %189 = load ptr, ptr %188, align 8
-  %190 = tail call noundef ptr %189(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %190 = tail call noundef ptr %189(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %191 = getelementptr inbounds i8, ptr %190, i64 16
   %192 = load i32, ptr %191, align 8
   %193 = icmp ne i32 %192, 11
@@ -130944,12 +130944,12 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   br label %.thread151
 
 194:                                              ; preds = %186
-  %195 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %195 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %196 = getelementptr inbounds i8, ptr %1, i64 8
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
-  %200 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %199) #9
+  %200 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %199) #8
   %201 = icmp eq i32 %195, %200
   %.pr154.pr.pr.pre201 = load ptr, ptr %3, align 8
   br i1 %201, label %202, label %.thread151
@@ -131015,12 +131015,12 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   br i1 %or.cond7, label %232, label %298
 
 232:                                              ; preds = %.thread151.thread
-  %233 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %233 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %234 = getelementptr inbounds i8, ptr %1, i64 8
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 8
   %237 = load ptr, ptr %236, align 8
-  %238 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %237) #9
+  %238 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %237) #8
   %.not94 = icmp eq i32 %233, %238
   br i1 %.not94, label %298, label %239
 
@@ -131028,7 +131028,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %240 = load ptr, ptr %1, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 40
   %242 = load ptr, ptr %241, align 8
-  %243 = tail call noundef ptr %242(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %243 = tail call noundef ptr %242(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %244 = getelementptr inbounds i8, ptr %243, i64 16
   %245 = load i32, ptr %244, align 8
   %246 = icmp ne i32 %245, 11
@@ -131043,7 +131043,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %251 = load ptr, ptr %250, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 40
   %253 = load ptr, ptr %252, align 8
-  %254 = tail call noundef ptr %253(ptr noundef nonnull align 8 dereferenceable(52) %250) #9
+  %254 = tail call noundef ptr %253(ptr noundef nonnull align 8 dereferenceable(52) %250) #8
   %255 = getelementptr inbounds i8, ptr %254, i64 16
   %256 = load i32, ptr %255, align 8
   %257 = icmp ne i32 %256, 11
@@ -131058,10 +131058,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 40
   %264 = load ptr, ptr %263, align 8
-  %265 = tail call noundef ptr %264(ptr noundef nonnull align 8 dereferenceable(52) %261) #9
+  %265 = tail call noundef ptr %264(ptr noundef nonnull align 8 dereferenceable(52) %261) #8
   %266 = getelementptr inbounds i8, ptr %265, i64 24
   %267 = load ptr, ptr %266, align 8
-  %268 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %267) #9
+  %268 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %267) #8
   %269 = icmp eq i8 %268, 11
   br i1 %269, label %282, label %270
 
@@ -131072,10 +131072,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 40
   %276 = load ptr, ptr %275, align 8
-  %277 = tail call noundef ptr %276(ptr noundef nonnull align 8 dereferenceable(52) %273) #9
+  %277 = tail call noundef ptr %276(ptr noundef nonnull align 8 dereferenceable(52) %273) #8
   %278 = getelementptr inbounds i8, ptr %277, i64 24
   %279 = load ptr, ptr %278, align 8
-  %280 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %279) #9
+  %280 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %279) #8
   %281 = icmp eq i8 %280, 7
   br i1 %281, label %282, label %298
 
@@ -131083,10 +131083,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %283 = load ptr, ptr %1, align 8
   %284 = getelementptr inbounds i8, ptr %283, i64 40
   %285 = load ptr, ptr %284, align 8
-  %286 = tail call noundef ptr %285(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %286 = tail call noundef ptr %285(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %287 = getelementptr inbounds i8, ptr %286, i64 24
   %288 = load ptr, ptr %287, align 8
-  %289 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %288) #9
+  %289 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %288) #8
   %290 = icmp eq i8 %289, 8
   br i1 %290, label %291, label %298
 
@@ -131117,12 +131117,12 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   br i1 %or.cond9, label %306, label %.thread160
 
 306:                                              ; preds = %299
-  %307 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %307 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %308 = getelementptr inbounds i8, ptr %1, i64 8
   %309 = load ptr, ptr %308, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 8
   %311 = load ptr, ptr %310, align 8
-  %312 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %311) #9
+  %312 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %311) #8
   %.not98 = icmp eq i32 %307, %312
   br i1 %.not98, label %.thread160, label %313
 
@@ -131130,7 +131130,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %314 = load ptr, ptr %1, align 8
   %315 = getelementptr inbounds i8, ptr %314, i64 40
   %316 = load ptr, ptr %315, align 8
-  %317 = tail call noundef ptr %316(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %317 = tail call noundef ptr %316(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %318 = getelementptr inbounds i8, ptr %317, i64 16
   %319 = load i32, ptr %318, align 8
   %320 = icmp ne i32 %319, 11
@@ -131145,7 +131145,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 40
   %327 = load ptr, ptr %326, align 8
-  %328 = tail call noundef ptr %327(ptr noundef nonnull align 8 dereferenceable(52) %324) #9
+  %328 = tail call noundef ptr %327(ptr noundef nonnull align 8 dereferenceable(52) %324) #8
   %329 = getelementptr inbounds i8, ptr %328, i64 16
   %330 = load i32, ptr %329, align 8
   %331 = icmp ne i32 %330, 11
@@ -131160,10 +131160,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds i8, ptr %336, i64 40
   %338 = load ptr, ptr %337, align 8
-  %339 = tail call noundef ptr %338(ptr noundef nonnull align 8 dereferenceable(52) %335) #9
+  %339 = tail call noundef ptr %338(ptr noundef nonnull align 8 dereferenceable(52) %335) #8
   %340 = getelementptr inbounds i8, ptr %339, i64 24
   %341 = load ptr, ptr %340, align 8
-  %342 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %341) #9
+  %342 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %341) #8
   %343 = icmp eq i8 %342, 10
   br i1 %343, label %356, label %344
 
@@ -131174,10 +131174,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %348 = load ptr, ptr %347, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 40
   %350 = load ptr, ptr %349, align 8
-  %351 = tail call noundef ptr %350(ptr noundef nonnull align 8 dereferenceable(52) %347) #9
+  %351 = tail call noundef ptr %350(ptr noundef nonnull align 8 dereferenceable(52) %347) #8
   %352 = getelementptr inbounds i8, ptr %351, i64 24
   %353 = load ptr, ptr %352, align 8
-  %354 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %353) #9
+  %354 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %353) #8
   %355 = icmp eq i8 %354, 6
   br i1 %355, label %356, label %.thread160
 
@@ -131185,10 +131185,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %357 = load ptr, ptr %1, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 40
   %359 = load ptr, ptr %358, align 8
-  %360 = tail call noundef ptr %359(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %360 = tail call noundef ptr %359(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %361 = getelementptr inbounds i8, ptr %360, i64 24
   %362 = load ptr, ptr %361, align 8
-  %363 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %362) #9
+  %363 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %362) #8
   %364 = icmp eq i8 %363, 8
   br i1 %364, label %365, label %.thread160
 
@@ -131228,12 +131228,12 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   br i1 %or.cond11, label %385, label %445
 
 385:                                              ; preds = %378
-  %386 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %386 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %387 = getelementptr inbounds i8, ptr %1, i64 8
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds i8, ptr %388, i64 8
   %390 = load ptr, ptr %389, align 8
-  %391 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %390) #9
+  %391 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %390) #8
   %.not102 = icmp eq i32 %386, %391
   br i1 %.not102, label %445, label %392
 
@@ -131241,7 +131241,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %393 = load ptr, ptr %1, align 8
   %394 = getelementptr inbounds i8, ptr %393, i64 40
   %395 = load ptr, ptr %394, align 8
-  %396 = tail call noundef ptr %395(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %396 = tail call noundef ptr %395(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %397 = getelementptr inbounds i8, ptr %396, i64 16
   %398 = load i32, ptr %397, align 8
   %399 = icmp ne i32 %398, 11
@@ -131256,7 +131256,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %404 = load ptr, ptr %403, align 8
   %405 = getelementptr inbounds i8, ptr %404, i64 40
   %406 = load ptr, ptr %405, align 8
-  %407 = tail call noundef ptr %406(ptr noundef nonnull align 8 dereferenceable(52) %403) #9
+  %407 = tail call noundef ptr %406(ptr noundef nonnull align 8 dereferenceable(52) %403) #8
   %408 = getelementptr inbounds i8, ptr %407, i64 16
   %409 = load i32, ptr %408, align 8
   %410 = icmp ne i32 %409, 11
@@ -131271,10 +131271,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %415 = load ptr, ptr %414, align 8
   %416 = getelementptr inbounds i8, ptr %415, i64 40
   %417 = load ptr, ptr %416, align 8
-  %418 = tail call noundef ptr %417(ptr noundef nonnull align 8 dereferenceable(52) %414) #9
+  %418 = tail call noundef ptr %417(ptr noundef nonnull align 8 dereferenceable(52) %414) #8
   %419 = getelementptr inbounds i8, ptr %418, i64 24
   %420 = load ptr, ptr %419, align 8
-  %421 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %420) #9
+  %421 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %420) #8
   %422 = icmp eq i8 %421, 9
   br i1 %422, label %423, label %445
 
@@ -131282,10 +131282,10 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %424 = load ptr, ptr %1, align 8
   %425 = getelementptr inbounds i8, ptr %424, i64 40
   %426 = load ptr, ptr %425, align 8
-  %427 = tail call noundef ptr %426(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %427 = tail call noundef ptr %426(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %428 = getelementptr inbounds i8, ptr %427, i64 24
   %429 = load ptr, ptr %428, align 8
-  %430 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %429) #9
+  %430 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %429) #8
   %431 = icmp eq i8 %430, 8
   br i1 %431, label %432, label %445
 
@@ -131325,7 +131325,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   %451 = load ptr, ptr %1, align 8
   %452 = getelementptr inbounds i8, ptr %451, i64 40
   %453 = load ptr, ptr %452, align 8
-  %454 = tail call noundef ptr %453(ptr noundef nonnull align 8 dereferenceable(52) %1) #9
+  %454 = tail call noundef ptr %453(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %455 = getelementptr inbounds i8, ptr %454, i64 16
   %456 = load i32, ptr %455, align 8
   %457 = icmp ne i32 %456, 11
@@ -131334,12 +131334,12 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
   br i1 %.not107, label %.thread169, label %458
 
 458:                                              ; preds = %450
-  %459 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %1) #9
+  %459 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef nonnull %1) #8
   %460 = getelementptr inbounds i8, ptr %1, i64 8
   %461 = load ptr, ptr %460, align 8
   %462 = getelementptr inbounds i8, ptr %461, i64 8
   %463 = load ptr, ptr %462, align 8
-  %464 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %463) #9
+  %464 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %463) #8
   %465 = icmp eq i32 %459, %464
   br i1 %465, label %466, label %.thread169
 
@@ -131388,7 +131388,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastB2XEPK4Node(ptr nocapture nound
   br i1 %.not16, label %12, label %.thread21
 
 12:                                               ; preds = %9
-  %13 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %13 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %14 = icmp eq i8 %13, 7
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %14, label %15, label %24
@@ -131426,7 +131426,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastB2XEPK4Node(ptr nocapture nound
   br i1 %.not17, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %32 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %.not12 = icmp eq i8 %32, 7
   br i1 %.not12, label %.thread, label %._crit_edge
 
@@ -131509,12 +131509,12 @@ define hidden void @_ZN5State21_sub_Op_VectorCastS2XEPK4Node(ptr nocapture nound
   br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %12, %9
-  %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %21) #9
+  %22 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %21) #8
   %.not19 = icmp ult i32 %17, %22
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %.not19, label %32, label %._crit_edge
@@ -131562,7 +131562,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastS2XEPK4Node(ptr nocapture nound
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %47) #9
+  %48 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %47) #8
   %49 = icmp eq i32 %48, 16
   br i1 %49, label %50, label %._crit_edge35
 
@@ -131571,7 +131571,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastS2XEPK4Node(ptr nocapture nound
   br label %77
 
 50:                                               ; preds = %43
-  %51 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #9
+  %51 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %52 = icmp eq i8 %51, 8
   %.pr31.pre36 = load ptr, ptr %3, align 8
   br i1 %52, label %53, label %77
@@ -131649,12 +131649,12 @@ define hidden void @_ZN5State21_sub_Op_VectorCastS2XEPK4Node(ptr nocapture nound
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %92) #9
+  %93 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %92) #8
   %94 = icmp ult i32 %93, 9
   br i1 %94, label %95, label %.thread32
 
 95:                                               ; preds = %88
-  %96 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #9
+  %96 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %97 = icmp eq i8 %96, 8
   br i1 %97, label %98, label %.thread32
 
@@ -131727,12 +131727,12 @@ define hidden void @_ZN5State21_sub_Op_VectorCastI2XEPK4Node(ptr nocapture nound
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %13 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %17) #9
+  %18 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %17) #8
   %.not24 = icmp ult i32 %13, %18
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %.not24, label %28, label %._crit_edge
@@ -131772,7 +131772,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastI2XEPK4Node(ptr nocapture nound
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %39) #9
+  %40 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %39) #8
   %41 = icmp eq i32 %40, 32
   br i1 %41, label %42, label %._crit_edge39
 
@@ -131781,11 +131781,11 @@ define hidden void @_ZN5State21_sub_Op_VectorCastI2XEPK4Node(ptr nocapture nound
   br label %73
 
 42:                                               ; preds = %35
-  %43 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %43 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %44 = load ptr, ptr %36, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %46) #9
+  %47 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %46) #8
   %48 = icmp ult i32 %43, %47
   %.pr35.pre40 = load ptr, ptr %3, align 8
   br i1 %48, label %49, label %73
@@ -131855,16 +131855,16 @@ define hidden void @_ZN5State21_sub_Op_VectorCastI2XEPK4Node(ptr nocapture nound
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #9
+  %85 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %84) #8
   %86 = icmp ult i32 %85, 17
   br i1 %86, label %87, label %.thread36
 
 87:                                               ; preds = %80
-  %88 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #9
+  %88 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef nonnull %1) #8
   %89 = load ptr, ptr %81, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %91) #9
+  %92 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %91) #8
   %93 = icmp ult i32 %88, %92
   br i1 %93, label %94, label %.thread36
 
@@ -131937,17 +131937,17 @@ define hidden void @_ZN5State21_sub_Op_VectorCastL2XEPK4Node(ptr nocapture nound
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %13 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %14 = icmp eq i8 %13, 10
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %16 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %17 = icmp eq i8 %16, 6
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %19 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %20 = icmp eq i8 %19, 7
   br i1 %20, label %21, label %31
 
@@ -131980,12 +131980,12 @@ define hidden void @_ZN5State21_sub_Op_VectorCastL2XEPK4Node(ptr nocapture nound
   br i1 %.not15, label %.thread, label %35
 
 35:                                               ; preds = %.thread23
-  %36 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %36 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %37 = icmp eq i8 %36, 8
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %39 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %40 = icmp eq i8 %39, 9
   %41 = load i32, ptr @UseAVX, align 4
   %42 = icmp slt i32 %41, 3
@@ -132071,7 +132071,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr nocapture nound
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %16) #9
+  %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %16) #8
   %18 = icmp eq i32 %17, 64
   br i1 %18, label %19, label %._crit_edge
 
@@ -132080,7 +132080,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr nocapture nound
   br label %33
 
 19:                                               ; preds = %12, %9
-  %20 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %21 = add i8 %20, -4
   %switch.and.i.i = and i8 %21, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -132128,7 +132128,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr nocapture nound
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %44) #9
+  %45 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %44) #8
   %46 = icmp ult i32 %45, 64
   br i1 %46, label %47, label %._crit_edge36
 
@@ -132137,7 +132137,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr nocapture nound
   br label %77
 
 47:                                               ; preds = %40
-  %48 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #9
+  %48 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %49 = zext i8 %48 to i64
   %50 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
@@ -132203,7 +132203,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr nocapture nound
   br i1 %.not21, label %.thread30, label %81
 
 81:                                               ; preds = %.thread47
-  %82 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %82 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %83 = icmp eq i8 %82, 7
   br i1 %83, label %84, label %.thread30
 
@@ -132281,7 +132281,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr nocapture nound
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %16) #9
+  %17 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %16) #8
   %18 = icmp eq i32 %17, 64
   br i1 %18, label %19, label %._crit_edge
 
@@ -132290,7 +132290,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr nocapture nound
   br label %33
 
 19:                                               ; preds = %12, %9
-  %20 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %20 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %21 = add i8 %20, -4
   %switch.and.i.i = and i8 %21, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
@@ -132338,7 +132338,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr nocapture nound
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %44) #9
+  %45 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %44) #8
   %46 = icmp ult i32 %45, 64
   br i1 %46, label %47, label %._crit_edge39
 
@@ -132347,7 +132347,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr nocapture nound
   br label %76
 
 47:                                               ; preds = %40
-  %48 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #9
+  %48 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %1) #8
   %49 = add i8 %48, -4
   %switch.and.i.i27 = and i8 %49, -6
   %switch.selectcmp.i.i28 = icmp eq i8 %switch.and.i.i27, 0
@@ -132415,7 +132415,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr nocapture nound
   br i1 %.not21, label %.thread33, label %80
 
 80:                                               ; preds = %.thread50
-  %81 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #9
+  %81 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef %1) #8
   %82 = icmp eq i8 %81, 6
   br i1 %82, label %83, label %.thread33
 
@@ -132775,7 +132775,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not76, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %17 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %18 = icmp eq i32 %17, 8
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %18, label %19, label %32
@@ -132825,7 +132825,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not80, label %.thread256, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %44 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %45 = icmp eq i32 %44, 4
   %.pr148.pre = load ptr, ptr %3, align 8
   br i1 %45, label %46, label %74
@@ -132904,7 +132904,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not84, label %.thread149.thread, label %85
 
 85:                                               ; preds = %81
-  %86 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %86 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %87 = icmp eq i32 %86, 2
   %.pr152.pr.pre = load ptr, ptr %3, align 8
   br i1 %87, label %88, label %.thread149
@@ -132983,7 +132983,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not88, label %.thread264, label %126
 
 126:                                              ; preds = %122
-  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %127 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %128 = icmp ugt i32 %127, 7
   %.pr156.pre = load ptr, ptr %3, align 8
   br i1 %128, label %129, label %157
@@ -133062,7 +133062,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not92, label %.thread158.thread, label %168
 
 168:                                              ; preds = %164
-  %169 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %169 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %170 = icmp ult i32 %169, 8
   %.pr161.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %170, label %171, label %.thread158
@@ -133141,7 +133141,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not96, label %.thread272, label %209
 
 209:                                              ; preds = %205
-  %210 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %210 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %211 = icmp eq i32 %210, 8
   %.pr165.pre = load ptr, ptr %3, align 8
   br i1 %211, label %212, label %240
@@ -133220,7 +133220,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not100, label %.thread167.thread, label %251
 
 251:                                              ; preds = %247
-  %252 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %252 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %253 = icmp eq i32 %252, 4
   %.pr170.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %253, label %254, label %.thread167
@@ -133299,7 +133299,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not104, label %.thread280, label %292
 
 292:                                              ; preds = %288
-  %293 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %293 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %294 = icmp eq i32 %293, 2
   %.pr174.pre = load ptr, ptr %3, align 8
   br i1 %294, label %295, label %323
@@ -133378,7 +133378,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not108, label %.thread176.thread, label %334
 
 334:                                              ; preds = %330
-  %335 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %335 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %336 = icmp eq i32 %335, 64
   %.pr179.pr.pr.pr.pre = load ptr, ptr %3, align 8
   br i1 %336, label %337, label %.thread176
@@ -133457,7 +133457,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not112, label %.thread288, label %375
 
 375:                                              ; preds = %371
-  %376 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %376 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %377 = icmp eq i32 %376, 32
   %.pr183.pre = load ptr, ptr %3, align 8
   br i1 %377, label %378, label %406
@@ -133536,7 +133536,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
   br i1 %.not116, label %.thread185, label %417
 
 417:                                              ; preds = %413
-  %418 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #9
+  %418 = tail call noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef %1) #8
   %419 = icmp ult i32 %418, 32
   br i1 %419, label %420, label %.thread185
 
@@ -133629,7 +133629,7 @@ define hidden void @_ZN5State15_sub_Op_MaskAllEPK4Node(ptr nocapture noundef non
   br i1 %or.cond22, label %21, label %.thread
 
 21:                                               ; preds = %17
-  %22 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %22 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %23 = icmp ult i32 %22, 33
   %.pr.pre = load ptr, ptr %3, align 8
   br i1 %23, label %24, label %30
@@ -133660,7 +133660,7 @@ define hidden void @_ZN5State15_sub_Op_MaskAllEPK4Node(ptr nocapture noundef non
   br i1 %or.cond25, label %36, label %.thread48
 
 36:                                               ; preds = %.thread
-  %37 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %37 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %38 = icmp ugt i32 %37, 32
   %.pr38.pre = load ptr, ptr %3, align 8
   br i1 %38, label %39, label %51
@@ -133867,7 +133867,7 @@ define hidden void @_ZN5State16_sub_Op_XorVMaskEPK4Node(ptr nocapture noundef no
   br i1 %.not20, label %.thread37, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %33 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %34 = icmp eq i32 %33, 8
   br i1 %34, label %35, label %38
 
@@ -133878,12 +133878,12 @@ define hidden void @_ZN5State16_sub_Op_XorVMaskEPK4Node(ptr nocapture noundef no
   br i1 %.not32, label %38, label %47
 
 38:                                               ; preds = %35, %32
-  %39 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %39 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %40 = icmp eq i32 %39, 16
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %42 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %43 = icmp ugt i32 %42, 16
   br i1 %43, label %44, label %.thread37
 
@@ -133943,7 +133943,7 @@ define hidden void @_ZN5State16_sub_Op_XorVMaskEPK4Node(ptr nocapture noundef no
   br i1 %.not24, label %.thread30, label %75
 
 75:                                               ; preds = %71
-  %76 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #9
+  %76 = tail call noundef i32 @_ZN7Matcher13vector_lengthEPK4Node(ptr noundef %1) #8
   %77 = icmp ult i32 %76, 8
   br i1 %77, label %78, label %.thread30
 
@@ -136376,12 +136376,12 @@ define hidden noundef zeroext i1 @_ZN5State3DFAEiPK4Node(ptr noundef nonnull ali
 
 628:                                              ; preds = %3
   %629 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %629, ptr noundef nonnull @.str) #9
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %629, ptr noundef nonnull @.str) #8
   %630 = load ptr, ptr @tty, align 8
   %631 = sext i32 %1 to i64
   %632 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %631
   %633 = load ptr, ptr %632, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %630, ptr noundef nonnull @.str.4, i32 noundef %1, ptr noundef %633) #9
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %630, ptr noundef nonnull @.str.4, i32 noundef %1, ptr noundef %633) #8
   br label %_ZN5State15_sub_Op_CacheWBEPK4Node.exit
 
 _ZN5State15_sub_Op_CacheWBEPK4Node.exit:          ; preds = %613, %609, %606, %597, %593, %590, %581, %577, %574, %555, %551, %548, %509, %505, %502, %387, %383, %380, %270, %266, %263, %140, %138, %136, %134, %129, %123, %120, %4, %9, %10, %11, %20, %29, %46, %55, %64, %75, %84, %93, %96, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %142, %144, %146, %148, %150, %152, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %210, %211, %212, %213, %214, %215, %222, %223, %224, %225, %226, %227, %228, %229, %230, %231, %232, %233, %234, %235, %236, %237, %238, %239, %240, %241, %242, %243, %244, %245, %246, %247, %248, %249, %250, %251, %252, %253, %254, %255, %256, %257, %258, %259, %260, %261, %262, %278, %279, %280, %281, %282, %284, %286, %287, %288, %289, %290, %291, %292, %293, %294, %295, %296, %297, %298, %299, %300, %301, %302, %303, %304, %305, %306, %307, %308, %310, %312, %314, %316, %318, %320, %322, %323, %325, %326, %327, %328, %329, %330, %331, %332, %333, %334, %335, %336, %337, %338, %339, %340, %341, %342, %343, %344, %345, %346, %347, %348, %350, %351, %352, %353, %354, %355, %356, %357, %358, %359, %360, %361, %362, %363, %364, %365, %366, %367, %369, %371, %372, %373, %374, %375, %376, %377, %378, %379, %392, %393, %394, %395, %396, %397, %398, %399, %400, %401, %402, %403, %404, %405, %406, %407, %408, %409, %410, %411, %412, %413, %414, %415, %416, %417, %418, %419, %420, %421, %422, %423, %424, %425, %426, %427, %428, %429, %430, %431, %432, %433, %434, %435, %436, %437, %438, %439, %440, %441, %442, %443, %444, %445, %446, %447, %448, %449, %450, %451, %452, %453, %454, %455, %456, %457, %458, %459, %460, %461, %462, %463, %464, %465, %466, %467, %468, %469, %470, %471, %472, %473, %474, %475, %476, %477, %478, %479, %480, %481, %482, %483, %484, %485, %486, %487, %488, %489, %490, %491, %492, %493, %494, %495, %496, %497, %498, %499, %500, %501, %515, %516, %517, %518, %519, %520, %521, %522, %523, %524, %525, %526, %527, %528, %529, %530, %531, %532, %533, %534, %535, %536, %537, %538, %539, %540, %541, %542, %543, %544, %545, %546, %547, %564, %565, %566, %567, %568, %569, %570, %571, %572, %573, %622, %623, %624, %625, %626, %627, %628
@@ -136394,38 +136394,37 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 declare noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 declare noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #8
+declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #8
+declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #8
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #8
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

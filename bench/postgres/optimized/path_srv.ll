@@ -29,7 +29,7 @@ define dso_local noundef zeroext i1 @has_drive_prefix(ptr nocapture noundef read
   ret i1 false
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local noundef ptr @first_dir_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
   br label %2
 
@@ -53,7 +53,7 @@ define dso_local noundef ptr @first_dir_separator(ptr noundef readonly %0) local
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local noundef ptr @first_path_var_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
   br label %2
 
@@ -77,7 +77,7 @@ define dso_local noundef ptr @first_path_var_separator(ptr noundef readonly %0) 
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local ptr @last_dir_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
   br label %2
 
@@ -118,7 +118,7 @@ define dso_local void @join_path_components(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #19
+  %5 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #20
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -127,13 +127,13 @@ define dso_local void @join_path_components(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not11, label %15, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %10 = getelementptr i8, ptr %0, i64 %9
   %11 = sub i64 1024, %9
   %12 = load i8, ptr %1, align 1
   %.not12 = icmp eq i8 %12, 0
   %13 = select i1 %.not12, ptr @.str.2, ptr @.str.1
-  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull %13, ptr noundef nonnull %2) #19
+  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull %13, ptr noundef nonnull %2) #20
   br label %15
 
 15:                                               ; preds = %8, %6
@@ -150,7 +150,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @canonicalize_path(ptr noundef %0) local_unnamed_addr #6 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %3 = getelementptr i8, ptr %0, i64 %2
   %4 = icmp ugt ptr %3, %0
   %.013.i = getelementptr i8, ptr %3, i64 -1
@@ -301,7 +301,7 @@ sub_2:                                            ; preds = %sub_1125
   br i1 %44, label %.outer.backedge, label %46
 
 46:                                               ; preds = %45
-  %47 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #20
+  %47 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #21
   %.not.i = icmp eq ptr %.179.ph, %.177
   br i1 %.not.i, label %append_subdir_to_path.exit, label %48
 
@@ -324,7 +324,7 @@ append_subdir_to_path.exit:                       ; preds = %46, %48
   br i1 %54, label %trim_directory.exit, label %55
 
 55:                                               ; preds = %52
-  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %57 = getelementptr i8, ptr %0, i64 %56
   br label %58
 
@@ -382,7 +382,7 @@ trim_directory.exit:                              ; preds = %52, %.critedge.i
 77:                                               ; preds = %51
   %78 = getelementptr i8, ptr %.179.ph, i64 1
   store i8 47, ptr %.179.ph, align 1
-  %79 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #20
+  %79 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #21
   %.not.i99 = icmp eq ptr %78, %.177
   br i1 %.not.i99, label %append_subdir_to_path.exit100, label %80
 
@@ -396,7 +396,7 @@ append_subdir_to_path.exit100:                    ; preds = %77, %80
   br label %.outer.backedge
 
 83:                                               ; preds = %.tail123
-  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #20
+  %84 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #21
   %.not.i101 = icmp eq ptr %.179.ph, %.177
   br i1 %44, label %85, label %88
 
@@ -433,7 +433,7 @@ append_subdir_to_path.exit104:                    ; preds = %88, %89
   br i1 %95, label %trim_directory.exit116, label %96
 
 96:                                               ; preds = %93
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %98 = getelementptr i8, ptr %0, i64 %97
   br label %99
 
@@ -489,7 +489,7 @@ trim_directory.exit116:                           ; preds = %93, %.critedge.i111
 120:                                              ; preds = %92
   %121 = getelementptr i8, ptr %.179.ph, i64 1
   store i8 47, ptr %.179.ph, align 1
-  %122 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #20
+  %122 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #21
   %.not.i117 = icmp eq ptr %121, %.177
   br i1 %.not.i117, label %append_subdir_to_path.exit118, label %123
 
@@ -505,7 +505,7 @@ append_subdir_to_path.exit118:                    ; preds = %120, %123
 126:                                              ; preds = %.tail123
   %127 = getelementptr i8, ptr %.179.ph, i64 1
   store i8 47, ptr %.179.ph, align 1
-  %128 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #20
+  %128 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #21
   %.not.i119 = icmp eq ptr %127, %.177
   br i1 %44, label %129, label %132
 
@@ -608,10 +608,10 @@ path_contains_parent_reference.exit.thread:       ; preds = %path_contains_paren
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @path_is_prefix_of_path(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
-  %5 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #20
+  %5 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #21
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 
@@ -656,14 +656,14 @@ last_dir_separator.exit:                          ; preds = %2
   %.not = icmp eq ptr %.06.i, null
   %7 = getelementptr i8, ptr %.06.i, i64 1
   %.0 = select i1 %.not, ptr %0, ptr %7
-  %8 = tail call noalias ptr @strdup(ptr noundef %.0) #19
+  %8 = tail call noalias ptr @strdup(ptr noundef %.0) #20
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %last_dir_separator.exit
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, ptr noundef %.0) #19
-  tail call void @abort() #21
+  %12 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, ptr noundef %.0) #20
+  tail call void @abort() #22
   unreachable
 
 13:                                               ; preds = %last_dir_separator.exit
@@ -689,80 +689,80 @@ define dso_local noundef ptr @make_absolute_path(ptr noundef %0) local_unnamed_a
   br i1 %5, label %34, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %6 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #22
+  %6 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #23
   %.not36 = icmp eq ptr %6, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16, %.preheader
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
   tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 8389) #19
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #19
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 751, ptr noundef nonnull @__func__.make_absolute_path) #19
+  %8 = tail call i32 @errcode(i32 noundef 8389) #20
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 751, ptr noundef nonnull @__func__.make_absolute_path) #20
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %10 = phi ptr [ %18, %16 ], [ %6, %.preheader ]
   %.02237 = phi i64 [ %17, %16 ], [ 1024, %.preheader ]
-  %11 = tail call ptr @getcwd(ptr noundef nonnull %10, i64 noundef %.02237) #19
+  %11 = tail call ptr @getcwd(ptr noundef nonnull %10, i64 noundef %.02237) #20
   %.not29 = icmp eq ptr %11, null
   br i1 %.not29, label %12, label %22
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call ptr @__errno_location() #24
+  %13 = tail call ptr @__errno_location() #25
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 34
-  tail call void @free(ptr noundef nonnull %10) #19
+  tail call void @free(ptr noundef nonnull %10) #20
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %12
   %17 = shl i64 %.02237, 1
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #22
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #23
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %12
   store i32 %14, ptr %13, align 4
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #19
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 773, ptr noundef nonnull @__func__.make_absolute_path) #19
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 773, ptr noundef nonnull @__func__.make_absolute_path) #20
   unreachable
 
 22:                                               ; preds = %.lr.ph
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #21
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %25 = add i64 %23, 2
   %26 = add i64 %25, %24
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #22
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #23
   %.not30 = icmp eq ptr %27, null
   br i1 %.not30, label %28, label %32
 
 28:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %10) #19
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  tail call void @free(ptr noundef nonnull %10) #20
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
   tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 @errcode(i32 noundef 8389) #19
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #19
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 789, ptr noundef nonnull @__func__.make_absolute_path) #19
+  %30 = tail call i32 @errcode(i32 noundef 8389) #20
+  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 789, ptr noundef nonnull @__func__.make_absolute_path) #20
   unreachable
 
 32:                                               ; preds = %22
-  %33 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.9, ptr noundef nonnull %10, ptr noundef nonnull %0) #19
-  tail call void @free(ptr noundef nonnull %10) #19
+  %33 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.9, ptr noundef nonnull %10, ptr noundef nonnull %0) #20
+  tail call void @free(ptr noundef nonnull %10) #20
   br label %40
 
 34:                                               ; preds = %3
-  %35 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #19
+  %35 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #20
   %.not31 = icmp eq ptr %35, null
   br i1 %.not31, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
   tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 8389) #19
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #19
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 806, ptr noundef nonnull @__func__.make_absolute_path) #19
+  %38 = tail call i32 @errcode(i32 noundef 8389) #20
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 806, ptr noundef nonnull @__func__.make_absolute_path) #20
   unreachable
 
 40:                                               ; preds = %34, %32
@@ -857,13 +857,13 @@ define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, 
 20:                                               ; preds = %.critedge
   %21 = sext i32 %.040.lcssa to i64
   %.neg = add i32 %.040.lcssa, -20
-  %22 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #19
+  %22 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #20
   %23 = load i8, ptr %0, align 1
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %trim_directory.exit, label %25
 
 25:                                               ; preds = %20
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %27 = getelementptr i8, ptr %0, i64 %26
   br label %28
 
@@ -907,7 +907,7 @@ define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, 
 
 trim_directory.exit:                              ; preds = %20, %.critedge.i
   tail call void @canonicalize_path(ptr noundef nonnull %0)
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %46 = trunc i64 %45 to i32
   %47 = add i32 %.neg, %46
   %48 = icmp sgt i32 %47, 0
@@ -972,7 +972,7 @@ dir_strcmp.exit:                                  ; preds = %64, %._crit_edge.i
 
 74:                                               ; preds = %dir_strcmp.exit
   store i8 0, ptr %51, align 1
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %76 = getelementptr i8, ptr %0, i64 %75
   %77 = icmp ugt ptr %76, %0
   %.013.i47 = getelementptr i8, ptr %76, i64 -1
@@ -999,13 +999,13 @@ trim_trailing_separator.exit:                     ; preds = %.lr.ph.i50, %81, %7
   br i1 %.not11.i, label %join_path_components.exit, label %85
 
 85:                                               ; preds = %trim_trailing_separator.exit
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %87 = getelementptr i8, ptr %0, i64 %86
   %88 = sub i64 1024, %86
   %89 = load i8, ptr %0, align 1
   %.not12.i = icmp eq i8 %89, 0
   %90 = select i1 %.not12.i, ptr @.str.2, ptr @.str.1
-  %91 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %87, i64 noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull %90, ptr noundef nonnull %83) #19
+  %91 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %87, i64 noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull %90, ptr noundef nonnull %83) #20
   br label %join_path_components.exit
 
 join_path_components.exit:                        ; preds = %trim_trailing_separator.exit, %85
@@ -1013,7 +1013,7 @@ join_path_components.exit:                        ; preds = %trim_trailing_separ
   br label %93
 
 dir_strcmp.exit.thread:                           ; preds = %.lr.ph.i, %3, %trim_directory.exit, %49, %dir_strcmp.exit, %.critedge
-  %92 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #19
+  %92 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #20
   tail call void @canonicalize_path(ptr noundef %0)
   br label %93
 
@@ -1083,7 +1083,7 @@ define dso_local void @get_man_path(ptr noundef %0, ptr noundef %1) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_home_path(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.19) #19
+  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.19) #20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
 
@@ -1093,12 +1093,12 @@ define dso_local zeroext i1 @get_home_path(ptr noundef %0) local_unnamed_addr #2
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4, %1
-  %8 = tail call i32 @geteuid() #19
-  %9 = tail call zeroext i1 @pg_get_user_home_dir(i32 noundef %8, ptr noundef %0, i64 noundef 1024) #19
+  %8 = tail call i32 @geteuid() #20
+  %9 = tail call zeroext i1 @pg_get_user_home_dir(i32 noundef %8, ptr noundef %0, i64 noundef 1024) #20
   br label %12
 
 10:                                               ; preds = %4
-  %11 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #19
+  %11 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #20
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -1114,14 +1114,14 @@ declare zeroext i1 @pg_get_user_home_dir(i32 noundef, ptr noundef, i64 noundef) 
 ; Function Attrs: nounwind
 declare i32 @geteuid() local_unnamed_addr #13
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @get_parent_directory(ptr noundef %0) local_unnamed_addr #6 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
+define dso_local void @get_parent_directory(ptr noundef %0) local_unnamed_addr #17 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %trim_directory.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   %6 = getelementptr i8, ptr %0, i64 %5
   br label %7
 
@@ -1168,13 +1168,13 @@ trim_directory.exit:                              ; preds = %1, %.critedge.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1190,14 +1190,15 @@ attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { cold nounwind }
-attributes #24 = { nounwind willreturn memory(none) }
+attributes #17 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { cold nounwind }
+attributes #25 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

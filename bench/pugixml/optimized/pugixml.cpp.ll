@@ -28011,8 +28011,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef %value, i32 noundef %minv, i32 noundef %maxv) unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIjEET_PKcS3_S3_(ptr noundef %value, i32 noundef %minv, i32 noundef %maxv) unnamed_addr #8 {
 entry:
   br label %while.cond
 
@@ -28172,8 +28172,8 @@ return:                                           ; preds = %if.else87, %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #24
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef %value, i64 noundef %minv, i64 noundef %maxv) unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef %value, i64 noundef %minv, i64 noundef %maxv) unnamed_addr #8 {
 entry:
   br label %while.cond
 
@@ -29097,8 +29097,8 @@ return:                                           ; preds = %for.body, %for.inc,
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE12parse_simpleEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE12parse_simpleEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #22 align 2 {
 entry:
   br label %while.body
 
@@ -30719,8 +30719,8 @@ return:                                           ; preds = %return.sink.split, 
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_S3_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_S3_E5parseEPc(ptr noundef %s) unnamed_addr #22 align 2 {
 entry:
   br label %while.body
 
@@ -31284,8 +31284,8 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES4_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES4_E5parseEPc(ptr noundef %s) unnamed_addr #22 align 2 {
 entry:
   br label %while.body
 
@@ -34064,8 +34064,8 @@ if.end17:                                         ; preds = %entry, %_ZN4pugi4im
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef writeonly %result) unnamed_addr #17 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef writeonly %result) unnamed_addr #22 align 2 {
 entry:
   %tobool.not61 = icmp eq i64 %size, 0
   br i1 %tobool.not61, label %while.end121, label %while.body

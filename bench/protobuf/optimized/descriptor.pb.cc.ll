@@ -5359,7 +5359,7 @@ entry:
   ret i1 true
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6google8protobuf29DescriptorProto_ReservedRange12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -8508,7 +8508,7 @@ entry:
   ret i1 true
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6google8protobuf33ExtensionRangeOptions_Declaration12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11134,7 +11134,7 @@ return:                                           ; preds = %if.then8, %if.end, 
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6google8protobuf20FieldDescriptorProto12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12377,7 +12377,7 @@ entry:
   ret i1 true
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6google8protobuf37EnumDescriptorProto_EnumReservedRange12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -14448,7 +14448,7 @@ return:                                           ; preds = %if.then8, %if.end, 
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6google8protobuf24EnumValueDescriptorProto12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -16505,7 +16505,7 @@ return:                                           ; preds = %if.then8, %if.end, 
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6google8protobuf21MethodDescriptorProto12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -27353,7 +27353,7 @@ return:                                           ; preds = %if.then, %if.end4
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -33181,7 +33181,7 @@ attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

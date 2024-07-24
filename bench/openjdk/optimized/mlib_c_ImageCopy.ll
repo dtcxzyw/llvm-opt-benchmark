@@ -150,7 +150,7 @@ define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly %0, ptr n
   %.1111 = phi i32 [ 0, %.lr.ph ], [ %59, %56 ]
   %.167110 = phi ptr [ %.val97, %.lr.ph ], [ %58, %56 ]
   %.169109 = phi ptr [ %.val96, %.lr.ph ], [ %57, %56 ]
-  tail call void @mlib_ImageCopy_bit_na(ptr noundef %.169109, ptr noundef %.167110, i32 noundef %17, i32 noundef %.val104, i32 noundef %.val105) #4
+  tail call void @mlib_ImageCopy_bit_na(ptr noundef %.169109, ptr noundef %.167110, i32 noundef %17, i32 noundef %.val104, i32 noundef %.val105) #5
   %57 = getelementptr inbounds i8, ptr %.169109, i64 %48
   %58 = getelementptr inbounds i8, ptr %.167110, i64 %49
   %59 = add nuw nsw i32 %.1111, 1
@@ -315,8 +315,8 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp slt i32 %2, 1
   br i1 %5, label %91, label %6
 
@@ -501,7 +501,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   ret void
 }
 
-declare void @mlib_ImageCopy_bit_na(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @mlib_ImageCopy_bit_na(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
@@ -1393,13 +1393,14 @@ define internal fastcc void @mlib_c_ImageCopy_d64(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #3
+declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -51,9 +51,9 @@ define hidden void @mbedtls_mpi_free(ptr noundef %0) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = shl i64 %8, 3
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef %9) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef %9) #17
   %10 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %10) #18
+  tail call void @free(ptr noundef %10) #17
   br label %11
 
 11:                                               ; preds = %6, %3
@@ -81,7 +81,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_grow(ptr nocapture noundef %0, 
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #19
+  %9 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %18, label %11
 
@@ -94,9 +94,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_grow(ptr nocapture noundef %0, 
 14:                                               ; preds = %11
   %15 = shl nuw nsw i64 %6, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %13, i64 %15, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef %15) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef %15) #17
   %16 = load ptr, ptr %12, align 8
-  tail call void @free(ptr noundef %16) #18
+  tail call void @free(ptr noundef %16) #17
   br label %17
 
 17:                                               ; preds = %14, %11
@@ -135,7 +135,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr nocapture noundef %0
   br i1 %9, label %10, label %mbedtls_mpi_grow.exit
 
 10:                                               ; preds = %8
-  %11 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #19
+  %11 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #18
   %12 = icmp eq ptr %11, null
   br i1 %12, label %mbedtls_mpi_grow.exit, label %13
 
@@ -148,9 +148,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr nocapture noundef %0
 16:                                               ; preds = %13
   %17 = shl nuw nsw i64 %6, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %15, i64 %17, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %15, i64 noundef %17) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %15, i64 noundef %17) #17
   %18 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %18) #18
+  tail call void @free(ptr noundef %18) #17
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -173,7 +173,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr nocapture noundef %0
 
 25:                                               ; preds = %21, %20
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.0.in, i64 %1)
-  %26 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 8) #19
+  %26 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 8) #18
   %27 = icmp eq ptr %26, null
   br i1 %27, label %mbedtls_mpi_grow.exit, label %28
 
@@ -186,9 +186,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr nocapture noundef %0
   %31 = shl i64 %spec.select, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %29, i64 %31, i1 false)
   %32 = shl i64 %6, 3
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %29, i64 noundef %32) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %29, i64 noundef %32) #17
   %33 = load ptr, ptr %7, align 8
-  tail call void @free(ptr noundef %33) #18
+  tail call void @free(ptr noundef %33) #17
   br label %34
 
 34:                                               ; preds = %30, %28
@@ -266,7 +266,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef %0, ptr nounde
 .thread40:                                        ; preds = %.thread, %30
   %32 = phi ptr [ %23, %30 ], [ %27, %.thread ]
   %33 = phi i64 [ %24, %30 ], [ 0, %.thread ]
-  %34 = tail call noalias ptr @calloc(i64 noundef %.0.in, i64 noundef 8) #19
+  %34 = tail call noalias ptr @calloc(i64 noundef %.0.in, i64 noundef 8) #18
   %35 = icmp eq ptr %34, null
   br i1 %35, label %mbedtls_mpi_grow.exit.thread, label %36
 
@@ -279,9 +279,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef %0, ptr nounde
 39:                                               ; preds = %36
   %40 = shl nuw nsw i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 8 %38, i64 %40, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %38, i64 noundef %40) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %38, i64 noundef %40) #17
   %41 = load ptr, ptr %37, align 8
-  tail call void @free(ptr noundef %41) #18
+  tail call void @free(ptr noundef %41) #17
   br label %mbedtls_mpi_grow.exit
 
 mbedtls_mpi_grow.exit:                            ; preds = %36, %39
@@ -338,7 +338,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_lset(ptr nocapture noundef %0, 
   br label %16
 
 7:                                                ; preds = %2
-  %8 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %8 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %9 = icmp eq ptr %8, null
   br i1 %9, label %mbedtls_mpi_grow.exit, label %10
 
@@ -349,9 +349,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_lset(ptr nocapture noundef %0, 
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %10
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 0) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 0) #17
   %14 = load ptr, ptr %11, align 8
-  tail call void @free(ptr noundef %14) #18
+  tail call void @free(ptr noundef %14) #17
   br label %15
 
 15:                                               ; preds = %13, %10
@@ -430,7 +430,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_set_bit(ptr nocapture noundef %
   br i1 %.not25, label %mbedtls_mpi_grow.exit.thread, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 8) #19
+  %17 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 8) #18
   %18 = icmp eq ptr %17, null
   br i1 %18, label %mbedtls_mpi_grow.exit, label %19
 
@@ -443,9 +443,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_set_bit(ptr nocapture noundef %
 22:                                               ; preds = %19
   %23 = shl nuw nsw i64 %8, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %21, i64 %23, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %21, i64 noundef %23) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %21, i64 noundef %23) #17
   %24 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %24) #18
+  tail call void @free(ptr noundef %24) #17
   br label %25
 
 25:                                               ; preds = %22, %19
@@ -680,9 +680,9 @@ define hidden i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr n
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = shl i64 %19, 3
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %16, i64 noundef %20) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %16, i64 noundef %20) #17
   %21 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %21) #18
+  tail call void @free(ptr noundef %21) #17
   br label %22
 
 22:                                               ; preds = %17, %14
@@ -695,7 +695,7 @@ define hidden i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr n
   %25 = icmp eq i8 %10, 45
   %spec.select.idx = zext i1 %25 to i64
   %spec.select = getelementptr inbounds i8, ptr %2, i64 %spec.select.idx
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #20
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #19
   %27 = icmp eq i32 %1, 16
   br i1 %27, label %28, label %90
 
@@ -719,7 +719,7 @@ define hidden i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %37
-  %42 = tail call noalias ptr @calloc(i64 noundef %35, i64 noundef 8) #19
+  %42 = tail call noalias ptr @calloc(i64 noundef %35, i64 noundef 8) #18
   %43 = icmp eq ptr %42, null
   br i1 %43, label %mbedtls_mpi_grow.exit, label %44
 
@@ -732,9 +732,9 @@ define hidden i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr n
 47:                                               ; preds = %44
   %48 = shl nuw nsw i64 %39, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 8 %46, i64 %48, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %46, i64 noundef %48) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %46, i64 noundef %48) #17
   %49 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %49) #18
+  tail call void @free(ptr noundef %49) #17
   br label %.thread
 
 .thread:                                          ; preds = %44, %47
@@ -754,7 +754,7 @@ define hidden i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr n
   br label %mbedtls_mpi_lset.exit
 
 54:                                               ; preds = %50
-  %55 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %55 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %56 = icmp eq ptr %55, null
   br i1 %56, label %mbedtls_mpi_grow.exit, label %57
 
@@ -765,9 +765,9 @@ define hidden i32 @mbedtls_mpi_read_string(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not.i.i, label %62, label %60
 
 60:                                               ; preds = %57
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %59, i64 noundef 0) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %59, i64 noundef 0) #17
   %61 = load ptr, ptr %58, align 8
-  tail call void @free(ptr noundef %61) #18
+  tail call void @free(ptr noundef %61) #17
   br label %62
 
 62:                                               ; preds = %60, %57
@@ -838,7 +838,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %62
   br label %mbedtls_mpi_lset.exit75
 
 95:                                               ; preds = %90
-  %96 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %96 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %97 = icmp eq ptr %96, null
   br i1 %97, label %mbedtls_mpi_grow.exit, label %98
 
@@ -849,9 +849,9 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %62
   br i1 %.not.i.i74, label %103, label %101
 
 101:                                              ; preds = %98
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %100, i64 noundef 0) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %100, i64 noundef 0) #17
   %102 = load ptr, ptr %99, align 8
-  tail call void @free(ptr noundef %102) #18
+  tail call void @free(ptr noundef %102) #17
   br label %103
 
 103:                                              ; preds = %101, %98
@@ -944,9 +944,9 @@ mbedtls_mpi_grow.exit:                            ; preds = %128, %126, %113, %.
 135:                                              ; preds = %mbedtls_mpi_grow.exit
   %136 = load i64, ptr %9, align 8
   %137 = shl i64 %136, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %134, i64 noundef %137) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %134, i64 noundef %137) #17
   %138 = load ptr, ptr %133, align 8
-  call void @free(ptr noundef %138) #18
+  call void @free(ptr noundef %138) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %135, %mbedtls_mpi_grow.exit, %22, %12, %28, %3
@@ -999,7 +999,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef %0, ptr nou
   br label %27
 
 18:                                               ; preds = %.critedge.thread
-  %19 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %19 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %20 = icmp eq ptr %19, null
   br i1 %20, label %mbedtls_mpi_lset.exit, label %21
 
@@ -1010,9 +1010,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef %0, ptr nou
   br i1 %.not.i.i, label %26, label %24
 
 24:                                               ; preds = %21
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %23, i64 noundef 0) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %23, i64 noundef 0) #17
   %25 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %25) #18
+  tail call void @free(ptr noundef %25) #17
   br label %26
 
 26:                                               ; preds = %24, %21
@@ -1042,7 +1042,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef %0, ptr nou
   br i1 %38, label %39, label %49
 
 39:                                               ; preds = %35
-  %40 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 8) #19
+  %40 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 8) #18
   %41 = icmp eq ptr %40, null
   br i1 %41, label %mbedtls_mpi_lset.exit, label %42
 
@@ -1055,9 +1055,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef %0, ptr nou
 45:                                               ; preds = %42
   %46 = shl nuw nsw i64 %37, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %44, i64 %46, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %44, i64 noundef %46) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %44, i64 noundef %46) #17
   %47 = load ptr, ptr %43, align 8
-  tail call void @free(ptr noundef %47) #18
+  tail call void @free(ptr noundef %47) #17
   br label %48
 
 48:                                               ; preds = %45, %42
@@ -1098,7 +1098,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef %0, ptr nou
   %.02737.i = phi ptr [ %63, %.lr.ph.i ], [ %53, %.lr.ph.preheader.i ]
   %.03036.i = phi ptr [ %64, %.lr.ph.i ], [ %55, %.lr.ph.preheader.i ]
   %60 = add nsw i64 %.02439.i, -1
-  %61 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i, i64 %56, ptr elementtype([16 x i64]) %.03036.i, i64 %.02638.i, ptr %.02737.i, ptr %.03036.i, ptr elementtype([16 x i64]) %.02737.i) #18, !srcloc !14
+  %61 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i, i64 %56, ptr elementtype([16 x i64]) %.03036.i, i64 %.02638.i, ptr %.02737.i, ptr %.03036.i, ptr elementtype([16 x i64]) %.02737.i) #17, !srcloc !14
   %62 = extractvalue { i64, ptr, ptr } %61, 0
   %63 = extractvalue { i64, ptr, ptr } %61, 1
   %64 = extractvalue { i64, ptr, ptr } %61, 2
@@ -1117,7 +1117,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_int(ptr noundef %0, ptr nou
   %.12844.i = phi ptr [ %68, %.lr.ph47.i ], [ %.027.lcssa.i, %.preheader34.i ]
   %.13143.i = phi ptr [ %69, %.lr.ph47.i ], [ %.030.lcssa.i, %.preheader34.i ]
   %65 = add nsw i64 %.046.i, -1
-  %66 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i, i64 %56, ptr elementtype([16 x i64]) %.13143.i, i64 %.145.i, ptr %.12844.i, ptr %.13143.i, ptr elementtype([16 x i64]) %.12844.i) #18, !srcloc !16
+  %66 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i, i64 %56, ptr elementtype([16 x i64]) %.13143.i, i64 %.145.i, ptr %.12844.i, ptr %.13143.i, ptr elementtype([16 x i64]) %.12844.i) #17, !srcloc !16
   %67 = extractvalue { i64, ptr, ptr } %66, 0
   %68 = extractvalue { i64, ptr, ptr } %66, 1
   %69 = extractvalue { i64, ptr, ptr } %66, 2
@@ -1537,9 +1537,9 @@ mpi_write_hlp.exit.thread:                        ; preds = %.split.i, %130, %11
 154:                                              ; preds = %mpi_write_hlp.exit.thread
   %155 = load i64, ptr %38, align 8
   %156 = shl i64 %155, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %153, i64 noundef %156) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %153, i64 noundef %156) #17
   %157 = load ptr, ptr %152, align 8
-  call void @free(ptr noundef %157) #18
+  call void @free(ptr noundef %157) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %154, %mpi_write_hlp.exit.thread, %5, %36
@@ -1561,7 +1561,7 @@ define hidden i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 noundef %1, ptr noc
   br i1 %8, label %40, label %9
 
 9:                                                ; preds = %6
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
   switch i64 %10, label %11 [
     i64 2482, label %40
     i64 0, label %.thread
@@ -1659,8 +1659,8 @@ define hidden i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr noundef %1, i32 no
 10:                                               ; preds = %8
   %11 = icmp eq ptr %0, null
   %spec.store.select = select i1 %11, ptr @.str.1, ptr %0
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #20
-  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #20
+  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #19
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
   %14 = add i64 %13, 1
   %15 = getelementptr inbounds [2484 x i8], ptr %6, i64 0, i64 %13
   store i8 13, ptr %15, align 1
@@ -1756,9 +1756,9 @@ define internal fastcc range(i32 -16, 1) i32 @mbedtls_mpi_resize_clear(ptr nound
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = shl i64 %11, 3
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef %12) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef %12) #17
   %13 = load ptr, ptr %7, align 8
-  tail call void @free(ptr noundef %13) #18
+  tail call void @free(ptr noundef %13) #17
   br label %14
 
 14:                                               ; preds = %9, %6
@@ -1787,9 +1787,9 @@ define internal fastcc range(i32 -16, 1) i32 @mbedtls_mpi_resize_clear(ptr nound
 
 25:                                               ; preds = %24
   %26 = shl i64 %18, 3
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %21, i64 noundef %26) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %21, i64 noundef %26) #17
   %27 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %27) #18
+  tail call void @free(ptr noundef %27) #17
   br label %mbedtls_mpi_free.exit12
 
 mbedtls_mpi_free.exit12:                          ; preds = %24, %25
@@ -1799,7 +1799,7 @@ mbedtls_mpi_free.exit12:                          ; preds = %24, %25
   br i1 %28, label %mbedtls_mpi_free.exit, label %29
 
 29:                                               ; preds = %mbedtls_mpi_free.exit12
-  %30 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #19
+  %30 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #18
   %31 = icmp eq ptr %30, null
   br i1 %31, label %mbedtls_mpi_free.exit, label %32
 
@@ -1932,8 +1932,8 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_write_binary_le(ptr nocapture no
   ret i32 %.027
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -8, 1) i32 @mbedtls_mpi_write_binary(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden range(i32 -8, 1) i32 @mbedtls_mpi_write_binary(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %5, 3
@@ -2089,7 +2089,7 @@ mbedtls_mpi_bitlen.exit:                          ; preds = %2, %mbedtls_clz.exi
   br i1 %33, label %34, label %mbedtls_mpi_grow.exit.thread
 
 34:                                               ; preds = %32
-  %35 = tail call noalias ptr @calloc(i64 noundef %30, i64 noundef 8) #19
+  %35 = tail call noalias ptr @calloc(i64 noundef %30, i64 noundef 8) #18
   %36 = icmp eq ptr %35, null
   br i1 %36, label %mbedtls_mpi_grow.exit, label %37
 
@@ -2102,9 +2102,9 @@ mbedtls_mpi_bitlen.exit:                          ; preds = %2, %mbedtls_clz.exi
 40:                                               ; preds = %37
   %41 = shl nuw nsw i64 %6, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 8 %39, i64 %41, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %39, i64 noundef %41) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %39, i64 noundef %41) #17
   %42 = load ptr, ptr %38, align 8
-  tail call void @free(ptr noundef %42) #18
+  tail call void @free(ptr noundef %42) #17
   br label %43
 
 43:                                               ; preds = %40, %37
@@ -2221,7 +2221,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shift_r(ptr nocapture noundef %
   br label %23
 
 14:                                               ; preds = %11
-  %15 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %15 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %16 = icmp eq ptr %15, null
   br i1 %16, label %mbedtls_mpi_lset.exit, label %17
 
@@ -2232,9 +2232,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shift_r(ptr nocapture noundef %
   br i1 %.not.i.i, label %22, label %20
 
 20:                                               ; preds = %17
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %19, i64 noundef 0) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %19, i64 noundef 0) #17
   %21 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %21) #18
+  tail call void @free(ptr noundef %21) #17
   br label %22
 
 22:                                               ; preds = %20, %17
@@ -2687,7 +2687,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef %0, ptr nou
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %.thread
-  %22 = tail call noalias ptr @calloc(i64 noundef %.05285, i64 noundef 8) #19
+  %22 = tail call noalias ptr @calloc(i64 noundef %.05285, i64 noundef 8) #18
   %23 = icmp eq ptr %22, null
   br i1 %23, label %mbedtls_mpi_grow.exit, label %24
 
@@ -2700,9 +2700,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef %0, ptr nou
 27:                                               ; preds = %24
   %28 = shl nuw nsw i64 %19, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 8 %26, i64 %28, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %26, i64 noundef %28) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %26, i64 noundef %28) #17
   %29 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %29) #18
+  tail call void @free(ptr noundef %29) #17
   br label %.thread115
 
 .thread115:                                       ; preds = %24, %27
@@ -2769,7 +2769,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef %0, ptr nou
   br label %61
 
 52:                                               ; preds = %50
-  %53 = tail call noalias ptr @calloc(i64 noundef %.pre111, i64 noundef 8) #19
+  %53 = tail call noalias ptr @calloc(i64 noundef %.pre111, i64 noundef 8) #18
   %54 = icmp eq ptr %53, null
   br i1 %54, label %mbedtls_mpi_grow.exit, label %55
 
@@ -2781,9 +2781,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef %0, ptr nou
 57:                                               ; preds = %55
   %58 = shl nuw nsw i64 %47, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %56, i64 %58, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %56, i64 noundef %58) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %56, i64 noundef %58) #17
   %59 = load ptr, ptr %32, align 8
-  tail call void @free(ptr noundef %59) #18
+  tail call void @free(ptr noundef %59) #17
   br label %60
 
 60:                                               ; preds = %57, %55
@@ -2861,7 +2861,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr nocapture noundef %
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %21
-  %26 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #19
+  %26 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #18
   %27 = icmp eq ptr %26, null
   br i1 %27, label %mbedtls_mpi_grow.exit, label %28
 
@@ -2874,9 +2874,9 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_sub_abs(ptr nocapture noundef %
 31:                                               ; preds = %28
   %32 = shl nuw nsw i64 %23, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %30, i64 %32, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %30, i64 noundef %32) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %30, i64 noundef %32) #17
   %33 = load ptr, ptr %29, align 8
-  tail call void @free(ptr noundef %33) #18
+  tail call void @free(ptr noundef %33) #17
   br label %34
 
 34:                                               ; preds = %31, %28
@@ -3291,7 +3291,7 @@ define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noun
   %.02737 = phi ptr [ %12, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.03036 = phi ptr [ %13, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %9 = add nsw i64 %.02439, -1
-  %10 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737, i64 %4, ptr elementtype([16 x i64]) %.03036, i64 %.02638, ptr %.02737, ptr %.03036, ptr elementtype([16 x i64]) %.02737) #18, !srcloc !14
+  %10 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737, i64 %4, ptr elementtype([16 x i64]) %.03036, i64 %.02638, ptr %.02737, ptr %.03036, ptr elementtype([16 x i64]) %.02737) #17, !srcloc !14
   %11 = extractvalue { i64, ptr, ptr } %10, 0
   %12 = extractvalue { i64, ptr, ptr } %10, 1
   %13 = extractvalue { i64, ptr, ptr } %10, 2
@@ -3310,7 +3310,7 @@ define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noun
   %.12844 = phi ptr [ %17, %.lr.ph47 ], [ %.027.lcssa, %.preheader34 ]
   %.13143 = phi ptr [ %18, %.lr.ph47 ], [ %.030.lcssa, %.preheader34 ]
   %14 = add nsw i64 %.046, -1
-  %15 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844, i64 %4, ptr elementtype([16 x i64]) %.13143, i64 %.145, ptr %.12844, ptr %.13143, ptr elementtype([16 x i64]) %.12844) #18, !srcloc !16
+  %15 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844, i64 %4, ptr elementtype([16 x i64]) %.13143, i64 %.145, ptr %.12844, ptr %.13143, ptr elementtype([16 x i64]) %.12844) #17, !srcloc !16
   %16 = extractvalue { i64, ptr, ptr } %15, 0
   %17 = extractvalue { i64, ptr, ptr } %15, 1
   %18 = extractvalue { i64, ptr, ptr } %15, 2
@@ -3441,7 +3441,7 @@ define hidden i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %31
-  %36 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 8) #19
+  %36 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 8) #18
   %37 = icmp eq ptr %36, null
   br i1 %37, label %mbedtls_mpi_grow.exit, label %38
 
@@ -3454,9 +3454,9 @@ define hidden i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef %1, ptr nound
 41:                                               ; preds = %38
   %42 = shl nuw nsw i64 %33, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %40, i64 %42, i1 false)
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %40, i64 noundef %42) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %40, i64 noundef %42) #17
   %43 = load ptr, ptr %39, align 8
-  call void @free(ptr noundef %43) #18
+  call void @free(ptr noundef %43) #17
   br label %.thread
 
 .thread:                                          ; preds = %38, %41
@@ -3476,7 +3476,7 @@ define hidden i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef %1, ptr nound
   br label %mbedtls_mpi_lset.exit
 
 48:                                               ; preds = %44
-  %49 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %49 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %50 = icmp eq ptr %49, null
   br i1 %50, label %mbedtls_mpi_grow.exit, label %51
 
@@ -3487,9 +3487,9 @@ define hidden i32 @mbedtls_mpi_mul_mpi(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i.i, label %56, label %54
 
 54:                                               ; preds = %51
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %53, i64 noundef 0) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %53, i64 noundef 0) #17
   %55 = load ptr, ptr %52, align 8
-  call void @free(ptr noundef %55) #18
+  call void @free(ptr noundef %55) #17
   br label %56
 
 56:                                               ; preds = %54, %51
@@ -3534,7 +3534,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %.12844.i.us = phi ptr [ %72, %.lr.ph47.i.us ], [ %64, %.preheader34.i.us ]
   %.13143.i.us = phi ptr [ %73, %.lr.ph47.i.us ], [ %65, %.preheader34.i.us ]
   %69 = add nsw i64 %.046.i.us, -1
-  %70 = call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i.us, i64 %68, ptr elementtype([16 x i64]) %.13143.i.us, i64 %.145.i.us, ptr %.12844.i.us, ptr %.13143.i.us, ptr elementtype([16 x i64]) %.12844.i.us) #18, !srcloc !16
+  %70 = call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i.us, i64 %68, ptr elementtype([16 x i64]) %.13143.i.us, i64 %.145.i.us, ptr %.12844.i.us, ptr %.13143.i.us, ptr elementtype([16 x i64]) %.12844.i.us) #17, !srcloc !16
   %71 = extractvalue { i64, ptr, ptr } %70, 0
   %72 = extractvalue { i64, ptr, ptr } %70, 1
   %73 = extractvalue { i64, ptr, ptr } %70, 2
@@ -3568,7 +3568,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %.02737.i = phi ptr [ %86, %.lr.ph.i ], [ %78, %.lr.ph.preheader.i ]
   %.03036.i = phi ptr [ %87, %.lr.ph.i ], [ %79, %.lr.ph.preheader.i ]
   %83 = add nsw i64 %.02439.i, -1
-  %84 = call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i, i64 %82, ptr elementtype([16 x i64]) %.03036.i, i64 %.02638.i, ptr %.02737.i, ptr %.03036.i, ptr elementtype([16 x i64]) %.02737.i) #18, !srcloc !14
+  %84 = call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i, i64 %82, ptr elementtype([16 x i64]) %.03036.i, i64 %.02638.i, ptr %.02737.i, ptr %.03036.i, ptr elementtype([16 x i64]) %.02737.i) #17, !srcloc !14
   %85 = extractvalue { i64, ptr, ptr } %84, 0
   %86 = extractvalue { i64, ptr, ptr } %84, 1
   %87 = extractvalue { i64, ptr, ptr } %84, 2
@@ -3591,7 +3591,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i, %56
   %.12844.i = phi ptr [ %94, %.lr.ph47.i ], [ %86, %.preheader34.i.loopexit ]
   %.13143.i = phi ptr [ %95, %.lr.ph47.i ], [ %87, %.preheader34.i.loopexit ]
   %91 = add nsw i64 %.046.i, -1
-  %92 = call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i, i64 %82, ptr elementtype([16 x i64]) %.13143.i, i64 %.145.i, ptr %.12844.i, ptr %.13143.i, ptr elementtype([16 x i64]) %.12844.i) #18, !srcloc !16
+  %92 = call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i, i64 %82, ptr elementtype([16 x i64]) %.13143.i, i64 %.145.i, ptr %.12844.i, ptr %.13143.i, ptr elementtype([16 x i64]) %.12844.i) #17, !srcloc !16
   %93 = extractvalue { i64, ptr, ptr } %92, 0
   %94 = extractvalue { i64, ptr, ptr } %92, 1
   %95 = extractvalue { i64, ptr, ptr } %92, 2
@@ -3621,9 +3621,9 @@ mbedtls_mpi_grow.exit:                            ; preds = %mbedtls_mpi_grow.ex
 101:                                              ; preds = %mbedtls_mpi_grow.exit
   %102 = load i64, ptr %7, align 8
   %103 = shl i64 %102, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %100, i64 noundef %103) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %100, i64 noundef %103) #17
   %104 = load ptr, ptr %.041.sroa.phi60.sroa.gep89, align 8
-  call void @free(ptr noundef %104) #18
+  call void @free(ptr noundef %104) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.exit, %101
@@ -3636,9 +3636,9 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.ex
 106:                                              ; preds = %mbedtls_mpi_free.exit
   %107 = load i64, ptr %6, align 8
   %108 = shl i64 %107, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %105, i64 noundef %108) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %105, i64 noundef %108) #17
   %109 = load ptr, ptr %.042.sroa.phi50.sroa.gep93, align 8
-  call void @free(ptr noundef %109) #18
+  call void @free(ptr noundef %109) #17
   br label %mbedtls_mpi_free.exit85
 
 mbedtls_mpi_free.exit85:                          ; preds = %mbedtls_mpi_free.exit, %106
@@ -3790,7 +3790,7 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %54, %42
   br label %mbedtls_mpi_lset.exit.thread
 
 61:                                               ; preds = %56
-  %62 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %62 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %63 = icmp eq ptr %62, null
   br i1 %63, label %mbedtls_mpi_lset.exit, label %64
 
@@ -3801,9 +3801,9 @@ mbedtls_mpi_cmp_abs.exit:                         ; preds = %54, %42
   br i1 %.not.i.i137, label %69, label %67
 
 67:                                               ; preds = %64
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %66, i64 noundef 0) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %66, i64 noundef 0) #17
   %68 = load ptr, ptr %65, align 8
-  call void @free(ptr noundef %68) #18
+  call void @free(ptr noundef %68) #17
   br label %69
 
 69:                                               ; preds = %67, %64
@@ -3853,7 +3853,7 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i136, %
   br i1 %.not181, label %90, label %85
 
 85:                                               ; preds = %84
-  %86 = call noalias ptr @calloc(i64 noundef %82, i64 noundef 8) #19
+  %86 = call noalias ptr @calloc(i64 noundef %82, i64 noundef 8) #18
   %87 = icmp eq ptr %86, null
   br i1 %87, label %mbedtls_mpi_lset.exit, label %._crit_edge.i139
 
@@ -3865,7 +3865,7 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i136, %
   br label %95
 
 90:                                               ; preds = %84
-  %91 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %91 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %92 = icmp eq ptr %91, null
   br i1 %92, label %mbedtls_mpi_lset.exit, label %93
 
@@ -4171,9 +4171,9 @@ mbedtls_mpi_lset.exit:                            ; preds = %122, %221, %219, %2
 246:                                              ; preds = %mbedtls_mpi_lset.exit
   %247 = load i64, ptr %22, align 8
   %248 = shl i64 %247, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %245, i64 noundef %248) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %245, i64 noundef %248) #17
   %249 = load ptr, ptr %244, align 8
-  call void @free(ptr noundef %249) #18
+  call void @free(ptr noundef %249) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_lset.exit, %246
@@ -4187,9 +4187,9 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_lset.ex
 252:                                              ; preds = %mbedtls_mpi_free.exit
   %253 = load i64, ptr %23, align 8
   %254 = shl i64 %253, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %251, i64 noundef %254) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %251, i64 noundef %254) #17
   %255 = load ptr, ptr %250, align 8
-  call void @free(ptr noundef %255) #18
+  call void @free(ptr noundef %255) #17
   br label %mbedtls_mpi_free.exit149
 
 mbedtls_mpi_free.exit149:                         ; preds = %mbedtls_mpi_free.exit, %252
@@ -4203,9 +4203,9 @@ mbedtls_mpi_free.exit149:                         ; preds = %mbedtls_mpi_free.ex
 258:                                              ; preds = %mbedtls_mpi_free.exit149
   %259 = load i64, ptr %24, align 8
   %260 = shl i64 %259, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %257, i64 noundef %260) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %257, i64 noundef %260) #17
   %261 = load ptr, ptr %256, align 8
-  call void @free(ptr noundef %261) #18
+  call void @free(ptr noundef %261) #17
   br label %mbedtls_mpi_free.exit151
 
 mbedtls_mpi_free.exit151:                         ; preds = %mbedtls_mpi_free.exit149, %258
@@ -4219,15 +4219,15 @@ mbedtls_mpi_free.exit151:                         ; preds = %mbedtls_mpi_free.ex
 264:                                              ; preds = %mbedtls_mpi_free.exit151
   %265 = load i64, ptr %25, align 8
   %266 = shl i64 %265, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %263, i64 noundef %266) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %263, i64 noundef %266) #17
   %267 = load ptr, ptr %262, align 8
-  call void @free(ptr noundef %267) #18
+  call void @free(ptr noundef %267) #17
   br label %mbedtls_mpi_free.exit153
 
 mbedtls_mpi_free.exit153:                         ; preds = %mbedtls_mpi_free.exit151, %264
   store i32 1, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 24) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 24) #17
   br label %mbedtls_mpi_cmp_int.exit.thread
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %17, %4, %74, %75, %mbedtls_mpi_cmp_int.exit, %mbedtls_mpi_free.exit153
@@ -4235,7 +4235,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %17, %4, %74, %75, %
   ret i32 %.069
 }
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_mpi_div_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
@@ -4802,7 +4802,7 @@ mbedtls_mpi_bitlen.exit248:                       ; preds = %89, %mbedtls_clz.ex
   br i1 %109, label %110, label %120
 
 110:                                              ; preds = %106
-  %111 = tail call noalias ptr @calloc(i64 noundef %104, i64 noundef 8) #19
+  %111 = tail call noalias ptr @calloc(i64 noundef %104, i64 noundef 8) #18
   %112 = icmp eq ptr %111, null
   br i1 %112, label %mbedtls_mpi_grow.exit, label %113
 
@@ -4815,9 +4815,9 @@ mbedtls_mpi_bitlen.exit248:                       ; preds = %89, %mbedtls_clz.ex
 116:                                              ; preds = %113
   %117 = shl nuw nsw i64 %108, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr nonnull align 8 %115, i64 %117, i1 false)
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %115, i64 noundef %117) #18
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %115, i64 noundef %117) #17
   %118 = load ptr, ptr %114, align 8
-  tail call void @free(ptr noundef %118) #18
+  tail call void @free(ptr noundef %118) #17
   br label %119
 
 119:                                              ; preds = %116, %113
@@ -5146,9 +5146,9 @@ mbedtls_mpi_grow.exit:                            ; preds = %180, %.lr.ph314, %2
   %237 = getelementptr inbounds i8, ptr %233, i64 8
   %238 = load i64, ptr %237, align 8
   %239 = shl i64 %238, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %235, i64 noundef %239) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %235, i64 noundef %239) #17
   %240 = load ptr, ptr %234, align 8
-  call void @free(ptr noundef %240) #18
+  call void @free(ptr noundef %240) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %.lr.ph321, %236
@@ -5171,9 +5171,9 @@ mbedtls_mpi_free.exit:                            ; preds = %.lr.ph321, %236
   %248 = getelementptr inbounds i8, ptr %12, i64 32
   %249 = load i64, ptr %248, align 16
   %250 = shl i64 %249, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %246, i64 noundef %250) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %246, i64 noundef %250) #17
   %251 = load ptr, ptr %245, align 8
-  call void @free(ptr noundef %251) #18
+  call void @free(ptr noundef %251) #17
   br label %mbedtls_mpi_free.exit253
 
 mbedtls_mpi_free.exit253:                         ; preds = %._crit_edge322, %247
@@ -5188,8 +5188,8 @@ mbedtls_mpi_free.exit253:                         ; preds = %._crit_edge322, %24
 255:                                              ; preds = %mbedtls_mpi_free.exit253
   %256 = load i64, ptr %79, align 8
   %257 = shl i64 %256, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %254, i64 noundef %257) #18
-  call void @free(ptr noundef nonnull %254) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %254, i64 noundef %257) #17
+  call void @free(ptr noundef nonnull %254) #17
   br label %mbedtls_mpi_free.exit255
 
 mbedtls_mpi_free.exit255:                         ; preds = %mbedtls_mpi_free.exit253, %255
@@ -5201,9 +5201,9 @@ mbedtls_mpi_free.exit255:                         ; preds = %mbedtls_mpi_free.ex
 260:                                              ; preds = %mbedtls_mpi_free.exit255
   %261 = load i64, ptr %80, align 8
   %262 = shl i64 %261, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %259, i64 noundef %262) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %259, i64 noundef %262) #17
   %263 = load ptr, ptr %258, align 8
-  call void @free(ptr noundef %263) #18
+  call void @free(ptr noundef %263) #17
   br label %mbedtls_mpi_free.exit257
 
 mbedtls_mpi_free.exit257:                         ; preds = %mbedtls_mpi_free.exit255, %260
@@ -5217,9 +5217,9 @@ mbedtls_mpi_free.exit257:                         ; preds = %mbedtls_mpi_free.ex
 266:                                              ; preds = %mbedtls_mpi_free.exit257
   %267 = load i64, ptr %81, align 8
   %268 = shl i64 %267, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %265, i64 noundef %268) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %265, i64 noundef %268) #17
   %269 = load ptr, ptr %264, align 8
-  call void @free(ptr noundef %269) #18
+  call void @free(ptr noundef %269) #17
   br label %mbedtls_mpi_free.exit259
 
 mbedtls_mpi_free.exit259:                         ; preds = %mbedtls_mpi_free.exit257, %266
@@ -5243,9 +5243,9 @@ mbedtls_mpi_free.exit259:                         ; preds = %mbedtls_mpi_free.ex
 278:                                              ; preds = %275
   %279 = load i64, ptr %78, align 8
   %280 = shl i64 %279, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %277, i64 noundef %280) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %277, i64 noundef %280) #17
   %281 = load ptr, ptr %276, align 8
-  call void @free(ptr noundef %281) #18
+  call void @free(ptr noundef %281) #17
   br label %mbedtls_mpi_cmp_int.exit.thread
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %21, %278, %275, %5, %271, %mbedtls_mpi_bitlen.exit, %mbedtls_mpi_bitlen.exit226, %mbedtls_mpi_cmp_int.exit201, %mbedtls_mpi_cmp_int.exit, %25
@@ -5313,7 +5313,7 @@ define internal fastcc void @mpi_montmul(ptr nocapture noundef readonly %0, ptr 
   %.02737.i = phi ptr [ %38, %.lr.ph.i ], [ %.089, %25 ]
   %.03036.i = phi ptr [ %39, %.lr.ph.i ], [ %30, %25 ]
   %35 = add nsw i64 %.02439.i, -1
-  %36 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i, i64 %28, ptr elementtype([16 x i64]) %.03036.i, i64 %.02638.i, ptr %.02737.i, ptr %.03036.i, ptr elementtype([16 x i64]) %.02737.i) #18, !srcloc !14
+  %36 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i, i64 %28, ptr elementtype([16 x i64]) %.03036.i, i64 %.02638.i, ptr %.02737.i, ptr %.03036.i, ptr elementtype([16 x i64]) %.02737.i) #17, !srcloc !14
   %37 = extractvalue { i64, ptr, ptr } %36, 0
   %38 = extractvalue { i64, ptr, ptr } %36, 1
   %39 = extractvalue { i64, ptr, ptr } %36, 2
@@ -5331,7 +5331,7 @@ define internal fastcc void @mpi_montmul(ptr nocapture noundef readonly %0, ptr 
   %.12844.i = phi ptr [ %43, %.lr.ph47.i ], [ %.027.lcssa.i, %.preheader34.i ]
   %.13143.i = phi ptr [ %44, %.lr.ph47.i ], [ %.030.lcssa.i, %.preheader34.i ]
   %40 = add nsw i64 %.046.i, -1
-  %41 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i, i64 %28, ptr elementtype([16 x i64]) %.13143.i, i64 %.145.i, ptr %.12844.i, ptr %.13143.i, ptr elementtype([16 x i64]) %.12844.i) #18, !srcloc !16
+  %41 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i, i64 %28, ptr elementtype([16 x i64]) %.13143.i, i64 %.145.i, ptr %.12844.i, ptr %.13143.i, ptr elementtype([16 x i64]) %.12844.i) #17, !srcloc !16
   %42 = extractvalue { i64, ptr, ptr } %41, 0
   %43 = extractvalue { i64, ptr, ptr } %41, 1
   %44 = extractvalue { i64, ptr, ptr } %41, 2
@@ -5368,7 +5368,7 @@ mbedtls_mpi_core_mla.exit:                        ; preds = %.lr.ph54.i, %.prehe
   %.02737.i51 = phi ptr [ %55, %.lr.ph.i48 ], [ %.089, %mbedtls_mpi_core_mla.exit ]
   %.03036.i52 = phi ptr [ %56, %.lr.ph.i48 ], [ %51, %mbedtls_mpi_core_mla.exit ]
   %52 = add nsw i64 %.02439.i49, -1
-  %53 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i51, i64 %34, ptr elementtype([16 x i64]) %.03036.i52, i64 %.02638.i50, ptr %.02737.i51, ptr %.03036.i52, ptr elementtype([16 x i64]) %.02737.i51) #18, !srcloc !14
+  %53 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.02737.i51, i64 %34, ptr elementtype([16 x i64]) %.03036.i52, i64 %.02638.i50, ptr %.02737.i51, ptr %.03036.i52, ptr elementtype([16 x i64]) %.02737.i51) #17, !srcloc !14
   %54 = extractvalue { i64, ptr, ptr } %53, 0
   %55 = extractvalue { i64, ptr, ptr } %53, 1
   %56 = extractvalue { i64, ptr, ptr } %53, 2
@@ -5381,7 +5381,7 @@ mbedtls_mpi_core_mla.exit:                        ; preds = %.lr.ph54.i, %.prehe
   %.12844.i62 = phi ptr [ %60, %.lr.ph47.i59 ], [ %.027.lcssa.i56, %.preheader34.i54 ]
   %.13143.i63 = phi ptr [ %61, %.lr.ph47.i59 ], [ %.030.lcssa.i55, %.preheader34.i54 ]
   %57 = add nsw i64 %.046.i60, -1
-  %58 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i62, i64 %34, ptr elementtype([16 x i64]) %.13143.i63, i64 %.145.i61, ptr %.12844.i62, ptr %.13143.i63, ptr elementtype([16 x i64]) %.12844.i62) #18, !srcloc !16
+  %58 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.12844.i62, i64 %34, ptr elementtype([16 x i64]) %.13143.i63, i64 %.145.i61, ptr %.12844.i62, ptr %.13143.i63, ptr elementtype([16 x i64]) %.12844.i62) #17, !srcloc !16
   %59 = extractvalue { i64, ptr, ptr } %58, 0
   %60 = extractvalue { i64, ptr, ptr } %58, 1
   %61 = extractvalue { i64, ptr, ptr } %58, 2
@@ -5457,7 +5457,7 @@ mpi_sub_hlp.exit:                                 ; preds = %mpi_sub_hlp.exit.lo
   store i64 %91, ptr %73, align 8
   %92 = load ptr, ptr %70, align 8
   %93 = trunc i64 %91 to i8
-  tail call void @mbedtls_ct_mpi_uint_cond_assign(i64 noundef %13, ptr noundef %92, ptr noundef nonnull %.0.lcssa, i8 noundef zeroext %93) #18
+  tail call void @mbedtls_ct_mpi_uint_cond_assign(i64 noundef %13, ptr noundef %92, ptr noundef nonnull %.0.lcssa, i8 noundef zeroext %93) #17
   ret void
 }
 
@@ -5474,9 +5474,9 @@ define internal fastcc i32 @mpi_select(ptr noundef %0, ptr noundef %1, i64 nound
 .lr.ph:                                           ; preds = %4, %5
   %.011 = phi i64 [ %6, %5 ], [ 0, %4 ]
   %7 = getelementptr inbounds %struct.mbedtls_mpi, ptr %1, i64 %.011
-  %8 = tail call i32 @mbedtls_ct_size_bool_eq(i64 noundef %.011, i64 noundef %3) #18
+  %8 = tail call i32 @mbedtls_ct_size_bool_eq(i64 noundef %.011, i64 noundef %3) #17
   %9 = trunc i32 %8 to i8
-  %10 = tail call i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr noundef %7, i8 noundef zeroext %9) #18
+  %10 = tail call i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr noundef %7, i8 noundef zeroext %9) #17
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %5, label %._crit_edge
 
@@ -5834,7 +5834,7 @@ mbedtls_mpi_cmp_mpi.exit.thread:                  ; preds = %115, %108, %._crit_
   br i1 %131, label %132, label %.lr.ph51.i72
 
 132:                                              ; preds = %129
-  %133 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %133 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %134 = icmp eq ptr %133, null
   br i1 %134, label %mbedtls_mpi_shift_r.exit, label %135
 
@@ -5844,9 +5844,9 @@ mbedtls_mpi_cmp_mpi.exit.thread:                  ; preds = %115, %108, %._crit_
   br i1 %.not.i.i.i, label %139, label %137
 
 137:                                              ; preds = %135
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %136, i64 noundef 0) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %136, i64 noundef 0) #17
   %138 = load ptr, ptr %46, align 8
-  call void @free(ptr noundef %138) #18
+  call void @free(ptr noundef %138) #17
   br label %139
 
 139:                                              ; preds = %135, %137
@@ -5885,7 +5885,7 @@ mbedtls_mpi_cmp_mpi.exit.thread97:                ; preds = %110, %mbedtls_mpi_c
   br i1 %153, label %154, label %.lr.ph51.i76
 
 154:                                              ; preds = %151
-  %155 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %155 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %156 = icmp eq ptr %155, null
   br i1 %156, label %mbedtls_mpi_shift_r.exit, label %157
 
@@ -5895,9 +5895,9 @@ mbedtls_mpi_cmp_mpi.exit.thread97:                ; preds = %110, %mbedtls_mpi_c
   br i1 %.not.i.i.i83, label %161, label %159
 
 159:                                              ; preds = %157
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %158, i64 noundef 0) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %158, i64 noundef 0) #17
   %160 = load ptr, ptr %27, align 8
-  call void @free(ptr noundef %160) #18
+  call void @free(ptr noundef %160) #17
   br label %161
 
 161:                                              ; preds = %157, %159
@@ -5953,9 +5953,9 @@ mbedtls_mpi_shift_r.exit:                         ; preds = %154, %132, %mbedtls
 178:                                              ; preds = %mbedtls_mpi_shift_r.exit
   %179 = load i64, ptr %6, align 8
   %180 = shl i64 %179, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %177, i64 noundef %180) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %177, i64 noundef %180) #17
   %181 = load ptr, ptr %176, align 8
-  call void @free(ptr noundef %181) #18
+  call void @free(ptr noundef %181) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_shift_r.exit, %178
@@ -5969,9 +5969,9 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_shift_r
 184:                                              ; preds = %mbedtls_mpi_free.exit
   %185 = load i64, ptr %7, align 8
   %186 = shl i64 %185, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %183, i64 noundef %186) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %183, i64 noundef %186) #17
   %187 = load ptr, ptr %182, align 8
-  call void @free(ptr noundef %187) #18
+  call void @free(ptr noundef %187) #17
   br label %mbedtls_mpi_free.exit87
 
 mbedtls_mpi_free.exit87:                          ; preds = %mbedtls_mpi_free.exit, %184
@@ -6013,7 +6013,7 @@ define hidden i32 @mbedtls_mpi_fill_random(ptr noundef %0, i64 noundef %1, ptr n
   tail call void @llvm.memset.p0.i64(ptr align 1 %23, i8 0, i64 %26, i1 false)
   %27 = load ptr, ptr %20, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 %19
-  %29 = tail call i32 %2(ptr noundef %3, ptr noundef %28, i64 noundef %1) #18
+  %29 = tail call i32 %2(ptr noundef %3, ptr noundef %28, i64 noundef %1) #17
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %30, label %mpi_fill_random_internal.exit
 
@@ -6209,7 +6209,7 @@ mbedtls_mpi_cmp_int.exit:                         ; preds = %47, %39, %55
   br i1 %.not68, label %72, label %67
 
 67:                                               ; preds = %66
-  %68 = tail call noalias ptr @calloc(i64 noundef %64, i64 noundef 8) #19
+  %68 = tail call noalias ptr @calloc(i64 noundef %64, i64 noundef 8) #18
   %69 = icmp eq ptr %68, null
   br i1 %69, label %mbedtls_mpi_cmp_int.exit.thread, label %._crit_edge.i45
 
@@ -6221,7 +6221,7 @@ mbedtls_mpi_cmp_int.exit:                         ; preds = %47, %39, %55
   br label %mbedtls_mpi_lset.exit
 
 72:                                               ; preds = %66
-  %73 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #19
+  %73 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
   %74 = icmp eq ptr %73, null
   br i1 %74, label %mbedtls_mpi_cmp_int.exit.thread, label %75
 
@@ -6269,7 +6269,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i45, %7
   call void @llvm.memset.p0.i64(ptr align 1 %98, i8 0, i64 %101, i1 false)
   %102 = load ptr, ptr %87, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 %86
-  %104 = call i32 %3(ptr noundef %4, ptr noundef %103, i64 noundef %35) #18
+  %104 = call i32 %3(ptr noundef %4, ptr noundef %103, i64 noundef %35) #17
   %.not.i47 = icmp eq i32 %104, 0
   br i1 %.not.i47, label %105, label %mbedtls_mpi_grow.exit
 
@@ -6306,12 +6306,12 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i45, %7
   br i1 %116, label %mbedtls_mpi_grow.exit, label %117
 
 117:                                              ; preds = %114
-  %118 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %6) #18
+  %118 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %6) #17
   %.not37 = icmp eq i32 %118, 0
   br i1 %.not37, label %119, label %mbedtls_mpi_grow.exit
 
 119:                                              ; preds = %117
-  %120 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7) #18
+  %120 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7) #17
   %.not38 = icmp eq i32 %120, 0
   br i1 %.not38, label %121, label %mbedtls_mpi_grow.exit
 
@@ -6333,9 +6333,9 @@ mbedtls_mpi_grow.exit:                            ; preds = %95, %92, %114, %121
   %128 = getelementptr inbounds i8, ptr %8, i64 16
   %129 = load i64, ptr %61, align 8
   %130 = shl i64 %129, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %.pre, i64 noundef %130) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %.pre, i64 noundef %130) #17
   %131 = load ptr, ptr %128, align 8
-  call void @free(ptr noundef %131) #18
+  call void @free(ptr noundef %131) #17
   br label %mbedtls_mpi_cmp_int.exit.thread
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %46, %127, %mbedtls_mpi_grow.exit, %58, %63, %67, %72, %43, %41, %.lr.ph51.i.i, %mbedtls_mpi_bitlen.exit.thread, %mbedtls_mpi_cmp_int.exit, %mbedtls_mpi_bitlen.exit
@@ -6343,7 +6343,7 @@ mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %46, %127, %mbedtls_
   ret i32 %.0
 }
 
-declare i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_mpi_inv_mod(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
@@ -6720,9 +6720,9 @@ mbedtls_mpi_cmp_int.exit85.thread:                ; preds = %51, %144, %142, %14
 160:                                              ; preds = %mbedtls_mpi_cmp_int.exit85.thread
   %161 = load i64, ptr %35, align 8
   %162 = shl i64 %161, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %159, i64 noundef %162) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %159, i64 noundef %162) #17
   %163 = load ptr, ptr %158, align 8
-  call void @free(ptr noundef %163) #18
+  call void @free(ptr noundef %163) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_cmp_int.exit85.thread, %160
@@ -6736,9 +6736,9 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_cmp_int
 166:                                              ; preds = %mbedtls_mpi_free.exit
   %167 = load i64, ptr %36, align 8
   %168 = shl i64 %167, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %165, i64 noundef %168) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %165, i64 noundef %168) #17
   %169 = load ptr, ptr %164, align 8
-  call void @free(ptr noundef %169) #18
+  call void @free(ptr noundef %169) #17
   br label %mbedtls_mpi_free.exit87
 
 mbedtls_mpi_free.exit87:                          ; preds = %mbedtls_mpi_free.exit, %166
@@ -6752,9 +6752,9 @@ mbedtls_mpi_free.exit87:                          ; preds = %mbedtls_mpi_free.ex
 172:                                              ; preds = %mbedtls_mpi_free.exit87
   %173 = load i64, ptr %37, align 8
   %174 = shl i64 %173, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %171, i64 noundef %174) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %171, i64 noundef %174) #17
   %175 = load ptr, ptr %170, align 8
-  call void @free(ptr noundef %175) #18
+  call void @free(ptr noundef %175) #17
   br label %mbedtls_mpi_free.exit89
 
 mbedtls_mpi_free.exit89:                          ; preds = %mbedtls_mpi_free.exit87, %172
@@ -6768,9 +6768,9 @@ mbedtls_mpi_free.exit89:                          ; preds = %mbedtls_mpi_free.ex
 178:                                              ; preds = %mbedtls_mpi_free.exit89
   %179 = load i64, ptr %38, align 8
   %180 = shl i64 %179, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %177, i64 noundef %180) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %177, i64 noundef %180) #17
   %181 = load ptr, ptr %176, align 8
-  call void @free(ptr noundef %181) #18
+  call void @free(ptr noundef %181) #17
   br label %mbedtls_mpi_free.exit91
 
 mbedtls_mpi_free.exit91:                          ; preds = %mbedtls_mpi_free.exit89, %178
@@ -6784,9 +6784,9 @@ mbedtls_mpi_free.exit91:                          ; preds = %mbedtls_mpi_free.ex
 184:                                              ; preds = %mbedtls_mpi_free.exit91
   %185 = load i64, ptr %39, align 8
   %186 = shl i64 %185, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %183, i64 noundef %186) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %183, i64 noundef %186) #17
   %187 = load ptr, ptr %182, align 8
-  call void @free(ptr noundef %187) #18
+  call void @free(ptr noundef %187) #17
   br label %mbedtls_mpi_free.exit93
 
 mbedtls_mpi_free.exit93:                          ; preds = %mbedtls_mpi_free.exit91, %184
@@ -6800,9 +6800,9 @@ mbedtls_mpi_free.exit93:                          ; preds = %mbedtls_mpi_free.ex
 190:                                              ; preds = %mbedtls_mpi_free.exit93
   %191 = load i64, ptr %40, align 8
   %192 = shl i64 %191, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %189, i64 noundef %192) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %189, i64 noundef %192) #17
   %193 = load ptr, ptr %188, align 8
-  call void @free(ptr noundef %193) #18
+  call void @free(ptr noundef %193) #17
   br label %mbedtls_mpi_free.exit95
 
 mbedtls_mpi_free.exit95:                          ; preds = %mbedtls_mpi_free.exit93, %190
@@ -6816,9 +6816,9 @@ mbedtls_mpi_free.exit95:                          ; preds = %mbedtls_mpi_free.ex
 196:                                              ; preds = %mbedtls_mpi_free.exit95
   %197 = load i64, ptr %41, align 8
   %198 = shl i64 %197, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %195, i64 noundef %198) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %195, i64 noundef %198) #17
   %199 = load ptr, ptr %194, align 8
-  call void @free(ptr noundef %199) #18
+  call void @free(ptr noundef %199) #17
   br label %mbedtls_mpi_free.exit97
 
 mbedtls_mpi_free.exit97:                          ; preds = %mbedtls_mpi_free.exit95, %196
@@ -6832,9 +6832,9 @@ mbedtls_mpi_free.exit97:                          ; preds = %mbedtls_mpi_free.ex
 202:                                              ; preds = %mbedtls_mpi_free.exit97
   %203 = load i64, ptr %42, align 8
   %204 = shl i64 %203, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %201, i64 noundef %204) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %201, i64 noundef %204) #17
   %205 = load ptr, ptr %200, align 8
-  call void @free(ptr noundef %205) #18
+  call void @free(ptr noundef %205) #17
   br label %mbedtls_mpi_free.exit99
 
 mbedtls_mpi_free.exit99:                          ; preds = %mbedtls_mpi_free.exit97, %202
@@ -6848,9 +6848,9 @@ mbedtls_mpi_free.exit99:                          ; preds = %mbedtls_mpi_free.ex
 208:                                              ; preds = %mbedtls_mpi_free.exit99
   %209 = load i64, ptr %43, align 8
   %210 = shl i64 %209, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %207, i64 noundef %210) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %207, i64 noundef %210) #17
   %211 = load ptr, ptr %206, align 8
-  call void @free(ptr noundef %211) #18
+  call void @free(ptr noundef %211) #17
   br label %mbedtls_mpi_cmp_int.exit.thread
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %19, %.preheader.i.i, %208, %mbedtls_mpi_free.exit99, %23, %3, %mbedtls_mpi_cmp_int.exit
@@ -7259,9 +7259,9 @@ mbedtls_mpi_lsb.exit:                             ; preds = %33, %27, %20
 48:                                               ; preds = %46
   %49 = load i64, ptr %15, align 8
   %50 = shl i64 %49, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %47, i64 noundef %50) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %47, i64 noundef %50) #17
   %51 = load ptr, ptr %39, align 8
-  call void @free(ptr noundef %51) #18
+  call void @free(ptr noundef %51) #17
   br label %52
 
 52:                                               ; preds = %48, %46
@@ -7286,9 +7286,9 @@ mbedtls_mpi_lsb.exit:                             ; preds = %33, %27, %20
 
 59:                                               ; preds = %58
   %60 = shl i64 %54, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %56, i64 noundef %60) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %56, i64 noundef %60) #17
   %61 = load ptr, ptr %39, align 8
-  call void @free(ptr noundef %61) #18
+  call void @free(ptr noundef %61) #17
   br label %mbedtls_mpi_free.exit12.i
 
 mbedtls_mpi_free.exit12.i:                        ; preds = %59, %58
@@ -7298,7 +7298,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %59, %58
   br i1 %62, label %mbedtls_mpi_fill_random.exit.thread, label %63
 
 63:                                               ; preds = %mbedtls_mpi_free.exit12.i
-  %64 = call noalias ptr @calloc(i64 noundef %44, i64 noundef 8) #19
+  %64 = call noalias ptr @calloc(i64 noundef %44, i64 noundef 8) #18
   %65 = icmp eq ptr %64, null
   br i1 %65, label %mbedtls_mpi_fill_random.exit.thread, label %66
 
@@ -7323,7 +7323,7 @@ mbedtls_mpi_free.exit12.i:                        ; preds = %59, %58
   %76 = shl i64 %75, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %74, i8 0, i64 %76, i1 false)
   %77 = load ptr, ptr %39, align 8
-  %78 = call i32 %2(ptr noundef %3, ptr noundef %77, i64 noundef %43) #18
+  %78 = call i32 %2(ptr noundef %3, ptr noundef %77, i64 noundef %43) #17
   %.not.i.i = icmp eq i32 %78, 0
   br i1 %.not.i.i, label %79, label %mbedtls_mpi_fill_random.exit.thread
 
@@ -7837,9 +7837,9 @@ mbedtls_mpi_fill_random.exit.thread:              ; preds = %195, %260, %257, %.
 264:                                              ; preds = %mbedtls_mpi_fill_random.exit.thread
   %265 = load i64, ptr %12, align 8
   %266 = shl i64 %265, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %263, i64 noundef %266) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %263, i64 noundef %266) #17
   %267 = load ptr, ptr %262, align 8
-  call void @free(ptr noundef %267) #18
+  call void @free(ptr noundef %267) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_fill_random.exit.thread, %264
@@ -7853,9 +7853,9 @@ mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_fill_ra
 270:                                              ; preds = %mbedtls_mpi_free.exit
   %271 = load i64, ptr %13, align 8
   %272 = shl i64 %271, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %269, i64 noundef %272) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %269, i64 noundef %272) #17
   %273 = load ptr, ptr %268, align 8
-  call void @free(ptr noundef %273) #18
+  call void @free(ptr noundef %273) #17
   br label %mbedtls_mpi_free.exit101
 
 mbedtls_mpi_free.exit101:                         ; preds = %mbedtls_mpi_free.exit, %270
@@ -7869,9 +7869,9 @@ mbedtls_mpi_free.exit101:                         ; preds = %mbedtls_mpi_free.ex
 276:                                              ; preds = %mbedtls_mpi_free.exit101
   %277 = load i64, ptr %14, align 8
   %278 = shl i64 %277, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %275, i64 noundef %278) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %275, i64 noundef %278) #17
   %279 = load ptr, ptr %274, align 8
-  call void @free(ptr noundef %279) #18
+  call void @free(ptr noundef %279) #17
   br label %mbedtls_mpi_free.exit103
 
 mbedtls_mpi_free.exit103:                         ; preds = %mbedtls_mpi_free.exit101, %276
@@ -7885,9 +7885,9 @@ mbedtls_mpi_free.exit103:                         ; preds = %mbedtls_mpi_free.ex
 282:                                              ; preds = %mbedtls_mpi_free.exit103
   %283 = load i64, ptr %15, align 8
   %284 = shl i64 %283, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %281, i64 noundef %284) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %281, i64 noundef %284) #17
   %285 = load ptr, ptr %280, align 8
-  call void @free(ptr noundef %285) #18
+  call void @free(ptr noundef %285) #17
   br label %mbedtls_mpi_free.exit105
 
 mbedtls_mpi_free.exit105:                         ; preds = %mbedtls_mpi_free.exit103, %282
@@ -7901,9 +7901,9 @@ mbedtls_mpi_free.exit105:                         ; preds = %mbedtls_mpi_free.ex
 288:                                              ; preds = %mbedtls_mpi_free.exit105
   %289 = load i64, ptr %16, align 8
   %290 = shl i64 %289, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %287, i64 noundef %290) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %287, i64 noundef %290) #17
   %291 = load ptr, ptr %286, align 8
-  call void @free(ptr noundef %291) #18
+  call void @free(ptr noundef %291) #17
   br label %mbedtls_mpi_free.exit107
 
 mbedtls_mpi_free.exit107:                         ; preds = %mbedtls_mpi_free.exit105, %288
@@ -8105,7 +8105,7 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
   %104 = shl i64 %103, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %102, i8 0, i64 %104, i1 false)
   %105 = load ptr, ptr %60, align 8
-  %106 = tail call i32 %3(ptr noundef %4, ptr noundef %105, i64 noundef %56) #18
+  %106 = tail call i32 %3(ptr noundef %4, ptr noundef %105, i64 noundef %56) #17
   %.not.i.i = icmp eq i32 %106, 0
   br i1 %.not.i.i, label %107, label %mbedtls_mpi_fill_random.exit
 
@@ -8418,9 +8418,9 @@ mbedtls_mpi_fill_random.exit:                     ; preds = %122, %128, %.backed
 221:                                              ; preds = %mbedtls_mpi_fill_random.exit
   %222 = load i64, ptr %17, align 8
   %223 = shl i64 %222, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %220, i64 noundef %223) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %220, i64 noundef %223) #17
   %224 = load ptr, ptr %219, align 8
-  call void @free(ptr noundef %224) #18
+  call void @free(ptr noundef %224) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %221, %mbedtls_mpi_fill_random.exit, %5
@@ -8695,9 +8695,9 @@ define hidden i32 @mbedtls_mpi_self_test(i32 noundef %0) local_unnamed_addr #1 {
 100:                                              ; preds = %.loopexit.thread114
   %101 = load i64, ptr %9, align 8
   %102 = shl i64 %101, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %99, i64 noundef %102) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %99, i64 noundef %102) #17
   %103 = load ptr, ptr %98, align 8
-  call void @free(ptr noundef %103) #18
+  call void @free(ptr noundef %103) #17
   br label %mbedtls_mpi_free.exit
 
 mbedtls_mpi_free.exit:                            ; preds = %.loopexit.thread114, %100
@@ -8711,9 +8711,9 @@ mbedtls_mpi_free.exit:                            ; preds = %.loopexit.thread114
 106:                                              ; preds = %mbedtls_mpi_free.exit
   %107 = load i64, ptr %10, align 8
   %108 = shl i64 %107, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %105, i64 noundef %108) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %105, i64 noundef %108) #17
   %109 = load ptr, ptr %104, align 8
-  call void @free(ptr noundef %109) #18
+  call void @free(ptr noundef %109) #17
   br label %mbedtls_mpi_free.exit75
 
 mbedtls_mpi_free.exit75:                          ; preds = %mbedtls_mpi_free.exit, %106
@@ -8727,9 +8727,9 @@ mbedtls_mpi_free.exit75:                          ; preds = %mbedtls_mpi_free.ex
 112:                                              ; preds = %mbedtls_mpi_free.exit75
   %113 = load i64, ptr %11, align 8
   %114 = shl i64 %113, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %111, i64 noundef %114) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %111, i64 noundef %114) #17
   %115 = load ptr, ptr %110, align 8
-  call void @free(ptr noundef %115) #18
+  call void @free(ptr noundef %115) #17
   br label %mbedtls_mpi_free.exit77
 
 mbedtls_mpi_free.exit77:                          ; preds = %mbedtls_mpi_free.exit75, %112
@@ -8743,9 +8743,9 @@ mbedtls_mpi_free.exit77:                          ; preds = %mbedtls_mpi_free.ex
 118:                                              ; preds = %mbedtls_mpi_free.exit77
   %119 = load i64, ptr %12, align 8
   %120 = shl i64 %119, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %117, i64 noundef %120) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %117, i64 noundef %120) #17
   %121 = load ptr, ptr %116, align 8
-  call void @free(ptr noundef %121) #18
+  call void @free(ptr noundef %121) #17
   br label %mbedtls_mpi_free.exit79
 
 mbedtls_mpi_free.exit79:                          ; preds = %mbedtls_mpi_free.exit77, %118
@@ -8759,9 +8759,9 @@ mbedtls_mpi_free.exit79:                          ; preds = %mbedtls_mpi_free.ex
 124:                                              ; preds = %mbedtls_mpi_free.exit79
   %125 = load i64, ptr %13, align 8
   %126 = shl i64 %125, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %123, i64 noundef %126) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %123, i64 noundef %126) #17
   %127 = load ptr, ptr %122, align 8
-  call void @free(ptr noundef %127) #18
+  call void @free(ptr noundef %127) #17
   br label %mbedtls_mpi_free.exit81
 
 mbedtls_mpi_free.exit81:                          ; preds = %mbedtls_mpi_free.exit79, %124
@@ -8775,9 +8775,9 @@ mbedtls_mpi_free.exit81:                          ; preds = %mbedtls_mpi_free.ex
 130:                                              ; preds = %mbedtls_mpi_free.exit81
   %131 = load i64, ptr %14, align 8
   %132 = shl i64 %131, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %129, i64 noundef %132) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %129, i64 noundef %132) #17
   %133 = load ptr, ptr %128, align 8
-  call void @free(ptr noundef %133) #18
+  call void @free(ptr noundef %133) #17
   br label %mbedtls_mpi_free.exit83
 
 mbedtls_mpi_free.exit83:                          ; preds = %mbedtls_mpi_free.exit81, %130
@@ -8791,9 +8791,9 @@ mbedtls_mpi_free.exit83:                          ; preds = %mbedtls_mpi_free.ex
 136:                                              ; preds = %mbedtls_mpi_free.exit83
   %137 = load i64, ptr %15, align 8
   %138 = shl i64 %137, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %135, i64 noundef %138) #18
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %135, i64 noundef %138) #17
   %139 = load ptr, ptr %134, align 8
-  call void @free(ptr noundef %139) #18
+  call void @free(ptr noundef %139) #17
   br label %mbedtls_mpi_free.exit85
 
 mbedtls_mpi_free.exit85:                          ; preds = %mbedtls_mpi_free.exit83, %136
@@ -8813,40 +8813,40 @@ mbedtls_mpi_free.exit85:                          ; preds = %mbedtls_mpi_free.ex
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #14
+declare i64 @llvm.bswap.i64(i64) #13
 
-declare void @mbedtls_ct_mpi_uint_cond_assign(i64 noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #13
+declare void @mbedtls_ct_mpi_uint_cond_assign(i64 noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #12
 
-declare i32 @mbedtls_mpi_safe_cond_assign(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #13
+declare i32 @mbedtls_mpi_safe_cond_assign(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #12
 
-declare i32 @mbedtls_ct_size_bool_eq(i64 noundef, i64 noundef) local_unnamed_addr #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #15
+declare i32 @mbedtls_ct_size_bool_eq(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i128 @llvm.umin.i128(i128, i128) #15
+declare i64 @llvm.abs.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #15
+declare i128 @llvm.umin.i128(i128, i128) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8860,15 +8860,14 @@ attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nofree nounwind }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(0,1) }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #12 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

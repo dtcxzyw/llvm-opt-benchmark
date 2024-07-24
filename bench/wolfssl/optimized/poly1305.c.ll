@@ -50,7 +50,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef %ctx, ptr noundef writeonly %mac) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ctx, null
@@ -219,8 +219,8 @@ return:                                           ; preds = %entry, %if.end8
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef %ctx, ptr noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef %ctx, ptr noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -333,7 +333,7 @@ return:                                           ; preds = %if.end42, %for.end5
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @poly1305_blocks(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %m, i64 noundef %bytes) unnamed_addr #1 {
 entry:
   %finished = getelementptr inbounds i8, ptr %ctx, i64 88
@@ -433,8 +433,8 @@ while.end:                                        ; preds = %while.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef %ctx, i32 noundef %lenToPad) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef %ctx, i32 noundef %lenToPad) local_unnamed_addr #1 {
 entry:
   %padding = alloca [15 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -461,9 +461,9 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef %ctx, i32 noundef %aadSz, i32 noundef %dataSz) local_unnamed_addr #1 {
 entry:
   %little64 = alloca [16 x i8], align 16
@@ -569,7 +569,7 @@ return:                                           ; preds = %for.end57.i, %if.en
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef %ctx, i64 noundef %aadSz, i64 noundef %dataSz) local_unnamed_addr #1 {
 entry:
   %little64 = alloca [2 x i64], align 16
@@ -673,8 +673,8 @@ return:                                           ; preds = %for.end57.i, %if.en
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef %ctx, ptr noundef %additional, i32 noundef %addSz, ptr noundef %input, i32 noundef %sz, ptr noundef %tag, i32 noundef %tagSz) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef %ctx, ptr noundef %additional, i32 noundef %addSz, ptr noundef %input, i32 noundef %sz, ptr noundef %tag, i32 noundef %tagSz) local_unnamed_addr #1 {
 entry:
   %padding.i22 = alloca [15 x i8], align 1
   %padding.i = alloca [15 x i8], align 1
@@ -760,26 +760,25 @@ return:                                           ; preds = %if.end26, %wc_Poly1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #4
+declare i64 @llvm.fshl.i64(i64, i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
+declare i64 @llvm.umax.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

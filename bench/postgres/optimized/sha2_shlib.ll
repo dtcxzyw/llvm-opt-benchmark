@@ -31,7 +31,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %33, label %5
@@ -107,8 +107,8 @@ define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef re
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 4
@@ -276,8 +276,8 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @pg_sha256_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @pg_sha256_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %3
 
@@ -372,7 +372,7 @@ define void @pg_sha512_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %54, label %5
@@ -482,8 +482,8 @@ define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef re
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 8
@@ -681,8 +681,8 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %40, label %3
 
@@ -782,14 +782,14 @@ define void @pg_sha384_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @pg_sha384_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   tail call void @pg_sha512_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %40, label %3
 
@@ -889,7 +889,7 @@ define void @pg_sha224_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %pg_sha256_update.exit, label %5
@@ -965,8 +965,8 @@ pg_sha256_update.exit:                            ; preds = %3, %._crit_edge.i, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @pg_sha224_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @pg_sha224_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %3
 
@@ -1047,23 +1047,22 @@ SHA256_Last.exit:                                 ; preds = %16, %27, %28
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
+declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #5
+declare i32 @llvm.bswap.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #5
+declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #5
+declare i64 @llvm.bswap.i64(i64) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

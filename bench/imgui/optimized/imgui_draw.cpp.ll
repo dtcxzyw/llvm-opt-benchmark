@@ -486,8 +486,8 @@ for.body:                                         ; preds = %entry, %for.body
   %mul = fmul float %conv, 2.000000e+00
   %mul2 = fmul float %mul, 0x400921FB60000000
   %div = fdiv float %mul2, 4.800000e+01
-  %call = tail call float @cosf(float noundef %div) #38
-  %call3 = tail call float @sinf(float noundef %div) #38
+  %call = tail call float @cosf(float noundef %div) #39
+  %call3 = tail call float @sinf(float noundef %div) #39
   %arrayidx = getelementptr inbounds [48 x %struct.ImVec2], ptr %ArcFastVtx.ptr, i64 0, i64 %indvars.iv
   store float %call, ptr %arrayidx, align 8
   %arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
@@ -542,7 +542,7 @@ cond.true:                                        ; preds = %for.body
   %cond.i = select i1 %cmp.i, float %2, float %conv
   %div = fdiv float %cond.i, %conv
   %sub = fsub float 1.000000e+00, %div
-  %call6 = tail call float @acosf(float noundef %sub) #38
+  %call6 = tail call float @acosf(float noundef %sub) #39
   %div7 = fdiv float 0x400921FB60000000, %call6
   %3 = tail call float @llvm.ceil.f32(float %div7)
   %conv8 = fptosi float %3 to i32
@@ -2524,7 +2524,7 @@ if.else:                                          ; preds = %entry
   %cond.i = select i1 %cmp.i, float %2, float %radius
   %div = fdiv float %cond.i, %radius
   %sub = fsub float 1.000000e+00, %div
-  %call5 = tail call float @acosf(float noundef %sub) #38
+  %call5 = tail call float @acosf(float noundef %sub) #39
   %div6 = fdiv float 0x400921FB60000000, %call5
   %3 = tail call float @llvm.ceil.f32(float %div6)
   %conv7 = fptosi float %3 to i32
@@ -4520,7 +4520,7 @@ if.else.i:                                        ; preds = %if.then3
   %cond.i.i68 = select i1 %cmp.i.i, float %11, float %radius
   %div.i = fdiv float %cond.i.i68, %radius
   %sub.i = fsub float 1.000000e+00, %div.i
-  %call5.i = tail call float @acosf(float noundef %sub.i) #38
+  %call5.i = tail call float @acosf(float noundef %sub.i) #39
   %div6.i = fdiv float 0x400921FB60000000, %call5.i
   %12 = tail call float @llvm.ceil.f32(float %div6.i)
   %conv7.i = fptosi float %12 to i32
@@ -4842,9 +4842,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %div = fdiv float %conv, %conv6
   %15 = tail call float @llvm.fmuladd.f32(float %div, float %sub, float %a_min)
   %16 = load float, ptr %center, align 4
-  %call = tail call float @cosf(float noundef %15) #38
+  %call = tail call float @cosf(float noundef %15) #39
   %17 = load float, ptr %y, align 4
-  %call8 = tail call float @sinf(float noundef %15) #38
+  %call8 = tail call float @sinf(float noundef %15) #39
   %18 = insertelement <2 x float> poison, float %call, i64 0
   %19 = insertelement <2 x float> %18, float %call8, i64 1
   %20 = insertelement <2 x float> poison, float %16, i64 0
@@ -5172,9 +5172,9 @@ _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %cond.end25, %if.end
 if.then53:                                        ; preds = %_ZN8ImVectorI6ImVec2E7reserveEi.exit
   %y = getelementptr inbounds i8, ptr %center, i64 4
   %38 = load float, ptr %center, align 4
-  %call55 = tail call float @cosf(float noundef %a_min) #38
+  %call55 = tail call float @cosf(float noundef %a_min) #39
   %39 = load float, ptr %y, align 4
-  %call57 = tail call float @sinf(float noundef %a_min) #38
+  %call57 = tail call float @sinf(float noundef %a_min) #39
   %40 = insertelement <2 x float> poison, float %call55, i64 0
   %41 = insertelement <2 x float> %40, float %call57, i64 1
   %42 = insertelement <2 x float> poison, float %radius, i64 0
@@ -5255,9 +5255,9 @@ if.end62:                                         ; preds = %if.then61, %if.end5
 if.then64:                                        ; preds = %if.end62
   %y70 = getelementptr inbounds i8, ptr %center, i64 4
   %57 = load float, ptr %center, align 4
-  %call68 = tail call float @cosf(float noundef %a_max) #38
+  %call68 = tail call float @cosf(float noundef %a_max) #39
   %58 = load float, ptr %y70, align 4
-  %call71 = tail call float @sinf(float noundef %a_max) #38
+  %call71 = tail call float @sinf(float noundef %a_max) #39
   %59 = insertelement <2 x float> poison, float %call68, i64 0
   %60 = insertelement <2 x float> %59, float %call71, i64 1
   %61 = insertelement <2 x float> poison, float %radius, i64 0
@@ -5345,7 +5345,7 @@ if.else.i:                                        ; preds = %if.else
   %cond.i.i117 = select i1 %cmp.i.i, float %76, float %radius
   %div.i = fdiv float %cond.i.i117, %radius
   %sub.i118 = fsub float 1.000000e+00, %div.i
-  %call5.i = tail call float @acosf(float noundef %sub.i118) #38
+  %call5.i = tail call float @acosf(float noundef %sub.i118) #39
   %div6.i = fdiv float 0x400921FB60000000, %call5.i
   %77 = tail call float @llvm.ceil.f32(float %div6.i)
   %conv7.i = fptosi float %77 to i32
@@ -5404,7 +5404,7 @@ if.else.i:                                        ; preds = %if.then
   %cond.i.i = select i1 %cmp.i.i, float %2, float %cond.i
   %div.i = fdiv float %cond.i.i, %cond.i
   %sub.i = fsub float 1.000000e+00, %div.i
-  %call5.i = tail call float @acosf(float noundef %sub.i) #38
+  %call5.i = tail call float @acosf(float noundef %sub.i) #39
   %div6.i = fdiv float 0x400921FB60000000, %call5.i
   %3 = tail call float @llvm.ceil.f32(float %div6.i)
   %conv7.i = fptosi float %3 to i32
@@ -5450,8 +5450,8 @@ if.end7.i:                                        ; preds = %if.then2.i, %if.end
   br label %_ZN8ImVectorI6ImVec2E7reserveEi.exit
 
 _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %if.end, %if.end7.i
-  %call5 = tail call float @cosf(float noundef %rot) #38
-  %call6 = tail call float @sinf(float noundef %rot) #38
+  %call5 = tail call float @cosf(float noundef %rot) #39
+  %call6 = tail call float @sinf(float noundef %rot) #39
   %conv8 = uitofp nneg i32 %num_segments.addr.0 to float
   %sub = fsub float %a_max, %a_min
   %Data.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -5465,9 +5465,9 @@ for.body:                                         ; preds = %_ZN8ImVectorI6ImVec
   %conv = uitofp nneg i32 %i.025 to float
   %div = fdiv float %conv, %conv8
   %12 = tail call float @llvm.fmuladd.f32(float %div, float %sub, float %a_min)
-  %call9 = tail call float @cosf(float noundef %12) #38
+  %call9 = tail call float @cosf(float noundef %12) #39
   %mul = fmul float %call9, %radius_x
-  %call10 = tail call float @sinf(float noundef %12) #38
+  %call10 = tail call float @sinf(float noundef %12) #39
   %mul11 = fmul float %call10, %radius_y
   %13 = fneg float %mul11
   %14 = insertelement <2 x float> poison, float %13, i64 0
@@ -8202,7 +8202,7 @@ if.else.i:                                        ; preds = %if.then3
   %cond.i.i = select i1 %cmp.i.i, float %2, float %cond.i
   %div.i = fdiv float %cond.i.i, %cond.i
   %sub.i = fsub float 1.000000e+00, %div.i
-  %call5.i = tail call float @acosf(float noundef %sub.i) #38
+  %call5.i = tail call float @acosf(float noundef %sub.i) #39
   %div6.i = fdiv float 0x400921FB60000000, %call5.i
   %3 = tail call float @llvm.ceil.f32(float %div6.i)
   %conv7.i = fptosi float %3 to i32
@@ -8268,7 +8268,7 @@ if.else.i:                                        ; preds = %if.then3
   %cond.i.i = select i1 %cmp.i.i, float %2, float %cond.i
   %div.i = fdiv float %cond.i.i, %cond.i
   %sub.i = fsub float 1.000000e+00, %div.i
-  %call5.i = tail call float @acosf(float noundef %sub.i) #38
+  %call5.i = tail call float @acosf(float noundef %sub.i) #39
   %div6.i = fdiv float 0x400921FB60000000, %call5.i
   %3 = tail call float @llvm.ceil.f32(float %div6.i)
   %conv7.i = fptosi float %3 to i32
@@ -8465,7 +8465,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #39
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #40
   %add.ptr = getelementptr inbounds i8, ptr %text_begin, i64 %call
   br label %if.end4
 
@@ -8533,7 +8533,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #39
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #40
   %add.ptr = getelementptr inbounds i8, ptr %text_begin, i64 %call
   br label %if.end
 
@@ -8574,7 +8574,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %s.0271.us = phi ptr [ %spec.select.i.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %text_begin, %while.body.lr.ph ]
   %sub.ptr.rhs.cast.us = ptrtoint ptr %s.0271.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
-  %call19.us = tail call noundef ptr @memchr(ptr noundef %s.0271.us, i32 noundef 10, i64 noundef %sub.ptr.sub.us) #39
+  %call19.us = tail call noundef ptr @memchr(ptr noundef %s.0271.us, i32 noundef 10, i64 noundef %sub.ptr.sub.us) #40
   %tobool22.not.us = icmp eq ptr %call19.us, null
   %cond.us = select i1 %tobool22.not.us, ptr %text_end.addr.0, ptr %call19.us
   %call23.us = tail call noundef ptr @_ZNK6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(118) %this, float noundef %div, ptr noundef %s.0271.us, ptr noundef nonnull %cond.us, float noundef %wrap_width)
@@ -8618,7 +8618,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %s.0271 = phi ptr [ %cond30, %while.body ], [ %text_begin, %while.body.lr.ph ]
   %sub.ptr.rhs.cast = ptrtoint ptr %s.0271 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call19 = tail call noundef ptr @memchr(ptr noundef %s.0271, i32 noundef 10, i64 noundef %sub.ptr.sub) #39
+  %call19 = tail call noundef ptr @memchr(ptr noundef %s.0271, i32 noundef 10, i64 noundef %sub.ptr.sub) #40
   %tobool25.not = icmp eq ptr %call19, null
   %add.ptr27 = getelementptr inbounds i8, ptr %call19, i64 1
   %cond30 = select i1 %tobool25.not, ptr %text_end.addr.0, ptr %add.ptr27
@@ -8650,7 +8650,7 @@ while.body46:                                     ; preds = %while.cond40.prehea
   %y_end.0277 = phi float [ %add57, %while.body46 ], [ %y.1, %while.cond40.preheader ]
   %sub.ptr.rhs.cast48 = ptrtoint ptr %s_end.0278 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast34, %sub.ptr.rhs.cast48
-  %call50 = tail call noundef ptr @memchr(ptr noundef %s_end.0278, i32 noundef 10, i64 noundef %sub.ptr.sub49) #39
+  %call50 = tail call noundef ptr @memchr(ptr noundef %s_end.0278, i32 noundef 10, i64 noundef %sub.ptr.sub49) #40
   %tobool51.not = icmp eq ptr %call50, null
   %add.ptr53 = getelementptr inbounds i8, ptr %call50, i64 1
   %cond56 = select i1 %tobool51.not, ptr %text_end.addr.0, ptr %add.ptr53
@@ -9172,7 +9172,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #39
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #40
   %add.ptr.i = getelementptr inbounds i8, ptr %text_begin, i64 %call.i
   br label %if.end4.i
 
@@ -10581,7 +10581,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 lpad:                                             ; preds = %if.then2.i.i39, %if.then.i28, %if.then2.i.i, %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_vtx_buffer) #38
+  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %new_vtx_buffer) #39
   resume { ptr, i32 } %8
 
 if.end:                                           ; preds = %for.body
@@ -10722,7 +10722,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i47
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #40
+  tail call void @__clang_call_terminate(ptr %32) #41
   unreachable
 
 _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %entry, %for.end27, %if.then.i47
@@ -10748,7 +10748,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #40
+  tail call void @__clang_call_terminate(ptr %2) #41
   unreachable
 }
 
@@ -10973,7 +10973,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #40
+  tail call void @__clang_call_terminate(ptr %2) #41
   unreachable
 
 _ZN8ImVectorI12ImFontConfigED2Ev.exit:            ; preds = %invoke.cont, %if.then.i
@@ -10990,7 +10990,7 @@ terminate.lpad.i4:                                ; preds = %if.then.i3
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #40
+  tail call void @__clang_call_terminate(ptr %5) #41
   unreachable
 
 _ZN8ImVectorI21ImFontAtlasCustomRectED2Ev.exit:   ; preds = %_ZN8ImVectorI12ImFontConfigED2Ev.exit, %if.then.i3
@@ -11007,7 +11007,7 @@ terminate.lpad.i8:                                ; preds = %if.then.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #40
+  tail call void @__clang_call_terminate(ptr %8) #41
   unreachable
 
 _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI21ImFontAtlasCustomRectED2Ev.exit, %if.then.i7
@@ -11017,7 +11017,7 @@ terminate.lpad:                                   ; preds = %entry
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #40
+  tail call void @__clang_call_terminate(ptr %10) #41
   unreachable
 }
 
@@ -11067,7 +11067,7 @@ for.body.i.i:                                     ; preds = %_Z9IM_DELETEI6ImFon
   br i1 %tobool.not.i.i.i, label %_Z9IM_DELETEI6ImFontEvPT_.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
-  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %5) #38
+  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %5) #39
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %5)
   %.pre.i.i = load i32, ptr %Fonts.i, align 8
   br label %_Z9IM_DELETEI6ImFontEvPT_.exit.i.i
@@ -11101,8 +11101,8 @@ _ZN11ImFontAtlas10ClearFontsEv.exit:              ; preds = %for.end.i.i, %if.th
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #38
-  tail call void @_ZSt9terminatev() #40
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #39
+  tail call void @_ZSt9terminatev() #41
   unreachable
 }
 
@@ -11270,7 +11270,7 @@ for.body.i:                                       ; preds = %_Z9IM_DELETEI6ImFon
   br i1 %tobool.not.i.i, label %_Z9IM_DELETEI6ImFontEvPT_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %3) #38
+  tail call void @_ZN6ImFontD1Ev(ptr noundef nonnull align 8 dereferenceable(118) %3) #39
   tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %3)
   %.pre.i = load i32, ptr %Fonts, align 8
   br label %_Z9IM_DELETEI6ImFontEvPT_.exit.i
@@ -12020,7 +12020,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN11ImFontAtlas36AddFontFromMemoryCompressedBase85TTFEPKcfPK12ImFontConfigPKt(ptr nocapture noundef nonnull align 8 dereferenceable(1180) %this, ptr nocapture noundef readonly %compressed_ttf_data_base85, float noundef %size_pixels, ptr noundef %font_cfg, ptr noundef %glyph_ranges) local_unnamed_addr #7 align 2 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compressed_ttf_data_base85) #39
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compressed_ttf_data_base85) #40
   %conv = trunc i64 %call to i32
   %add = add nsw i32 %conv, 4
   %div = sdiv i32 %add, 5
@@ -12127,7 +12127,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp, label %if.then3, label %if.end15
 
 if.then3:                                         ; preds = %cond.end
-  %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #39
+  %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #40
   %add.ptr = getelementptr inbounds i8, ptr %filename, i64 %call4
   br label %for.cond
 
@@ -13039,8 +13039,8 @@ for.end:                                          ; preds = %for.body
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii(ptr nocapture noundef readonly %table, ptr nocapture noundef %pixels, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %stride) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_Z34ImFontAtlasBuildMultiplyRectAlpha8PKhPhiiiii(ptr nocapture noundef readonly %table, ptr nocapture noundef %pixels, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %stride) local_unnamed_addr #26 {
 entry:
   %cmp11 = icmp sgt i32 %h, 0
   br i1 %cmp11, label %for.cond3.preheader.lr.ph, label %for.end10
@@ -15616,8 +15616,8 @@ lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
 
 lpad172:                                          ; preds = %lpad172.loopexit.split-lp.loopexit, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad172.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad172.loopexit ], [ %lpad.loopexit799, %lpad172.loopexit.split-lp.loopexit ], [ %lpad.loopexit810, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit812, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit815, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit817, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit820, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad172.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buf_packedchars) #38
-  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buf_rects) #38
+  call void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buf_packedchars) #39
+  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buf_rects) #39
   br label %ehcleanup532
 
 if.end194:                                        ; preds = %for.body187
@@ -15791,7 +15791,7 @@ for.inc284:                                       ; preds = %for.body242, %cond.
 for.end286:                                       ; preds = %for.inc284, %invoke.cont174
   %total_surface.0.lcssa = phi i32 [ 0, %invoke.cont174 ], [ %total_surface.2, %for.inc284 ]
   %conv287 = sitofp i32 %total_surface.0.lcssa to float
-  %call288 = call float @sqrtf(float noundef %conv287) #38
+  %call288 = call float @sqrtf(float noundef %conv287) #39
   store i32 0, ptr %TexHeight, align 4
   %TexDesiredWidth = getelementptr inbounds i8, ptr %atlas, i64 16
   %360 = load i32, ptr %TexDesiredWidth, align 8
@@ -19782,7 +19782,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i719
   %916 = landingpad { ptr, i32 }
           catch ptr null
   %917 = extractvalue { ptr, i32 } %916, 0
-  call void @__clang_call_terminate(ptr %917) #40
+  call void @__clang_call_terminate(ptr %917) #41
   unreachable
 
 _ZN8ImVectorIiED2Ev.exit.i.i:                     ; preds = %if.then.i.i.i719, %for.body.i714
@@ -19799,7 +19799,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %919 = landingpad { ptr, i32 }
           catch ptr null
   %920 = extractvalue { ptr, i32 } %919, 0
-  call void @__clang_call_terminate(ptr %920) #40
+  call void @__clang_call_terminate(ptr %920) #41
   unreachable
 
 _ZN18ImFontBuildSrcDataD2Ev.exit.i:               ; preds = %if.then.i.i.i.i, %_ZN8ImVectorIiED2Ev.exit.i.i
@@ -19838,7 +19838,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i725
   %922 = landingpad { ptr, i32 }
           catch ptr null
   %923 = extractvalue { ptr, i32 } %922, 0
-  call void @__clang_call_terminate(ptr %923) #40
+  call void @__clang_call_terminate(ptr %923) #41
   unreachable
 
 cleanup:                                          ; preds = %for.end, %for.body, %if.then.i725, %invoke.cont531, %invoke.cont37.thread
@@ -19855,7 +19855,7 @@ terminate.lpad.i735:                              ; preds = %if.then.i734
   %925 = landingpad { ptr, i32 }
           catch ptr null
   %926 = extractvalue { ptr, i32 } %925, 0
-  call void @__clang_call_terminate(ptr %926) #40
+  call void @__clang_call_terminate(ptr %926) #41
   unreachable
 
 _ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit:      ; preds = %cleanup, %if.then.i734
@@ -19871,7 +19871,7 @@ terminate.lpad.i740:                              ; preds = %if.then.i739
   %928 = landingpad { ptr, i32 }
           catch ptr null
   %929 = extractvalue { ptr, i32 } %928, 0
-  call void @__clang_call_terminate(ptr %929) #40
+  call void @__clang_call_terminate(ptr %929) #41
   unreachable
 
 _ZN8ImVectorI18ImFontBuildSrcDataED2Ev.exit:      ; preds = %_ZN8ImVectorI18ImFontBuildDstDataED2Ev.exit, %if.then.i739
@@ -19879,8 +19879,8 @@ _ZN8ImVectorI18ImFontBuildSrcDataED2Ev.exit:      ; preds = %_ZN8ImVectorI18ImFo
 
 ehcleanup532:                                     ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad2.loopexit.split-lp.loopexit, %lpad172
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad172 ], [ %lpad.loopexit822, %lpad2.loopexit ], [ %lpad.loopexit825, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit828, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit831, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp832, %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dst_tmp_array) #38
-  call void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %src_tmp_array) #38
+  call void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dst_tmp_array) #39
+  call void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %src_tmp_array) #39
   resume { ptr, i32 } %.pn
 }
 
@@ -20080,7 +20080,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 lpad:                                             ; preds = %for.end, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pack_rects) #38
+  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pack_rects) #39
   resume { ptr, i32 } %11
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -20154,7 +20154,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i56
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #40
+  tail call void @__clang_call_terminate(ptr %25) #41
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %for.end50, %if.then.i56
@@ -20162,7 +20162,7 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %for.end50, %if.then
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) unnamed_addr #26 {
+define internal fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) unnamed_addr #27 {
 entry:
   %cmp58 = icmp sgt i32 %num_rects, 0
   br i1 %cmp58, label %for.body.preheader, label %for.end
@@ -20695,12 +20695,12 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #40
+  tail call void @__clang_call_terminate(ptr %2) #41
   unreachable
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z40ImFontAtlasBuildRender8bppRectFromStringP11ImFontAtlasiiiiPKcch(ptr nocapture noundef readonly %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %in_str, i8 noundef signext %in_marker_char, i8 noundef zeroext %in_marker_pixel_value) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_Z40ImFontAtlasBuildRender8bppRectFromStringP11ImFontAtlasiiiiPKcch(ptr nocapture noundef readonly %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %in_str, i8 noundef signext %in_marker_char, i8 noundef zeroext %in_marker_pixel_value) local_unnamed_addr #28 {
 entry:
   %TexWidth = getelementptr inbounds i8, ptr %atlas, i64 64
   %cmp12 = icmp sgt i32 %h, 0
@@ -20754,8 +20754,8 @@ for.end19:                                        ; preds = %for.cond3.for.inc12
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj(ptr nocapture noundef readonly %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %in_str, i8 noundef signext %in_marker_char, i32 noundef %in_marker_pixel_value) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj(ptr nocapture noundef readonly %atlas, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %in_str, i8 noundef signext %in_marker_char, i32 noundef %in_marker_pixel_value) local_unnamed_addr #28 {
 entry:
   %TexWidth = getelementptr inbounds i8, ptr %atlas, i64 64
   %cmp12 = icmp sgt i32 %h, 0
@@ -22327,8 +22327,8 @@ entry:
   ret ptr @_ZZN11ImFontAtlas25GetGlyphRangesChineseFullEvE6ranges
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define noundef nonnull ptr @_ZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #29 align 2 {
 entry:
   %0 = load i16, ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges, align 16
   %tobool.not = icmp eq i16 %0, 0
@@ -22361,8 +22361,8 @@ if.end:                                           ; preds = %_ZL35UnpackAccumula
   ret ptr @_ZZN11ImFontAtlas37GetGlyphRangesChineseSimplifiedCommonEvE11full_ranges
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesJapaneseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define noundef nonnull ptr @_ZN11ImFontAtlas22GetGlyphRangesJapaneseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1180) %this) local_unnamed_addr #29 align 2 {
 entry:
   %0 = load i16, ptr @_ZZN11ImFontAtlas22GetGlyphRangesJapaneseEvE11full_ranges, align 16
   %tobool.not = icmp eq i16 %0, 0
@@ -22849,7 +22849,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #40
+  tail call void @__clang_call_terminate(ptr %5) #41
   unreachable
 
 _ZN8ImVectorI11ImFontGlyphED2Ev.exit:             ; preds = %if.then.i
@@ -22865,7 +22865,7 @@ terminate.lpad.i6:                                ; preds = %if.then.i5
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #40
+  tail call void @__clang_call_terminate(ptr %7) #41
   unreachable
 
 _ZN8ImVectorItED2Ev.exit:                         ; preds = %invoke.cont, %_ZN8ImVectorI11ImFontGlyphED2Ev.exit, %if.then.i5
@@ -22881,7 +22881,7 @@ terminate.lpad.i10:                               ; preds = %if.then.i9
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #40
+  tail call void @__clang_call_terminate(ptr %10) #41
   unreachable
 
 _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorItED2Ev.exit, %if.then.i9
@@ -22891,7 +22891,7 @@ terminate.lpad:                                   ; preds = %if.then.i7.i, %if.t
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #40
+  tail call void @__clang_call_terminate(ptr %12) #41
   unreachable
 }
 
@@ -23033,7 +23033,7 @@ return:                                           ; preds = %entry, %_ZN8ImVecto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6ImFont9FindGlyphEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #28 align 2 {
+define noundef ptr @_ZNK6ImFont9FindGlyphEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #30 align 2 {
 entry:
   %conv = zext i16 %c to i64
   %IndexLookup = getelementptr inbounds i8, ptr %this, i64 24
@@ -23125,7 +23125,7 @@ if.end:                                           ; preds = %if.then, %_ZNK6ImFo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6ImFont19FindGlyphNoFallbackEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #28 align 2 {
+define noundef ptr @_ZNK6ImFont19FindGlyphNoFallbackEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i16 noundef zeroext %c) local_unnamed_addr #30 align 2 {
 entry:
   %conv = zext i16 %c to i64
   %IndexLookup = getelementptr inbounds i8, ptr %this, i64 24
@@ -23155,7 +23155,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i32 noundef %c_begin, i32 noundef %c_last) local_unnamed_addr #29 align 2 {
+define noundef zeroext i1 @_ZN6ImFont18IsGlyphRangeUnusedEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(118) %this, i32 noundef %c_begin, i32 noundef %c_last) local_unnamed_addr #31 align 2 {
 entry:
   %div5 = lshr i32 %c_begin, 12
   %div26 = lshr i32 %c_last, 12
@@ -23424,7 +23424,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #39
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %text_begin) #40
   %add.ptr = getelementptr inbounds i8, ptr %text_begin, i64 %call
   br label %if.end
 
@@ -24264,7 +24264,7 @@ if.end.i:                                         ; preds = %if.end15
   br i1 %cmp1.i84, label %if.end3.i, label %_ZL8ImAcos01f.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call.i = tail call float @acosf(float noundef %6) #38
+  %call.i = tail call float @acosf(float noundef %6) #39
   %.pre = load float, ptr %rect, align 4
   br label %_ZL8ImAcos01f.exit
 
@@ -24282,7 +24282,7 @@ if.end.i87:                                       ; preds = %_ZL8ImAcos01f.exit
   br i1 %cmp1.i88, label %if.end3.i89, label %_ZL8ImAcos01f.exit91
 
 if.end3.i89:                                      ; preds = %if.end.i87
-  %call.i90 = tail call float @acosf(float noundef %8) #38
+  %call.i90 = tail call float @acosf(float noundef %8) #39
   %.pre346 = load float, ptr %rect, align 4
   br label %_ZL8ImAcos01f.exit91
 
@@ -24714,7 +24714,7 @@ if.end.i257:                                      ; preds = %if.then78
   br i1 %cmp1.i258, label %if.end3.i259, label %_ZL8ImAcos01f.exit261
 
 if.end3.i259:                                     ; preds = %if.end.i257
-  %call.i260 = tail call float @acosf(float noundef %61) #38
+  %call.i260 = tail call float @acosf(float noundef %61) #39
   %.pre347 = load float, ptr %Max, align 4
   br label %_ZL8ImAcos01f.exit261
 
@@ -24732,7 +24732,7 @@ if.end.i264:                                      ; preds = %_ZL8ImAcos01f.exit2
   br i1 %cmp1.i265, label %if.end3.i266, label %_ZL8ImAcos01f.exit268
 
 if.end3.i266:                                     ; preds = %if.end.i264
-  %call.i267 = tail call float @acosf(float noundef %63) #38
+  %call.i267 = tail call float @acosf(float noundef %63) #39
   %.pre348 = load float, ptr %Max, align 4
   br label %_ZL8ImAcos01f.exit268
 
@@ -25312,10 +25312,10 @@ declare noundef i32 @_ZN5ImGui11GetColorU32Ej(i32 noundef) local_unnamed_addr #1
 declare noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float>) #30
+declare <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float>) #32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr readonly %info.8.val, i32 %info.56.val, i32 noundef %unicode_codepoint) unnamed_addr #28 {
+define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr readonly %info.8.val, i32 %info.56.val, i32 noundef %unicode_codepoint) unnamed_addr #30 {
 entry:
   %idx.ext = zext i32 %info.56.val to i64
   %add.ptr = getelementptr inbounds i8, ptr %info.8.val, i64 %idx.ext
@@ -25985,7 +25985,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #40
+  tail call void @__clang_call_terminate(ptr %2) #41
   unreachable
 }
 
@@ -26008,7 +26008,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #40
+  tail call void @__clang_call_terminate(ptr %2) #41
   unreachable
 }
 
@@ -26031,7 +26031,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #40
+  tail call void @__clang_call_terminate(ptr %2) #41
   unreachable
 }
 
@@ -26169,7 +26169,7 @@ _ZL16stbtt__buf_rangePK10stbtt__bufii.exit:       ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %b.coerce0, i64 %b.coerce1, i32 noundef %i) unnamed_addr #29 {
+define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %b.coerce0, i64 %b.coerce1, i32 noundef %i) unnamed_addr #31 {
 entry:
   %b.sroa.18.8.extract.shift = lshr i64 %b.coerce1, 32
   %b.sroa.18.8.extract.trunc = trunc nuw i64 %b.sroa.18.8.extract.shift to i32
@@ -26522,7 +26522,7 @@ for.end:                                          ; preds = %while.cond.i, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %cff.coerce0, i64 %cff.coerce1, ptr %fontdict.coerce0, i64 %fontdict.coerce1) unnamed_addr #28 {
+define internal fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %cff.coerce0, i64 %cff.coerce1, ptr %fontdict.coerce0, i64 %fontdict.coerce1) unnamed_addr #30 {
 entry:
   %fontdict = alloca %struct.stbtt__buf, align 8
   %subrsoff = alloca i32, align 4
@@ -29337,7 +29337,7 @@ return:                                           ; preds = %_ZL22stbtt__GetGlyp
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr nocapture noundef %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #31 {
+define internal fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %points, ptr nocapture noundef %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #33 {
 entry:
   %cmp44 = icmp sgt i32 %n, 16
   br i1 %cmp44, label %return, label %if.end.preheader
@@ -29412,7 +29412,7 @@ return:                                           ; preds = %if.then10, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %points, ptr nocapture noundef %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #31 {
+define internal fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %points, ptr nocapture noundef %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %x3, float noundef %y3, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #33 {
 entry:
   %smax = tail call i32 @llvm.smax.i32(i32 %n, i32 17)
   %exitcond62 = icmp sgt i32 %n, 16
@@ -29525,8 +29525,8 @@ if.end45:                                         ; preds = %if.then18, %entry, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr noundef %p, i32 noundef %n) unnamed_addr #32 {
+; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr noundef %p, i32 noundef %n) unnamed_addr #33 {
 entry:
   %t = alloca %struct.stbtt__edge, align 4
   %cmp58 = icmp sgt i32 %n, 12
@@ -29635,7 +29635,7 @@ while.end:                                        ; preds = %if.end79, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL19rect_height_comparePKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #29 {
+define internal noundef range(i32 -1, 2) i32 @_ZL19rect_height_comparePKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #31 {
 entry:
   %h = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %h, align 4
@@ -29665,7 +29665,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL19rect_original_orderPKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #29 {
+define internal noundef range(i32 -1, 2) i32 @_ZL19rect_original_orderPKvS0_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #31 {
 entry:
   %was_packed = getelementptr inbounds i8, ptr %a, i64 20
   %0 = load i32, ptr %was_packed, align 4
@@ -29679,52 +29679,52 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #33
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #34
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #34
+declare void @llvm.assume(i1 noundef) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #35
+declare i32 @llvm.smin.i32(i32, i32) #36
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #36
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #35
+declare i32 @llvm.abs.i32(i32, i1 immarg) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #35
+declare i32 @llvm.smax.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #35
+declare i32 @llvm.umin.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #37
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #37
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #35
+declare i32 @llvm.umax.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #35
+declare float @llvm.sqrt.f32(float) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #35
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #35
+declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #35
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #35
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #36
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -29752,21 +29752,22 @@ attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #31 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #35 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #36 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #37 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #38 = { nounwind }
-attributes #39 = { nounwind willreturn memory(read) }
-attributes #40 = { noreturn nounwind }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #33 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #36 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #37 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #38 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #39 = { nounwind }
+attributes #40 = { nounwind willreturn memory(read) }
+attributes #41 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

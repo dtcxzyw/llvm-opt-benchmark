@@ -1084,7 +1084,7 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_bn2binpad(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to, i32 noundef %tolen) local_unnamed_addr #11 {
 entry:
   %cmp = icmp slt i32 %tolen, 0
@@ -1099,7 +1099,7 @@ return:                                           ; preds = %entry, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @bn2binpad(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to, i32 noundef %tolen, i32 noundef %endianness, i32 noundef %signedness) unnamed_addr #11 {
 entry:
   %temp = alloca %struct.bignum_st, align 8
@@ -1255,7 +1255,7 @@ return:                                           ; preds = %for.body, %if.end31
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_signed_bn2bin(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to, i32 noundef %tolen) local_unnamed_addr #11 {
 entry:
   %cmp = icmp slt i32 %tolen, 0
@@ -1270,7 +1270,7 @@ return:                                           ; preds = %entry, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_bn2bin(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to) local_unnamed_addr #11 {
 entry:
   %call.i = tail call i32 @BN_num_bits(ptr noundef readonly %a)
@@ -1358,7 +1358,7 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_bn2lebinpad(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to, i32 noundef %tolen) local_unnamed_addr #11 {
 entry:
   %cmp = icmp slt i32 %tolen, 0
@@ -1373,7 +1373,7 @@ return:                                           ; preds = %entry, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_signed_bn2lebin(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to, i32 noundef %tolen) local_unnamed_addr #11 {
 entry:
   %cmp = icmp slt i32 %tolen, 0
@@ -1402,7 +1402,7 @@ entry:
   ret ptr %call.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_bn2nativepad(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to, i32 noundef %tolen) local_unnamed_addr #11 {
 entry:
   %cmp.i = icmp slt i32 %tolen, 0
@@ -1417,7 +1417,7 @@ BN_bn2lebinpad.exit:                              ; preds = %entry, %if.end.i
   ret i32 %retval.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @BN_signed_bn2native(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to, i32 noundef %tolen) local_unnamed_addr #11 {
 entry:
   %cmp.i = icmp slt i32 %tolen, 0
@@ -1611,7 +1611,7 @@ return:                                           ; preds = %bn_wexpand.exit, %e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @BN_clear_bit(ptr nocapture noundef %a, i32 noundef %n) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @BN_clear_bit(ptr nocapture noundef %a, i32 noundef %n) local_unnamed_addr #12 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -1678,7 +1678,7 @@ return:                                           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @bn_correct_top(ptr nocapture noundef %a) local_unnamed_addr #12 {
+define void @bn_correct_top(ptr nocapture noundef %a) local_unnamed_addr #11 {
 entry:
   %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -1754,7 +1754,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @BN_mask_bits(ptr nocapture noundef %a, i32 noundef %n) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @BN_mask_bits(ptr nocapture noundef %a, i32 noundef %n) local_unnamed_addr #12 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -2009,7 +2009,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @BN_consttime_swap(i64 noundef %condition, ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %nwords) local_unnamed_addr #11 {
+define void @BN_consttime_swap(i64 noundef %condition, ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %nwords) local_unnamed_addr #12 {
 entry:
   %not = xor i64 %condition, -1
   %sub = add i64 %condition, -1
@@ -2440,8 +2440,8 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

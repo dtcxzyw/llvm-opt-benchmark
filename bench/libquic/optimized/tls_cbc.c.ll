@@ -215,7 +215,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EVP_tls_cbc_record_digest_supported(ptr noundef %md) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @EVP_MD_type(ptr noundef %md) #9
+  %call = tail call i32 @EVP_MD_type(ptr noundef %md) #8
   switch i32 %call, label %sw.default [
     i32 64, label %return
     i32 672, label %return
@@ -243,7 +243,7 @@ entry:
   %md_out_size_u = alloca i32, align 4
   %md_ctx = alloca %struct.env_md_ctx_st, align 8
   %block = alloca [128 x i8], align 16
-  %call = tail call i32 @EVP_MD_type(ptr noundef %md) #9
+  %call = tail call i32 @EVP_MD_type(ptr noundef %md) #8
   switch i32 %call, label %sw.default [
     i32 64, label %sw.bb
     i32 672, label %sw.bb2
@@ -251,15 +251,15 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call1 = call i32 @SHA1_Init(ptr noundef nonnull %md_state) #9
+  %call1 = call i32 @SHA1_Init(ptr noundef nonnull %md_state) #8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %call4 = call i32 @SHA256_Init(ptr noundef nonnull %md_state) #9
+  %call4 = call i32 @SHA256_Init(ptr noundef nonnull %md_state) #8
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %call7 = call i32 @SHA384_Init(ptr noundef nonnull %md_state) #9
+  %call7 = call i32 @SHA384_Init(ptr noundef nonnull %md_state) #8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -311,7 +311,7 @@ for.end:                                          ; preds = %for.body
   %div19 = udiv i32 %add18, %md_block_size.0
   %num_starting_blocks.0 = call i32 @llvm.usub.sat.i32(i32 %div, i32 6)
   %add24 = shl i32 %mul2284, 3
-  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %hmac_pad) #9, !callees !12
+  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %hmac_pad) #8, !callees !12
   %sub36 = add nsw i32 %md_length_size.0, -4
   %conv37 = zext nneg i32 %sub36 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %length_bytes, i8 0, i64 %conv37, i1 false)
@@ -345,7 +345,7 @@ if.then58:                                        ; preds = %for.end
   %sub61 = add nsw i32 %md_block_size.0, -13
   %conv62 = zext nneg i32 %sub61 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %data, i64 %conv62, i1 false)
-  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %first_block) #9, !callees !12
+  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %first_block) #8, !callees !12
   %div66 = udiv i32 %k.0, %md_block_size.0
   %invariant.gep = getelementptr i8, ptr %data, i64 -13
   %cmp67109 = icmp ugt i32 %div66, 1
@@ -361,7 +361,7 @@ for.body69:                                       ; preds = %for.body69.preheade
   %mul71 = mul i32 %md_block_size.0, %4
   %idx.ext = zext i32 %mul71 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %idx.ext
-  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %gep) #9, !callees !12
+  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %gep) #8, !callees !12
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
   br i1 %exitcond122.not, label %if.end77, label %for.body69, !llvm.loop !13
@@ -458,8 +458,8 @@ if.end136:                                        ; preds = %if.then130, %if.end
   br i1 %exitcond128.not, label %for.end141, label %for.body89, !llvm.loop !14
 
 for.end141:                                       ; preds = %if.end136
-  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %block) #9, !callees !12
-  call void %md_final_raw.0(ptr noundef nonnull %md_state, ptr noundef nonnull %block) #9, !callees !15
+  call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %block) #8, !callees !12
+  call void %md_final_raw.0(ptr noundef nonnull %md_state, ptr noundef nonnull %block) #8, !callees !15
   br label %for.body149
 
 for.body149:                                      ; preds = %for.end141, %for.body149
@@ -481,13 +481,13 @@ for.inc163:                                       ; preds = %for.body149
   br i1 %cmp81.not.not, label %for.body83, label %for.end165, !llvm.loop !17
 
 for.end165:                                       ; preds = %for.inc163
-  call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx) #9
-  %call166 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %md_ctx, ptr noundef %md, ptr noundef null) #9
+  call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx) #8
+  %call166 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %md_ctx, ptr noundef %md, ptr noundef null) #8
   %tobool.not = icmp eq i32 %call166, 0
   br i1 %tobool.not, label %if.then167, label %for.body173
 
 if.then167:                                       ; preds = %for.end165
-  %call168 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx) #9
+  %call168 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx) #8
   br label %return
 
 for.body173:                                      ; preds = %for.end165, %for.body173
@@ -501,13 +501,13 @@ for.body173:                                      ; preds = %for.end165, %for.bo
   br i1 %exitcond138.not, label %for.end181, label %for.body173, !llvm.loop !18
 
 for.end181:                                       ; preds = %for.body173
-  %call184 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef nonnull %hmac_pad, i64 noundef %conv26) #9
-  %call187 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef nonnull %mac_out, i64 noundef %conv14) #9
-  %call188 = call i32 @EVP_DigestFinal(ptr noundef nonnull %md_ctx, ptr noundef %md_out, ptr noundef nonnull %md_out_size_u) #9
+  %call184 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef nonnull %hmac_pad, i64 noundef %conv26) #8
+  %call187 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef nonnull %mac_out, i64 noundef %conv14) #8
+  %call188 = call i32 @EVP_DigestFinal(ptr noundef nonnull %md_ctx, ptr noundef %md_out, ptr noundef nonnull %md_out_size_u) #8
   %19 = load i32, ptr %md_out_size_u, align 4
   %conv189 = zext i32 %19 to i64
   store i64 %conv189, ptr %md_out_size, align 8
-  %call190 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx) #9
+  %call190 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx) #8
   br label %return
 
 return:                                           ; preds = %for.end181, %if.then167, %sw.default
@@ -625,8 +625,8 @@ declare void @SHA1_Transform(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @tls1_sha256_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @tls1_sha256_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -665,8 +665,8 @@ declare void @SHA256_Transform(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @SHA384_Init(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @tls1_sha512_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @tls1_sha512_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -724,7 +724,7 @@ for.end:                                          ; preds = %for.body
 declare void @SHA512_Transform(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #4
 
@@ -737,13 +737,13 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @EVP_DigestFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #8
+declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -751,10 +751,9 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

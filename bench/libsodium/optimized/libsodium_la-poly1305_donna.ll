@@ -156,7 +156,7 @@ define internal i32 @crypto_onetimeauth_poly1305_donna_verify(ptr noundef %h, pt
 entry:
   %correct = alloca [16 x i8], align 16
   %call = call i32 @crypto_onetimeauth_poly1305_donna(ptr noundef nonnull %correct, ptr noundef %in, i64 noundef %inlen, ptr noundef %k)
-  %call2 = call i32 @crypto_verify_16(ptr noundef %h, ptr noundef nonnull %correct) #7
+  %call2 = call i32 @crypto_verify_16(ptr noundef %h, ptr noundef nonnull %correct) #6
   ret i32 %call2
 }
 
@@ -193,7 +193,7 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
 define internal noundef i32 @crypto_onetimeauth_poly1305_donna_update(ptr nocapture noundef %state, ptr nocapture noundef readonly %in, i64 noundef %inlen) #2 {
 entry:
   %leftover.i = getelementptr inbounds i8, ptr %state, i64 64
@@ -394,12 +394,12 @@ if.end:                                           ; preds = %for.end, %entry
   store i64 %or64, ptr %mac, align 1
   %arrayidx69 = getelementptr i8, ptr %mac, i64 8
   store i64 %or67, ptr %arrayidx69, align 1
-  tail call void @sodium_memzero(ptr noundef nonnull %st, i64 noundef 96) #7
+  tail call void @sodium_memzero(ptr noundef nonnull %st, i64 noundef 96) #6
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef %bytes) unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
+define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef %bytes) unnamed_addr #2 {
 entry:
   %final = getelementptr inbounds i8, ptr %st, i64 88
   %0 = load i8, ptr %final, align 8
@@ -498,27 +498,26 @@ while.end:                                        ; preds = %while.body, %entry
   ret void
 }
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #5
+declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind ssp memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #2 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

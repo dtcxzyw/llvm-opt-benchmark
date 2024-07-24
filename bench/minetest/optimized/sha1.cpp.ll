@@ -93,7 +93,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define dso_local void @_ZN4SHA17processEv(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this) local_unnamed_addr #5 align 2 {
 for.body28.preheader:
   %W = alloca [80 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %W) #10
+  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %W) #9
   %0 = load i32, ptr %this, align 4, !tbaa !15
   %H1 = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %H1, align 4, !tbaa !16
@@ -518,12 +518,12 @@ for.end79:                                        ; preds = %if.end68
   store i32 %add89, ptr %H4, align 4, !tbaa !11
   %unprocessedBytes = getelementptr inbounds i8, ptr %this, i64 84
   store i32 0, ptr %unprocessedBytes, align 4, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %W) #10
+  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %W) #9
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4SHA18addBytesEPKcj(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this, ptr nocapture noundef readonly %data, i32 noundef %num) local_unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @_ZN4SHA18addBytesEPKcj(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this, ptr nocapture noundef readonly %data, i32 noundef %num) local_unnamed_addr #5 align 2 {
 entry:
   %size = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %size, align 4, !tbaa !14
@@ -568,7 +568,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4SHA19getDigestEPh(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this, ptr nocapture noundef writeonly %digest) local_unnamed_addr #5 align 2 {
@@ -606,7 +606,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %2, label %_ZN4SHA18addBytesEPKcj.exit, label %while.body.i, !llvm.loop !21
 
 _ZN4SHA18addBytesEPKcj.exit:                      ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %footer) #10
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %footer) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %footer, i8 0, i64 64, i1 false)
   %4 = load i32, ptr %unprocessedBytes.i, align 4, !tbaa !13
   %cmp = icmp ugt i32 %4, 56
@@ -798,18 +798,18 @@ _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
   %conv7.i123 = trunc i32 %15 to i8
   %arrayidx8.i124 = getelementptr inbounds i8, ptr %digest, i64 19
   store i8 %conv7.i123, ptr %arrayidx8.i124, align 1, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %footer) #10
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %footer) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #9
+declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -817,11 +817,10 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

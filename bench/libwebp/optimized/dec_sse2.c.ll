@@ -455,7 +455,7 @@ define internal void @VFilter16_SSE2(ptr nocapture noundef %0, i32 noundef %1, i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @HFilter16_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 -4
   %7 = shl nsw i32 %1, 3
@@ -1181,7 +1181,7 @@ define internal void @VFilter8_SSE2(ptr nocapture noundef %0, ptr nocapture noun
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @HFilter8_SSE2(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 -4
   %8 = getelementptr inbounds i8, ptr %1, i64 -4
@@ -1672,8 +1672,8 @@ Store16x4_SSE2.exit113:                           ; preds = %364
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @VFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @VFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = load <2 x i64>, ptr %0, align 1
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
@@ -1819,8 +1819,8 @@ define internal void @VFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @HFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = shl nsw i32 %1, 3
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
@@ -2390,7 +2390,7 @@ define internal void @VFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture nou
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @HFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = mul nsw i32 %2, 6
   %8 = sext i32 %7 to i64
@@ -2825,7 +2825,7 @@ define internal void @SimpleVFilter16_SSE2(ptr nocapture noundef %0, i32 noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @SimpleHFilter16_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -2
   %5 = shl nsw i32 %1, 3
@@ -3067,8 +3067,8 @@ Store16x4_SSE2.exit:                              ; preds = %171
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SimpleVFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @SimpleVFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = shl nsw i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = mul nsw i32 %1, -2
@@ -3147,8 +3147,8 @@ define internal void @SimpleVFilter16i_SSE2(ptr nocapture noundef %0, i32 nounde
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SimpleHFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @SimpleHFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #3 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -3164,8 +3164,8 @@ define internal void @SimpleHFilter16i_SSE2(ptr nocapture noundef %0, i32 nounde
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TM4_SSE2(ptr nocapture noundef %0) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @TM4_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %.val.i = load i32, ptr %2, align 1
   %3 = insertelement <4 x i32> poison, i32 %.val.i, i64 0
@@ -3201,7 +3201,7 @@ TrueMotion_SSE2.exit:                             ; preds = %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VE4_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @VE4_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -33
   %3 = load i64, ptr %2, align 1
   %4 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
@@ -3444,7 +3444,7 @@ define internal void @VL4_SSE2(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC16_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @DC16_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load <16 x i8>, ptr %2, align 1
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
@@ -3492,8 +3492,8 @@ Put16_SSE2.exit:                                  ; preds = %24
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TM16_SSE2(ptr nocapture noundef %0) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @TM16_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load <16 x i8>, ptr %2, align 1
   %4 = shufflevector <16 x i8> %3, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -3528,7 +3528,7 @@ TrueMotion_SSE2.exit:                             ; preds = %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VE16_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @VE16_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load <2 x i64>, ptr %2, align 1
   br label %4
@@ -3546,8 +3546,8 @@ define internal void @VE16_SSE2(ptr nocapture noundef %0) #5 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HE16_SSE2(ptr nocapture noundef %0) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @HE16_SSE2(ptr nocapture noundef %0) #2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -3568,7 +3568,7 @@ define internal void @HE16_SSE2(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC16NoTop_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @DC16NoTop_SSE2(ptr nocapture noundef %0) #2 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
@@ -3605,7 +3605,7 @@ Put16_SSE2.exit:                                  ; preds = %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC16NoLeft_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @DC16NoLeft_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load <16 x i8>, ptr %2, align 1
   %4 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %3, <16 x i8> zeroinitializer)
@@ -3637,7 +3637,7 @@ Put16_SSE2.exit:                                  ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @DC16NoTopLeft_SSE2(ptr nocapture noundef writeonly %0) #6 {
+define internal void @DC16NoTopLeft_SSE2(ptr nocapture noundef writeonly %0) #4 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -3654,7 +3654,7 @@ Put16_SSE2.exit:                                  ; preds = %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC8uv_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @DC8uv_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
@@ -3701,8 +3701,8 @@ Put8x8uv_SSE2.exit:                               ; preds = %23
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TM8uv_SSE2(ptr nocapture noundef %0) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @TM8uv_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1
   %4 = insertelement <2 x i64> poison, i64 %3, i64 0
@@ -3738,7 +3738,7 @@ TrueMotion_SSE2.exit:                             ; preds = %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VE8uv_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @VE8uv_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1
   br label %4
@@ -3757,7 +3757,7 @@ define internal void @VE8uv_SSE2(ptr nocapture noundef %0) #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC8uvNoTop_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @DC8uvNoTop_SSE2(ptr nocapture noundef %0) #2 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
@@ -3796,7 +3796,7 @@ Put8x8uv_SSE2.exit:                               ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC8uvNoLeft_SSE2(ptr nocapture noundef %0) #5 {
+define internal void @DC8uvNoLeft_SSE2(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1
   %4 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
@@ -3827,7 +3827,7 @@ Put8x8uv_SSE2.exit:                               ; preds = %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @DC8uvNoTopLeft_SSE2(ptr nocapture noundef writeonly %0) #6 {
+define internal void @DC8uvNoTopLeft_SSE2(ptr nocapture noundef writeonly %0) #4 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -3844,44 +3844,42 @@ Put8x8uv_SSE2.exit:                               ; preds = %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #7
+declare <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16>, <8 x i16>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #7
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #8
+declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.umax.v16i8(<16 x i8>, <16 x i8>) #8
+declare <16 x i8> @llvm.umax.v16i8(<16 x i8>, <16 x i8>) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8>, <16 x i8>) #8
+declare <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8>, <16 x i8>) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8>, <16 x i8>) #8
+declare <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8>, <16 x i8>) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8>, <16 x i8>) #8
+declare <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8>, <16 x i8>) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #7
+declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8>, <16 x i8>) #7
+declare <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8>, <16 x i8>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8>, <16 x i8>) #7
+declare <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8>, <16 x i8>) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

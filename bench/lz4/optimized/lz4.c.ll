@@ -6108,7 +6108,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @LZ4_loadDict(ptr nocapture noundef writeonly %LZ4_dict, ptr noundef %dictionary, i32 noundef %dictSize) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %LZ4_dict, i8 0, i64 16416, i1 false)
@@ -13343,8 +13343,8 @@ LZ4_decompress_generic.exit:                      ; preds = %if.end26.i, %if.end
   ret i32 %retval.i.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_fast(ptr noundef %source, ptr noundef %dest, i32 noundef %originalSize) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i32 @LZ4_decompress_fast(ptr noundef %source, ptr noundef %dest, i32 noundef %originalSize) local_unnamed_addr #9 {
 entry:
   %idx.ext.i = sext i32 %originalSize to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i
@@ -14169,8 +14169,8 @@ LZ4_decompress_generic.exit:                      ; preds = %if.end26.i, %if.end
   ret i32 %retval.i.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_fast_withPrefix64k(ptr noundef %source, ptr noundef %dest, i32 noundef %originalSize) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i32 @LZ4_decompress_fast_withPrefix64k(ptr noundef %source, ptr noundef %dest, i32 noundef %originalSize) local_unnamed_addr #9 {
 entry:
   %idx.ext.i = sext i32 %originalSize to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i
@@ -19436,8 +19436,8 @@ return:                                           ; preds = %_output_error.i.i13
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_decompress_fast_usingDict(ptr noundef %source, ptr noundef %dest, i32 noundef %originalSize, ptr noundef %dictStart, i32 noundef %dictSize) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i32 @LZ4_decompress_fast_usingDict(ptr noundef %source, ptr noundef %dest, i32 noundef %originalSize, ptr noundef %dictStart, i32 noundef %dictSize) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i32 %dictSize, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -19805,8 +19805,8 @@ LZ4_compressBound.exit:                           ; preds = %entry, %cond.false.
   ret i32 %call1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_uncompress(ptr noundef %source, ptr noundef %dest, i32 noundef %outputSize) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i32 @LZ4_uncompress(ptr noundef %source, ptr noundef %dest, i32 noundef %outputSize) local_unnamed_addr #9 {
 entry:
   %idx.ext.i.i = sext i32 %outputSize to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i.i
@@ -20013,7 +20013,7 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

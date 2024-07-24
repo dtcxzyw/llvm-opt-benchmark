@@ -17,9 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden ptr @__php_stpncpy(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %spec.select = tail call i64 @llvm.umin.i64(i64 %4, i64 %2)
-  %5 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #16
+  %5 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
   %6 = getelementptr inbounds i8, ptr %0, i64 %spec.select
   ret ptr %6
 }
@@ -64,13 +64,13 @@ sub_2:                                            ; preds = %sub_1
   %21 = icmp eq i32 %20, 0
   %spec.select.idx = select i1 %21, i64 3, i64 0
   %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
-  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(8) @sha256_rounds_prefix, i64 noundef 7) #15
+  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(8) @sha256_rounds_prefix, i64 noundef 7) #14
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %.tail
   %25 = getelementptr inbounds i8, ptr %spec.select, i64 7
-  %26 = call i64 @strtoull(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef 10) #16
+  %26 = call i64 @strtoull(ptr noundef nonnull %25, ptr noundef nonnull %8, i32 noundef 10) #15
   %27 = load ptr, ptr %8, align 8
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 36
@@ -89,9 +89,9 @@ sub_2:                                            ; preds = %sub_1
   %.0387 = phi i64 [ %26, %32 ], [ 5000, %24 ], [ 5000, %.tail ]
   %.0386 = phi i1 [ true, %32 ], [ false, %24 ], [ false, %.tail ]
   %.1 = phi ptr [ %33, %32 ], [ %spec.select, %24 ], [ %spec.select, %.tail ]
-  %35 = tail call i64 @strcspn(ptr noundef %.1, ptr noundef nonnull @.str) #15
+  %35 = tail call i64 @strcspn(ptr noundef %.1, ptr noundef nonnull @.str) #14
   %spec.select434 = tail call i64 @llvm.umin.i64(i64 %35, i64 16)
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %37 = ptrtoint ptr %0 to i64
   %38 = and i64 %37, 3
   %.not = icmp eq i64 %38, 0
@@ -103,7 +103,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = tail call noalias ptr @_emalloc(i64 noundef %40) #17
+  %43 = tail call noalias ptr @_emalloc(i64 noundef %40) #16
   br label %46
 
 44:                                               ; preds = %39
@@ -424,7 +424,7 @@ sha256_finish_ctx.exit447:                        ; preds = %208
   br i1 %213, label %214, label %216
 
 214:                                              ; preds = %sha256_finish_ctx.exit447
-  %215 = call noalias ptr @_emalloc(i64 noundef %36) #17
+  %215 = call noalias ptr @_emalloc(i64 noundef %36) #16
   br label %.lr.ph477.preheader
 
 216:                                              ; preds = %sha256_finish_ctx.exit447
@@ -439,7 +439,7 @@ sha256_finish_ctx.exit447:                        ; preds = %208
 .lr.ph477:                                        ; preds = %.lr.ph477.preheader, %.lr.ph477
   %.3391475 = phi i64 [ %221, %.lr.ph477 ], [ %36, %.lr.ph477.preheader ]
   %.0395474 = phi ptr [ %220, %.lr.ph477 ], [ %219, %.lr.ph477.preheader ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.0395474, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 noundef 32, i1 false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.0395474, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 noundef 32, i1 false) #15
   %220 = getelementptr inbounds i8, ptr %.0395474, i64 32
   %221 = add i64 %.3391475, -32
   %222 = icmp ugt i64 %221, 31
@@ -660,7 +660,7 @@ sha256_finish_ctx.exit459:                        ; preds = %328
   %334 = call i32 @llvm.smax.i32(i32 %3, i32 0)
   %335 = zext nneg i32 %334 to i64
   %spec.select.i = call i64 @llvm.umin.i64(i64 %335, i64 3)
-  %336 = call ptr @strncpy(ptr noundef %2, ptr noundef nonnull readonly dereferenceable(4) @sha256_salt_prefix, i64 noundef %335) #16
+  %336 = call ptr @strncpy(ptr noundef %2, ptr noundef nonnull readonly dereferenceable(4) @sha256_salt_prefix, i64 noundef %335) #15
   %337 = getelementptr inbounds i8, ptr %2, i64 %spec.select.i
   %338 = add i32 %3, -3
   br i1 %.0386, label %339, label %346
@@ -668,7 +668,7 @@ sha256_finish_ctx.exit459:                        ; preds = %328
 339:                                              ; preds = %._crit_edge484
   %340 = call i32 @llvm.smax.i32(i32 %338, i32 0)
   %341 = zext nneg i32 %340 to i64
-  %342 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %337, i64 noundef %341, ptr noundef nonnull @.str.1, ptr noundef nonnull @sha256_rounds_prefix, i64 noundef %.0387) #16
+  %342 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %337, i64 noundef %341, ptr noundef nonnull @.str.1, ptr noundef nonnull @sha256_rounds_prefix, i64 noundef %.0387) #15
   %343 = sext i32 %342 to i64
   %344 = getelementptr inbounds i8, ptr %337, i64 %343
   %345 = sub nsw i32 %338, %342
@@ -680,8 +680,8 @@ sha256_finish_ctx.exit459:                        ; preds = %328
   %347 = call i32 @llvm.smax.i32(i32 %.0383, i32 0)
   %348 = zext nneg i32 %347 to i64
   %.spec.select434 = call i64 @llvm.umin.i64(i64 %spec.select434, i64 %348)
-  %349 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.2) #15
-  %350 = call ptr @strncpy(ptr noundef %.2397, ptr noundef readonly %.2, i64 noundef %.spec.select434) #16
+  %349 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.2) #14
+  %350 = call ptr @strncpy(ptr noundef %.2397, ptr noundef readonly %.2, i64 noundef %.spec.select434) #15
   %351 = trunc nuw nsw i64 %spec.select434 to i32
   %352 = call i32 @llvm.umin.i32(i32 %347, i32 %351)
   %353 = sub nsw i32 %.0383, %352
@@ -1116,7 +1116,7 @@ sha256_finish_ctx.exit459:                        ; preds = %328
   br i1 %612, label %._crit_edge581.thread, label %614
 
 ._crit_edge581.thread:                            ; preds = %346, %355, %._crit_edge491, %._crit_edge500, %._crit_edge509, %._crit_edge518, %._crit_edge527, %._crit_edge536, %._crit_edge545, %._crit_edge554, %._crit_edge563, %._crit_edge572, %._crit_edge581
-  %613 = tail call ptr @__errno_location() #18
+  %613 = tail call ptr @__errno_location() #17
   store i32 34, ptr %613, align 4
   br label %615
 
@@ -1149,16 +1149,16 @@ sha256_finish_ctx.exit459:                        ; preds = %328
   br i1 %exitcond.not.i465, label %sha256_finish_ctx.exit466, label %618
 
 sha256_finish_ctx.exit466:                        ; preds = %618
-  call void @explicit_bzero(ptr noundef nonnull %5, i64 noundef 32) #16
-  call void @explicit_bzero(ptr noundef %223, i64 noundef %36) #16
-  call void @explicit_bzero(ptr noundef nonnull %275, i64 noundef %spec.select434) #16
-  call void @explicit_bzero(ptr noundef nonnull %6, i64 noundef 172) #16
-  call void @explicit_bzero(ptr noundef nonnull %7, i64 noundef 172) #16
+  call void @explicit_bzero(ptr noundef nonnull %5, i64 noundef 32) #15
+  call void @explicit_bzero(ptr noundef %223, i64 noundef %36) #15
+  call void @explicit_bzero(ptr noundef nonnull %275, i64 noundef %spec.select434) #15
+  call void @explicit_bzero(ptr noundef nonnull %6, i64 noundef 172) #15
+  call void @explicit_bzero(ptr noundef nonnull %7, i64 noundef 172) #15
   %.not426 = icmp eq ptr %.0409, null
   br i1 %.not426, label %624, label %623
 
 623:                                              ; preds = %sha256_finish_ctx.exit466
-  call void @explicit_bzero(ptr noundef nonnull %.0409, i64 noundef %36) #16
+  call void @explicit_bzero(ptr noundef nonnull %.0409, i64 noundef %36) #15
   br label %624
 
 624:                                              ; preds = %623, %sha256_finish_ctx.exit466
@@ -1166,7 +1166,7 @@ sha256_finish_ctx.exit466:                        ; preds = %618
   br i1 %.not427, label %626, label %625
 
 625:                                              ; preds = %624
-  call void @explicit_bzero(ptr noundef nonnull %.0408, i64 noundef %spec.select434) #16
+  call void @explicit_bzero(ptr noundef nonnull %.0408, i64 noundef %spec.select434) #15
   br label %626
 
 626:                                              ; preds = %625, %624
@@ -1175,7 +1175,7 @@ sha256_finish_ctx.exit466:                        ; preds = %618
   br i1 %brmerge.not, label %627, label %628
 
 627:                                              ; preds = %626
-  call void @_efree(ptr noundef nonnull %.0381) #16
+  call void @_efree(ptr noundef nonnull %.0381) #15
   br label %628
 
 628:                                              ; preds = %626, %627
@@ -1184,14 +1184,14 @@ sha256_finish_ctx.exit466:                        ; preds = %618
   br i1 %brmerge435, label %630, label %629
 
 629:                                              ; preds = %628
-  call void @_efree(ptr noundef nonnull %.0379) #16
+  call void @_efree(ptr noundef nonnull %.0379) #15
   br label %630
 
 630:                                              ; preds = %628, %629
   br i1 %213, label %631, label %632
 
 631:                                              ; preds = %630
-  call void @_efree(ptr noundef %223) #16
+  call void @_efree(ptr noundef %223) #15
   br label %632
 
 632:                                              ; preds = %631, %630, %30
@@ -1214,7 +1214,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 4
@@ -1338,7 +1338,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @php_sha256_crypt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, 66
   %6 = load i32, ptr @php_sha256_crypt.buflen, align 4
@@ -1348,7 +1348,7 @@ define hidden noundef ptr @php_sha256_crypt(ptr noundef %0, ptr noundef %1) loca
 
 8:                                                ; preds = %2
   %9 = zext nneg i32 %5 to i64
-  %10 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %9) #19
+  %10 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %9) #18
   %11 = icmp eq ptr %10, null
   br i1 %11, label %17, label %12
 
@@ -1371,8 +1371,8 @@ define hidden noundef ptr @php_sha256_crypt(ptr noundef %0, ptr noundef %1) loca
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
   %4 = alloca [64 x i32], align 16
   %5 = lshr i64 %1, 2
   %6 = load i32, ptr %2, align 4
@@ -1547,22 +1547,22 @@ define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #13
+declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1571,19 +1571,18 @@ attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind allocsize(1) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

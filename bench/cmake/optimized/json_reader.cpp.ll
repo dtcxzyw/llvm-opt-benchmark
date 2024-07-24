@@ -236,7 +236,7 @@ define dso_local noundef i32 @_ZN4Json8Features10strictModeEv() local_unnamed_ad
   ret i32 256
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN4Json6Reader15containsNewLineEPKcS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
@@ -1682,7 +1682,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZN4Json17throwRuntimeErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json6Reader12currentValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json6Reader12currentValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noalias !67
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3236,7 +3236,7 @@ _ZN4Json6Reader10readStringEv.exit.thread:        ; preds = %36, %.lr.ph.i21, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Json6Reader10skipSpacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4Json6Reader10skipSpacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -3265,7 +3265,7 @@ define dso_local void @_ZN4Json6Reader10skipSpacesEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef signext i8 @_ZN4Json6Reader11getNextCharEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #11 align 2 {
+define dso_local noundef signext i8 @_ZN4Json6Reader11getNextCharEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -3285,7 +3285,7 @@ define dso_local noundef signext i8 @_ZN4Json6Reader11getNextCharEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json6Reader10readStringEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json6Reader10readStringEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -3454,7 +3454,7 @@ _ZN4Json6Reader17readCStyleCommentEv.exit.thread24: ; preds = %1, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Json6Reader10readNumberEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4Json6Reader10readNumberEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -3558,7 +3558,7 @@ define dso_local void @_ZN4Json6Reader10readNumberEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json6Reader5matchEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json6Reader5matchEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 208
@@ -3595,7 +3595,7 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader5matchEPKci(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json6Reader17readCStyleCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json6Reader17readCStyleCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -3647,7 +3647,7 @@ _ZN4Json6Reader11getNextCharEv.exit2:             ; preds = %._crit_edge, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json6Reader19readCppStyleCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json6Reader19readCppStyleCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(269) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -5586,7 +5586,7 @@ _ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4Json6Reader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4Json6Reader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %2, align 4
@@ -5741,7 +5741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4Json6Reader24getFormatedErrorMessagesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %1) local_unnamed_addr #6 align 2 {
@@ -6284,7 +6284,7 @@ _ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE9push_backERKS2_.exit: ; preds = %.n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Json6Reader4goodEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0) local_unnamed_addr #13 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Json6Reader4goodEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %2, align 8
@@ -6302,7 +6302,7 @@ define dso_local void @_ZN4Json11OurFeatures3allEv(ptr dead_on_unwind noalias no
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN4Json9OurReader15containsNewLineEPKcS2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
@@ -6875,7 +6875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Json9OurReader7skipBomEb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN4Json9OurReader7skipBomEb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %3, label %.tail.thread
 
 3:                                                ; preds = %2
@@ -7978,7 +7978,7 @@ _ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE9push_backERKS2_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json9OurReader12currentValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json9OurReader12currentValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noalias !245
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -10012,7 +10012,7 @@ _ZN4Json9OurReader10readStringEv.exit.thread:     ; preds = %42, %.lr.ph.i29, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Json9OurReader10skipSpacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4Json9OurReader10skipSpacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -10041,7 +10041,7 @@ define dso_local void @_ZN4Json9OurReader10skipSpacesEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef signext i8 @_ZN4Json9OurReader11getNextCharEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #11 align 2 {
+define dso_local noundef signext i8 @_ZN4Json9OurReader11getNextCharEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -10061,7 +10061,7 @@ define dso_local noundef signext i8 @_ZN4Json9OurReader11getNextCharEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readStringEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readStringEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -10103,7 +10103,7 @@ _ZN4Json9OurReader11getNextCharEv.exit._crit_edge: ; preds = %_ZN4Json9OurReader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader21readStringSingleQuoteEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader21readStringSingleQuoteEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -10279,7 +10279,7 @@ _ZN4Json9OurReader17readCStyleCommentEPb.exit.thread22: ; preds = %1, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readNumberEb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readNumberEb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 200
@@ -10399,7 +10399,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readNumberEb(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader5matchEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader5matchEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 208
@@ -10436,7 +10436,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader5matchEPKci(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader17readCStyleCommentEPb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader17readCStyleCommentEPb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 align 2 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -10494,7 +10494,7 @@ _ZN4Json9OurReader11getNextCharEv.exit5:          ; preds = %._crit_edge, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader19readCppStyleCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader19readCppStyleCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -12245,7 +12245,7 @@ _ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4Json9OurReader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4Json9OurReader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %2, align 4
@@ -16697,15 +16697,15 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

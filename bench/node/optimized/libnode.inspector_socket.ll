@@ -3072,8 +3072,8 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr no
 
 declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef %__first, ptr noundef %__last) unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef %__first, ptr noundef %__last) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first to i64

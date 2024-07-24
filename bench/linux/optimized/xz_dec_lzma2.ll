@@ -701,7 +701,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @xz_dec_lzma2_create(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = tail call noalias align 4096 dereferenceable_or_null(28496) ptr @kmalloc_large(i64 noundef 28496, i32 noundef 3264) #7
+  %3 = tail call noalias align 4096 dereferenceable_or_null(28496) ptr @kmalloc_large(i64 noundef 28496, i32 noundef 3264) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %16, label %5
 
@@ -718,13 +718,13 @@ define dso_local noundef ptr @xz_dec_lzma2_create(i32 noundef %0, i32 noundef %1
 
 9:                                                ; preds = %5
   %10 = zext i32 %1 to i64
-  %11 = tail call noalias ptr @vmalloc(i64 noundef %10) #7
+  %11 = tail call noalias ptr @vmalloc(i64 noundef %10) #8
   store ptr %11, ptr %6, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  tail call void @kfree(ptr noundef nonnull %3) #8
+  tail call void @kfree(ptr noundef nonnull %3) #9
   br label %16
 
 14:                                               ; preds = %5
@@ -786,10 +786,10 @@ define dso_local noundef range(i32 0, 7) i32 @xz_dec_lzma2_reset(ptr nocapture n
 28:                                               ; preds = %24
   store i32 %12, ptr %25, align 8
   %29 = load ptr, ptr %8, align 8
-  tail call void @vfree(ptr noundef %29) #8
+  tail call void @vfree(ptr noundef %29) #9
   %30 = load i32, ptr %9, align 8
   %31 = zext i32 %30 to i64
-  %32 = tail call noalias ptr @vmalloc(i64 noundef %31) #7
+  %32 = tail call noalias ptr @vmalloc(i64 noundef %31) #8
   store ptr %32, ptr %8, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -825,11 +825,11 @@ define dso_local void @xz_dec_lzma2_end(ptr noundef %0) local_unnamed_addr #1 al
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  tail call void @vfree(ptr noundef %7) #8
+  tail call void @vfree(ptr noundef %7) #9
   br label %8
 
 8:                                                ; preds = %5, %1
-  tail call void @kfree(ptr noundef %0) #8
+  tail call void @kfree(ptr noundef %0) #9
   ret void
 }
 
@@ -1912,8 +1912,8 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
-; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
+define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #6 align 16 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp ult i32 %4, 16777216
   br i1 %5, label %6, label %._crit_edge
@@ -2120,13 +2120,13 @@ define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture no
 declare dso_local noalias ptr @kmalloc_large(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -2134,9 +2134,10 @@ attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind }
+attributes #6 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -26210,8 +26210,8 @@ return:                                           ; preds = %if.then6, %land.lhs
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6duckdb4Date21TryConvertDateSpecialEPKcmRmS2_(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pos, ptr nocapture noundef readonly %special) local_unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef zeroext i1 @_ZN6duckdb4Date21TryConvertDateSpecialEPKcmRmS2_(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pos, ptr nocapture noundef readonly %special) local_unnamed_addr #18 align 2 {
 entry:
   %0 = load i64, ptr %pos, align 8, !tbaa !87
   %cmp21 = icmp ult i64 %0, %len

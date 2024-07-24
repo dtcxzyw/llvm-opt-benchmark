@@ -3,7 +3,7 @@ source_filename = "bench/php/original/pcre2_string_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   br label %3
 
@@ -33,7 +33,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr nocapture noundef readon
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   br label %3
 
@@ -63,7 +63,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr nocapture noundef rea
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not15 = icmp eq i64 %2, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -94,7 +94,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr nocapture noundef reado
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not15 = icmp eq i64 %2, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -125,7 +125,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr nocapture noundef re
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden i64 @_pcre2_strlen_8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not3 = icmp eq i8 %2, 0
@@ -145,7 +145,7 @@ define hidden i64 @_pcre2_strlen_8(ptr nocapture noundef readonly %0) local_unna
   ret i64 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef i64 @_pcre2_strcpy_c8_8(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %1, align 1
   %.not8 = icmp eq i8 %3, 0
@@ -171,8 +171,8 @@ define hidden noundef i64 @_pcre2_strcpy_c8_8(ptr noundef %0, ptr nocapture noun
   ret i64 %10
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

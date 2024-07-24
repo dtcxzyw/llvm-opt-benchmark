@@ -4197,8 +4197,8 @@ if.end22:                                         ; preds = %if.then19, %_ZN6Ass
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %in) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %in) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, i8 0, i64 24, i1 false)
   %Coordinates = getelementptr inbounds i8, ptr %in, i64 64

@@ -692,8 +692,8 @@ return:                                           ; preds = %cond.true50, %if.th
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7510UCharsTrie8nextImplEPKDsi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %pos, i32 noundef %uchar) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @_ZN6icu_7510UCharsTrie8nextImplEPKDsi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %pos, i32 noundef %uchar) local_unnamed_addr #5 align 2 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %pos, i64 2
   %0 = load i16, ptr %pos, align 2

@@ -64,11 +64,11 @@ define i32 @If_ManCutAigDelay_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not9.i.i, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %21, i64 noundef 128) #18
+  %23 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %21, i64 noundef 128) #19
   br label %Vec_PtrGrow.exit.i
 
 24:                                               ; preds = %19
-  %25 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #19
+  %25 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %24, %22
@@ -87,11 +87,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %24, %22
   br i1 %.not9.i10.i, label %35, label %33
 
 33:                                               ; preds = %27
-  %34 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %32) #18
+  %34 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %32) #19
   br label %37
 
 35:                                               ; preds = %27
-  %36 = tail call noalias ptr @malloc(i64 noundef %32) #19
+  %36 = tail call noalias ptr @malloc(i64 noundef %32) #20
   br label %37
 
 37:                                               ; preds = %35, %33
@@ -186,11 +186,11 @@ define i32 @If_ManCutAigDelay(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br i1 %.not9.i.i, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %31, i64 noundef 128) #18
+  %33 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %31, i64 noundef 128) #19
   br label %Vec_PtrGrow.exit.i
 
 34:                                               ; preds = %29
-  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #19
+  %35 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %34, %32
@@ -209,11 +209,11 @@ Vec_PtrGrow.exit.i:                               ; preds = %34, %32
   br i1 %.not9.i10.i, label %45, label %43
 
 43:                                               ; preds = %37
-  %44 = tail call ptr @realloc(ptr noundef nonnull %40, i64 noundef %42) #18
+  %44 = tail call ptr @realloc(ptr noundef nonnull %40, i64 noundef %42) #19
   br label %47
 
 45:                                               ; preds = %37
-  %46 = tail call noalias ptr @malloc(i64 noundef %42) #19
+  %46 = tail call noalias ptr @malloc(i64 noundef %42) #20
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -511,11 +511,11 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds i8, ptr %1, i64 80
-  %92 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %91) #20
+  %92 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %91) #21
   br label %93
 
 93:                                               ; preds = %82, %90, %87
-  %94 = tail call ptr @If_ManSetupNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #20
+  %94 = tail call ptr @If_ManSetupNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #21
   %95 = getelementptr inbounds i8, ptr %1, i64 80
   %96 = icmp ne i32 %4, 0
   br i1 %96, label %235, label %97
@@ -528,7 +528,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not556, label %105, label %101
 
 101:                                              ; preds = %97
-  %102 = tail call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef null) #20
+  %102 = tail call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef null) #21
   %103 = sitofp i32 %102 to float
   %104 = getelementptr inbounds i8, ptr %1, i64 92
   store float %103, ptr %104, align 4
@@ -541,7 +541,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not557, label %112, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef null) #20
+  %109 = tail call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef null) #21
   %110 = sitofp i32 %109 to float
   %111 = getelementptr inbounds i8, ptr %1, i64 92
   store float %110, ptr %111, align 4
@@ -554,7 +554,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not558, label %119, label %115
 
 115:                                              ; preds = %112
-  %116 = tail call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef nonnull %1) #20
+  %116 = tail call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef nonnull %1) #21
   %117 = sitofp i32 %116 to float
   %118 = getelementptr inbounds i8, ptr %1, i64 92
   store float %117, ptr %118, align 4
@@ -583,7 +583,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   %133 = and i64 %132, 255
   %134 = getelementptr inbounds i32, ptr %130, i64 %133
   %135 = tail call i32 @If_ManCutAigDelay(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %95)
-  %136 = call i32 @Abc_ExactDelayCost(ptr noundef %126, i32 noundef %128, ptr noundef nonnull %129, ptr noundef nonnull %134, ptr noundef nonnull %11, i32 noundef %135) #20
+  %136 = call i32 @Abc_ExactDelayCost(ptr noundef %126, i32 noundef %128, ptr noundef nonnull %129, ptr noundef nonnull %134, ptr noundef nonnull %11, i32 noundef %135) #21
   %137 = sitofp i32 %136 to float
   %138 = getelementptr inbounds i8, ptr %1, i64 92
   store float %137, ptr %138, align 4
@@ -621,7 +621,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not560, label %155, label %151
 
 151:                                              ; preds = %148
-  %152 = tail call i32 @If_LutDecReEval(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %152 = tail call i32 @If_LutDecReEval(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   %153 = sitofp i32 %152 to float
   %154 = getelementptr inbounds i8, ptr %1, i64 92
   store float %153, ptr %154, align 4
@@ -634,7 +634,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not561, label %162, label %158
 
 158:                                              ; preds = %155
-  %159 = tail call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %159 = tail call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   %160 = sitofp i32 %159 to float
   %161 = getelementptr inbounds i8, ptr %1, i64 92
   store float %160, ptr %161, align 4
@@ -647,14 +647,14 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %165, label %166, label %170
 
 166:                                              ; preds = %162
-  %167 = tail call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %167 = tail call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   %168 = sitofp i32 %167 to float
   %169 = getelementptr inbounds i8, ptr %1, i64 92
   store float %168, ptr %169, align 4
   br label %173
 
 170:                                              ; preds = %162
-  %171 = tail call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %95) #20
+  %171 = tail call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %95) #21
   %172 = getelementptr inbounds i8, ptr %1, i64 92
   store float %171, ptr %172, align 4
   br label %173
@@ -683,7 +683,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %188, label %189, label %.thread788
 
 189:                                              ; preds = %187
-  %190 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %190 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   store float %190, ptr %95, align 4
   %191 = load ptr, ptr %13, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 76
@@ -692,7 +692,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not562, label %.thread818, label %198
 
 .thread788:                                       ; preds = %187
-  %194 = call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %194 = call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   store float %194, ptr %95, align 4
   %195 = load ptr, ptr %13, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 76
@@ -701,7 +701,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not562789, label %.thread791, label %.thread821
 
 198:                                              ; preds = %189
-  %199 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %199 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   %200 = getelementptr inbounds i8, ptr %1, i64 84
   store float %199, ptr %200, align 4
   %201 = load ptr, ptr %13, align 8
@@ -711,7 +711,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not563, label %218, label %.thread820
 
 .thread821:                                       ; preds = %.thread788
-  %204 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %204 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   %205 = getelementptr inbounds i8, ptr %1, i64 84
   store float %204, ptr %205, align 4
   %206 = load ptr, ptr %13, align 8
@@ -733,11 +733,11 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not563792, label %218, label %.thread793
 
 .thread820:                                       ; preds = %198, %.thread818
-  %213 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef nonnull %1) #20
+  %213 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef nonnull %1) #21
   br label %215
 
 .thread793:                                       ; preds = %.thread821, %.thread791
-  %214 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef nonnull %1) #20
+  %214 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef nonnull %1) #21
   br label %215
 
 215:                                              ; preds = %.thread793, %.thread820
@@ -935,12 +935,12 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0514.ph = phi i32 [ %339, %357 ], [ %350, %360 ], [ %339, %353 ]
   %.0513.ph = phi ptr [ %296, %357 ], [ %281, %360 ], [ %296, %353 ]
   %.0.ph = phi ptr [ %281, %357 ], [ %296, %360 ], [ %281, %353 ]
-  %362 = call i32 @If_CutMerge(ptr noundef nonnull %0, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0513.ph, ptr noundef %302) #20
+  %362 = call i32 @If_CutMerge(ptr noundef nonnull %0, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0513.ph, ptr noundef %302) #21
   %.not576 = icmp eq i32 %362, 0
   br i1 %.not576, label %1623, label %365
 
 363:                                              ; preds = %329
-  %364 = call i32 @If_CutMergeOrdered(ptr noundef nonnull %0, ptr noundef nonnull %281, ptr noundef nonnull %296, ptr noundef %302) #20
+  %364 = call i32 @If_CutMergeOrdered(ptr noundef nonnull %0, ptr noundef nonnull %281, ptr noundef nonnull %296, ptr noundef %302) #21
   %.not575 = icmp eq i32 %364, 0
   br i1 %.not575, label %1623, label %365
 
@@ -994,7 +994,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not578, label %395, label %397
 
 395:                                              ; preds = %388
-  %396 = call i32 @If_CutFilter(ptr noundef nonnull %94, ptr noundef %302, i32 noundef %59) #20
+  %396 = call i32 @If_CutFilter(ptr noundef nonnull %94, ptr noundef %302, i32 noundef %59) #21
   %.not579 = icmp eq i32 %396, 0
   br i1 %.not579, label %397, label %1623
 
@@ -1048,7 +1048,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %427 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #20
+  %427 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #21
   %428 = icmp slt i32 %427, 0
   br i1 %428, label %Abc_Clock.exit, label %429
 
@@ -1075,7 +1075,7 @@ Abc_Clock.exit:                                   ; preds = %426, %429
   br i1 %.not583, label %438, label %436
 
 436:                                              ; preds = %432
-  %437 = call i32 @If_CutComputeTruthPerm(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef nonnull %.0807, ptr noundef nonnull %.0513805, i32 noundef %.0514802, i32 noundef %.0515800) #20
+  %437 = call i32 @If_CutComputeTruthPerm(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef nonnull %.0807, ptr noundef nonnull %.0513805, i32 noundef %.0514802, i32 noundef %.0515800) #21
   br label %445
 
 438:                                              ; preds = %432
@@ -1084,7 +1084,7 @@ Abc_Clock.exit:                                   ; preds = %426, %429
   %441 = and i32 %440, 1
   %442 = lshr i32 %439, 5
   %443 = and i32 %442, 1
-  %444 = call i32 @If_CutComputeTruth(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef nonnull %281, ptr noundef nonnull %296, i32 noundef %441, i32 noundef %443) #20
+  %444 = call i32 @If_CutComputeTruth(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef nonnull %281, ptr noundef nonnull %296, i32 noundef %441, i32 noundef %443) #21
   br label %445
 
 445:                                              ; preds = %438, %436
@@ -1097,7 +1097,7 @@ Abc_Clock.exit:                                   ; preds = %426, %429
 
 449:                                              ; preds = %445
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %450 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #20
+  %450 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #21
   %451 = icmp slt i32 %450, 0
   br i1 %451, label %Abc_Clock.exit667, label %452
 
@@ -1129,7 +1129,7 @@ Abc_Clock.exit667:                                ; preds = %449, %452
   br i1 %or.cond5, label %467, label %469
 
 467:                                              ; preds = %461
-  %468 = call i32 @If_CutFilter(ptr noundef nonnull %94, ptr noundef nonnull %302, i32 noundef %59) #20
+  %468 = call i32 @If_CutFilter(ptr noundef nonnull %94, ptr noundef nonnull %302, i32 noundef %59) #21
   %.not585 = icmp eq i32 %468, 0
   br i1 %.not585, label %._crit_edge937, label %1623
 
@@ -1149,7 +1149,7 @@ Abc_Clock.exit667:                                ; preds = %449, %452
   br i1 %or.cond999, label %474, label %476
 
 474:                                              ; preds = %469
-  %475 = call i32 @If_CutCheckTruth6(ptr noundef nonnull %0, ptr noundef nonnull %302) #20
+  %475 = call i32 @If_CutCheckTruth6(ptr noundef nonnull %0, ptr noundef nonnull %302) #21
   %.not588 = icmp eq i32 %475, 0
   br i1 %.not588, label %1623, label %._crit_edge939
 
@@ -1221,11 +1221,11 @@ Abc_Clock.exit667:                                ; preds = %449, %452
   br i1 %.not9.i.i, label %510, label %508
 
 508:                                              ; preds = %505
-  %509 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %507, i64 noundef 64) #18
+  %509 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %507, i64 noundef 64) #19
   br label %Vec_IntGrow.exit.i
 
 510:                                              ; preds = %505
-  %511 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
+  %511 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %510, %508
@@ -1244,11 +1244,11 @@ Vec_IntGrow.exit.i:                               ; preds = %510, %508
   br i1 %.not9.i9.i, label %521, label %519
 
 519:                                              ; preds = %513
-  %520 = call ptr @realloc(ptr noundef nonnull %516, i64 noundef %518) #18
+  %520 = call ptr @realloc(ptr noundef nonnull %516, i64 noundef %518) #19
   br label %523
 
 521:                                              ; preds = %513
-  %522 = call noalias ptr @malloc(i64 noundef %518) #19
+  %522 = call noalias ptr @malloc(i64 noundef %518) #20
   br label %523
 
 523:                                              ; preds = %521, %519
@@ -1297,11 +1297,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %.not9.i.i671, label %548, label %546
 
 546:                                              ; preds = %543
-  %547 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %545, i64 noundef 16) #18
+  %547 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %545, i64 noundef 16) #19
   br label %Vec_StrGrow.exit.i
 
 548:                                              ; preds = %543
-  %549 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  %549 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   br label %Vec_StrGrow.exit.i
 
 Vec_StrGrow.exit.i:                               ; preds = %548, %546
@@ -1319,11 +1319,11 @@ Vec_StrGrow.exit.i:                               ; preds = %548, %546
   br i1 %.not9.i9.i670, label %558, label %556
 
 556:                                              ; preds = %551
-  %557 = call ptr @realloc(ptr noundef nonnull %554, i64 noundef %555) #18
+  %557 = call ptr @realloc(ptr noundef nonnull %554, i64 noundef %555) #19
   br label %560
 
 558:                                              ; preds = %551
-  %559 = call noalias ptr @malloc(i64 noundef %555) #19
+  %559 = call noalias ptr @malloc(i64 noundef %555) #20
   br label %560
 
 560:                                              ; preds = %558, %556
@@ -1396,7 +1396,7 @@ If_CutTruthWR.exit:                               ; preds = %._crit_edge860, %57
   %602 = load ptr, ptr %13, align 8
   %603 = getelementptr inbounds i8, ptr %602, i64 200
   %604 = load ptr, ptr %603, align 8
-  %605 = call i32 @If_DsdManCompute(ptr noundef %573, ptr noundef %592, i32 noundef %594, ptr noundef %601, ptr noundef %604) #20
+  %605 = call i32 @If_DsdManCompute(ptr noundef %573, ptr noundef %592, i32 noundef %594, ptr noundef %601, ptr noundef %604) #21
   %606 = load i64, ptr %416, align 4
   %607 = lshr i64 %606, 24
   %608 = and i64 %607, 255
@@ -1447,7 +1447,7 @@ If_CutTruthWR.exit:                               ; preds = %._crit_edge860, %57
   %636 = load i32, ptr %635, align 4
   %637 = and i32 %.val649, 1
   %638 = xor i32 %636, %637
-  %639 = call i32 @If_DsdManCheckDec(ptr noundef %627, i32 noundef %638) #20
+  %639 = call i32 @If_DsdManCheckDec(ptr noundef %627, i32 noundef %638) #21
   %640 = shl i32 %639, 14
   %641 = and i32 %640, 16384
   %642 = zext nneg i32 %641 to i64
@@ -1537,7 +1537,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %682 = load i64, ptr %416, align 4
   %683 = trunc i64 %682 to i32
   %684 = lshr i32 %683, 24
-  %685 = call i32 %645(ptr noundef %0, ptr noundef %681, i32 noundef %684, ptr noundef null, ptr noundef null) #20
+  %685 = call i32 %645(ptr noundef %0, ptr noundef %681, i32 noundef %684, ptr noundef null, ptr noundef null) #21
   %.not610 = icmp eq i32 %685, 0
   %686 = select i1 %.not610, i64 16384, i64 0
   br label %732
@@ -1624,7 +1624,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %727 = load ptr, ptr %13, align 8
   %728 = getelementptr inbounds i8, ptr %727, i64 200
   %729 = load ptr, ptr %728, align 8
-  %730 = call i32 %619(ptr noundef %0, ptr noundef %722, i32 noundef %726, i32 noundef %725, ptr noundef %729) #20
+  %730 = call i32 %619(ptr noundef %0, ptr noundef %722, i32 noundef %726, i32 noundef %725, ptr noundef %729) #21
   %.not609 = icmp eq i32 %730, 0
   %731 = select i1 %.not609, i64 16384, i64 0
   br label %732
@@ -1757,7 +1757,7 @@ If_CutTruth.exit691:                              ; preds = %.lr.ph.i.i.i680, %.
   %802 = load i32, ptr %263, align 8
   %803 = add nsw i32 %802, 1
   store i32 %803, ptr %263, align 8
-  %804 = call i32 @If_CluCheckDecInAny(i64 noundef %801, i32 noundef 5) #20
+  %804 = call i32 @If_CluCheckDecInAny(i64 noundef %801, i32 noundef 5) #21
   %.not618 = icmp eq i32 %804, 0
   br i1 %.not618, label %1623, label %805
 
@@ -1857,12 +1857,12 @@ If_CutTruth.exit709:                              ; preds = %.lr.ph.i.i.i698, %.
   %850 = load i32, ptr %263, align 8
   %851 = add nsw i32 %850, 1
   store i32 %851, ptr %263, align 8
-  %852 = call i32 @If_CluCheckDecInAny(i64 noundef %849, i32 noundef 5) #20
+  %852 = call i32 @If_CluCheckDecInAny(i64 noundef %849, i32 noundef 5) #21
   %.not616 = icmp eq i32 %852, 0
   br i1 %.not616, label %853, label %855
 
 853:                                              ; preds = %If_CutTruth.exit709
-  %854 = call i32 @If_CluCheckDecOut(i64 noundef %849, i32 noundef 5) #20
+  %854 = call i32 @If_CluCheckDecOut(i64 noundef %849, i32 noundef 5) #21
   %.not617 = icmp eq i32 %854, 0
   br i1 %.not617, label %Abc_Tt4Check.exit.thread, label %855
 
@@ -1893,7 +1893,7 @@ If_CutTruth.exit709:                              ; preds = %.lr.ph.i.i.i698, %.
   %871 = load i32, ptr %870, align 4
   %872 = and i32 %.val651, 1
   %873 = xor i32 %871, %872
-  %874 = call i32 @If_DsdManReadMark(ptr noundef %862, i32 noundef %873) #20
+  %874 = call i32 @If_DsdManReadMark(ptr noundef %862, i32 noundef %873) #21
   %875 = load i64, ptr %416, align 4
   %876 = shl i32 %874, 14
   %877 = and i32 %876, 16384
@@ -2128,11 +2128,11 @@ Abc_Tt4Check.exit:                                ; preds = %966, %963, %947
   br i1 %.not9.i.i734, label %1005, label %1003
 
 1003:                                             ; preds = %1000
-  %1004 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %1002, i64 noundef 64) #18
+  %1004 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %1002, i64 noundef 64) #19
   br label %Vec_IntGrow.exit.i735
 
 1005:                                             ; preds = %1000
-  %1006 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
+  %1006 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   br label %Vec_IntGrow.exit.i735
 
 Vec_IntGrow.exit.i735:                            ; preds = %1005, %1003
@@ -2151,11 +2151,11 @@ Vec_IntGrow.exit.i735:                            ; preds = %1005, %1003
   br i1 %.not9.i9.i733, label %1016, label %1014
 
 1014:                                             ; preds = %1008
-  %1015 = call ptr @realloc(ptr noundef nonnull %1011, i64 noundef %1013) #18
+  %1015 = call ptr @realloc(ptr noundef nonnull %1011, i64 noundef %1013) #19
   br label %1018
 
 1016:                                             ; preds = %1008
-  %1017 = call noalias ptr @malloc(i64 noundef %1013) #19
+  %1017 = call noalias ptr @malloc(i64 noundef %1013) #20
   br label %1018
 
 1018:                                             ; preds = %1016, %1014
@@ -2408,11 +2408,11 @@ Abc_TtProcessBiDec.exit:                          ; preds = %.lr.ph18.preheader.
   br i1 %.not9.i.i751, label %1157, label %1155
 
 1155:                                             ; preds = %1152
-  %1156 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %1154, i64 noundef 16) #18
+  %1156 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %1154, i64 noundef 16) #19
   br label %Vec_StrGrow.exit.i752
 
 1157:                                             ; preds = %1152
-  %1158 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  %1158 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   br label %Vec_StrGrow.exit.i752
 
 Vec_StrGrow.exit.i752:                            ; preds = %1157, %1155
@@ -2430,11 +2430,11 @@ Vec_StrGrow.exit.i752:                            ; preds = %1157, %1155
   br i1 %.not9.i9.i750, label %1167, label %1165
 
 1165:                                             ; preds = %1160
-  %1166 = call ptr @realloc(ptr noundef nonnull %1163, i64 noundef %1164) #18
+  %1166 = call ptr @realloc(ptr noundef nonnull %1163, i64 noundef %1164) #19
   br label %1169
 
 1167:                                             ; preds = %1160
-  %1168 = call noalias ptr @malloc(i64 noundef %1164) #19
+  %1168 = call noalias ptr @malloc(i64 noundef %1164) #20
   br label %1169
 
 1169:                                             ; preds = %1167, %1165
@@ -2988,7 +2988,7 @@ Abc_Tt4Check.exit.thread:                         ; preds = %1128, %switch.early
   br label %1453
 
 1445:                                             ; preds = %Abc_Tt4Check.exit.thread
-  %1446 = call i32 %1443(ptr noundef nonnull %0, ptr noundef nonnull %302) #20
+  %1446 = call i32 %1443(ptr noundef nonnull %0, ptr noundef nonnull %302) #21
   %1447 = load i64, ptr %416, align 4
   %1448 = and i32 %1446, 4095
   %1449 = zext nneg i32 %1448 to i64
@@ -3007,7 +3007,7 @@ Abc_Tt4Check.exit.thread:                         ; preds = %1128, %switch.early
   br i1 %.not621, label %1462, label %1458
 
 1458:                                             ; preds = %1453
-  %1459 = call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef null) #20
+  %1459 = call i32 @If_CutSopBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef null) #21
   %1460 = sitofp i32 %1459 to float
   %1461 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1460, ptr %1461, align 4
@@ -3020,7 +3020,7 @@ Abc_Tt4Check.exit.thread:                         ; preds = %1128, %switch.early
   br i1 %.not622, label %1469, label %1465
 
 1465:                                             ; preds = %1462
-  %1466 = call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef null) #20
+  %1466 = call i32 @If_CutDsdBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef null) #21
   %1467 = sitofp i32 %1466 to float
   %1468 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1467, ptr %1468, align 4
@@ -3033,7 +3033,7 @@ Abc_Tt4Check.exit.thread:                         ; preds = %1128, %switch.early
   br i1 %.not623, label %1476, label %1472
 
 1472:                                             ; preds = %1469
-  %1473 = call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1) #20
+  %1473 = call i32 @If_CutDelayRecCost3(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1) #21
   %1474 = sitofp i32 %1473 to float
   %1475 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1474, ptr %1475, align 4
@@ -3046,7 +3046,7 @@ Abc_Tt4Check.exit.thread:                         ; preds = %1128, %switch.early
   br i1 %.not624, label %1488, label %1479
 
 1479:                                             ; preds = %1476
-  %1480 = call i32 @If_LutDecEval(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1, i32 noundef %269, i32 noundef %4) #20
+  %1480 = call i32 @If_LutDecEval(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1, i32 noundef %269, i32 noundef %4) #21
   %1481 = sitofp i32 %1480 to float
   %1482 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1481, ptr %1482, align 4
@@ -3180,7 +3180,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   %1546 = getelementptr inbounds i8, ptr %302, i64 36
   %1547 = getelementptr inbounds i32, ptr %1546, i64 %.pre-phi966
   %1548 = call i32 @If_ManCutAigDelay(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %302)
-  %1549 = call i32 @Abc_ExactDelayCost(ptr noundef %1527, i32 noundef %1529, ptr noundef nonnull %271, ptr noundef nonnull %1547, ptr noundef nonnull %12, i32 noundef %1548) #20
+  %1549 = call i32 @Abc_ExactDelayCost(ptr noundef %1527, i32 noundef %1529, ptr noundef nonnull %271, ptr noundef nonnull %1547, ptr noundef nonnull %12, i32 noundef %1548) #21
   %1550 = sitofp i32 %1549 to float
   %1551 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1550, ptr %1551, align 4
@@ -3222,7 +3222,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %.not626, label %1570, label %1566
 
 1566:                                             ; preds = %1563
-  %1567 = call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %302) #20
+  %1567 = call i32 @If_CutLutBalanceEval(ptr noundef nonnull %0, ptr noundef nonnull %302) #21
   %1568 = sitofp i32 %1567 to float
   %1569 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1568, ptr %1569, align 4
@@ -3235,14 +3235,14 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %1573, label %1574, label %1578
 
 1574:                                             ; preds = %1570
-  %1575 = call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %302) #20
+  %1575 = call i32 @If_CutDelaySop(ptr noundef nonnull %0, ptr noundef nonnull %302) #21
   %1576 = sitofp i32 %1575 to float
   %1577 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1576, ptr %1577, align 4
   br label %1581
 
 1578:                                             ; preds = %1570
-  %1579 = call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %302) #20
+  %1579 = call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %302) #21
   %1580 = getelementptr inbounds i8, ptr %302, i64 12
   store float %1579, ptr %1580, align 4
   br label %1581
@@ -3266,7 +3266,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %274, label %1591, label %.thread970
 
 1591:                                             ; preds = %1590
-  %1592 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %302) #20
+  %1592 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %302) #21
   store float %1592, ptr %302, align 4
   %1593 = load ptr, ptr %13, align 8
   %1594 = getelementptr inbounds i8, ptr %1593, i64 76
@@ -3275,7 +3275,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %.not627, label %1608, label %1600
 
 .thread970:                                       ; preds = %1590, %1584
-  %1596 = call float @If_CutAreaFlow(ptr noundef %0, ptr noundef nonnull %302) #20
+  %1596 = call float @If_CutAreaFlow(ptr noundef %0, ptr noundef nonnull %302) #21
   store float %1596, ptr %302, align 4
   %1597 = load ptr, ptr %13, align 8
   %1598 = getelementptr inbounds i8, ptr %1597, i64 76
@@ -3284,11 +3284,11 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %.not627971, label %.thread973, label %1602
 
 1600:                                             ; preds = %1591
-  %1601 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %302) #20
+  %1601 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %302) #21
   br label %1604
 
 1602:                                             ; preds = %.thread970
-  %1603 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %302) #20
+  %1603 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %302) #21
   br label %1604
 
 1604:                                             ; preds = %1602, %1600
@@ -3317,11 +3317,11 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %1609, label %1616, label %.thread975
 
 1616:                                             ; preds = %1615
-  %1617 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1) #20
+  %1617 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1) #21
   br label %1619
 
 .thread975:                                       ; preds = %.thread973, %1615
-  %1618 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1) #20
+  %1618 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %302, ptr noundef %1) #21
   br label %1619
 
 1619:                                             ; preds = %.thread975, %1616
@@ -3331,7 +3331,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br label %1622
 
 1622:                                             ; preds = %.thread973, %1619, %1608
-  call void @If_CutSort(ptr noundef nonnull %0, ptr noundef %94, ptr noundef nonnull %302) #20
+  call void @If_CutSort(ptr noundef nonnull %0, ptr noundef %94, ptr noundef nonnull %302) #21
   br label %1623
 
 1623:                                             ; preds = %1585, %1581, %1445, %If_CutTruth.exit691, %474, %467, %395, %381, %370, %363, %361, %297, %1622
@@ -3410,7 +3410,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   %1664 = load ptr, ptr %1663, align 8
   %1665 = getelementptr inbounds i8, ptr %1, i64 4
   %1666 = load i32, ptr %1665, align 4
-  call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %1664, i32 noundef %1666) #20
+  call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %1664, i32 noundef %1666) #21
   br label %1667
 
 1667:                                             ; preds = %1656, %1652, %1649
@@ -3423,7 +3423,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %1671, label %1672, label %1674
 
 1672:                                             ; preds = %1668
-  %1673 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %95) #20
+  %1673 = call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %95) #21
   br label %1674
 
 1674:                                             ; preds = %1672, %1668, %1667
@@ -3466,7 +3466,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   %1694 = load ptr, ptr %13, align 8
   %1695 = getelementptr inbounds i8, ptr %1694, i64 312
   %1696 = load ptr, ptr %1695, align 8
-  %1697 = call i32 %1696(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1692) #20
+  %1697 = call i32 %1696(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1692) #21
   %indvars.iv.next928 = add nuw nsw i64 %indvars.iv927, 1
   %1698 = load ptr, ptr %1683, align 8
   %1699 = getelementptr inbounds i8, ptr %1698, i64 2
@@ -3476,7 +3476,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1533, %If_CutTruthW
   br i1 %1702, label %.lr.ph893, label %.critedge7, !llvm.loop !29
 
 .critedge7:                                       ; preds = %1693, %.lr.ph893, %.preheader, %1679
-  call void @If_ManDerefNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #20
+  call void @If_ManDerefNodeCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #21
   ret void
 }
 
@@ -3599,23 +3599,23 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #20
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #21
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #20
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #21
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #20
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #21
   %10 = load ptr, ptr @stdout, align 8
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #20
-  call void @free(ptr noundef %9) #20
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #21
+  call void @free(ptr noundef %9) #21
   br label %16
 
 14:                                               ; preds = %5
-  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #20
+  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #21
   br label %16
 
 16:                                               ; preds = %14, %8
@@ -3729,7 +3729,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %1, i64 80
-  %37 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %36) #20
+  %37 = tail call float @If_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %36) #21
   br label %.lr.ph.preheader
 
 38:                                               ; preds = %29
@@ -3814,7 +3814,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   %.val106 = load i32, ptr %53, align 4
   %78 = sext i32 %.val106 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %77, ptr nonnull readonly align 4 %67, i64 %78, i1 false)
-  %79 = tail call i32 @If_CutFilter(ptr noundef %50, ptr noundef %77, i32 noundef %30) #20
+  %79 = tail call i32 @If_CutFilter(ptr noundef %50, ptr noundef %77, i32 noundef %30) #21
   %.not102 = icmp eq i32 %79, 0
   br i1 %.not102, label %80, label %129
 
@@ -3845,7 +3845,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %56, label %99, label %.thread
 
 99:                                               ; preds = %88
-  %100 = tail call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  %100 = tail call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77) #21
   store float %100, ptr %77, align 4
   %101 = load ptr, ptr %5, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 76
@@ -3854,7 +3854,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not103, label %.thread112, label %108
 
 .thread:                                          ; preds = %88
-  %104 = tail call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  %104 = tail call float @If_CutAreaFlow(ptr noundef nonnull %0, ptr noundef nonnull %77) #21
   store float %104, ptr %77, align 4
   %105 = load ptr, ptr %5, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 76
@@ -3863,7 +3863,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not103107, label %.thread109, label %.thread115
 
 108:                                              ; preds = %99
-  %109 = tail call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  %109 = tail call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77) #21
   %110 = getelementptr inbounds i8, ptr %77, i64 4
   store float %109, ptr %110, align 4
   %111 = load ptr, ptr %5, align 8
@@ -3873,7 +3873,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not104, label %128, label %.thread114
 
 .thread115:                                       ; preds = %.thread
-  %114 = tail call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %77) #20
+  %114 = tail call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %77) #21
   %115 = getelementptr inbounds i8, ptr %77, i64 4
   store float %114, ptr %115, align 4
   %116 = load ptr, ptr %5, align 8
@@ -3895,11 +3895,11 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not104110, label %128, label %.thread111
 
 .thread114:                                       ; preds = %108, %.thread112
-  %123 = tail call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %1) #20
+  %123 = tail call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %1) #21
   br label %125
 
 .thread111:                                       ; preds = %.thread115, %.thread109
-  %124 = tail call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %1) #20
+  %124 = tail call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %77, ptr noundef nonnull %1) #21
   br label %125
 
 125:                                              ; preds = %.thread111, %.thread114
@@ -3909,7 +3909,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   br label %128
 
 128:                                              ; preds = %.thread115, %.thread112, %.thread109, %125, %108
-  tail call void @If_CutSort(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef nonnull %77) #20
+  tail call void @If_CutSort(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef nonnull %77) #21
   br label %129
 
 129:                                              ; preds = %81, %72, %68, %128
@@ -3978,7 +3978,7 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %1, i64 4
   %164 = load i32, ptr %163, align 4
-  tail call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %162, i32 noundef %164) #20
+  tail call void @If_ManSetupCutTriv(ptr noundef nonnull %0, ptr noundef %162, i32 noundef %164) #21
   br label %165
 
 165:                                              ; preds = %154, %150, %147
@@ -3992,11 +3992,11 @@ define void @If_ObjPerformMappingChoice(ptr noundef %0, ptr noundef %1, i32 noun
 
 170:                                              ; preds = %166
   %171 = getelementptr inbounds i8, ptr %1, i64 80
-  %172 = tail call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %171) #20
+  %172 = tail call float @If_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %171) #21
   br label %173
 
 173:                                              ; preds = %170, %166, %165
-  tail call void @If_ManDerefChoiceCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #20
+  tail call void @If_ManDerefChoiceCutSet(ptr noundef nonnull %0, ptr noundef nonnull %1) #21
   ret void
 }
 
@@ -4007,7 +4007,7 @@ define noundef i32 @If_ManPerformMappingRound(ptr noundef %0, i32 noundef %1, i3
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #20
+  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #21
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %Abc_Clock.exit, label %11
 
@@ -4070,7 +4070,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   br i1 %.not98, label %67, label %35
 
 35:                                               ; preds = %.critedge
-  call void @Tim_ManIncrementTravId(ptr noundef nonnull %34) #20
+  call void @Tim_ManIncrementTravId(ptr noundef nonnull %34) #21
   %36 = load ptr, ptr %32, align 8
   %37 = getelementptr i8, ptr %36, i64 4
   %.val115131 = load i32, ptr %37, align 4
@@ -4108,7 +4108,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %49 = load ptr, ptr %33, align 8
   %50 = getelementptr inbounds i8, ptr %42, i64 8
   %51 = load i32, ptr %50, align 8
-  %52 = call float @Tim_ManGetCiArrival(ptr noundef %49, i32 noundef %51) #20
+  %52 = call float @Tim_ManGetCiArrival(ptr noundef %49, i32 noundef %51) #21
   %53 = getelementptr inbounds i8, ptr %42, i64 92
   store float %52, ptr %53, align 4
   br label %62
@@ -4121,7 +4121,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %57 = load ptr, ptr %33, align 8
   %58 = getelementptr inbounds i8, ptr %42, i64 8
   %59 = load i32, ptr %58, align 8
-  call void @Tim_ManSetCoArrival(ptr noundef %57, i32 noundef %59, float noundef %.val120) #20
+  call void @Tim_ManSetCoArrival(ptr noundef %57, i32 noundef %59, float noundef %.val120) #21
   br label %62
 
 60:                                               ; preds = %.lr.ph
@@ -4143,7 +4143,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %69 = getelementptr i8, ptr %68, i64 4
   %.val116 = load i32, ptr %69, align 4
   %70 = load ptr, ptr @stdout, align 8
-  %71 = call ptr @Extra_ProgressBarStart(ptr noundef %70, i32 noundef %.val116) #20
+  %71 = call ptr @Extra_ProgressBarStart(ptr noundef %70, i32 noundef %.val116) #21
   %72 = load ptr, ptr %32, align 8
   %73 = getelementptr i8, ptr %72, i64 4
   %.val114133 = load i32, ptr %73, align 4
@@ -4177,7 +4177,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
 
 87:                                               ; preds = %83, %82
   %88 = trunc nuw nsw i64 %indvars.iv139 to i32
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %71, i32 noundef %88, ptr noundef %5) #20
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %71, i32 noundef %88, ptr noundef %5) #21
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %83, %87
@@ -4202,8 +4202,8 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %83, %87
 
 .critedge2:                                       ; preds = %62, %92, %35, %67
   %.0 = phi ptr [ %71, %67 ], [ null, %35 ], [ %71, %92 ], [ null, %62 ]
-  call void @Extra_ProgressBarStop(ptr noundef %.0) #20
-  call void @If_ManComputeRequired(ptr noundef nonnull %0) #20
+  call void @Extra_ProgressBarStop(ptr noundef %.0) #21
+  call void @If_ManComputeRequired(ptr noundef nonnull %0) #21
   %97 = getelementptr inbounds i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 188
@@ -4240,7 +4240,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %83, %87
   %120 = load i32, ptr %31, align 4
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %120)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %121 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #20
+  %121 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #21
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %Abc_Clock.exit123, label %123
 
@@ -4501,8 +4501,8 @@ Abc_Tt4Check2.exit53.thread:                      ; preds = %80, %78, %Abc_Tt4Ch
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 {
   %4 = alloca [64 x i64], align 16
   %5 = alloca [64 x i64], align 16
   %.sroa.0 = alloca i32, align 4
@@ -5752,33 +5752,33 @@ Abc_TtCheckBiDec.exit:                            ; preds = %.lr.ph.i83
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #15
+declare void @llvm.va_start.p0(ptr) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #15
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #16
+declare i32 @llvm.ctpop.i32(i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5794,14 +5794,15 @@ attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind allocsize(1) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind allocsize(1) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

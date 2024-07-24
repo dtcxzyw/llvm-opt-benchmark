@@ -531,11 +531,11 @@ define dso_local noundef i32 @hdmi_spd_infoframe_init(ptr nocapture noundef writ
   store i8 1, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 5
   store i8 25, ptr %6, align 1
-  %7 = tail call i64 @strlen(ptr noundef %1) #17
+  %7 = tail call i64 @strlen(ptr noundef %1) #15
   %8 = getelementptr inbounds i8, ptr %0, i64 6
   %9 = tail call i64 @llvm.umin.i64(i64 %7, i64 8)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %8, ptr align 1 %1, i64 %9, i1 false)
-  %10 = tail call i64 @strlen(ptr noundef %2) #17
+  %10 = tail call i64 @strlen(ptr noundef %2) #15
   %11 = getelementptr inbounds i8, ptr %0, i64 14
   %12 = tail call i64 @llvm.umin.i64(i64 %10, i64 16)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %11, ptr align 1 %2, i64 %12, i1 false)
@@ -1361,8 +1361,8 @@ define dso_local range(i32 -22, 1) i32 @hdmi_drm_infoframe_check(ptr nocapture n
   ret i32 %14
 }
 
-; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #9 align 16 {
+; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
+define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
@@ -1507,8 +1507,8 @@ define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack_only(ptr nocap
   ret i64 %108
 }
 
-; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local i64 @hdmi_drm_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #9 align 16 {
+; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
+define dso_local i64 @hdmi_drm_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 135
   br i1 %5, label %6, label %16
@@ -1535,7 +1535,7 @@ define dso_local i64 @hdmi_drm_infoframe_pack(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr nocapture noundef %0) #10 align 16 {
+define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr nocapture noundef %0) #9 align 16 {
   %2 = load i32, ptr %0, align 4
   switch i32 %2, label %61 [
     i32 130, label %3
@@ -1629,13 +1629,13 @@ define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr nocapture nound
   br label %63
 
 61:                                               ; preds = %1
-  tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #17, !srcloc !12
+  tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #15, !srcloc !12
   %62 = load i32, ptr %0, align 4
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %62) #17
-  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #17, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 919, i32 2313, i64 12) #17, !srcloc !14
-  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #17, !srcloc !15
-  tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_end\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #17, !srcloc !16
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %62) #15
+  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #15, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 919, i32 2313, i64 12) #15, !srcloc !14
+  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #15, !srcloc !15
+  tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_end\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #15, !srcloc !16
   br label %63
 
 63:                                               ; preds = %61, %54, %._crit_edge, %38, %34, %29, %25, %20, %16, %11, %7, %3
@@ -1644,10 +1644,10 @@ define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr nocapture nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #11
+declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @hdmi_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #10 align 16 {
+define dso_local i64 @hdmi_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #9 align 16 {
   %4 = load i32, ptr %0, align 4
   switch i32 %4, label %124 [
     i32 130, label %5
@@ -1837,13 +1837,13 @@ define dso_local i64 @hdmi_infoframe_pack_only(ptr nocapture noundef readonly %0
   br label %hdmi_audio_infoframe_pack_only.exit
 
 124:                                              ; preds = %3
-  tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #17, !srcloc !17
+  tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #15, !srcloc !17
   %125 = load i32, ptr %0, align 4
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %125) #17
-  tail call void asm sideeffect "342: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 342b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 342) #17, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 966, i32 2313, i64 12) #17, !srcloc !19
-  tail call void asm sideeffect "343: nop\0A\09.pushsection .discard.instr_end\0A\09.long 343b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 343) #17, !srcloc !20
-  tail call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_end\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #17, !srcloc !21
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %125) #15
+  tail call void asm sideeffect "342: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 342b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 342) #15, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 966, i32 2313, i64 12) #15, !srcloc !19
+  tail call void asm sideeffect "343: nop\0A\09.pushsection .discard.instr_end\0A\09.long 343b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 343) #15, !srcloc !20
+  tail call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_end\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #15, !srcloc !21
   br label %hdmi_audio_infoframe_pack_only.exit
 
 hdmi_audio_infoframe_pack_only.exit:              ; preds = %13, %9, %112, %54, %50, %46, %124, %122, %118, %114, %44, %17, %7, %5
@@ -1852,7 +1852,7 @@ hdmi_audio_infoframe_pack_only.exit:              ; preds = %13, %9, %112, %54, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) #10 align 16 {
+define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) #9 align 16 {
   %4 = load i32, ptr %0, align 4
   switch i32 %4, label %162 [
     i32 130, label %5
@@ -2098,13 +2098,13 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr nocapture noun
   br label %hdmi_audio_infoframe_pack_only.exit
 
 162:                                              ; preds = %3
-  tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #17, !srcloc !22
+  tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #15, !srcloc !22
   %163 = load i32, ptr %0, align 4
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %163) #17
-  tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #17, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1015, i32 2313, i64 12) #17, !srcloc !24
-  tail call void asm sideeffect "348: nop\0A\09.pushsection .discard.instr_end\0A\09.long 348b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 348) #17, !srcloc !25
-  tail call void asm sideeffect "349: nop\0A\09.pushsection .discard.instr_end\0A\09.long 349b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 349) #17, !srcloc !26
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %163) #15
+  tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #15, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1015, i32 2313, i64 12) #15, !srcloc !24
+  tail call void asm sideeffect "348: nop\0A\09.pushsection .discard.instr_end\0A\09.long 348b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 348) #15, !srcloc !25
+  tail call void asm sideeffect "349: nop\0A\09.pushsection .discard.instr_end\0A\09.long 349b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 349) #15, !srcloc !26
   br label %hdmi_audio_infoframe_pack_only.exit
 
 hdmi_audio_infoframe_pack_only.exit:              ; preds = %138, %154, %._crit_edge, %134, %70, %66, %33, %29, %23, %19, %5, %9, %13, %132, %74, %162, %160, %64, %37, %27, %17
@@ -2113,7 +2113,7 @@ hdmi_audio_infoframe_pack_only.exit:              ; preds = %138, %154, %._crit_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #10 align 16 {
+define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #9 align 16 {
   %4 = alloca [17 x i8], align 16
   %5 = load i32, ptr %2, align 4
   switch i32 %5, label %330 [
@@ -2131,7 +2131,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   %10 = getelementptr inbounds i8, ptr %2, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.21, i32 noundef %9, i32 noundef %12) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.21, i32 noundef %9, i32 noundef %12) #16
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %22 [
@@ -2171,7 +2171,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 23:                                               ; preds = %22, %21, %20, %19, %18, %17, %16, %15, %6
   %24 = phi ptr [ @.str.19, %22 ], [ @.str.33, %21 ], [ @.str.32, %20 ], [ @.str.31, %19 ], [ @.str.30, %18 ], [ @.str.29, %17 ], [ @.str.28, %16 ], [ @.str.27, %15 ], [ @.str.26, %6 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %24) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %24) #16
   %25 = getelementptr inbounds i8, ptr %2, i64 12
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %30 [
@@ -2195,7 +2195,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 31:                                               ; preds = %30, %29, %28, %27, %23
   %32 = phi ptr [ @.str.19, %30 ], [ @.str.25, %29 ], [ @.str.35, %28 ], [ @.str.34, %27 ], [ @.str.9, %23 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %32) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %32) #16
   %33 = getelementptr inbounds i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 4
   switch i32 %34, label %38 [
@@ -2219,7 +2219,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 39:                                               ; preds = %38, %37, %36, %35, %31
   %40 = phi ptr [ @.str.19, %38 ], [ @.str.38, %37 ], [ @.str.37, %36 ], [ @.str.36, %35 ], [ @.str.9, %31 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %40) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %40) #16
   %41 = getelementptr inbounds i8, ptr %2, i64 20
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %48 [
@@ -2251,7 +2251,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 49:                                               ; preds = %48, %47, %46, %45, %44, %43, %39
   %50 = phi ptr [ @.str.19, %48 ], [ @.str.25, %47 ], [ @.str.42, %46 ], [ @.str.41, %45 ], [ @.str.40, %44 ], [ @.str.39, %43 ], [ @.str.9, %39 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %50) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %50) #16
   %51 = getelementptr inbounds i8, ptr %2, i64 24
   %52 = load i32, ptr %51, align 4
   %53 = icmp ugt i32 %52, 15
@@ -2303,12 +2303,12 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 65:                                               ; preds = %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %49
   %66 = phi ptr [ @.str.25, %64 ], [ @.str.50, %63 ], [ @.str.49, %62 ], [ @.str.48, %61 ], [ @.str.47, %60 ], [ @.str.40, %59 ], [ @.str.39, %58 ], [ @.str.46, %57 ], [ @.str.45, %56 ], [ @.str.44, %55 ], [ @.str.19, %49 ], [ @.str.43, %54 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %66) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %66) #16
   %67 = getelementptr inbounds i8, ptr %2, i64 6
   %68 = load i8, ptr %67, align 2, !range !5, !noundef !6
   %69 = icmp eq i8 %68, 0
   %70 = select i1 %69, ptr @.str.9, ptr @.str.8
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %70) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %70) #16
   %71 = getelementptr inbounds i8, ptr %2, i64 28
   %72 = load i32, ptr %71, align 4
   switch i32 %72, label %80 [
@@ -2348,7 +2348,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 81:                                               ; preds = %80, %79, %78, %77, %76, %75, %74, %73, %65
   %82 = phi ptr [ @.str.19, %80 ], [ @.str.25, %79 ], [ @.str.57, %78 ], [ @.str.56, %77 ], [ @.str.55, %76 ], [ @.str.54, %75 ], [ @.str.53, %74 ], [ @.str.52, %73 ], [ @.str.51, %65 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %82) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %82) #16
   %83 = getelementptr inbounds i8, ptr %2, i64 32
   %84 = load i32, ptr %83, align 4
   switch i32 %84, label %88 [
@@ -2372,7 +2372,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 89:                                               ; preds = %88, %87, %86, %85, %81
   %90 = phi ptr [ @.str.19, %88 ], [ @.str.25, %87 ], [ @.str.60, %86 ], [ @.str.59, %85 ], [ @.str.58, %81 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %90) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %90) #16
   %91 = getelementptr inbounds i8, ptr %2, i64 36
   %92 = load i32, ptr %91, align 4
   switch i32 %92, label %96 [
@@ -2396,18 +2396,18 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 97:                                               ; preds = %96, %95, %94, %93, %89
   %98 = phi ptr [ @.str.19, %96 ], [ @.str.64, %95 ], [ @.str.63, %94 ], [ @.str.62, %93 ], [ @.str.61, %89 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %98) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %98) #16
   %99 = getelementptr inbounds i8, ptr %2, i64 40
   %100 = load i8, ptr %99, align 4
   %101 = zext i8 %100 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %101) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %101) #16
   %102 = getelementptr inbounds i8, ptr %2, i64 44
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 1
   %105 = select i1 %104, ptr @.str.60, ptr @.str.19
   %106 = icmp eq i32 %103, 0
   %107 = select i1 %106, ptr @.str.59, ptr %105
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %107) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %107) #16
   %108 = getelementptr inbounds i8, ptr %2, i64 48
   %109 = load i32, ptr %108, align 4
   switch i32 %109, label %113 [
@@ -2431,11 +2431,11 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 114:                                              ; preds = %113, %112, %111, %110, %97
   %115 = phi ptr [ @.str.19, %113 ], [ @.str.68, %112 ], [ @.str.67, %111 ], [ @.str.66, %110 ], [ @.str.65, %97 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %115) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %115) #16
   %116 = getelementptr inbounds i8, ptr %2, i64 7
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.16, i32 noundef %118) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.16, i32 noundef %118) #16
   %119 = getelementptr inbounds i8, ptr %2, i64 52
   %120 = load i16, ptr %119, align 4
   %121 = zext i16 %120 to i32
@@ -2448,25 +2448,25 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   %128 = getelementptr inbounds i8, ptr %2, i64 58
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.17, i32 noundef %121, i32 noundef %124, i32 noundef %127, i32 noundef %130) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.17, i32 noundef %121, i32 noundef %124, i32 noundef %127, i32 noundef %130) #16
   br label %330
 
 131:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #15
   %132 = getelementptr inbounds i8, ptr %2, i64 4
   %133 = load i8, ptr %132, align 4
   %134 = zext i8 %133 to i32
   %135 = getelementptr inbounds i8, ptr %2, i64 5
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.22, i32 noundef %134, i32 noundef %137) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.22, i32 noundef %134, i32 noundef %137) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %4, i8 0, i64 17, i1 false)
   %138 = getelementptr inbounds i8, ptr %2, i64 6
-  %139 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %138, i64 noundef 8) #17
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.69, ptr noundef nonnull %4) #18
+  %139 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %138, i64 noundef 8) #15
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.69, ptr noundef nonnull %4) #16
   %140 = getelementptr inbounds i8, ptr %2, i64 14
-  %141 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %140, i64 noundef 16) #17
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef nonnull %4) #18
+  %141 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %140, i64 noundef 16) #15
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef nonnull %4) #16
   %142 = getelementptr inbounds i8, ptr %2, i64 32
   %143 = load i32, ptr %142, align 4
   %144 = icmp ugt i32 %143, 255
@@ -2535,8 +2535,8 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 161:                                              ; preds = %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %145, %131
   %162 = phi ptr [ @.str.25, %160 ], [ @.str.84, %159 ], [ @.str.83, %158 ], [ @.str.82, %157 ], [ @.str.81, %156 ], [ @.str.80, %155 ], [ @.str.68, %154 ], [ @.str.79, %153 ], [ @.str.78, %152 ], [ @.str.77, %151 ], [ @.str.76, %150 ], [ @.str.75, %149 ], [ @.str.74, %148 ], [ @.str.73, %147 ], [ @.str.19, %131 ], [ @.str.72, %145 ]
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.71, ptr noundef nonnull %162, i32 noundef %143) #18
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4) #17
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.71, ptr noundef nonnull %162, i32 noundef %143) #16
+  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4) #15
   br label %330
 
 163:                                              ; preds = %3
@@ -2546,7 +2546,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   %167 = getelementptr inbounds i8, ptr %2, i64 5
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.23, i32 noundef %166, i32 noundef %169) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.23, i32 noundef %166, i32 noundef %169) #16
   %170 = getelementptr inbounds i8, ptr %2, i64 6
   %171 = load i8, ptr %170, align 2
   %172 = icmp eq i8 %171, 0
@@ -2555,11 +2555,11 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 173:                                              ; preds = %163
   %174 = zext i8 %171 to i32
   %175 = add nsw i32 %174, -1
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.85, i32 noundef %175) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.85, i32 noundef %175) #16
   br label %177
 
 176:                                              ; preds = %163
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.86) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.86) #16
   br label %177
 
 177:                                              ; preds = %176, %173
@@ -2634,7 +2634,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 196:                                              ; preds = %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %177
   %197 = phi ptr [ @.str.19, %195 ], [ @.str.111, %194 ], [ @.str.110, %193 ], [ @.str.109, %192 ], [ @.str.108, %191 ], [ @.str.107, %190 ], [ @.str.106, %189 ], [ @.str.105, %188 ], [ @.str.104, %187 ], [ @.str.103, %186 ], [ @.str.102, %185 ], [ @.str.101, %184 ], [ @.str.100, %183 ], [ @.str.99, %182 ], [ @.str.98, %181 ], [ @.str.97, %180 ], [ @.str.96, %177 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.87, ptr noundef nonnull %197) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.87, ptr noundef nonnull %197) #16
   %198 = getelementptr inbounds i8, ptr %2, i64 12
   %199 = load i32, ptr %198, align 4
   switch i32 %199, label %203 [
@@ -2658,7 +2658,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 204:                                              ; preds = %203, %202, %201, %200, %196
   %205 = phi ptr [ @.str.19, %203 ], [ @.str.114, %202 ], [ @.str.113, %201 ], [ @.str.112, %200 ], [ @.str.96, %196 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.88, ptr noundef nonnull %205) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.88, ptr noundef nonnull %205) #16
   %206 = getelementptr inbounds i8, ptr %2, i64 16
   %207 = load i32, ptr %206, align 4
   switch i32 %207, label %215 [
@@ -2698,7 +2698,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 216:                                              ; preds = %215, %214, %213, %212, %211, %210, %209, %208, %204
   %217 = phi ptr [ @.str.19, %215 ], [ @.str.121, %214 ], [ @.str.120, %213 ], [ @.str.119, %212 ], [ @.str.118, %211 ], [ @.str.117, %210 ], [ @.str.116, %209 ], [ @.str.115, %208 ], [ @.str.96, %204 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.89, ptr noundef nonnull %217) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.89, ptr noundef nonnull %217) #16
   %218 = getelementptr inbounds i8, ptr %2, i64 20
   %219 = load i32, ptr %218, align 4
   %220 = icmp ugt i32 %219, 31
@@ -2750,20 +2750,20 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 232:                                              ; preds = %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %216
   %233 = phi ptr [ @.str.25, %231 ], [ @.str.131, %230 ], [ @.str.130, %229 ], [ @.str.129, %228 ], [ @.str.128, %227 ], [ @.str.127, %226 ], [ @.str.126, %225 ], [ @.str.125, %224 ], [ @.str.124, %223 ], [ @.str.123, %222 ], [ @.str.19, %216 ], [ @.str.122, %221 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.90, ptr noundef nonnull %233) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.90, ptr noundef nonnull %233) #16
   %234 = getelementptr inbounds i8, ptr %2, i64 24
   %235 = load i8, ptr %234, align 4
   %236 = zext i8 %235 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.91, i32 noundef %236) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.91, i32 noundef %236) #16
   %237 = getelementptr inbounds i8, ptr %2, i64 25
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.92, i32 noundef %239) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.92, i32 noundef %239) #16
   %240 = getelementptr inbounds i8, ptr %2, i64 26
   %241 = load i8, ptr %240, align 2, !range !5, !noundef !6
   %242 = icmp eq i8 %241, 0
   %243 = select i1 %242, ptr @.str.95, ptr @.str.94
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.93, ptr noundef nonnull %243) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.93, ptr noundef nonnull %243) #16
   br label %330
 
 244:                                              ; preds = %3
@@ -2773,14 +2773,14 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   %248 = getelementptr inbounds i8, ptr %2, i64 5
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %247, i32 noundef %250) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %247, i32 noundef %250) #16
   %251 = getelementptr inbounds i8, ptr %2, i64 8
   %252 = load i32, ptr %251, align 4
   %253 = icmp eq i32 %252, 3075
   br i1 %253, label %255, label %254
 
 254:                                              ; preds = %244
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.132) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.132) #16
   br label %330
 
 255:                                              ; preds = %244
@@ -2796,12 +2796,12 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %262, label %263, label %.thread
 
 263:                                              ; preds = %259
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.133) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.133) #16
   br label %330
 
 264:                                              ; preds = %255
   %265 = zext i8 %257 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.134, i32 noundef %265) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.134, i32 noundef %265) #16
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %266 = icmp eq i32 %.pre, -1
@@ -2851,7 +2851,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 
 279:                                              ; preds = %278, %277, %276, %275, %274, %273, %272, %271, %270, %.thread
   %280 = phi ptr [ @.str.25, %278 ], [ @.str.144, %277 ], [ @.str.143, %276 ], [ @.str.142, %275 ], [ @.str.141, %274 ], [ @.str.140, %273 ], [ @.str.139, %272 ], [ @.str.138, %271 ], [ @.str.19, %.thread ], [ @.str.137, %270 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.135, ptr noundef nonnull %280) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.135, ptr noundef nonnull %280) #16
   %281 = load i32, ptr %268, align 4
   %282 = icmp sgt i32 %281, 7
   br i1 %282, label %283, label %330
@@ -2859,7 +2859,7 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
 283:                                              ; preds = %279
   %284 = getelementptr inbounds i8, ptr %2, i64 20
   %285 = load i32, ptr %284, align 4
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.136, i32 noundef %285) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.136, i32 noundef %285) #16
   br label %330
 
 286:                                              ; preds = %3
@@ -2869,16 +2869,16 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   %290 = getelementptr inbounds i8, ptr %2, i64 5
   %291 = load i8, ptr %290, align 1
   %292 = zext i8 %291 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24, i32 noundef %289, i32 noundef %292) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24, i32 noundef %289, i32 noundef %292) #16
   %293 = load i8, ptr %290, align 1
   %294 = zext i8 %293 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.145, i32 noundef %294) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.145, i32 noundef %294) #16
   %295 = getelementptr inbounds i8, ptr %2, i64 12
   %296 = load i32, ptr %295, align 4
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.146, i32 noundef %296) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.146, i32 noundef %296) #16
   %297 = getelementptr inbounds i8, ptr %2, i64 8
   %298 = load i32, ptr %297, align 4
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.147, i32 noundef %298) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.147, i32 noundef %298) #16
   %299 = getelementptr inbounds i8, ptr %2, i64 16
   br label %300
 
@@ -2888,11 +2888,11 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   %303 = load i16, ptr %302, align 4
   %304 = zext i16 %303 to i32
   %305 = trunc i64 %301 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.148, i32 noundef %305, i32 noundef %304) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.148, i32 noundef %305, i32 noundef %304) #16
   %306 = getelementptr inbounds i8, ptr %302, i64 2
   %307 = load i16, ptr %306, align 2
   %308 = zext i16 %307 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.149, i32 noundef %305, i32 noundef %308) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.149, i32 noundef %305, i32 noundef %308) #16
   %309 = add nuw nsw i64 %301, 1
   %310 = icmp eq i64 %309, 3
   br i1 %310, label %311, label %300, !llvm.loop !27
@@ -2901,35 +2901,35 @@ define dso_local void @hdmi_infoframe_log(ptr noundef %0, ptr noundef %1, ptr no
   %312 = getelementptr inbounds i8, ptr %2, i64 28
   %313 = load i16, ptr %312, align 4
   %314 = zext i16 %313 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.150, i32 noundef %314) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.150, i32 noundef %314) #16
   %315 = getelementptr inbounds i8, ptr %2, i64 30
   %316 = load i16, ptr %315, align 2
   %317 = zext i16 %316 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.151, i32 noundef %317) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.151, i32 noundef %317) #16
   %318 = getelementptr inbounds i8, ptr %2, i64 32
   %319 = load i16, ptr %318, align 4
   %320 = zext i16 %319 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.152, i32 noundef %320) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.152, i32 noundef %320) #16
   %321 = getelementptr inbounds i8, ptr %2, i64 34
   %322 = load i16, ptr %321, align 2
   %323 = zext i16 %322 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.153, i32 noundef %323) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.153, i32 noundef %323) #16
   %324 = getelementptr inbounds i8, ptr %2, i64 36
   %325 = load i16, ptr %324, align 4
   %326 = zext i16 %325 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.154, i32 noundef %326) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.154, i32 noundef %326) #16
   %327 = getelementptr inbounds i8, ptr %2, i64 38
   %328 = load i16, ptr %327, align 2
   %329 = zext i16 %328 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.155, i32 noundef %329) #18
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.155, i32 noundef %329) #16
   br label %330
 
 330:                                              ; preds = %311, %283, %279, %264, %263, %254, %232, %161, %114, %3
   ret void
 }
 
-; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @hdmi_drm_infoframe_unpack_only(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #12 align 16 {
+; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
+define dso_local noundef range(i32 -22, 1) i32 @hdmi_drm_infoframe_unpack_only(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 align 16 {
   %4 = icmp ult i64 %2, 26
   br i1 %4, label %50, label %5
 
@@ -3003,8 +3003,8 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_drm_infoframe_unpack_only(p
   ret i32 %51
 }
 
-; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #13 align 16 {
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #11 align 16 {
   %4 = icmp ult i64 %2, 4
   br i1 %4, label %307, label %5
 
@@ -3258,11 +3258,11 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nocapt
   store i8 1, ptr %167, align 4
   %168 = getelementptr inbounds i8, ptr %0, i64 5
   store i8 25, ptr %168, align 1
-  %169 = tail call i64 @strlen(ptr noundef %164) #17
+  %169 = tail call i64 @strlen(ptr noundef %164) #15
   %170 = getelementptr inbounds i8, ptr %0, i64 6
   %171 = tail call i64 @llvm.umin.i64(i64 %169, i64 8)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %170, ptr align 1 %164, i64 %171, i1 false)
-  %172 = tail call i64 @strlen(ptr noundef %165) #17
+  %172 = tail call i64 @strlen(ptr noundef %165) #15
   %173 = getelementptr inbounds i8, ptr %0, i64 14
   %174 = tail call i64 @llvm.umin.i64(i64 %172, i64 16)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %173, ptr align 1 %165, i64 %174, i1 false)
@@ -3481,13 +3481,13 @@ define dso_local noundef range(i32 -22, 1) i32 @hdmi_infoframe_unpack(ptr nocapt
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #14
+declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -3498,16 +3498,14 @@ attributes #5 = { fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_
 attributes #6 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { cold nounwind }
+attributes #9 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

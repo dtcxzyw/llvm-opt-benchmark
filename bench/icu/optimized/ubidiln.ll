@@ -2903,8 +2903,8 @@ if.end197:                                        ; preds = %for.inc191, %for.in
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ubidi_invertMap_75(ptr noundef readonly %srcMap, ptr noundef writeonly %destMap, i32 noundef %length) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @ubidi_invertMap_75(ptr noundef readonly %srcMap, ptr noundef writeonly %destMap, i32 noundef %length) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ne ptr %srcMap, null
   %cmp1 = icmp ne ptr %destMap, null

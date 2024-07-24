@@ -3,7 +3,7 @@ source_filename = "bench/openexr/original/ImfWav.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210wav2EncodeEPtiiiit(ptr noundef %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i16 %mx, 16384
@@ -255,7 +255,7 @@ while.end:                                        ; preds = %if.end60, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210wav2DecodeEPtiiiit(ptr noundef %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
 entry:
   %cond = tail call i32 @llvm.smin.i32(i32 %nx, i32 %ny)
@@ -481,7 +481,7 @@ while.end66:                                      ; preds = %if.end64, %while.en
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

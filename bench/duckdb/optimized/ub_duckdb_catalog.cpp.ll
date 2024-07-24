@@ -47547,8 +47547,8 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #28
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_7Catalog13GetAllSchemasERNS3_13ClientContextEE3$_0EEEvT_T0_"(ptr nocapture %__last.coerce) unnamed_addr #25 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_7Catalog13GetAllSchemasERNS3_13ClientContextEE3$_0EEEvT_T0_"(ptr nocapture %__last.coerce) unnamed_addr #27 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %__last.coerce, align 8
   %1 = inttoptr i64 %0 to ptr

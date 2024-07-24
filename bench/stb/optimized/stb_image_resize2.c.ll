@@ -3345,7 +3345,7 @@ while.end173:                                     ; preds = %while.body167, %if.
 
 declare zeroext i8 @stbir__linear_to_srgb_uchar(float noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -3579,7 +3579,7 @@ do.end147:                                        ; preds = %do.body, %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -4838,7 +4838,7 @@ return:                                           ; preds = %while.body, %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -5109,7 +5109,7 @@ return:                                           ; preds = %while.body, %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -6396,7 +6396,7 @@ return:                                           ; preds = %while.body, %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -6667,7 +6667,7 @@ return:                                           ; preds = %while.body, %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -7954,7 +7954,7 @@ return:                                           ; preds = %while.body, %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -8225,7 +8225,7 @@ return:                                           ; preds = %while.body, %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -9951,7 +9951,7 @@ while.end176:                                     ; preds = %while.body167, %if.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %decodep, i32 noundef %width_times_channels, ptr nocapture noundef readonly %inputp) #6 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
@@ -11229,8 +11229,8 @@ do.end:                                           ; preds = %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbir__fancy_alpha_unweight_2ch(ptr noundef %encode_buffer, i32 noundef %width_times_channels) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @stbir__fancy_alpha_unweight_2ch(ptr noundef %encode_buffer, i32 noundef %width_times_channels) #5 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr = getelementptr inbounds float, ptr %encode_buffer, i64 %idx.ext
@@ -11407,8 +11407,8 @@ do.end:                                           ; preds = %if.end
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbir__simple_alpha_unweight_2ch(ptr noundef %encode_buffer, i32 noundef %width_times_channels) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @stbir__simple_alpha_unweight_2ch(ptr noundef %encode_buffer, i32 noundef %width_times_channels) #5 {
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr = getelementptr inbounds float, ptr %encode_buffer, i64 %idx.ext
@@ -29182,7 +29182,7 @@ attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }

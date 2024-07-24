@@ -63,7 +63,7 @@ define hidden void @VP8SetHistogramData(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8EncDspInit() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #12
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %23
 
@@ -74,7 +74,7 @@ define hidden void @VP8EncDspInit() local_unnamed_addr #1 {
   br i1 %.not1, label %VP8EncDspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @VP8DspInit() #12
+  tail call void @VP8DspInit() #11
   %6 = load volatile i32, ptr @tables_ok, align 4
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %InitTables.exit.i
@@ -122,25 +122,25 @@ InitTables.exit.i:                                ; preds = %13, %5
   br i1 %.not.i, label %VP8EncDspInit_body.exit, label %15
 
 15:                                               ; preds = %InitTables.exit.i
-  %16 = tail call i32 %14(i32 noundef 0) #12
+  %16 = tail call i32 %14(i32 noundef 0) #11
   %.not1.i = icmp eq i32 %16, 0
   br i1 %.not1.i, label %VP8EncDspInit_body.exit, label %17
 
 17:                                               ; preds = %15
-  tail call void @VP8EncDspInitSSE2() #12
+  tail call void @VP8EncDspInitSSE2() #11
   %18 = load ptr, ptr @VP8GetCPUInfo, align 8
-  %19 = tail call i32 %18(i32 noundef 3) #12
+  %19 = tail call i32 %18(i32 noundef 3) #11
   %.not2.i = icmp eq i32 %19, 0
   br i1 %.not2.i, label %VP8EncDspInit_body.exit, label %20
 
 20:                                               ; preds = %17
-  tail call void @VP8EncDspInitSSE41() #12
+  tail call void @VP8EncDspInitSSE41() #11
   br label %VP8EncDspInit_body.exit
 
 VP8EncDspInit_body.exit:                          ; preds = %20, %17, %15, %InitTables.exit.i, %2
   %21 = load ptr, ptr @VP8GetCPUInfo, align 8
   store volatile ptr %21, ptr @VP8EncDspInit.VP8EncDspInit_body_last_cpuinfo_used, align 8
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #12
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8EncDspInit.VP8EncDspInit_body_lock) #11
   br label %23
 
 23:                                               ; preds = %0, %VP8EncDspInit_body.exit
@@ -155,8 +155,8 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 declare void @VP8DspInit() local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ITransform_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @ITransform_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
   tail call fastcc void @ITransformOne(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %5
@@ -172,8 +172,8 @@ define internal void @ITransform_C(ptr nocapture noundef readonly %0, ptr nocapt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @FTransform_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @FTransform_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca [16 x i32], align 16
   br label %5
 
@@ -298,8 +298,8 @@ define internal void @FTransform_C(ptr nocapture noundef readonly %0, ptr nocapt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @FTransformWHT_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @FTransformWHT_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca [16 x i32], align 16
   br label %4
 
@@ -387,8 +387,8 @@ define internal void @FTransformWHT_C(ptr nocapture noundef readonly %0, ptr noc
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 67108864) i32 @Disto4x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal range(i32 0, 67108864) i32 @Disto4x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #4 {
   %4 = tail call fastcc i32 @TTransform(ptr noundef %0, ptr noundef %2)
   %5 = tail call fastcc i32 @TTransform(ptr noundef %1, ptr noundef %2)
   %6 = sub nsw i32 %5, %4
@@ -397,8 +397,8 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_C(ptr nocapture noundef rea
   ret i32 %8
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @Disto16x16_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal i32 @Disto16x16_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #4 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   br label %.preheader
@@ -609,7 +609,7 @@ define internal void @CollectHistogram_C(ptr noundef %0, ptr noundef %1, i32 nou
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = getelementptr inbounds i8, ptr %1, i64 %13
-  call void %10(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %7) #12
+  call void %10(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %7) #11
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
@@ -658,8 +658,8 @@ VP8SetHistogramData.exit:                         ; preds = %.preheader
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @SSE16x16_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal i32 @SSE16x16_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %2
@@ -696,8 +696,8 @@ GetSSE.exit:                                      ; preds = %._crit_edge.us.i
   ret i32 %12
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @SSE16x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal i32 @SSE16x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %2
@@ -734,8 +734,8 @@ GetSSE.exit:                                      ; preds = %._crit_edge.us.i
   ret i32 %12
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @SSE8x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal i32 @SSE8x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %2
@@ -772,8 +772,8 @@ GetSSE.exit:                                      ; preds = %._crit_edge.us.i
   ret i32 %12
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @SSE4x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal i32 @SSE4x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %2
@@ -883,11 +883,11 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_C(ptr nocapture noundef %0, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @Quantize2Blocks_C(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr @VP8EncQuantizeBlock, align 8
-  %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
+  %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
   %6 = load ptr, ptr @VP8EncQuantizeBlock, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %1, i64 32
-  %9 = tail call i32 %6(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2) #12
+  %9 = tail call i32 %6(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2) #11
   %10 = shl i32 %9, 1
   %11 = or i32 %10, %5
   ret i32 %11
@@ -896,17 +896,17 @@ define internal i32 @Quantize2Blocks_C(ptr noundef %0, ptr noundef %1, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal void @FTransform2_C(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr @VP8FTransform, align 8
-  tail call void %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
+  tail call void %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
   %5 = load ptr, ptr @VP8FTransform, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void %5(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
+  tail call void %5(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Intra4Preds_C(ptr noundef writeonly %0, ptr nocapture noundef readonly %1) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @Intra4Preds_C(ptr noundef writeonly %0, ptr nocapture noundef readonly %1) #5 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -1593,8 +1593,8 @@ VE4.exit:                                         ; preds = %61
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Intra16Preds_C(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @Intra16Preds_C(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #5 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %16, label %.lr.ph.i
 
@@ -1793,8 +1793,8 @@ TrueMotion.exit:                                  ; preds = %._crit_edge.us.i, %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @IntraChromaPreds_C(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @IntraChromaPreds_C(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1024
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %17, label %.lr.ph.i
@@ -2213,8 +2213,8 @@ TrueMotion.exit127:                               ; preds = %._crit_edge.us.i113
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Mean16x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @Mean16x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   br label %.preheader17
 
 .preheader17:                                     ; preds = %2, %11
@@ -2257,8 +2257,8 @@ define internal void @Mean16x4_C(ptr nocapture noundef readonly %0, ptr nocaptur
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Copy4x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @Copy4x4_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -2277,8 +2277,8 @@ Copy.exit:                                        ; preds = %3
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Copy16x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @Copy16x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -2300,8 +2300,8 @@ declare void @VP8EncDspInitSSE2() local_unnamed_addr #3
 
 declare void @VP8EncDspInitSSE41() local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ITransformOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @ITransformOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   br label %5
 
@@ -2433,8 +2433,8 @@ define internal fastcc void @ITransformOne(ptr nocapture noundef readonly %0, pt
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @TTransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal fastcc range(i32 0, -2147483648) i32 @TTransform(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = alloca [16 x i32], align 16
   br label %4
 
@@ -2516,45 +2516,44 @@ define internal fastcc range(i32 0, -2147483648) i32 @TTransform(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #10
+declare i16 @llvm.abs.i16(i16, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #10
+declare i16 @llvm.umin.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

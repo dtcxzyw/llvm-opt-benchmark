@@ -93,7 +93,7 @@ if.end30:                                         ; preds = %entry, %if.else19, 
   %7 = phi ptr [ %.pre, %if.then10 ], [ %1, %if.else ], [ %1, %if.else19 ], [ %1, %entry ]
   %zywrle_level.0 = phi i32 [ 0, %if.then10 ], [ 3, %if.else ], [ %., %if.else19 ], [ 0, %entry ]
   %zrle1.i = getelementptr inbounds i8, ptr %7, i64 48
-  tail call void @buffer_reset(ptr noundef nonnull %zrle1.i) #8
+  tail call void @buffer_reset(ptr noundef nonnull %zrle1.i) #9
   %8 = load ptr, ptr %zrle, align 8
   %tmp.i = getelementptr inbounds i8, ptr %8, i64 88
   %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
@@ -133,19 +133,19 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i)
   %11 = load ptr, ptr %zrle, align 8
   %fb.i.us.i = getelementptr inbounds i8, ptr %11, i64 8
-  call void @buffer_reset(ptr noundef nonnull %fb.i.us.i) #8
+  call void @buffer_reset(ptr noundef nonnull %fb.i.us.i) #9
   %12 = load ptr, ptr %zrle, align 8
   %fb2.i.us.i = getelementptr inbounds i8, ptr %12, i64 8
   %mul.i.us.i = mul i32 %cond14.us.i, %cond.us.i
   %mul313.i.us.i = shl i32 %mul.i.us.i, 3
   %add.i.us.i = add i32 %mul313.i.us.i, 8
   %conv.i.us.i = sext i32 %add.i.us.i to i64
-  call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i, i64 noundef %conv.i.us.i) #8
+  call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i, i64 noundef %conv.i.us.i) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %13 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i, i64 40, i1 false)
-  %call.i.us.i = call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.032.us.i, i32 noundef %ty.034.us.i, i32 noundef %cond14.us.i, i32 noundef %cond.us.i) #8
+  %call.i.us.i = call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.032.us.i, i32 noundef %ty.034.us.i, i32 noundef %cond14.us.i, i32 noundef %cond.us.i) #9
   %14 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -163,7 +163,7 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
   %17 = load i8, ptr %add.ptr2.i.us.i, align 1
   %not.i.us.i = xor i8 %17, -1
   store i8 %not.i.us.i, ptr %add.ptr.i.us.i, align 1
-  call void @palette_init(ptr noundef nonnull %palette1.i.us.i, i64 noundef 256, i32 noundef 8) #8
+  call void @palette_init(ptr noundef nonnull %palette1.i.us.i, i64 noundef 256, i32 noundef 8) #9
   %cmp109.i.us.i = icmp ugt ptr %add.ptr.i.us.i, %16
   br i1 %cmp109.i.us.i, label %while.body.i.us.i, label %while.end18.i.us.i
 
@@ -197,14 +197,14 @@ if.end.i.us.i:                                    ; preds = %while.end.i.us.i, %
   %ptr.2.i.us.i = phi ptr [ %incdec.ptr.i.us.i, %if.then.i.us.i ], [ %incdec.ptr10.i.us.i, %while.end.i.us.i ]
   %single_pixels.1.i.us.i = phi i32 [ %inc.i.us.i, %if.then.i.us.i ], [ %single_pixels.0111.i.us.i, %while.end.i.us.i ]
   %runs.1.i.us.i = phi i32 [ %runs.0112.i.us.i, %if.then.i.us.i ], [ %inc16.i.us.i, %while.end.i.us.i ]
-  %call.i22.us.i = call i32 @palette_put(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv6.i.us.i) #8
+  %call.i22.us.i = call i32 @palette_put(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv6.i.us.i) #9
   %cmp.i.us.i = icmp ult ptr %ptr.2.i.us.i, %add.ptr.i.us.i
   br i1 %cmp.i.us.i, label %while.body.i.us.i, label %while.end18.i.us.i, !llvm.loop !7
 
 while.end18.i.us.i:                               ; preds = %if.end.i.us.i, %for.body6.us.i
   %single_pixels.0.lcssa.i.us.i = phi i32 [ 0, %for.body6.us.i ], [ %single_pixels.1.i.us.i, %if.end.i.us.i ]
   %runs.0.lcssa.i.us.i = phi i32 [ 0, %for.body6.us.i ], [ %runs.1.i.us.i, %if.end.i.us.i ]
-  %call19.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call19.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %cmp20.i.us.i = icmp eq i64 %call19.i.us.i, 1
   br i1 %cmp20.i.us.i, label %if.then22.i.us.i, label %if.end25.i.us.i
 
@@ -213,19 +213,19 @@ if.end25.i.us.i:                                  ; preds = %while.end18.i.us.i
   %mul9.i.i.us.i = shl i32 %add8.i.i.us.i, 1
   %cmp11.i.i.us.i = icmp ugt i32 %mul.i.us.i, %mul9.i.i.us.i
   %spec.select.i.us.i = zext i1 %cmp11.i.i.us.i to i8
-  %call.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %cmp15.i.i.us.i = icmp ult i64 %call.i.i.us.i, 128
   br i1 %cmp15.i.i.us.i, label %if.then17.i.i.us.i, label %if.end43.thread.i.us.i
 
 if.then17.i.i.us.i:                               ; preds = %if.end25.i.us.i
   %spec.select106107.i.us.i = call i32 @llvm.umin.i32(i32 %mul.i.us.i, i32 %mul9.i.i.us.i)
-  %call20.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call20.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %21 = trunc i64 %call20.i.i.us.i to i32
   %mul23.i.i.us.i = shl i32 %runs.0.lcssa.i.us.i, 1
   %add24.i.i.us.i = add i32 %mul23.i.i.us.i, %single_pixels.0.lcssa.i.us.i
   %add25.i.i.us.i = add i32 %add24.i.i.us.i, %21
   %cmp27.i.i.us.i = icmp ugt i32 %spec.select106107.i.us.i, %add25.i.i.us.i
-  %call32.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call32.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %cmp33.i.i.us.i = icmp ult i64 %call32.i.i.us.i, 17
   br i1 %cmp33.i.i.us.i, label %if.then35.i.i.us.i, label %zrle_choose_palette_rle.exit.i.us.i
 
@@ -235,9 +235,9 @@ zrle_choose_palette_rle.exit.i.us.i:              ; preds = %if.then17.i.i.us.i
 if.then35.i.i.us.i:                               ; preds = %if.then17.i.i.us.i
   %use_rle.1.i.us.i = select i1 %cmp27.i.i.us.i, i8 1, i8 %spec.select.i.us.i
   %estimated_bytes.2.i.v.i.us.i = call i32 @llvm.umin.i32(i32 %spec.select106107.i.us.i, i32 %add25.i.i.us.i)
-  %call38.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call38.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %22 = trunc i64 %call38.i.i.us.i to i32
-  %call42.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call42.i.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %sub.i.i.us.i = add i64 %call42.i.i.us.i, -1
   %arrayidx.i.i.us.i = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub.i.i.us.i
   %23 = load i32, ptr %arrayidx.i.i.us.i, align 4
@@ -253,22 +253,22 @@ if.end43.thread.i.us.i:                           ; preds = %if.then35.i.i.us.i,
   %use_rle.298.i.us.i = phi i8 [ %spec.select.i.us.i, %zrle_choose_palette_rle.exit.i.us.i ], [ %spec.select.i.us.i, %if.end25.i.us.i ], [ %use_rle.1.i.us.i, %if.then35.i.i.us.i ]
   %tobool27.i.us.i = trunc nuw i8 %use_rle.298.i.us.i to i1
   %conv29.i.us.i = select i1 %tobool27.i.us.i, i8 -128, i8 0
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29.i.us.i) #9
   br i1 %tobool27.i.us.i, label %while.cond50.preheader.i.us.i, label %if.else150.i.us.i
 
 if.else150.i.us.i:                                ; preds = %if.end43.thread.i.us.i
-  call void @vnc_write(ptr noundef %vs, ptr noundef %16, i64 noundef %idx.ext.i.us.i) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef %16, i64 noundef %idx.ext.i.us.i) #9
   br label %zrle_encode_tile8ne.exit.us.i
 
 if.else30.i.us.i:                                 ; preds = %if.then35.i.i.us.i, %zrle_choose_palette_rle.exit.i.us.i
   %use_rle.290.i.us.i = phi i8 [ 1, %zrle_choose_palette_rle.exit.i.us.i ], [ %.mux.i.us.i, %if.then35.i.i.us.i ]
-  %call31.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call31.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %tobool32.i.us.i = trunc nuw i8 %use_rle.290.i.us.i to i1
   %conv35.i.us.i = select i1 %tobool32.i.us.i, i64 128, i64 0
   %or.i.us.i = or i64 %conv35.i.us.i, %call31.i.us.i
   %conv36.i.us.i = trunc i64 %or.i.us.i to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36.i.us.i) #8
-  %call37.i.us.i = call i64 @palette_fill(ptr noundef nonnull %palette1.i.us.i, ptr noundef nonnull %colors.i.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36.i.us.i) #9
+  %call37.i.us.i = call i64 @palette_fill(ptr noundef nonnull %palette1.i.us.i, ptr noundef nonnull %colors.i.i) #9
   %cmp39114.not.i.us.i = icmp eq i64 %call31.i.us.i, 0
   br i1 %cmp39114.not.i.us.i, label %if.end43.i.us.i, label %for.body.i.us.i
 
@@ -278,7 +278,7 @@ for.body.i.us.i:                                  ; preds = %if.else30.i.us.i, %
   %arrayidx.i.us.i = getelementptr [256 x i32], ptr %colors.i.i, i64 0, i64 %conv38116.i.us.i
   %24 = load i32, ptr %arrayidx.i.us.i, align 4
   %conv41.i.us.i = trunc i32 %24 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv41.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv41.i.us.i) #9
   %inc42.i.us.i = add i32 %i.0115.i.us.i, 1
   %conv38.i.us.i = sext i32 %inc42.i.us.i to i64
   %cmp39.i.us.i = icmp ugt i64 %call31.i.us.i, %conv38.i.us.i
@@ -288,12 +288,12 @@ if.end43.i.us.i:                                  ; preds = %for.body.i.us.i, %i
   br i1 %tobool32.i.us.i, label %while.cond50.preheader.i.us.i, label %if.then99.i.us.i
 
 if.then99.i.us.i:                                 ; preds = %if.end43.i.us.i
-  %call100.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call100.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %cmp101.i.us.i = icmp ult i64 %call100.i.us.i, 17
   br i1 %cmp101.i.us.i, label %if.end105.i.us.i, label %if.else104.i.i
 
 if.end105.i.us.i:                                 ; preds = %if.then99.i.us.i
-  %call106.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #8
+  %call106.i.us.i = call i64 @palette_size(ptr noundef nonnull %palette1.i.us.i) #9
   %sub107.i.us.i = add i64 %call106.i.us.i, -1
   %arrayidx108.i.us.i = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub107.i.us.i
   %25 = load i32, ptr %arrayidx108.i.us.i, align 4
@@ -318,7 +318,7 @@ while.body118.i.us.i:                             ; preds = %for.body112.i.us.i,
   %incdec.ptr120.i.us.i = getelementptr i8, ptr %ptr.6118.i.us.i, i64 1
   %27 = load i8, ptr %ptr.6118.i.us.i, align 1
   %conv122.i.us.i = zext i8 %27 to i32
-  %call123.i.us.i = call i32 @palette_idx(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv122.i.us.i) #8
+  %call123.i.us.i = call i32 @palette_idx(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv122.i.us.i) #9
   %conv125.i.us.i = and i32 %byte.0120.i.us.i, 255
   %shl.i.us.i = shl i32 %conv125.i.us.i, %25
   %or127.i.us.i = or i32 %call123.i.us.i, %shl.i.us.i
@@ -340,12 +340,12 @@ if.then140.i.us.i:                                ; preds = %while.end136.i.us.i
   %28 = trunc i32 %or127.i.us.i to i16
   %shl144.i.us.i = shl i16 %28, %sub142.i.us.i
   %conv145.i.us.i = trunc i16 %shl144.i.us.i to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145.i.us.i) #9
   br label %for.inc147.i.us.i
 
 if.end135.i.thread.us.i:                          ; preds = %while.body118.i.us.i
   %conv128.i.us.i = trunc i32 %or127.i.us.i to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128.i.us.i) #9
   %exitcond.not.i24.us.i = icmp eq ptr %incdec.ptr120.i.us.i, %add.ptr114.i.us.i
   br i1 %exitcond.not.i24.us.i, label %for.inc147.i.us.i, label %while.body118.i.us.i.backedge
 
@@ -386,7 +386,7 @@ while.end64.i.us.i:                               ; preds = %while.cond55.i.us.i
 
 if.end70.i.us.i:                                  ; preds = %while.end64.i.us.i
   %conv57.le.i.us.i = zext i8 %29 to i32
-  %call69.i.us.i = call i32 @palette_idx(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv57.le.i.us.i) #8
+  %call69.i.us.i = call i32 @palette_idx(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv57.le.i.us.i) #9
   %cmp71.i.us.i = icmp slt i32 %conv65.i.us.i, 3
   br i1 %cmp71.i.us.i, label %if.then75.i.us.i, label %if.then84.i.us.i
 
@@ -397,14 +397,14 @@ if.then84.i.us.i:                                 ; preds = %if.end70.i.us.i
 
 if.end88.i.us.i:                                  ; preds = %if.then84.i.us.i, %while.end64.i.us.i
   %.sink.i.us.i = phi i8 [ %conv86.i.us.i, %if.then84.i.us.i ], [ %29, %while.end64.i.us.i ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink.i.us.i) #9
   %sub.i.us.i = add i32 %conv65.i.us.i, -1
   %cmp90127.i.us.i = icmp sgt i32 %sub.i.us.i, 254
   br i1 %cmp90127.i.us.i, label %while.body92.i.us.i, label %while.end94.i.us.i
 
 while.body92.i.us.i:                              ; preds = %if.end88.i.us.i, %while.body92.i.us.i
   %len.0128.i.us.i = phi i32 [ %sub93.i.us.i, %while.body92.i.us.i ], [ %sub.i.us.i, %if.end88.i.us.i ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93.i.us.i = add nsw i32 %len.0128.i.us.i, -255
   %cmp90.i.us.i = icmp ugt i32 %len.0128.i.us.i, 509
   br i1 %cmp90.i.us.i, label %while.body92.i.us.i, label %while.end94.i.us.i, !llvm.loop !12
@@ -420,19 +420,19 @@ if.then75.i.us.i:                                 ; preds = %if.end70.i.us.i
   br i1 %cmp76.i.us.i, label %if.then78.i.us.i, label %while.cond50.backedge.i.us.i
 
 if.then78.i.us.i:                                 ; preds = %if.then75.i.us.i
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.i.us.i) #9
   br label %while.cond50.backedge.i.us.i
 
 while.cond50.backedge.i.us.i:                     ; preds = %if.then78.i.us.i, %if.then75.i.us.i, %while.end94.i.us.i
   %conv79.sink.i.us.i = phi i8 [ %conv95.i.us.i, %while.end94.i.us.i ], [ %conv79.i.us.i, %if.then75.i.us.i ], [ %conv79.i.us.i, %if.then78.i.us.i ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink.i.us.i) #9
   br i1 %cmp60.i.us.i, label %while.body53.i.us.i, label %zrle_encode_tile8ne.exit.us.i, !llvm.loop !13
 
 if.then22.i.us.i:                                 ; preds = %while.end18.i.us.i
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call23.i.us.i = call i32 @palette_color(ptr noundef nonnull %palette1.i.us.i, i32 noundef 0, ptr noundef nonnull %found.i.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call23.i.us.i = call i32 @palette_color(ptr noundef nonnull %palette1.i.us.i, i32 noundef 0, ptr noundef nonnull %found.i.i) #9
   %conv24.i.us.i = trunc i32 %call23.i.us.i to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv24.i.us.i) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv24.i.us.i) #9
   br label %zrle_encode_tile8ne.exit.us.i
 
 zrle_encode_tile8ne.exit.us.i:                    ; preds = %for.inc147.i.us.i, %while.cond50.backedge.i.us.i, %if.then22.i.us.i, %while.cond50.preheader.i.us.i, %if.end105.i.us.i, %if.else150.i.us.i
@@ -448,7 +448,7 @@ for.cond3.for.inc16_crit_edge.us.i:               ; preds = %zrle_encode_tile8ne
   br i1 %cmp.us.i, label %for.body.us.i, label %sw.epilog, !llvm.loop !15
 
 if.else104.i.i:                                   ; preds = %if.then99.i.us.i
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile8ne) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile8ne) #10
   unreachable
 
 sw.bb32:                                          ; preds = %if.end30
@@ -484,18 +484,18 @@ for.body6.us.i120:                                ; preds = %for.body6.us.i120, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i110)
   %34 = load ptr, ptr %zrle, align 8
   %fb.i.us.i123 = getelementptr inbounds i8, ptr %34, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i123) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i123) #9
   %35 = load ptr, ptr %zrle, align 8
   %fb2.i.us.i124 = getelementptr inbounds i8, ptr %35, i64 8
   %mul313.i.us.i125 = mul i32 %mul.i.us.i119, %cond14.us.i122
   %add.i.us.i126 = add i32 %mul313.i.us.i125, 16
   %conv.i.us.i127 = sext i32 %add.i.us.i126 to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i124, i64 noundef %conv.i.us.i127) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i124, i64 noundef %conv.i.us.i127) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i110, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %36 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i128 = getelementptr inbounds i8, ptr %36, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i128, i64 40, i1 false)
-  %call.i.us.i129 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i, i32 noundef %ty.023.us.i, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118) #8
+  %call.i.us.i129 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i, i32 noundef %ty.023.us.i, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118) #9
   %37 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i130 = getelementptr inbounds i8, ptr %37, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i130, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -536,18 +536,18 @@ for.body6.us.i150:                                ; preds = %for.body6.us.i150, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i137)
   %40 = load ptr, ptr %zrle, align 8
   %fb.i.us.i154 = getelementptr inbounds i8, ptr %40, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i154) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i154) #9
   %41 = load ptr, ptr %zrle, align 8
   %fb2.i.us.i155 = getelementptr inbounds i8, ptr %41, i64 8
   %mul313.i.us.i156 = mul i32 %mul.i.us.i149, %cond14.us.i153
   %add.i.us.i157 = add i32 %mul313.i.us.i156, 16
   %conv.i.us.i158 = sext i32 %add.i.us.i157 to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i155, i64 noundef %conv.i.us.i158) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i155, i64 noundef %conv.i.us.i158) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i137, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %42 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i159 = getelementptr inbounds i8, ptr %42, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i159, i64 40, i1 false)
-  %call.i.us.i160 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i151, i32 noundef %ty.023.us.i146, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148) #8
+  %call.i.us.i160 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i151, i32 noundef %ty.023.us.i146, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148) #9
   %43 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i161 = getelementptr inbounds i8, ptr %43, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i161, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -591,18 +591,18 @@ for.body6.us.i181:                                ; preds = %for.body6.us.i181, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i168)
   %46 = load ptr, ptr %zrle, align 8
   %fb.i.us.i185 = getelementptr inbounds i8, ptr %46, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i185) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i185) #9
   %47 = load ptr, ptr %zrle, align 8
   %fb2.i.us.i186 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = mul i32 %mul.i.us.i180, %cond14.us.i184
   %add.i.us.i187 = add i32 %48, 15
   %conv.i.us.i188 = sext i32 %add.i.us.i187 to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i186, i64 noundef %conv.i.us.i188) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i186, i64 noundef %conv.i.us.i188) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i168, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %49 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i189 = getelementptr inbounds i8, ptr %49, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i189, i64 40, i1 false)
-  %call.i.us.i190 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i182, i32 noundef %ty.023.us.i177, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179) #8
+  %call.i.us.i190 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i182, i32 noundef %ty.023.us.i177, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179) #9
   %50 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i191 = getelementptr inbounds i8, ptr %50, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i191, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -643,18 +643,18 @@ for.body6.us.i211:                                ; preds = %for.body6.us.i211, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i198)
   %53 = load ptr, ptr %zrle, align 8
   %fb.i.us.i215 = getelementptr inbounds i8, ptr %53, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i215) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i215) #9
   %54 = load ptr, ptr %zrle, align 8
   %fb2.i.us.i216 = getelementptr inbounds i8, ptr %54, i64 8
   %55 = mul i32 %mul.i.us.i210, %cond14.us.i214
   %add.i.us.i217 = add i32 %55, 15
   %conv.i.us.i218 = sext i32 %add.i.us.i217 to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i216, i64 noundef %conv.i.us.i218) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i216, i64 noundef %conv.i.us.i218) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i198, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %56 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i219 = getelementptr inbounds i8, ptr %56, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i219, i64 40, i1 false)
-  %call.i.us.i220 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i212, i32 noundef %ty.023.us.i207, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209) #8
+  %call.i.us.i220 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i212, i32 noundef %ty.023.us.i207, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209) #9
   %57 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i221 = getelementptr inbounds i8, ptr %57, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i221, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -760,18 +760,18 @@ for.body6.us.i241:                                ; preds = %for.body6.us.i241, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i228)
   %68 = load ptr, ptr %zrle, align 8
   %fb.i.us.i245 = getelementptr inbounds i8, ptr %68, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i245) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i245) #9
   %69 = load ptr, ptr %zrle, align 8
   %fb2.i.us.i246 = getelementptr inbounds i8, ptr %69, i64 8
   %mul313.i.us.i247 = mul i32 %mul.i.us.i240, %cond14.us.i244
   %add.i.us.i248 = add i32 %mul313.i.us.i247, 32
   %conv.i.us.i249 = sext i32 %add.i.us.i248 to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i246, i64 noundef %conv.i.us.i249) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i246, i64 noundef %conv.i.us.i249) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i228, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %70 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i250 = getelementptr inbounds i8, ptr %70, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i250, i64 40, i1 false)
-  %call.i.us.i251 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i242, i32 noundef %ty.023.us.i237, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239) #8
+  %call.i.us.i251 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i242, i32 noundef %ty.023.us.i237, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239) #9
   %71 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i252 = getelementptr inbounds i8, ptr %71, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i252, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -812,18 +812,18 @@ for.body6.us.i272:                                ; preds = %for.body6.us.i272, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i259)
   %74 = load ptr, ptr %zrle, align 8
   %fb.i.us.i276 = getelementptr inbounds i8, ptr %74, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i276) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i276) #9
   %75 = load ptr, ptr %zrle, align 8
   %fb2.i.us.i277 = getelementptr inbounds i8, ptr %75, i64 8
   %mul313.i.us.i278 = mul i32 %mul.i.us.i271, %cond14.us.i275
   %add.i.us.i279 = add i32 %mul313.i.us.i278, 32
   %conv.i.us.i280 = sext i32 %add.i.us.i279 to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i277, i64 noundef %conv.i.us.i280) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i277, i64 noundef %conv.i.us.i280) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i259, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %76 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i281 = getelementptr inbounds i8, ptr %76, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i281, i64 40, i1 false)
-  %call.i.us.i282 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i273, i32 noundef %ty.023.us.i268, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270) #8
+  %call.i.us.i282 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i273, i32 noundef %ty.023.us.i268, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270) #9
   %77 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i283 = getelementptr inbounds i8, ptr %77, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i283, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -879,7 +879,7 @@ sw.epilog:                                        ; preds = %for.cond3.for.inc16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i293, i64 40, i1 false)
   %stream.i = getelementptr inbounds i8, ptr %81, i64 168
   %zlib.i = getelementptr inbounds i8, ptr %81, i64 128
-  call void @buffer_reset(ptr noundef nonnull %zlib.i) #8
+  call void @buffer_reset(ptr noundef nonnull %zlib.i) #9
   %opaque.i = getelementptr inbounds i8, ptr %81, i64 248
   %82 = load ptr, ptr %opaque.i, align 8
   %cmp.not.i = icmp eq ptr %82, %vs
@@ -890,13 +890,13 @@ if.then.i:                                        ; preds = %sw.epilog
   store ptr @vnc_zlib_zalloc, ptr %zalloc.i, align 8
   %zfree.i = getelementptr inbounds i8, ptr %81, i64 240
   store ptr @vnc_zlib_zfree, ptr %zfree.i, align 8
-  %call.i = call i32 @deflateInit2_(ptr noundef nonnull %stream.i, i32 noundef -1, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef 112) #8
+  %call.i = call i32 @deflateInit2_(ptr noundef nonnull %stream.i, i32 noundef -1, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef 112) #9
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %83 = load ptr, ptr @stderr, align 8
-  %84 = call i64 @fwrite(ptr nonnull @.str.4, i64 29, i64 1, ptr %83) #10
+  %84 = call i64 @fwrite(ptr nonnull @.str.4, i64 29, i64 1, ptr %83) #11
   br label %zrle_compress_data.exit
 
 if.end.i:                                         ; preds = %if.then.i
@@ -909,7 +909,7 @@ if.end6.i:                                        ; preds = %if.end.i, %sw.epilo
   %offset.i = getelementptr inbounds i8, ptr %85, i64 64
   %86 = load i64, ptr %offset.i, align 8
   %add.i295 = add i64 %86, 64
-  call void @buffer_reserve(ptr noundef nonnull %zlib8.i, i64 noundef %add.i295) #8
+  call void @buffer_reserve(ptr noundef nonnull %zlib8.i, i64 noundef %add.i295) #9
   %87 = load ptr, ptr %zrle, align 8
   %buffer.i = getelementptr inbounds i8, ptr %87, i64 80
   %88 = load ptr, ptr %buffer.i, align 8
@@ -933,13 +933,13 @@ if.end6.i:                                        ; preds = %if.end.i, %sw.epilo
   store i32 %conv21.i, ptr %avail_out.i, align 8
   %data_type.i = getelementptr inbounds i8, ptr %81, i64 256
   store i32 0, ptr %data_type.i, align 8
-  %call22.i = call i32 @deflate(ptr noundef nonnull %stream.i, i32 noundef 2) #8
+  %call22.i = call i32 @deflate(ptr noundef nonnull %stream.i, i32 noundef 2) #9
   %cmp23.not.i = icmp eq i32 %call22.i, 0
   br i1 %cmp23.not.i, label %if.end27.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end6.i
   %95 = load ptr, ptr @stderr, align 8
-  %96 = call i64 @fwrite(ptr nonnull @.str.5, i64 35, i64 1, ptr %95) #10
+  %96 = call i64 @fwrite(ptr nonnull @.str.5, i64 35, i64 1, ptr %95) #11
   br label %zrle_compress_data.exit
 
 if.end27.i:                                       ; preds = %if.end6.i
@@ -961,14 +961,14 @@ zrle_compress_data.exit:                          ; preds = %if.then3.i, %if.the
   %retval.0.i = phi i32 [ -1, %if.then3.i ], [ -1, %if.then25.i ], [ %conv39.i, %if.end27.i ]
   %102 = load ptr, ptr %zrle, align 8
   %103 = load i32, ptr %102, align 8
-  call void @vnc_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %103) #8
-  call void @vnc_write_u32(ptr noundef nonnull %vs, i32 noundef %retval.0.i) #8
+  call void @vnc_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %103) #9
+  call void @vnc_write_u32(ptr noundef nonnull %vs, i32 noundef %retval.0.i) #9
   %104 = load ptr, ptr %zrle, align 8
   %buffer = getelementptr inbounds i8, ptr %104, i64 160
   %105 = load ptr, ptr %buffer, align 8
   %offset = getelementptr inbounds i8, ptr %104, i64 144
   %106 = load i64, ptr %offset, align 8
-  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %105, i64 noundef %106) #8
+  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %105, i64 noundef %106) #9
   ret void
 }
 
@@ -994,20 +994,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %stream = getelementptr inbounds i8, ptr %0, i64 168
-  %call = tail call i32 @deflateEnd(ptr noundef nonnull %stream) #8
+  %call = tail call i32 @deflateEnd(ptr noundef nonnull %stream) #9
   %.pre = load ptr, ptr %zrle, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
   %zrle4 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @buffer_free(ptr noundef nonnull %zrle4) #8
+  tail call void @buffer_free(ptr noundef nonnull %zrle4) #9
   %3 = load ptr, ptr %zrle, align 8
   %fb = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @buffer_free(ptr noundef nonnull %fb) #8
+  tail call void @buffer_free(ptr noundef nonnull %fb) #9
   %4 = load ptr, ptr %zrle, align 8
   %zlib = getelementptr inbounds i8, ptr %4, i64 128
-  tail call void @buffer_free(ptr noundef nonnull %zlib) #8
+  tail call void @buffer_free(ptr noundef nonnull %zlib) #9
   ret void
 }
 
@@ -1044,18 +1044,18 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
   %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
   %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
   %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
-  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #8
+  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
   %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -1107,18 +1107,18 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
   %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
   %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
   %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
-  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #8
+  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
   %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -1170,18 +1170,18 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
   %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
   %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
   %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
-  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #8
+  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
   %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -1233,18 +1233,18 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
   %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #8
+  tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
   %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
-  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #8
+  tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
   %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
-  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #8
+  %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
   %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -1323,12 +1323,12 @@ if.then13:                                        ; preds = %entry
 
 if.end14:                                         ; preds = %if.then13, %entry
   %estimated_bytes.1 = phi i64 [ %conv10, %if.then13 ], [ %estimated_bytes.0, %entry ]
-  %call = tail call i64 @palette_size(ptr noundef %palette) #8
+  %call = tail call i64 @palette_size(ptr noundef %palette) #9
   %cmp15 = icmp ult i64 %call, 128
   br i1 %cmp15, label %if.then17, label %if.end52
 
 if.then17:                                        ; preds = %if.end14
-  %call20 = tail call i64 @palette_size(ptr noundef %palette) #8
+  %call20 = tail call i64 @palette_size(ptr noundef %palette) #9
   %0 = trunc i64 %call20 to i32
   %conv22 = mul i32 %div27, %0
   %mul23 = shl i32 %runs, 1
@@ -1345,15 +1345,15 @@ if.then29:                                        ; preds = %if.then17
 
 if.end31:                                         ; preds = %if.then29, %if.then17
   %estimated_bytes.2 = phi i64 [ %conv26, %if.then29 ], [ %estimated_bytes.1, %if.then17 ]
-  %call32 = tail call i64 @palette_size(ptr noundef %palette) #8
+  %call32 = tail call i64 @palette_size(ptr noundef %palette) #9
   %cmp33 = icmp ult i64 %call32, 17
   br i1 %cmp33, label %if.then35, label %if.end52
 
 if.then35:                                        ; preds = %if.end31
-  %call38 = tail call i64 @palette_size(ptr noundef %palette) #8
+  %call38 = tail call i64 @palette_size(ptr noundef %palette) #9
   %1 = trunc i64 %call38 to i32
   %conv40 = mul i32 %div27, %1
-  %call42 = tail call i64 @palette_size(ptr noundef %palette) #8
+  %call42 = tail call i64 @palette_size(ptr noundef %palette) #9
   %sub = add i64 %call42, -1
   %arrayidx = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub
   %2 = load i32, ptr %arrayidx, align 4
@@ -1404,7 +1404,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_16be
   %1 = load i16, ptr %add.ptr2, align 2
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 16) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 16) #9
   %cmp105 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp105, label %while.body, label %while.end18
 
@@ -1438,24 +1438,24 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !37
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp20 = icmp eq i64 %call19, 1
   br i1 %cmp20, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %while.end18
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   %conv24 = trunc i32 %call23 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i)
   store i16 %conv24, ptr %value.addr.i, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i)
   br label %if.end165
 
@@ -1466,14 +1466,14 @@ if.end25:                                         ; preds = %while.end18
   br i1 %tobool, label %if.else30, label %if.end43.thread
 
 if.else30:                                        ; preds = %if.end25
-  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool32 = trunc i8 %6 to i1
   %conv35 = select i1 %tobool32, i64 128, i64 0
   %or = or i64 %conv35, %call31
   %conv36 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #8
-  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #9
+  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp39110.not = icmp eq i64 %call31, 0
   br i1 %cmp39110.not, label %if.end43, label %for.body
 
@@ -1485,7 +1485,7 @@ for.body:                                         ; preds = %if.else30, %for.bod
   %conv41 = trunc i32 %7 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i95)
   store i16 %conv41, ptr %value.addr.i95, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i95)
   %inc42 = add i32 %i.0111, 1
   %conv38 = sext i32 %inc42 to i64
@@ -1499,7 +1499,7 @@ if.end43.thread:                                  ; preds = %if.end25
   %8 = load i8, ptr %use_rle, align 1
   %tobool27 = trunc i8 %8 to i1
   %conv29 = select i1 %tobool27, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #9
   br i1 %tobool27, label %while.cond50.preheader, label %if.else150
 
 while.cond50.preheader:                           ; preds = %if.end43, %if.end43.thread
@@ -1529,7 +1529,7 @@ while.end64:                                      ; preds = %while.cond55
 
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
-  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #8
+  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
@@ -1539,24 +1539,24 @@ if.then75:                                        ; preds = %if.end70
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
   br label %while.cond50.backedge
 
 while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
   %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !40
 
 if.then84:                                        ; preds = %if.end70
   %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
 
 if.else87:                                        ; preds = %while.end64
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i96)
   store i16 %9, ptr %value.addr.i96, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i96)
   br label %if.end88
 
@@ -1567,7 +1567,7 @@ if.end88:                                         ; preds = %if.else87, %if.then
 
 while.body92:                                     ; preds = %if.end88, %while.body92
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
   %cmp90 = icmp ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !41
@@ -1578,16 +1578,16 @@ while.end94:                                      ; preds = %while.body92, %if.e
   br label %while.cond50.backedge
 
 if.then99:                                        ; preds = %if.end43
-  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp101 = icmp ult i64 %call100, 17
   br i1 %cmp101, label %if.end105, label %if.else104
 
 if.else104:                                       ; preds = %if.then99
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile16be) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile16be) #10
   unreachable
 
 if.end105:                                        ; preds = %if.then99
-  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub107 = add i64 %call106, -1
   %arrayidx108 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub107
   %13 = load i32, ptr %arrayidx108, align 4
@@ -1613,7 +1613,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
-  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #8
+  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #9
   %conv125 = and i32 %byte.0116, 255
   %shl = shl i32 %conv125, %13
   %or127 = or i32 %call123, %shl
@@ -1623,7 +1623,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
 
 if.then134:                                       ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then134, %while.body118
@@ -1641,7 +1641,7 @@ if.then140:                                       ; preds = %while.end136
   %16 = trunc i32 %or127 to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
 for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
@@ -2109,14 +2109,14 @@ zywrle_analyze_16be.exit:                         ; preds = %while.body347.i, %i
 if.else159:                                       ; preds = %if.else150
   %mul161 = shl i32 %mul, 1
   %conv162 = sext i32 %mul161 to i64
-  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv162) #8
+  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv162) #9
   br label %if.end165
 
 if.end165:                                        ; preds = %for.inc147, %while.cond50.backedge, %if.end105, %while.cond50.preheader, %if.else159, %if.then22
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @wavelet(ptr noundef %buf, i32 noundef %width, i32 noundef %height, i32 noundef %level) unnamed_addr #4 {
 entry:
   %cmp122 = icmp sgt i32 %level, 0
@@ -2525,7 +2525,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_16le
   %1 = load i16, ptr %add.ptr2, align 2
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 16) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 16) #9
   %cmp105 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp105, label %while.body, label %while.end18
 
@@ -2559,24 +2559,24 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !70
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp20 = icmp eq i64 %call19, 1
   br i1 %cmp20, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %while.end18
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   %conv24 = trunc i32 %call23 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i)
   store i16 %conv24, ptr %value.addr.i, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i)
   br label %if.end165
 
@@ -2587,14 +2587,14 @@ if.end25:                                         ; preds = %while.end18
   br i1 %tobool, label %if.else30, label %if.end43.thread
 
 if.else30:                                        ; preds = %if.end25
-  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool32 = trunc i8 %6 to i1
   %conv35 = select i1 %tobool32, i64 128, i64 0
   %or = or i64 %conv35, %call31
   %conv36 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #8
-  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #9
+  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp39110.not = icmp eq i64 %call31, 0
   br i1 %cmp39110.not, label %if.end43, label %for.body
 
@@ -2606,7 +2606,7 @@ for.body:                                         ; preds = %if.else30, %for.bod
   %conv41 = trunc i32 %7 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i95)
   store i16 %conv41, ptr %value.addr.i95, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i95)
   %inc42 = add i32 %i.0111, 1
   %conv38 = sext i32 %inc42 to i64
@@ -2620,7 +2620,7 @@ if.end43.thread:                                  ; preds = %if.end25
   %8 = load i8, ptr %use_rle, align 1
   %tobool27 = trunc i8 %8 to i1
   %conv29 = select i1 %tobool27, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #9
   br i1 %tobool27, label %while.cond50.preheader, label %if.else150
 
 while.cond50.preheader:                           ; preds = %if.end43, %if.end43.thread
@@ -2650,7 +2650,7 @@ while.end64:                                      ; preds = %while.cond55
 
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
-  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #8
+  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
@@ -2660,24 +2660,24 @@ if.then75:                                        ; preds = %if.end70
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
   br label %while.cond50.backedge
 
 while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
   %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !73
 
 if.then84:                                        ; preds = %if.end70
   %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
 
 if.else87:                                        ; preds = %while.end64
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i96)
   store i16 %9, ptr %value.addr.i96, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i96)
   br label %if.end88
 
@@ -2688,7 +2688,7 @@ if.end88:                                         ; preds = %if.else87, %if.then
 
 while.body92:                                     ; preds = %if.end88, %while.body92
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
   %cmp90 = icmp ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !74
@@ -2699,16 +2699,16 @@ while.end94:                                      ; preds = %while.body92, %if.e
   br label %while.cond50.backedge
 
 if.then99:                                        ; preds = %if.end43
-  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp101 = icmp ult i64 %call100, 17
   br i1 %cmp101, label %if.end105, label %if.else104
 
 if.else104:                                       ; preds = %if.then99
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile16le) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile16le) #10
   unreachable
 
 if.end105:                                        ; preds = %if.then99
-  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub107 = add i64 %call106, -1
   %arrayidx108 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub107
   %13 = load i32, ptr %arrayidx108, align 4
@@ -2734,7 +2734,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
-  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #8
+  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #9
   %conv125 = and i32 %byte.0116, 255
   %shl = shl i32 %conv125, %13
   %or127 = or i32 %call123, %shl
@@ -2744,7 +2744,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
 
 if.then134:                                       ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then134, %while.body118
@@ -2762,7 +2762,7 @@ if.then140:                                       ; preds = %while.end136
   %16 = trunc i32 %or127 to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
 for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
@@ -3230,7 +3230,7 @@ zywrle_analyze_16le.exit:                         ; preds = %while.body347.i, %i
 if.else159:                                       ; preds = %if.else150
   %mul161 = shl i32 %mul, 1
   %conv162 = sext i32 %mul161 to i64
-  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv162) #8
+  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv162) #9
   br label %if.end165
 
 if.end165:                                        ; preds = %for.inc147, %while.cond50.backedge, %if.end105, %while.cond50.preheader, %if.else159, %if.then22
@@ -3261,7 +3261,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_15be
   %1 = load i16, ptr %add.ptr2, align 2
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 15) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 15) #9
   %cmp105 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp105, label %while.body, label %while.end18
 
@@ -3295,24 +3295,24 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !96
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp20 = icmp eq i64 %call19, 1
   br i1 %cmp20, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %while.end18
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   %conv24 = trunc i32 %call23 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i)
   store i16 %conv24, ptr %value.addr.i, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i)
   br label %if.end165
 
@@ -3323,14 +3323,14 @@ if.end25:                                         ; preds = %while.end18
   br i1 %tobool, label %if.else30, label %if.end43.thread
 
 if.else30:                                        ; preds = %if.end25
-  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool32 = trunc i8 %6 to i1
   %conv35 = select i1 %tobool32, i64 128, i64 0
   %or = or i64 %conv35, %call31
   %conv36 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #8
-  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #9
+  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp39110.not = icmp eq i64 %call31, 0
   br i1 %cmp39110.not, label %if.end43, label %for.body
 
@@ -3342,7 +3342,7 @@ for.body:                                         ; preds = %if.else30, %for.bod
   %conv41 = trunc i32 %7 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i95)
   store i16 %conv41, ptr %value.addr.i95, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i95)
   %inc42 = add i32 %i.0111, 1
   %conv38 = sext i32 %inc42 to i64
@@ -3356,7 +3356,7 @@ if.end43.thread:                                  ; preds = %if.end25
   %8 = load i8, ptr %use_rle, align 1
   %tobool27 = trunc i8 %8 to i1
   %conv29 = select i1 %tobool27, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #9
   br i1 %tobool27, label %while.cond50.preheader, label %if.else150
 
 while.cond50.preheader:                           ; preds = %if.end43, %if.end43.thread
@@ -3386,7 +3386,7 @@ while.end64:                                      ; preds = %while.cond55
 
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
-  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #8
+  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
@@ -3396,24 +3396,24 @@ if.then75:                                        ; preds = %if.end70
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
   br label %while.cond50.backedge
 
 while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
   %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !99
 
 if.then84:                                        ; preds = %if.end70
   %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
 
 if.else87:                                        ; preds = %while.end64
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i96)
   store i16 %9, ptr %value.addr.i96, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i96)
   br label %if.end88
 
@@ -3424,7 +3424,7 @@ if.end88:                                         ; preds = %if.else87, %if.then
 
 while.body92:                                     ; preds = %if.end88, %while.body92
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
   %cmp90 = icmp ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !100
@@ -3435,16 +3435,16 @@ while.end94:                                      ; preds = %while.body92, %if.e
   br label %while.cond50.backedge
 
 if.then99:                                        ; preds = %if.end43
-  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp101 = icmp ult i64 %call100, 17
   br i1 %cmp101, label %if.end105, label %if.else104
 
 if.else104:                                       ; preds = %if.then99
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile15be) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile15be) #10
   unreachable
 
 if.end105:                                        ; preds = %if.then99
-  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub107 = add i64 %call106, -1
   %arrayidx108 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub107
   %13 = load i32, ptr %arrayidx108, align 4
@@ -3470,7 +3470,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
-  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #8
+  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #9
   %conv125 = and i32 %byte.0116, 255
   %shl = shl i32 %conv125, %13
   %or127 = or i32 %call123, %shl
@@ -3480,7 +3480,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
 
 if.then134:                                       ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then134, %while.body118
@@ -3498,7 +3498,7 @@ if.then140:                                       ; preds = %while.end136
   %16 = trunc i32 %or127 to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
 for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
@@ -3970,7 +3970,7 @@ zywrle_analyze_15be.exit:                         ; preds = %while.body351.i, %i
   br label %tailrecurse
 
 if.else159:                                       ; preds = %if.else150
-  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %idx.ext) #8
+  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %idx.ext) #9
   br label %if.end165
 
 if.end165:                                        ; preds = %for.inc147, %while.cond50.backedge, %if.end105, %while.cond50.preheader, %if.else159, %if.then22
@@ -4001,7 +4001,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_15le
   %1 = load i16, ptr %add.ptr2, align 2
   %not = xor i16 %1, -1
   store i16 %not, ptr %add.ptr, align 2
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 15) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 15) #9
   %cmp105 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp105, label %while.body, label %while.end18
 
@@ -4035,24 +4035,24 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !122
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call19 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp20 = icmp eq i64 %call19, 1
   br i1 %cmp20, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %while.end18
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call23 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   %conv24 = trunc i32 %call23 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i)
   store i16 %conv24, ptr %value.addr.i, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i)
   br label %if.end165
 
@@ -4063,14 +4063,14 @@ if.end25:                                         ; preds = %while.end18
   br i1 %tobool, label %if.else30, label %if.end43.thread
 
 if.else30:                                        ; preds = %if.end25
-  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call31 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool32 = trunc i8 %6 to i1
   %conv35 = select i1 %tobool32, i64 128, i64 0
   %or = or i64 %conv35, %call31
   %conv36 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #8
-  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv36) #9
+  %call37 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp39110.not = icmp eq i64 %call31, 0
   br i1 %cmp39110.not, label %if.end43, label %for.body
 
@@ -4082,7 +4082,7 @@ for.body:                                         ; preds = %if.else30, %for.bod
   %conv41 = trunc i32 %7 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i95)
   store i16 %conv41, ptr %value.addr.i95, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i95)
   %inc42 = add i32 %i.0111, 1
   %conv38 = sext i32 %inc42 to i64
@@ -4096,7 +4096,7 @@ if.end43.thread:                                  ; preds = %if.end25
   %8 = load i8, ptr %use_rle, align 1
   %tobool27 = trunc i8 %8 to i1
   %conv29 = select i1 %tobool27, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv29) #9
   br i1 %tobool27, label %while.cond50.preheader, label %if.else150
 
 while.cond50.preheader:                           ; preds = %if.end43, %if.end43.thread
@@ -4126,7 +4126,7 @@ while.end64:                                      ; preds = %while.cond55
 
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
-  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #8
+  %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
@@ -4136,24 +4136,24 @@ if.then75:                                        ; preds = %if.end70
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
   br label %while.cond50.backedge
 
 while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
   %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !125
 
 if.then84:                                        ; preds = %if.end70
   %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
 
 if.else87:                                        ; preds = %while.end64
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i96)
   store i16 %9, ptr %value.addr.i96, align 2
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 2) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i96)
   br label %if.end88
 
@@ -4164,7 +4164,7 @@ if.end88:                                         ; preds = %if.else87, %if.then
 
 while.body92:                                     ; preds = %if.end88, %while.body92
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
   %cmp90 = icmp ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !126
@@ -4175,16 +4175,16 @@ while.end94:                                      ; preds = %while.body92, %if.e
   br label %while.cond50.backedge
 
 if.then99:                                        ; preds = %if.end43
-  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call100 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp101 = icmp ult i64 %call100, 17
   br i1 %cmp101, label %if.end105, label %if.else104
 
 if.else104:                                       ; preds = %if.then99
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile15le) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile15le) #10
   unreachable
 
 if.end105:                                        ; preds = %if.then99
-  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call106 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub107 = add i64 %call106, -1
   %arrayidx108 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub107
   %13 = load i32, ptr %arrayidx108, align 4
@@ -4210,7 +4210,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
-  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #8
+  %call123 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv122) #9
   %conv125 = and i32 %byte.0116, 255
   %shl = shl i32 %conv125, %13
   %or127 = or i32 %call123, %shl
@@ -4220,7 +4220,7 @@ while.body118:                                    ; preds = %for.body112, %if.en
 
 if.then134:                                       ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then134, %while.body118
@@ -4238,7 +4238,7 @@ if.then140:                                       ; preds = %while.end136
   %16 = trunc i32 %or127 to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
 for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
@@ -4710,7 +4710,7 @@ zywrle_analyze_15le.exit:                         ; preds = %while.body351.i, %i
   br label %tailrecurse
 
 if.else159:                                       ; preds = %if.else150
-  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %idx.ext) #8
+  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %idx.ext) #9
   br label %if.end165
 
 if.end165:                                        ; preds = %for.inc147, %while.cond50.backedge, %if.end105, %while.cond50.preheader, %if.else159, %if.then22
@@ -4742,7 +4742,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %1 = load i32, ptr %add.ptr2, align 4
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
   %cmp111 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp111, label %while.body, label %while.end9
 
@@ -4775,23 +4775,23 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0113, %while.end ]
   %runs.1 = phi i32 [ %runs.0114, %if.then ], [ %inc8, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !148
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp11 = icmp eq i64 %call10, 1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end9
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end154
 
@@ -4802,14 +4802,14 @@ if.end14:                                         ; preds = %while.end9
   br i1 %tobool, label %if.else17, label %if.end29.thread
 
 if.else17:                                        ; preds = %if.end14
-  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool19 = trunc i8 %6 to i1
   %conv22 = select i1 %tobool19, i64 128, i64 0
   %or = or i64 %conv22, %call18
   %conv23 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #8
-  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
+  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp26116.not = icmp eq i64 %call18, 0
   br i1 %cmp26116.not, label %if.end29, label %for.body
 
@@ -4820,7 +4820,7 @@ for.body:                                         ; preds = %if.else17, %for.bod
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i99, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i99, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
   %inc28 = add i32 %i.0117, 1
   %conv25 = sext i32 %inc28 to i64
@@ -4834,7 +4834,7 @@ if.end29.thread:                                  ; preds = %if.end14
   %8 = load i8, ptr %use_rle, align 1
   %tobool16 = trunc i8 %8 to i1
   %conv = select i1 %tobool16, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #9
   br i1 %tobool16, label %while.cond36.preheader, label %if.else132
 
 while.cond36.preheader:                           ; preds = %if.end29, %if.end29.thread
@@ -4863,7 +4863,7 @@ while.end48:                                      ; preds = %while.cond41
   br i1 %tobool, label %if.end53, label %if.else70
 
 if.end53:                                         ; preds = %while.end48
-  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #8
+  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
@@ -4873,24 +4873,24 @@ if.then58:                                        ; preds = %if.end53
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
   br label %while.cond36.backedge
 
 while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
   %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !151
 
 if.then67:                                        ; preds = %if.end53
   %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
 
 if.else70:                                        ; preds = %while.end48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i100)
   store i32 %9, ptr %value.addr.i100, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i100, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i100, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i100)
   br label %if.end71
 
@@ -4901,7 +4901,7 @@ if.end71:                                         ; preds = %if.else70, %if.then
 
 while.body75:                                     ; preds = %if.end71, %while.body75
   %len.0132 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0132, -255
   %cmp73 = icmp ugt i32 %len.0132, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !152
@@ -4912,16 +4912,16 @@ while.end77:                                      ; preds = %while.body75, %if.e
   br label %while.cond36.backedge
 
 if.then82:                                        ; preds = %if.end29
-  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp84 = icmp ult i64 %call83, 17
   br i1 %cmp84, label %if.end88, label %if.else87
 
 if.else87:                                        ; preds = %if.then82
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24abe) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24abe) #10
   unreachable
 
 if.end88:                                         ; preds = %if.then82
-  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub90 = add i64 %call89, -1
   %arrayidx91 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub90
   %13 = load i32, ptr %arrayidx91, align 4
@@ -4946,7 +4946,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %ptr.6122 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5129, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6122, i64 4
   %15 = load i32, ptr %ptr.6122, align 4
-  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #8
+  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
   %conv107 = and i32 %byte.0124, 255
   %shl = shl i32 %conv107, %13
   %or109 = or i32 %call105, %shl
@@ -4956,7 +4956,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
 
 if.then116:                                       ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then116, %while.body101
@@ -4974,7 +4974,7 @@ if.then122:                                       ; preds = %while.end118
   %16 = trunc i32 %or109 to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
@@ -5004,7 +5004,7 @@ for.body148:                                      ; preds = %for.cond142.prehead
   %17 = load i32, ptr %ptr.7120, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
   store i32 %17, ptr %value.addr.i101, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7120, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
@@ -5015,7 +5015,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zywrle_analyze_32be(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef %level, ptr noundef %buf) unnamed_addr #4 {
+define internal fastcc void @zywrle_analyze_32be(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef %level, ptr noundef %buf) unnamed_addr #5 {
 entry:
   %notmask.i = shl nsw i32 -1, %level
   %and.i = and i32 %notmask.i, %w
@@ -5552,7 +5552,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %1 = load i32, ptr %add.ptr2, align 4
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
   %cmp111 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp111, label %while.body, label %while.end9
 
@@ -5585,23 +5585,23 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0113, %while.end ]
   %runs.1 = phi i32 [ %runs.0114, %if.then ], [ %inc8, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !175
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp11 = icmp eq i64 %call10, 1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end9
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end154
 
@@ -5612,14 +5612,14 @@ if.end14:                                         ; preds = %while.end9
   br i1 %tobool, label %if.else17, label %if.end29.thread
 
 if.else17:                                        ; preds = %if.end14
-  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool19 = trunc i8 %6 to i1
   %conv22 = select i1 %tobool19, i64 128, i64 0
   %or = or i64 %conv22, %call18
   %conv23 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #8
-  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
+  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp26116.not = icmp eq i64 %call18, 0
   br i1 %cmp26116.not, label %if.end29, label %for.body
 
@@ -5630,7 +5630,7 @@ for.body:                                         ; preds = %if.else17, %for.bod
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i99, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i99, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
   %inc28 = add i32 %i.0117, 1
   %conv25 = sext i32 %inc28 to i64
@@ -5644,7 +5644,7 @@ if.end29.thread:                                  ; preds = %if.end14
   %8 = load i8, ptr %use_rle, align 1
   %tobool16 = trunc i8 %8 to i1
   %conv = select i1 %tobool16, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #9
   br i1 %tobool16, label %while.cond36.preheader, label %if.else132
 
 while.cond36.preheader:                           ; preds = %if.end29, %if.end29.thread
@@ -5673,7 +5673,7 @@ while.end48:                                      ; preds = %while.cond41
   br i1 %tobool, label %if.end53, label %if.else70
 
 if.end53:                                         ; preds = %while.end48
-  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #8
+  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
@@ -5683,24 +5683,24 @@ if.then58:                                        ; preds = %if.end53
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
   br label %while.cond36.backedge
 
 while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
   %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !178
 
 if.then67:                                        ; preds = %if.end53
   %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
 
 if.else70:                                        ; preds = %while.end48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i100)
   store i32 %9, ptr %value.addr.i100, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i100, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i100, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i100)
   br label %if.end71
 
@@ -5711,7 +5711,7 @@ if.end71:                                         ; preds = %if.else70, %if.then
 
 while.body75:                                     ; preds = %if.end71, %while.body75
   %len.0132 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0132, -255
   %cmp73 = icmp ugt i32 %len.0132, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !179
@@ -5722,16 +5722,16 @@ while.end77:                                      ; preds = %while.body75, %if.e
   br label %while.cond36.backedge
 
 if.then82:                                        ; preds = %if.end29
-  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp84 = icmp ult i64 %call83, 17
   br i1 %cmp84, label %if.end88, label %if.else87
 
 if.else87:                                        ; preds = %if.then82
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24ale) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24ale) #10
   unreachable
 
 if.end88:                                         ; preds = %if.then82
-  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub90 = add i64 %call89, -1
   %arrayidx91 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub90
   %13 = load i32, ptr %arrayidx91, align 4
@@ -5756,7 +5756,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %ptr.6122 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5129, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6122, i64 4
   %15 = load i32, ptr %ptr.6122, align 4
-  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #8
+  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
   %conv107 = and i32 %byte.0124, 255
   %shl = shl i32 %conv107, %13
   %or109 = or i32 %call105, %shl
@@ -5766,7 +5766,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
 
 if.then116:                                       ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then116, %while.body101
@@ -5784,7 +5784,7 @@ if.then122:                                       ; preds = %while.end118
   %16 = trunc i32 %or109 to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
@@ -5814,7 +5814,7 @@ for.body148:                                      ; preds = %for.cond142.prehead
   %17 = load i32, ptr %ptr.7120, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
   store i32 %17, ptr %value.addr.i101, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i101, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7120, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
@@ -5825,7 +5825,7 @@ if.end154:                                        ; preds = %for.body148, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zywrle_analyze_32le(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef %level, ptr noundef %buf) unnamed_addr #4 {
+define internal fastcc void @zywrle_analyze_32le(ptr noundef %dst, ptr noundef %src, i32 noundef %w, i32 noundef %h, i32 noundef %scanline, i32 noundef %level, ptr noundef %buf) unnamed_addr #5 {
 entry:
   %notmask.i = shl nsw i32 -1, %level
   %and.i = and i32 %notmask.i, %w
@@ -6357,7 +6357,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %1 = load i32, ptr %add.ptr2, align 4
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
   %cmp115 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp115, label %while.body, label %while.end9
 
@@ -6390,24 +6390,24 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0117, %while.end ]
   %runs.1 = phi i32 [ %runs.0118, %if.then ], [ %inc8, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !202
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp11 = icmp eq i64 %call10, 1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end9
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %value.addr.i, i64 1
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end154
 
@@ -6418,14 +6418,14 @@ if.end14:                                         ; preds = %while.end9
   br i1 %tobool, label %if.else17, label %if.end29.thread
 
 if.else17:                                        ; preds = %if.end14
-  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool19 = trunc i8 %6 to i1
   %conv22 = select i1 %tobool19, i64 128, i64 0
   %or = or i64 %conv22, %call18
   %conv23 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #8
-  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
+  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp26120.not = icmp eq i64 %call18, 0
   br i1 %cmp26120.not, label %if.end29, label %for.body.lr.ph
 
@@ -6440,7 +6440,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i100, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i100, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
   %inc28 = add i32 %i.0121, 1
   %conv25 = sext i32 %inc28 to i64
@@ -6454,7 +6454,7 @@ if.end29.thread:                                  ; preds = %if.end14
   %8 = load i8, ptr %use_rle, align 1
   %tobool16 = trunc i8 %8 to i1
   %conv = select i1 %tobool16, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #9
   br i1 %tobool16, label %while.cond36.preheader, label %if.else132
 
 while.cond36.preheader:                           ; preds = %if.end29, %if.end29.thread
@@ -6487,7 +6487,7 @@ while.end48:                                      ; preds = %while.cond41
   br i1 %tobool, label %if.end53, label %if.else70
 
 if.end53:                                         ; preds = %while.end48
-  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #8
+  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
@@ -6497,24 +6497,24 @@ if.then58:                                        ; preds = %if.end53
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
   br label %while.cond36.backedge
 
 while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
   %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !205
 
 if.then67:                                        ; preds = %if.end53
   %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
 
 if.else70:                                        ; preds = %while.end48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
   store i32 %9, ptr %value.addr.i101, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i102, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i102, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
   br label %if.end71
 
@@ -6525,7 +6525,7 @@ if.end71:                                         ; preds = %if.else70, %if.then
 
 while.body75:                                     ; preds = %if.end71, %while.body75
   %len.0136 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0136, -255
   %cmp73 = icmp ugt i32 %len.0136, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !206
@@ -6536,16 +6536,16 @@ while.end77:                                      ; preds = %while.body75, %if.e
   br label %while.cond36.backedge
 
 if.then82:                                        ; preds = %if.end29
-  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp84 = icmp ult i64 %call83, 17
   br i1 %cmp84, label %if.end88, label %if.else87
 
 if.else87:                                        ; preds = %if.then82
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24bbe) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24bbe) #10
   unreachable
 
 if.end88:                                         ; preds = %if.then82
-  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub90 = add i64 %call89, -1
   %arrayidx91 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub90
   %13 = load i32, ptr %arrayidx91, align 4
@@ -6570,7 +6570,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %ptr.6126 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5133, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6126, i64 4
   %15 = load i32, ptr %ptr.6126, align 4
-  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #8
+  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
   %conv107 = and i32 %byte.0128, 255
   %shl = shl i32 %conv107, %13
   %or109 = or i32 %call105, %shl
@@ -6580,7 +6580,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
 
 if.then116:                                       ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then116, %while.body101
@@ -6598,7 +6598,7 @@ if.then122:                                       ; preds = %while.end118
   %16 = trunc i32 %or109 to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
@@ -6632,7 +6632,7 @@ for.body148:                                      ; preds = %for.body148.lr.ph, 
   %17 = load i32, ptr %ptr.7124, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i103)
   store i32 %17, ptr %value.addr.i103, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i103)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7124, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
@@ -6667,7 +6667,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %1 = load i32, ptr %add.ptr2, align 4
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
   %cmp115 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp115, label %while.body, label %while.end9
 
@@ -6700,24 +6700,24 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0117, %while.end ]
   %runs.1 = phi i32 [ %runs.0118, %if.then ], [ %inc8, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !211
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp11 = icmp eq i64 %call10, 1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end9
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %value.addr.i, i64 1
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end154
 
@@ -6728,14 +6728,14 @@ if.end14:                                         ; preds = %while.end9
   br i1 %tobool, label %if.else17, label %if.end29.thread
 
 if.else17:                                        ; preds = %if.end14
-  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool19 = trunc i8 %6 to i1
   %conv22 = select i1 %tobool19, i64 128, i64 0
   %or = or i64 %conv22, %call18
   %conv23 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #8
-  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
+  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp26120.not = icmp eq i64 %call18, 0
   br i1 %cmp26120.not, label %if.end29, label %for.body.lr.ph
 
@@ -6750,7 +6750,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i99)
   store i32 %7, ptr %value.addr.i99, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i100, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i100, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i99)
   %inc28 = add i32 %i.0121, 1
   %conv25 = sext i32 %inc28 to i64
@@ -6764,7 +6764,7 @@ if.end29.thread:                                  ; preds = %if.end14
   %8 = load i8, ptr %use_rle, align 1
   %tobool16 = trunc i8 %8 to i1
   %conv = select i1 %tobool16, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #9
   br i1 %tobool16, label %while.cond36.preheader, label %if.else132
 
 while.cond36.preheader:                           ; preds = %if.end29, %if.end29.thread
@@ -6797,7 +6797,7 @@ while.end48:                                      ; preds = %while.cond41
   br i1 %tobool, label %if.end53, label %if.else70
 
 if.end53:                                         ; preds = %while.end48
-  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #8
+  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
@@ -6807,24 +6807,24 @@ if.then58:                                        ; preds = %if.end53
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
   br label %while.cond36.backedge
 
 while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
   %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !214
 
 if.then67:                                        ; preds = %if.end53
   %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
 
 if.else70:                                        ; preds = %while.end48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i101)
   store i32 %9, ptr %value.addr.i101, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i102, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i102, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i101)
   br label %if.end71
 
@@ -6835,7 +6835,7 @@ if.end71:                                         ; preds = %if.else70, %if.then
 
 while.body75:                                     ; preds = %if.end71, %while.body75
   %len.0136 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0136, -255
   %cmp73 = icmp ugt i32 %len.0136, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !215
@@ -6846,16 +6846,16 @@ while.end77:                                      ; preds = %while.body75, %if.e
   br label %while.cond36.backedge
 
 if.then82:                                        ; preds = %if.end29
-  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp84 = icmp ult i64 %call83, 17
   br i1 %cmp84, label %if.end88, label %if.else87
 
 if.else87:                                        ; preds = %if.then82
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24ble) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile24ble) #10
   unreachable
 
 if.end88:                                         ; preds = %if.then82
-  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub90 = add i64 %call89, -1
   %arrayidx91 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub90
   %13 = load i32, ptr %arrayidx91, align 4
@@ -6880,7 +6880,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %ptr.6126 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5133, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6126, i64 4
   %15 = load i32, ptr %ptr.6126, align 4
-  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #8
+  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
   %conv107 = and i32 %byte.0128, 255
   %shl = shl i32 %conv107, %13
   %or109 = or i32 %call105, %shl
@@ -6890,7 +6890,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
 
 if.then116:                                       ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then116, %while.body101
@@ -6908,7 +6908,7 @@ if.then122:                                       ; preds = %while.end118
   %16 = trunc i32 %or109 to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
@@ -6942,7 +6942,7 @@ for.body148:                                      ; preds = %for.body148.lr.ph, 
   %17 = load i32, ptr %ptr.7124, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i103)
   store i32 %17, ptr %value.addr.i103, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i104, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i103)
   %incdec.ptr150 = getelementptr i8, ptr %ptr.7124, i64 4
   %cmp146 = icmp ult ptr %incdec.ptr150, %add.ptr
@@ -6976,7 +6976,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %1 = load i32, ptr %add.ptr2, align 4
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
   %cmp105 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp105, label %while.body, label %while.end9
 
@@ -7009,23 +7009,23 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc8, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !220
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp11 = icmp eq i64 %call10, 1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end9
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 4) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end147
 
@@ -7036,14 +7036,14 @@ if.end14:                                         ; preds = %while.end9
   br i1 %tobool, label %if.else17, label %if.end29.thread
 
 if.else17:                                        ; preds = %if.end14
-  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool19 = trunc i8 %6 to i1
   %conv22 = select i1 %tobool19, i64 128, i64 0
   %or = or i64 %conv22, %call18
   %conv23 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #8
-  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
+  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp26110.not = icmp eq i64 %call18, 0
   br i1 %cmp26110.not, label %if.end29, label %for.body
 
@@ -7054,7 +7054,7 @@ for.body:                                         ; preds = %if.else17, %for.bod
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i95)
   store i32 %7, ptr %value.addr.i95, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 4) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i95)
   %inc28 = add i32 %i.0111, 1
   %conv25 = sext i32 %inc28 to i64
@@ -7068,7 +7068,7 @@ if.end29.thread:                                  ; preds = %if.end14
   %8 = load i8, ptr %use_rle, align 1
   %tobool16 = trunc i8 %8 to i1
   %conv = select i1 %tobool16, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #9
   br i1 %tobool16, label %while.cond36.preheader, label %if.else132
 
 while.cond36.preheader:                           ; preds = %if.end29, %if.end29.thread
@@ -7097,7 +7097,7 @@ while.end48:                                      ; preds = %while.cond41
   br i1 %tobool, label %if.end53, label %if.else70
 
 if.end53:                                         ; preds = %while.end48
-  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #8
+  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
@@ -7107,24 +7107,24 @@ if.then58:                                        ; preds = %if.end53
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
   br label %while.cond36.backedge
 
 while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
   %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end147, !llvm.loop !223
 
 if.then67:                                        ; preds = %if.end53
   %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
 
 if.else70:                                        ; preds = %while.end48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i96)
   store i32 %9, ptr %value.addr.i96, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 4) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i96)
   br label %if.end71
 
@@ -7135,7 +7135,7 @@ if.end71:                                         ; preds = %if.else70, %if.then
 
 while.body75:                                     ; preds = %if.end71, %while.body75
   %len.0124 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0124, -255
   %cmp73 = icmp ugt i32 %len.0124, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !224
@@ -7146,16 +7146,16 @@ while.end77:                                      ; preds = %while.body75, %if.e
   br label %while.cond36.backedge
 
 if.then82:                                        ; preds = %if.end29
-  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp84 = icmp ult i64 %call83, 17
   br i1 %cmp84, label %if.end88, label %if.else87
 
 if.else87:                                        ; preds = %if.then82
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile32be) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile32be) #10
   unreachable
 
 if.end88:                                         ; preds = %if.then82
-  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub90 = add i64 %call89, -1
   %arrayidx91 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub90
   %13 = load i32, ptr %arrayidx91, align 4
@@ -7180,7 +7180,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %ptr.6114 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5121, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6114, i64 4
   %15 = load i32, ptr %ptr.6114, align 4
-  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #8
+  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
   %conv107 = and i32 %byte.0116, 255
   %shl = shl i32 %conv107, %13
   %or109 = or i32 %call105, %shl
@@ -7190,7 +7190,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
 
 if.then116:                                       ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then116, %while.body101
@@ -7208,7 +7208,7 @@ if.then122:                                       ; preds = %while.end118
   %16 = trunc i32 %or109 to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
@@ -7233,7 +7233,7 @@ if.then137:                                       ; preds = %if.else132
 if.else141:                                       ; preds = %if.else132
   %mul143 = shl i32 %mul, 2
   %conv144 = sext i32 %mul143 to i64
-  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv144) #8
+  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv144) #9
   br label %if.end147
 
 if.end147:                                        ; preds = %for.inc129, %while.cond36.backedge, %if.end88, %while.cond36.preheader, %if.else141, %if.then12
@@ -7264,7 +7264,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
   %1 = load i32, ptr %add.ptr2, align 4
   %not = xor i32 %1, -1
   store i32 %not, ptr %add.ptr, align 4
-  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #8
+  tail call void @palette_init(ptr noundef nonnull %palette1, i64 noundef 256, i32 noundef 32) #9
   %cmp105 = icmp ugt ptr %add.ptr, %data
   br i1 %cmp105, label %while.body, label %while.end9
 
@@ -7297,23 +7297,23 @@ if.end:                                           ; preds = %while.end, %if.then
   %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc8, %while.end ]
-  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #8
+  %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
   %cmp = icmp ult ptr %ptr.2, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !228
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
   %single_pixels.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %single_pixels.1, %if.end ]
   %runs.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %runs.1, %if.end ]
-  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call10 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp11 = icmp eq i64 %call10, 1
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end9
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #8
-  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 1) #9
+  %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 4) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end147
 
@@ -7324,14 +7324,14 @@ if.end14:                                         ; preds = %while.end9
   br i1 %tobool, label %if.else17, label %if.end29.thread
 
 if.else17:                                        ; preds = %if.end14
-  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call18 = tail call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %6 = load i8, ptr %use_rle, align 1
   %tobool19 = trunc i8 %6 to i1
   %conv22 = select i1 %tobool19, i64 128, i64 0
   %or = or i64 %conv22, %call18
   %conv23 = trunc i64 %or to i8
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #8
-  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv23) #9
+  %call24 = call i64 @palette_fill(ptr noundef nonnull %palette1, ptr noundef nonnull %colors) #9
   %cmp26110.not = icmp eq i64 %call18, 0
   br i1 %cmp26110.not, label %if.end29, label %for.body
 
@@ -7342,7 +7342,7 @@ for.body:                                         ; preds = %if.else17, %for.bod
   %7 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i95)
   store i32 %7, ptr %value.addr.i95, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 4) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i95, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i95)
   %inc28 = add i32 %i.0111, 1
   %conv25 = sext i32 %inc28 to i64
@@ -7356,7 +7356,7 @@ if.end29.thread:                                  ; preds = %if.end14
   %8 = load i8, ptr %use_rle, align 1
   %tobool16 = trunc i8 %8 to i1
   %conv = select i1 %tobool16, i8 -128, i8 0
-  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #8
+  tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv) #9
   br i1 %tobool16, label %while.cond36.preheader, label %if.else132
 
 while.cond36.preheader:                           ; preds = %if.end29, %if.end29.thread
@@ -7385,7 +7385,7 @@ while.end48:                                      ; preds = %while.cond41
   br i1 %tobool, label %if.end53, label %if.else70
 
 if.end53:                                         ; preds = %while.end48
-  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #8
+  %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
@@ -7395,24 +7395,24 @@ if.then58:                                        ; preds = %if.end53
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
   br label %while.cond36.backedge
 
 while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
   %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end147, !llvm.loop !231
 
 if.then67:                                        ; preds = %if.end53
   %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
 
 if.else70:                                        ; preds = %while.end48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i96)
   store i32 %9, ptr %value.addr.i96, align 4
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 4) #8
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i96, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i96)
   br label %if.end71
 
@@ -7423,7 +7423,7 @@ if.end71:                                         ; preds = %if.else70, %if.then
 
 while.body75:                                     ; preds = %if.end71, %while.body75
   %len.0124 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0124, -255
   %cmp73 = icmp ugt i32 %len.0124, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !232
@@ -7434,16 +7434,16 @@ while.end77:                                      ; preds = %while.body75, %if.e
   br label %while.cond36.backedge
 
 if.then82:                                        ; preds = %if.end29
-  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call83 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %cmp84 = icmp ult i64 %call83, 17
   br i1 %cmp84, label %if.end88, label %if.else87
 
 if.else87:                                        ; preds = %if.then82
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile32le) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__PRETTY_FUNCTION__.zrle_encode_tile32le) #10
   unreachable
 
 if.end88:                                         ; preds = %if.then82
-  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #8
+  %call89 = call i64 @palette_size(ptr noundef nonnull %palette1) #9
   %sub90 = add i64 %call89, -1
   %arrayidx91 = getelementptr [16 x i32], ptr @bits_per_packed_pixel, i64 0, i64 %sub90
   %13 = load i32, ptr %arrayidx91, align 4
@@ -7468,7 +7468,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %ptr.6114 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5121, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6114, i64 4
   %15 = load i32, ptr %ptr.6114, align 4
-  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #8
+  %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
   %conv107 = and i32 %byte.0116, 255
   %shl = shl i32 %conv107, %13
   %or109 = or i32 %call105, %shl
@@ -7478,7 +7478,7 @@ while.body101:                                    ; preds = %for.body95, %if.end
 
 if.then116:                                       ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then116, %while.body101
@@ -7496,7 +7496,7 @@ if.then122:                                       ; preds = %while.end118
   %16 = trunc i32 %or109 to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #8
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
@@ -7521,7 +7521,7 @@ if.then137:                                       ; preds = %if.else132
 if.else141:                                       ; preds = %if.else132
   %mul143 = shl i32 %mul, 2
   %conv144 = sext i32 %mul143 to i64
-  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv144) #8
+  tail call void @vnc_write(ptr noundef %vs, ptr noundef %data, i64 noundef %conv144) #9
   br label %if.end147
 
 if.end147:                                        ; preds = %for.inc129, %while.cond36.backedge, %if.end88, %while.cond36.preheader, %if.else141, %if.then12
@@ -7537,31 +7537,32 @@ declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { cold }
+attributes #4 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

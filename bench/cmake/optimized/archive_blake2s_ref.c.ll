@@ -189,7 +189,7 @@ blake2s_update.exit:                              ; preds = %.lr.ph.i, %blake2s_
   %58 = add i64 %57, %.1.i
   store i64 %58, ptr %29, align 8
   %59 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
-  %60 = call ptr %59(ptr noundef nonnull %6, i32 noundef 0, i64 noundef 64) #8
+  %60 = call ptr %59(ptr noundef nonnull %6, i32 noundef 0, i64 noundef 64) #7
   br label %61
 
 61:                                               ; preds = %8, %4, %blake2s_update.exit
@@ -200,8 +200,8 @@ blake2s_update.exit:                              ; preds = %.lr.ph.i, %blake2s_
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %37, label %4
 
@@ -1666,7 +1666,7 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
 47:                                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 16 %4, i64 %2, i1 false)
   %48 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
-  %49 = call ptr %48(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 32) #8
+  %49 = call ptr %48(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 32) #7
   br label %50
 
 50:                                               ; preds = %10, %3, %6, %47
@@ -1876,7 +1876,7 @@ blake2s_set_lastblock.exit.i:                     ; preds = %92, %78
 113:                                              ; preds = %97
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %7, i64 %1, i1 false)
   %114 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
-  %115 = call ptr %114(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 32) #8
+  %115 = call ptr %114(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 32) #7
   br label %blake2s_final.exit
 
 blake2s_final.exit:                               ; preds = %72, %76, %113
@@ -1889,26 +1889,25 @@ blake2s_final.exit:                               ; preds = %72, %76, %113
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #5
+declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

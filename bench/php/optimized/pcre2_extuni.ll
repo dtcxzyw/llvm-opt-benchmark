@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_ucd_stage1_8 = external local_unnamed_addr constant [0 x i16], align 2
 @_pcre2_ucp_gbtable_8 = external local_unnamed_addr constant [0 x i32], align 4
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef readnone %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp ult ptr %1, %3
   br i1 %7, label %.lr.ph122, label %._crit_edge123
@@ -412,7 +412,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   ret ptr %.0103.lcssa
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

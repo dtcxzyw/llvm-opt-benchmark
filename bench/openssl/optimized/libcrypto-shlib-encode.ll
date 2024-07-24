@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noalias ptr @EVP_ENCODE_CTX_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 96, ptr noundef nonnull @.str, i32 noundef 129) #9
+  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 96, ptr noundef nonnull @.str, i32 noundef 129) #10
   ret ptr %call
 }
 
@@ -22,7 +22,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define void @EVP_ENCODE_CTX_free(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  tail call void @CRYPTO_free(ptr noundef %ctx, ptr noundef nonnull @.str, i32 noundef 134) #9
+  tail call void @CRYPTO_free(ptr noundef %ctx, ptr noundef nonnull @.str, i32 noundef 134) #10
   ret void
 }
 
@@ -80,7 +80,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
-  tail call void @OPENSSL_die(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 171) #10
+  tail call void @OPENSSL_die(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 171) #11
   unreachable
 
 cond.end:                                         ; preds = %if.end
@@ -427,7 +427,7 @@ return:                                           ; preds = %entry, %if.end66, %
 ; Function Attrs: noreturn
 declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @EVP_EncodeFinal(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %ctx, align 4
@@ -570,7 +570,7 @@ if.end7:                                          ; preds = %if.end, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @EVP_EncodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %dlen) local_unnamed_addr #7 {
 entry:
   %cmp233.i = icmp sgt i32 %dlen, 0
@@ -689,7 +689,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl, ptr nocapture noundef readonly %in, i32 noundef %inl) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %ctx, align 4
@@ -870,7 +870,7 @@ end:                                              ; preds = %for.body, %if.then7
   ret i32 %rv.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i32 @evp_decodeblock_int(ptr noundef readonly %ctx, ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
@@ -1052,13 +1052,13 @@ return:                                           ; preds = %conv_ascii2bin.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @EVP_DecodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) local_unnamed_addr #7 {
+define i32 @EVP_DecodeBlock(ptr nocapture noundef writeonly %t, ptr nocapture noundef readonly %f, i32 noundef %n) local_unnamed_addr #8 {
 entry:
   %call = tail call fastcc i32 @evp_decodeblock_int(ptr noundef null, ptr noundef %t, ptr noundef %f, i32 noundef %n)
   ret i32 %call
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #7 {
 entry:
   store i32 0, ptr %outl, align 4
@@ -1083,7 +1083,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1092,10 +1092,11 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

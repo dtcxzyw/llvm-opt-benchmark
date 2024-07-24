@@ -2706,8 +2706,8 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_SF_T0_"(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #5 {
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_SF_T0_"(ptr noundef %__first, ptr noundef readnone %__last) unnamed_addr #12 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader

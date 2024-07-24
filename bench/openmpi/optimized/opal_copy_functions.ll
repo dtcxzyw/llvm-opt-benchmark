@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @opal_datatype_copy_functions = local_unnamed_addr global [28 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @copy_bytes_1, ptr @copy_bytes_2, ptr @copy_bytes_4, ptr @copy_bytes_8, ptr @copy_bytes_16, ptr @copy_bytes_1, ptr @copy_bytes_2, ptr @copy_bytes_4, ptr @copy_bytes_8, ptr @copy_bytes_16, ptr @copy_float_2, ptr @copy_float_4, ptr @copy_float_8, ptr null, ptr @copy_float_16, ptr @copy_short_float_complex, ptr @copy_float_complex, ptr @copy_double_complex, ptr @copy_long_double_complex, ptr @copy_bool, ptr @copy_wchar, ptr @copy_bytes_8, ptr @copy_bytes_8, ptr null], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @copy_bytes_1(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %10 = icmp eq i64 %4, 1
@@ -39,7 +39,7 @@ define internal noundef i64 @copy_bytes_1(ptr nocapture readnone %0, i64 noundef
   ret i64 %spec.select
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @copy_bytes_2(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 1
   %11 = icmp ugt i64 %10, %3
@@ -77,7 +77,7 @@ define internal noundef i64 @copy_bytes_2(ptr nocapture readnone %0, i64 noundef
   ret i64 %spec.select
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @copy_bytes_4(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
@@ -115,7 +115,7 @@ define internal noundef i64 @copy_bytes_4(ptr nocapture readnone %0, i64 noundef
   ret i64 %spec.select
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @copy_bytes_8(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 3
   %11 = icmp ugt i64 %10, %3
@@ -153,7 +153,7 @@ define internal noundef i64 @copy_bytes_8(ptr nocapture readnone %0, i64 noundef
   ret i64 %spec.select
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i64 @copy_bytes_16(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 4
   %11 = icmp ugt i64 %10, %3
@@ -190,7 +190,7 @@ define internal noundef i64 @copy_bytes_16(ptr nocapture readnone %0, i64 nounde
   ret i64 %spec.select
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_float_2(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 1
   %11 = icmp ugt i64 %10, %3
@@ -229,7 +229,7 @@ define internal noundef i32 @copy_float_2(ptr nocapture readnone %0, i64 noundef
   ret i32 %22
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_float_4(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
@@ -268,7 +268,7 @@ define internal noundef i32 @copy_float_4(ptr nocapture readnone %0, i64 noundef
   ret i32 %22
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_float_8(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 3
   %11 = icmp ugt i64 %10, %3
@@ -307,7 +307,7 @@ define internal noundef i32 @copy_float_8(ptr nocapture readnone %0, i64 noundef
   ret i32 %22
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_float_16(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 4
   %11 = icmp ugt i64 %10, %3
@@ -345,7 +345,7 @@ define internal noundef i32 @copy_float_16(ptr nocapture readnone %0, i64 nounde
   ret i32 %21
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_short_float_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
@@ -384,7 +384,7 @@ define internal noundef i32 @copy_short_float_complex(ptr nocapture readnone %0,
   ret i32 %22
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_float_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 3
   %11 = icmp ugt i64 %10, %3
@@ -423,7 +423,7 @@ define internal noundef i32 @copy_float_complex(ptr nocapture readnone %0, i64 n
   ret i32 %22
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_double_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 4
   %11 = icmp ugt i64 %10, %3
@@ -461,7 +461,7 @@ define internal noundef i32 @copy_double_complex(ptr nocapture readnone %0, i64 
   ret i32 %21
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_long_double_complex(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 5
   %11 = icmp ugt i64 %10, %3
@@ -499,7 +499,7 @@ define internal noundef i32 @copy_long_double_complex(ptr nocapture readnone %0,
   ret i32 %21
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_bool(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %10 = icmp eq i64 %4, 1
@@ -534,7 +534,7 @@ define internal noundef i32 @copy_bool(ptr nocapture readnone %0, i64 noundef %1
   ret i32 %18
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @copy_wchar(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = shl i64 %1, 2
   %11 = icmp ugt i64 %10, %3
@@ -579,7 +579,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #2
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

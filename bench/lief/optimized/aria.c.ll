@@ -212,30 +212,30 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   %162 = or disjoint i32 %155, %161
   %163 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 16)
   %164 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 16)
-  %165 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %134) #11, !srcloc !4
+  %165 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %134) #10, !srcloc !4
   %166 = tail call i32 @llvm.fshl.i32(i32 %165, i32 %165, i32 16)
-  %167 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %164) #11, !srcloc !4
+  %167 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %164) #10, !srcloc !4
   %168 = tail call i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 16)
   %169 = xor i32 %166, %106
   %170 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 16)
-  %171 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %169) #11, !srcloc !4
+  %171 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %169) #10, !srcloc !4
   %172 = tail call i32 @llvm.fshl.i32(i32 %171, i32 %171, i32 16)
   %173 = xor i32 %170, %172
   %174 = xor i32 %173, %168
   %175 = tail call i32 @llvm.fshl.i32(i32 %166, i32 %166, i32 16)
   %176 = xor i32 %164, %175
-  %177 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %163) #11, !srcloc !4
+  %177 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %163) #10, !srcloc !4
   %178 = tail call i32 @llvm.fshl.i32(i32 %177, i32 %177, i32 16)
   %179 = xor i32 %178, %170
   %180 = tail call i32 @llvm.fshl.i32(i32 %176, i32 %176, i32 16)
   %181 = xor i32 %174, %180
-  %182 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %181) #11, !srcloc !4
+  %182 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %181) #10, !srcloc !4
   %183 = tail call i32 @llvm.fshl.i32(i32 %182, i32 %182, i32 16)
   %184 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 16)
-  %185 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %184) #11, !srcloc !4
+  %185 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %184) #10, !srcloc !4
   %186 = tail call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 16)
   %187 = tail call i32 @llvm.fshl.i32(i32 %179, i32 %179, i32 16)
-  %188 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %187) #11, !srcloc !4
+  %188 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %187) #10, !srcloc !4
   %189 = tail call i32 @llvm.fshl.i32(i32 %188, i32 %188, i32 16)
   %190 = load i32, ptr %4, align 16
   %191 = xor i32 %183, %190
@@ -278,7 +278,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   %219 = getelementptr inbounds [4 x [4 x i32]], ptr %4, i64 0, i64 %indvars.iv
   %220 = getelementptr inbounds i8, ptr %217, i64 12
   %221 = load i32, ptr %220, align 4
-  %222 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %221) #11, !srcloc !4
+  %222 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %221) #10, !srcloc !4
   br label %223
 
 223:                                              ; preds = %223, %215
@@ -290,9 +290,9 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   %226 = zext nneg i8 %225 to i64
   %227 = getelementptr inbounds i32, ptr %217, i64 %226
   %228 = load i32, ptr %227, align 4
-  %229 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %228) #11, !srcloc !4
+  %229 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %228) #10, !srcloc !4
   %230 = tail call i32 @llvm.fshl.i32(i32 %.02324.i, i32 %229, i32 13)
-  %231 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %230) #11, !srcloc !4
+  %231 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %230) #10, !srcloc !4
   %232 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i
   %233 = load i32, ptr %232, align 4
   %234 = xor i32 %233, %231
@@ -316,9 +316,9 @@ aria_rot128.exit:                                 ; preds = %223
   %241 = zext nneg i8 %240 to i64
   %242 = getelementptr inbounds i32, ptr %217, i64 %241
   %243 = load i32, ptr %242, align 4
-  %244 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %243) #11, !srcloc !4
+  %244 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %243) #10, !srcloc !4
   %245 = tail call i32 @llvm.fshl.i32(i32 %.02324.i73, i32 %244, i32 1)
-  %246 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %245) #11, !srcloc !4
+  %246 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %245) #10, !srcloc !4
   %247 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i71
   %248 = load i32, ptr %247, align 4
   %249 = xor i32 %248, %246
@@ -333,7 +333,7 @@ aria_rot128.exit76:                               ; preds = %238
   %252 = getelementptr inbounds [17 x [4 x i32]], ptr %214, i64 0, i64 %251
   %253 = getelementptr inbounds i8, ptr %217, i64 4
   %254 = load i32, ptr %253, align 4
-  %255 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %254) #11, !srcloc !4
+  %255 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %254) #10, !srcloc !4
   br label %256
 
 256:                                              ; preds = %256, %aria_rot128.exit76
@@ -345,9 +345,9 @@ aria_rot128.exit76:                               ; preds = %238
   %259 = zext nneg i8 %258 to i64
   %260 = getelementptr inbounds i32, ptr %217, i64 %259
   %261 = load i32, ptr %260, align 4
-  %262 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %261) #11, !srcloc !4
+  %262 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %261) #10, !srcloc !4
   %263 = tail call i32 @llvm.fshl.i32(i32 %.02324.i79, i32 %262, i32 29)
-  %264 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %263) #11, !srcloc !4
+  %264 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %263) #10, !srcloc !4
   %265 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i77
   %266 = load i32, ptr %265, align 4
   %267 = xor i32 %266, %264
@@ -361,7 +361,7 @@ aria_rot128.exit82:                               ; preds = %256
   %269 = or disjoint i64 %indvars.iv, 12
   %270 = getelementptr inbounds [17 x [4 x i32]], ptr %214, i64 0, i64 %269
   %271 = load i32, ptr %217, align 16
-  %272 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %271) #11, !srcloc !4
+  %272 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %271) #10, !srcloc !4
   br label %273
 
 273:                                              ; preds = %273, %aria_rot128.exit82
@@ -373,9 +373,9 @@ aria_rot128.exit82:                               ; preds = %256
   %276 = zext nneg i8 %275 to i64
   %277 = getelementptr inbounds i32, ptr %217, i64 %276
   %278 = load i32, ptr %277, align 4
-  %279 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %278) #11, !srcloc !4
+  %279 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %278) #10, !srcloc !4
   %280 = tail call i32 @llvm.fshl.i32(i32 %.02324.i85, i32 %279, i32 31)
-  %281 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %280) #11, !srcloc !4
+  %281 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %280) #10, !srcloc !4
   %282 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i83
   %283 = load i32, ptr %282, align 4
   %284 = xor i32 %283, %281
@@ -392,7 +392,7 @@ aria_rot128.exit88:                               ; preds = %273
 286:                                              ; preds = %aria_rot128.exit88
   %287 = getelementptr inbounds i8, ptr %0, i64 260
   %288 = load i32, ptr %10, align 16
-  %289 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %288) #11, !srcloc !4
+  %289 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %288) #10, !srcloc !4
   br label %290
 
 290:                                              ; preds = %290, %286
@@ -404,9 +404,9 @@ aria_rot128.exit88:                               ; preds = %273
   %293 = zext nneg i8 %292 to i64
   %294 = getelementptr inbounds i32, ptr %10, i64 %293
   %295 = load i32, ptr %294, align 4
-  %296 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %295) #11, !srcloc !4
+  %296 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %295) #10, !srcloc !4
   %297 = tail call i32 @llvm.fshl.i32(i32 %.02324.i91, i32 %296, i32 19)
-  %298 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %297) #11, !srcloc !4
+  %298 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %297) #10, !srcloc !4
   %299 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i89
   %300 = load i32, ptr %299, align 4
   %301 = xor i32 %300, %298
@@ -417,7 +417,7 @@ aria_rot128.exit88:                               ; preds = %273
   br i1 %exitcond.not.i93, label %aria_rot128.exit94, label %290, !llvm.loop !5
 
 aria_rot128.exit94:                               ; preds = %290
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #12
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #11
   br label %303
 
 303:                                              ; preds = %3, %aria_rot128.exit94
@@ -565,30 +565,30 @@ define internal fastcc void @aria_fo_xor(ptr nocapture noundef writeonly %0, ptr
   %134 = or disjoint i32 %127, %133
   %135 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 16)
   %136 = tail call i32 @llvm.fshl.i32(i32 %134, i32 %134, i32 16)
-  %137 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %106) #11, !srcloc !4
+  %137 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %106) #10, !srcloc !4
   %138 = tail call i32 @llvm.fshl.i32(i32 %137, i32 %137, i32 16)
-  %139 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %136) #11, !srcloc !4
+  %139 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %136) #10, !srcloc !4
   %140 = tail call i32 @llvm.fshl.i32(i32 %139, i32 %139, i32 16)
   %141 = xor i32 %138, %78
   %142 = tail call i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 16)
-  %143 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %141) #11, !srcloc !4
+  %143 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %141) #10, !srcloc !4
   %144 = tail call i32 @llvm.fshl.i32(i32 %143, i32 %143, i32 16)
   %145 = xor i32 %142, %144
   %146 = xor i32 %145, %140
   %147 = tail call i32 @llvm.fshl.i32(i32 %138, i32 %138, i32 16)
   %148 = xor i32 %136, %147
-  %149 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %135) #11, !srcloc !4
+  %149 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %135) #10, !srcloc !4
   %150 = tail call i32 @llvm.fshl.i32(i32 %149, i32 %149, i32 16)
   %151 = xor i32 %150, %142
   %152 = tail call i32 @llvm.fshl.i32(i32 %148, i32 %148, i32 16)
   %153 = xor i32 %146, %152
-  %154 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %153) #11, !srcloc !4
+  %154 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %153) #10, !srcloc !4
   %155 = tail call i32 @llvm.fshl.i32(i32 %154, i32 %154, i32 16)
   %156 = tail call i32 @llvm.fshl.i32(i32 %146, i32 %146, i32 16)
-  %157 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %156) #11, !srcloc !4
+  %157 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %156) #10, !srcloc !4
   %158 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 16)
   %159 = tail call i32 @llvm.fshl.i32(i32 %151, i32 %151, i32 16)
-  %160 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %159) #11, !srcloc !4
+  %160 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %159) #10, !srcloc !4
   %161 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 16)
   %162 = load i32, ptr %3, align 4
   %163 = xor i32 %155, %162
@@ -681,19 +681,19 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr nocapture nound
   %26 = load i32, ptr %22, align 4
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 16)
   %28 = load i32, ptr %21, align 4
-  %29 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #11, !srcloc !4
+  %29 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %28) #10, !srcloc !4
   %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 16)
-  %31 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %27) #11, !srcloc !4
+  %31 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %27) #10, !srcloc !4
   %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 16)
   %33 = xor i32 %30, %23
   %34 = tail call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 16)
-  %35 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #11, !srcloc !4
+  %35 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %33) #10, !srcloc !4
   %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 16)
   %37 = xor i32 %34, %36
   %38 = xor i32 %37, %32
   %39 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 16)
   %40 = xor i32 %39, %27
-  %41 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #11, !srcloc !4
+  %41 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #10, !srcloc !4
   %42 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 16)
   %43 = xor i32 %42, %34
   %44 = xor i32 %40, %24
@@ -701,18 +701,18 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr nocapture nound
   store i32 %45, ptr %20, align 4
   %46 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 16)
   %47 = xor i32 %38, %46
-  %48 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %47) #11, !srcloc !4
+  %48 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %47) #10, !srcloc !4
   %49 = tail call i32 @llvm.fshl.i32(i32 %48, i32 %48, i32 16)
   %50 = xor i32 %49, %25
   store i32 %50, ptr %19, align 4
   %51 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 16)
-  %52 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #11, !srcloc !4
+  %52 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %51) #10, !srcloc !4
   %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 16)
   %54 = xor i32 %30, %53
   %55 = xor i32 %54, %43
   store i32 %55, ptr %22, align 4
   %56 = tail call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 16)
-  %57 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %56) #11, !srcloc !4
+  %57 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %56) #10, !srcloc !4
   %58 = tail call i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 16)
   %59 = xor i32 %32, %58
   %60 = xor i32 %59, %51
@@ -871,30 +871,30 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr nocapture noundef readonly
   %137 = or disjoint i32 %130, %136
   %138 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 16)
   %139 = tail call i32 @llvm.fshl.i32(i32 %137, i32 %137, i32 16)
-  %140 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %109) #11, !srcloc !4
+  %140 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %109) #10, !srcloc !4
   %141 = tail call i32 @llvm.fshl.i32(i32 %140, i32 %140, i32 16)
-  %142 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %139) #11, !srcloc !4
+  %142 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %139) #10, !srcloc !4
   %143 = tail call i32 @llvm.fshl.i32(i32 %142, i32 %142, i32 16)
   %144 = xor i32 %141, %81
   %145 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 16)
-  %146 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %144) #11, !srcloc !4
+  %146 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %144) #10, !srcloc !4
   %147 = tail call i32 @llvm.fshl.i32(i32 %146, i32 %146, i32 16)
   %148 = xor i32 %145, %147
   %149 = xor i32 %148, %143
   %150 = tail call i32 @llvm.fshl.i32(i32 %141, i32 %141, i32 16)
   %151 = xor i32 %139, %150
-  %152 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %138) #11, !srcloc !4
+  %152 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %138) #10, !srcloc !4
   %153 = tail call i32 @llvm.fshl.i32(i32 %152, i32 %152, i32 16)
   %154 = xor i32 %153, %145
   %155 = tail call i32 @llvm.fshl.i32(i32 %151, i32 %151, i32 16)
   %156 = xor i32 %149, %155
-  %157 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %156) #11, !srcloc !4
+  %157 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %156) #10, !srcloc !4
   %158 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 16)
   %159 = tail call i32 @llvm.fshl.i32(i32 %149, i32 %149, i32 16)
-  %160 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %159) #11, !srcloc !4
+  %160 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %159) #10, !srcloc !4
   %161 = tail call i32 @llvm.fshl.i32(i32 %160, i32 %160, i32 16)
   %162 = tail call i32 @llvm.fshl.i32(i32 %154, i32 %154, i32 16)
-  %163 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %162) #11, !srcloc !4
+  %163 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %162) #10, !srcloc !4
   %164 = tail call i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 16)
   %165 = getelementptr inbounds [17 x [4 x i32]], ptr %11, i64 0, i64 %25
   %166 = load i32, ptr %165, align 4
@@ -1036,35 +1036,35 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr nocapture noundef readonly
 298:                                              ; preds = %12
   %299 = tail call i32 @llvm.fshl.i32(i32 %239, i32 %239, i32 16)
   %300 = tail call i32 @llvm.fshl.i32(i32 %295, i32 %295, i32 16)
-  %301 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %267) #11, !srcloc !4
+  %301 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %267) #10, !srcloc !4
   %302 = tail call i32 @llvm.fshl.i32(i32 %301, i32 %301, i32 16)
-  %303 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %300) #11, !srcloc !4
+  %303 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %300) #10, !srcloc !4
   %304 = tail call i32 @llvm.fshl.i32(i32 %303, i32 %303, i32 16)
   %305 = xor i32 %302, %239
   %306 = tail call i32 @llvm.fshl.i32(i32 %211, i32 %211, i32 16)
-  %307 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %305) #11, !srcloc !4
+  %307 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %305) #10, !srcloc !4
   %308 = tail call i32 @llvm.fshl.i32(i32 %307, i32 %307, i32 16)
   %309 = xor i32 %306, %308
   %310 = xor i32 %309, %304
   %311 = tail call i32 @llvm.fshl.i32(i32 %302, i32 %302, i32 16)
   %312 = xor i32 %311, %300
-  %313 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %299) #11, !srcloc !4
+  %313 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %299) #10, !srcloc !4
   %314 = tail call i32 @llvm.fshl.i32(i32 %313, i32 %313, i32 16)
   %315 = xor i32 %314, %306
   %316 = xor i32 %312, %211
   %317 = xor i32 %316, %310
   %318 = tail call i32 @llvm.fshl.i32(i32 %312, i32 %312, i32 16)
   %319 = xor i32 %310, %318
-  %320 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %319) #11, !srcloc !4
+  %320 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %319) #10, !srcloc !4
   %321 = tail call i32 @llvm.fshl.i32(i32 %320, i32 %320, i32 16)
   %322 = xor i32 %321, %299
   %323 = tail call i32 @llvm.fshl.i32(i32 %310, i32 %310, i32 16)
-  %324 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %323) #11, !srcloc !4
+  %324 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %323) #10, !srcloc !4
   %325 = tail call i32 @llvm.fshl.i32(i32 %324, i32 %324, i32 16)
   %326 = xor i32 %302, %325
   %327 = xor i32 %326, %315
   %328 = tail call i32 @llvm.fshl.i32(i32 %315, i32 %315, i32 16)
-  %329 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %328) #11, !srcloc !4
+  %329 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %328) #10, !srcloc !4
   %330 = tail call i32 @llvm.fshl.i32(i32 %329, i32 %329, i32 16)
   %331 = xor i32 %304, %330
   %332 = xor i32 %331, %323
@@ -1158,15 +1158,15 @@ define hidden void @mbedtls_aria_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 276) #12
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 276) #11
   br label %4
 
 4:                                                ; preds = %1, %3
   ret void
 }
 
-; Function Attrs: nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -94, 1) i32 @mbedtls_aria_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #6 {
+; Function Attrs: nounwind memory(argmem: readwrite) uwtable
+define hidden range(i32 -94, 1) i32 @mbedtls_aria_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #3 {
   %7 = alloca [16 x i8], align 16
   %8 = and i64 %2, 15
   %.not = icmp eq i64 %8, 0
@@ -1244,8 +1244,8 @@ define hidden range(i32 -94, 1) i32 @mbedtls_aria_crypt_cbc(ptr nocapture nounde
   ret i32 %.040
 }
 
-; Function Attrs: nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #6 {
+; Function Attrs: nounwind memory(argmem: readwrite) uwtable
+define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #3 {
   %8 = load i64, ptr %3, align 8
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %38, label %10
@@ -1325,8 +1325,8 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr nocapture nou
   ret i32 %.031
 }
 
-; Function Attrs: nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_ctr(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #6 {
+; Function Attrs: nounwind memory(argmem: readwrite) uwtable
+define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_ctr(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #3 {
   %8 = load i64, ptr %2, align 8
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %29, label %.preheader
@@ -1901,24 +1901,24 @@ mbedtls_aria_crypt_ctr.exit126:                   ; preds = %.loopexit.i118
 
 .loopexit:                                        ; preds = %158, %159, %155, %156, %130, %131, %101, %102, %81, %82, %58, %59, %41, %42, %19, %20, %12, %13
   %.0 = phi i32 [ 1, %13 ], [ 1, %12 ], [ 1, %20 ], [ 1, %19 ], [ 1, %42 ], [ 1, %41 ], [ 1, %59 ], [ 1, %58 ], [ 1, %82 ], [ 1, %81 ], [ 1, %102 ], [ 1, %101 ], [ 1, %131 ], [ 1, %130 ], [ 1, %156 ], [ 1, %155 ], [ 0, %159 ], [ 0, %158 ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 276) #12
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 276) #11
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1926,13 +1926,12 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nounwind memory(none) }
-attributes #12 = { nounwind }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree nounwind }
+attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #10 = { nounwind memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

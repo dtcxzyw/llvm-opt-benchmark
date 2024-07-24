@@ -400,7 +400,7 @@ if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
   br i1 %3, label %if.then2.loopexit.us, label %while.cond.us.i.us, !llvm.loop !4
 
 lor.lhs.false.us:                                 ; preds = %if.then2.loopexit.us
-  %call4.us = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i.us, ptr noundef %pred_arg) #5
+  %call4.us = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i.us, ptr noundef %pred_arg) #4
   br i1 %call4.us, label %return, label %if.end6.us
 
 if.end6.us:                                       ; preds = %lor.lhs.false.us
@@ -612,7 +612,7 @@ if.then2.loopexit25:                              ; preds = %if.then4.i
   %mul.i.i = shl i64 %spec.store.select, 6
   %add.i.i = add i64 %bitidx.0.ph24.i, %mul.i.i
   store i64 %add.i.i, ptr %bitmap_idx, align 8
-  %call4 = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i, ptr noundef %pred_arg) #5
+  %call4 = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i, ptr noundef %pred_arg) #4
   br i1 %call4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2.loopexit25
@@ -799,8 +799,8 @@ mi_bitmap_is_claimedx.exit:                       ; preds = %entry, %if.end.i.i,
   ret i1 %cmp3.i
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %count, 3
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -822,7 +822,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %call = tail call zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef %bitmap_idx) #6
+  %call = tail call zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef %bitmap_idx) #5
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1092,8 +1092,8 @@ return:                                           ; preds = %for.inc, %for.cond.
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @_mi_bitmap_unclaim_across(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden zeroext i1 @_mi_bitmap_unclaim_across(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %div1.i = lshr i64 %bitmap_idx, 6
   %rem.i.i = and i64 %bitmap_idx, 63
@@ -1177,8 +1177,8 @@ if.end20:                                         ; preds = %while.end.thread, %
   ret i1 %all_one.3
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @_mi_bitmap_claim_across(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly %pany_zero) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden zeroext i1 @_mi_bitmap_claim_across(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly %pany_zero) local_unnamed_addr #0 {
 entry:
   %div1.i = lshr i64 %bitmap_idx, 6
   %rem.i.i = and i64 %bitmap_idx, 63
@@ -1281,8 +1281,8 @@ if.end33:                                         ; preds = %if.then32, %if.end3
   ret i1 %all_zero.4
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_claimed_across(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden zeroext i1 @_mi_bitmap_is_claimed_across(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %div1.i.i = lshr i64 %bitmap_idx, 6
   %rem.i.i.i = and i64 %bitmap_idx, 63
@@ -1364,8 +1364,8 @@ mi_bitmap_is_claimedx_across.exit:                ; preds = %while.end.thread.i,
   ret i1 %all_ones.4.i
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_any_claimed_across(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden zeroext i1 @_mi_bitmap_is_any_claimed_across(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %div1.i.i = lshr i64 %bitmap_idx, 6
   %rem.i.i.i = and i64 %bitmap_idx, 63
@@ -1449,18 +1449,17 @@ mi_bitmap_is_claimedx_across.exit:                ; preds = %while.end.thread.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind "no-builtin-malloc" }
-attributes #6 = { "no-builtin-malloc" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind "no-builtin-malloc" }
+attributes #5 = { "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

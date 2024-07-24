@@ -769,8 +769,8 @@ define void @_ZN8Rijndael11keyEncToDecEv(ptr nocapture noundef nonnull align 4 d
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 align 2 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %314, label %6
 
@@ -1206,8 +1206,8 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 2 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %277, label %6
 

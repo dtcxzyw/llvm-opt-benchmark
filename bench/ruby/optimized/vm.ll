@@ -656,7 +656,7 @@ define hidden noundef i64 @ruby_vm_special_exception_copy(i64 noundef %0) local_
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = tail call i64 @rb_class_real(i64 noundef %4) #45
+  %5 = tail call i64 @rb_class_real(i64 noundef %4) #46
   %6 = tail call i64 @rb_obj_alloc(i64 noundef %5) #20
   tail call void @rb_obj_copy_ivar(i64 noundef %6, i64 noundef %0) #20
   ret i64 %6
@@ -671,12 +671,12 @@ declare void @rb_obj_copy_ivar(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define hidden void @rb_ec_stack_overflow(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = tail call i32 @rb_during_gc() #45
+  %3 = tail call i32 @rb_during_gc() #46
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #47
   unreachable
 
 5:                                                ; preds = %2
@@ -704,7 +704,7 @@ rb_ec_vm_ptr.exit:                                ; preds = %5
   unreachable
 
 18:                                               ; preds = %5
-  tail call fastcc void @ec_stack_overflow(ptr noundef %0) #47
+  tail call fastcc void @ec_stack_overflow(ptr noundef %0) #48
   unreachable
 }
 
@@ -783,7 +783,7 @@ vm_pop_frame.exit:                                ; preds = %1, %8
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_vm_push_frame_fname(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @rb_imemo_new(i32 noundef 8, i64 noundef 0) #20
-  %4 = tail call noalias nonnull dereferenceable(392) ptr @ruby_xcalloc(i64 noundef 392, i64 noundef 1) #48
+  %4 = tail call noalias nonnull dereferenceable(392) ptr @ruby_xcalloc(i64 noundef 392, i64 noundef 1) #49
   %5 = inttoptr i64 %3 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %4, ptr %6, align 8
@@ -803,7 +803,7 @@ define hidden i64 @rb_vm_push_frame_fname(ptr nocapture noundef %0, i64 noundef 
   br i1 %.not.i, label %vm_push_frame.exit, label %16
 
 16:                                               ; preds = %2
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %2
@@ -834,7 +834,7 @@ declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unname
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local void @rb_error_arity(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = tail call fastcc i64 @rb_arity_error_new(i32 noundef %0, i32 noundef %1, i32 noundef %2)
-  tail call void @rb_exc_raise(i64 noundef %4) #33
+  tail call void @rb_exc_raise(i64 noundef %4) #34
   unreachable
 }
 
@@ -1023,7 +1023,7 @@ define hidden ptr @rb_vm_get_cref(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not.i, label %3, label %vm_get_cref.exit
 
 3:                                                ; preds = %1
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit:                                 ; preds = %1
@@ -1236,7 +1236,7 @@ define internal fastcc i64 @vm_get_ev_const(ptr nocapture noundef readonly %0, i
   br i1 %.not.i, label %14, label %vm_get_cref.exit.preheader
 
 14:                                               ; preds = %8
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit.preheader:                       ; preds = %8, %vm_get_cref.exit
@@ -1470,7 +1470,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %92
   %98 = load i64, ptr @rb_eRactorIsolationError, align 8
   %99 = call i64 @rb_class_path(i64 noundef %.us-phi) #20
   %100 = call ptr @rb_id2name(i64 noundef %2) #20
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %98, ptr noundef nonnull @.str.128, i64 noundef %99, ptr noundef %100) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %98, ptr noundef nonnull @.str.128, i64 noundef %99, ptr noundef %100) #34
   unreachable
 
 .thread:                                          ; preds = %.preheader, %.lr.ph134, %75
@@ -1640,7 +1640,7 @@ CREF_CLASS.exit89:                                ; preds = %148, %146, %145, %1
 
 .critedge41.i:                                    ; preds = %161, %156
   %165 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.129, i64 noundef %1) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.129, i64 noundef %1) #34
   unreachable
 
 vm_check_if_namespace.exit:                       ; preds = %161
@@ -1676,7 +1676,7 @@ define internal fastcc i64 @vm_getclassvariable(ptr noundef %0, ptr nocapture re
   br i1 %.not.i, label %5, label %vm_get_cref.exit
 
 5:                                                ; preds = %3
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit:                                 ; preds = %3
@@ -1742,7 +1742,7 @@ define internal fastcc void @vm_setclassvariable(ptr noundef %0, ptr nocapture r
   br i1 %.not.i, label %6, label %vm_get_cref.exit
 
 6:                                                ; preds = %4
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit:                                 ; preds = %4
@@ -1808,7 +1808,7 @@ define internal fastcc void @vm_setinstancevariable(i64 noundef %0, i64 noundef 
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call void @rb_error_frozen_object(i64 noundef %0) #33
+  tail call void @rb_error_frozen_object(i64 noundef %0) #34
   unreachable
 
 10:                                               ; preds = %4
@@ -1922,7 +1922,7 @@ vm_setivar.exit.thread:                           ; preds = %33, %29, %23, %22, 
   br i1 %.not, label %70, label %RB_OBJ_FROZEN.exit.thread.i
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %68
-  tail call void @rb_error_frozen_object(i64 noundef %0) #33
+  tail call void @rb_error_frozen_object(i64 noundef %0) #34
   unreachable
 
 70:                                               ; preds = %68
@@ -2146,7 +2146,7 @@ rb_vm_search_cf_from_ep.exit.i:                   ; preds = %44, %.lr.ph.i.i, %3
   br i1 %100, label %vm_throw_start.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %93, %92, %96, %.preheader.i, %59, %51
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.135, i64 noundef %3, i32 noundef 2) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.135, i64 noundef %3, i32 noundef 2) #48
   unreachable
 
 101:                                              ; preds = %11
@@ -2370,11 +2370,11 @@ VM_CF_LEP.exit.i:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %191, label %.lr.ph213.i, label %.loopexit186.i, !llvm.loop !20
 
 .loopexit186.i:                                   ; preds = %189, %187, %165, %148, %.preheader185.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.93, i64 noundef %3, i32 noundef 1) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.93, i64 noundef %3, i32 noundef 1) #48
   unreachable
 
 192:                                              ; preds = %11
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.136) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.136) #47
   unreachable
 
 vm_throw_start.exit:                              ; preds = %146, %.lr.ph.i170.i, %111, %7, %._crit_edge.i, %96, %101, %148, %165, %187
@@ -2580,7 +2580,7 @@ rb_callable_method_entry.exit.i:                  ; preds = %45
   br label %vm_ccs_create.exit.i
 
 66:                                               ; preds = %59
-  %67 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #49
+  %67 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #50
   store i32 0, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   store i32 0, ptr %68, align 4
@@ -2815,7 +2815,7 @@ define hidden void @rb_vm_push_cfunc_frame(ptr noundef %0, i32 noundef %1) local
   br i1 %.not.i, label %vm_push_frame.exit, label %11
 
 11:                                               ; preds = %2
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %2
@@ -3078,7 +3078,7 @@ rb_find_defined_class_by_owner.exit:              ; preds = %.critedge77.i, %46,
 67:                                               ; preds = %rb_find_defined_class_by_owner.exit
   %68 = getelementptr inbounds i8, ptr %54, i64 32
   %69 = load i64, ptr %68, align 8
-  %70 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #48
+  %70 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #49
   %71 = load i8, ptr %70, align 8
   %72 = and i8 %71, -16
   %73 = or disjoint i8 %72, 6
@@ -3135,7 +3135,7 @@ define hidden i64 @rb_vm_yield_with_cfunc(ptr nocapture noundef %0, ptr nocaptur
   br i1 %.not.i27.i, label %vm_push_frame.exit.i, label %18
 
 18:                                               ; preds = %11
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit.i:                             ; preds = %11
@@ -3253,7 +3253,7 @@ rb_vm_bh_to_procval.exit:                         ; preds = %14, %21, %RB_SYMBOL
   br i1 %.not.i27, label %vm_push_frame.exit, label %38
 
 38:                                               ; preds = %rb_vm_bh_to_procval.exit
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %rb_vm_bh_to_procval.exit
@@ -3360,7 +3360,7 @@ define internal fastcc zeroext i1 @vm_defined(ptr noundef %0, ptr nocapture noun
   br i1 %.not.i, label %22, label %vm_get_cref.exit
 
 22:                                               ; preds = %18
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit:                                 ; preds = %18
@@ -3491,7 +3491,7 @@ rb_class_of.exit:                                 ; preds = %59, %62, %63, %64, 
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %71, i64 8
   %81 = load i64, ptr %80, align 8
-  %82 = tail call i64 @rb_class_real(i64 noundef %81) #45
+  %82 = tail call i64 @rb_class_real(i64 noundef %81) #46
   %83 = tail call i64 @rb_obj_is_kind_of(i64 noundef %79, i64 noundef %82) #20
   %.not48 = icmp eq i64 %83, 0
   br i1 %.not48, label %rb_vm_frame_method_entry.exit.thread, label %202
@@ -3500,7 +3500,7 @@ default.unreachable84:                            ; preds = %72
   unreachable
 
 84:                                               ; preds = %72
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.164, i32 noundef 0) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.164, i32 noundef 0) #47
   unreachable
 
 check_respond_to_missing.exit:                    ; preds = %rb_class_of.exit
@@ -3737,7 +3737,7 @@ lep_svar_get.exit.i:                              ; preds = %186, %183, %lep_sva
   br label %vm_backref_defined.exit
 
 194:                                              ; preds = %191
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.166) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.166) #47
   unreachable
 
 195:                                              ; preds = %lep_svar_get.exit.i
@@ -3756,7 +3756,7 @@ vm_backref_defined.exit:                          ; preds = %192, %197
   br label %202
 
 201:                                              ; preds = %5
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.165) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.165) #47
   unreachable
 
 rb_vm_frame_method_entry.exit.thread:             ; preds = %127, %123, %117, %._crit_edge.i, %VM_EP_LEP.exit, %77, %72
@@ -3934,7 +3934,7 @@ define hidden i64 @rb_vm_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %11 = load i8, ptr %5, align 8
   %12 = or i8 %11, 2
   store i8 %12, ptr %5, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %4, %8
@@ -4214,7 +4214,7 @@ rb_callable_method_entry_with_refinements.exit.thread: ; preds = %98, %95, %rb_c
 119:                                              ; preds = %117, %115
   %120 = load i64, ptr @rb_eTypeError, align 8
   %121 = call ptr @rb_obj_classname(i64 noundef %21) #20
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %120, ptr noundef nonnull @.str.170, ptr noundef %121) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %120, ptr noundef nonnull @.str.170, ptr noundef %121) #34
   unreachable
 
 122:                                              ; preds = %vm_ci_flag.exit
@@ -4481,7 +4481,7 @@ vm_search_method_slowpath0.exit:                  ; preds = %78, %72, %70, %66
   br i1 %cond.i.i.i, label %rb_vm_frame_method_entry.exit.i, label %114
 
 114:                                              ; preds = %110, %106, %100, %._crit_edge.i.i
-  tail call fastcc void @vm_super_outside() #47
+  tail call fastcc void @vm_super_outside() #48
   unreachable
 
 rb_vm_frame_method_entry.exit.i:                  ; preds = %88, %110, %100
@@ -4551,7 +4551,7 @@ method_entry_iseqptr.exit.i:                      ; preds = %130, %124
   %148 = phi i64 [ %147, %.critedge.i ], [ %120, %140 ]
   %149 = load i64, ptr @rb_eTypeError, align 8
   %150 = tail call i64 @rb_obj_class(i64 noundef %26) #20
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %149, ptr noundef nonnull @.str.171, i64 noundef %150, i64 noundef %148) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %149, ptr noundef nonnull @.str.171, i64 noundef %150, i64 noundef %148) #34
   unreachable
 
 151:                                              ; preds = %.critedge.i, %133, %method_entry_iseqptr.exit.i, %rb_vm_frame_method_entry.exit.i
@@ -4588,7 +4588,7 @@ vm_ci_flag.exit.i:                                ; preds = %163, %160
 
 168:                                              ; preds = %vm_ci_flag.exit.i
   %169 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %169, ptr noundef nonnull @.str.172) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %169, ptr noundef nonnull @.str.172) #34
   unreachable
 
 ._crit_edge.i:                                    ; preds = %vm_ci_flag.exit.i, %151
@@ -4948,7 +4948,7 @@ VM_CF_BLOCK_HANDLER.exit.i:                       ; preds = %.lr.ph.i.i.i.i, %33
   br i1 %339, label %340, label %341
 
 340:                                              ; preds = %VM_CF_BLOCK_HANDLER.exit.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.174, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.174, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 341:                                              ; preds = %VM_CF_BLOCK_HANDLER.exit.i
@@ -5281,7 +5281,7 @@ define hidden i64 @rb_vm_opt_send_without_block(ptr noundef %0, ptr noundef %1, 
   %10 = load i8, ptr %4, align 8
   %11 = or i8 %10, 2
   store i8 %11, ptr %4, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %3, %7
@@ -5322,7 +5322,7 @@ define hidden i64 @rb_vm_invokesuper(ptr noundef %0, ptr noundef %1, ptr noundef
   %11 = load i8, ptr %5, align 8
   %12 = or i8 %11, 2
   store i8 %12, ptr %5, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %4, %8
@@ -5365,7 +5365,7 @@ define hidden i64 @rb_vm_invokeblock(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = load i8, ptr %4, align 8
   %11 = or i8 %10, 2
   store i8 %11, ptr %4, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %3, %7
@@ -6071,7 +6071,7 @@ rb_ractor_main_p.exit.thread.i.i:                 ; preds = %rb_ractor_main_p.ex
   br i1 %.not.i5.i.i, label %14, label %vm_get_cref.exit.i.i
 
 14:                                               ; preds = %12
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit.i.i:                             ; preds = %12
@@ -6120,7 +6120,7 @@ rb_ractor_main_p.exit.thread.i.i:                 ; preds = %rb_ractor_main_p.ex
   br i1 %.not.i5.i.i, label %21, label %vm_ic_hit_p.exit
 
 21:                                               ; preds = %19
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_ic_hit_p.exit:                                 ; preds = %19
@@ -6266,7 +6266,7 @@ rb_obj_write.exit.i:                              ; preds = %80, %72
   br i1 %.not.i.i.i21, label %82, label %vm_get_cref.exit.preheader.i.i
 
 82:                                               ; preds = %rb_obj_write.exit.i
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit.preheader.i.i:                   ; preds = %rb_obj_write.exit.i, %vm_get_cref.exit.i.i24
@@ -7036,7 +7036,7 @@ lep_svar.exit.i.i:                                ; preds = %VM_EP_LEP.exit
 
 275:                                              ; preds = %271
   %276 = add i64 %243, -2
-  %277 = call i64 @rb_ary_entry(i64 noundef %273, i64 noundef %276) #45
+  %277 = call i64 @rb_ary_entry(i64 noundef %273, i64 noundef %276) #46
   br label %vm_getspecial.exit
 
 lep_svar.exit.i17.i:                              ; preds = %VM_EP_LEP.exit
@@ -7085,7 +7085,7 @@ lep_svar_get.exit22.i:                            ; preds = %281, %278, %lep_sva
   br label %vm_getspecial.exit
 
 295:                                              ; preds = %286
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.166) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.166) #47
   unreachable
 
 296:                                              ; preds = %lep_svar_get.exit22.i
@@ -7408,7 +7408,7 @@ vm_getinstancevariable.exit:                      ; preds = %321, %353, %364, %3
   br i1 %or.cond.not.i, label %466, label %vm_ensure_not_refinement_module.exit
 
 466:                                              ; preds = %462
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.176) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.176) #51
   br label %vm_ensure_not_refinement_module.exit
 
 vm_ensure_not_refinement_module.exit:             ; preds = %443, %462, %466
@@ -7491,7 +7491,7 @@ vm_ensure_not_refinement_module.exit:             ; preds = %443, %462, %466
 
 .critedge41.i:                                    ; preds = %516, %500
   %520 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %520, ptr noundef nonnull @.str.129, i64 noundef %508) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %520, ptr noundef nonnull @.str.129, i64 noundef %508) #34
   unreachable
 
 vm_check_if_namespace.exit:                       ; preds = %516
@@ -7511,7 +7511,7 @@ vm_check_if_namespace.exit:                       ; preds = %516
   br i1 %or.cond.not.i2242, label %531, label %vm_ensure_not_refinement_module.exit2243
 
 531:                                              ; preds = %527
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.176) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.176) #51
   br label %vm_ensure_not_refinement_module.exit2243
 
 vm_ensure_not_refinement_module.exit2243:         ; preds = %vm_check_if_namespace.exit, %527, %531
@@ -7625,7 +7625,7 @@ vm_ensure_not_refinement_module.exit2243:         ; preds = %vm_check_if_namespa
   br i1 %.not.i.i.i2246, label %595, label %vm_get_cref.exit.i.i
 
 595:                                              ; preds = %593
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit.i.i:                             ; preds = %593
@@ -7646,7 +7646,7 @@ vm_get_cref.exit.i.i:                             ; preds = %593
   br i1 %.not.i.i4.i, label %603, label %vm_get_cref.exit.preheader.i.i
 
 603:                                              ; preds = %601
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit.preheader.i.i:                   ; preds = %601, %vm_get_cref.exit.i5.i
@@ -7674,7 +7674,7 @@ vm_get_cref.exit.i5.i:                            ; preds = %vm_get_cref.exit.pr
   br i1 %.not.i.i2244, label %vm_get_special_object.exit, label %vm_get_cref.exit.preheader.i.i, !llvm.loop !33
 
 612:                                              ; preds = %582
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.177, i32 noundef %588) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.177, i32 noundef %588) #47
   unreachable
 
 vm_get_special_object.exit:                       ; preds = %vm_get_cref.exit.i5.i, %591, %vm_get_cref.exit.i.i, %599, %605, %609
@@ -8655,7 +8655,7 @@ rb_source_location_cstr.exit2296:                 ; preds = %1062, %1054, %rb_vm
   br i1 %1134, label %1135, label %rbimpl_size_mul_or_raise.exit
 
 1135:                                             ; preds = %1124
-  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %1126) #33
+  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %1126) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %1124
@@ -9260,7 +9260,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %141
 .critedge.i.i:                                    ; preds = %1455, %1450
   %1460 = load i64, ptr @rb_eTypeError, align 8
   %1461 = call i64 @rb_obj_class(i64 noundef %1442) #20
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %1460, ptr noundef nonnull @.str.180, i64 noundef %1461) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %1460, ptr noundef nonnull @.str.180, i64 noundef %1461) #34
   unreachable
 
 1462:                                             ; preds = %1455, %1448
@@ -9279,7 +9279,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %141
 
 .critedge41.i.i.i:                                ; preds = %1467, %1462
   %1471 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %1471, ptr noundef nonnull @.str.129, i64 noundef %1441) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %1471, ptr noundef nonnull @.str.129, i64 noundef %1441) #34
   unreachable
 
 vm_check_if_namespace.exit.i.i:                   ; preds = %1467
@@ -9324,18 +9324,18 @@ vm_const_get_under.exit.i.i:                      ; preds = %1478, %1476
 1488:                                             ; preds = %1487
   %1489 = getelementptr inbounds i8, ptr %1483, i64 16
   %1490 = load i64, ptr %1489, align 8
-  %1491 = call i64 @rb_class_real(i64 noundef %1490) #45
+  %1491 = call i64 @rb_class_real(i64 noundef %1490) #46
   %.not27.i.i.i = icmp eq i64 %1491, %1442
   br i1 %.not27.i.i.i, label %vm_find_or_create_class_by_id.exit, label %1492
 
 1492:                                             ; preds = %1488
   %1493 = load i64, ptr @rb_eTypeError, align 8
   %1494 = call i64 @rb_id2str(i64 noundef %1431) #20
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %1493, ptr noundef nonnull @.str.182, i64 noundef %1494) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %1493, ptr noundef nonnull @.str.182, i64 noundef %1494) #34
   unreachable
 
 1495:                                             ; preds = %1482, %1480
-  call fastcc void @unmatched_redefinition(ptr noundef nonnull @.str.181, i64 noundef %1441, i64 noundef %1431) #47
+  call fastcc void @unmatched_redefinition(ptr noundef nonnull @.str.181, i64 noundef %1441, i64 noundef %1431) #48
   unreachable
 
 vm_const_get_under.exit.thread.i.i:               ; preds = %vm_const_get_under.exit.i.i, %vm_check_if_namespace.exit.i.i
@@ -9359,7 +9359,7 @@ vm_const_get_under.exit.thread.i.i:               ; preds = %vm_const_get_under.
   br i1 %1508, label %.lr.ph.i.i.i.i, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %1504, %vm_const_get_under.exit.thread.i.i
-  call void @rb_unexpected_type(i64 noundef %1498, i32 noundef 2) #46
+  call void @rb_unexpected_type(i64 noundef %1498, i32 noundef 2) #47
   unreachable
 
 .lr.ph.i.i.i.i:                                   ; preds = %1504, %Check_Type.exit.i.i.i.i
@@ -9400,7 +9400,7 @@ Check_Type.exit.i12.i.i.i:                        ; preds = %RCLASS_ALLOCATOR.ex
 
 1518:                                             ; preds = %Check_Type.exit.i12.i.i.i
   %1519 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %1519, ptr noundef nonnull @.str.6) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %1519, ptr noundef nonnull @.str.6) #34
   unreachable
 
 vm_declare_class.exit.i.i:                        ; preds = %Check_Type.exit.i12.i.i.i
@@ -9429,7 +9429,7 @@ vm_declare_class.exit.i.i:                        ; preds = %Check_Type.exit.i12
 
 .critedge41.i.i13.i:                              ; preds = %1529, %1524
   %1533 = load i64, ptr @rb_eTypeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %1533, ptr noundef nonnull @.str.129, i64 noundef %1441) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %1533, ptr noundef nonnull @.str.129, i64 noundef %1441) #34
   unreachable
 
 vm_check_if_namespace.exit.i14.i:                 ; preds = %1529
@@ -9469,7 +9469,7 @@ vm_const_get_under.exit.i17.i:                    ; preds = %1539, %1537
   br i1 %1547, label %vm_find_or_create_class_by_id.exit, label %1548
 
 1548:                                             ; preds = %1543, %1541
-  call fastcc void @unmatched_redefinition(ptr noundef nonnull @.str.185, i64 noundef %1441, i64 noundef %1431) #47
+  call fastcc void @unmatched_redefinition(ptr noundef nonnull @.str.185, i64 noundef %1441, i64 noundef %1431) #48
   unreachable
 
 vm_const_get_under.exit.thread.i20.i:             ; preds = %vm_const_get_under.exit.i17.i, %vm_check_if_namespace.exit.i14.i
@@ -9480,7 +9480,7 @@ vm_const_get_under.exit.thread.i20.i:             ; preds = %vm_const_get_under.
   br label %vm_find_or_create_class_by_id.exit
 
 1551:                                             ; preds = %1429
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.179, i32 noundef %1447) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.179, i32 noundef %1447) #47
   unreachable
 
 vm_find_or_create_class_by_id.exit:               ; preds = %1487, %1488, %vm_declare_class.exit.i.i, %1522, %1543, %vm_const_get_under.exit.thread.i20.i
@@ -9606,7 +9606,7 @@ vm_cref_push.exit:                                ; preds = %.thread.i, %1584
   br i1 %1602, label %.lr.ph.i2337, label %vm_push_frame.exit
 
 1603:                                             ; preds = %vm_cref_push.exit
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i2337:                                     ; preds = %.preheader.i2334, %.lr.ph.i2337
@@ -10254,7 +10254,7 @@ vm_opt_nil_p.exit:                                ; preds = %1858
   br label %vm_opt_newarray_hash.exit
 
 1917:                                             ; preds = %1884
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143) #47
   unreachable
 
 vm_opt_newarray_hash.exit:                        ; preds = %1902, %1900, %1911, %1905
@@ -10433,7 +10433,7 @@ vm_base_ptr.exit:                                 ; preds = %1980, %1990, %1994
 
 2006:                                             ; preds = %vm_base_ptr.exit
   %.val2183 = load ptr, ptr %0, align 8
-  call fastcc void @vm_stack_consistency_error(ptr %.val2183, ptr nonnull %1983, ptr noundef %.010.i) #47
+  call fastcc void @vm_stack_consistency_error(ptr %.val2183, ptr nonnull %1983, ptr noundef %.010.i) #48
   unreachable
 
 2007:                                             ; preds = %vm_base_ptr.exit
@@ -10719,7 +10719,7 @@ rb_obj_write.exit.i:                              ; preds = %2130, %2120
   br i1 %.not9.i.i.i.i, label %.lr.ph.i.i.i.i2380, label %.loopexit.i.i.i, !llvm.loop !34
 
 .loopexit.i.i.i:                                  ; preds = %2134, %2142
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.188) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.188) #47
   unreachable
 
 vm_once_exec.exit.i:                              ; preds = %.lr.ph.i.i.i.i2380
@@ -10833,7 +10833,7 @@ RB_FLOAT_TYPE_P.exit.i:                           ; preds = %2184
 rb_float_value_inline.exit.i:                     ; preds = %2196, %2190, %2189
   %.0.i13.i = phi double [ %2198, %2196 ], [ %2195, %2190 ], [ 0.000000e+00, %2189 ]
   store double %.0.i13.i, ptr %3, align 8
-  %2199 = call double @llvm.fabs.f64(double %.0.i13.i) #51
+  %2199 = call double @llvm.fabs.f64(double %.0.i13.i) #52
   %2200 = fcmp oeq double %2199, 0x7FF0000000000000
   br i1 %2200, label %RB_FLOAT_TYPE_P.exit.thread15.i, label %2201
 
@@ -14231,10 +14231,10 @@ define hidden void @rb_vm_mtbl_dump(ptr noundef %0, i64 noundef %1, i64 noundef 
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef %0) #50
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef %0) #51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.189, i64 10, i64 1, ptr %8) #52
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.189, i64 10, i64 1, ptr %8) #53
   %.not30.i = icmp eq i64 %1, 0
   br i1 %.not30.i, label %vm_mtbl_dump.exit, label %.lr.ph.i
 
@@ -14245,7 +14245,7 @@ define hidden void @rb_vm_mtbl_dump(ptr noundef %0, i64 noundef %1, i64 noundef 
 10:                                               ; preds = %59, %.lr.ph.i
   %.031.i = phi i64 [ %1, %.lr.ph.i ], [ %61, %59 ]
   %11 = load ptr, ptr @stderr, align 8
-  %12 = call i64 @fwrite(ptr nonnull @.str.190, i64 5, i64 1, ptr %11) #52
+  %12 = call i64 @fwrite(ptr nonnull @.str.190, i64 5, i64 1, ptr %11) #53
   call void @rb_obj_info_dump(i64 noundef %.031.i) #20
   %13 = inttoptr i64 %.031.i to ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 24
@@ -14263,14 +14263,14 @@ define hidden void @rb_vm_mtbl_dump(ptr noundef %0, i64 noundef %1, i64 noundef 
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @stderr, align 8
-  %21 = call i64 @fwrite(ptr nonnull @.str.191, i64 9, i64 1, ptr %20) #52
+  %21 = call i64 @fwrite(ptr nonnull @.str.191, i64 9, i64 1, ptr %20) #53
   %22 = load i64, ptr %5, align 8
   call void @rb_obj_info_dump(i64 noundef %22) #20
   br label %26
 
 23:                                               ; preds = %10
   %24 = load ptr, ptr @stderr, align 8
-  %25 = call i64 @fwrite(ptr nonnull @.str.193, i64 15, i64 1, ptr %24) #52
+  %25 = call i64 @fwrite(ptr nonnull @.str.193, i64 15, i64 1, ptr %24) #53
   br label %26
 
 26:                                               ; preds = %23, %19, %17
@@ -14281,7 +14281,7 @@ define hidden void @rb_vm_mtbl_dump(ptr noundef %0, i64 noundef %1, i64 noundef 
 
 .thread.i:                                        ; preds = %16
   %29 = load ptr, ptr @stderr, align 8
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.192, ptr noundef nonnull %15) #50
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.192, ptr noundef nonnull %15) #51
   %31 = load ptr, ptr %14, align 8
   call void @rb_id_table_foreach(ptr noundef %31, ptr noundef nonnull @vm_cme_dump_i, ptr noundef null) #20
   %32 = getelementptr inbounds i8, ptr %13, i64 48
@@ -14299,7 +14299,7 @@ define hidden void @rb_vm_mtbl_dump(ptr noundef %0, i64 noundef %1, i64 noundef 
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @stderr, align 8
-  %39 = call i64 @fwrite(ptr nonnull @.str.194, i64 9, i64 1, ptr %38) #52
+  %39 = call i64 @fwrite(ptr nonnull @.str.194, i64 9, i64 1, ptr %38) #53
   %40 = load i64, ptr %5, align 8
   call void @rb_obj_info_dump(i64 noundef %40) #20
   br label %45
@@ -14307,7 +14307,7 @@ define hidden void @rb_vm_mtbl_dump(ptr noundef %0, i64 noundef %1, i64 noundef 
 .thread28.i:                                      ; preds = %34, %.thread.i
   %41 = phi ptr [ %27, %34 ], [ %32, %.thread.i ]
   %42 = load ptr, ptr @stderr, align 8
-  %43 = call i64 @fwrite(ptr nonnull @.str.195, i64 27, i64 1, ptr %42) #52
+  %43 = call i64 @fwrite(ptr nonnull @.str.195, i64 27, i64 1, ptr %42) #53
   %44 = load ptr, ptr %41, align 8
   call void @rb_id_table_foreach(ptr noundef %44, ptr noundef nonnull @vm_cme_dump_i, ptr noundef null) #20
   br label %45
@@ -14329,14 +14329,14 @@ define hidden void @rb_vm_mtbl_dump(ptr noundef %0, i64 noundef %1, i64 noundef 
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @stderr, align 8
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.197, ptr noundef nonnull %47) #50
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.197, ptr noundef nonnull %47) #51
   %54 = load i64, ptr %4, align 8
   %55 = call i32 @vm_ccs_dump_i(i64 noundef %2, i64 noundef %54, ptr poison)
   br label %vm_ccs_dump.exit.i
 
 56:                                               ; preds = %48
   %57 = load ptr, ptr @stderr, align 8
-  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.197, ptr noundef nonnull %47) #50
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.197, ptr noundef nonnull %47) #51
   call void @rb_id_table_foreach(ptr noundef nonnull %47, ptr noundef nonnull @vm_ccs_dump_i, ptr noundef null) #20
   br label %vm_ccs_dump.exit.i
 
@@ -15083,13 +15083,13 @@ declare i32 @rb_id_table_insert(ptr noundef, i64 noundef, i64 noundef) local_unn
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_f_notimplement(i32 %0, ptr nocapture readnone %1, i64 %2, i64 %3) #5 {
-  tail call void @rb_notimplement() #33
+  tail call void @rb_notimplement() #34
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @rb_f_notimplement_internal(i32 %0, ptr nocapture readnone %1, i64 %2) #5 {
-  tail call void @rb_notimplement() #33
+  tail call void @rb_notimplement() #34
   unreachable
 }
 
@@ -15102,7 +15102,7 @@ define hidden void @rb_add_method_cfunc(i64 noundef %0, i64 noundef %1, ptr noun
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.5, i32 noundef %3) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.5, i32 noundef %3) #34
   unreachable
 
 10:                                               ; preds = %5
@@ -15777,14 +15777,14 @@ define internal fastcc void @setup_method_cfunc_struct(ptr nocapture noundef wri
   br i1 %11, label %call_cfunc_invoker_func.exit, label %13
 
 13:                                               ; preds = %12
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.203, i32 noundef %2) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.203, i32 noundef %2) #47
   unreachable
 
 14:                                               ; preds = %3
   br i1 %11, label %call_cfunc_invoker_func.exit, label %15
 
 15:                                               ; preds = %14
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.203, i32 noundef %2) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.203, i32 noundef %2) #47
   unreachable
 
 call_cfunc_invoker_func.exit:                     ; preds = %14, %12
@@ -15838,7 +15838,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noalias noundef nonnull ptr @rb_method_definition_create(i32 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #48
+  %3 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #49
   %4 = trunc i32 %0 to i8
   %5 = load i8, ptr %3, align 8
   %6 = and i8 %4, 15
@@ -15871,7 +15871,7 @@ define hidden noundef ptr @rb_method_entry_create(i64 noundef %0, i64 noundef %1
 
 10:                                               ; preds = %4
   %11 = tail call ptr @rb_obj_info(i64 noundef %1) #20
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.205, ptr noundef %11) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.205, ptr noundef %11) #47
   unreachable
 
 filter_defined_class.exit:                        ; preds = %4, %9
@@ -16176,7 +16176,7 @@ rb_method_entry_alloc.exit31:                     ; preds = %37, %method_definit
   %64 = or disjoint i64 %62, %63
   store i64 %64, ptr %58, align 8
   %65 = load i64, ptr %2, align 8
-  %66 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #48
+  %66 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #49
   %67 = load i8, ptr %66, align 8
   %68 = and i8 %67, -16
   %69 = or disjoint i8 %68, 11
@@ -16281,7 +16281,7 @@ rb_method_entry_alloc.exit:                       ; preds = %rb_obj_write.exit.t
   br i1 %.not.i30, label %47, label %56
 
 47:                                               ; preds = %rb_method_entry_alloc.exit
-  %48 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #48
+  %48 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #49
   %49 = load i8, ptr %48, align 8
   %50 = and i8 %49, -16
   %51 = or disjoint i8 %50, 11
@@ -16485,7 +16485,7 @@ rb_method_entry_alloc.exit:                       ; preds = %8, %16
   %28 = or disjoint i64 %26, %27
   store i64 %28, ptr %22, align 8
   %29 = load i64, ptr %11, align 8
-  %30 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #48
+  %30 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #49
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, -16
   %33 = or disjoint i8 %32, 11
@@ -16586,7 +16586,7 @@ vm_ci_argc.exit:                                  ; preds = %.thread, %18
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load i64, ptr %43, align 8
-  %45 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #48
+  %45 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #49
   %46 = load i8, ptr %45, align 8
   %47 = and i8 %46, -16
   store i8 %47, ptr %45, align 8
@@ -16937,7 +16937,7 @@ RSTRING_PTR.exit:                                 ; preds = %101, %107
 
 120:                                              ; preds = %.thread173
   %121 = call ptr @rb_obj_info(i64 noundef %2) #20
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.205, ptr noundef %121) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.205, ptr noundef %121) #47
   unreachable
 
 rb_method_entry_create.exit:                      ; preds = %.thread173, %119
@@ -16968,7 +16968,7 @@ rb_method_entry_create.exit:                      ; preds = %.thread173, %119
   br i1 %140, label %141, label %152
 
 141:                                              ; preds = %rb_method_entry_create.exit
-  %142 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #48
+  %142 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #49
   %143 = trunc i32 %4 to i8
   %144 = load i8, ptr %142, align 8
   %145 = and i8 %143, 15
@@ -17002,7 +17002,7 @@ rb_method_entry_create.exit:                      ; preds = %.thread173, %119
 
 156:                                              ; preds = %155, %155, %155, %155
   %157 = call ptr @rb_id2name(i64 noundef %1) #20
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.208, ptr noundef %157) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.208, ptr noundef %157) #51
   br label %158
 
 158:                                              ; preds = %155, %156, %152
@@ -17037,7 +17037,7 @@ rb_method_entry_create.exit:                      ; preds = %.thread173, %119
 
 search_method.exit:                               ; preds = %.lr.ph.split.i.i
   %170 = call ptr @rb_id2name(i64 noundef %1) #20
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.209, ptr noundef %170) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.209, ptr noundef %170) #51
   br label %search_method.exit.thread
 
 search_method.exit.thread:                        ; preds = %167, %search_method.exit, %158
@@ -17201,7 +17201,7 @@ define dso_local void @rb_define_alloc_func(i64 noundef %0, ptr noundef %1) loca
   br i1 %11, label %Check_Type.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %7, %2
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #46
+  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #47
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
@@ -17211,7 +17211,7 @@ Check_Type.exit:                                  ; preds = %7
 
 13:                                               ; preds = %Check_Type.exit
   %14 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.6) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.6) #34
   unreachable
 
 15:                                               ; preds = %Check_Type.exit
@@ -17236,7 +17236,7 @@ define dso_local void @rb_undef_alloc_func(i64 noundef %0) local_unnamed_addr #2
   br i1 %10, label %Check_Type.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %6, %1
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #46
+  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #47
   unreachable
 
 Check_Type.exit.i:                                ; preds = %6
@@ -17246,7 +17246,7 @@ Check_Type.exit.i:                                ; preds = %6
 
 12:                                               ; preds = %Check_Type.exit.i
   %13 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.6) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %13, ptr noundef nonnull @.str.6) #34
   unreachable
 
 rb_define_alloc_func.exit:                        ; preds = %Check_Type.exit.i
@@ -17271,7 +17271,7 @@ define dso_local ptr @rb_get_alloc_func(i64 noundef %0) local_unnamed_addr #2 {
   br i1 %10, label %.lr.ph, label %.thread.i
 
 .thread.i:                                        ; preds = %6, %1
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #46
+  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 2) #47
   unreachable
 
 .lr.ph:                                           ; preds = %6, %Check_Type.exit
@@ -17578,7 +17578,7 @@ negative_cme.exit:                                ; preds = %72, %75
   br i1 %.not9.i, label %89, label %cache_callable_method_entry.exit
 
 89:                                               ; preds = %87
-  %90 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #49
+  %90 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #50
   store i32 0, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 4
   store i32 0, ptr %91, align 4
@@ -17742,7 +17742,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i.i:           ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i.i24, label %35, label %rb_vm_cref.exit
 
 35:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 rb_vm_cref.exit:                                  ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i
@@ -18410,7 +18410,7 @@ define internal fastcc void @remove_method(i64 noundef %0, i64 noundef %1) unnam
 
 9:                                                ; preds = %2, %2, %2
   %10 = tail call ptr @rb_id2name(i64 noundef %1) #20
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.210, ptr noundef %10) #50
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.210, ptr noundef %10) #51
   br label %11
 
 11:                                               ; preds = %2, %9
@@ -18461,7 +18461,7 @@ define internal fastcc void @remove_method(i64 noundef %0, i64 noundef %1) unnam
 
 35:                                               ; preds = %22, %31, %28, %25, %19, %16, %11
   %36 = call i64 @rb_id2sym(i64 noundef %1) #20
-  call fastcc void @rb_name_err_raise(i64 noundef %8, i64 noundef %36) #47
+  call fastcc void @rb_name_err_raise(i64 noundef %8, i64 noundef %36) #48
   unreachable
 
 37:                                               ; preds = %22, %31
@@ -18774,7 +18774,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i.i.i:         ; preds = %.lr.ph.i.i.i.i, %1
   br i1 %.not.i.i.i.i, label %14, label %vm_cref_set_visibility.exit
 
 14:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_cref_set_visibility.exit:                      ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i.i
@@ -18957,7 +18957,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
   br i1 %.not.i16, label %59, label %vm_get_cref.exit
 
 59:                                               ; preds = %.loopexit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit:                                 ; preds = %.loopexit
@@ -19143,7 +19143,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i, %.loope
   br i1 %.not.i.i, label %58, label %vm_ec_cref.exit
 
 58:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_ec_cref.exit:                                  ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i
@@ -19285,7 +19285,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i, %.loope
   br i1 %.not.i.i, label %58, label %vm_ec_cref.exit
 
 58:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_ec_cref.exit:                                  ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i
@@ -19321,7 +19321,7 @@ define dso_local void @rb_undef(i64 noundef %0, i64 noundef %1) local_unnamed_ad
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.9) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.9) #34
   unreachable
 
 9:                                                ; preds = %2
@@ -19334,7 +19334,7 @@ define dso_local void @rb_undef(i64 noundef %0, i64 noundef %1) local_unnamed_ad
 
 10:                                               ; preds = %9, %9, %9
   %11 = tail call ptr @rb_id2name(i64 noundef %1) #20
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.10, ptr noundef %11) #50
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.10, ptr noundef %11) #51
   br label %12
 
 12:                                               ; preds = %9, %10
@@ -19466,7 +19466,7 @@ resolve_refined_method.exit.thread59:             ; preds = %.lr.ph.split.us.spl
 
 resolve_refined_method.exit.thread:               ; preds = %18, %33, %._crit_edge.i.i.i41.us.us.i, %53, %47, %12, %resolve_refined_method.exit.thread59, %66, %63, %60, %resolve_refined_method.exit
   %70 = call i64 @rb_id2str(i64 noundef %1) #20
-  call void @rb_method_name_error(i64 noundef %0, i64 noundef %70) #33
+  call void @rb_method_name_error(i64 noundef %0, i64 noundef %70) #34
   unreachable
 
 71:                                               ; preds = %resolve_refined_method.exit.thread59, %66
@@ -19594,7 +19594,7 @@ vm_call0_cc.exit:                                 ; preds = %20, %28
   store i8 0, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 0, ptr %47, align 8
-  %48 = call fastcc i64 @vm_call0_body(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %.0.i4) #53
+  %48 = call fastcc i64 @vm_call0_body(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %.0.i4) #54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -19785,7 +19785,7 @@ original_method_definition.exit40:                ; preds = %.lr.ph.i31, %13, %.
 
 79:                                               ; preds = %28
   %80 = zext nneg i8 %25 to i32
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11, i32 noundef %80) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11, i32 noundef %80) #47
   unreachable
 
 81:                                               ; preds = %67, %73, %28, %28, %28, %35, %41, %23, %20, %original_method_definition.exit40, %61, %53, %47, %29
@@ -19803,7 +19803,7 @@ define hidden i64 @rb_hash_method_entry(i64 noundef %0, ptr nocapture noundef re
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 15
   %7 = zext nneg i8 %6 to i64
-  %8 = tail call i64 @rb_st_hash_uint(i64 noundef %0, i64 noundef %7) #54
+  %8 = tail call i64 @rb_st_hash_uint(i64 noundef %0, i64 noundef %7) #55
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.backedge.i.i, %2
@@ -19847,24 +19847,24 @@ define hidden i64 @rb_hash_method_entry(i64 noundef %0, ptr nocapture noundef re
   %18 = getelementptr inbounds i8, ptr %.09.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
-  %21 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %20) #54
+  %21 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %20) #55
   br label %rb_hash_method_definition.exit
 
 22:                                               ; preds = %.lr.ph.i.i
   %23 = getelementptr inbounds i8, ptr %.09.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
-  %26 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %25) #54
+  %26 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %25) #55
   %27 = getelementptr inbounds i8, ptr %.09.i.i, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
-  %30 = tail call i64 @rb_st_hash_uint(i64 noundef %26, i64 noundef %29) #54
+  %30 = tail call i64 @rb_st_hash_uint(i64 noundef %26, i64 noundef %29) #55
   br label %rb_hash_method_definition.exit
 
 31:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i
   %32 = getelementptr inbounds i8, ptr %.09.i.i, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %33) #54
+  %34 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %33) #55
   br label %rb_hash_method_definition.exit
 
 35:                                               ; preds = %.lr.ph.i.i
@@ -19876,7 +19876,7 @@ define hidden i64 @rb_hash_method_entry(i64 noundef %0, ptr nocapture noundef re
 39:                                               ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds i8, ptr %.09.i.i, i64 32
   %41 = load i64, ptr %40, align 8
-  %42 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %41) #54
+  %42 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %41) #55
   br label %rb_hash_method_definition.exit
 
 43:                                               ; preds = %.lr.ph.i.i
@@ -19884,15 +19884,15 @@ define hidden i64 @rb_hash_method_entry(i64 noundef %0, ptr nocapture noundef re
   %45 = getelementptr inbounds i8, ptr %.09.i.i, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
-  %48 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %47) #54
+  %48 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %47) #55
   %49 = load i32, ptr %44, align 8
   %50 = zext i32 %49 to i64
-  %51 = tail call i64 @rb_st_hash_uint(i64 noundef %48, i64 noundef %50) #54
+  %51 = tail call i64 @rb_st_hash_uint(i64 noundef %48, i64 noundef %50) #55
   br label %rb_hash_method_definition.exit
 
 .thread.i:                                        ; preds = %.lr.ph.i.i, %11
   %52 = zext nneg i8 %10 to i32
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.212, i32 noundef %52) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.212, i32 noundef %52) #47
   unreachable
 
 rb_hash_method_definition.exit:                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.backedge.i.i, %17, %22, %31, %35, %39, %43
@@ -19911,7 +19911,7 @@ define dso_local void @rb_alias(i64 noundef %0, i64 noundef %1, i64 noundef %2) 
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.12) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.12) #34
   unreachable
 
 11:                                               ; preds = %3
@@ -20100,7 +20100,7 @@ search_method.exit98:                             ; preds = %.lr.ph.split.i.i89
 .critedge:                                        ; preds = %70, %87, %search_method.exit98, %resolve_refined_method.exit.thread, %95, %81, %11
   %.072127 = phi i64 [ %2, %11 ], [ %.072129, %81 ], [ %.072129, %70 ], [ %.072129, %87 ], [ %.072129, %search_method.exit98 ], [ %.072129, %resolve_refined_method.exit.thread ], [ %100, %95 ]
   %.071123 = phi i64 [ 0, %11 ], [ %.071130, %81 ], [ %.071130, %70 ], [ %.071130, %87 ], [ %.071130, %search_method.exit98 ], [ %.071130, %resolve_refined_method.exit.thread ], [ 0, %95 ]
-  call void @rb_print_undef(i64 noundef %.071123, i64 noundef %.072127, i32 noundef 0) #33
+  call void @rb_print_undef(i64 noundef %.071123, i64 noundef %.072127, i32 noundef 0) #34
   unreachable
 
 91:                                               ; preds = %resolve_refined_method.exit.thread166, %87, %65
@@ -20426,7 +20426,7 @@ callable_method_entry.exit:                       ; preds = %16
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %29, ptr noundef nonnull @.str.213, i32 noundef %26) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %29, ptr noundef nonnull @.str.213, i32 noundef %26) #34
   unreachable
 
 30:                                               ; preds = %25
@@ -20479,7 +20479,7 @@ RB_FL_TEST.exit:                                  ; preds = %42
   %55 = phi i64 [ %1, %42 ], [ %spec.select, %RB_FL_TEST.exit ]
   %56 = phi i32 [ 35, %42 ], [ %spec.select49, %RB_FL_TEST.exit ]
   %57 = call i64 @rb_id_quote_unprintable(i64 noundef %3) #20
-  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.214, i64 noundef %55, i32 noundef %56, i64 noundef %57) #50
+  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.214, i64 noundef %55, i32 noundef %56, i64 noundef %57) #51
   %58 = icmp eq i64 %43, 4
   br i1 %58, label %79, label %59
 
@@ -21131,7 +21131,7 @@ basic_obj_respond_to_missing.exit:                ; preds = %callable_method_ent
   store i8 0, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 0, ptr %62, align 8
-  %63 = call fastcc i64 @vm_call0_body(ptr noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %9) #53
+  %63 = call fastcc i64 @vm_call0_body(ptr noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %9) #54
   %.fr = freeze i64 %63
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -21187,7 +21187,7 @@ define internal noundef i64 @rb_mod_remove_method(i32 noundef %0, ptr nocapture 
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %4, align 8
-  call fastcc void @rb_name_err_raise(i64 noundef %2, i64 noundef %10) #47
+  call fastcc void @rb_name_err_raise(i64 noundef %2, i64 noundef %10) #48
   unreachable
 
 11:                                               ; preds = %.lr.ph
@@ -21221,7 +21221,7 @@ define internal noundef i64 @rb_mod_undef_method(i32 noundef %0, ptr nocapture n
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %4, align 8
-  call void @rb_method_name_error(i64 noundef %2, i64 noundef %10) #33
+  call void @rb_method_name_error(i64 noundef %2, i64 noundef %10) #34
   unreachable
 
 11:                                               ; preds = %.lr.ph
@@ -21244,7 +21244,7 @@ define internal i64 @rb_mod_alias_method(i64 noundef %0, i64 noundef %1, i64 nou
 
 6:                                                ; preds = %3
   %7 = load i64, ptr %4, align 8
-  call void @rb_print_undef_str(i64 noundef %0, i64 noundef %7) #33
+  call void @rb_print_undef_str(i64 noundef %0, i64 noundef %7) #34
   unreachable
 
 8:                                                ; preds = %3
@@ -21293,7 +21293,7 @@ define internal i64 @rb_mod_modfunc(i32 noundef %0, ptr noundef %1, i64 noundef 
 
 .critedge:                                        ; preds = %3, %10
   %15 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.219) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.219) #34
   unreachable
 
 16:                                               ; preds = %10
@@ -21325,7 +21325,7 @@ define internal i64 @rb_mod_modfunc(i32 noundef %0, ptr noundef %1, i64 noundef 
 32:                                               ; preds = %27
   %33 = tail call i64 @rb_frame_this_func() #20
   %34 = tail call ptr @rb_id2name(i64 noundef %33) #20
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.217, ptr noundef %34) #50
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.217, ptr noundef %34) #51
   %.pre.i = load ptr, ptr %19, align 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %.pre1.i = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -21366,7 +21366,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %.not.i.i.i.i.i, label %45, label %rb_scope_module_func_set.exit
 
 45:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 rb_scope_module_func_set.exit:                    ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i
@@ -21460,7 +21460,7 @@ search_method.exit71.thread75:                    ; preds = %.lr.ph.split.i.i, %
   ]
 
 search_method.exit71.thread:                      ; preds = %search_method.exit.thread, %75, %search_method.exit71.thread75, %70
-  call void @rb_print_undef(i64 noundef %2, i64 noundef %54, i32 noundef 0) #33
+  call void @rb_print_undef(i64 noundef %2, i64 noundef %54, i32 noundef 0) #34
   unreachable
 
 78:                                               ; preds = %75
@@ -21507,7 +21507,7 @@ define internal noundef i64 @rb_mod_ruby2_keywords(i32 noundef %0, ptr nocapture
   br i1 %10, label %.split.i, label %rb_check_arity.exit
 
 .split.i:                                         ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef -1) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef -1) #48
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -21532,7 +21532,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %21
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %15, %rb_check_arity.exit
-  tail call void @rb_error_frozen_object(i64 noundef %2) #33
+  tail call void @rb_error_frozen_object(i64 noundef %2) #34
   unreachable
 
 21:                                               ; preds = %.lr.ph, %rb_check_frozen_inline.exit
@@ -21546,7 +21546,7 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %15, %rb_check_arity
 
 25:                                               ; preds = %21
   %26 = load i64, ptr %6, align 8
-  call void @rb_print_undef_str(i64 noundef %2, i64 noundef %26) #33
+  call void @rb_print_undef_str(i64 noundef %2, i64 noundef %26) #34
   unreachable
 
 27:                                               ; preds = %21
@@ -21637,7 +21637,7 @@ search_method.exit.thread:                        ; preds = %33, %27
   br i1 %62, label %.critedge.thread, label %63
 
 .critedge.thread:                                 ; preds = %search_method.exit.thread, %50, %59, %56, %53, %.critedge.thread116, %45
-  call void @rb_print_undef(i64 noundef %2, i64 noundef %24, i32 noundef 0) #33
+  call void @rb_print_undef(i64 noundef %2, i64 noundef %24, i32 noundef 0) #34
   unreachable
 
 63:                                               ; preds = %50, %59
@@ -21671,7 +21671,7 @@ search_method.exit.thread:                        ; preds = %33, %27
 
 77:                                               ; preds = %67
   %78 = call ptr @rb_id2name(i64 noundef %24) #20
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.220, ptr noundef %78) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.220, ptr noundef %78) #51
   br label %rb_check_frozen_inline.exit
 
 79:                                               ; preds = %66
@@ -21763,17 +21763,17 @@ vm_block_handler_type.exit108:                    ; preds = %vm_proc_to_block_ha
 
 120:                                              ; preds = %vm_block_handler_type.exit108
   %121 = call ptr @rb_id2name(i64 noundef %24) #20
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.220, ptr noundef %121) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.220, ptr noundef %121) #51
   br label %rb_check_frozen_inline.exit
 
 vm_block_handler_type.exit108.thread:             ; preds = %vm_proc_to_block_handler.exit, %66
   %122 = call ptr @rb_id2name(i64 noundef %24) #20
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.221, ptr noundef %122) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.221, ptr noundef %122) #51
   br label %rb_check_frozen_inline.exit
 
 123:                                              ; preds = %63
   %124 = call ptr @rb_id2name(i64 noundef %24) #20
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.222, ptr noundef %124) #50
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.222, ptr noundef %124) #51
   br label %rb_check_frozen_inline.exit
 
 rb_check_frozen_inline.exit:                      ; preds = %123, %118, %120, %75, %77, %vm_block_handler_type.exit108.thread
@@ -22209,7 +22209,7 @@ rb_vm_frame_method_entry.exit.i:                  ; preds = %29, %52, %48, %47, 
   br i1 %.not.not.i, label %57, label %58
 
 57:                                               ; preds = %rb_vm_frame_method_entry.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.227) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.227) #47
   unreachable
 
 58:                                               ; preds = %rb_vm_frame_method_entry.exit.i
@@ -22286,7 +22286,7 @@ define dso_local i64 @rb_current_receiver() local_unnamed_addr #2 {
 
 6:                                                ; preds = %3, %0
   %7 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.29) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.29) #34
   unreachable
 
 8:                                                ; preds = %3
@@ -22318,7 +22318,7 @@ define hidden void @rb_check_stack_overflow() local_unnamed_addr #2 {
   %10 = load i8, ptr %4, align 8
   %11 = or i8 %10, 2
   store i8 %11, ptr %4, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %2, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %2, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %7, %3, %0
@@ -22417,7 +22417,7 @@ rb_class_of.exit.i:                               ; preds = %35, %33, %32, %31, 
   br i1 %.not.i34, label %38, label %39
 
 38:                                               ; preds = %rb_class_of.exit.i
-  tail call fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) #47
+  tail call fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) #48
   unreachable
 
 39:                                               ; preds = %rb_class_of.exit.i
@@ -22470,7 +22470,7 @@ rb_search_method_entry.exit:                      ; preds = %39, %41, %44
   %62 = load i8, ptr %56, align 8
   %63 = or i8 %62, 2
   store i8 %63, ptr %56, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %24, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %24, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %55, %59
@@ -22595,7 +22595,7 @@ rb_class_of.exit.i:                               ; preds = %37, %35, %34, %33, 
   br i1 %.not.i48, label %40, label %41
 
 40:                                               ; preds = %rb_class_of.exit.i
-  tail call fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) #47
+  tail call fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) #48
   unreachable
 
 41:                                               ; preds = %rb_class_of.exit.i
@@ -22649,7 +22649,7 @@ rb_search_method_entry.exit:                      ; preds = %41, %43, %46
   %65 = load i8, ptr %59, align 8
   %66 = or i8 %65, 2
   store i8 %66, ptr %59, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %25, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %25, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %58, %62
@@ -22824,12 +22824,12 @@ callable_method_entry.exit:                       ; preds = %62
   br i1 %76, label %77, label %rb_alloc_tmp_buffer2.exit
 
 77:                                               ; preds = %75
-  call void @ruby_malloc_size_overflow(i64 noundef %70, i64 noundef 8) #33
+  call void @ruby_malloc_size_overflow(i64 noundef %70, i64 noundef 8) #34
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %75
   %78 = shl nuw nsw i64 %70, 3
-  %79 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %17, i64 noundef %78, i64 noundef %70) #55
+  %79 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %17, i64 noundef %78, i64 noundef %70) #56
   br label %80
 
 80:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %72
@@ -22844,7 +22844,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %75
   br i1 %85, label %86, label %rbimpl_size_mul_or_raise.exit
 
 86:                                               ; preds = %80
-  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %84) #33
+  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %84) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %80
@@ -23085,7 +23085,7 @@ rb_array_len.exit.i:                              ; preds = %12, %9
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %16
 
 16:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #47
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -23135,7 +23135,7 @@ rb_array_const_ptr.exit:                          ; preds = %26, %28
   br i1 %41, label %42, label %rbimpl_size_mul_or_raise.exit
 
 42:                                               ; preds = %40
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.0.i.i) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.0.i.i) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %40
@@ -23196,7 +23196,7 @@ rb_array_len.exit:                                ; preds = %5, %8
   br i1 %.not.i1, label %rb_long2int_inline.exit, label %12
 
 12:                                               ; preds = %rb_array_len.exit
-  tail call void @rb_out_of_int(i64 noundef %.0.i) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i) #47
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %rb_array_len.exit
@@ -23551,7 +23551,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %13, label %14, label %rb_yield_0.exit
 
 14:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -23597,7 +23597,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %15, label %16, label %rb_yield_0.exit
 
 16:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -23626,7 +23626,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i5:                ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %24, label %25, label %rb_yield_0.exit13
 
 25:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i5
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit13:                                ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i5
@@ -23675,7 +23675,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %15, label %16, label %rb_yield_0.exit
 
 16:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -23688,7 +23688,7 @@ rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER
   br i1 %20, label %21, label %.lr.ph
 
 21:                                               ; preds = %18
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %19) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %19) #34
   unreachable
 
 .lr.ph:                                           ; preds = %18
@@ -23765,7 +23765,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i16:               ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %53, label %54, label %rb_yield_0.exit24
 
 54:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i16
-  call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit24:                                ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i16
@@ -23809,7 +23809,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %13, label %14, label %rb_yield_0.exit
 
 14:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -23849,7 +23849,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %14, label %15, label %rb_yield_0_kw.exit
 
 15:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0_kw.exit:                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -23868,7 +23868,7 @@ define dso_local i64 @rb_yield_splat(i64 noundef %0) local_unnamed_addr #2 {
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.58) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.58) #34
   unreachable
 
 8:                                                ; preds = %1
@@ -23893,7 +23893,7 @@ rb_array_len.exit.i.thread:                       ; preds = %8
   br label %rb_array_const_ptr.exit
 
 19:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %13) #46
+  tail call void @rb_out_of_int(i64 noundef %13) #47
   unreachable
 
 20:                                               ; preds = %rb_array_len.exit.i
@@ -23935,7 +23935,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %35, label %36, label %rb_yield_0.exit
 
 36:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -23960,7 +23960,7 @@ define dso_local i64 @rb_yield_splat_kw(i64 noundef %0, i32 noundef %1) local_un
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.58) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.58) #34
   unreachable
 
 9:                                                ; preds = %2
@@ -23985,7 +23985,7 @@ rb_array_len.exit.i.thread:                       ; preds = %9
   br label %rb_array_const_ptr.exit
 
 20:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %14) #46
+  tail call void @rb_out_of_int(i64 noundef %14) #47
   unreachable
 
 21:                                               ; preds = %rb_array_len.exit.i
@@ -24027,7 +24027,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %36, label %37, label %rb_yield_0_kw.exit
 
 37:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0_kw.exit:                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -24074,7 +24074,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %13, label %14, label %vm_yield_force_blockarg.exit
 
 14:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 vm_yield_force_blockarg.exit:                     ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
@@ -24116,7 +24116,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %17, label %18, label %vm_yield_with_block.exit
 
 18:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 vm_yield_with_block.exit:                         ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
@@ -24238,7 +24238,7 @@ define hidden i64 @rb_lambda_call(i64 noundef %0, i64 noundef %1, i32 noundef %2
 
 10:                                               ; preds = %8
   %11 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.59) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.59) #34
   unreachable
 
 12:                                               ; preds = %8
@@ -24620,7 +24620,7 @@ rb_num2int_inline.exit:                           ; preds = %16, %18
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %30, i64 120
   %35 = load i64, ptr %34, align 8
-  call void @rb_exc_raise(i64 noundef %35) #33
+  call void @rb_exc_raise(i64 noundef %35) #34
   unreachable
 
 tailrecurse.i.i.i:                                ; preds = %28, %39
@@ -24707,7 +24707,7 @@ vm_block_ep.exit.i.i:                             ; preds = %tailrecurse.i9.i.i,
   br i1 %74, label %.lr.ph.i.i.i, label %vm_set_eval_stack.exit.i
 
 75:                                               ; preds = %vm_block_ep.exit.i.i
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
@@ -24843,7 +24843,7 @@ define internal fastcc i64 @eval_string_with_cref(i64 noundef %0, i64 noundef %1
 
 .loopexit:                                        ; preds = %15, %5
   %17 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.228) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.228) #34
   unreachable
 
 rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
@@ -24863,7 +24863,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
 24:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
   %25 = getelementptr inbounds i8, ptr %8, i64 120
   %26 = load i64, ptr %25, align 8
-  tail call void @rb_exc_raise(i64 noundef %26) #33
+  tail call void @rb_exc_raise(i64 noundef %26) #34
   unreachable
 
 27:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
@@ -24880,7 +24880,7 @@ vm_block_ep.exit:                                 ; preds = %27
   br i1 %.not.i, label %33, label %vm_get_cref.exit
 
 33:                                               ; preds = %vm_block_ep.exit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit:                                 ; preds = %vm_block_ep.exit
@@ -24916,7 +24916,7 @@ vm_block_ep.exit.i:                               ; preds = %vm_get_cref.exit, %
   br i1 %54, label %.lr.ph.i.i, label %vm_set_eval_stack.exit
 
 55:                                               ; preds = %vm_block_ep.exit.i
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -25014,7 +25014,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @rbimpl_str_new_cstr(ptr noundef nonnull %0) unnamed_addr #2 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #45
+  %2 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #46
   %3 = tail call i64 @rb_str_new_static(ptr noundef nonnull %0, i64 noundef %2) #20
   ret i64 %3
 }
@@ -25402,7 +25402,7 @@ rb_array_len.exit.i.thread:                       ; preds = %.critedge
   br label %rb_array_const_ptr.exit
 
 70:                                               ; preds = %rb_array_len.exit.i
-  call void @rb_out_of_int(i64 noundef %64) #46
+  call void @rb_out_of_int(i64 noundef %64) #47
   unreachable
 
 71:                                               ; preds = %rb_array_len.exit.i
@@ -25500,7 +25500,7 @@ VM_CF_BLOCK_HANDLER.exit:                         ; preds = %.lr.ph.i.i.i, %2
   br i1 %cond, label %vm_block_handler_type.exit, label %RB_SYMBOL_P.exit.thread.i
 
 RB_SYMBOL_P.exit.thread.i:                        ; preds = %VM_CF_BLOCK_HANDLER.exit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.62) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.62) #47
   unreachable
 
 vm_block_handler_type.exit:                       ; preds = %VM_CF_BLOCK_HANDLER.exit
@@ -25646,7 +25646,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %67, label %68, label %vm_yield_with_cref.exit
 
 68:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
-  call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 vm_yield_with_cref.exit:                          ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
@@ -25676,7 +25676,7 @@ define internal fastcc i64 @specific_eval(i32 noundef %0, ptr nocapture noundef 
   br i1 %12, label %.split.i, label %13
 
 .split.i:                                         ; preds = %11
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 13:                                               ; preds = %11
@@ -25684,7 +25684,7 @@ define internal fastcc i64 @specific_eval(i32 noundef %0, ptr nocapture noundef 
   br i1 %.not22, label %rb_check_arity.exit, label %.split9.i
 
 .split9.i:                                        ; preds = %13
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 rb_check_arity.exit:                              ; preds = %13
@@ -25697,7 +25697,7 @@ rb_check_arity.exit:                              ; preds = %13
   br i1 %16, label %.split.i13, label %17
 
 .split.i13:                                       ; preds = %15
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 3) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 3) #48
   unreachable
 
 17:                                               ; preds = %15
@@ -25705,7 +25705,7 @@ rb_check_arity.exit:                              ; preds = %13
   br i1 %18, label %.split9.i12, label %rb_check_arity.exit14
 
 .split9.i12:                                      ; preds = %17
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 3) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 3) #48
   unreachable
 
 rb_check_arity.exit14:                            ; preds = %17
@@ -26122,7 +26122,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %94, label %95, label %vm_yield_with_cref.exit
 
 95:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
-  call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 vm_yield_with_cref.exit:                          ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
@@ -26177,7 +26177,7 @@ define dso_local void @rb_throw_obj(i64 noundef %0, i64 noundef %1) local_unname
   store i64 %12, ptr %13, align 16
   %14 = load i64, ptr @rb_eUncaughtThrow, align 8
   %15 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %3, i64 noundef %14) #20
-  call void @rb_exc_raise(i64 noundef %15) #33
+  call void @rb_exc_raise(i64 noundef %15) #34
   unreachable
 
 16:                                               ; preds = %.lr.ph
@@ -26214,7 +26214,7 @@ define internal fastcc ptr @THROW_DATA_NEW(i64 noundef %0, ptr noundef %1, i32 n
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local void @rb_throw(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = tail call i64 @rb_sym_intern_ascii_cstr(ptr noundef %0) #20
-  tail call void @rb_throw_obj(i64 noundef %3, i64 noundef %1) #47
+  tail call void @rb_throw_obj(i64 noundef %3, i64 noundef %1) #48
   unreachable
 }
 
@@ -26737,7 +26737,7 @@ vm_get_ruby_level_caller_cfp.exit:                ; preds = %12, %1
   br i1 %.not.i19, label %local_var_list_add.exit, label %36
 
 36:                                               ; preds = %.lr.ph
-  %37 = tail call i32 @rb_is_local_id(i64 noundef %35) #54
+  %37 = tail call i32 @rb_is_local_id(i64 noundef %35) #55
   %.not4.i = icmp eq i32 %37, 0
   br i1 %.not4.i, label %local_var_list_add.exit, label %38
 
@@ -26816,7 +26816,7 @@ local_var_list_add.exit:                          ; preds = %.lr.ph, %36, %38
   br i1 %.not.i.i.i, label %local_var_list_add.exit.i.i, label %74
 
 74:                                               ; preds = %.lr.ph.i.i
-  %75 = tail call i32 @rb_is_local_id(i64 noundef %73) #54
+  %75 = tail call i32 @rb_is_local_id(i64 noundef %73) #55
   %.not4.i.i.i = icmp eq i32 %75, 0
   br i1 %.not4.i.i.i, label %local_var_list_add.exit.i.i, label %76
 
@@ -27034,7 +27034,7 @@ define internal i64 @rb_f_catch(i32 noundef %0, ptr nocapture noundef readonly %
   br i1 %5, label %.split.i, label %6
 
 .split.i:                                         ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #48
   unreachable
 
 6:                                                ; preds = %3
@@ -27042,7 +27042,7 @@ define internal i64 @rb_f_catch(i32 noundef %0, ptr nocapture noundef readonly %
   br i1 %7, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %6
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #48
   unreachable
 
 rb_check_arity.exit:                              ; preds = %6
@@ -27090,7 +27090,7 @@ define internal noundef i64 @rb_f_throw(i32 noundef %0, ptr noundef %1, i64 %2) 
   %6 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.216, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
   %7 = load i64, ptr %4, align 8
   %8 = load i64, ptr %5, align 8
-  call void @rb_throw_obj(i64 noundef %7, i64 noundef %8) #47
+  call void @rb_throw_obj(i64 noundef %7, i64 noundef %8) #48
   unreachable
 }
 
@@ -27115,7 +27115,7 @@ define internal noundef i64 @rb_method_missing(i32 noundef %0, ptr noundef %1, i
   %6 = getelementptr inbounds i8, ptr %5, i64 137
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  tail call fastcc void @raise_method_missing(ptr noundef %5, i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %8) #47
+  tail call fastcc void @raise_method_missing(ptr noundef %5, i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %8) #48
   unreachable
 }
 
@@ -27150,7 +27150,7 @@ define internal noundef i64 @uncaught_throw_init(i32 noundef %0, ptr noundef %1,
   br i1 %4, label %.split.i, label %rb_check_arity.exit
 
 .split.i:                                         ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef -1) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef -1) #48
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
@@ -27615,8 +27615,8 @@ RSTRING_PTR.exit:                                 ; preds = %rb_vm_get_ruby_leve
 
 declare ptr @rb_string_value_ptr(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_vm_get_binding_creatable_next_cfp(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
+define hidden ptr @rb_vm_get_binding_creatable_next_cfp(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #27 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 8
   %.val8 = load i64, ptr %3, align 8
@@ -27866,7 +27866,7 @@ rb_vm_pop_frame.exit:                             ; preds = %12, %15
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ruby_vm_at_exit(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %3 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #49
+  %3 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #50
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 1312
   %5 = load ptr, ptr %4, align 8
@@ -27877,7 +27877,7 @@ define dso_local void @ruby_vm_at_exit(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #27
+declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_vm_stack_to_heap(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
@@ -27986,7 +27986,7 @@ define hidden i64 @rb_vm_env_local_variables(ptr nocapture noundef readonly %0) 
   br i1 %.not.i.i.i, label %local_var_list_add.exit.i.i, label %21
 
 21:                                               ; preds = %.lr.ph.i.i
-  %22 = tail call i32 @rb_is_local_id(i64 noundef %20) #54
+  %22 = tail call i32 @rb_is_local_id(i64 noundef %20) #55
   %.not4.i.i.i = icmp eq i32 %22, 0
   br i1 %.not4.i.i.i, label %local_var_list_add.exit.i.i, label %23
 
@@ -28063,7 +28063,7 @@ define dso_local i64 @rb_iseq_local_variables(ptr noundef readonly %0) local_unn
   br i1 %.not.i.i, label %local_var_list_add.exit.i, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i32 @rb_is_local_id(i64 noundef %13) #54
+  %15 = tail call i32 @rb_is_local_id(i64 noundef %13) #55
   %.not4.i.i = icmp eq i32 %15, 0
   br i1 %.not4.i.i, label %local_var_list_add.exit.i, label %16
 
@@ -28263,7 +28263,7 @@ vm_proc_iseq.exit:                                ; preds = %tailrecurse.i.i
 
 14:                                               ; preds = %8
   %15 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.85) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.85) #34
   unreachable
 
 16:                                               ; preds = %8
@@ -28403,7 +28403,7 @@ NUM2ID.exit:                                      ; preds = %28, %30
   %47 = call i64 @rb_str_cat_cstr(i64 noundef %10, ptr noundef nonnull %46) #20
   %48 = load i64, ptr @rb_eArgError, align 8
   %49 = call i64 @rb_exc_new_str(i64 noundef %48, i64 noundef %10) #20
-  call void @rb_exc_raise(i64 noundef %49) #33
+  call void @rb_exc_raise(i64 noundef %49) #34
   unreachable
 
 50:                                               ; preds = %3
@@ -28413,7 +28413,7 @@ NUM2ID.exit:                                      ; preds = %28, %30
 
 53:                                               ; preds = %50
   %54 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.237, ptr noundef %2) #33
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.237, ptr noundef %2) #34
   unreachable
 
 55:                                               ; preds = %50
@@ -28514,7 +28514,7 @@ vm_proc_iseq.exit:                                ; preds = %tailrecurse.i.i
 
 14:                                               ; preds = %8
   %15 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.85) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.85) #34
   unreachable
 
 vm_block_self.exit:                               ; preds = %8
@@ -28538,7 +28538,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %21
 
 26:                                               ; preds = %rb_ractor_shareable_p.exit
   %27 = load i64, ptr @rb_eRactorIsolationError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.87, i64 noundef %0) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.87, i64 noundef %0) #34
   unreachable
 
 rb_ractor_shareable_p.exit.thread:                ; preds = %21, %vm_block_self.exit, %rb_ractor_shareable_p.exit
@@ -28757,7 +28757,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i33
 
 rb_vm_get_ruby_level_next_cfp.exit.thread:        ; preds = %11, %2, %rb_vm_get_ruby_level_next_cfp.exit
   %14 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.89) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.89) #34
   unreachable
 
 15:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
@@ -28778,7 +28778,7 @@ rb_vm_get_ruby_level_next_cfp.exit.thread:        ; preds = %11, %2, %rb_vm_get_
 
 21:                                               ; preds = %18
   %22 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.90) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.90) #34
   unreachable
 
 23:                                               ; preds = %18, %15
@@ -28988,7 +28988,7 @@ vm_block_iseq.exit:                               ; preds = %tailrecurse.i, %tai
   br i1 %46, label %rbimpl_size_mul_or_raise.exit, label %rbimpl_size_mul_or_raise.exit.thread
 
 rbimpl_size_mul_or_raise.exit.thread:             ; preds = %vm_block_iseq.exit
-  %47 = call noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef nonnull %7, i64 noundef %45) #56
+  %47 = call noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef nonnull %7, i64 noundef %45) #57
   store i32 %2, ptr %47, align 8
   br label %49
 
@@ -29122,7 +29122,7 @@ vm_block_ep.exit.i:                               ; preds = %tailrecurse.i9.i, %
   br i1 %105, label %.lr.ph.i.i, label %vm_set_eval_stack.exit
 
 106:                                              ; preds = %vm_block_ep.exit.i
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -29218,7 +29218,7 @@ rb_vm_pop_frame.exit:                             ; preds = %vm_bind_update_env.
 }
 
 ; Function Attrs: allocsize(1)
-declare noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef, i64 noundef) local_unnamed_addr #28
+declare noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef, i64 noundef) local_unnamed_addr #29
 
 declare void @rb_node_init(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -29273,7 +29273,7 @@ define hidden i64 @rb_vm_invoke_bmethod(ptr noundef %0, ptr nocapture noundef re
   %29 = load i8, ptr %23, align 8
   %30 = or i8 %29, 2
   store i8 %30, ptr %23, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %14, %26
@@ -29313,7 +29313,7 @@ vm_argv_ruby_array.exit:                          ; preds = %36, %38
   br i1 %.not117, label %47, label %46
 
 46:                                               ; preds = %41
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 47:                                               ; preds = %41
@@ -29333,7 +29333,7 @@ vm_argv_ruby_array.exit:                          ; preds = %36, %38
   br i1 %52, label %53, label %rbimpl_size_mul_or_raise.exit
 
 53:                                               ; preds = %50
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %43) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %43) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %50
@@ -29412,7 +29412,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br i1 %98, label %.lr.ph.i, label %vm_push_frame.exit
 
 99:                                               ; preds = %77
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -29478,7 +29478,7 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i, %.prehead
   br i1 %129, label %.lr.ph.i132, label %vm_push_frame.exit136
 
 130:                                              ; preds = %106
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i132:                                      ; preds = %.preheader.i125, %.lr.ph.i132
@@ -29755,7 +29755,7 @@ define internal fastcc i64 @vm_invoke_proc(ptr noundef %0, ptr nocapture noundef
   %32 = load i8, ptr %26, align 8
   %33 = or i8 %32, 2
   store i8 %33, ptr %26, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %18, %29
@@ -29800,7 +29800,7 @@ rbimpl_size_mul_or_raise.exit.thread:             ; preds = %.thread
   br label %57
 
 52:                                               ; preds = %.thread, %43
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 53:                                               ; preds = %43
@@ -29810,7 +29810,7 @@ rbimpl_size_mul_or_raise.exit.thread:             ; preds = %.thread
   br i1 %55, label %56, label %rbimpl_size_mul_or_raise.exit
 
 56:                                               ; preds = %53
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %45) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %45) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %53
@@ -29892,7 +29892,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br i1 %101, label %.lr.ph.i.i, label %invoke_block.exit
 
 102:                                              ; preds = %ruby_nonempty_memcpy.exit
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -30751,7 +30751,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i
   br i1 %.not.i.i, label %12, label %vm_ec_cref.exit
 
 12:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_ec_cref.exit:                                  ; preds = %9, %0, %rb_vm_get_ruby_level_next_cfp.exit.i
@@ -30930,7 +30930,7 @@ cref_replace_with_duplicated_cref_each_frame.exit.thread30.i: ; preds = %81
   br label %vm_cref_replace_with_duplicated_cref.exit
 
 86:                                               ; preds = %75, %75
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.244) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.244) #47
   unreachable
 
 cref_replace_with_duplicated_cref_each_frame.exit.i: ; preds = %81, %78
@@ -31046,15 +31046,15 @@ cref_replace_with_duplicated_cref_each_frame.exit.thread.i: ; preds = %cref_repl
   br label %vm_cref_replace_with_duplicated_cref.exit
 
 145:                                              ; preds = %134, %134
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.244) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.244) #47
   unreachable
 
 146:                                              ; preds = %109
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.244) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.244) #47
   unreachable
 
 .critedge.i.i.i.i:                                ; preds = %51, %44, %41, %35, %._crit_edge.i.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.243) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.243) #47
   unreachable
 
 vm_cref_replace_with_duplicated_cref.exit:        ; preds = %cref_replace_with_duplicated_cref_each_frame.exit.i, %cref_replace_with_duplicated_cref_each_frame.exit.thread30.i, %95, %103, %109, %112, %115, %120, %121, %128, %134, %137, %144
@@ -31065,7 +31065,7 @@ vm_cref_replace_with_duplicated_cref.exit:        ; preds = %cref_replace_with_d
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #29
+declare void @llvm.assume(i1 noundef) #30
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_vm_cbase() local_unnamed_addr #2 {
@@ -31096,7 +31096,7 @@ define hidden i64 @rb_vm_cbase() local_unnamed_addr #2 {
 
 .loopexit:                                        ; preds = %9, %0
   %11 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.92) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.92) #34
   unreachable
 
 rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
@@ -31105,7 +31105,7 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
   br i1 %.not.i.i, label %13, label %vm_get_cref.exit.i
 
 13:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit.i:                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
@@ -31128,7 +31128,7 @@ vm_get_cbase.exit:                                ; preds = %vm_get_cref.exit.i,
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define hidden void @rb_vm_localjump_error(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = tail call fastcc i64 @make_localjump_error(ptr noundef %0, i64 noundef %1, i32 noundef %2)
-  tail call void @rb_exc_raise(i64 noundef %4) #33
+  tail call void @rb_exc_raise(i64 noundef %4) #34
   unreachable
 }
 
@@ -31299,7 +31299,7 @@ rb_vm_make_jump_tag_but_local_jump.exit:          ; preds = %1, %4, %5
   br i1 %13, label %rb_vm_make_jump_tag_but_local_jump.exit.thread, label %14
 
 14:                                               ; preds = %rb_vm_make_jump_tag_but_local_jump.exit
-  tail call void @rb_exc_raise(i64 noundef %12) #33
+  tail call void @rb_exc_raise(i64 noundef %12) #34
   unreachable
 
 rb_vm_make_jump_tag_but_local_jump.exit.thread:   ; preds = %1, %rb_vm_make_jump_tag_but_local_jump.exit
@@ -31319,7 +31319,7 @@ rb_vm_make_jump_tag_but_local_jump.exit.thread:   ; preds = %1, %rb_vm_make_jump
 define dso_local void @rb_iter_break() local_unnamed_addr #5 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
-  tail call fastcc void @vm_iter_break(ptr noundef %2, i64 noundef 4) #47
+  tail call fastcc void @vm_iter_break(ptr noundef %2, i64 noundef 4) #48
   unreachable
 }
 
@@ -31368,7 +31368,7 @@ next_not_local_frame.exit:                        ; preds = %5
   br i1 %22, label %.lr.ph.i, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %next_not_local_frame.exit, %13
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.94, i64 noundef %1, i32 noundef 2) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.94, i64 noundef %1, i32 noundef 2) #48
   unreachable
 
 rb_vm_search_cf_from_ep.exit:                     ; preds = %.lr.ph.i
@@ -31390,7 +31390,7 @@ rb_vm_search_cf_from_ep.exit:                     ; preds = %.lr.ph.i
 define dso_local void @rb_iter_break_value(i64 noundef %0) local_unnamed_addr #5 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8
-  tail call fastcc void @vm_iter_break(ptr noundef %3, i64 noundef %0) #47
+  tail call fastcc void @vm_iter_break(ptr noundef %3, i64 noundef %0) #48
   unreachable
 }
 
@@ -31548,7 +31548,7 @@ define dso_local i64 @rb_iseq_eval(ptr noundef %0) local_unnamed_addr #2 {
 
 7:                                                ; preds = %1
   %8 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.258) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.258) #34
   unreachable
 
 9:                                                ; preds = %1
@@ -31632,7 +31632,7 @@ vm_cref_new_toplevel.exit.i:                      ; preds = %34, %28, %9
   br i1 %53, label %.lr.ph.i.i, label %vm_set_top_stack.exit
 
 54:                                               ; preds = %vm_cref_new_toplevel.exit.i
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -31693,7 +31693,7 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %1
   br i1 %.not.i, label %10, label %tailrecurse.i.i.i
 
 10:                                               ; preds = %rbimpl_intern_const.exit.i
-  tail call void @rb_assert_failure(ptr noundef nonnull @.str, i32 noundef 769, ptr noundef nonnull @__func__.vm_set_main_stack, ptr noundef nonnull @.str.259) #46
+  tail call void @rb_assert_failure(ptr noundef nonnull @.str, i32 noundef 769, ptr noundef nonnull @__func__.vm_set_main_stack, ptr noundef nonnull @.str.259) #47
   unreachable
 
 tailrecurse.i.i.i:                                ; preds = %rbimpl_intern_const.exit.i, %14
@@ -31780,7 +31780,7 @@ vm_block_ep.exit.i.i:                             ; preds = %tailrecurse.i9.i.i,
   br i1 %49, label %.lr.ph.i.i.i, label %vm_set_eval_stack.exit.i
 
 50:                                               ; preds = %vm_block_ep.exit.i.i
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
@@ -32125,7 +32125,7 @@ vm_cref_new_toplevel.exit:                        ; preds = %5, %27, %33
   br i1 %.not.i12, label %vm_push_frame.exit, label %41
 
 41:                                               ; preds = %vm_cref_new_toplevel.exit
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %vm_cref_new_toplevel.exit
@@ -32870,7 +32870,7 @@ define internal void @thread_free(ptr noundef %0) #2 {
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %3 to ptr
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.260, ptr noundef nonnull %0, ptr noundef nonnull %5) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.260, ptr noundef nonnull %0, ptr noundef nonnull %5) #47
   unreachable
 
 6:                                                ; preds = %1
@@ -32880,7 +32880,7 @@ define internal void @thread_free(ptr noundef %0) #2 {
   br i1 %.not16, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.261, ptr noundef nonnull %0, ptr noundef nonnull %8) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.261, ptr noundef nonnull %0, ptr noundef nonnull %8) #47
   unreachable
 
 10:                                               ; preds = %6
@@ -32915,7 +32915,7 @@ define internal noundef i32 @free_loading_table_entry(i64 noundef %0, i64 %1, i6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #30
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #31
 
 declare void @rb_objspace_free_objects(ptr noundef) local_unnamed_addr #3
 
@@ -33513,7 +33513,7 @@ define hidden void @rb_ec_initialize_vm_stack(ptr nocapture noundef writeonly %0
   br i1 %.not.i, label %vm_push_frame.exit, label %9
 
 9:                                                ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -33592,7 +33592,7 @@ define internal fastcc void @th_init(ptr noundef %0, i64 noundef %1, ptr nocaptu
   %11 = lshr i64 %10, 3
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %11, i64 noundef 8) #48
+  %14 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %11, i64 noundef 8) #49
   store ptr %14, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %11, ptr %15, align 8
@@ -33605,7 +33605,7 @@ define internal fastcc void @th_init(ptr noundef %0, i64 noundef %1, ptr nocaptu
   br i1 %.not.i.i, label %rb_ec_initialize_vm_stack.exit, label %20
 
 20:                                               ; preds = %8
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 rb_ec_initialize_vm_stack.exit:                   ; preds = %8
@@ -33693,7 +33693,7 @@ define hidden void @Init_VM() local_unnamed_addr #2 {
   br i1 %12, label %Check_Type.exit.i.i, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %8, %0
-  tail call void @rb_unexpected_type(i64 noundef %3, i32 noundef 2) #46
+  tail call void @rb_unexpected_type(i64 noundef %3, i32 noundef 2) #47
   unreachable
 
 Check_Type.exit.i.i:                              ; preds = %8
@@ -33703,7 +33703,7 @@ Check_Type.exit.i.i:                              ; preds = %8
 
 14:                                               ; preds = %Check_Type.exit.i.i
   %15 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.6) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.6) #34
   unreachable
 
 rb_class_of.exit:                                 ; preds = %Check_Type.exit.i.i
@@ -33764,7 +33764,7 @@ rb_class_of.exit:                                 ; preds = %Check_Type.exit.i.i
   br i1 %41, label %Check_Type.exit.i.i52, label %.thread.i.i.i51
 
 .thread.i.i.i51:                                  ; preds = %37, %rb_class_of.exit
-  tail call void @rb_unexpected_type(i64 noundef %32, i32 noundef 2) #46
+  tail call void @rb_unexpected_type(i64 noundef %32, i32 noundef 2) #47
   unreachable
 
 Check_Type.exit.i.i52:                            ; preds = %37
@@ -33774,7 +33774,7 @@ Check_Type.exit.i.i52:                            ; preds = %37
 
 43:                                               ; preds = %Check_Type.exit.i.i52
   %44 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %44, ptr noundef nonnull @.str.6) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %44, ptr noundef nonnull @.str.6) #34
   unreachable
 
 rb_undef_alloc_func.exit54:                       ; preds = %Check_Type.exit.i.i52
@@ -34185,7 +34185,7 @@ define internal i64 @vm_stat(i32 noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %4, label %.split.i, label %5
 
 .split.i:                                         ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #48
   unreachable
 
 5:                                                ; preds = %3
@@ -34193,7 +34193,7 @@ define internal i64 @vm_stat(i32 noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %6, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %5
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #48
   unreachable
 
 rb_check_arity.exit:                              ; preds = %5
@@ -34229,7 +34229,7 @@ RB_SYMBOL_P.exit.thread65:                        ; preds = %RB_SYMBOL_P.exit
 
 .critedge:                                        ; preds = %12, %RB_SYMBOL_P.exit.thread65
   %25 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.262) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.262) #34
   unreachable
 
 26:                                               ; preds = %rb_check_arity.exit
@@ -34433,7 +34433,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %8, %RB_SYMBOL_P.exi
 142:                                              ; preds = %140
   %143 = load i64, ptr @rb_eArgError, align 8
   %144 = tail call i64 @rb_sym2str(i64 noundef %.0) #20
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %143, ptr noundef nonnull @.str.268, i64 noundef %144) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %143, ptr noundef nonnull @.str.268, i64 noundef %144) #34
   unreachable
 
 rb_ull2num_inline.exit:                           ; preds = %91, %88, %69, %66, %46, %43, %140, %125, %107
@@ -34571,7 +34571,7 @@ define internal i64 @m_core_hash_merge_ptr(i32 noundef %0, ptr noundef %1, i64 %
   br i1 %22, label %core_hash_merge.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18, %3
-  tail call void @rb_unexpected_type(i64 noundef %4, i32 noundef 8) #46
+  tail call void @rb_unexpected_type(i64 noundef %4, i32 noundef 8) #47
   unreachable
 
 core_hash_merge.exit:                             ; preds = %18
@@ -34619,7 +34619,7 @@ define internal noundef i64 @m_core_hash_merge_kwd(i64 %0, i64 noundef returned 
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @f_raise(i32 noundef %0, ptr noundef %1, i64 %2) #5 {
-  %4 = tail call i64 @rb_f_raise(i32 noundef %0, ptr noundef %1) #33
+  %4 = tail call i64 @rb_f_raise(i32 noundef %0, ptr noundef %1) #34
   unreachable
 }
 
@@ -34715,8 +34715,8 @@ define hidden void @Init_BareVM() local_unnamed_addr #2 {
 
 5:                                                ; preds = %0
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 34, i64 1, ptr %6) #52
-  tail call void @exit(i32 noundef 1) #33
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 34, i64 1, ptr %6) #53
+  tail call void @exit(i32 noundef 1) #34
   unreachable
 
 8:                                                ; preds = %0
@@ -34747,7 +34747,7 @@ define hidden void @Init_BareVM() local_unnamed_addr #2 {
   br i1 %.not.i.i.i, label %get_param.exit.i.i, label %20
 
 20:                                               ; preds = %8
-  %21 = tail call i64 @atol(ptr nocapture noundef nonnull %19) #45
+  %21 = tail call i64 @atol(ptr nocapture noundef nonnull %19) #46
   %spec.select.i.i.i = tail call i64 @llvm.smax.i64(i64 %21, i64 16384)
   %22 = add nuw i64 %spec.select.i.i.i, 4095
   %23 = sdiv i64 %22, 4096
@@ -34763,7 +34763,7 @@ get_param.exit.i.i:                               ; preds = %20, %8
   br i1 %.not.i6.i.i, label %get_param.exit9.i.i, label %27
 
 27:                                               ; preds = %get_param.exit.i.i
-  %28 = tail call i64 @atol(ptr nocapture noundef nonnull %26) #45
+  %28 = tail call i64 @atol(ptr nocapture noundef nonnull %26) #46
   %spec.select.i7.i.i = tail call i64 @llvm.smax.i64(i64 %28, i64 131072)
   %29 = add nuw i64 %spec.select.i7.i.i, 4095
   %30 = sdiv i64 %29, 4096
@@ -34779,7 +34779,7 @@ get_param.exit9.i.i:                              ; preds = %27, %get_param.exit
   br i1 %.not.i10.i.i, label %get_param.exit13.i.i, label %34
 
 34:                                               ; preds = %get_param.exit9.i.i
-  %35 = tail call i64 @atol(ptr nocapture noundef nonnull %33) #45
+  %35 = tail call i64 @atol(ptr nocapture noundef nonnull %33) #46
   %spec.select.i11.i.i = tail call i64 @llvm.smax.i64(i64 %35, i64 16384)
   %36 = add nuw i64 %spec.select.i11.i.i, 4095
   %37 = sdiv i64 %36, 4096
@@ -34795,7 +34795,7 @@ get_param.exit13.i.i:                             ; preds = %34, %get_param.exit
   br i1 %.not.i14.i.i, label %get_param.exit17.i.i, label %41
 
 41:                                               ; preds = %get_param.exit13.i.i
-  %42 = tail call i64 @atol(ptr nocapture noundef nonnull %40) #45
+  %42 = tail call i64 @atol(ptr nocapture noundef nonnull %40) #46
   %spec.select.i15.i.i = tail call i64 @llvm.smax.i64(i64 %42, i64 131072)
   %43 = add nuw i64 %spec.select.i15.i.i, 4095
   %44 = sdiv i64 %43, 4096
@@ -34843,7 +34843,7 @@ vm_init2.exit:                                    ; preds = %check_machine_stack
   %64 = tail call ptr @rb_id_table_create(i64 noundef 0) #20
   %65 = getelementptr inbounds i8, ptr %1, i64 1360
   store ptr %64, ptr %65, align 8
-  %66 = tail call noalias nonnull dereferenceable(120) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 120) #48
+  %66 = tail call noalias nonnull dereferenceable(120) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 120) #49
   %67 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %66, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %2, i64 32
@@ -34879,10 +34879,10 @@ vm_init2.exit:                                    ; preds = %check_machine_stack
 declare noalias ptr @ruby_mimmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #31
+declare void @exit(i32 noundef) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #32
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #33
 
 declare void @rb_vm_postponed_job_queue_init(ptr noundef) local_unnamed_addr #3
 
@@ -35042,7 +35042,7 @@ define hidden noundef nonnull ptr @rb_vm_empty_cc_for_super() local_unnamed_addr
 declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind
-declare void @llvm.eh.sjlj.longjmp(ptr) #33
+declare void @llvm.eh.sjlj.longjmp(ptr) #34
 
 declare i64 @rb_ec_backtrace_object(ptr noundef) local_unnamed_addr #3
 
@@ -35054,7 +35054,7 @@ declare i32 @rb_threadptr_execute_interrupts(ptr noundef, i32 noundef) local_unn
 define internal fastcc void @vm_stackoverflow() unnamed_addr #5 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
-  tail call fastcc void @ec_stack_overflow(ptr noundef %2) #47
+  tail call fastcc void @ec_stack_overflow(ptr noundef %2) #48
   unreachable
 }
 
@@ -35348,7 +35348,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %CREF_CLASS.exit30
 
 47:                                               ; preds = %.critedge
   %48 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %48, ptr noundef nonnull @.str.131) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %48, ptr noundef nonnull @.str.131) #34
   unreachable
 
 .thread6:                                         ; preds = %39, %RB_FL_TEST.exit.thread, %.critedge..thread6_crit_edge
@@ -35403,7 +35403,7 @@ CREF_CLASS.exit37:                                ; preds = %.thread6, %56, %59,
 
 68:                                               ; preds = %CREF_CLASS.exit37
   %69 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %69, ptr noundef nonnull @.str.132) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %69, ptr noundef nonnull @.str.132) #34
   unreachable
 
 70:                                               ; preds = %CREF_CLASS.exit37
@@ -35445,7 +35445,7 @@ define internal fastcc i64 @update_classvariable_cache(ptr noundef %0, i64 nound
   br i1 %.not, label %26, label %27
 
 26:                                               ; preds = %.critedge
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.133) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.133) #47
   unreachable
 
 27:                                               ; preds = %.critedge
@@ -35454,7 +35454,7 @@ define internal fastcc i64 @update_classvariable_cache(ptr noundef %0, i64 nound
   br i1 %.not35, label %29, label %30
 
 29:                                               ; preds = %27
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.134) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.134) #47
   unreachable
 
 30:                                               ; preds = %27
@@ -35641,7 +35641,7 @@ vm_ci_markable.exit.thread._crit_edge:            ; preds = %vm_ci_markable.exit
 
 20:                                               ; preds = %17
   store i32 1, ptr %1, align 8
-  %21 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc2(i64 noundef 1, i64 noundef 16) #48
+  %21 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc2(i64 noundef 1, i64 noundef 16) #49
   store ptr %21, ptr %19, align 8
   br label %27
 
@@ -35650,7 +35650,7 @@ vm_ci_markable.exit.thread._crit_edge:            ; preds = %vm_ci_markable.exit
   store i32 %23, ptr %1, align 8
   %24 = load ptr, ptr %19, align 8
   %25 = sext i32 %23 to i64
-  %26 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %24, i64 noundef %25, i64 noundef 16) #55
+  %26 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %24, i64 noundef %25, i64 noundef 16) #56
   store ptr %26, ptr %19, align 8
   br label %27
 
@@ -35692,7 +35692,7 @@ rb_obj_write.exit20:                              ; preds = %40, %rb_obj_write.e
 declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: allocsize(1,2)
-declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #34
+declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #35
 
 declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #3
 
@@ -35933,7 +35933,7 @@ define internal fastcc ptr @gccct_method_search(ptr nocapture noundef readonly %
   br i1 %.not, label %17, label %26
 
 17:                                               ; preds = %13
-  tail call fastcc void @uncallable_object(i64 noundef %1, i64 noundef %2) #47
+  tail call fastcc void @uncallable_object(i64 noundef %1, i64 noundef %2) #48
   unreachable
 
 18:                                               ; preds = %4
@@ -36050,7 +36050,7 @@ rb_vm_lock_enter.exit.i.i:                        ; preds = %57, %rb_callable_me
   br label %vm_ccs_create.exit.i.i
 
 65:                                               ; preds = %rb_vm_lock_enter.exit.i.i
-  %66 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #49
+  %66 = call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #50
   store i32 0, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 4
   store i32 0, ptr %67, align 4
@@ -36217,7 +36217,7 @@ gccct_method_search_slowpath.exit:                ; preds = %.critedge, %49, %52
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @rb_obj_equal(i64 noundef, i64 noundef) #35
+declare i64 @rb_obj_equal(i64 noundef, i64 noundef) #36
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
@@ -36231,7 +36231,7 @@ define internal fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) u
 8:                                                ; preds = %2
   %9 = load i64, ptr @rb_eNotImpError, align 8
   %10 = inttoptr i64 %0 to ptr
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.137, i64 noundef %3, ptr noundef %10) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.137, i64 noundef %3, ptr noundef %10) #34
   unreachable
 
 11:                                               ; preds = %2
@@ -36242,7 +36242,7 @@ define internal fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) u
 
 15:                                               ; preds = %11
   %16 = load i64, ptr @rb_eNotImpError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.138, i64 noundef %3, ptr noundef nonnull %12) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.138, i64 noundef %3, ptr noundef nonnull %12) #34
   unreachable
 
 17:                                               ; preds = %11
@@ -36355,19 +36355,19 @@ define internal fastcc void @uncallable_object(i64 noundef %0, i64 noundef %1) u
 
 rb_type_str.exit:                                 ; preds = %17
   %45 = load i64, ptr @rb_eNotImpError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.139, i64 noundef %3, i32 noundef %19, ptr noundef nonnull %12, i64 noundef %13) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.139, i64 noundef %3, i32 noundef %19, ptr noundef nonnull %12, i64 noundef %13) #34
   unreachable
 
 46:                                               ; preds = %17, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20
   %.0.i.ph.ph = phi ptr [ @.str.45, %33 ], [ @.str.44, %32 ], [ @.str.43, %31 ], [ @.str.42, %30 ], [ @.str.41, %29 ], [ @.str.40, %28 ], [ @.str.39, %27 ], [ @.str.38, %26 ], [ @.str.37, %25 ], [ @.str.36, %24 ], [ @.str.35, %23 ], [ @.str.34, %22 ], [ @.str.33, %21 ], [ @.str.32, %20 ], [ @.str.31, %17 ]
   %47 = load i64, ptr @rb_eNotImpError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %47, ptr noundef nonnull @.str.140, i64 noundef %3, ptr noundef nonnull %.0.i.ph.ph, ptr noundef nonnull %12, i64 noundef %13) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %47, ptr noundef nonnull @.str.140, i64 noundef %3, ptr noundef nonnull %.0.i.ph.ph, ptr noundef nonnull %12, i64 noundef %13) #34
   unreachable
 
 48:                                               ; preds = %17, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44
   %.0.i.ph = phi ptr [ @.str.30, %17 ], [ @.str.46, %34 ], [ @.str.47, %35 ], [ @.str.48, %36 ], [ @.str.49, %37 ], [ @.str.50, %38 ], [ @.str.51, %39 ], [ @.str.52, %40 ], [ @.str.53, %41 ], [ @.str.54, %42 ], [ @.str.55, %43 ], [ @.str.56, %44 ]
   %49 = load i64, ptr @rb_eNotImpError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.141, i64 noundef %3, ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %12, i64 noundef %13) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.141, i64 noundef %3, ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %12, i64 noundef %13) #34
   unreachable
 }
 
@@ -36511,7 +36511,7 @@ default.unreachable56:                            ; preds = %10
   unreachable
 
 72:                                               ; preds = %10
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143) #47
   unreachable
 
 73:                                               ; preds = %3
@@ -36583,7 +36583,7 @@ define internal fastcc i64 @vm_call_method_each_type(ptr noundef %0, ptr noundef
   br i1 %36, label %.split.i, label %37
 
 .split.i:                                         ; preds = %33
-  tail call void @rb_error_arity(i32 noundef %35, i32 noundef 1, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %35, i32 noundef 1, i32 noundef 1) #48
   unreachable
 
 37:                                               ; preds = %33
@@ -36591,7 +36591,7 @@ define internal fastcc i64 @vm_call_method_each_type(ptr noundef %0, ptr noundef
   br i1 %.not286, label %rb_check_arity.exit, label %.split9.i
 
 .split9.i:                                        ; preds = %37
-  tail call void @rb_error_arity(i32 noundef %35, i32 noundef 1, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %35, i32 noundef 1, i32 noundef 1) #48
   unreachable
 
 rb_check_arity.exit:                              ; preds = %37
@@ -36962,7 +36962,7 @@ CC_SET_FASTPATH.exit190:                          ; preds = %vm_ci_flag.exit189,
   br i1 %228, label %.split.i192, label %229
 
 .split.i192:                                      ; preds = %225
-  tail call void @rb_error_arity(i32 noundef %227, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %227, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 229:                                              ; preds = %225
@@ -36970,7 +36970,7 @@ CC_SET_FASTPATH.exit190:                          ; preds = %vm_ci_flag.exit189,
   br i1 %.not285, label %rb_check_arity.exit193, label %.split9.i191
 
 .split9.i191:                                     ; preds = %229
-  tail call void @rb_error_arity(i32 noundef %227, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %227, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 rb_check_arity.exit193:                           ; preds = %229
@@ -37662,7 +37662,7 @@ CC_SET_FASTPATH.exit224:                          ; preds = %vm_ci_flag.exit227,
   br label %vm_call_bmethod.exit
 
 578:                                              ; preds = %352
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.154, i32 noundef %354) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.154, i32 noundef %354) #47
   unreachable
 
 579:                                              ; preds = %3
@@ -37772,7 +37772,7 @@ vm_ci_mid.exit.i:                                 ; preds = %620, %618
   br i1 %.not.i.i271, label %626, label %vm_get_cref.exit.i
 
 626:                                              ; preds = %vm_ci_mid.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_get_cref.exit.i:                               ; preds = %vm_ci_mid.exit.i
@@ -37966,7 +37966,7 @@ find_refinement.exit.thread.i:                    ; preds = %rb_vm_frame_method_
   br i1 %711, label %712, label %713
 
 712:                                              ; preds = %708
-  tail call void @rb_notimplement() #33
+  tail call void @rb_notimplement() #34
   unreachable
 
 713:                                              ; preds = %708
@@ -38084,7 +38084,7 @@ vm_call_refined.exit:                             ; preds = %rb_obj_write.exit, 
 
 765:                                              ; preds = %3
   %766 = zext nneg i8 %26 to i32
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.144, i32 noundef %766) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.144, i32 noundef %766) #47
   unreachable
 
 vm_call_bmethod.exit:                             ; preds = %CC_SET_FASTPATH.exit224, %vm_ci_mid.exit230, %rb_ec_ractor_hooks.exit233, %vm_call_opt_struct_aref.exit, %vm_ci_mid.exit248, %vm_call_opt_struct_aref.exit259, %361, %358, %355, %339, %336, %CC_SET_FASTPATH.exit211, %rb_ec_ractor_hooks.exit204, %vm_ci_mid.exit207, %vm_ci_mid.exit172, %rb_ec_ractor_hooks.exit169, %CC_SET_FASTPATH.exit, %vm_ci_mid.exit186, %rb_ec_ractor_hooks.exit183, %CC_SET_FASTPATH.exit190, %vm_call_refined.exit, %vm_call_zsuper.exit, %342, %319, %30, %27
@@ -38171,7 +38171,7 @@ rb_array_const_ptr.exit:                          ; preds = %32, %34
   %.0.i21 = phi ptr [ %33, %32 ], [ %36, %34 ]
   %37 = getelementptr inbounds i8, ptr %2, i64 24
   %38 = load i64, ptr %37, align 8
-  tail call fastcc void @vm_raise_method_missing(ptr noundef %0, i32 noundef %27, ptr noundef %.0.i21, i64 noundef %38, i32 noundef %.2.i25) #47
+  tail call fastcc void @vm_raise_method_missing(ptr noundef %0, i32 noundef %27, ptr noundef %.0.i21, i64 noundef %38, i32 noundef %.2.i25) #48
   unreachable
 
 39:                                               ; preds = %23
@@ -38184,7 +38184,7 @@ rb_array_const_ptr.exit:                          ; preds = %32, %34
   %46 = getelementptr i64, ptr %41, i64 %45
   %47 = getelementptr inbounds i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
-  tail call fastcc void @vm_raise_method_missing(ptr noundef %0, i32 noundef %43, ptr noundef %46, i64 noundef %48, i32 noundef %.2.i25) #47
+  tail call fastcc void @vm_raise_method_missing(ptr noundef %0, i32 noundef %43, ptr noundef %46, i64 noundef %48, i32 noundef %.2.i25) #48
   unreachable
 
 49:                                               ; preds = %vm_ci_mid.exit
@@ -38286,7 +38286,7 @@ vm_ci_flag.exit.i:                                ; preds = %32, %29
   br i1 %71, label %.lr.ph.i.i, label %vm_push_frame.exit.i
 
 72:                                               ; preds = %37
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -39011,7 +39011,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @rb_check_arity(i32 noundef
   br i1 %4, label %.split, label %5
 
 .split:                                           ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef %1, i32 noundef %2) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef %1, i32 noundef %2) #48
   unreachable
 
 5:                                                ; preds = %3
@@ -39021,7 +39021,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @rb_check_arity(i32 noundef
   br i1 %or.cond, label %.split9, label %7
 
 .split9:                                          ; preds = %5
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef %1, i32 noundef %2) #47
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef %1, i32 noundef %2) #48
   unreachable
 
 7:                                                ; preds = %5
@@ -39065,7 +39065,7 @@ define internal fastcc i64 @vm_call_attrset_direct(ptr nocapture noundef %0, ptr
   br i1 %or.cond, label %RB_OBJ_FROZEN.exit.thread, label %30
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %23, %3
-  tail call void @rb_error_frozen_object(i64 noundef %2) #33
+  tail call void @rb_error_frozen_object(i64 noundef %2) #34
   unreachable
 
 30:                                               ; preds = %23
@@ -39171,7 +39171,7 @@ vm_setivar.exit.thread:                           ; preds = %46, %42, %36, %35, 
   br i1 %.not, label %83, label %RB_OBJ_FROZEN.exit.thread.i
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %81
-  tail call void @rb_error_frozen_object(i64 noundef %2) #33
+  tail call void @rb_error_frozen_object(i64 noundef %2) #34
   unreachable
 
 83:                                               ; preds = %81
@@ -39557,7 +39557,7 @@ vm_ci_flag.exit:                                  ; preds = %vm_ci_markable.exit
   br i1 %.not133, label %36, label %35
 
 35:                                               ; preds = %28
-  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %34, i32 noundef %32, i32 noundef %32) #47
+  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %34, i32 noundef %32, i32 noundef %32) #48
   unreachable
 
 36:                                               ; preds = %28
@@ -39687,7 +39687,7 @@ vm_call_iseq_setup_func.exit:                     ; preds = %vm_ci_flag.exit.i14
   br i1 %or.cond, label %98, label %99
 
 98:                                               ; preds = %85
-  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %94, i32 noundef %89, i32 noundef %92) #47
+  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %94, i32 noundef %89, i32 noundef %92) #48
   unreachable
 
 99:                                               ; preds = %85
@@ -39882,7 +39882,7 @@ vm_ci_kwarg.exit:                                 ; preds = %vm_ci_flag.exit177
   br i1 %167, label %168, label %rbimpl_size_mul_or_raise.exit180
 
 168:                                              ; preds = %164
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %166) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %166) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit180:                 ; preds = %164
@@ -40081,7 +40081,7 @@ RSTRING_PTR.exit:                                 ; preds = %49, %53
   br label %57
 
 57:                                               ; preds = %22, %RSTRING_PTR.exit, %rb_arity_error_new.exit
-  tail call fastcc void @raise_argument_error(ptr noundef %0, ptr noundef %1, i64 noundef %16) #47
+  tail call fastcc void @raise_argument_error(ptr noundef %0, ptr noundef %1, i64 noundef %16) #48
   unreachable
 }
 
@@ -40171,7 +40171,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_opt_start(ptr nocapture n
   br i1 %54, label %.lr.ph.i, label %vm_push_frame.exit
 
 55:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -40351,7 +40351,7 @@ define internal fastcc void @args_setup_kw_parameters(ptr noundef %0, ptr nounde
   br label %51
 
 50:                                               ; preds = %._crit_edge
-  tail call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.148, i64 noundef %.0.lcssa) #47
+  tail call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.148, i64 noundef %.0.lcssa) #48
   unreachable
 
 51:                                               ; preds = %.lr.ph130, %90
@@ -40508,7 +40508,7 @@ make_rest_kw_hash.exit:                           ; preds = %111, %99
 
 115:                                              ; preds = %114
   %116 = tail call fastcc i64 @make_unknown_kw_hash(ptr noundef %4, i32 noundef %3, ptr noundef %2)
-  tail call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.149, i64 noundef %116) #47
+  tail call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.149, i64 noundef %116) #48
   unreachable
 
 117:                                              ; preds = %114, %make_rest_kw_hash.exit
@@ -40565,7 +40565,7 @@ vm_ci_kwarg.exit:
   br i1 %37, label %38, label %rbimpl_size_mul_or_raise.exit52
 
 38:                                               ; preds = %vm_ci_kwarg.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %36) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %36) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit52:                  ; preds = %vm_ci_kwarg.exit
@@ -40629,7 +40629,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br i1 %80, label %.lr.ph.i, label %vm_push_frame.exit
 
 81:                                               ; preds = %ruby_nonempty_memcpy.exit
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -40767,7 +40767,7 @@ define internal noundef i64 @vm_call_iseq_setup_kwparm_nokwarg(ptr nocapture nou
   br i1 %75, label %.lr.ph.i, label %vm_push_frame.exit
 
 76:                                               ; preds = %._crit_edge
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -40947,7 +40947,7 @@ vm_ci_kwarg.exit:                                 ; preds = %77, %78
   br i1 %85, label %86, label %rbimpl_size_mul_or_raise.exit367
 
 86:                                               ; preds = %82
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %84) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %84) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit367:                 ; preds = %82
@@ -41200,7 +41200,7 @@ rb_array_len.exit.i:                              ; preds = %191, %188
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %195
 
 195:                                              ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #47
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -41239,7 +41239,7 @@ rb_array_len.exit.i378:                           ; preds = %210, %207
   br i1 %.not.i1.i380, label %RARRAY_LENINT.exit381, label %214
 
 214:                                              ; preds = %rb_array_len.exit.i378
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i379) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i379) #47
   unreachable
 
 RARRAY_LENINT.exit381:                            ; preds = %rb_array_len.exit.i378
@@ -41553,7 +41553,7 @@ ignore_keyword_hash_p.exit403.thread:             ; preds = %303, %ignore_keywor
 
 349:                                              ; preds = %344
   %350 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %350, ptr noundef nonnull @.str.150) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %350, ptr noundef nonnull @.str.150) #34
   unreachable
 
 351:                                              ; preds = %344, %.critedge.thread
@@ -41678,7 +41678,7 @@ rb_array_len.exit.i410:                           ; preds = %401, %398
   br i1 %.not.i1.i412, label %RARRAY_LENINT.exit413, label %405
 
 405:                                              ; preds = %rb_array_len.exit.i410
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i411) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i411) #47
   unreachable
 
 RARRAY_LENINT.exit413:                            ; preds = %rb_array_len.exit.i410
@@ -41707,7 +41707,7 @@ args_check_block_arg0.exit.thread:                ; preds = %388, %393, %352, %3
   br i1 %.not336, label %417, label %416
 
 416:                                              ; preds = %409
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 417:                                              ; preds = %409
@@ -41748,7 +41748,7 @@ rb_array_len.exit.i.i:                            ; preds = %427, %424
   br i1 %.not.i1.i.i, label %RARRAY_LENINT.exit.i, label %431
 
 431:                                              ; preds = %rb_array_len.exit.i.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i.i416) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i.i416) #47
   unreachable
 
 RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i.i
@@ -41782,7 +41782,7 @@ RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i
   br i1 %exitcond.not.i419, label %args_extend.exit, label %.lr.ph16.i, !llvm.loop !153
 
 .thread611:                                       ; preds = %.thread
-  tail call fastcc void @argument_arity_error(ptr noundef %0, ptr noundef %1, i32 noundef %.1582, i32 noundef %16, i32 noundef %25) #47
+  tail call fastcc void @argument_arity_error(ptr noundef %0, ptr noundef %1, i32 noundef %.1582, i32 noundef %16, i32 noundef %25) #48
   unreachable
 
 args_extend.exit:                                 ; preds = %.lr.ph.i417, %.lr.ph16.i, %438, %RARRAY_LENINT.exit.i, %args_check_block_arg0.exit.thread
@@ -41854,7 +41854,7 @@ arg_rest_dup.exit.i425:                           ; preds = %461, %460
   br label %args_reduce.exit
 
 .thread625:                                       ; preds = %args_extend.exit.thread
-  tail call fastcc void @argument_arity_error(ptr noundef %0, ptr noundef %1, i32 noundef %.1582, i32 noundef %16, i32 noundef %25) #47
+  tail call fastcc void @argument_arity_error(ptr noundef %0, ptr noundef %1, i32 noundef %.1582, i32 noundef %16, i32 noundef %25) #48
   unreachable
 
 args_reduce.exit:                                 ; preds = %468, %arg_rest_dup.exit.i425, %args_extend.exit.thread, %args_extend.exit
@@ -42062,7 +42062,7 @@ rb_array_const_ptr.exit.i:                        ; preds = %551, %547
   br i1 %560, label %561, label %rbimpl_size_mul_or_raise.exit.i
 
 561:                                              ; preds = %rb_array_const_ptr.exit.i
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %557) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %557) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %rb_array_const_ptr.exit.i
@@ -42125,7 +42125,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %578
   br label %.lr.ph.preheader.i446
 
 589:                                              ; preds = %rb_array_len.exit.i.i456
-  tail call void @rb_out_of_int(i64 noundef %583) #46
+  tail call void @rb_out_of_int(i64 noundef %583) #47
   unreachable
 
 590:                                              ; preds = %rb_array_len.exit.i.i456
@@ -42413,7 +42413,7 @@ check_kwrestarg.exit468:                          ; preds = %688, %690
   br label %.lr.ph88.i
 
 717:                                              ; preds = %._crit_edge.i480
-  call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.148, i64 noundef %.2.i477) #47
+  call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.148, i64 noundef %.2.i477) #48
   unreachable
 
 .lr.ph88.i:                                       ; preds = %753, %.lr.ph88.preheader.i
@@ -42546,7 +42546,7 @@ RHASH_EMPTY_P.exit.i471:                          ; preds = %773, %770
 
 779:                                              ; preds = %RHASH_EMPTY_P.exit.i471
   %780 = call i64 @rb_hash_keys(i64 noundef %.0.i467) #20
-  call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.149, i64 noundef %780) #47
+  call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.149, i64 noundef %780) #48
   unreachable
 
 args_setup_kw_parameters_from_kwsplat.exit:       ; preds = %762, %RHASH_EMPTY_P.exit.i471
@@ -42631,7 +42631,7 @@ RHASH_SIZE.exit:                                  ; preds = %809, %812
 
 819:                                              ; preds = %RHASH_SIZE.exit
   %820 = tail call i64 @rb_hash_keys(i64 noundef %.1283581) #20
-  tail call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.149, i64 noundef %820) #47
+  tail call fastcc void @argument_kw_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.149, i64 noundef %820) #48
   unreachable
 
 821:                                              ; preds = %args_setup_kw_rest_parameter.exit, %RHASH_SIZE.exit, %803, %683, %784, %args_setup_kw_parameters_from_kwsplat.exit
@@ -42728,7 +42728,7 @@ define internal fastcc void @raise_argument_error(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %vm_push_frame.exit, label %11
 
 11:                                               ; preds = %4
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %4
@@ -42783,7 +42783,7 @@ rb_vm_pop_frame.exit:                             ; preds = %vm_push_frame.exit,
   %.0 = phi i64 [ %18, %rb_vm_pop_frame.exit ], [ %29, %28 ]
   %31 = tail call i64 @rb_ivar_set(i64 noundef %2, i64 noundef 3409, i64 noundef %.0) #20
   %32 = tail call i64 @rb_exc_set_backtrace(i64 noundef %2, i64 noundef %.0) #20
-  tail call void @rb_exc_raise(i64 noundef %2) #33
+  tail call void @rb_exc_raise(i64 noundef %2) #34
   unreachable
 }
 
@@ -42855,7 +42855,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start(ptr nocapture noun
   br i1 %43, label %.lr.ph.i, label %vm_push_frame.exit
 
 44:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -43013,7 +43013,7 @@ vm_pop_frame.exit:                                ; preds = %32, %37
   br i1 %72, label %.lr.ph.i, label %vm_push_frame.exit
 
 73:                                               ; preds = %._crit_edge
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -43087,7 +43087,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_0params_0locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %28
 
 28:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -43183,7 +43183,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_0params_1locals(pt
   ret i64 36
 
 40:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 }
 
@@ -43227,7 +43227,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_0params_2locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %35
 
 35:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -43302,7 +43302,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_0params_3locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %35
 
 35:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -43377,7 +43377,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_0params_4locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %35
 
 35:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -43452,7 +43452,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_0params_5locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %35
 
 35:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -43522,7 +43522,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_1params_0locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %30
 
 30:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -43588,7 +43588,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_1params_1locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %29
 
 29:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -43685,7 +43685,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_1params_2locals(pt
   ret i64 36
 
 41:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 }
 
@@ -43730,7 +43730,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_1params_3locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %36
 
 36:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -43806,7 +43806,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_1params_4locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %36
 
 36:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -43882,7 +43882,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_1params_5locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %36
 
 36:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -43952,7 +43952,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_2params_0locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %30
 
 30:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -44019,7 +44019,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_2params_1locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %30
 
 30:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -44085,7 +44085,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_2params_2locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %29
 
 29:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -44182,7 +44182,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_2params_3locals(pt
   ret i64 36
 
 41:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 }
 
@@ -44227,7 +44227,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_2params_4locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %36
 
 36:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -44303,7 +44303,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_2params_5locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %36
 
 36:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -44373,7 +44373,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_3params_0locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %30
 
 30:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -44440,7 +44440,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_3params_1locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %30
 
 30:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -44507,7 +44507,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_3params_2locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %30
 
 30:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -44573,7 +44573,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_3params_3locals(pt
   br i1 %.not.i, label %vm_push_frame.exit, label %29
 
 29:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %3
@@ -44670,7 +44670,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_3params_4locals(pt
   ret i64 36
 
 41:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 }
 
@@ -44715,7 +44715,7 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_3params_5locals(pt
   br i1 %.not.i, label %.lr.ph.i, label %36
 
 36:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -44753,7 +44753,7 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @argument_kw_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #5 {
   %5 = tail call i64 @rb_keyword_error_new(ptr noundef %2, i64 noundef %3) #20
-  tail call fastcc void @raise_argument_error(ptr noundef %0, ptr noundef %1, i64 noundef %5) #47
+  tail call fastcc void @raise_argument_error(ptr noundef %0, ptr noundef %1, i64 noundef %5) #48
   unreachable
 }
 
@@ -44970,7 +44970,7 @@ rb_array_len.exit.i:                              ; preds = %14, %11
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %18
 
 18:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #47
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -45138,7 +45138,7 @@ rb_array_len.exit.i.thread:                       ; preds = %8
   br label %rb_array_const_ptr.exit
 
 19:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %13) #46
+  tail call void @rb_out_of_int(i64 noundef %13) #47
   unreachable
 
 20:                                               ; preds = %rb_array_len.exit.i
@@ -45250,7 +45250,7 @@ rb_array_len.exit.i:                              ; preds = %18, %15
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %22
 
 22:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #47
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -45299,7 +45299,7 @@ rb_array_const_ptr.exit:                          ; preds = %29, %31
   br label %.lr.ph
 
 44:                                               ; preds = %rb_array_const_ptr.exit
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -45446,7 +45446,7 @@ vm_ci_mid.exit:                                   ; preds = %53, %55
   br i1 %.not.i, label %vm_push_frame.exit, label %78
 
 78:                                               ; preds = %71
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit:                               ; preds = %71
@@ -45479,7 +45479,7 @@ vm_push_frame.exit:                               ; preds = %71
   br i1 %87, label %.split.i, label %88
 
 .split.i:                                         ; preds = %86
-  call void @rb_error_arity(i32 noundef %3, i32 noundef %84, i32 noundef %84) #47
+  call void @rb_error_arity(i32 noundef %3, i32 noundef %84, i32 noundef %84) #48
   unreachable
 
 88:                                               ; preds = %86
@@ -45487,7 +45487,7 @@ vm_push_frame.exit:                               ; preds = %71
   br i1 %89, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %88
-  call void @rb_error_arity(i32 noundef %3, i32 noundef %84, i32 noundef %84) #47
+  call void @rb_error_arity(i32 noundef %3, i32 noundef %84, i32 noundef %84) #48
   unreachable
 
 rb_check_arity.exit:                              ; preds = %88, %vm_push_frame.exit
@@ -45515,7 +45515,7 @@ rb_check_arity.exit:                              ; preds = %88, %vm_push_frame.
   br label %104
 
 vm_cfp_consistent_p.exit:                         ; preds = %98
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.152, ptr noundef nonnull %1, ptr noundef %96) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.152, ptr noundef nonnull %1, ptr noundef %96) #47
   unreachable
 
 104:                                              ; preds = %102, %rb_check_arity.exit
@@ -45741,7 +45741,7 @@ rb_array_len.exit:                                ; preds = %12, %16
   br i1 %65, label %.lr.ph, label %._crit_edge
 
 66:                                               ; preds = %59
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -45810,7 +45810,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %3
 
 19:                                               ; preds = %rb_ec_ractor_ptr.exit
   %20 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.153) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.153) #34
   unreachable
 
 21:                                               ; preds = %rb_ec_ractor_ptr.exit, %3
@@ -45892,7 +45892,7 @@ vm_ci_flag.exit:                                  ; preds = %45, %48
   br i1 %.not5355.i, label %vm_callee_setup_block_arg.exit, label %.thread56.i
 
 .thread56.i:                                      ; preds = %58
-  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %29, i32 noundef %63, i32 noundef %66, i32 noundef %66) #47
+  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %29, i32 noundef %63, i32 noundef %66, i32 noundef %66) #48
   unreachable
 
 vm_callee_setup_block_arg.exit.sink.split:        ; preds = %vm_ci_flag.exit, %53
@@ -45933,7 +45933,7 @@ vm_callee_setup_block_arg.exit:                   ; preds = %vm_callee_setup_blo
   br i1 %91, label %.lr.ph.i, label %vm_push_frame.exit
 
 92:                                               ; preds = %vm_callee_setup_block_arg.exit
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -46015,7 +46015,7 @@ RARRAY_PTR.exit:                                  ; preds = %12, %14
   br i1 %24, label %25, label %rbimpl_size_mul_or_raise.exit17
 
 25:                                               ; preds = %20
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %23) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %23) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit17:                  ; preds = %20
@@ -46128,7 +46128,7 @@ rb_array_len.exit.i:                              ; preds = %38, %35
   br label %53
 
 52:                                               ; preds = %rb_array_len.exit.i
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 53:                                               ; preds = %RARRAY_AREF.exit.i, %.lr.ph.i
@@ -46203,7 +46203,7 @@ vm_callee_setup_block_arg_arg0_splat.exit:        ; preds = %.preheader.i, %.cri
   br label %.lr.ph
 
 84:                                               ; preds = %77
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -46231,7 +46231,7 @@ vm_callee_setup_block_arg_arg0_splat.exit:        ; preds = %.preheader.i, %.cri
   br label %96
 
 .thread56:                                        ; preds = %.thread
-  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %20, i32 noundef %74, i32 noundef %74) #47
+  tail call fastcc void @argument_arity_error(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %20, i32 noundef %74, i32 noundef %74) #48
   unreachable
 
 94:                                               ; preds = %6
@@ -46272,7 +46272,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %3
 
 19:                                               ; preds = %rb_ec_ractor_ptr.exit
   %20 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.153) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.153) #34
   unreachable
 
 21:                                               ; preds = %rb_ec_ractor_ptr.exit, %3
@@ -46309,7 +46309,7 @@ rb_array_len.exit.i:                              ; preds = %35, %32
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %39
 
 39:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #47
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -46430,7 +46430,7 @@ vm_ci_flag.exit31:                                ; preds = %41, %44
 
 52:                                               ; preds = %vm_ci_flag.exit31
   %53 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %53, ptr noundef nonnull @.str.155) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %53, ptr noundef nonnull @.str.155) #34
   unreachable
 
 54:                                               ; preds = %vm_ci_flag.exit31
@@ -46735,7 +46735,7 @@ rb_class_of.exit:                                 ; preds = %74, %77, %78, %79, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @vm_call_opt_struct_aref(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #36 {
+define internal i64 @vm_call_opt_struct_aref(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #37 {
   %4 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %2, i64 24
@@ -46798,7 +46798,7 @@ define internal i64 @vm_call_opt_struct_aset(ptr nocapture readnone %0, ptr noca
   br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %rb_check_frozen_inline.exit.i
 
 RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %14, %3
-  tail call void @rb_error_frozen_object(i64 noundef %9) #33
+  tail call void @rb_error_frozen_object(i64 noundef %9) #34
   unreachable
 
 rb_check_frozen_inline.exit.i:                    ; preds = %14
@@ -46891,7 +46891,7 @@ define internal i64 @vm_call_opt_send_complex(ptr noundef %0, ptr noundef %1, pt
 
 29:                                               ; preds = %.split24
   %30 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.155) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.155) #34
   unreachable
 
 31:                                               ; preds = %.split24
@@ -46932,7 +46932,7 @@ vm_call_opt_send0.exit:                           ; preds = %31, %rbimpl_size_mu
 
 50:                                               ; preds = %.split
   %51 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.155) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.155) #34
   unreachable
 
 52:                                               ; preds = %.split
@@ -47002,7 +47002,7 @@ vm_ci_flag.exit:                                  ; preds = %8, %11
 
 18:                                               ; preds = %vm_ci_flag.exit
   %19 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.155) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.155) #34
   unreachable
 
 20:                                               ; preds = %vm_ci_flag.exit
@@ -47196,7 +47196,7 @@ rb_array_const_ptr.exit:                          ; preds = %76, %78
   %.0.i86 = phi ptr [ %77, %76 ], [ %80, %78 ]
   %81 = and i32 %.0.i84, 12
   %82 = call i64 @rb_make_no_method_exception(i64 noundef %71, i64 noundef 0, i64 noundef %16, i32 noundef %72, ptr noundef %.0.i86, i32 noundef %81)
-  call void @rb_exc_raise(i64 noundef %82) #33
+  call void @rb_exc_raise(i64 noundef %82) #34
   unreachable
 
 rb_method_basic_definition_p.exit.thread:         ; preds = %56, %51, %53, %rb_method_basic_definition_p.exit
@@ -47213,7 +47213,7 @@ rb_method_basic_definition_p.exit.thread:         ; preds = %56, %51, %53, %rb_m
   br i1 %.not76, label %rbimpl_size_mul_or_raise.exit, label %90
 
 90:                                               ; preds = %86
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %86
@@ -47287,7 +47287,7 @@ vm_ci_flag.exit95:                                ; preds = %119, %122
   %130 = getelementptr i64, ptr %127, i64 %129
   %131 = load i64, ptr @rb_eNoMethodError, align 8
   %132 = call i64 @rb_make_no_method_exception(i64 noundef %131, i64 noundef 0, i64 noundef %16, i32 noundef %103, ptr noundef %130, i32 noundef %126)
-  call void @rb_exc_raise(i64 noundef %132) #33
+  call void @rb_exc_raise(i64 noundef %132) #34
   unreachable
 
 rb_method_basic_definition_p.exit92.thread:       ; preds = %109, %104, %106, %rb_method_basic_definition_p.exit92
@@ -47479,7 +47479,7 @@ define internal noundef i64 @vm_invoke_iseq_block(ptr noundef %0, ptr nocapture 
   br i1 %44, label %.lr.ph.i, label %vm_push_frame.exit
 
 45:                                               ; preds = %6
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -47556,7 +47556,7 @@ rb_array_len.exit.i.thread:                       ; preds = %16
   br label %rb_array_const_ptr.exit
 
 27:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %21) #46
+  tail call void @rb_out_of_int(i64 noundef %21) #47
   unreachable
 
 28:                                               ; preds = %rb_array_len.exit.i
@@ -47793,7 +47793,7 @@ vm_ci_kwarg.exit:                                 ; preds = %.thread
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %47, ptr noundef nonnull @.str.157) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %47, ptr noundef nonnull @.str.157) #34
   unreachable
 
 48:                                               ; preds = %43
@@ -47825,7 +47825,7 @@ vm_ci_kwarg.exit:                                 ; preds = %.thread
 
 64:                                               ; preds = %.critedge
   %65 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %65, ptr noundef nonnull @.str.157) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %65, ptr noundef nonnull @.str.157) #34
   unreachable
 
 66:                                               ; preds = %.critedge
@@ -47870,7 +47870,7 @@ define internal fastcc noundef i64 @vm_call_opt_struct_aset0(ptr nocapture nound
   br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %rb_check_frozen_inline.exit
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %9, %2
-  tail call void @rb_error_frozen_object(i64 noundef %4) #33
+  tail call void @rb_error_frozen_object(i64 noundef %4) #34
   unreachable
 
 rb_check_frozen_inline.exit:                      ; preds = %9
@@ -47922,7 +47922,7 @@ define internal fastcc ptr @refined_method_callable_without_refinement(ptr reado
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %0
-  tail call void @rb_notimplement() #33
+  tail call void @rb_notimplement() #34
   unreachable
 
 5:                                                ; preds = %0
@@ -47954,7 +47954,7 @@ define internal i64 @vm_call_super_method(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.143) #47
   unreachable
 
 6:                                                ; preds = %3
@@ -48002,7 +48002,7 @@ vm_ci_flag.exit:                                  ; preds = %18, %21
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %vm_ci_flag.exit
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 29:                                               ; preds = %vm_ci_flag.exit
@@ -48124,7 +48124,7 @@ define internal fastcc void @vm_raise_method_missing(ptr noundef %0, i32 noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   store i64 0, ptr %6, align 8
   %7 = or i32 %4, 32
-  tail call fastcc void @raise_method_missing(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %7) #47
+  tail call fastcc void @raise_method_missing(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %7) #48
   unreachable
 }
 
@@ -48136,7 +48136,7 @@ define internal fastcc void @raise_method_missing(ptr noundef %0, i32 noundef %1
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.155) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.155) #34
   unreachable
 
 10:                                               ; preds = %5
@@ -48162,7 +48162,7 @@ RB_SYMBOL_P.exit:                                 ; preds = %14
 RB_SYMBOL_P.exit.thread23:                        ; preds = %14, %RB_SYMBOL_P.exit
   %23 = load i64, ptr @rb_eArgError, align 8
   %24 = tail call i64 @rb_obj_class(i64 noundef %11) #20
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.159, i64 noundef %24) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.159, i64 noundef %24) #34
   unreachable
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %10, %RB_SYMBOL_P.exit
@@ -48181,7 +48181,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %10, %RB_SYMBOL_P.ex
   %31 = load i8, ptr %25, align 8
   %32 = or i8 %31, 2
   store i8 %32, ptr %25, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %RB_SYMBOL_P.exit.thread, %28
@@ -48273,7 +48273,7 @@ rb_make_no_method_exception.exit:                 ; preds = %63, %69
   br label %73
 
 73:                                               ; preds = %72, %rb_make_no_method_exception.exit
-  tail call void @rb_exc_raise(i64 noundef %.0.i) #33
+  tail call void @rb_exc_raise(i64 noundef %.0.i) #34
   unreachable
 }
 
@@ -48324,7 +48324,7 @@ define internal fastcc i64 @check_match(ptr noundef %0, i64 noundef %1, i64 noun
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.167) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %18, ptr noundef nonnull @.str.167) #34
   unreachable
 
 19:                                               ; preds = %14, %4
@@ -48510,7 +48510,7 @@ rb_callable_method_entry_with_refinements.exit.thread: ; preds = %39, %36, %rb_c
   br label %rb_vm_call_with_refinements.exit
 
 94:                                               ; preds = %4
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.168) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.168) #47
   unreachable
 
 rb_vm_call_with_refinements.exit:                 ; preds = %47, %77, %92, %4
@@ -48551,7 +48551,7 @@ RARRAY_AREF.exit42:                               ; preds = %11, %13
 
 22:                                               ; preds = %RARRAY_AREF.exit42
   %23 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.157) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.157) #34
   unreachable
 
 24:                                               ; preds = %RARRAY_AREF.exit42
@@ -48726,12 +48726,12 @@ define internal fastcc i64 @method_missing(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %23, label %24, label %rb_alloc_tmp_buffer2.exit
 
 24:                                               ; preds = %22
-  tail call void @ruby_malloc_size_overflow(i64 noundef %17, i64 noundef 8) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef %17, i64 noundef 8) #34
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %22
   %25 = shl nuw nsw i64 %17, 3
-  %26 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %25, i64 noundef %17) #55
+  %26 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %25, i64 noundef %17) #56
   br label %27
 
 27:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %19
@@ -48746,7 +48746,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %22
   br i1 %32, label %33, label %rbimpl_size_mul_or_raise.exit
 
 33:                                               ; preds = %27
-  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %31) #33
+  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %31) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %27
@@ -48852,7 +48852,7 @@ rb_callable_method_entry.exit.thread:             ; preds = %56, %51, %53, %rb_c
   %.033 = phi ptr [ %4, %7 ], [ %28, %rb_callable_method_entry.exit ], [ %28, %rb_class_of.exit ], [ %28, %53 ], [ %28, %51 ], [ %28, %56 ]
   %.0 = phi i32 [ %3, %7 ], [ %16, %rb_callable_method_entry.exit ], [ %16, %rb_class_of.exit ], [ %16, %53 ], [ %16, %51 ], [ %16, %56 ]
   %71 = or i32 %5, 32
-  call fastcc void @raise_method_missing(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %.033, i64 noundef %1, i32 noundef %71) #47
+  call fastcc void @raise_method_missing(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %.033, i64 noundef %1, i32 noundef %71) #48
   unreachable
 }
 
@@ -48862,17 +48862,17 @@ define internal fastcc noalias nonnull ptr @rb_alloc_tmp_buffer2(ptr noundef %0,
   br i1 %3, label %4, label %rbimpl_size_mul_or_raise.exit
 
 4:                                                ; preds = %2
-  tail call void @ruby_malloc_size_overflow(i64 noundef %1, i64 noundef 8) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef %1, i64 noundef 8) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %2
   %5 = shl nuw i64 %1, 3
-  %6 = tail call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef %0, i64 noundef %5, i64 noundef %1) #55
+  %6 = tail call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef %0, i64 noundef %5, i64 noundef %1) #56
   ret ptr %6
 }
 
 ; Function Attrs: allocsize(1,2)
-declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #34
+declare noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #35
 
 declare i64 @rb_obj_is_proc(i64 noundef) local_unnamed_addr #3
 
@@ -48883,7 +48883,7 @@ declare ptr @rb_obj_classname(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @vm_super_outside() unnamed_addr #5 {
   %1 = load i64, ptr @rb_eNoMethodError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1, ptr noundef nonnull @.str.173) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1, ptr noundef nonnull @.str.173) #34
   unreachable
 }
 
@@ -49124,7 +49124,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i
   br i1 %.not.i.i, label %17, label %vm_ec_cref.exit
 
 17:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 vm_ec_cref.exit:                                  ; preds = %14, %5, %rb_vm_get_ruby_level_next_cfp.exit.i
@@ -49161,7 +49161,7 @@ CREF_CLASS_FOR_DEFINITION.exit:                   ; preds = %20, %24
 
 29:                                               ; preds = %27
   %30 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.186) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.186) #34
   unreachable
 
 31:                                               ; preds = %27
@@ -49359,7 +49359,7 @@ define internal fastcc void @vm_stack_consistency_error(ptr %.0.val, ptr %.8.val
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %6, %3
   %8 = ashr exact i64 %7, 3
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @vm_stack_consistency_error.stack_consistency_error, i64 noundef %5, i64 noundef %8) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @vm_stack_consistency_error.stack_consistency_error, i64 noundef %5, i64 noundef %8) #47
   unreachable
 }
 
@@ -49770,15 +49770,15 @@ define internal fastcc void @unmatched_redefinition(ptr noundef %0, i64 noundef 
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @rb_ary_entry(i64 noundef %6, i64 noundef 0) #45
-  %10 = tail call i64 @rb_ary_entry(i64 noundef %6, i64 noundef 1) #45
+  %9 = tail call i64 @rb_ary_entry(i64 noundef %6, i64 noundef 0) #46
+  %10 = tail call i64 @rb_ary_entry(i64 noundef %6, i64 noundef 1) #46
   %11 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %5, ptr noundef nonnull @.str.184, i64 noundef %9, i64 noundef %10, i64 noundef %4) #20
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load i64, ptr @rb_eTypeError, align 8
   %14 = tail call i64 @rb_exc_new_str(i64 noundef %13, i64 noundef %5) #20
-  tail call void @rb_exc_raise(i64 noundef %14) #33
+  tail call void @rb_exc_raise(i64 noundef %14) #34
   unreachable
 }
 
@@ -49960,7 +49960,7 @@ define internal i64 @vm_once_exec(i64 noundef %0) #2 {
   br i1 %.not9.i.i, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %10, %1
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.188) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.188) #47
   unreachable
 
 vm_make_proc_with_iseq.exit:                      ; preds = %.lr.ph.i.i
@@ -49989,7 +49989,7 @@ declare i64 @rb_proc_call_with_block(i64 noundef, i32 noundef, ptr noundef, i64 
 declare double @llvm.fabs.f64(double) #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #37
+declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #38
 
 declare i64 @rb_dbl2big(double noundef) local_unnamed_addr #3
 
@@ -50035,7 +50035,7 @@ declare i64 @rb_str_succ(i64 noundef) local_unnamed_addr #3
 declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @rb_obj_not(i64 noundef) #35
+declare i64 @rb_obj_not(i64 noundef) #36
 
 declare i64 @rb_reg_match(i64 noundef, i64 noundef) local_unnamed_addr #3
 
@@ -50575,7 +50575,7 @@ define internal noundef i32 @vm_cme_dump_i(i64 noundef %0, i64 noundef %1, ptr n
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.196, i64 4, i64 1, ptr %8) #52
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.196, i64 4, i64 1, ptr %8) #53
   tail call void @rb_obj_info_dump(i64 noundef %1) #20
   br label %10
 
@@ -50590,7 +50590,7 @@ define internal noundef i32 @vm_ccs_dump_i(i64 noundef %0, i64 noundef %1, ptr n
   %6 = tail call ptr @rb_id2name(i64 noundef %0) #20
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.198, ptr noundef %6, i32 noundef %8) #50
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.198, ptr noundef %6, i32 noundef %8) #51
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -50607,7 +50607,7 @@ define internal noundef i32 @vm_ccs_dump_i(i64 noundef %0, i64 noundef %1, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %vm_ci_dump.exit ]
   %17 = load ptr, ptr @stderr, align 8
   %18 = trunc nuw nsw i64 %indvars.iv to i32
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.199, i32 noundef %18) #50
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.199, i32 noundef %18) #51
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr %struct.rb_class_cc_entries_entry, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
@@ -50632,7 +50632,7 @@ vm_ci_argc.exit.i:                                ; preds = %16
 
 vm_ci_dump.exit:                                  ; preds = %vm_ci_argc.exit.i, %31
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.200, i64 7, i64 1, ptr %32) #52
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.200, i64 7, i64 1, ptr %32) #53
   %34 = load ptr, ptr %15, align 8
   %35 = getelementptr %struct.rb_class_cc_entries_entry, ptr %34, i64 %indvars.iv, i32 1
   %36 = load ptr, ptr %35, align 8
@@ -50702,7 +50702,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50724,7 +50724,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50744,7 +50744,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50764,7 +50764,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50785,7 +50785,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50808,7 +50808,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50833,7 +50833,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50860,7 +50860,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50889,7 +50889,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50920,7 +50920,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50953,7 +50953,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -50988,7 +50988,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -51025,7 +51025,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -51064,7 +51064,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -51105,7 +51105,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -51148,7 +51148,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -51193,7 +51193,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -51240,7 +51240,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %4
 
 7:                                                ; preds = %rb_ractor_main_p.exit.i
   %8 = load i64, ptr @rb_eRactorUnsafeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.204) #34
   unreachable
 
 ractor_unsafe_check.exit:                         ; preds = %4, %rb_ractor_main_p.exit.i
@@ -51879,7 +51879,7 @@ declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @rb_name_err_raise(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
   %3 = tail call i64 @rb_fstring_cstr(ptr noundef nonnull @.str.211) #20
-  tail call fastcc void @rb_name_err_raise_str(i64 noundef %3, i64 noundef %0, i64 noundef %1) #47
+  tail call fastcc void @rb_name_err_raise_str(i64 noundef %3, i64 noundef %0, i64 noundef %1) #48
   unreachable
 }
 
@@ -51888,12 +51888,12 @@ declare i64 @rb_fstring_cstr(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @rb_name_err_raise_str(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = tail call i64 @rb_name_err_new(i64 noundef %0, i64 noundef %1, i64 noundef %2) #20
-  tail call void @rb_exc_raise(i64 noundef %4) #33
+  tail call void @rb_exc_raise(i64 noundef %4) #34
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @rb_st_hash_uint(i64 noundef, i64 noundef) local_unnamed_addr #35
+declare i64 @rb_st_hash_uint(i64 noundef, i64 noundef) local_unnamed_addr #36
 
 declare i64 @rb_hash_proc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
@@ -51945,7 +51945,7 @@ define internal fastcc i64 @set_visibility(i32 noundef %0, ptr noundef %1, i64 n
 20:                                               ; preds = %15
   %21 = tail call i64 @rb_frame_this_func() #20
   %22 = tail call ptr @rb_id2name(i64 noundef %21) #20
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.217, ptr noundef %22) #50
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.217, ptr noundef %22) #51
   %.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
   %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
@@ -51986,7 +51986,7 @@ rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %.not.i.i.i.i.i, label %33, label %rb_scope_visibility_set.exit
 
 33:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #47
   unreachable
 
 rb_scope_visibility_set.exit:                     ; preds = %rb_vm_get_ruby_level_next_cfp.exit.i.i.i.i
@@ -52037,7 +52037,7 @@ define internal fastcc void @set_method_visibility(i64 noundef %0, i32 noundef %
   br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %rb_check_frozen_inline.exit
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %9, %4
-  tail call void @rb_error_frozen_object(i64 noundef %0) #33
+  tail call void @rb_error_frozen_object(i64 noundef %0) #34
   unreachable
 
 rb_check_frozen_inline.exit:                      ; preds = %9
@@ -52131,7 +52131,7 @@ define internal fastcc void @check_and_export_method(i64 noundef %0, i64 noundef
 
 8:                                                ; preds = %3
   %9 = load i64, ptr %6, align 8
-  call void @rb_print_undef_str(i64 noundef %0, i64 noundef %9) #33
+  call void @rb_print_undef_str(i64 noundef %0, i64 noundef %9) #34
   unreachable
 
 10:                                               ; preds = %3
@@ -52257,7 +52257,7 @@ search_method0.exit.thread.i:                     ; preds = %search_method0.exit
   br i1 %63, label %.critedge.thread.i, label %64
 
 .critedge.thread.i:                               ; preds = %45, %60, %57, %54, %51, %.critedge.thread72.i, %35, %search_method0.exit.thread.i
-  call void @rb_print_undef(i64 noundef %0, i64 noundef %7, i32 noundef 0) #33
+  call void @rb_print_undef(i64 noundef %0, i64 noundef %7, i32 noundef 0) #34
   unreachable
 
 64:                                               ; preds = %60, %51
@@ -52539,7 +52539,7 @@ define internal fastcc i64 @vm_call0_body(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not192, label %40, label %39
 
 39:                                               ; preds = %28
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 40:                                               ; preds = %28
@@ -52748,7 +52748,7 @@ rb_ec_ractor_hooks.exit.i.i:                      ; preds = %121, %115, %.crited
   br i1 %.not.i.i.i, label %vm_push_frame.exit.i.i, label %160
 
 160:                                              ; preds = %153
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 vm_push_frame.exit.i.i:                           ; preds = %153
@@ -52779,7 +52779,7 @@ vm_push_frame.exit.i.i:                           ; preds = %153
   br i1 %167, label %.split.i.i.i, label %168
 
 .split.i.i.i:                                     ; preds = %166
-  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef %69, i32 noundef %69) #47
+  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef %69, i32 noundef %69) #48
   unreachable
 
 168:                                              ; preds = %166
@@ -52787,7 +52787,7 @@ vm_push_frame.exit.i.i:                           ; preds = %153
   br i1 %169, label %.split9.i.i.i, label %rb_check_arity.exit.i.i
 
 .split9.i.i.i:                                    ; preds = %168
-  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef %69, i32 noundef %69) #47
+  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef %69, i32 noundef %69) #48
   unreachable
 
 rb_check_arity.exit.i.i:                          ; preds = %168, %vm_push_frame.exit.i.i
@@ -52813,7 +52813,7 @@ rb_check_arity.exit.i.i:                          ; preds = %168, %vm_push_frame
   br label %183
 
 vm_cfp_consistent_p.exit.i.i:                     ; preds = %177
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.226, ptr noundef nonnull %155, ptr noundef %175) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.226, ptr noundef nonnull %155, ptr noundef %175) #47
   unreachable
 
 183:                                              ; preds = %181, %rb_check_arity.exit.i.i
@@ -52972,7 +52972,7 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %260, %257
   br i1 %268, label %.split.i.i, label %.critedge.i.thread
 
 .split.i.i:                                       ; preds = %.critedge.i
-  tail call void @rb_error_arity(i32 noundef %267, i32 noundef 1, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %267, i32 noundef 1, i32 noundef 1) #48
   unreachable
 
 .critedge.i.thread:                               ; preds = %244, %RHASH_EMPTY_P.exit.i, %235, %.critedge.i
@@ -52981,7 +52981,7 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %260, %257
   br i1 %270, label %.split9.i.i, label %vm_call_check_arity.exit
 
 .split9.i.i:                                      ; preds = %.critedge.i.thread
-  tail call void @rb_error_arity(i32 noundef %269, i32 noundef 1, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %269, i32 noundef 1, i32 noundef 1) #48
   unreachable
 
 vm_call_check_arity.exit:                         ; preds = %.critedge.i.thread
@@ -53203,7 +53203,7 @@ RHASH_EMPTY_P.exit.i245:                          ; preds = %388, %385
   br i1 %395, label %.split.i.i243, label %.critedge.i241.thread
 
 .split.i.i243:                                    ; preds = %.critedge.i241
-  tail call void @rb_error_arity(i32 noundef %361, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %361, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 .critedge.i241.thread:                            ; preds = %394, %.critedge.i241
@@ -53213,7 +53213,7 @@ RHASH_EMPTY_P.exit.i245:                          ; preds = %388, %385
 
 .split9.i.i242:                                   ; preds = %363, %RHASH_EMPTY_P.exit.i245, %372, %.critedge.i241.thread
   %397 = phi i32 [ %396, %.critedge.i241.thread ], [ %361, %372 ], [ %361, %RHASH_EMPTY_P.exit.i245 ], [ %361, %363 ]
-  tail call void @rb_error_arity(i32 noundef %397, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %397, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 vm_call_check_arity.exit247:                      ; preds = %.critedge.i241.thread
@@ -53394,7 +53394,7 @@ vm_ci_mid.exit259:                                ; preds = %455, %457
   br i1 %496, label %497, label %498
 
 497:                                              ; preds = %493
-  tail call void @rb_notimplement() #33
+  tail call void @rb_notimplement() #34
   unreachable
 
 498:                                              ; preds = %493
@@ -53441,7 +53441,7 @@ refined_method_callable_without_refinement.exit:  ; preds = %501, %505
   br i1 %517, label %518, label %519
 
 518:                                              ; preds = %515
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.223) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.223) #47
   unreachable
 
 519:                                              ; preds = %515
@@ -53646,7 +53646,7 @@ RHASH_EMPTY_P.exit.i270:                          ; preds = %624, %621
   br i1 %631, label %.split.i.i268, label %.critedge.i266.thread
 
 .split.i.i268:                                    ; preds = %.critedge.i266
-  tail call void @rb_error_arity(i32 noundef %597, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %597, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 .critedge.i266.thread:                            ; preds = %630, %.critedge.i266
@@ -53656,7 +53656,7 @@ RHASH_EMPTY_P.exit.i270:                          ; preds = %624, %621
 
 .split9.i.i267:                                   ; preds = %599, %RHASH_EMPTY_P.exit.i270, %608, %.critedge.i266.thread
   %633 = phi i32 [ %632, %.critedge.i266.thread ], [ %597, %608 ], [ %597, %RHASH_EMPTY_P.exit.i270 ], [ %597, %599 ]
-  tail call void @rb_error_arity(i32 noundef %633, i32 noundef 0, i32 noundef 0) #47
+  tail call void @rb_error_arity(i32 noundef %633, i32 noundef 0, i32 noundef 0) #48
   unreachable
 
 vm_call_check_arity.exit272:                      ; preds = %.critedge.i266.thread
@@ -53917,7 +53917,7 @@ RHASH_EMPTY_P.exit.i295:                          ; preds = %765, %762
   br i1 %773, label %.split.i.i293, label %.critedge.i291.thread
 
 .split.i.i293:                                    ; preds = %.critedge.i291
-  tail call void @rb_error_arity(i32 noundef %772, i32 noundef 1, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %772, i32 noundef 1, i32 noundef 1) #48
   unreachable
 
 .critedge.i291.thread:                            ; preds = %749, %RHASH_EMPTY_P.exit.i295, %740, %.critedge.i291
@@ -53926,7 +53926,7 @@ RHASH_EMPTY_P.exit.i295:                          ; preds = %765, %762
   br i1 %775, label %.split9.i.i292, label %vm_call_check_arity.exit297
 
 .split9.i.i292:                                   ; preds = %.critedge.i291.thread
-  tail call void @rb_error_arity(i32 noundef %774, i32 noundef 1, i32 noundef 1) #47
+  tail call void @rb_error_arity(i32 noundef %774, i32 noundef 1, i32 noundef 1) #48
   unreachable
 
 vm_call_check_arity.exit297:                      ; preds = %.critedge.i291.thread
@@ -54070,12 +54070,12 @@ vm_ci_mid.exit309:                                ; preds = %829, %831
   br label %rb_vm_invoke_proc.exit
 
 850:                                              ; preds = %549
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.224, i32 noundef %551) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.224, i32 noundef %551) #47
   unreachable
 
 851:                                              ; preds = %23
   %852 = zext nneg i8 %27 to i32
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.225, i32 noundef %852) #46
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.225, i32 noundef %852) #47
   unreachable
 
 rb_vm_invoke_proc.exit:                           ; preds = %590, %588, %847, %rb_ec_ractor_hooks.exit306, %vm_ci_mid.exit309, %vm_call_opt_struct_aref0.exit289, %vm_call_opt_struct_aref0.exit, %vm_ci_mid.exit286, %473, %rb_ec_ractor_hooks.exit256, %vm_ci_mid.exit259, %347, %rb_ec_ractor_hooks.exit236, %vm_ci_mid.exit239, %552, %481, %vm_call0_cfunc.exit
@@ -54224,7 +54224,7 @@ define internal fastcc i64 @send_internal(i32 noundef %0, ptr noundef %1, i64 no
 
 16:                                               ; preds = %14
   %17 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.155) #33
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.155) #34
   unreachable
 
 18:                                               ; preds = %14
@@ -54306,7 +54306,7 @@ rb_method_basic_definition_p.exit.thread57:       ; preds = %rb_class_of.exit, %
   %50 = load i64, ptr @rb_eNoMethodError, align 8
   %51 = zext i1 %.not50 to i32
   %52 = call i64 @rb_make_no_method_exception(i64 noundef %50, i64 noundef 0, i64 noundef %2, i32 noundef %0, ptr noundef nonnull %1, i32 noundef %51)
-  call void @rb_exc_raise(i64 noundef %52) #33
+  call void @rb_exc_raise(i64 noundef %52) #34
   unreachable
 
 rb_method_basic_definition_p.exit.thread:         ; preds = %42, %37, %39, %rb_method_basic_definition_p.exit
@@ -54560,7 +54560,7 @@ callable_method_entry_refinements0.exit.thread:   ; preds = %rb_class_of.exit
   %52 = load i8, ptr %46, align 8
   %53 = or i8 %52, 2
   store i8 %53, ptr %46, align 8
-  call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %45, %49
@@ -54619,7 +54619,7 @@ stack_check.exit:                                 ; preds = %45, %49
   %72 = load i8, ptr %66, align 8
   %73 = or i8 %72, 2
   store i8 %73, ptr %66, align 8
-  call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit71:                               ; preds = %.thread84, %69
@@ -54877,7 +54877,7 @@ define internal noundef i64 @check_funcall_failed(i64 noundef %0, i64 noundef %1
   br i1 %15, label %.critedge10, label %.critedge
 
 .critedge:                                        ; preds = %2, %7, %12
-  tail call void @rb_exc_raise(i64 noundef %1) #33
+  tail call void @rb_exc_raise(i64 noundef %1) #34
   unreachable
 
 .critedge10:                                      ; preds = %7, %12
@@ -55061,7 +55061,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
 
 77:                                               ; preds = %69
   %78 = getelementptr %struct.pm_string_t, ptr %70, i64 %indvars.iv.i
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #45
+  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #46
   call void @pm_string_constant_init(ptr noundef %78, ptr noundef nonnull %76, i64 noundef %79) #20
   br label %80
 
@@ -55090,7 +55090,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
 
 90:                                               ; preds = %._crit_edge112.i
   call void @pm_parse_result_free(ptr noundef nonnull %6) #20
-  call void @rb_exc_raise(i64 noundef %89) #33
+  call void @rb_exc_raise(i64 noundef %89) #34
   unreachable
 
 91:                                               ; preds = %._crit_edge112.i
@@ -55106,7 +55106,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   %indvars.iv144.i = phi i64 [ 0, %.lr.ph121.i ], [ %indvars.iv.next145.i, %._crit_edge116.i ]
   %.2119.i = phi ptr [ %.0.i.i, %.lr.ph121.i ], [ %127, %._crit_edge116.i ]
   %.081117.i = phi ptr [ %92, %.lr.ph121.i ], [ %95, %._crit_edge116.i ]
-  %95 = call noalias nonnull dereferenceable(120) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 120) #48
+  %95 = call noalias nonnull dereferenceable(120) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 120) #49
   %96 = load ptr, ptr %84, align 8
   %97 = getelementptr inbounds i8, ptr %95, i64 80
   store ptr %6, ptr %97, align 8
@@ -55650,7 +55650,7 @@ declare i64 @rb_proc_lambda_p(i64 noundef) local_unnamed_addr #3
 declare i64 @rb_sym_proc_call(i64 noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @rb_is_local_id(i64 noundef) local_unnamed_addr #35
+declare i32 @rb_is_local_id(i64 noundef) local_unnamed_addr #36
 
 declare i32 @rb_hash_stlike_update(i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -55704,7 +55704,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %17, label %18, label %rb_yield_0.exit
 
 18:                                               ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
-  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #47
+  tail call void @rb_vm_localjump_error(ptr noundef nonnull @.str.242, i64 noundef 4, i32 noundef 0) #48
   unreachable
 
 rb_yield_0.exit:                                  ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i.i.i
@@ -55808,7 +55808,7 @@ vm_block_handler_type.exit:                       ; preds = %25, %25
   %.047 = phi i32 [ %40, %33 ], [ 3, %31 ]
   %42 = add i32 %.047, 1
   %43 = sext i32 %42 to i64
-  %44 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %43, i64 noundef 8) #48
+  %44 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %43, i64 noundef 8) #49
   %45 = tail call i64 @rb_imemo_new(i32 noundef 0, i64 noundef 0) #20
   %46 = inttoptr i64 %45 to ptr
   %47 = add i32 %.047, -1
@@ -55820,7 +55820,7 @@ vm_block_handler_type.exit:                       ; preds = %25, %25
   br i1 %52, label %53, label %rbimpl_size_mul_or_raise.exit
 
 53:                                               ; preds = %41
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %51) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %51) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %41
@@ -55949,7 +55949,7 @@ define internal fastcc ptr @env_copy(ptr nocapture noundef readonly %0, i64 noun
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %7, i64 noundef 8) #48
+  %8 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %7, i64 noundef 8) #49
   %9 = load i32, ptr %5, align 8
   %10 = add i32 %9, -2
   %11 = zext i32 %10 to i64
@@ -56012,7 +56012,7 @@ rb_array_len.exit.i:                              ; preds = %38, %35
   br i1 %.not.i1.i, label %RARRAY_LENINT.exit, label %42
 
 42:                                               ; preds = %rb_array_len.exit.i
-  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #46
+  tail call void @rb_out_of_int(i64 noundef %.0.i.i) #47
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
@@ -56126,7 +56126,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %82
 94:                                               ; preds = %92, %90
   %95 = load i64, ptr @rb_eRactorIsolationError, align 8
   %96 = tail call i64 @rb_exc_new_str(i64 noundef %95, i64 noundef %89) #20
-  tail call void @rb_exc_raise(i64 noundef %96) #33
+  tail call void @rb_exc_raise(i64 noundef %96) #34
   unreachable
 
 .thread:                                          ; preds = %82, %rb_ractor_shareable_p.exit
@@ -56347,7 +56347,7 @@ RB_SYMBOL_P.exit.i:                               ; preds = %53
   %77 = load i8, ptr %71, align 8
   %78 = or i8 %77, 2
   store i8 %78, ptr %71, align 8
-  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #47
+  tail call void @rb_ec_stack_overflow(ptr noundef nonnull %0, i32 noundef 0) #48
   unreachable
 
 stack_check.exit:                                 ; preds = %.split106.us, %74
@@ -56392,7 +56392,7 @@ rbimpl_size_mul_or_raise.exit.thread:             ; preds = %.thread129
   br label %102
 
 97:                                               ; preds = %.thread129, %88
-  tail call fastcc void @vm_stackoverflow() #47
+  tail call fastcc void @vm_stackoverflow() #48
   unreachable
 
 98:                                               ; preds = %88
@@ -56402,7 +56402,7 @@ rbimpl_size_mul_or_raise.exit.thread:             ; preds = %.thread129
   br i1 %100, label %101, label %rbimpl_size_mul_or_raise.exit
 
 101:                                              ; preds = %98
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %90) #33
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %90) #34
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %98
@@ -56479,7 +56479,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br i1 %140, label %.lr.ph.i.i, label %invoke_block.exit
 
 141:                                              ; preds = %ruby_nonempty_memcpy.exit
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -57531,7 +57531,7 @@ vm_base_ptr.exit325:                              ; preds = %.loopexit
   br i1 %447, label %.lr.ph.i328, label %vm_push_frame.exit
 
 448:                                              ; preds = %vm_base_ptr.exit325
-  call fastcc void @vm_stackoverflow() #47
+  call fastcc void @vm_stackoverflow() #48
   unreachable
 
 .lr.ph.i328:                                      ; preds = %.preheader.i, %.lr.ph.i328
@@ -58701,19 +58701,19 @@ define internal i64 @vm_memsize(ptr nocapture readnone %0) #2 {
   %5 = tail call i64 @rb_vm_memsize_waiting_fds(ptr noundef nonnull %4) #20
   %6 = getelementptr inbounds i8, ptr %3, i64 632
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 @rb_st_memsize(ptr noundef %7) #45
+  %8 = tail call i64 @rb_st_memsize(ptr noundef %7) #46
   %9 = getelementptr inbounds i8, ptr %3, i64 640
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i64 @rb_st_memsize(ptr noundef %10) #45
+  %11 = tail call i64 @rb_st_memsize(ptr noundef %10) #46
   %12 = getelementptr inbounds i8, ptr %3, i64 1176
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i64 @rb_st_memsize(ptr noundef %13) #45
+  %14 = tail call i64 @rb_st_memsize(ptr noundef %13) #46
   %15 = tail call i64 @rb_vm_memsize_postponed_job_queue() #20
   %16 = getelementptr inbounds i8, ptr %3, i64 1200
   %17 = tail call i64 @rb_vm_memsize_workqueue(ptr noundef nonnull %16) #20
   %18 = getelementptr inbounds i8, ptr %3, i64 1296
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @rb_st_memsize(ptr noundef %19) #45
+  %20 = tail call i64 @rb_st_memsize(ptr noundef %19) #46
   %21 = getelementptr inbounds i8, ptr %3, i64 1312
   %22 = load ptr, ptr %21, align 8
   %.not4.i = icmp eq ptr %22, null
@@ -58740,11 +58740,11 @@ vm_memsize_at_exit_list.exit:                     ; preds = %.lr.ph.i, %1
   %33 = add i64 %32, %.0.lcssa.i
   %34 = getelementptr inbounds i8, ptr %3, i64 1336
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i64 @rb_st_memsize(ptr noundef %35) #45
+  %36 = tail call i64 @rb_st_memsize(ptr noundef %35) #46
   %37 = add i64 %33, %36
   %38 = getelementptr inbounds i8, ptr %3, i64 1320
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i64 @rb_st_memsize(ptr noundef %39) #45
+  %40 = tail call i64 @rb_st_memsize(ptr noundef %39) #46
   %41 = add i64 %37, %40
   %42 = getelementptr inbounds i8, ptr %3, i64 1328
   %43 = load ptr, ptr %42, align 8
@@ -58757,7 +58757,7 @@ vm_memsize_at_exit_list.exit:                     ; preds = %.lr.ph.i, %1
   %50 = add i64 %46, %49
   %51 = getelementptr inbounds i8, ptr %3, i64 1352
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i64 @rb_st_memsize(ptr noundef %52) #45
+  %53 = tail call i64 @rb_st_memsize(ptr noundef %52) #46
   %54 = add i64 %50, %53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %55 = load ptr, ptr @ruby_current_vm_ptr, align 8
@@ -58789,9 +58789,9 @@ declare i64 @rb_vm_memsize_postponed_job_queue() local_unnamed_addr #3
 declare i64 @rb_vm_memsize_workqueue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable
-define internal noundef i32 @vm_memsize_constant_cache_i(i64 %0, i64 noundef %1, ptr nocapture noundef %2) #38 {
+define internal noundef i32 @vm_memsize_constant_cache_i(i64 %0, i64 noundef %1, ptr nocapture noundef %2) #39 {
   %4 = inttoptr i64 %1 to ptr
-  %5 = tail call i64 @rb_st_memsize(ptr noundef %4) #45
+  %5 = tail call i64 @rb_st_memsize(ptr noundef %4) #46
   %6 = load i64, ptr %2, align 8
   %7 = add i64 %6, %5
   store i64 %7, ptr %2, align 8
@@ -58849,18 +58849,18 @@ vm_redefinition_check_method_type.exit.thread10:  ; preds = %18, %vm_redefinitio
 
 vm_redefinition_check_method_type.exit.thread:    ; preds = %11, %vm_redefinition_check_method_type.exit, %3
   %30 = call ptr @rb_id2name(i64 noundef %1) #20
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.277, ptr noundef %30) #46
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.277, ptr noundef %30) #47
   unreachable
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #39
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #40
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i64 @__sysconf(i32 noundef) local_unnamed_addr #40
+declare i64 @__sysconf(i32 noundef) local_unnamed_addr #41
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @vm_ci_hash_cmp(i64 noundef %0, i64 noundef %1) #0 {
@@ -58940,10 +58940,10 @@ define internal i64 @vm_ci_hash(i64 noundef %0) #2 {
   %5 = tail call i64 @rb_hash_start(i64 noundef %4) #20
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @rb_st_hash_uint(i64 noundef %5, i64 noundef %7) #54
+  %8 = tail call i64 @rb_st_hash_uint(i64 noundef %5, i64 noundef %7) #55
   %9 = getelementptr inbounds i8, ptr %2, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %10) #54
+  %11 = tail call i64 @rb_st_hash_uint(i64 noundef %8, i64 noundef %10) #55
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -58964,7 +58964,7 @@ define internal i64 @vm_ci_hash(i64 noundef %0) #2 {
   %.01314 = phi i64 [ %11, %.lr.ph ], [ %20, %17 ]
   %18 = getelementptr [0 x i64], ptr %16, i64 0, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
-  %20 = tail call i64 @rb_st_hash_uint(i64 noundef %.01314, i64 noundef %19) #54
+  %20 = tail call i64 @rb_st_hash_uint(i64 noundef %.01314, i64 noundef %19) #55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !227
@@ -58983,25 +58983,25 @@ declare void @llvm.va_start.p0(ptr) #19
 declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #41
+declare i32 @llvm.fshl.i32(i32, i32, i32) #42
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #42
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #43
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #43
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #44
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #44
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #44
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #41
+declare i32 @llvm.smax.i32(i32, i32) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #41
+declare i64 @llvm.smax.i64(i64, i64) #42
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -59030,36 +59030,37 @@ attributes #23 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #24 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #30 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #33 = { noreturn nounwind }
-attributes #34 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #42 = { nofree nounwind }
-attributes #43 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #44 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #45 = { nounwind willreturn memory(read) }
-attributes #46 = { cold noreturn nounwind }
-attributes #47 = { noreturn }
-attributes #48 = { nounwind allocsize(0,1) }
-attributes #49 = { nounwind allocsize(0) }
-attributes #50 = { cold nounwind }
-attributes #51 = { memory(none) }
-attributes #52 = { cold }
-attributes #53 = { "function-inline-cost-multiplier"="2" }
-attributes #54 = { nounwind willreturn memory(none) }
-attributes #55 = { nounwind allocsize(1,2) }
-attributes #56 = { nounwind allocsize(1) }
+attributes #27 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #31 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #34 = { noreturn nounwind }
+attributes #35 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #41 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #43 = { nofree nounwind }
+attributes #44 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #45 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #46 = { nounwind willreturn memory(read) }
+attributes #47 = { cold noreturn nounwind }
+attributes #48 = { noreturn }
+attributes #49 = { nounwind allocsize(0,1) }
+attributes #50 = { nounwind allocsize(0) }
+attributes #51 = { cold nounwind }
+attributes #52 = { memory(none) }
+attributes #53 = { cold }
+attributes #54 = { "function-inline-cost-multiplier"="2" }
+attributes #55 = { nounwind willreturn memory(none) }
+attributes #56 = { nounwind allocsize(1,2) }
+attributes #57 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

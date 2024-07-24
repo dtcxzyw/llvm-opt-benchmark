@@ -2360,8 +2360,8 @@ if.end399:                                        ; preds = %if.else387, %if.the
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @_tr_tally(ptr nocapture noundef %s, i32 noundef %dist, i32 noundef %lc) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define range(i32 0, 2) i32 @_tr_tally(ptr nocapture noundef %s, i32 noundef %dist, i32 noundef %lc) local_unnamed_addr #3 {
 entry:
   %conv = trunc i32 %dist to i8
   %sym_buf = getelementptr inbounds i8, ptr %s, i64 5888

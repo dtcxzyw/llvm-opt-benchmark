@@ -50,8 +50,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %rhs) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count = getelementptr inbounds i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count, align 8
@@ -84,8 +84,8 @@ return:                                           ; preds = %for.body.i.i.i.i, %
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %rhs) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count.i = getelementptr inbounds i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count.i, align 8
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base11trace_event17AllocationContextC2ERKNS0_9BacktraceEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(784) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace, ptr noundef %type_name) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4base11trace_event17AllocationContextC2ERKNS0_9BacktraceEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(784) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace, ptr noundef %type_name) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef nonnull align 8 dereferenceable(776) %backtrace, i64 776, i1 false)
   %type_name3 = getelementptr inbounds i8, ptr %this, i64 776
@@ -136,10 +136,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(784) %rhs) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(784) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count.i = getelementptr inbounds i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count.i, align 8
@@ -178,8 +178,8 @@ _ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit: ; preds = %for.body.i.i.i.i.i
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(784) %rhs) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(784) %rhs) local_unnamed_addr #0 {
 entry:
   %frame_count.i.i = getelementptr inbounds i8, ptr %lhs, i64 768
   %0 = load i64, ptr %frame_count.i.i, align 8
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace) local_unnamed_addr #4 align 2 {
 entry:
   %values = alloca [48 x ptr], align 16
   %frame_count = getelementptr inbounds i8, ptr %backtrace, i64 768
@@ -255,10 +255,10 @@ for.end:                                          ; preds = %for.body, %entry
   ret i64 %conv5
 }
 
-declare noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK9base_hash4hashIN4base11trace_event17AllocationContextEEclERKS3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(784) %ctx) local_unnamed_addr #5 align 2 {
+define dso_local noundef i64 @_ZNK9base_hash4hashIN4base11trace_event17AllocationContextEEclERKS3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(784) %ctx) local_unnamed_addr #4 align 2 {
 entry:
   %values.i = alloca [48 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %values.i)
@@ -294,23 +294,22 @@ _ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit: ; preds = %for
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

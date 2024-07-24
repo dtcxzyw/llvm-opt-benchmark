@@ -14,7 +14,7 @@ define void @srand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) 
 
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ 0, %4 ], [ %12, %6 ]
-  %8 = tail call i32 @rand() #6
+  %8 = tail call i32 @rand() #5
   %9 = sitofp i32 %8 to float
   %10 = fmul float %9, 0x3E00000000000000
   %11 = getelementptr inbounds float, ptr %0, i64 %7
@@ -41,7 +41,7 @@ define void @drand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) 
 
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ 0, %4 ], [ %12, %6 ]
-  %8 = tail call i32 @rand() #6
+  %8 = tail call i32 @rand() #5
   %9 = sitofp i32 %8 to double
   %10 = fdiv double %9, 0x41DFFFFFFFC00000
   %11 = getelementptr inbounds double, ptr %0, i64 %7
@@ -85,7 +85,7 @@ define float @smatrix_difference(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %23, label %.loopexit.us, label %15, !llvm.loop !13
 
 .loopexit.us:                                     ; preds = %15
-  %24 = tail call float @cblas_snrm2(i32 noundef %2, ptr noundef nonnull %12, i32 noundef 1) #6
+  %24 = tail call float @cblas_snrm2(i32 noundef %2, ptr noundef nonnull %12, i32 noundef 1) #5
   %25 = fadd float %13, %24
   %26 = getelementptr inbounds float, ptr %12, i64 %9
   %27 = getelementptr inbounds float, ptr %11, i64 %9
@@ -97,7 +97,7 @@ define float @smatrix_difference(ptr noundef %0, ptr nocapture noundef readonly 
   %30 = phi ptr [ %35, %.split ], [ %0, %7 ]
   %31 = phi float [ %34, %.split ], [ 0.000000e+00, %7 ]
   %32 = phi i32 [ %36, %.split ], [ 0, %7 ]
-  %33 = tail call float @cblas_snrm2(i32 noundef %2, ptr noundef %30, i32 noundef 1) #6
+  %33 = tail call float @cblas_snrm2(i32 noundef %2, ptr noundef %30, i32 noundef 1) #5
   %34 = fadd float %31, %33
   %35 = getelementptr inbounds float, ptr %30, i64 %9
   %36 = add nuw nsw i32 %32, 1
@@ -144,7 +144,7 @@ define double @dmatrix_difference(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %23, label %.loopexit.us, label %15, !llvm.loop !15
 
 .loopexit.us:                                     ; preds = %15
-  %24 = tail call double @cblas_dnrm2(i32 noundef %2, ptr noundef nonnull %12, i32 noundef 1) #6
+  %24 = tail call double @cblas_dnrm2(i32 noundef %2, ptr noundef nonnull %12, i32 noundef 1) #5
   %25 = fadd double %13, %24
   %26 = getelementptr inbounds double, ptr %12, i64 %9
   %27 = getelementptr inbounds double, ptr %11, i64 %9
@@ -156,7 +156,7 @@ define double @dmatrix_difference(ptr noundef %0, ptr nocapture noundef readonly
   %30 = phi ptr [ %35, %.split ], [ %0, %7 ]
   %31 = phi double [ %34, %.split ], [ 0.000000e+00, %7 ]
   %32 = phi i32 [ %36, %.split ], [ 0, %7 ]
-  %33 = tail call double @cblas_dnrm2(i32 noundef %2, ptr noundef %30, i32 noundef 1) #6
+  %33 = tail call double @cblas_dnrm2(i32 noundef %2, ptr noundef %30, i32 noundef 1) #5
   %34 = fadd double %31, %33
   %35 = getelementptr inbounds double, ptr %30, i64 %9
   %36 = add nuw nsw i32 %32, 1
@@ -172,7 +172,7 @@ define double @dmatrix_difference(ptr noundef %0, ptr nocapture noundef readonly
 
 declare double @cblas_dnrm2(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %5, label %.loopexit
@@ -198,7 +198,7 @@ define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %5, label %.loopexit
@@ -225,7 +225,7 @@ define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -266,7 +266,7 @@ define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -307,7 +307,7 @@ define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %.loopexit2, label %10
 
@@ -376,10 +376,10 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %.loopexit2, label %10
 
@@ -448,10 +448,10 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %0, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -492,7 +492,7 @@ define void @scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %0, 0
   br i1 %8, label %.loopexit2, label %9
 
@@ -533,7 +533,7 @@ define void @dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ccopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @ccopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %.loopexit2, label %10
 
@@ -597,7 +597,7 @@ define void @ccopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zcopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @zcopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %.loopexit2, label %10
 
@@ -663,10 +663,9 @@ define void @zcopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonl
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @radiotap_ns = internal constant %struct.ieee80211_radiotap_namespace { ptr @rtap_namespace_sizes, i32 29, i32 0, i8 0 }, align 8
 @rtap_namespace_sizes = internal constant [29 x %struct.radiotap_align_size] [%struct.radiotap_align_size { i8 -120, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 66, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 34, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 0, [3 x i8] undef }, %struct.radiotap_align_size { i8 49, [3 x i8] undef }, %struct.radiotap_align_size { i8 -124, [3 x i8] undef }, %struct.radiotap_align_size { i8 -62, [3 x i8] undef }, %struct.radiotap_align_size { i8 -56, [3 x i8] undef }, %struct.radiotap_align_size { i8 -62, [3 x i8] undef }, %struct.radiotap_align_size { i8 -62, [3 x i8] undef }, %struct.radiotap_align_size { i8 0, [3 x i8] undef }, %struct.radiotap_align_size { i8 17, [3 x i8] undef }, %struct.radiotap_align_size { i8 66, [3 x i8] undef }, %struct.radiotap_align_size { i8 -92, [3 x i8] undef }], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 8
   br i1 %5, label %.loopexit, label %6
@@ -111,7 +111,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -527,7 +527,8 @@ find_ns.exit:                                     ; preds = %163, %135, %.prehea
   ret i32 %.0
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

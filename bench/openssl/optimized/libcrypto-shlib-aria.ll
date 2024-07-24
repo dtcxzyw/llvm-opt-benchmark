@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @X2 = internal unnamed_addr constant [256 x i32] [i32 808464384, i32 1751672832, i32 -1717987072, i32 454761216, i32 -2021161216, i32 -1179010816, i32 555819264, i32 2021160960, i32 1347440640, i32 960051456, i32 -606348544, i32 -505290496, i32 1920102912, i32 151587072, i32 1650614784, i32 1010580480, i32 1044266496, i32 2122219008, i32 1583242752, i32 -1903260160, i32 -235802368, i32 -1600086016, i32 -858993664, i32 -1549556992, i32 707406336, i32 488447232, i32 -67372288, i32 -1229539840, i32 -690563584, i32 538976256, i32 -993737728, i32 -1920103168, i32 -2122219264, i32 1701143808, i32 -168430336, i32 -1987475200, i32 -875836672, i32 -1650615040, i32 2004317952, i32 -960051712, i32 1465341696, i32 1128481536, i32 1448498688, i32 387389184, i32 -724249600, i32 1077952512, i32 437918208, i32 1296911616, i32 -1061109760, i32 1667457792, i32 1819044864, i32 -471604480, i32 -1212696832, i32 -926365696, i32 1684300800, i32 1785358848, i32 1397969664, i32 -1431655936, i32 943208448, i32 -1734830080, i32 202116096, i32 -185273344, i32 -1684301056, i32 -303174400, i32 2139062016, i32 572662272, i32 1987474944, i32 -1347440896, i32 -572662528, i32 976894464, i32 185273088, i32 1482184704, i32 1734829824, i32 -2004318208, i32 101058048, i32 -1010580736, i32 892679424, i32 218959104, i32 16843008, i32 -1953789184, i32 -1936946176, i32 -1027423744, i32 -421075456, i32 1600085760, i32 33686016, i32 606348288, i32 1970631936, i32 -1819045120, i32 1717986816, i32 505290240, i32 -437918464, i32 -488447488, i32 1414812672, i32 -656877568, i32 269488128, i32 -825307648, i32 2054846976, i32 -387389440, i32 134744064, i32 741092352, i32 303174144, i32 -1751673088, i32 842150400, i32 -1414812928, i32 -1263225856, i32 656877312, i32 168430080, i32 589505280, i32 -538976512, i32 -269488384, i32 -892679680, i32 -640034560, i32 -1195853824, i32 -84215296, i32 -589505536, i32 825307392, i32 1802201856, i32 -774778624, i32 -1381126912, i32 421075200, i32 1229539584, i32 -1111638784, i32 1364283648, i32 -1768516096, i32 -286331392, i32 -454761472, i32 -1465341952, i32 1094795520, i32 -623191552, i32 -256, i32 -842150656, i32 1431655680, i32 -2038004224, i32 909522432, i32 -1094795776, i32 1633771776, i32 1381126656, i32 -117901312, i32 -1145324800, i32 235802112, i32 -2105376256, i32 1212696576, i32 1768515840, i32 -1701144064, i32 -522133504, i32 1195853568, i32 -1633772032, i32 1549556736, i32 67372032, i32 1263225600, i32 875836416, i32 353703168, i32 2038003968, i32 640034304, i32 -1482184960, i32 -555819520, i32 690563328, i32 -1364283904, i32 -1835888128, i32 -673720576, i32 -2071690240, i32 -370546432, i32 -757935616, i32 -1162167808, i32 1566399744, i32 -202116352, i32 -976894720, i32 -1330597888, i32 -1077952768, i32 -1532713984, i32 993737472, i32 1903259904, i32 1145324544, i32 1179010560, i32 724249344, i32 -50529280, i32 -336860416, i32 1869573888, i32 -707406592, i32 -151587328, i32 336860160, i32 -16843264, i32 2088532992, i32 1886416896, i32 1515870720, i32 2105376000, i32 -33686272, i32 791621376, i32 404232192, i32 -2088533248, i32 370546176, i32 -1515870976, i32 -1852731136, i32 522133248, i32 84215040, i32 -1785359104, i32 1953788928, i32 -1448498944, i32 -1044266752, i32 1532713728, i32 1246382592, i32 -2054847232, i32 1835887872, i32 320017152, i32 117901056, i32 1330597632, i32 1313754624, i32 1162167552, i32 -1296911872, i32 252645120, i32 -909522688, i32 471604224, i32 -1499027968, i32 -1128481792, i32 -320017408, i32 1936945920, i32 -1869574144, i32 2071689984, i32 -808464640, i32 1499027712, i32 -1886417152, i32 -1583243008, i32 -101058304, i32 757935360, i32 -218959360, i32 -1313754880, i32 0, i32 -1802202112, i32 926365440, i32 -1616929024, i32 -791621632, i32 774778368, i32 -1667458048, i32 1852730880, i32 673720320, i32 1061109504, i32 -2139062272, i32 -252645376, i32 1027423488, i32 -741092608, i32 623191296, i32 -1970632192, i32 -1246382848, i32 -404232448, i32 1111638528, i32 -1280068864, i32 -943208704, i32 -353703424, i32 -134744320, i32 1280068608, i32 286331136, i32 858993408, i32 50529024, i32 -1566400000, i32 -1397969920, i32 1616928768], align 16
 @Key_RC = internal unnamed_addr constant [5 x [4 x i32]] [[4 x i32] [i32 1367130551, i32 656542356, i32 -32265240, i32 -90542368], [4 x i32] [i32 1840335564, i32 -1641953248, i32 -14110251, i32 -279059792], [4 x i32] [i32 -611174627, i32 556198256, i32 52729717, i32 82364686], [4 x i32] [i32 1367130551, i32 656542356, i32 -32265240, i32 -90542368], [4 x i32] [i32 1840335564, i32 -1641953248, i32 -14110251, i32 -279059792]], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ossl_aria_encrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
@@ -1487,8 +1487,8 @@ return:                                           ; preds = %if.end263, %if.end1
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key)
   %cmp.not = icmp eq i32 %call, 0
@@ -1672,19 +1672,18 @@ return:                                           ; preds = %entry, %do.body179
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #4
+declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #4
+declare i32 @llvm.bswap.i32(i32) #3
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

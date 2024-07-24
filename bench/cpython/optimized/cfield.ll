@@ -67,18 +67,18 @@ entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 16), align 8
   %tp_alloc = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %tp_alloc, align 8
-  %call = tail call ptr %1(ptr noundef %0, i64 noundef 0) #9
+  %call = tail call ptr %1(ptr noundef %0, i64 noundef 0) #10
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @PyType_stgdict(ptr noundef %desc) #9
+  %call1 = tail call ptr @PyType_stgdict(ptr noundef %desc) #10
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   %2 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str) #9
+  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str) #10
   %3 = load i64, ptr %call, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i182.not = icmp eq i64 %4, 0
@@ -91,7 +91,7 @@ if.end.i175:                                      ; preds = %if.then2
   br i1 %cmp.i177, label %if.then1.i178, label %return
 
 if.then1.i178:                                    ; preds = %if.end.i175
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #10
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -155,12 +155,12 @@ if.end37:                                         ; preds = %if.end37.sink.split
   br i1 %cmp.i.not.i, label %if.then41, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %if.end37
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %desc.val, ptr noundef nonnull @PyCArrayType_Type) #9
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %desc.val, ptr noundef nonnull @PyCArrayType_Type) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end75, label %if.then41
 
 if.then41:                                        ; preds = %if.end37, %PyObject_TypeCheck.exit
-  %call42 = tail call ptr @PyType_stgdict(ptr noundef nonnull %desc) #9
+  %call42 = tail call ptr @PyType_stgdict(ptr noundef nonnull %desc) #10
   %tobool43.not = icmp eq ptr %call42, null
   br i1 %tobool43.not, label %if.end75, label %land.lhs.true44
 
@@ -171,13 +171,13 @@ land.lhs.true44:                                  ; preds = %if.then41
   br i1 %tobool46.not, label %if.end75, label %if.then47
 
 if.then47:                                        ; preds = %land.lhs.true44
-  %call49 = tail call ptr @PyType_stgdict(ptr noundef nonnull %12) #9
+  %call49 = tail call ptr @PyType_stgdict(ptr noundef nonnull %12) #10
   %tobool50.not = icmp eq ptr %call49, null
   br i1 %tobool50.not, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %if.then47
   %13 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str) #9
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str) #10
   %14 = load i64, ptr %call, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i185.not = icmp eq i64 %15, 0
@@ -190,7 +190,7 @@ if.end.i:                                         ; preds = %if.then51
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #10
   br label %return
 
 if.end52:                                         ; preds = %if.then47
@@ -557,8 +557,8 @@ return:                                           ; preds = %for.body, %for.inc,
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ctypes_init_fielddesc() local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define hidden void @_ctypes_init_fielddesc() local_unnamed_addr #3 {
 entry:
   br label %for.cond
 
@@ -666,7 +666,7 @@ define internal void @PyCField_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val7 = load ptr, ptr %0, align 8
-  tail call void @PyObject_GC_UnTrack(ptr noundef %self) #9
+  tail call void @PyObject_GC_UnTrack(ptr noundef %self) #10
   %proto.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %proto.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
@@ -686,14 +686,14 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %cmp.i.i, label %if.then1.i.i, label %PyCField_clear.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %1) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %1) #10
   br label %PyCField_clear.exit
 
 PyCField_clear.exit:                              ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
   %self.val = load ptr, ptr %0, align 8
   %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %4 = load ptr, ptr %tp_free, align 8
-  tail call void %4(ptr noundef nonnull %self) #9
+  tail call void %4(ptr noundef nonnull %self) #10
   %5 = load i64, ptr %self.val7, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i4.not = icmp eq i64 %6, 0
@@ -706,7 +706,7 @@ if.end.i:                                         ; preds = %PyCField_clear.exit
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %self.val7) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %self.val7) #10
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %PyCField_clear.exit, %if.then1.i, %if.end.i
@@ -730,13 +730,13 @@ if.then:                                          ; preds = %entry
   %shr = ashr i64 %0, 16
   %offset = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i64, ptr %offset, align 8
-  %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef %2, i64 noundef %3, i64 noundef %and, i64 noundef %shr) #9
+  %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef %2, i64 noundef %3, i64 noundef %and, i64 noundef %shr) #10
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %offset3 = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load i64, ptr %offset3, align 8
-  %call4 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.8, ptr noundef %2, i64 noundef %4, i64 noundef %and) #9
+  %call4 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.8, ptr noundef %2, i64 noundef %4, i64 noundef %and) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -753,7 +753,7 @@ entry:
   br i1 %tobool.not, label %do.body6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call i32 %visit(ptr noundef nonnull %self.val8, ptr noundef %arg) #9
+  %call2 = tail call i32 %visit(ptr noundef nonnull %self.val8, ptr noundef %arg) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %do.body6, label %return
 
@@ -764,7 +764,7 @@ do.body6:                                         ; preds = %if.then, %entry
   br i1 %tobool7.not, label %do.end16, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
-  %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #9
+  %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #10
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %do.end16, label %return
 
@@ -798,7 +798,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp.i, label %if.then1.i, label %do.end
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %0) #10
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then, %if.then1.i, %if.end.i
@@ -828,13 +828,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end3, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %if.end
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %inst.val, ptr noundef nonnull @PyCData_Type) #9
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %inst.val, ptr noundef nonnull @PyCData_Type) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %PyObject_TypeCheck.exit
   %2 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.13) #9
+  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.13) #10
   br label %return
 
 if.end3:                                          ; preds = %if.end, %PyObject_TypeCheck.exit
@@ -851,7 +851,7 @@ if.end3:                                          ; preds = %if.end, %PyObject_T
   %offset = getelementptr inbounds i8, ptr %self, i64 16
   %8 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %7, i64 %8
-  %call4 = tail call ptr @PyCData_get(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %inst, i64 noundef %5, i64 noundef %6, ptr noundef %add.ptr) #9
+  %call4 = tail call ptr @PyCData_get(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %inst, i64 noundef %5, i64 noundef %6, ptr noundef %add.ptr) #10
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then, %if.end3, %if.then2
@@ -868,13 +868,13 @@ entry:
   br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %inst.val, ptr noundef nonnull @PyCData_Type) #9
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %inst.val, ptr noundef nonnull @PyCData_Type) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %PyObject_TypeCheck.exit
   %1 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.13) #9
+  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.13) #10
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
@@ -883,7 +883,7 @@ if.end:                                           ; preds = %entry, %PyObject_Ty
 
 if.then1:                                         ; preds = %if.end
   %2 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.14) #9
+  tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.14) #10
   br label %return
 
 if.end2:                                          ; preds = %if.end
@@ -900,7 +900,7 @@ if.end2:                                          ; preds = %if.end
   %7 = load i64, ptr %index, align 8
   %size = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load i64, ptr %size, align 8
-  %call3 = tail call i32 @PyCData_set(ptr noundef nonnull %inst, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %value, i64 noundef %7, i64 noundef %8, ptr noundef %add.ptr) #9
+  %call3 = tail call i32 @PyCData_set(ptr noundef nonnull %inst, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %value, i64 noundef %7, i64 noundef %8, ptr noundef %add.ptr) #10
   br label %return
 
 return:                                           ; preds = %if.end2, %if.then1, %if.then
@@ -917,7 +917,7 @@ define internal ptr @PyCField_get_offset(ptr nocapture noundef readonly %self, p
 entry:
   %offset = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %offset, align 8
-  %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #9
+  %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #10
   ret ptr %call
 }
 
@@ -926,7 +926,7 @@ define internal ptr @PyCField_get_size(ptr nocapture noundef readonly %self, ptr
 entry:
   %size = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %size, align 8
-  %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #9
+  %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #10
   ret ptr %call
 }
 
@@ -951,12 +951,12 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %value.val10, i64 24
   %4 = load ptr, ptr %tp_name, align 8
-  %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.15, ptr noundef %4) #9
+  %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.15, ptr noundef %4) #10
   br label %return
 
 if.end:                                           ; preds = %entry
   %ob_sval.i = getelementptr inbounds i8, ptr %value, i64 32
-  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ob_sval.i) #10
+  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ob_sval.i) #11
   %cmp = icmp slt i64 %call5, %length
   br i1 %cmp, label %if.then6, label %if.else
 
@@ -970,7 +970,7 @@ if.else:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.else
   %5 = load ptr, ptr @PyExc_ValueError, align 8
-  %call9 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.16, i64 noundef %call5, i64 noundef %length) #9
+  %call9 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.16, i64 noundef %call5, i64 noundef %length) #10
   br label %return
 
 if.end11:                                         ; preds = %if.else, %if.then6
@@ -1004,19 +1004,19 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %i.05, %for.body ], [ %size, %for.inc ]
-  %call = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %ptr, i64 noundef %i.0.lcssa) #9
+  %call = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %ptr, i64 noundef %i.0.lcssa) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @b_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1090,19 +1090,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i8 [ %conv9, %if.then ], [ %0, %entry ]
   %conv10 = sext i8 %val.0 to i64
-  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @B_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1172,7 +1172,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i8 [ %conv9, %if.then ], [ %0, %entry ]
   %conv10 = zext i8 %val.0 to i64
-  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #10
   ret ptr %call
 }
 
@@ -1204,7 +1204,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.i.not.i, label %land.lhs.true6, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %if.end
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val12, ptr noundef nonnull @PyByteArray_Type) #9
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val12, ptr noundef nonnull @PyByteArray_Type) #10
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end12, label %land.lhs.true6
 
@@ -1230,7 +1230,7 @@ if.end12:                                         ; preds = %land.lhs.true6, %Py
   br i1 %tobool15.not, label %error, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
-  %call17 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %value) #9
+  %call17 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %value) #10
   %or.cond = icmp ugt i64 %call17, 255
   br i1 %or.cond, label %error, label %if.end21
 
@@ -1241,7 +1241,7 @@ if.end21:                                         ; preds = %if.then16
 
 error:                                            ; preds = %if.end12, %if.then16
   %10 = load ptr, ptr @PyExc_TypeError, align 8
-  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.17) #9
+  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.17) #10
   br label %return
 
 return:                                           ; preds = %error, %if.end21, %PyByteArray_AS_STRING.exit, %if.then
@@ -1252,19 +1252,19 @@ return:                                           ; preds = %error, %if.end21, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @c_get(ptr noundef %ptr, i64 %size) #0 {
 entry:
-  %call = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %ptr, i64 noundef 1) #9
+  %call = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %ptr, i64 noundef 1) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @d_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
-  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #9
+  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %cmp = fcmp oeq double %call, -1.000000e+00
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call ptr @PyErr_Occurred() #9
+  %call1 = tail call ptr @PyErr_Occurred() #10
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end, label %return
 
@@ -1281,24 +1281,24 @@ return:                                           ; preds = %land.lhs.true, %if.
 define internal ptr @d_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
 entry:
   %val.0.copyload = load double, ptr %ptr, align 1
-  %call = tail call ptr @PyFloat_FromDouble(double noundef %val.0.copyload) #9
+  %call = tail call ptr @PyFloat_FromDouble(double noundef %val.0.copyload) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @d_set_sw(ptr noundef %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
-  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #9
+  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %cmp = fcmp oeq double %call, -1.000000e+00
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call ptr @PyErr_Occurred() #9
+  %call1 = tail call ptr @PyErr_Occurred() #10
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call2 = tail call i32 @PyFloat_Pack8(double noundef %call, ptr noundef %ptr, i32 noundef 0) #9
+  %call2 = tail call i32 @PyFloat_Pack8(double noundef %call, ptr noundef %ptr, i32 noundef 0) #10
   %tobool3.not = icmp eq i32 %call2, 0
   %_Py_NoneStruct. = select i1 %tobool3.not, ptr @_Py_NoneStruct, ptr null
   br label %return
@@ -1311,21 +1311,21 @@ return:                                           ; preds = %if.end, %land.lhs.t
 ; Function Attrs: nounwind uwtable
 define internal ptr @d_get_sw(ptr noundef %ptr, i64 %size) #0 {
 entry:
-  %call = tail call double @PyFloat_Unpack8(ptr noundef %ptr, i32 noundef 0) #9
-  %call1 = tail call ptr @PyFloat_FromDouble(double noundef %call) #9
+  %call = tail call double @PyFloat_Unpack8(ptr noundef %ptr, i32 noundef 0) #10
+  %call1 = tail call ptr @PyFloat_FromDouble(double noundef %call) #10
   ret ptr %call1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @g_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
-  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #9
+  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %conv = fpext double %call to x86_fp80
   %cmp = fcmp oeq double %call, -1.000000e+00
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call ptr @PyErr_Occurred() #9
+  %call2 = tail call ptr @PyErr_Occurred() #10
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.end, label %return
 
@@ -1343,20 +1343,20 @@ define internal ptr @g_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
 entry:
   %val.0.copyload = load x86_fp80, ptr %ptr, align 1
   %conv = fptrunc x86_fp80 %val.0.copyload to double
-  %call = tail call ptr @PyFloat_FromDouble(double noundef %conv) #9
+  %call = tail call ptr @PyFloat_FromDouble(double noundef %conv) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @f_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
-  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #9
+  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %conv = fptrunc double %call to float
   %cmp = fcmp oeq float %conv, -1.000000e+00
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call ptr @PyErr_Occurred() #9
+  %call2 = tail call ptr @PyErr_Occurred() #10
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.end, label %return
 
@@ -1374,26 +1374,26 @@ define internal ptr @f_get(ptr nocapture noundef readonly %ptr, i64 %size) #0 {
 entry:
   %val.0.copyload = load float, ptr %ptr, align 1
   %conv = fpext float %val.0.copyload to double
-  %call = tail call ptr @PyFloat_FromDouble(double noundef %conv) #9
+  %call = tail call ptr @PyFloat_FromDouble(double noundef %conv) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @f_set_sw(ptr noundef %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
-  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #9
+  %call = tail call double @PyFloat_AsDouble(ptr noundef %value) #10
   %conv = fptrunc double %call to float
   %cmp = fcmp oeq float %conv, -1.000000e+00
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call ptr @PyErr_Occurred() #9
+  %call2 = tail call ptr @PyErr_Occurred() #10
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %conv3 = fpext float %conv to double
-  %call4 = tail call i32 @PyFloat_Pack4(double noundef %conv3, ptr noundef %ptr, i32 noundef 0) #9
+  %call4 = tail call i32 @PyFloat_Pack4(double noundef %conv3, ptr noundef %ptr, i32 noundef 0) #10
   %tobool5.not = icmp eq i32 %call4, 0
   %_Py_NoneStruct. = select i1 %tobool5.not, ptr @_Py_NoneStruct, ptr null
   br label %return
@@ -1406,20 +1406,20 @@ return:                                           ; preds = %if.end, %land.lhs.t
 ; Function Attrs: nounwind uwtable
 define internal ptr @f_get_sw(ptr noundef %ptr, i64 %size) #0 {
 entry:
-  %call = tail call double @PyFloat_Unpack4(ptr noundef %ptr, i32 noundef 0) #9
-  %call1 = tail call ptr @PyFloat_FromDouble(double noundef %call) #9
+  %call = tail call double @PyFloat_Unpack4(ptr noundef %ptr, i32 noundef 0) #10
+  %call1 = tail call ptr @PyFloat_FromDouble(double noundef %call) #10
   ret ptr %call1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @h_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1493,19 +1493,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i16 [ %conv9, %if.then ], [ %val.0.copyload, %entry ]
   %conv10 = sext i16 %val.0 to i64
-  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @h_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1582,19 +1582,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i16 [ %conv9, %if.then ], [ %0, %entry ]
   %conv10 = sext i16 %val.0 to i64
-  %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #9
+  %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #10
   ret ptr %call11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @H_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1664,19 +1664,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i16 [ %conv9, %if.then ], [ %val.0.copyload, %entry ]
   %conv10 = zext i16 %val.0 to i64
-  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @H_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1749,19 +1749,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i16 [ %conv9, %if.then ], [ %0, %entry ]
   %conv10 = zext i16 %val.0 to i64
-  %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #9
+  %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv10) #10
   ret ptr %call11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @i_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1825,19 +1825,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i32 [ %shr6, %if.then ], [ %val.0.copyload, %entry ]
   %conv = sext i32 %val.0 to i64
-  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @i_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1904,19 +1904,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i32 [ %shr6, %if.then ], [ %0, %entry ]
   %conv = sext i32 %val.0 to i64
-  %call7 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #9
+  %call7 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #10
   ret ptr %call7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @I_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -1980,19 +1980,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i32 [ %shr6, %if.then ], [ %val.0.copyload, %entry ]
   %conv = zext i32 %val.0 to i64
-  %call = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv) #9
+  %call = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @I_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2059,19 +2059,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i32 [ %shr6, %if.then ], [ %0, %entry ]
   %conv = zext i32 %val.0 to i64
-  %call7 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv) #9
+  %call7 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv) #10
   ret ptr %call7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @l_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2125,19 +2125,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %val.0.copyload, %entry ]
-  %call = tail call ptr @PyLong_FromLong(i64 noundef %val.0) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef %val.0) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @l_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2194,19 +2194,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %0, %entry ]
-  %call6 = tail call ptr @PyLong_FromLong(i64 noundef %val.0) #9
+  %call6 = tail call ptr @PyLong_FromLong(i64 noundef %val.0) #10
   ret ptr %call6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @L_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2260,19 +2260,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %val.0.copyload, %entry ]
-  %call = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %val.0) #9
+  %call = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %val.0) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @L_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2329,19 +2329,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %0, %entry ]
-  %call6 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %val.0) #9
+  %call6 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %val.0) #10
   ret ptr %call6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @q_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2395,19 +2395,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %val.0.copyload, %entry ]
-  %call = tail call ptr @PyLong_FromLongLong(i64 noundef %val.0) #9
+  %call = tail call ptr @PyLong_FromLongLong(i64 noundef %val.0) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @q_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2464,19 +2464,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %0, %entry ]
-  %call6 = tail call ptr @PyLong_FromLongLong(i64 noundef %val.0) #9
+  %call6 = tail call ptr @PyLong_FromLongLong(i64 noundef %val.0) #10
   ret ptr %call6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @Q_set(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2530,19 +2530,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %val.0.copyload, %entry ]
-  %call = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %val.0) #9
+  %call = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %val.0) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @Q_set_sw(ptr nocapture noundef %ptr, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
+  %call.i = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call ptr @PyErr_Occurred() #9
+  %call1.i = tail call ptr @PyErr_Occurred() #10
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2599,7 +2599,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %val.0 = phi i64 [ %shr5, %if.then ], [ %0, %entry ]
-  %call6 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %val.0) #9
+  %call6 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %val.0) #10
   ret ptr %call6
 }
 
@@ -2624,12 +2624,12 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.18) #9
+  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.18) #10
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #9
-  %call5 = tail call ptr @PyErr_Occurred() #9
+  %call4 = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef %value) #10
+  %call5 = tail call ptr @PyErr_Occurred() #10
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %if.end8, label %return
 
@@ -2651,7 +2651,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef nonnull %0) #9
+  %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef nonnull %0) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2686,7 +2686,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call ptr @PyBytes_AsString(ptr noundef %value) #9
+  %call4 = tail call ptr @PyBytes_AsString(ptr noundef %value) #10
   store ptr %call4, ptr %ptr, align 8
   %4 = load i32, ptr %value, align 8
   %add.i.i12 = add i32 %4, 1
@@ -2703,7 +2703,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.else
-  %call10 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
+  %call10 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %6 = inttoptr i64 %call10 to ptr
   store ptr %6, ptr %ptr, align 8
   br label %return
@@ -2712,7 +2712,7 @@ if.end12:                                         ; preds = %if.else
   %7 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %value.val11, i64 24
   %8 = load ptr, ptr %tp_name, align 8
-  %call14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.19, ptr noundef %8) #9
+  %call14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.19, ptr noundef %8) #10
   br label %return
 
 return:                                           ; preds = %if.end.i.i14, %if.then3, %if.end.i.i, %if.then, %if.end12, %if.then9
@@ -2728,8 +2728,8 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %call1 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %0, i64 noundef %call) #9
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %call1 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %0, i64 noundef %call) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -2753,7 +2753,7 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %value.val12, i64 24
   %4 = load ptr, ptr %tp_name, align 8
-  %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef %4) #9
+  %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef %4) #10
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -2767,7 +2767,7 @@ if.end.i24:                                       ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i24, %if.else
-  %call4 = call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %value, ptr noundef nonnull %chars, i64 noundef 2) #9
+  %call4 = call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %value, ptr noundef nonnull %chars, i64 noundef 2) #10
   %cmp.not = icmp eq i64 %call4, 1
   br i1 %cmp.not, label %if.end6, label %if.then5
 
@@ -2784,12 +2784,12 @@ if.end.i10:                                       ; preds = %if.then5
   br i1 %cmp.i12, label %if.then1.i13, label %Py_DECREF.exit15
 
 if.then1.i13:                                     ; preds = %if.end.i10
-  call void @_Py_Dealloc(ptr noundef nonnull %value) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %value) #10
   br label %Py_DECREF.exit15
 
 Py_DECREF.exit15:                                 ; preds = %if.then5, %if.then1.i13, %if.end.i10
   %8 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.21) #9
+  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.21) #10
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -2807,7 +2807,7 @@ if.end.i:                                         ; preds = %if.end6
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %value) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %value) #10
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %if.end6, %Py_DECREF.exit15, %if.then
@@ -2818,7 +2818,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal ptr @u_get(ptr noundef %ptr, i64 %size) #0 {
 entry:
-  %call = tail call ptr @PyUnicode_FromWideChar(ptr noundef %ptr, i64 noundef 1) #9
+  %call = tail call ptr @PyUnicode_FromWideChar(ptr noundef %ptr, i64 noundef 1) #10
   ret ptr %call
 }
 
@@ -2838,11 +2838,11 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %value.val12, i64 24
   %4 = load ptr, ptr %tp_name, align 8
-  %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef %4) #9
+  %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef %4) #10
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call4 = tail call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %value, ptr noundef null, i64 noundef 0) #9
+  %call4 = tail call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %value, ptr noundef null, i64 noundef 0) #10
   %cmp = icmp slt i64 %call4, 0
   br i1 %cmp, label %return, label %if.end6
 
@@ -2853,11 +2853,11 @@ if.end6:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end6
   %5 = load ptr, ptr @PyExc_ValueError, align 8
-  %call9 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.22, i64 noundef %dec, i64 noundef %div11) #9
+  %call9 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.22, i64 noundef %dec, i64 noundef %div11) #10
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %call11 = tail call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %value, ptr noundef %ptr, i64 noundef %div11) #9
+  %call11 = tail call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %value, ptr noundef %ptr, i64 noundef %div11) #10
   %cmp12 = icmp eq i64 %call11, -1
   br i1 %cmp12, label %return, label %if.end14
 
@@ -2897,7 +2897,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
   %len.0.lcssa = phi i64 [ 0, %entry ], [ %len.08, %for.body ], [ %div6, %for.inc ]
-  %call = tail call ptr @PyUnicode_FromWideChar(ptr noundef %ptr, i64 noundef %len.0.lcssa) #9
+  %call = tail call ptr @PyUnicode_FromWideChar(ptr noundef %ptr, i64 noundef %len.0.lcssa) #10
   ret ptr %call
 }
 
@@ -2929,7 +2929,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
+  %call4 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #10
   %4 = inttoptr i64 %call4 to ptr
   store ptr %4, ptr %ptr, align 8
   br label %return
@@ -2943,21 +2943,21 @@ if.then9:                                         ; preds = %if.end5
   %6 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %value.val14, i64 24
   %7 = load ptr, ptr %tp_name, align 8
-  %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.23, ptr noundef %7) #9
+  %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.23, ptr noundef %7) #10
   br label %return
 
 if.end12:                                         ; preds = %if.end5
-  %call13 = call ptr @PyUnicode_AsWideCharString(ptr noundef %value, ptr noundef nonnull %bsize) #9
+  %call13 = call ptr @PyUnicode_AsWideCharString(ptr noundef %value, ptr noundef nonnull %bsize) #10
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %call17 = call ptr @PyCapsule_New(ptr noundef nonnull %call13, ptr noundef nonnull @.str.24, ptr noundef nonnull @pymem_destructor) #9
+  %call17 = call ptr @PyCapsule_New(ptr noundef nonnull %call13, ptr noundef nonnull @.str.24, ptr noundef nonnull @pymem_destructor) #10
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end16
-  call void @PyMem_Free(ptr noundef nonnull %call13) #9
+  call void @PyMem_Free(ptr noundef nonnull %call13) #10
   br label %return
 
 if.end20:                                         ; preds = %if.end16
@@ -2977,8 +2977,8 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @wcslen(ptr noundef nonnull %0) #10
-  %call1 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %0, i64 noundef %call) #9
+  %call = tail call i64 @wcslen(ptr noundef nonnull %0) #11
+  %call1 = tail call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %0, i64 noundef %call) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -2989,7 +2989,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @vBOOL_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
-  %call = tail call i32 @PyObject_IsTrue(ptr noundef %value) #9
+  %call = tail call i32 @PyObject_IsTrue(ptr noundef %value) #10
   switch i32 %call, label %sw.default [
     i32 -1, label %return
     i32 0, label %return.sink.split
@@ -3013,14 +3013,14 @@ define internal ptr @vBOOL_get(ptr nocapture noundef readonly %ptr, i64 %size) #
 entry:
   %0 = load i16, ptr %ptr, align 2
   %conv = sext i16 %0 to i64
-  %call = tail call ptr @PyBool_FromLong(i64 noundef %conv) #9
+  %call = tail call ptr @PyBool_FromLong(i64 noundef %conv) #10
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @bool_set(ptr nocapture noundef writeonly %ptr, ptr noundef %value, i64 %size) #0 {
 entry:
-  %call = tail call i32 @PyObject_IsTrue(ptr noundef %value) #9
+  %call = tail call i32 @PyObject_IsTrue(ptr noundef %value) #10
   switch i32 %call, label %sw.default [
     i32 -1, label %return
     i32 0, label %return.sink.split
@@ -3045,12 +3045,12 @@ entry:
   %0 = load i8, ptr %ptr, align 1
   %1 = and i8 %0, 1
   %conv = zext nneg i8 %1 to i64
-  %call = tail call ptr @PyBool_FromLong(i64 noundef %conv) #9
+  %call = tail call ptr @PyBool_FromLong(i64 noundef %conv) #10
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @O_set(ptr nocapture noundef writeonly %ptr, ptr noundef returned %value, i64 %size) #3 {
+define internal noundef ptr @O_set(ptr nocapture noundef writeonly %ptr, ptr noundef returned %value, i64 %size) #4 {
 entry:
   store ptr %value, ptr %ptr, align 8
   %0 = load i32, ptr %value, align 8
@@ -3074,13 +3074,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @PyErr_Occurred() #9
+  %call = tail call ptr @PyErr_Occurred() #10
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.then
   %1 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.25) #9
+  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.25) #10
   br label %return
 
 if.end2:                                          ; preds = %entry
@@ -3100,10 +3100,10 @@ return:                                           ; preds = %if.end.i.i, %if.end
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3128,15 +3128,15 @@ declare i32 @PyFloat_Pack4(double noundef, ptr noundef, i32 noundef) local_unnam
 declare double @PyFloat_Unpack4(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #6
+declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #7
 
 declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #6
+declare i64 @llvm.bswap.i64(i64) #7
 
 declare i64 @PyLong_AsUnsignedLongLongMask(ptr noundef) local_unnamed_addr #1
 
@@ -3159,12 +3159,12 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal void @pymem_destructor(ptr noundef %ptr) #0 {
 entry:
-  %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %ptr, ptr noundef nonnull @.str.24) #9
+  %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %ptr, ptr noundef nonnull @.str.24) #10
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @PyMem_Free(ptr noundef nonnull %call) #9
+  tail call void @PyMem_Free(ptr noundef nonnull %call) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3176,29 +3176,30 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #8
+declare i64 @llvm.smin.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

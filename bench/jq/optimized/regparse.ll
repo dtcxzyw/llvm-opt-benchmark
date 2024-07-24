@@ -99,7 +99,7 @@ define void @onig_warning(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void %2(ptr noundef %0) #24
+  tail call void %2(ptr noundef %0) #25
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -134,7 +134,7 @@ define noundef i32 @onig_set_parse_depth_limit(i32 noundef %0) local_unnamed_add
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 -255, 256) i32 @onig_strncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
   br label %4
 
@@ -187,12 +187,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define ptr @onig_st_init_strend_table_with_size(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_strend_table_with_size.hashType, i32 noundef %0) #24
+  %2 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_strend_table_with_size.hashType, i32 noundef %0) #25
   ret ptr %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -255, 256) i32 @str_end_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -255, 256) i32 @str_end_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -235,7 +235,7 @@ define internal range(i32 -255, 256) i32 @str_end_cmp(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @str_end_hash(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @str_end_hash(ptr nocapture noundef readonly %0) #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -260,7 +260,7 @@ define internal i32 @str_end_hash(ptr nocapture noundef readonly %0) #4 {
   ret i32 %12
 }
 
-declare ptr @onig_st_init_table_with_size(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @onig_st_init_table_with_size(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @onig_st_lookup_strend(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
@@ -269,15 +269,15 @@ define i32 @onig_st_lookup_strend(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %6, align 8
   %7 = ptrtoint ptr %5 to i64
-  %8 = call i32 @onig_st_lookup(ptr noundef %0, i64 noundef %7, ptr noundef %3) #24
+  %8 = call i32 @onig_st_lookup(ptr noundef %0, i64 noundef %7, ptr noundef %3) #25
   ret i32 %8
 }
 
-declare i32 @onig_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @onig_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @onig_st_insert_strend(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
 
@@ -286,12 +286,12 @@ define i32 @onig_st_insert_strend(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %8, align 8
   %9 = ptrtoint ptr %5 to i64
-  %10 = tail call i32 @onig_st_insert(ptr noundef %0, i64 noundef %9, i64 noundef %3) #24
+  %10 = tail call i32 @onig_st_insert(ptr noundef %0, i64 noundef %9, i64 noundef %3) #25
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %5) #24
+  tail call void @free(ptr noundef nonnull %5) #25
   br label %12
 
 12:                                               ; preds = %7, %11, %4
@@ -300,21 +300,21 @@ define i32 @onig_st_insert_strend(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
-declare i32 @onig_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @onig_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define ptr @onig_st_init_callout_name_table_with_size(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_callout_name_table_with_size.hashType, i32 noundef %0) #24
+  %2 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_callout_name_table_with_size.hashType, i32 noundef %0) #25
   ret ptr %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -255, 256) i32 @callout_name_table_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -255, 256) i32 @callout_name_table_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, %4
@@ -373,7 +373,7 @@ define internal range(i32 -255, 256) i32 @callout_name_table_cmp(ptr nocapture n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @callout_name_table_hash(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @callout_name_table_hash(ptr nocapture noundef readonly %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -418,7 +418,7 @@ define i32 @onig_st_lookup_callout_name_table(ptr noundef %0, ptr noundef %1, i3
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %4, ptr %10, align 8
   %11 = ptrtoint ptr %7 to i64
-  %12 = call i32 @onig_st_lookup(ptr noundef %0, i64 noundef %11, ptr noundef %5) #24
+  %12 = call i32 @onig_st_lookup(ptr noundef %0, i64 noundef %11, ptr noundef %5) #25
   ret i32 %12
 }
 
@@ -430,13 +430,13 @@ define noundef i32 @onig_names_free(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %.not.i, label %names_clear.exit.thread, label %names_clear.exit
 
 names_clear.exit:                                 ; preds = %1
-  %3 = tail call i32 @onig_st_foreach(ptr noundef nonnull %.val, ptr noundef nonnull @i_free_name_entry, i64 noundef 0) #24
+  %3 = tail call i32 @onig_st_foreach(ptr noundef nonnull %.val, ptr noundef nonnull @i_free_name_entry, i64 noundef 0) #25
   %.pr = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %names_clear.exit.thread, label %4
 
 4:                                                ; preds = %names_clear.exit
-  tail call void @onig_st_free_table(ptr noundef nonnull %.pr) #24
+  tail call void @onig_st_free_table(ptr noundef nonnull %.pr) #25
   br label %names_clear.exit.thread
 
 names_clear.exit.thread:                          ; preds = %1, %4, %names_clear.exit
@@ -444,7 +444,7 @@ names_clear.exit.thread:                          ; preds = %1, %4, %names_clear
   ret i32 0
 }
 
-declare void @onig_st_free_table(ptr noundef) local_unnamed_addr #7
+declare void @onig_st_free_table(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @onig_foreach_name(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -467,7 +467,7 @@ define i32 @onig_foreach_name(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %13 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %12, ptr %13, align 8
   %14 = ptrtoint ptr %4 to i64
-  %15 = call i32 @onig_st_foreach(ptr noundef nonnull %6, ptr noundef nonnull @i_names, i64 noundef %14) #24
+  %15 = call i32 @onig_st_foreach(ptr noundef nonnull %6, ptr noundef nonnull @i_names, i64 noundef %14) #25
   %.pre = load i32, ptr %7, align 8
   br label %16
 
@@ -476,7 +476,7 @@ define i32 @onig_foreach_name(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   ret i32 %17
 }
 
-declare i32 @onig_st_foreach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @onig_st_foreach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @i_names(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #2 {
@@ -506,7 +506,7 @@ define internal range(i32 0, 2) i32 @i_names(ptr nocapture readnone %0, ptr noun
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %4(ptr noundef %5, ptr noundef %9, i32 noundef %11, ptr noundef %19, ptr noundef %21, ptr noundef %23) #24
+  %24 = tail call i32 %4(ptr noundef %5, ptr noundef %9, i32 noundef %11, ptr noundef %19, ptr noundef %21, ptr noundef %23) #25
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %27, label %25
 
@@ -529,7 +529,7 @@ define noundef i32 @onig_renumber_name_table(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = tail call i32 @onig_st_foreach(ptr noundef nonnull %4, ptr noundef nonnull @i_renumber_name, i64 noundef %6) #24
+  %7 = tail call i32 @onig_st_foreach(ptr noundef nonnull %4, ptr noundef nonnull @i_renumber_name, i64 noundef %6) #25
   br label %8
 
 8:                                                ; preds = %5, %2
@@ -537,7 +537,7 @@ define noundef i32 @onig_renumber_name_table(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @i_renumber_name(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #10 {
+define internal noundef i32 @i_renumber_name(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #11 {
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
@@ -580,7 +580,7 @@ define internal noundef i32 @i_renumber_name(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @onig_number_of_names(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define i32 @onig_number_of_names(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -617,7 +617,7 @@ name_find.exit:                                   ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %8, align 8
   %9 = ptrtoint ptr %5 to i64
-  %10 = call i32 @onig_st_lookup(ptr noundef nonnull %.val, i64 noundef %9, ptr noundef nonnull %6) #24
+  %10 = call i32 @onig_st_lookup(ptr noundef nonnull %.val, i64 noundef %9, ptr noundef nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.pre.i = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -676,7 +676,7 @@ name_find.exit.i:                                 ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %8, align 8
   %9 = ptrtoint ptr %5 to i64
-  %10 = call i32 @onig_st_lookup(ptr noundef nonnull %.val.i, i64 noundef %9, ptr noundef nonnull %6) #24
+  %10 = call i32 @onig_st_lookup(ptr noundef nonnull %.val.i, i64 noundef %9, ptr noundef nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.pre.i.i = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -744,7 +744,7 @@ onig_name_to_group_numbers.exit.thread:           ; preds = %24, %12, %name_find
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @onig_noname_group_capture_is_active(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @onig_noname_group_capture_is_active(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 128
@@ -898,7 +898,7 @@ define i32 @onig_set_callout_of_name(ptr noundef %0, i32 noundef %1, ptr noundef
   %47 = load ptr, ptr %46, align 8
   %48 = sext i32 %45 to i64
   %49 = mul nsw i64 %48, 120
-  %50 = tail call ptr @realloc(ptr noundef %47, i64 noundef %49) #26
+  %50 = tail call ptr @realloc(ptr noundef %47, i64 noundef %49) #27
   %51 = icmp eq ptr %50, null
   br i1 %51, label %callout_func_list_add.exit.thread, label %52
 
@@ -989,7 +989,7 @@ callout_func_list_add.exit:                       ; preds = %.lr.ph137.callout_f
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %89, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call ptr @onigenc_strdup(ptr noundef %0, ptr noundef %90, ptr noundef %92) #24
+  %93 = tail call ptr @onigenc_strdup(ptr noundef %0, ptr noundef %90, ptr noundef %92) #25
   %94 = icmp eq ptr %93, null
   br i1 %94, label %callout_func_list_add.exit.thread, label %95
 
@@ -1035,7 +1035,7 @@ define internal fastcc range(i32 0, 2) i32 @is_allowed_callout_name(ptr nocaptur
 5:                                                ; preds = %.preheader, %.thread
   %.03138 = phi ptr [ %1, %.preheader ], [ %17, %.thread ]
   %6 = load ptr, ptr %4, align 8
-  %7 = tail call i32 %6(ptr noundef %.03138, ptr noundef nonnull %2) #24
+  %7 = tail call i32 %6(ptr noundef %.03138, ptr noundef nonnull %2) #25
   %8 = and i32 %7, -33
   %9 = add i32 %8, -65
   %or.cond34 = icmp ult i32 %9, 26
@@ -1051,7 +1051,7 @@ define internal fastcc range(i32 0, 2) i32 @is_allowed_callout_name(ptr nocaptur
 
 .thread:                                          ; preds = %10, %5
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call i32 %14(ptr noundef %.03138) #24
+  %15 = tail call i32 %14(ptr noundef %.03138) #25
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %.03138, i64 %16
   %18 = icmp ult ptr %17, %2
@@ -1091,7 +1091,7 @@ define internal fastcc i32 @callout_name_entry(ptr nocapture noundef writeonly %
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %3, ptr %17, align 8
   %18 = ptrtoint ptr %6 to i64
-  %19 = call i32 @onig_st_lookup(ptr noundef nonnull %8, i64 noundef %18, ptr noundef nonnull %7) #24
+  %19 = call i32 @onig_st_lookup(ptr noundef nonnull %8, i64 noundef %18, ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %20 = icmp eq i32 %19, 0
   %21 = icmp ne ptr %1, @OnigEncodingASCII
@@ -1115,7 +1115,7 @@ define internal fastcc i32 @callout_name_entry(ptr nocapture noundef writeonly %
   %29 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %3, ptr %29, align 8
   %30 = ptrtoint ptr %5 to i64
-  %31 = call i32 @onig_st_lookup(ptr noundef nonnull %8, i64 noundef %30, ptr noundef nonnull %7) #24
+  %31 = call i32 @onig_st_lookup(ptr noundef nonnull %8, i64 noundef %30, ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %callout_name_find.exit
 
@@ -1127,7 +1127,7 @@ callout_name_find.exit:                           ; preds = %14, %22, %26
 
 33:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %34 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_callout_name_table_with_size.hashType, i32 noundef 5) #24
+  %34 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_callout_name_table_with_size.hashType, i32 noundef 5) #25
   %35 = icmp eq ptr %34, null
   br i1 %35, label %st_insert_callout_name_table.exit.thread, label %36
 
@@ -1137,22 +1137,22 @@ callout_name_find.exit:                           ; preds = %14, %22, %26
 
 37:                                               ; preds = %callout_name_find.exit, %36
   %.0 = phi ptr [ %34, %36 ], [ %8, %callout_name_find.exit ]
-  %38 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %38 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %39 = icmp eq ptr %38, null
   br i1 %39, label %st_insert_callout_name_table.exit.thread, label %40
 
 40:                                               ; preds = %37
-  %41 = call ptr @onigenc_strdup(ptr noundef %1, ptr noundef %2, ptr noundef %3) #24
+  %41 = call ptr @onigenc_strdup(ptr noundef %1, ptr noundef %2, ptr noundef %3) #25
   store ptr %41, ptr %38, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %40
-  call void @free(ptr noundef nonnull %38) #24
+  call void @free(ptr noundef nonnull %38) #25
   br label %st_insert_callout_name_table.exit.thread
 
 44:                                               ; preds = %40
-  %45 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
+  %45 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #26
   %46 = icmp eq ptr %45, null
   br i1 %46, label %st_insert_callout_name_table.exit.thread, label %47
 
@@ -1167,12 +1167,12 @@ callout_name_find.exit:                           ; preds = %14, %22, %26
   %52 = getelementptr inbounds i8, ptr %45, i64 24
   store ptr %49, ptr %52, align 8
   %53 = ptrtoint ptr %45 to i64
-  %54 = call i32 @onig_st_insert(ptr noundef nonnull %.0, i64 noundef %53, i64 noundef %48) #24
+  %54 = call i32 @onig_st_insert(ptr noundef nonnull %.0, i64 noundef %53, i64 noundef %48) #25
   %.not.i44 = icmp eq i32 %54, 0
   br i1 %.not.i44, label %st_insert_callout_name_table.exit.thread46, label %st_insert_callout_name_table.exit
 
 st_insert_callout_name_table.exit:                ; preds = %47
-  call void @free(ptr noundef nonnull %45) #24
+  call void @free(ptr noundef nonnull %45) #25
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %st_insert_callout_name_table.exit.thread, label %st_insert_callout_name_table.exit.thread46
 
@@ -1200,19 +1200,19 @@ st_insert_callout_name_table.exit.thread:         ; preds = %44, %st_insert_call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define internal fastcc range(i32 -5, 1) i32 @make_callout_func_list() unnamed_addr #12 {
+define internal fastcc range(i32 -5, 1) i32 @make_callout_func_list() unnamed_addr #13 {
   store ptr null, ptr @GlobalCalloutNameList, align 8
-  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %2 = icmp eq ptr %1, null
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call noalias dereferenceable_or_null(1200) ptr @malloc(i64 noundef 1200) #25
+  %4 = tail call noalias dereferenceable_or_null(1200) ptr @malloc(i64 noundef 1200) #26
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %1) #24
+  tail call void @free(ptr noundef nonnull %1) #25
   br label %10
 
 7:                                                ; preds = %3
@@ -1229,10 +1229,10 @@ define internal fastcc range(i32 -5, 1) i32 @make_callout_func_list() unnamed_ad
   ret i32 %.0
 }
 
-declare ptr @onigenc_strdup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @onigenc_strdup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @onig_get_callout_start_func(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define ptr @onig_get_callout_start_func(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1266,7 +1266,7 @@ onig_reg_callout_list_at.exit.thread:             ; preds = %7, %2, %onig_reg_ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @onig_reg_callout_list_at(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define ptr @onig_reg_callout_list_at(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1294,7 +1294,7 @@ define ptr @onig_reg_callout_list_at(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @onig_get_callout_tag_start(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define ptr @onig_get_callout_tag_start(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1328,7 +1328,7 @@ onig_reg_callout_list_at.exit.thread:             ; preds = %7, %2, %onig_reg_ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @onig_get_callout_tag_end(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define ptr @onig_get_callout_tag_end(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1362,7 +1362,7 @@ onig_reg_callout_list_at.exit.thread:             ; preds = %7, %2, %onig_reg_ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @onig_get_callout_type_by_name_id(i32 noundef %0) local_unnamed_addr #11 {
+define i32 @onig_get_callout_type_by_name_id(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %12, label %3
 
@@ -1386,7 +1386,7 @@ define i32 @onig_get_callout_type_by_name_id(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @onig_get_callout_start_func_by_name_id(i32 noundef %0) local_unnamed_addr #11 {
+define ptr @onig_get_callout_start_func_by_name_id(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %12, label %3
 
@@ -1410,7 +1410,7 @@ define ptr @onig_get_callout_start_func_by_name_id(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @onig_get_callout_end_func_by_name_id(i32 noundef %0) local_unnamed_addr #11 {
+define ptr @onig_get_callout_end_func_by_name_id(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %12, label %3
 
@@ -1434,7 +1434,7 @@ define ptr @onig_get_callout_end_func_by_name_id(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @onig_get_callout_in_by_name_id(i32 noundef %0) local_unnamed_addr #11 {
+define i32 @onig_get_callout_in_by_name_id(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %12, label %3
 
@@ -1458,7 +1458,7 @@ define i32 @onig_get_callout_in_by_name_id(i32 noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @onig_get_callout_name_by_name_id(i32 noundef %0) local_unnamed_addr #11 {
+define ptr @onig_get_callout_name_by_name_id(i32 noundef %0) local_unnamed_addr #12 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %12, label %3
 
@@ -1532,7 +1532,7 @@ define noundef i32 @onig_global_callout_names_free() local_unnamed_addr #2 {
   br i1 %.not23.i, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void @free(ptr noundef nonnull %26) #24
+  tail call void @free(ptr noundef nonnull %26) #25
   %.pre.i = load i32, ptr %10, align 8
   br label %28
 
@@ -1560,11 +1560,11 @@ define noundef i32 @onig_global_callout_names_free() local_unnamed_addr #2 {
 
 ._crit_edge27.i:                                  ; preds = %._crit_edge27.loopexit.i, %.preheader.i
   %35 = phi ptr [ %.pre33.i, %._crit_edge27.loopexit.i ], [ %4, %.preheader.i ]
-  tail call void @free(ptr noundef %35) #24
+  tail call void @free(ptr noundef %35) #25
   br label %36
 
 36:                                               ; preds = %._crit_edge27.i, %2
-  tail call void @free(ptr noundef nonnull %1) #24
+  tail call void @free(ptr noundef nonnull %1) #25
   br label %free_callout_func_list.exit
 
 free_callout_func_list.exit:                      ; preds = %0, %36
@@ -1574,9 +1574,9 @@ free_callout_func_list.exit:                      ; preds = %0, %36
   br i1 %.not.i1, label %global_callout_name_table_free.exit, label %38
 
 38:                                               ; preds = %free_callout_func_list.exit
-  %39 = tail call i32 @onig_st_foreach(ptr noundef nonnull %37, ptr noundef nonnull @i_free_callout_name_entry, i64 noundef 0) #24
+  %39 = tail call i32 @onig_st_foreach(ptr noundef nonnull %37, ptr noundef nonnull @i_free_callout_name_entry, i64 noundef 0) #25
   %40 = load ptr, ptr @GlobalCalloutNameTable, align 8
-  tail call void @onig_st_free_table(ptr noundef %40) #24
+  tail call void @onig_st_free_table(ptr noundef %40) #25
   store ptr null, ptr @GlobalCalloutNameTable, align 8
   store i32 0, ptr @CalloutNameIDCounter, align 4
   br label %global_callout_name_table_free.exit
@@ -1586,7 +1586,7 @@ global_callout_name_table_free.exit:              ; preds = %free_callout_func_l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @onig_callout_tag_is_exist_at_callout_num(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @onig_callout_tag_is_exist_at_callout_num(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1622,8 +1622,8 @@ define noundef i32 @onig_callout_tag_table_free(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @onig_st_foreach(ptr noundef nonnull %0, ptr noundef nonnull @i_free_callout_tag_entry, i64 noundef 0) #24
-  tail call void @onig_st_free_table(ptr noundef nonnull %0) #24
+  %3 = tail call i32 @onig_st_foreach(ptr noundef nonnull %0, ptr noundef nonnull @i_free_callout_tag_entry, i64 noundef 0) #25
+  tail call void @onig_st_free_table(ptr noundef nonnull %0) #25
   br label %4
 
 4:                                                ; preds = %1, %2
@@ -1651,7 +1651,7 @@ define i32 @onig_get_callout_num_by_tag(ptr nocapture noundef readonly %0, ptr n
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %14, align 8
   %15 = ptrtoint ptr %4 to i64
-  %16 = call i32 @onig_st_lookup(ptr noundef nonnull %11, i64 noundef %15, ptr noundef nonnull %5) #24
+  %16 = call i32 @onig_st_lookup(ptr noundef nonnull %11, i64 noundef %15, ptr noundef nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %21, label %18
@@ -1673,7 +1673,7 @@ define void @onig_node_free(ptr noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   tail call fastcc void @node_free_body(ptr noundef nonnull %0)
-  tail call void @free(ptr noundef nonnull %0) #24
+  tail call void @free(ptr noundef nonnull %0) #25
   br label %4
 
 4:                                                ; preds = %1, %3
@@ -1721,7 +1721,7 @@ define internal fastcc void @node_free_body(ptr noundef readonly %0) unnamed_add
 
 16:                                               ; preds = %12
   tail call fastcc void @node_free_body(ptr noundef nonnull %14)
-  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef nonnull %14) #25
   br label %onig_node_free.exit
 
 onig_node_free.exit:                              ; preds = %12, %16
@@ -1741,11 +1741,11 @@ onig_node_free.exit:                              ; preds = %12, %16
 
 24:                                               ; preds = %.lr.ph
   tail call fastcc void @node_free_body(ptr noundef nonnull %22)
-  tail call void @free(ptr noundef nonnull %22) #24
+  tail call void @free(ptr noundef nonnull %22) #25
   br label %onig_node_free.exit48
 
 onig_node_free.exit48:                            ; preds = %.lr.ph, %24
-  tail call void @free(ptr noundef nonnull %.056) #24
+  tail call void @free(ptr noundef nonnull %.056) #25
   %.not44 = icmp eq ptr %20, null
   br i1 %.not44, label %common.ret, label %.lr.ph, !llvm.loop !19
 
@@ -1761,7 +1761,7 @@ onig_node_free.exit48:                            ; preds = %.lr.ph, %24
   br i1 %.not5.i, label %common.ret.sink.split, label %30
 
 30:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %29) #24
+  tail call void @free(ptr noundef nonnull %29) #25
   br label %common.ret.sink.split
 
 31:                                               ; preds = %3
@@ -1778,7 +1778,7 @@ onig_node_free.exit48:                            ; preds = %.lr.ph, %24
 
 onig_node_free.exit49:                            ; preds = %34
   tail call fastcc void @node_free_body(ptr noundef nonnull %36)
-  tail call void @free(ptr noundef nonnull %36) #24
+  tail call void @free(ptr noundef nonnull %36) #25
   br label %37
 
 37:                                               ; preds = %onig_node_free.exit49, %34
@@ -1795,7 +1795,7 @@ onig_node_free.exit49:                            ; preds = %34
 
 45:                                               ; preds = %41
   tail call fastcc void @node_free_body(ptr noundef nonnull %43)
-  tail call void @free(ptr noundef nonnull %43) #24
+  tail call void @free(ptr noundef nonnull %43) #25
   br label %onig_node_free.exit50
 
 onig_node_free.exit50:                            ; preds = %41, %45
@@ -1806,7 +1806,7 @@ onig_node_free.exit50:                            ; preds = %41, %45
 
 common.ret.sink.split:                            ; preds = %31, %30, %28, %8, %49, %onig_node_free.exit52, %onig_node_free.exit54
   %.sink = phi ptr [ %58, %onig_node_free.exit54 ], [ %52, %onig_node_free.exit52 ], [ %47, %49 ], [ %10, %8 ], [ %27, %28 ], [ %27, %30 ], [ %33, %31 ]
-  tail call void @free(ptr noundef nonnull %.sink) #24
+  tail call void @free(ptr noundef nonnull %.sink) #25
   br label %common.ret
 
 common.ret:                                       ; preds = %onig_node_free.exit48, %common.ret.sink.split, %onig_node_free.exit, %3, %1, %8, %5, %25, %31, %37, %50, %56, %onig_node_free.exit50
@@ -1834,7 +1834,7 @@ onig_node_free.exit52:                            ; preds = %50
 
 onig_node_free.exit53:                            ; preds = %53
   tail call fastcc void @node_free_body(ptr noundef nonnull %55)
-  tail call void @free(ptr noundef nonnull %55) #24
+  tail call void @free(ptr noundef nonnull %55) #25
   br label %56
 
 56:                                               ; preds = %onig_node_free.exit53, %53
@@ -1895,7 +1895,7 @@ define i32 @onig_node_copy(ptr nocapture noundef writeonly %0, ptr nocapture nou
 onig_node_free.exit:                              ; preds = %22, %bbuf_free.exit.i, %8
   %.020 = phi i32 [ %18, %8 ], [ -5, %bbuf_free.exit.i ], [ -5, %22 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i)
-  tail call void @free(ptr noundef nonnull %calloc.i) #24
+  tail call void @free(ptr noundef nonnull %calloc.i) #25
   br label %43
 
 19:                                               ; preds = %6
@@ -1906,7 +1906,7 @@ onig_node_free.exit:                              ; preds = %22, %bbuf_free.exit
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %calloc.i, i64 56
-  %24 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %24 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   store ptr %24, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %onig_node_free.exit, label %26
@@ -1923,13 +1923,13 @@ onig_node_free.exit:                              ; preds = %22, %bbuf_free.exit
 
 31:                                               ; preds = %26
   %32 = zext nneg i32 %28 to i64
-  %33 = tail call noalias ptr @malloc(i64 noundef %32) #25
+  %33 = tail call noalias ptr @malloc(i64 noundef %32) #26
   store ptr %33, ptr %24, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %bbuf_free.exit.i, label %bbuf_clone.exit
 
 bbuf_free.exit.i:                                 ; preds = %31
-  tail call void @free(ptr noundef nonnull %24) #24
+  tail call void @free(ptr noundef nonnull %24) #25
   store ptr null, ptr %23, align 8
   br label %onig_node_free.exit
 
@@ -1957,7 +1957,7 @@ bbuf_clone.exit:                                  ; preds = %30, %31
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -5, 1) i32 @onig_node_str_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define range(i32 -5, 1) i32 @onig_node_str_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #14 {
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %onig_node_str_clear.exit, label %5
 
@@ -1977,7 +1977,7 @@ define range(i32 -5, 1) i32 @onig_node_str_set(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond.i, label %onig_node_str_clear.exit, label %12
 
 12:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %10) #24
+  tail call void @free(ptr noundef nonnull %10) #25
   br label %onig_node_str_clear.exit
 
 onig_node_str_clear.exit:                         ; preds = %4, %5, %8, %12
@@ -1995,7 +1995,7 @@ onig_node_str_clear.exit:                         ; preds = %4, %5, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @onig_node_new_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #14 {
+define noalias noundef ptr @onig_node_new_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #15 {
   %calloc.i.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %3 = icmp eq ptr %calloc.i.i, null
   br i1 %3, label %node_new_list.exit, label %4
@@ -2013,7 +2013,7 @@ node_new_list.exit:                               ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @onig_node_new_alt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #14 {
+define noalias noundef ptr @onig_node_new_alt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #15 {
   %calloc.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %7, label %4
@@ -2031,7 +2031,7 @@ define noalias noundef ptr @onig_node_new_alt(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @onig_node_new_bag(i32 noundef %0) local_unnamed_addr #14 {
+define noalias noundef ptr @onig_node_new_bag(i32 noundef %0) local_unnamed_addr #15 {
   %calloc.i.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %2 = icmp eq ptr %calloc.i.i, null
   br i1 %2, label %node_new_bag.exit, label %3
@@ -2115,7 +2115,7 @@ define void @onig_free_reg_callout_list(i32 noundef %0, ptr noundef %1) local_un
   br i1 %.not27, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %21) #24
+  tail call void @free(ptr noundef nonnull %21) #25
   %.pre = load i32, ptr %9, align 4
   br label %23
 
@@ -2133,7 +2133,7 @@ define void @onig_free_reg_callout_list(i32 noundef %0, ptr noundef %1) local_un
   br i1 %.not, label %.loopexit, label %30
 
 30:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %29) #24
+  tail call void @free(ptr noundef nonnull %29) #25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %.preheader, %30, %27
@@ -2142,7 +2142,7 @@ define void @onig_free_reg_callout_list(i32 noundef %0, ptr noundef %1) local_un
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph31, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader28
-  tail call void @free(ptr noundef nonnull %1) #24
+  tail call void @free(ptr noundef nonnull %1) #25
   br label %31
 
 31:                                               ; preds = %2, %._crit_edge
@@ -2150,7 +2150,7 @@ define void @onig_free_reg_callout_list(i32 noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
+define range(i32 -5, 1) i32 @onig_node_str_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #14 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -2198,7 +2198,7 @@ onig_strcpy.exit:                                 ; preds = %23
 32:                                               ; preds = %29
   %33 = add nsw i32 %21, 17
   %34 = sext i32 %33 to i64
-  %35 = tail call noalias ptr @malloc(i64 noundef %34) #25
+  %35 = tail call noalias ptr @malloc(i64 noundef %34) #26
   %36 = icmp eq ptr %35, null
   br i1 %36, label %strcat_capa_from_static.exit.thread, label %37
 
@@ -2220,11 +2220,11 @@ onig_strcpy.exit:                                 ; preds = %23
   br i1 %.not.i, label %47, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call ptr @realloc(ptr noundef nonnull %13, i64 noundef %44) #26
+  %46 = tail call ptr @realloc(ptr noundef nonnull %13, i64 noundef %44) #27
   br label %49
 
 47:                                               ; preds = %42
-  %48 = tail call noalias ptr @malloc(i64 noundef %44) #25
+  %48 = tail call noalias ptr @malloc(i64 noundef %44) #26
   br label %49
 
 49:                                               ; preds = %47, %45
@@ -2270,7 +2270,7 @@ strcat_capa_from_static.exit.thread:              ; preds = %49, %32, %3, %58
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @onig_node_str_clear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @onig_node_str_clear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #14 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %11, label %3
 
@@ -2290,7 +2290,7 @@ define void @onig_node_str_clear(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %or.cond, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @free(ptr noundef nonnull %8) #24
+  tail call void @free(ptr noundef nonnull %8) #25
   br label %11
 
 11:                                               ; preds = %10, %6, %3, %2
@@ -2340,7 +2340,7 @@ define noundef ptr @onig_node_new_str(ptr noundef %0, ptr noundef %1) local_unna
 
 onig_node_free.exit.i:                            ; preds = %4
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i)
-  tail call void @free(ptr noundef nonnull %calloc.i.i) #24
+  tail call void @free(ptr noundef nonnull %calloc.i.i) #25
   br label %node_new_str.exit
 
 node_new_str.exit:                                ; preds = %2, %4, %onig_node_free.exit.i
@@ -2468,7 +2468,7 @@ quantifier_type_num.exit67.thread:                ; preds = %35, %34, %30, %29, 
   br i1 %49, label %50, label %82
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @onig_positive_int_multiply(i32 noundef %7, i32 noundef %28) #24
+  %51 = tail call i32 @onig_positive_int_multiply(i32 noundef %7, i32 noundef %28) #25
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %82, label %53
 
@@ -2553,7 +2553,7 @@ onig_node_free.exit:                              ; preds = %74, %70, %66, %62, 
   %81 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %81, align 8
   tail call fastcc void @node_free_body(ptr noundef nonnull %3)
-  tail call void @free(ptr noundef nonnull %3) #24
+  tail call void @free(ptr noundef nonnull %3) #25
   br label %82
 
 82:                                               ; preds = %56, %78, %quantifier_type_num.exit67.thread, %46, %50, %onig_node_free.exit
@@ -2561,7 +2561,7 @@ onig_node_free.exit:                              ; preds = %74, %70, %66, %62, 
   ret i32 %.0
 }
 
-declare i32 @onig_positive_int_multiply(i32 noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @onig_positive_int_multiply(i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -5, 1) i32 @onig_new_cclass_with_code_list(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
@@ -2593,7 +2593,7 @@ node_new_cclass.exit:                             ; preds = %4
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i32 %15(i32 noundef %17) #24
+  %18 = tail call i32 %15(i32 noundef %17) #25
   %.not = icmp eq i32 %18, 1
   br i1 %.not, label %23, label %19
 
@@ -2638,19 +2638,19 @@ define internal fastcc noundef i32 @add_code_range_to_buf(ptr nocapture noundef 
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   store ptr %7, ptr %0, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %new_code_range.exit.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #25
+  %10 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #26
   store ptr %10, ptr %7, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %bbuf_init.exit.i, label %.thread
 
 bbuf_init.exit.i:                                 ; preds = %9
-  tail call void @free(ptr noundef nonnull %7) #24
+  tail call void @free(ptr noundef nonnull %7) #25
   store ptr null, ptr %0, align 8
   br label %new_code_range.exit.thread
 
@@ -2777,7 +2777,7 @@ bbuf_init.exit.i:                                 ; preds = %9
 77:                                               ; preds = %.preheader196
   store i32 %75, ptr %71, align 4
   %78 = zext i32 %75 to i64
-  %79 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %78) #26
+  %79 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %78) #27
   store ptr %79, ptr %.0165228, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %new_code_range.exit.thread, label %81
@@ -2837,7 +2837,7 @@ bbuf_init.exit.i:                                 ; preds = %9
 114:                                              ; preds = %111
   %115 = load ptr, ptr %.0165228, align 8
   %116 = zext i32 %.0157 to i64
-  %117 = tail call ptr @realloc(ptr noundef %115, i64 noundef %116) #26
+  %117 = tail call ptr @realloc(ptr noundef %115, i64 noundef %116) #27
   store ptr %117, ptr %.0165228, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %new_code_range.exit.thread, label %119
@@ -2867,7 +2867,7 @@ bbuf_init.exit.i:                                 ; preds = %9
   store i32 %125, ptr %105, align 4
   %128 = load ptr, ptr %.0165228, align 8
   %129 = zext i32 %125 to i64
-  %130 = tail call ptr @realloc(ptr noundef %128, i64 noundef %129) #26
+  %130 = tail call ptr @realloc(ptr noundef %128, i64 noundef %129) #27
   store ptr %130, ptr %.0165228, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %new_code_range.exit.thread, label %132
@@ -2904,7 +2904,7 @@ bbuf_init.exit.i:                                 ; preds = %9
   store i32 %143, ptr %105, align 4
   %146 = load ptr, ptr %.0165228, align 8
   %147 = zext i32 %143 to i64
-  %148 = tail call ptr @realloc(ptr noundef %146, i64 noundef %147) #26
+  %148 = tail call ptr @realloc(ptr noundef %146, i64 noundef %147) #27
   store ptr %148, ptr %.0165228, align 8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %new_code_range.exit.thread, label %150
@@ -2940,7 +2940,7 @@ bbuf_init.exit.i:                                 ; preds = %9
   store i32 %160, ptr %105, align 4
   %163 = load ptr, ptr %.0165228, align 8
   %164 = zext nneg i32 %160 to i64
-  %165 = tail call ptr @realloc(ptr noundef %163, i64 noundef %164) #26
+  %165 = tail call ptr @realloc(ptr noundef %163, i64 noundef %164) #27
   store ptr %165, ptr %.0165228, align 8
   %166 = icmp eq ptr %165, null
   br i1 %166, label %new_code_range.exit.thread, label %167
@@ -2980,7 +2980,7 @@ define i32 @onig_parse_tree(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i, label %names_clear.exit, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call i32 @onig_st_foreach(ptr noundef nonnull %.val, ptr noundef nonnull @i_free_name_entry, i64 noundef 0) #24
+  %16 = tail call i32 @onig_st_foreach(ptr noundef nonnull %.val, ptr noundef nonnull @i_free_name_entry, i64 noundef 0) #25
   br label %names_clear.exit
 
 names_clear.exit:                                 ; preds = %5, %15
@@ -3019,7 +3019,7 @@ names_clear.exit:                                 ; preds = %5, %15
   %36 = load ptr, ptr %29, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 136
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 %38(ptr noundef %1, ptr noundef %2) #24
+  %39 = tail call i32 %38(ptr noundef %1, ptr noundef %2) #25
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %setup_ext_callout_list_values.exit, label %40
 
@@ -3070,7 +3070,7 @@ prs_regexp.exit:                                  ; preds = %40
 
 onig_node_free.exit.i:                            ; preds = %52
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i.i)
-  call void @free(ptr noundef nonnull %calloc.i.i.i.i) #24
+  call void @free(ptr noundef nonnull %calloc.i.i.i.i) #25
   br label %setup_ext_callout_list_values.exit
 
 58:                                               ; preds = %52
@@ -3106,7 +3106,7 @@ onig_node_free.exit.i:                            ; preds = %52
 
 75:                                               ; preds = %72
   %76 = ptrtoint ptr %67 to i64
-  %77 = call i32 @onig_st_foreach(ptr noundef nonnull %74, ptr noundef nonnull @i_callout_callout_list_set, i64 noundef %76) #24
+  %77 = call i32 @onig_st_foreach(ptr noundef nonnull %74, ptr noundef nonnull @i_callout_callout_list_set, i64 noundef %76) #25
   %.pre = load i32, ptr %69, align 8
   %78 = icmp sgt i32 %.pre, 0
   br i1 %78, label %.lr.ph36.i, label %setup_ext_callout_list_values.exit
@@ -3163,7 +3163,7 @@ onig_node_free.exit.i:                            ; preds = %52
 108:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store <2 x ptr> %101, ptr %6, align 16
-  %109 = call i32 @onig_st_lookup(ptr noundef nonnull %106, i64 noundef %81, ptr noundef nonnull %7) #24
+  %109 = call i32 @onig_st_lookup(ptr noundef nonnull %106, i64 noundef %81, ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %onig_get_callout_num_by_tag.exit.thread.i, label %onig_get_callout_num_by_tag.exit.i
@@ -3208,7 +3208,7 @@ setup_ext_callout_list_values.exit:               ; preds = %.loopexit.i, %onig_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @onig_scan_env_set_error_string(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 {
+define void @onig_scan_env_set_error_string(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3217,54 +3217,54 @@ define void @onig_scan_env_set_error_string(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @i_free_name_entry(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #13 {
+define internal noundef i32 @i_free_name_entry(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #14 {
   %4 = load ptr, ptr %1, align 8
-  tail call void @free(ptr noundef %4) #24
+  tail call void @free(ptr noundef %4) #25
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %6) #24
+  tail call void @free(ptr noundef nonnull %6) #25
   br label %8
 
 8:                                                ; preds = %7, %3
-  tail call void @free(ptr noundef %0) #24
-  tail call void @free(ptr noundef nonnull %1) #24
+  tail call void @free(ptr noundef %0) #25
+  tail call void @free(ptr noundef nonnull %1) #25
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @i_free_callout_name_entry(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture readnone %2) #13 {
+define internal noundef i32 @i_free_callout_name_entry(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture readnone %2) #14 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %1, align 8
-  tail call void @free(ptr noundef %5) #24
+  tail call void @free(ptr noundef %5) #25
   br label %6
 
 6:                                                ; preds = %4, %3
-  tail call void @free(ptr noundef %0) #24
-  tail call void @free(ptr noundef %1) #24
+  tail call void @free(ptr noundef %0) #25
+  tail call void @free(ptr noundef %1) #25
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @i_free_callout_tag_entry(ptr nocapture noundef %0, i64 %1, ptr nocapture readnone %2) #18 {
-  tail call void @free(ptr noundef %0) #24
+define internal noundef i32 @i_free_callout_tag_entry(ptr nocapture noundef %0, i64 %1, ptr nocapture readnone %2) #19 {
+  tail call void @free(ptr noundef %0) #25
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @bbuf_free(ptr noundef %0) unnamed_addr #13 {
+define internal fastcc void @bbuf_free(ptr noundef %0) unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -3274,11 +3274,11 @@ define internal fastcc void @bbuf_free(ptr noundef %0) unnamed_addr #13 {
   br i1 %.not5, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %3) #24
+  tail call void @free(ptr noundef nonnull %3) #25
   br label %5
 
 5:                                                ; preds = %4, %2
-  tail call void @free(ptr noundef nonnull %0) #24
+  tail call void @free(ptr noundef nonnull %0) #25
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -3329,9 +3329,9 @@ define internal fastcc i32 @fetch_token(ptr noundef %0, ptr nocapture noundef %1
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %29, align 8
-  %34 = tail call i32 %33(ptr noundef %31, ptr noundef nonnull %2) #24
+  %34 = tail call i32 %33(ptr noundef %31, ptr noundef nonnull %2) #25
   %35 = load ptr, ptr %20, align 8
-  %36 = tail call i32 %35(ptr noundef %31) #24
+  %36 = tail call i32 %35(ptr noundef %31) #25
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %31, i64 %37
   switch i32 %34, label %.loopexit.i [
@@ -3419,9 +3419,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
   store i32 0, ptr %52, align 4
   store ptr %66, ptr %53, align 8
   %67 = load ptr, ptr %54, align 8
-  %68 = tail call i32 %67(ptr noundef %66, ptr noundef nonnull %2) #24
+  %68 = tail call i32 %67(ptr noundef %66, ptr noundef nonnull %2) #25
   %69 = load ptr, ptr %20, align 8
-  %70 = tail call i32 %69(ptr noundef %66) #24
+  %70 = tail call i32 %69(ptr noundef %66) #25
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %66, i64 %71
   %73 = load i32, ptr %55, align 4
@@ -3442,9 +3442,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 80:                                               ; preds = %78
   store ptr %72, ptr %53, align 8
   %81 = load ptr, ptr %54, align 8
-  %82 = tail call i32 %81(ptr noundef %72, ptr noundef nonnull %2) #24
+  %82 = tail call i32 %81(ptr noundef %72, ptr noundef nonnull %2) #25
   %83 = load ptr, ptr %20, align 8
-  %84 = tail call i32 %83(ptr noundef %72) #24
+  %84 = tail call i32 %83(ptr noundef %72) #25
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %72, i64 %85
   store ptr %86, ptr %7, align 8
@@ -3537,7 +3537,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %54, align 8
-  %103 = tail call i32 %102(ptr noundef %99, ptr noundef nonnull %2) #24
+  %103 = tail call i32 %102(ptr noundef %99, ptr noundef nonnull %2) #25
   %104 = icmp eq i32 %103, 63
   br i1 %104, label %105, label %120
 
@@ -3555,9 +3555,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %54, align 8
-  %114 = tail call i32 %113(ptr noundef %99, ptr noundef nonnull %2) #24
+  %114 = tail call i32 %113(ptr noundef %99, ptr noundef nonnull %2) #25
   %115 = load ptr, ptr %20, align 8
-  %116 = tail call i32 %115(ptr noundef %99) #24
+  %116 = tail call i32 %115(ptr noundef %99) #25
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i8, ptr %99, i64 %117
   store ptr %118, ptr %7, align 8
@@ -3575,7 +3575,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr %54, align 8
-  %126 = tail call i32 %125(ptr noundef %122, ptr noundef nonnull %2) #24
+  %126 = tail call i32 %125(ptr noundef %122, ptr noundef nonnull %2) #25
   %127 = icmp eq i32 %126, 43
   br i1 %127, label %128, label %.thread725
 
@@ -3608,9 +3608,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 142:                                              ; preds = %138
   %143 = load ptr, ptr %54, align 8
-  %144 = tail call i32 %143(ptr noundef %122, ptr noundef nonnull %2) #24
+  %144 = tail call i32 %143(ptr noundef %122, ptr noundef nonnull %2) #25
   %145 = load ptr, ptr %20, align 8
-  %146 = tail call i32 %145(ptr noundef %122) #24
+  %146 = tail call i32 %145(ptr noundef %122) #25
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %122, i64 %147
   store ptr %148, ptr %7, align 8
@@ -3967,7 +3967,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 288:                                              ; preds = %286
   %289 = load ptr, ptr %54, align 8
-  %290 = tail call i32 %289(ptr noundef %86, ptr noundef nonnull %2) #24
+  %290 = tail call i32 %289(ptr noundef %86, ptr noundef nonnull %2) #25
   %291 = icmp eq i32 %290, 123
   br i1 %291, label %292, label %.thread725
 
@@ -3978,7 +3978,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 294:                                              ; preds = %292
   %295 = load ptr, ptr %20, align 8
-  %296 = tail call i32 %295(ptr noundef %86) #24
+  %296 = tail call i32 %295(ptr noundef %86) #25
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i8, ptr %86, i64 %297
   store ptr %298, ptr %7, align 8
@@ -3993,15 +3993,15 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 304:                                              ; preds = %301
   %305 = load ptr, ptr %54, align 8
-  %306 = tail call i32 %305(ptr noundef %302, ptr noundef nonnull %2) #24
+  %306 = tail call i32 %305(ptr noundef %302, ptr noundef nonnull %2) #25
   %307 = icmp ult i32 %306, 128
   br i1 %307, label %308, label %339
 
 308:                                              ; preds = %304
   %309 = load ptr, ptr %64, align 8
   %310 = load ptr, ptr %54, align 8
-  %311 = tail call i32 %310(ptr noundef %302, ptr noundef nonnull %2) #24
-  %312 = tail call i32 %309(i32 noundef %311, i32 noundef 4) #24
+  %311 = tail call i32 %310(ptr noundef %302, ptr noundef nonnull %2) #25
+  %312 = tail call i32 %309(i32 noundef %311, i32 noundef 4) #25
   %.not638 = icmp eq i32 %312, 0
   br i1 %.not638, label %339, label %.critedge
 
@@ -4011,7 +4011,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 315:                                              ; preds = %313
   %316 = load ptr, ptr %54, align 8
-  %317 = tail call i32 %316(ptr noundef %86, ptr noundef nonnull %2) #24
+  %317 = tail call i32 %316(ptr noundef %86, ptr noundef nonnull %2) #25
   %318 = icmp ne i32 %317, 123
   %.pre1003 = load i32, ptr %22, align 4
   %319 = and i32 %.pre1003, 1073741824
@@ -4021,7 +4021,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 320:                                              ; preds = %315
   %321 = load ptr, ptr %20, align 8
-  %322 = tail call i32 %321(ptr noundef %86) #24
+  %322 = tail call i32 %321(ptr noundef %86) #25
   %323 = sext i32 %322 to i64
   %324 = getelementptr inbounds i8, ptr %86, i64 %323
   store ptr %324, ptr %7, align 8
@@ -4036,15 +4036,15 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 330:                                              ; preds = %327
   %331 = load ptr, ptr %54, align 8
-  %332 = tail call i32 %331(ptr noundef %328, ptr noundef nonnull %2) #24
+  %332 = tail call i32 %331(ptr noundef %328, ptr noundef nonnull %2) #25
   %333 = icmp ult i32 %332, 128
   br i1 %333, label %334, label %339
 
 334:                                              ; preds = %330
   %335 = load ptr, ptr %64, align 8
   %336 = load ptr, ptr %54, align 8
-  %337 = tail call i32 %336(ptr noundef %328, ptr noundef nonnull %2) #24
-  %338 = tail call i32 %335(i32 noundef %337, i32 noundef 11) #24
+  %337 = tail call i32 %336(ptr noundef %328, ptr noundef nonnull %2) #25
+  %338 = tail call i32 %335(i32 noundef %337, i32 noundef 11) #25
   %.not636 = icmp eq i32 %338, 0
   br i1 %.not636, label %339, label %.critedge
 
@@ -4053,7 +4053,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
   %storemerge = phi i32 [ 8, %304 ], [ 8, %308 ], [ 8, %301 ], [ 16, %330 ], [ 16, %334 ], [ 16, %327 ]
   store i32 %storemerge, ptr %52, align 4
   %341 = load ptr, ptr %20, align 8
-  %342 = tail call i32 %341(ptr noundef %86) #24
+  %342 = tail call i32 %341(ptr noundef %86) #25
   %343 = sext i32 %342 to i64
   %344 = getelementptr inbounds i8, ptr %86, i64 %343
   %345 = icmp ugt ptr %340, %344
@@ -4065,13 +4065,13 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 348:                                              ; preds = %346
   %349 = load ptr, ptr %54, align 8
-  %350 = tail call i32 %349(ptr noundef nonnull %340, ptr noundef nonnull %2) #24
+  %350 = tail call i32 %349(ptr noundef nonnull %340, ptr noundef nonnull %2) #25
   %351 = icmp eq i32 %350, 125
   br i1 %351, label %352, label %357
 
 352:                                              ; preds = %348
   %353 = load ptr, ptr %20, align 8
-  %354 = tail call i32 %353(ptr noundef nonnull %340) #24
+  %354 = tail call i32 %353(ptr noundef nonnull %340) #25
   %355 = sext i32 %354 to i64
   %356 = getelementptr inbounds i8, ptr %340, i64 %355
   store ptr %356, ptr %7, align 8
@@ -4227,7 +4227,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 427:                                              ; preds = %425
   %428 = load ptr, ptr %20, align 8
-  %429 = tail call i32 %428(ptr noundef %72) #24
+  %429 = tail call i32 %428(ptr noundef %72) #25
   %430 = sext i32 %429 to i64
   %431 = getelementptr inbounds i8, ptr %72, i64 %430
   store ptr %431, ptr %7, align 8
@@ -4267,7 +4267,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 448:                                              ; preds = %432
   %449 = load ptr, ptr %20, align 8
-  %450 = tail call i32 %449(ptr noundef %72) #24
+  %450 = tail call i32 %449(ptr noundef %72) #25
   %451 = sext i32 %450 to i64
   %452 = getelementptr inbounds i8, ptr %72, i64 %451
   store ptr %452, ptr %7, align 8
@@ -4285,9 +4285,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 458:                                              ; preds = %455
   %459 = load ptr, ptr %54, align 8
-  %460 = tail call i32 %459(ptr noundef %86, ptr noundef nonnull %2) #24
+  %460 = tail call i32 %459(ptr noundef %86, ptr noundef nonnull %2) #25
   %461 = load ptr, ptr %20, align 8
-  %462 = tail call i32 %461(ptr noundef %86) #24
+  %462 = tail call i32 %461(ptr noundef %86) #25
   %463 = sext i32 %462 to i64
   %464 = getelementptr inbounds i8, ptr %86, i64 %463
   store ptr %464, ptr %7, align 8
@@ -4468,9 +4468,9 @@ backref_rel_to_abs.exit:                          ; preds = %477, %488, %484
 
 553:                                              ; preds = %550
   %554 = load ptr, ptr %54, align 8
-  %555 = tail call i32 %554(ptr noundef %86, ptr noundef nonnull %2) #24
+  %555 = tail call i32 %554(ptr noundef %86, ptr noundef nonnull %2) #25
   %556 = load ptr, ptr %20, align 8
-  %557 = tail call i32 %556(ptr noundef %86) #24
+  %557 = tail call i32 %556(ptr noundef %86) #25
   %558 = sext i32 %557 to i64
   %559 = getelementptr inbounds i8, ptr %86, i64 %558
   store ptr %559, ptr %7, align 8
@@ -4564,7 +4564,7 @@ backref_rel_to_abs.exit717.thread:                ; preds = %574, %backref_rel_t
 
 597:                                              ; preds = %595
   %598 = load ptr, ptr %54, align 8
-  %599 = tail call i32 %598(ptr noundef %86, ptr noundef nonnull %2) #24
+  %599 = tail call i32 %598(ptr noundef %86, ptr noundef nonnull %2) #25
   %600 = icmp eq i32 %599, 123
   br i1 %600, label %601, label %.thread725
 
@@ -4576,7 +4576,7 @@ backref_rel_to_abs.exit717.thread:                ; preds = %574, %backref_rel_t
 
 604:                                              ; preds = %601
   %605 = load ptr, ptr %20, align 8
-  %606 = tail call i32 %605(ptr noundef %86) #24
+  %606 = tail call i32 %605(ptr noundef %86) #25
   %607 = sext i32 %606 to i64
   %608 = getelementptr inbounds i8, ptr %86, i64 %607
   store ptr %608, ptr %7, align 8
@@ -4596,9 +4596,9 @@ backref_rel_to_abs.exit717.thread:                ; preds = %574, %backref_rel_t
 
 616:                                              ; preds = %613
   %617 = load ptr, ptr %54, align 8
-  %618 = tail call i32 %617(ptr noundef %608, ptr noundef nonnull %2) #24
+  %618 = tail call i32 %617(ptr noundef %608, ptr noundef nonnull %2) #25
   %619 = load ptr, ptr %20, align 8
-  %620 = tail call i32 %619(ptr noundef %608) #24
+  %620 = tail call i32 %619(ptr noundef %608) #25
   %621 = sext i32 %620 to i64
   %622 = getelementptr inbounds i8, ptr %608, i64 %621
   store ptr %622, ptr %7, align 8
@@ -4627,7 +4627,7 @@ fetch_escaped_value.exit:                         ; preds = %629
   %632 = getelementptr inbounds i8, ptr %631, i64 40
   %633 = load ptr, ptr %632, align 8
   %634 = load i32, ptr %15, align 4
-  %635 = tail call i32 %633(i32 noundef %634) #24
+  %635 = tail call i32 %633(i32 noundef %634) #25
   %636 = icmp slt i32 %635, 0
   br i1 %636, label %.critedge, label %637
 
@@ -4644,7 +4644,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 640:                                              ; preds = %637
   %641 = load ptr, ptr %53, align 8
   %642 = load ptr, ptr %20, align 8
-  %643 = tail call i32 %642(ptr noundef %641) #24
+  %643 = tail call i32 %642(ptr noundef %641) #25
   %644 = sext i32 %643 to i64
   %645 = getelementptr inbounds i8, ptr %641, i64 %644
   store ptr %645, ptr %7, align 8
@@ -4798,7 +4798,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 690:                                              ; preds = %688
   %691 = load ptr, ptr %54, align 8
-  %692 = tail call i32 %691(ptr noundef %72, ptr noundef nonnull %2) #24
+  %692 = tail call i32 %691(ptr noundef %72, ptr noundef nonnull %2) #25
   %693 = icmp eq i32 %692, 63
   br i1 %693, label %694, label %.loopexit739.loopexit
 
@@ -4810,7 +4810,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 697:                                              ; preds = %694
   %698 = load ptr, ptr %20, align 8
-  %699 = tail call i32 %698(ptr noundef %72) #24
+  %699 = tail call i32 %698(ptr noundef %72) #25
   %700 = sext i32 %699 to i64
   %701 = getelementptr inbounds i8, ptr %72, i64 %700
   %702 = icmp ult ptr %701, %2
@@ -4818,15 +4818,15 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 703:                                              ; preds = %697
   %704 = load ptr, ptr %54, align 8
-  %705 = tail call i32 %704(ptr noundef %701, ptr noundef nonnull %2) #24
+  %705 = tail call i32 %704(ptr noundef %701, ptr noundef nonnull %2) #25
   %706 = icmp eq i32 %705, 35
   br i1 %706, label %707, label %738
 
 707:                                              ; preds = %703
   %708 = load ptr, ptr %54, align 8
-  %709 = tail call i32 %708(ptr noundef %701, ptr noundef nonnull %2) #24
+  %709 = tail call i32 %708(ptr noundef %701, ptr noundef nonnull %2) #25
   %710 = load ptr, ptr %20, align 8
-  %711 = tail call i32 %710(ptr noundef %701) #24
+  %711 = tail call i32 %710(ptr noundef %701) #25
   %712 = sext i32 %711 to i64
   %713 = getelementptr inbounds i8, ptr %701, i64 %712
   %714 = icmp ult ptr %713, %2
@@ -4835,9 +4835,9 @@ fetch_escaped_value.exit:                         ; preds = %629
 .lr.ph:                                           ; preds = %707, %735
   %715 = phi ptr [ %736, %735 ], [ %713, %707 ]
   %716 = load ptr, ptr %54, align 8
-  %717 = tail call i32 %716(ptr noundef %715, ptr noundef nonnull %2) #24
+  %717 = tail call i32 %716(ptr noundef %715, ptr noundef nonnull %2) #25
   %718 = load ptr, ptr %20, align 8
-  %719 = tail call i32 %718(ptr noundef %715) #24
+  %719 = tail call i32 %718(ptr noundef %715) #25
   %720 = sext i32 %719 to i64
   %721 = getelementptr inbounds i8, ptr %715, i64 %720
   %722 = load i32, ptr %55, align 4
@@ -4850,9 +4850,9 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 726:                                              ; preds = %724
   %727 = load ptr, ptr %54, align 8
-  %728 = tail call i32 %727(ptr noundef %721, ptr noundef nonnull %2) #24
+  %728 = tail call i32 %727(ptr noundef %721, ptr noundef nonnull %2) #25
   %729 = load ptr, ptr %20, align 8
-  %730 = tail call i32 %729(ptr noundef %721) #24
+  %730 = tail call i32 %729(ptr noundef %721) #25
   %731 = sext i32 %730 to i64
   %732 = getelementptr inbounds i8, ptr %721, i64 %731
   br label %735
@@ -4883,7 +4883,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 742:                                              ; preds = %741
   %743 = load ptr, ptr %20, align 8
-  %744 = tail call i32 %743(ptr noundef %701) #24
+  %744 = tail call i32 %743(ptr noundef %701) #25
   %745 = sext i32 %744 to i64
   %746 = getelementptr inbounds i8, ptr %701, i64 %745
   store ptr %746, ptr %7, align 8
@@ -4911,7 +4911,7 @@ fetch_escaped_value.exit:                         ; preds = %629
   store i32 0, ptr %756, align 8
   store ptr %701, ptr %57, align 8
   %757 = load ptr, ptr %20, align 8
-  %758 = tail call i32 %757(ptr noundef %701) #24
+  %758 = tail call i32 %757(ptr noundef %701) #25
   %759 = sext i32 %758 to i64
   %760 = getelementptr inbounds i8, ptr %701, i64 %759
   store ptr %760, ptr %7, align 8
@@ -4920,7 +4920,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 762:                                              ; preds = %754
   %763 = load ptr, ptr %54, align 8
-  %764 = tail call i32 %763(ptr noundef %760, ptr noundef nonnull %2) #24
+  %764 = tail call i32 %763(ptr noundef %760, ptr noundef nonnull %2) #25
   %765 = icmp eq i32 %764, 41
   br i1 %765, label %766, label %.critedge
 
@@ -4931,7 +4931,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 768:                                              ; preds = %741, %741
   %769 = load ptr, ptr %20, align 8
-  %770 = tail call i32 %769(ptr noundef %701) #24
+  %770 = tail call i32 %769(ptr noundef %701) #25
   %771 = sext i32 %770 to i64
   %772 = getelementptr inbounds i8, ptr %701, i64 %771
   %773 = icmp ult ptr %772, %2
@@ -4939,9 +4939,9 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 774:                                              ; preds = %768
   %775 = load ptr, ptr %54, align 8
-  %776 = tail call i32 %775(ptr noundef %772, ptr noundef nonnull %2) #24
+  %776 = tail call i32 %775(ptr noundef %772, ptr noundef nonnull %2) #25
   %777 = load ptr, ptr %64, align 8
-  %778 = tail call i32 %777(i32 noundef %776, i32 noundef 4) #24
+  %778 = tail call i32 %777(i32 noundef %776, i32 noundef 4) #25
   %.not700 = icmp eq i32 %778, 0
   br i1 %.not700, label %780, label %779
 
@@ -4955,7 +4955,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 781:                                              ; preds = %741
   %782 = load ptr, ptr %64, align 8
-  %783 = tail call i32 %782(i32 noundef %705, i32 noundef 4) #24
+  %783 = tail call i32 %782(i32 noundef %705, i32 noundef 4) #25
   %.not701 = icmp eq i32 %783, 0
   br i1 %.not701, label %.loopexit740, label %784
 
@@ -5032,7 +5032,7 @@ backref_rel_to_abs.exit722.thread:                ; preds = %794, %backref_rel_t
 
 817:                                              ; preds = %813
   %818 = load ptr, ptr %20, align 8
-  %819 = tail call i32 %818(ptr noundef %701) #24
+  %819 = tail call i32 %818(ptr noundef %701) #25
   %820 = sext i32 %819 to i64
   %821 = getelementptr inbounds i8, ptr %701, i64 %820
   %822 = icmp ult ptr %821, %2
@@ -5040,9 +5040,9 @@ backref_rel_to_abs.exit722.thread:                ; preds = %794, %backref_rel_t
 
 823:                                              ; preds = %817
   %824 = load ptr, ptr %54, align 8
-  %825 = tail call i32 %824(ptr noundef %821, ptr noundef nonnull %2) #24
+  %825 = tail call i32 %824(ptr noundef %821, ptr noundef nonnull %2) #25
   %826 = load ptr, ptr %20, align 8
-  %827 = tail call i32 %826(ptr noundef %821) #24
+  %827 = tail call i32 %826(ptr noundef %821) #25
   %828 = sext i32 %827 to i64
   %829 = getelementptr inbounds i8, ptr %821, i64 %828
   store ptr %829, ptr %7, align 8
@@ -5176,13 +5176,13 @@ backref_rel_to_abs.exit722.thread:                ; preds = %794, %backref_rel_t
 
 874:                                              ; preds = %.preheader734
   %875 = load ptr, ptr %54, align 8
-  %876 = tail call i32 %875(ptr noundef %873, ptr noundef nonnull %2) #24
+  %876 = tail call i32 %875(ptr noundef %873, ptr noundef nonnull %2) #25
   %877 = load ptr, ptr %20, align 8
-  %878 = tail call i32 %877(ptr noundef %873) #24
+  %878 = tail call i32 %877(ptr noundef %873) #25
   %879 = sext i32 %878 to i64
   %880 = getelementptr inbounds i8, ptr %873, i64 %879
   %881 = load ptr, ptr %64, align 8
-  %882 = tail call i32 %881(i32 noundef %876, i32 noundef 0) #24
+  %882 = tail call i32 %881(i32 noundef %876, i32 noundef 0) #25
   %.not680 = icmp eq i32 %882, 0
   br i1 %.not680, label %.preheader734, label %.backedge, !llvm.loop !34
 
@@ -5245,7 +5245,7 @@ define internal fastcc i32 @prs_alts(ptr nocapture noundef %0, ptr noundef %1, i
 
 21:                                               ; preds = %18
   tail call fastcc void @node_free_body(ptr noundef nonnull %19)
-  tail call void @free(ptr noundef nonnull %19) #24
+  tail call void @free(ptr noundef nonnull %19) #25
   br label %onig_node_free.exit
 
 22:                                               ; preds = %14
@@ -5281,7 +5281,7 @@ onig_node_new_alt.exit:                           ; preds = %29
 
 34:                                               ; preds = %32
   tail call fastcc void @node_free_body(ptr noundef nonnull %28)
-  tail call void @free(ptr noundef nonnull %28) #24
+  tail call void @free(ptr noundef nonnull %28) #25
   br label %onig_node_free.exit
 
 35:                                               ; preds = %onig_node_new_alt.exit, %onig_node_new_alt.exit57
@@ -5335,7 +5335,7 @@ onig_node_new_alt.exit57:                         ; preds = %43
 
 54:                                               ; preds = %52
   tail call fastcc void @node_free_body(ptr noundef nonnull %28)
-  tail call void @free(ptr noundef nonnull %28) #24
+  tail call void @free(ptr noundef nonnull %28) #25
   br label %onig_node_free.exit58
 
 onig_node_free.exit58:                            ; preds = %54, %52, %50
@@ -5380,7 +5380,7 @@ define internal fastcc range(i32 -202, 3) i32 @fetch_interval(ptr nocapture noun
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %7, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef %5, ptr noundef nonnull %1) #24
+  %19 = tail call i32 %18(ptr noundef %5, ptr noundef nonnull %1) #25
   switch i32 %19, label %..lr.ph.i_crit_edge [
     i32 124, label %scan_number.exit.thread
     i32 41, label %scan_number.exit.thread
@@ -5401,9 +5401,9 @@ define internal fastcc range(i32 -202, 3) i32 @fetch_interval(ptr nocapture noun
   %.02230.i = phi ptr [ %5, %.lr.ph.i ], [ %29, %38 ]
   %.02329.i = phi i32 [ 0, %.lr.ph.i ], [ %41, %38 ]
   %24 = load ptr, ptr %21, align 8
-  %25 = tail call i32 %24(ptr noundef %.02230.i, ptr noundef nonnull %1) #24
+  %25 = tail call i32 %24(ptr noundef %.02230.i, ptr noundef nonnull %1) #25
   %26 = load ptr, ptr %20, align 8
-  %27 = tail call i32 %26(ptr noundef %.02230.i) #24
+  %27 = tail call i32 %26(ptr noundef %.02230.i) #25
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %.02230.i, i64 %28
   %30 = icmp ult i32 %25, 128
@@ -5411,7 +5411,7 @@ define internal fastcc range(i32 -202, 3) i32 @fetch_interval(ptr nocapture noun
 
 31:                                               ; preds = %23
   %32 = load ptr, ptr %22, align 8
-  %33 = tail call i32 %32(i32 noundef %25, i32 noundef 4) #24
+  %33 = tail call i32 %32(i32 noundef %25, i32 noundef 4) #25
   %.not25.i = icmp eq i32 %33, 0
   br i1 %.not25.i, label %scan_number.exit, label %34
 
@@ -5455,9 +5455,9 @@ scan_number.exit:                                 ; preds = %23, %31, %38
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %7, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef %.0113, ptr noundef nonnull %1) #24
+  %54 = tail call i32 %53(ptr noundef %.0113, ptr noundef nonnull %1) #25
   %55 = load ptr, ptr %7, align 8
-  %56 = tail call i32 %55(ptr noundef %.0113) #24
+  %56 = tail call i32 %55(ptr noundef %.0113) #25
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %.0113, i64 %57
   %59 = icmp eq i32 %54, 44
@@ -5477,9 +5477,9 @@ scan_number.exit:                                 ; preds = %23, %31, %38
   %.02230.i96 = phi ptr [ %58, %.lr.ph.i95 ], [ %70, %79 ]
   %.02329.i97 = phi i32 [ 0, %.lr.ph.i95 ], [ %82, %79 ]
   %65 = load ptr, ptr %62, align 8
-  %66 = tail call i32 %65(ptr noundef %.02230.i96, ptr noundef nonnull %1) #24
+  %66 = tail call i32 %65(ptr noundef %.02230.i96, ptr noundef nonnull %1) #25
   %67 = load ptr, ptr %61, align 8
-  %68 = tail call i32 %67(ptr noundef %.02230.i96) #24
+  %68 = tail call i32 %67(ptr noundef %.02230.i96) #25
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i8, ptr %.02230.i96, i64 %69
   %71 = icmp ult i32 %66, 128
@@ -5487,7 +5487,7 @@ scan_number.exit:                                 ; preds = %23, %31, %38
 
 72:                                               ; preds = %64
   %73 = load ptr, ptr %63, align 8
-  %74 = tail call i32 %73(i32 noundef %66, i32 noundef 4) #24
+  %74 = tail call i32 %73(i32 noundef %66, i32 noundef 4) #25
   %.not25.i98 = icmp eq i32 %74, 0
   br i1 %.not25.i98, label %scan_number.exit100, label %75
 
@@ -5530,9 +5530,9 @@ scan_number.exit100.thread:                       ; preds = %60, %scan_number.ex
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %52, align 8
-  %89 = tail call i32 %88(ptr noundef %.2, ptr noundef nonnull %1) #24
+  %89 = tail call i32 %88(ptr noundef %.2, ptr noundef nonnull %1) #25
   %90 = load ptr, ptr %7, align 8
-  %91 = tail call i32 %90(ptr noundef %.2) #24
+  %91 = tail call i32 %90(ptr noundef %.2) #25
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %.2, i64 %92
   %94 = load ptr, ptr %8, align 8
@@ -5551,9 +5551,9 @@ scan_number.exit100.thread:                       ; preds = %60, %scan_number.ex
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %52, align 8
-  %103 = tail call i32 %102(ptr noundef %93, ptr noundef nonnull %1) #24
+  %103 = tail call i32 %102(ptr noundef %93, ptr noundef nonnull %1) #25
   %104 = load ptr, ptr %7, align 8
-  %105 = tail call i32 %104(ptr noundef %93) #24
+  %105 = tail call i32 %104(ptr noundef %93) #25
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i8, ptr %93, i64 %106
   br label %108
@@ -5619,9 +5619,9 @@ define internal fastcc range(i32 -400, 1) i32 @scan_octal_number(ptr nocapture n
   %.03139 = phi i32 [ 0, %.lr.ph ], [ %31, %30 ]
   %.03238 = phi i32 [ 0, %.lr.ph ], [ %34, %30 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = tail call i32 %14(ptr noundef %.03040, ptr noundef nonnull %1) #24
+  %15 = tail call i32 %14(ptr noundef %.03040, ptr noundef nonnull %1) #25
   %16 = load ptr, ptr %4, align 8
-  %17 = tail call i32 %16(ptr noundef %.03040) #24
+  %17 = tail call i32 %16(ptr noundef %.03040) #25
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %.03040, i64 %18
   %20 = icmp ult i32 %15, 128
@@ -5629,7 +5629,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_octal_number(ptr nocapture n
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %12, align 8
-  %23 = tail call i32 %22(i32 noundef %15, i32 noundef 4) #24
+  %23 = tail call i32 %22(i32 noundef %15, i32 noundef 4) #25
   %24 = icmp ne i32 %23, 0
   %25 = icmp ult i32 %15, 56
   %or.cond = select i1 %24, i1 %25, i1 false
@@ -5686,9 +5686,9 @@ define internal fastcc range(i32 -400, 1) i32 @scan_hexadecimal_number(ptr nocap
   %.03646 = phi i32 [ 0, %.lr.ph ], [ %25, %36 ]
   %.03745 = phi i32 [ 0, %.lr.ph ], [ %38, %36 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = tail call i32 %14(ptr noundef %.03547, ptr noundef nonnull %1) #24
+  %15 = tail call i32 %14(ptr noundef %.03547, ptr noundef nonnull %1) #25
   %16 = load ptr, ptr %4, align 8
-  %17 = tail call i32 %16(ptr noundef %.03547) #24
+  %17 = tail call i32 %16(ptr noundef %.03547) #25
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %.03547, i64 %18
   %20 = icmp ult i32 %15, 128
@@ -5696,20 +5696,20 @@ define internal fastcc range(i32 -400, 1) i32 @scan_hexadecimal_number(ptr nocap
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %12, align 8
-  %23 = tail call i32 %22(i32 noundef %15, i32 noundef 11) #24
+  %23 = tail call i32 %22(i32 noundef %15, i32 noundef 11) #25
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %._crit_edge, label %24
 
 24:                                               ; preds = %21
   %25 = add nuw nsw i32 %.03646, 1
   %26 = load ptr, ptr %12, align 8
-  %27 = tail call i32 %26(i32 noundef %15, i32 noundef 4) #24
+  %27 = tail call i32 %26(i32 noundef %15, i32 noundef 4) #25
   %.not40 = icmp eq i32 %27, 0
   br i1 %.not40, label %28, label %31
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %12, align 8
-  %30 = tail call i32 %29(i32 noundef %15, i32 noundef 10) #24
+  %30 = tail call i32 %29(i32 noundef %15, i32 noundef 10) #25
   %.not41 = icmp eq i32 %30, 0
   %. = select i1 %.not41, i32 -87, i32 -55
   br label %31
@@ -5763,9 +5763,9 @@ define internal fastcc i32 @check_code_point_sequence(ptr noundef %0, ptr nounde
   %10 = phi i1 [ false, %.lr.ph66 ], [ true, %47 ]
   %.04764 = phi i32 [ 0, %.lr.ph66 ], [ %48, %47 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = tail call i32 %11(ptr noundef %9, ptr noundef nonnull %1) #24
+  %12 = tail call i32 %11(ptr noundef %9, ptr noundef nonnull %1) #25
   %13 = load ptr, ptr %3, align 8
-  %14 = tail call i32 %13(ptr noundef %9) #24
+  %14 = tail call i32 %13(ptr noundef %9) #25
   switch i32 %12, label %24 [
     i32 125, label %.loopexit
     i32 32, label %.preheader
@@ -5781,9 +5781,9 @@ define internal fastcc i32 @check_code_point_sequence(ptr noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %17 = phi ptr [ %23, %.backedge ], [ %16, %.preheader ]
   %18 = load ptr, ptr %7, align 8
-  %19 = tail call i32 %18(ptr noundef %17, ptr noundef nonnull %1) #24
+  %19 = tail call i32 %18(ptr noundef %17, ptr noundef nonnull %1) #25
   %20 = load ptr, ptr %3, align 8
-  %21 = tail call i32 %20(ptr noundef %17) #24
+  %21 = tail call i32 %20(ptr noundef %17) #25
   switch i32 %19, label %._crit_edge [
     i32 32, label %.backedge
     i32 10, label %.backedge
@@ -5817,7 +5817,7 @@ define internal fastcc i32 @check_code_point_sequence(ptr noundef %0, ptr nounde
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %3, i64 88
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 %31(i32 noundef %12, i32 noundef 11) #24
+  %32 = tail call i32 %31(i32 noundef %12, i32 noundef 11) #25
   %.not53 = icmp eq i32 %32, 0
   br i1 %.not53, label %42, label %.loopexit
 
@@ -5830,7 +5830,7 @@ define internal fastcc i32 @check_code_point_sequence(ptr noundef %0, ptr nounde
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %3, i64 88
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 %38(i32 noundef %12, i32 noundef 4) #24
+  %39 = tail call i32 %38(i32 noundef %12, i32 noundef 4) #25
   %40 = icmp ne i32 %39, 0
   %41 = icmp ult i32 %12, 56
   %or.cond7 = select i1 %40, i1 %41, i1 false
@@ -5877,9 +5877,9 @@ define internal fastcc i32 @scan_number(ptr nocapture noundef %0, ptr noundef %1
   %.02230 = phi ptr [ %4, %.lr.ph ], [ %13, %22 ]
   %.02329 = phi i32 [ 0, %.lr.ph ], [ %25, %22 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call i32 %8(ptr noundef %.02230, ptr noundef nonnull %1) #24
+  %9 = tail call i32 %8(ptr noundef %.02230, ptr noundef nonnull %1) #25
   %10 = load ptr, ptr %2, align 8
-  %11 = tail call i32 %10(ptr noundef %.02230) #24
+  %11 = tail call i32 %10(ptr noundef %.02230) #25
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %.02230, i64 %12
   %14 = icmp ult i32 %9, 128
@@ -5887,7 +5887,7 @@ define internal fastcc i32 @scan_number(ptr nocapture noundef %0, ptr noundef %1
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %6, align 8
-  %17 = tail call i32 %16(i32 noundef %9, i32 noundef 4) #24
+  %17 = tail call i32 %16(i32 noundef %9, i32 noundef 4) #25
   %.not25 = icmp eq i32 %17, 0
   br i1 %.not25, label %._crit_edge, label %18
 
@@ -5947,9 +5947,9 @@ get_name_end_code_point.exit:                     ; preds = %8, %14, %15, %16
 18:                                               ; preds = %get_name_end_code_point.exit
   %19 = getelementptr inbounds i8, ptr %12, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %10, ptr noundef nonnull %2) #24
+  %21 = tail call i32 %20(ptr noundef %10, ptr noundef nonnull %2) #25
   %22 = load ptr, ptr %12, align 8
-  %23 = tail call i32 %22(ptr noundef %10) #24
+  %23 = tail call i32 %22(ptr noundef %10) #25
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %10, i64 %24
   store ptr %25, ptr %9, align 8
@@ -5963,7 +5963,7 @@ get_name_end_code_point.exit:                     ; preds = %8, %14, %15, %16
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %12, i64 88
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 %31(i32 noundef %21, i32 noundef 4) #24
+  %32 = tail call i32 %31(i32 noundef %21, i32 noundef 4) #25
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %34, label %33
 
@@ -5988,7 +5988,7 @@ get_name_end_code_point.exit:                     ; preds = %8, %14, %15, %16
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %12, i64 88
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(i32 noundef %21, i32 noundef 12) #24
+  %40 = tail call i32 %39(i32 noundef %21, i32 noundef 12) #25
   %.not124 = icmp eq i32 %40, 0
   %spec.select = select i1 %.not124, i32 -216, i32 0
   br label %41
@@ -6010,10 +6010,10 @@ get_name_end_code_point.exit:                     ; preds = %8, %14, %15, %16
   %.1112176 = phi i32 [ %.0111, %.lr.ph ], [ %.2113, %69 ]
   %44 = phi ptr [ %25, %.lr.ph ], [ %50, %69 ]
   %45 = load ptr, ptr %19, align 8
-  %46 = tail call i32 %45(ptr noundef %44, ptr noundef nonnull %2) #24
+  %46 = tail call i32 %45(ptr noundef %44, ptr noundef nonnull %2) #25
   %.fr = freeze i32 %46
   %47 = load ptr, ptr %12, align 8
-  %48 = tail call i32 %47(ptr noundef %44) #24
+  %48 = tail call i32 %47(ptr noundef %44) #25
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %44, i64 %49
   %51 = icmp eq i32 %.fr, %.0.i
@@ -6046,7 +6046,7 @@ switch.early.test:                                ; preds = %43
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %42, align 8
-  %62 = tail call i32 %61(i32 noundef %.fr, i32 noundef 4) #24
+  %62 = tail call i32 %61(i32 noundef %.fr, i32 noundef 4) #25
   %.not128 = icmp eq i32 %62, 0
   br i1 %.not128, label %65, label %63
 
@@ -6060,7 +6060,7 @@ switch.early.test:                                ; preds = %43
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %42, align 8
-  %68 = tail call i32 %67(i32 noundef %.fr, i32 noundef 12) #24
+  %68 = tail call i32 %67(i32 noundef %.fr, i32 noundef 12) #25
   %.not127 = icmp eq i32 %68, 0
   %spec.select134 = select i1 %.not127, i32 -216, i32 %.1177
   br label %69
@@ -6096,9 +6096,9 @@ select.unfold:                                    ; preds = %69, %52, %41
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %19, align 8
-  %79 = tail call i32 %78(ptr noundef %70, ptr noundef nonnull %2) #24
+  %79 = tail call i32 %78(ptr noundef %70, ptr noundef nonnull %2) #25
   %80 = load ptr, ptr %12, align 8
-  %81 = tail call i32 %80(ptr noundef %70) #24
+  %81 = tail call i32 %80(ptr noundef %70) #25
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %70, i64 %82
   %84 = icmp ult i32 %79, 128
@@ -6107,7 +6107,7 @@ select.unfold:                                    ; preds = %69, %52, %41
 85:                                               ; preds = %77
   %86 = getelementptr inbounds i8, ptr %12, i64 88
   %87 = load ptr, ptr %86, align 8
-  %88 = tail call i32 %87(i32 noundef %79, i32 noundef 4) #24
+  %88 = tail call i32 %87(i32 noundef %79, i32 noundef 4) #25
   %.not130 = icmp eq i32 %88, 0
   br i1 %.not130, label %105, label %89
 
@@ -6127,9 +6127,9 @@ select.unfold:                                    ; preds = %69, %52, %41
 
 97:                                               ; preds = %92
   %98 = load ptr, ptr %19, align 8
-  %99 = tail call i32 %98(ptr noundef %95, ptr noundef nonnull %2) #24
+  %99 = tail call i32 %98(ptr noundef %95, ptr noundef nonnull %2) #25
   %100 = load ptr, ptr %12, align 8
-  %101 = tail call i32 %100(ptr noundef %95) #24
+  %101 = tail call i32 %100(ptr noundef %95) #25
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %95, i64 %102
   %104 = icmp eq i32 %99, %.0.i
@@ -6169,9 +6169,9 @@ select.unfold:                                    ; preds = %69, %52, %41
   %.02230.i = phi ptr [ %.3139145, %.lr.ph.i ], [ %118, %127 ]
   %.02329.i = phi i32 [ 0, %.lr.ph.i ], [ %130, %127 ]
   %113 = load ptr, ptr %19, align 8
-  %114 = tail call i32 %113(ptr noundef %.02230.i, ptr noundef nonnull %.4103147) #24
+  %114 = tail call i32 %113(ptr noundef %.02230.i, ptr noundef nonnull %.4103147) #25
   %115 = load ptr, ptr %12, align 8
-  %116 = tail call i32 %115(ptr noundef %.02230.i) #24
+  %116 = tail call i32 %115(ptr noundef %.02230.i) #25
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i8, ptr %.02230.i, i64 %117
   %119 = icmp ult i32 %114, 128
@@ -6179,7 +6179,7 @@ select.unfold:                                    ; preds = %69, %52, %41
 
 120:                                              ; preds = %112
   %121 = load ptr, ptr %111, align 8
-  %122 = tail call i32 %121(i32 noundef %114, i32 noundef 4) #24
+  %122 = tail call i32 %121(i32 noundef %114, i32 noundef 4) #25
   %.not25.i = icmp eq i32 %122, 0
   br i1 %.not25.i, label %scan_number.exit, label %123
 
@@ -6268,7 +6268,7 @@ name_find.exit:                                   ; preds = %4
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %10, align 8
   %11 = ptrtoint ptr %5 to i64
-  %12 = call i32 @onig_st_lookup(ptr noundef nonnull %.val, i64 noundef %11, ptr noundef nonnull %6) #24
+  %12 = call i32 @onig_st_lookup(ptr noundef nonnull %.val, i64 noundef %11, ptr noundef nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.pre.i = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -6344,9 +6344,9 @@ get_name_end_code_point.exit:                     ; preds = %8, %12, %13, %14
 17:                                               ; preds = %get_name_end_code_point.exit
   %18 = getelementptr inbounds i8, ptr %10, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %11, ptr noundef nonnull %2) #24
+  %20 = tail call i32 %19(ptr noundef %11, ptr noundef nonnull %2) #25
   %21 = load ptr, ptr %10, align 8
-  %22 = tail call i32 %21(ptr noundef %11) #24
+  %22 = tail call i32 %21(ptr noundef %11) #25
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %11, i64 %23
   %25 = icmp eq i32 %20, %.0.i
@@ -6359,7 +6359,7 @@ get_name_end_code_point.exit:                     ; preds = %8, %12, %13, %14
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %10, i64 88
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 %30(i32 noundef %20, i32 noundef 4) #24
+  %31 = tail call i32 %30(i32 noundef %20, i32 noundef 4) #25
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %34, label %32
 
@@ -6384,7 +6384,7 @@ get_name_end_code_point.exit:                     ; preds = %8, %12, %13, %14
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %10, i64 88
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 %41(i32 noundef %20, i32 noundef 12) #24
+  %42 = tail call i32 %41(i32 noundef %20, i32 noundef 12) #25
   %.not118 = icmp eq i32 %42, 0
   br i1 %.not118, label %.preheader137, label %.preheader
 
@@ -6413,9 +6413,9 @@ get_name_end_code_point.exit:                     ; preds = %8, %12, %13, %14
 44:                                               ; preds = %.lr.ph147, %66
   %.0146 = phi ptr [ %24, %.lr.ph147 ], [ %50, %66 ]
   %45 = load ptr, ptr %18, align 8
-  %46 = tail call i32 %45(ptr noundef %.0146, ptr noundef nonnull %2) #24
+  %46 = tail call i32 %45(ptr noundef %.0146, ptr noundef nonnull %2) #25
   %47 = load ptr, ptr %10, align 8
-  %48 = tail call i32 %47(ptr noundef %.0146) #24
+  %48 = tail call i32 %47(ptr noundef %.0146) #25
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %.0146, i64 %49
   %51 = icmp eq i32 %46, %.0.i
@@ -6434,19 +6434,19 @@ get_name_end_code_point.exit:                     ; preds = %8, %12, %13, %14
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %43, align 8
-  %59 = tail call i32 %58(i32 noundef %46, i32 noundef 4) #24
+  %59 = tail call i32 %58(i32 noundef %46, i32 noundef 4) #25
   %.not123 = icmp eq i32 %59, 0
   br i1 %.not123, label %60, label %66
 
 60:                                               ; preds = %57, %55
   %61 = load ptr, ptr %43, align 8
-  %62 = tail call i32 %61(i32 noundef %46, i32 noundef 12) #24
+  %62 = tail call i32 %61(i32 noundef %46, i32 noundef 12) #25
   store i32 0, ptr %6, align 4
   br label %66
 
 63:                                               ; preds = %53
   %64 = load ptr, ptr %43, align 8
-  %65 = tail call i32 %64(i32 noundef %46, i32 noundef 12) #24
+  %65 = tail call i32 %64(i32 noundef %46, i32 noundef 12) #25
   br label %66
 
 66:                                               ; preds = %57, %63, %60
@@ -6481,9 +6481,9 @@ get_name_end_code_point.exit:                     ; preds = %8, %12, %13, %14
   %.02230.i = phi ptr [ %.0129.ph, %.lr.ph.i ], [ %77, %86 ]
   %.02329.i = phi i32 [ 0, %.lr.ph.i ], [ %89, %86 ]
   %72 = load ptr, ptr %18, align 8
-  %73 = tail call i32 %72(ptr noundef %.02230.i, ptr noundef nonnull %.199) #24
+  %73 = tail call i32 %72(ptr noundef %.02230.i, ptr noundef nonnull %.199) #25
   %74 = load ptr, ptr %10, align 8
-  %75 = tail call i32 %74(ptr noundef %.02230.i) #24
+  %75 = tail call i32 %74(ptr noundef %.02230.i) #25
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %.02230.i, i64 %76
   %78 = icmp ult i32 %73, 128
@@ -6491,7 +6491,7 @@ get_name_end_code_point.exit:                     ; preds = %8, %12, %13, %14
 
 79:                                               ; preds = %71
   %80 = load ptr, ptr %70, align 8
-  %81 = tail call i32 %80(i32 noundef %73, i32 noundef 4) #24
+  %81 = tail call i32 %80(i32 noundef %73, i32 noundef 4) #25
   %.not25.i = icmp eq i32 %81, 0
   br i1 %.not25.i, label %scan_number.exit, label %82
 
@@ -6541,9 +6541,9 @@ scan_number.exit:                                 ; preds = %71, %79, %86
 .lr.ph:                                           ; preds = %.preheader137, %.lr.ph
   %.2139 = phi ptr [ %104, %.lr.ph ], [ %24, %.preheader137 ]
   %99 = load ptr, ptr %18, align 8
-  %100 = tail call i32 %99(ptr noundef %.2139, ptr noundef nonnull %2) #24
+  %100 = tail call i32 %99(ptr noundef %.2139, ptr noundef nonnull %2) #25
   %101 = load ptr, ptr %10, align 8
-  %102 = tail call i32 %101(ptr noundef %.2139) #24
+  %102 = tail call i32 %101(ptr noundef %.2139) #25
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %.2139, i64 %103
   %105 = icmp ne i32 %100, %.0.i
@@ -6583,14 +6583,14 @@ define internal fastcc range(i32 0, 2) i32 @is_head_of_bre_subexp(ptr noundef %0
   br i1 %7, label %8, label %._crit_edge
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %2, ptr noundef %6, ptr noundef nonnull %0) #24
+  %9 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %2, ptr noundef %6, ptr noundef nonnull %0) #25
   %10 = icmp ugt ptr %9, %6
   br i1 %10, label %11, label %._crit_edge
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %2, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef nonnull %9, ptr noundef %1) #24
+  %14 = tail call i32 %13(ptr noundef nonnull %9, ptr noundef %1) #25
   switch i32 %14, label %._crit_edge [
     i32 40, label %20
     i32 124, label %15
@@ -6605,9 +6605,9 @@ define internal fastcc range(i32 0, 2) i32 @is_head_of_bre_subexp(ptr noundef %0
   br i1 %.not, label %._crit_edge, label %20
 
 20:                                               ; preds = %11, %15
-  %21 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %9) #24
+  %21 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %9) #25
   %22 = load ptr, ptr %12, align 8
-  %23 = tail call i32 %22(ptr noundef %21, ptr noundef %1) #24
+  %23 = tail call i32 %22(ptr noundef %21, ptr noundef %1) #25
   %24 = getelementptr inbounds i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
@@ -6629,9 +6629,9 @@ define internal fastcc range(i32 0, 2) i32 @is_head_of_bre_subexp(ptr noundef %0
 .lr.ph:                                           ; preds = %.preheader, %45
   %.045 = phi i32 [ %46, %45 ], [ 0, %.preheader ]
   %.03744 = phi ptr [ %34, %45 ], [ %21, %.preheader ]
-  %34 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %.03744) #24
+  %34 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %.03744) #25
   %35 = load ptr, ptr %12, align 8
-  %36 = tail call i32 %35(ptr noundef %34, ptr noundef %1) #24
+  %36 = tail call i32 %35(ptr noundef %34, ptr noundef %1) #25
   %37 = load ptr, ptr %24, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load i32, ptr %38, align 4
@@ -6669,7 +6669,7 @@ define internal fastcc range(i32 0, 2) i32 @is_end_of_bre_subexp(ptr noundef %0,
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %0, ptr noundef %1) #24
+  %9 = tail call i32 %8(ptr noundef %0, ptr noundef %1) #25
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
@@ -6686,7 +6686,7 @@ define internal fastcc range(i32 0, 2) i32 @is_end_of_bre_subexp(ptr noundef %0,
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %2, align 8
-  %21 = tail call i32 %20(ptr noundef %0) #24
+  %21 = tail call i32 %20(ptr noundef %0) #25
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   %24 = icmp ult ptr %23, %1
@@ -6694,7 +6694,7 @@ define internal fastcc range(i32 0, 2) i32 @is_end_of_bre_subexp(ptr noundef %0,
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %7, align 8
-  %27 = tail call i32 %26(ptr noundef %23, ptr noundef nonnull %1) #24
+  %27 = tail call i32 %26(ptr noundef %23, ptr noundef nonnull %1) #25
   switch i32 %27, label %32 [
     i32 41, label %33
     i32 124, label %28
@@ -6738,9 +6738,9 @@ define internal fastcc void @CLOSE_BRACKET_WITHOUT_ESC_WARN(ptr nocapture nounde
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %2, i32 noundef 256, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %2, i32 noundef 256, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #25
   %18 = load ptr, ptr @onig_warn, align 8
-  call void %18(ptr noundef nonnull %2) #24
+  call void %18(ptr noundef nonnull %2) #25
   br label %19
 
 19:                                               ; preds = %1, %11, %5
@@ -6769,9 +6769,9 @@ define internal fastcc range(i32 -400, 1) i32 @scan_number_of_base(ptr nocapture
   %.03646.i = phi i32 [ 0, %.lr.ph.i ], [ %23, %34 ]
   %.03745.i = phi i32 [ 0, %.lr.ph.i ], [ %36, %34 ]
   %12 = load ptr, ptr %9, align 8
-  %13 = tail call i32 %12(ptr noundef %.03547.i, ptr noundef nonnull %1) #24
+  %13 = tail call i32 %12(ptr noundef %.03547.i, ptr noundef nonnull %1) #25
   %14 = load ptr, ptr %2, align 8
-  %15 = tail call i32 %14(ptr noundef %.03547.i) #24
+  %15 = tail call i32 %14(ptr noundef %.03547.i) #25
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %.03547.i, i64 %16
   %18 = icmp ult i32 %13, 128
@@ -6779,20 +6779,20 @@ define internal fastcc range(i32 -400, 1) i32 @scan_number_of_base(ptr nocapture
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %10, align 8
-  %21 = tail call i32 %20(i32 noundef %13, i32 noundef 11) #24
+  %21 = tail call i32 %20(i32 noundef %13, i32 noundef 11) #25
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %._crit_edge.i, label %22
 
 22:                                               ; preds = %19
   %23 = add nuw nsw i32 %.03646.i, 1
   %24 = load ptr, ptr %10, align 8
-  %25 = tail call i32 %24(i32 noundef %13, i32 noundef 4) #24
+  %25 = tail call i32 %24(i32 noundef %13, i32 noundef 4) #25
   %.not40.i = icmp eq i32 %25, 0
   br i1 %.not40.i, label %26, label %29
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %10, align 8
-  %28 = tail call i32 %27(i32 noundef %13, i32 noundef 10) #24
+  %28 = tail call i32 %27(i32 noundef %13, i32 noundef 10) #25
   %.not41.i = icmp eq i32 %28, 0
   %..i = select i1 %.not41.i, i32 -87, i32 -55
   br label %29
@@ -6832,9 +6832,9 @@ define internal fastcc range(i32 -400, 1) i32 @scan_number_of_base(ptr nocapture
   %.03139.i = phi i32 [ 0, %.lr.ph.i15 ], [ %64, %63 ]
   %.03238.i = phi i32 [ 0, %.lr.ph.i15 ], [ %67, %63 ]
   %47 = load ptr, ptr %44, align 8
-  %48 = tail call i32 %47(ptr noundef %.03040.i, ptr noundef nonnull %1) #24
+  %48 = tail call i32 %47(ptr noundef %.03040.i, ptr noundef nonnull %1) #25
   %49 = load ptr, ptr %2, align 8
-  %50 = tail call i32 %49(ptr noundef %.03040.i) #24
+  %50 = tail call i32 %49(ptr noundef %.03040.i) #25
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %.03040.i, i64 %51
   %53 = icmp ult i32 %48, 128
@@ -6842,7 +6842,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_number_of_base(ptr nocapture
 
 54:                                               ; preds = %46
   %55 = load ptr, ptr %45, align 8
-  %56 = tail call i32 %55(i32 noundef %48, i32 noundef 4) #24
+  %56 = tail call i32 %55(i32 noundef %48, i32 noundef 4) #25
   %57 = icmp ne i32 %56, 0
   %58 = icmp ult i32 %48, 56
   %or.cond.i = select i1 %57, i1 %58, i1 false
@@ -6893,9 +6893,9 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value_raw(ptr nocap
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %9, ptr noundef nonnull %1) #24
+  %14 = tail call i32 %13(ptr noundef %9, ptr noundef nonnull %1) #25
   %15 = load ptr, ptr %8, align 8
-  %16 = tail call i32 %15(ptr noundef %9) #24
+  %16 = tail call i32 %15(ptr noundef %9) #25
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %9, i64 %17
   store ptr %18, ptr %6, align 8
@@ -6920,9 +6920,9 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value_raw(ptr nocap
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %12, align 8
-  %27 = tail call i32 %26(ptr noundef %18, ptr noundef nonnull %1) #24
+  %27 = tail call i32 %26(ptr noundef %18, ptr noundef nonnull %1) #25
   %28 = load ptr, ptr %8, align 8
-  %29 = tail call i32 %28(ptr noundef %18) #24
+  %29 = tail call i32 %28(ptr noundef %18) #25
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %18, i64 %30
   %.not49 = icmp eq i32 %27, 45
@@ -6934,10 +6934,10 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value_raw(ptr nocap
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %12, align 8
-  %36 = tail call i32 %35(ptr noundef %31, ptr noundef nonnull %1) #24
+  %36 = tail call i32 %35(ptr noundef %31, ptr noundef nonnull %1) #25
   store i32 %36, ptr %5, align 4
   %37 = load ptr, ptr %8, align 8
-  %38 = tail call i32 %37(ptr noundef %31) #24
+  %38 = tail call i32 %37(ptr noundef %31) #25
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %31, i64 %39
   store ptr %40, ptr %6, align 8
@@ -6975,9 +6975,9 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value_raw(ptr nocap
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %12, align 8
-  %60 = tail call i32 %59(ptr noundef %18, ptr noundef nonnull %1) #24
+  %60 = tail call i32 %59(ptr noundef %18, ptr noundef nonnull %1) #25
   %61 = load ptr, ptr %8, align 8
-  %62 = tail call i32 %61(ptr noundef %18) #24
+  %62 = tail call i32 %61(ptr noundef %18) #25
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %18, i64 %63
   %.not47 = icmp eq i32 %60, 45
@@ -6996,10 +6996,10 @@ define internal fastcc range(i32 -109, 1) i32 @fetch_escaped_value_raw(ptr nocap
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr %12, align 8
-  %73 = tail call i32 %72(ptr noundef %69, ptr noundef nonnull %1) #24
+  %73 = tail call i32 %72(ptr noundef %69, ptr noundef nonnull %1) #25
   store i32 %73, ptr %5, align 4
   %74 = load ptr, ptr %8, align 8
-  %75 = tail call i32 %74(ptr noundef %69) #24
+  %75 = tail call i32 %74(ptr noundef %69) #25
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %69, i64 %76
   store ptr %77, ptr %6, align 8
@@ -7086,9 +7086,9 @@ conv_backslash_value.exit:                        ; preds = %104, %100, %99, %98
   ret i32 %.0
 }
 
-declare ptr @onigenc_get_prev_char_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @onigenc_get_prev_char_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @onig_snprintf_with_pattern(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
+declare void @onig_snprintf_with_pattern(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @prs_branch(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #2 {
@@ -7114,7 +7114,7 @@ define internal fastcc i32 @prs_branch(ptr nocapture noundef writeonly %0, ptr n
 
 20:                                               ; preds = %17
   tail call fastcc void @node_free_body(ptr noundef nonnull %18)
-  tail call void @free(ptr noundef nonnull %18) #24
+  tail call void @free(ptr noundef nonnull %18) #25
   br label %onig_node_free.exit
 
 21:                                               ; preds = %14
@@ -7150,7 +7150,7 @@ define internal fastcc i32 @prs_branch(ptr nocapture noundef writeonly %0, ptr n
 33:                                               ; preds = %.thread, %31
   %34 = phi ptr [ %43, %.thread ], [ %29, %31 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %34)
-  tail call void @free(ptr noundef nonnull %34) #24
+  tail call void @free(ptr noundef nonnull %34) #25
   br label %onig_node_free.exit
 
 35:                                               ; preds = %28
@@ -7343,7 +7343,7 @@ node_new_empty.exit.thread:                       ; preds = %._crit_edge
   %54 = load i32, ptr %5, align 8
   %55 = getelementptr inbounds i8, ptr %51, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 %56(ptr noundef %50, ptr noundef %4) #24
+  %57 = tail call i32 %56(ptr noundef %50, ptr noundef %4) #25
   switch i32 %57, label %694 [
     i32 63, label %58
     i32 42, label %683
@@ -7359,7 +7359,7 @@ node_new_empty.exit.thread:                       ; preds = %._crit_edge
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %51, align 8
-  %65 = tail call i32 %64(ptr noundef %50) #24
+  %65 = tail call i32 %64(ptr noundef %50) #25
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %50, i64 %66
   %68 = icmp ult ptr %67, %4
@@ -7367,9 +7367,9 @@ node_new_empty.exit.thread:                       ; preds = %._crit_edge
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %55, align 8
-  %71 = tail call i32 %70(ptr noundef %67, ptr noundef %4) #24
+  %71 = tail call i32 %70(ptr noundef %67, ptr noundef %4) #25
   %72 = load ptr, ptr %51, align 8
-  %73 = tail call i32 %72(ptr noundef %67) #24
+  %73 = tail call i32 %72(ptr noundef %67) #25
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i8, ptr %67, i64 %74
   store ptr %75, ptr %14, align 8
@@ -7479,9 +7479,9 @@ node_new_bag.exit445:                             ; preds = %94, %96
 
 106:                                              ; preds = %104
   %107 = load ptr, ptr %55, align 8
-  %108 = tail call i32 %107(ptr noundef %75, ptr noundef nonnull %4) #24
+  %108 = tail call i32 %107(ptr noundef %75, ptr noundef nonnull %4) #25
   %109 = load ptr, ptr %51, align 8
-  %110 = tail call i32 %109(ptr noundef %75) #24
+  %110 = tail call i32 %109(ptr noundef %75) #25
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %75, i64 %111
   store ptr %112, ptr %14, align 8
@@ -7613,13 +7613,13 @@ node_new_memory.exit440.thread:                   ; preds = %143
 
 165:                                              ; preds = %163
   %166 = load ptr, ptr %55, align 8
-  %167 = tail call i32 %166(ptr noundef %75, ptr noundef nonnull %4) #24
+  %167 = tail call i32 %166(ptr noundef %75, ptr noundef nonnull %4) #25
   %.not560.i = icmp eq i32 %167, 124
   br i1 %.not560.i, label %168, label %187
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr %51, align 8
-  %170 = tail call i32 %169(ptr noundef %75) #24
+  %170 = tail call i32 %169(ptr noundef %75) #25
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds i8, ptr %75, i64 %171
   store ptr %172, ptr %14, align 8
@@ -7628,13 +7628,13 @@ node_new_memory.exit440.thread:                   ; preds = %143
 
 174:                                              ; preds = %168
   %175 = load ptr, ptr %55, align 8
-  %176 = tail call i32 %175(ptr noundef %172, ptr noundef nonnull %4) #24
+  %176 = tail call i32 %175(ptr noundef %172, ptr noundef nonnull %4) #25
   %177 = icmp eq i32 %176, 41
   br i1 %177, label %178, label %187
 
 178:                                              ; preds = %174
   %179 = load ptr, ptr %51, align 8
-  %180 = tail call i32 %179(ptr noundef %172) #24
+  %180 = tail call i32 %179(ptr noundef %172) #25
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds i8, ptr %172, i64 %181
   store ptr %182, ptr %14, align 8
@@ -7689,7 +7689,7 @@ onig_node_free.exit438:                           ; preds = %198
   store ptr %206, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, i8 0, i64 16, i1 false)
   tail call fastcc void @node_free_body(ptr noundef nonnull %193)
-  tail call void @free(ptr noundef nonnull %193) #24
+  tail call void @free(ptr noundef nonnull %193) #25
   %207 = getelementptr inbounds i8, ptr %200, i64 24
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
@@ -7700,7 +7700,7 @@ onig_node_free.exit736:                           ; preds = %onig_node_free.exit
   %211 = load ptr, ptr %210, align 8
   store ptr null, ptr %210, align 8
   tail call fastcc void @node_free_body(ptr noundef nonnull %200)
-  tail call void @free(ptr noundef nonnull %200) #24
+  tail call void @free(ptr noundef nonnull %200) #25
   br label %212
 
 212:                                              ; preds = %onig_node_free.exit736, %onig_node_free.exit438, %202, %195
@@ -7738,9 +7738,9 @@ onig_node_free.exit736:                           ; preds = %onig_node_free.exit
 
 229:                                              ; preds = %227
   %230 = load ptr, ptr %55, align 8
-  %231 = tail call i32 %230(ptr noundef %75, ptr noundef %4) #24
+  %231 = tail call i32 %230(ptr noundef %75, ptr noundef %4) #25
   %232 = load ptr, ptr %51, align 8
-  %233 = tail call i32 %232(ptr noundef %75) #24
+  %233 = tail call i32 %232(ptr noundef %75) #25
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds i8, ptr %75, i64 %234
   store ptr %235, ptr %14, align 8
@@ -7754,7 +7754,7 @@ onig_node_free.exit736:                           ; preds = %onig_node_free.exit
 239:                                              ; preds = %237
   %240 = getelementptr inbounds i8, ptr %51, i64 88
   %241 = load ptr, ptr %240, align 8
-  %242 = tail call i32 %241(i32 noundef %231, i32 noundef 4) #24
+  %242 = tail call i32 %241(i32 noundef %231, i32 noundef 4) #25
   %243 = icmp ne i32 %242, 0
   %244 = icmp eq i32 %231, 45
   %or.cond3.i = select i1 %243, i1 true, i1 %244
@@ -7934,9 +7934,9 @@ node_new_backref_checker.exit435:                 ; preds = %node_new_backref_ch
 
 321:                                              ; preds = %318
   %322 = load ptr, ptr %55, align 8
-  %323 = tail call i32 %322(ptr noundef %319, ptr noundef %4) #24
+  %323 = tail call i32 %322(ptr noundef %319, ptr noundef %4) #25
   %324 = load ptr, ptr %51, align 8
-  %325 = tail call i32 %324(ptr noundef %319) #24
+  %325 = tail call i32 %324(ptr noundef %319) #25
   %326 = sext i32 %325 to i64
   %327 = getelementptr inbounds i8, ptr %319, i64 %326
   store ptr %327, ptr %14, align 8
@@ -7953,15 +7953,15 @@ node_new_backref_checker.exit435:                 ; preds = %node_new_backref_ch
 
 333:                                              ; preds = %328
   %334 = load ptr, ptr %55, align 8
-  %335 = tail call i32 %334(ptr noundef %235, ptr noundef %4) #24
+  %335 = tail call i32 %334(ptr noundef %235, ptr noundef %4) #25
   %336 = icmp eq i32 %335, 123
   br i1 %336, label %337, label %352
 
 337:                                              ; preds = %333
   %338 = load ptr, ptr %55, align 8
-  %339 = tail call i32 %338(ptr noundef %235, ptr noundef %4) #24
+  %339 = tail call i32 %338(ptr noundef %235, ptr noundef %4) #25
   %340 = load ptr, ptr %51, align 8
-  %341 = tail call i32 %340(ptr noundef %235) #24
+  %341 = tail call i32 %340(ptr noundef %235) #25
   %342 = sext i32 %341 to i64
   %343 = getelementptr inbounds i8, ptr %235, i64 %342
   store ptr %343, ptr %14, align 8
@@ -8021,7 +8021,7 @@ thread-pre-split453:                              ; preds = %321, %337, %350, %3
 
 369:                                              ; preds = %364
   %370 = load ptr, ptr %55, align 8
-  %371 = tail call i32 %370(ptr noundef %365, ptr noundef %4) #24
+  %371 = tail call i32 %370(ptr noundef %365, ptr noundef %4) #25
   %372 = icmp eq i32 %371, 41
   br i1 %372, label %373, label %381
 
@@ -8030,14 +8030,14 @@ thread-pre-split453:                              ; preds = %321, %337, %350, %3
 
 onig_node_free.exit737:                           ; preds = %373
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
-  tail call void @free(ptr noundef nonnull %361) #24
+  tail call void @free(ptr noundef nonnull %361) #25
   br label %prs_bag.exit.thread
 
 374:                                              ; preds = %373
   %375 = load ptr, ptr %55, align 8
-  %376 = tail call i32 %375(ptr noundef %365, ptr noundef %4) #24
+  %376 = tail call i32 %375(ptr noundef %365, ptr noundef %4) #25
   %377 = load ptr, ptr %51, align 8
-  %378 = tail call i32 %377(ptr noundef %365) #24
+  %378 = tail call i32 %377(ptr noundef %365) #25
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds i8, ptr %365, i64 %379
   store ptr %380, ptr %14, align 8
@@ -8046,15 +8046,15 @@ onig_node_free.exit737:                           ; preds = %373
 
 381:                                              ; preds = %369
   %382 = load ptr, ptr %55, align 8
-  %383 = tail call i32 %382(ptr noundef %365, ptr noundef nonnull %4) #24
+  %383 = tail call i32 %382(ptr noundef %365, ptr noundef nonnull %4) #25
   %384 = icmp eq i32 %383, 124
   br i1 %384, label %385, label %392
 
 385:                                              ; preds = %381
   %386 = load ptr, ptr %55, align 8
-  %387 = tail call i32 %386(ptr noundef %365, ptr noundef %4) #24
+  %387 = tail call i32 %386(ptr noundef %365, ptr noundef %4) #25
   %388 = load ptr, ptr %51, align 8
-  %389 = tail call i32 %388(ptr noundef %365) #24
+  %389 = tail call i32 %388(ptr noundef %365) #25
   %390 = sext i32 %389 to i64
   %391 = getelementptr inbounds i8, ptr %365, i64 %390
   store ptr %391, ptr %14, align 8
@@ -8067,7 +8067,7 @@ onig_node_free.exit737:                           ; preds = %373
 
 onig_node_free.exit738:                           ; preds = %392
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
-  tail call void @free(ptr noundef nonnull %361) #24
+  tail call void @free(ptr noundef nonnull %361) #25
   br label %prs_bag.exit.thread
 
 395:                                              ; preds = %392
@@ -8077,7 +8077,7 @@ onig_node_free.exit738:                           ; preds = %392
 
 onig_node_free.exit739:                           ; preds = %395
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
-  tail call void @free(ptr noundef nonnull %361) #24
+  tail call void @free(ptr noundef nonnull %361) #25
   %398 = load ptr, ptr %13, align 8
   tail call void @onig_node_free(ptr noundef %398)
   br label %prs_bag.exit.thread
@@ -8106,14 +8106,14 @@ onig_node_free.exit739:                           ; preds = %395
   %414 = load ptr, ptr %413, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %413, i8 0, i64 16, i1 false)
   tail call fastcc void @node_free_body(ptr noundef nonnull %408)
-  tail call void @free(ptr noundef nonnull %408) #24
+  tail call void @free(ptr noundef nonnull %408) #25
   br label %415
 
 415:                                              ; preds = %412, %404
   %.0429.i = phi ptr [ %414, %412 ], [ %408, %404 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %405, i8 0, i64 16, i1 false)
   tail call fastcc void @node_free_body(ptr noundef nonnull %400)
-  tail call void @free(ptr noundef nonnull %400) #24
+  tail call void @free(ptr noundef nonnull %400) #25
   br label %416
 
 416:                                              ; preds = %399, %415, %401
@@ -8139,7 +8139,7 @@ node_new_bag_if_else.exit:                        ; preds = %416
 onig_node_free.exit740:                           ; preds = %416
   store ptr null, ptr %0, align 8
   tail call fastcc void @node_free_body(ptr noundef nonnull %361)
-  tail call void @free(ptr noundef nonnull %361) #24
+  tail call void @free(ptr noundef nonnull %361) #25
   tail call void @onig_node_free(ptr noundef %.0431.i)
   tail call void @onig_node_free(ptr noundef %.1430.i)
   br label %prs_bag.exit.thread
@@ -8159,9 +8159,9 @@ onig_node_free.exit740:                           ; preds = %416
 
 429:                                              ; preds = %427
   %430 = load ptr, ptr %55, align 8
-  %431 = tail call i32 %430(ptr noundef %75, ptr noundef %4) #24
+  %431 = tail call i32 %430(ptr noundef %75, ptr noundef %4) #25
   %432 = load ptr, ptr %51, align 8
-  %433 = tail call i32 %432(ptr noundef %75) #24
+  %433 = tail call i32 %432(ptr noundef %75) #25
   %434 = sext i32 %433 to i64
   %435 = getelementptr inbounds i8, ptr %75, i64 %434
   store ptr %435, ptr %14, align 8
@@ -8230,9 +8230,9 @@ node_new_memory.exit431.thread:                   ; preds = %437
 
 463:                                              ; preds = %461
   %464 = load ptr, ptr %55, align 8
-  %465 = tail call i32 %464(ptr noundef %75, ptr noundef %4) #24
+  %465 = tail call i32 %464(ptr noundef %75, ptr noundef %4) #25
   %466 = load ptr, ptr %51, align 8
-  %467 = tail call i32 %466(ptr noundef %75) #24
+  %467 = tail call i32 %466(ptr noundef %75) #25
   %468 = sext i32 %467 to i64
   %469 = getelementptr inbounds i8, ptr %75, i64 %468
   store ptr %469, ptr %14, align 8
@@ -8453,15 +8453,15 @@ node_new_memory.exit431.thread:                   ; preds = %437
 
 566:                                              ; preds = %564
   %567 = load ptr, ptr %55, align 8
-  %568 = tail call i32 %567(ptr noundef %479, ptr noundef %4) #24
+  %568 = tail call i32 %567(ptr noundef %479, ptr noundef %4) #25
   %569 = icmp eq i32 %568, 123
   br i1 %569, label %570, label %prs_bag.exit.thread
 
 570:                                              ; preds = %566
   %571 = load ptr, ptr %55, align 8
-  %572 = tail call i32 %571(ptr noundef %479, ptr noundef %4) #24
+  %572 = tail call i32 %571(ptr noundef %479, ptr noundef %4) #25
   %573 = load ptr, ptr %51, align 8
-  %574 = tail call i32 %573(ptr noundef %479) #24
+  %574 = tail call i32 %573(ptr noundef %479) #25
   %575 = sext i32 %574 to i64
   %576 = getelementptr inbounds i8, ptr %479, i64 %575
   %577 = icmp ult ptr %576, %4
@@ -8469,9 +8469,9 @@ node_new_memory.exit431.thread:                   ; preds = %437
 
 578:                                              ; preds = %570
   %579 = load ptr, ptr %55, align 8
-  %580 = tail call i32 %579(ptr noundef %576, ptr noundef nonnull %4) #24
+  %580 = tail call i32 %579(ptr noundef %576, ptr noundef nonnull %4) #25
   %581 = load ptr, ptr %51, align 8
-  %582 = tail call i32 %581(ptr noundef %576) #24
+  %582 = tail call i32 %581(ptr noundef %576) #25
   %583 = sext i32 %582 to i64
   %584 = getelementptr inbounds i8, ptr %576, i64 %583
   switch i32 %580, label %prs_bag.exit.thread [
@@ -8500,9 +8500,9 @@ node_new_memory.exit431.thread:                   ; preds = %437
   %594 = and i32 %.0434.i, -3145729
   %595 = or disjoint i32 %.sink735, %594
   %596 = load ptr, ptr %55, align 8
-  %597 = tail call i32 %596(ptr noundef %584, ptr noundef nonnull %4) #24
+  %597 = tail call i32 %596(ptr noundef %584, ptr noundef nonnull %4) #25
   %598 = load ptr, ptr %51, align 8
-  %599 = tail call i32 %598(ptr noundef %584) #24
+  %599 = tail call i32 %598(ptr noundef %584) #25
   %600 = sext i32 %599 to i64
   %601 = getelementptr inbounds i8, ptr %584, i64 %600
   %.not521.i = icmp eq i32 %597, 125
@@ -8670,9 +8670,9 @@ node_new_option.exit.thread:                      ; preds = %665
 
 676:                                              ; preds = %.thread
   %677 = load ptr, ptr %55, align 8
-  %678 = tail call i32 %677(ptr noundef %674, ptr noundef %4) #24
+  %678 = tail call i32 %677(ptr noundef %674, ptr noundef %4) #25
   %679 = load ptr, ptr %51, align 8
-  %680 = tail call i32 %679(ptr noundef %674) #24
+  %680 = tail call i32 %679(ptr noundef %674) #25
   %681 = sext i32 %680 to i64
   %682 = getelementptr inbounds i8, ptr %674, i64 %681
   br label %478
@@ -8687,7 +8687,7 @@ node_new_option.exit.thread:                      ; preds = %665
 
 688:                                              ; preds = %683
   %689 = load ptr, ptr %51, align 8
-  %690 = tail call i32 %689(ptr noundef %50) #24
+  %690 = tail call i32 %689(ptr noundef %50) #25
   %691 = sext i32 %690 to i64
   %692 = getelementptr inbounds i8, ptr %50, i64 %691
   store ptr %692, ptr %14, align 8
@@ -8745,7 +8745,7 @@ scan_env_add_mem_entry.exit.thread463:            ; preds = %709
   br i1 %713, label %714, label %718
 
 714:                                              ; preds = %711
-  %715 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #25
+  %715 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #26
   %716 = icmp eq ptr %715, null
   br i1 %716, label %prs_bag.exit.thread, label %717
 
@@ -8757,7 +8757,7 @@ scan_env_add_mem_entry.exit.thread463:            ; preds = %709
   %719 = shl nsw i32 %710, 1
   %720 = sext i32 %719 to i64
   %721 = shl nsw i64 %720, 4
-  %722 = tail call ptr @realloc(ptr noundef nonnull %712, i64 noundef %721) #26
+  %722 = tail call ptr @realloc(ptr noundef nonnull %712, i64 noundef %721) #27
   %723 = icmp eq ptr %722, null
   br i1 %723, label %prs_bag.exit.thread, label %._crit_edge40.i
 
@@ -8969,7 +8969,7 @@ node_new_group.exit:                              ; preds = %773
 
 792:                                              ; preds = %789
   tail call fastcc void @node_free_body(ptr noundef nonnull %790)
-  tail call void @free(ptr noundef nonnull %790) #24
+  tail call void @free(ptr noundef nonnull %790) #25
   br label %onig_node_free.exit
 
 onig_node_free.exit:                              ; preds = %789, %792
@@ -9041,7 +9041,7 @@ onig_node_free.exit:                              ; preds = %789, %792
 
 onig_node_free.exit.i.i:                          ; preds = %824
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i352)
-  tail call void @free(ptr noundef nonnull %calloc.i.i.i352) #24
+  tail call void @free(ptr noundef nonnull %calloc.i.i.i352) #25
   br label %node_new_str.exit.i
 
 node_new_str.exit.i:                              ; preds = %onig_node_free.exit.i.i, %824, %.loopexit501
@@ -9106,7 +9106,7 @@ node_new_str_with_options.exit:                   ; preds = %node_new_str.exit.i
 
 onig_node_free.exit.i.i.i.i:                      ; preds = %847
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i.i.i)
-  call void @free(ptr noundef nonnull %calloc.i.i.i.i.i) #24
+  call void @free(ptr noundef nonnull %calloc.i.i.i.i.i) #25
   br label %node_new_str.exit.i.i.i
 
 node_new_str.exit.i.i.i:                          ; preds = %onig_node_free.exit.i.i.i.i, %847, %.loopexit502
@@ -9156,7 +9156,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %868 = load ptr, ptr %0, align 8
   %869 = getelementptr inbounds i8, ptr %868, i64 16
   %870 = load ptr, ptr %869, align 8
-  %871 = call i32 %867(ptr noundef %870) #24
+  %871 = call i32 %867(ptr noundef %870) #25
   %872 = icmp eq i32 %.0288, %871
   br i1 %872, label %873, label %884
 
@@ -9170,7 +9170,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %880 = load ptr, ptr %879, align 8
   %881 = getelementptr inbounds i8, ptr %878, i64 24
   %882 = load ptr, ptr %881, align 8
-  %883 = call i32 %877(ptr noundef %880, ptr noundef %882) #24
+  %883 = call i32 %877(ptr noundef %880, ptr noundef %882) #25
   %.not348 = icmp eq i32 %883, 0
   br i1 %.not348, label %node_new_quantifier.exit409, label %894
 
@@ -9208,7 +9208,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %902 = load ptr, ptr %901, align 8
   %903 = getelementptr inbounds i8, ptr %1, i64 24
   %904 = load i32, ptr %903, align 8
-  %905 = tail call i32 %902(i32 noundef %904) #24
+  %905 = tail call i32 %902(i32 noundef %904) #25
   %906 = icmp slt i32 %905, 0
   br i1 %906, label %node_new_quantifier.exit409, label %907
 
@@ -9217,7 +9217,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %909 = getelementptr inbounds i8, ptr %908, i64 48
   %910 = load ptr, ptr %909, align 8
   %911 = load i32, ptr %903, align 8
-  %912 = call i32 %910(i32 noundef %911, ptr noundef nonnull %25) #24
+  %912 = call i32 %910(i32 noundef %911, ptr noundef nonnull %25) #25
   %913 = load i32, ptr %5, align 8
   %calloc.i.i.i354 = call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %914 = icmp eq ptr %calloc.i.i.i354, null
@@ -9237,7 +9237,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
 
 onig_node_free.exit.i.i356:                       ; preds = %915
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i354)
-  call void @free(ptr noundef nonnull %calloc.i.i.i354) #24
+  call void @free(ptr noundef nonnull %calloc.i.i.i354) #25
   br label %node_new_str.exit.i357
 
 node_new_str.exit.i357:                           ; preds = %onig_node_free.exit.i.i356, %915, %907
@@ -9275,9 +9275,9 @@ node_new_str_with_options.exit360:                ; preds = %node_new_str.exit.i
 935:                                              ; preds = %._crit_edge.thread.i, %.lr.ph46.i
   %.044.i = phi ptr [ %931, %.lr.ph46.i ], [ %941, %._crit_edge.thread.i ]
   %936 = load ptr, ptr %934, align 8
-  %937 = tail call i32 %936(ptr noundef %.044.i, ptr noundef nonnull %4) #24
+  %937 = tail call i32 %936(ptr noundef %.044.i, ptr noundef nonnull %4) #25
   %938 = load ptr, ptr %932, align 8
-  %939 = tail call i32 %938(ptr noundef %.044.i) #24
+  %939 = tail call i32 %938(ptr noundef %.044.i) #25
   %940 = sext i32 %939 to i64
   %941 = getelementptr inbounds i8, ptr %.044.i, i64 %940
   %942 = icmp eq i32 %937, %930
@@ -9287,7 +9287,7 @@ node_new_str_with_options.exit360:                ; preds = %node_new_str.exit.i
 
 .lr.ph.i:                                         ; preds = %935
   %944 = load ptr, ptr %934, align 8
-  %945 = tail call i32 %944(ptr noundef %941, ptr noundef nonnull %4) #24
+  %945 = tail call i32 %944(ptr noundef %941, ptr noundef nonnull %4) #25
   %.not.i362 = icmp eq i32 %945, 69
   br i1 %.not.i362, label %find_str_position.exit, label %._crit_edge.thread.i
 
@@ -9296,7 +9296,7 @@ node_new_str_with_options.exit360:                ; preds = %node_new_str.exit.i
 
 find_str_position.exit:                           ; preds = %.lr.ph.i
   %946 = load ptr, ptr %932, align 8
-  %947 = tail call i32 %946(ptr noundef %941) #24
+  %947 = tail call i32 %946(ptr noundef %941) #25
   %948 = sext i32 %947 to i64
   %949 = getelementptr inbounds i8, ptr %941, i64 %948
   %950 = icmp eq ptr %.044.i, null
@@ -9325,7 +9325,7 @@ find_str_position.exit.thread:                    ; preds = %._crit_edge.thread.
 
 onig_node_free.exit.i.i365:                       ; preds = %954
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i363)
-  tail call void @free(ptr noundef nonnull %calloc.i.i.i363) #24
+  tail call void @free(ptr noundef nonnull %calloc.i.i.i363) #25
   br label %node_new_str.exit.i366
 
 node_new_str.exit.i366:                           ; preds = %onig_node_free.exit.i.i365, %954, %951
@@ -9419,9 +9419,9 @@ node_new_cclass.exit.thread:                      ; preds = %974
 
 993:                                              ; preds = %992
   %994 = load ptr, ptr %991, align 8
-  %995 = tail call i32 %994(ptr noundef %.0.i.i371, ptr noundef nonnull %4) #24
+  %995 = tail call i32 %994(ptr noundef %.0.i.i371, ptr noundef nonnull %4) #25
   %996 = load ptr, ptr %990, align 8
-  %997 = tail call i32 %996(ptr noundef %.0.i.i371) #24
+  %997 = tail call i32 %996(ptr noundef %.0.i.i371) #25
   %998 = sext i32 %997 to i64
   %999 = getelementptr inbounds i8, ptr %.0.i.i371, i64 %998
   switch i32 %995, label %992 [
@@ -9435,7 +9435,7 @@ node_new_cclass.exit.thread:                      ; preds = %974
 1000:                                             ; preds = %993
   %1001 = getelementptr inbounds i8, ptr %990, i64 80
   %1002 = load ptr, ptr %1001, align 8
-  %1003 = tail call i32 %1002(ptr noundef nonnull %990, ptr noundef %989, ptr noundef %.0.i.i371) #24
+  %1003 = tail call i32 %1002(ptr noundef nonnull %990, ptr noundef %989, ptr noundef %.0.i.i371) #25
   %1004 = icmp sgt i32 %1003, -1
   br i1 %1004, label %1009, label %1005
 
@@ -9533,7 +9533,7 @@ prs_char_property.exit:                           ; preds = %1011
   %1044 = load ptr, ptr %37, align 8
   %1045 = getelementptr inbounds i8, ptr %1044, i64 120
   %1046 = load i32, ptr %1045, align 8
-  %1047 = call i32 %1043(i32 noundef %1046, ptr noundef nonnull @i_apply_case_fold, ptr noundef nonnull %26) #24
+  %1047 = call i32 %1043(i32 noundef %1046, ptr noundef nonnull @i_apply_case_fold, ptr noundef nonnull %26) #25
   %.not338 = icmp eq i32 %1047, 0
   %1048 = load ptr, ptr %1039, align 8
   br i1 %.not338, label %1050, label %1049
@@ -9554,7 +9554,7 @@ prs_char_property.exit:                           ; preds = %1011
 
 onig_node_free.exit741:                           ; preds = %1051
   call fastcc void @node_free_body(ptr noundef nonnull %1048)
-  call void @free(ptr noundef nonnull %1048) #24
+  call void @free(ptr noundef nonnull %1048) #25
   br label %node_new_quantifier.exit409
 
 1054:                                             ; preds = %1051
@@ -9820,7 +9820,7 @@ node_new_keep.exit:                               ; preds = %1153
   %1164 = load ptr, ptr %30, align 8
   %1165 = getelementptr inbounds i8, ptr %1164, i64 48
   %1166 = load ptr, ptr %1165, align 8
-  %1167 = call i32 %1166(i32 noundef 13, ptr noundef nonnull %9) #24
+  %1167 = call i32 %1166(i32 noundef 13, ptr noundef nonnull %9) #25
   %1168 = icmp slt i32 %1167, 0
   br i1 %1168, label %node_new_general_newline.exit.thread, label %1169
 
@@ -9830,7 +9830,7 @@ node_new_keep.exit:                               ; preds = %1153
   %1172 = load ptr, ptr %1171, align 8
   %1173 = zext nneg i32 %1167 to i64
   %1174 = getelementptr inbounds i8, ptr %9, i64 %1173
-  %1175 = call i32 %1172(i32 noundef 10, ptr noundef nonnull %1174) #24
+  %1175 = call i32 %1172(i32 noundef 10, ptr noundef nonnull %1174) #25
   %1176 = icmp slt i32 %1175, 0
   br i1 %1176, label %node_new_general_newline.exit.thread, label %1177
 
@@ -9890,7 +9890,7 @@ node_new_keep.exit:                               ; preds = %1153
 
 onig_node_free.exit.i:                            ; preds = %1214, %1212, %1209, %1202
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i397)
-  call void @free(ptr noundef nonnull %calloc.i.i.i397) #24
+  call void @free(ptr noundef nonnull %calloc.i.i.i397) #25
   br label %node_new_general_newline.exit.thread.sink.split
 
 bitset_set_range.exit.i:                          ; preds = %.lr.ph.i.i, %1202
@@ -9919,7 +9919,7 @@ bitset_set_range.exit.i:                          ; preds = %.lr.ph.i.i, %1202
 
 node_new_general_newline.exit.thread.sink.split:  ; preds = %1186, %onig_node_free.exit.i, %1179
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i.i.i393)
-  call void @free(ptr noundef nonnull %calloc.i.i.i.i.i393) #24
+  call void @free(ptr noundef nonnull %calloc.i.i.i.i.i393) #25
   br label %node_new_general_newline.exit.thread
 
 node_new_general_newline.exit.thread:             ; preds = %node_new_general_newline.exit.thread.sink.split, %1163, %1169, %1177
@@ -10062,7 +10062,7 @@ node_new_true_anychar.exit.i:                     ; preds = %node_new_true_anych
 
 1259:                                             ; preds = %node_new_true_anychar.exit.i
   tail call fastcc void @node_free_body(ptr noundef nonnull %1257)
-  tail call void @free(ptr noundef nonnull %1257) #24
+  tail call void @free(ptr noundef nonnull %1257) #25
   br label %onig_node_free.exit.i406
 
 onig_node_free.exit.i406:                         ; preds = %1259, %node_new_true_anychar.exit.i
@@ -10145,7 +10145,7 @@ prs_char_property.exit.thread481:                 ; preds = %770, %1302, %1310, 
   %1287 = load ptr, ptr %1286, align 8
   store ptr null, ptr %1286, align 8
   call fastcc void @node_free_body(ptr noundef nonnull %1285)
-  call void @free(ptr noundef nonnull %1285) #24
+  call void @free(ptr noundef nonnull %1285) #25
   store ptr null, ptr %.1293, align 8
   %1288 = call fastcc i32 @assign_quantifier_body(ptr noundef nonnull %calloc.i.i407, ptr noundef %1287, i32 noundef 2, ptr noundef %5)
   br label %1290
@@ -10162,7 +10162,7 @@ prs_char_property.exit.thread481:                 ; preds = %770, %1302, %1310, 
 
 onig_node_free.exit411:                           ; preds = %1290
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i407)
-  call void @free(ptr noundef nonnull %calloc.i.i407) #24
+  call void @free(ptr noundef nonnull %calloc.i.i407) #25
   store ptr null, ptr %.1293, align 8
   br label %node_new_quantifier.exit409
 
@@ -10179,7 +10179,7 @@ onig_node_free.exit411:                           ; preds = %1290
 
 onig_node_free.exit413:                           ; preds = %1295
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i407)
-  call void @free(ptr noundef nonnull %calloc.i.i407) #24
+  call void @free(ptr noundef nonnull %calloc.i.i407) #25
   br label %node_new_quantifier.exit409
 
 1297:                                             ; preds = %1295
@@ -10206,7 +10206,7 @@ onig_node_free.exit413:                           ; preds = %1295
 
 onig_node_free.exit414:                           ; preds = %1301
   call fastcc void @node_free_body(ptr noundef nonnull %.0291)
-  call void @free(ptr noundef nonnull %.0291) #24
+  call void @free(ptr noundef nonnull %.0291) #25
   store ptr %.0287, ptr %.1293, align 8
   br label %prs_char_property.exit.thread481
 
@@ -10219,7 +10219,7 @@ onig_node_free.exit414:                           ; preds = %1301
 onig_node_free.exit416:                           ; preds = %1303
   store ptr null, ptr %.1293, align 8
   call fastcc void @node_free_body(ptr noundef nonnull %.0291)
-  call void @free(ptr noundef nonnull %.0291) #24
+  call void @free(ptr noundef nonnull %.0291) #25
   br label %node_new_quantifier.exit409
 
 1306:                                             ; preds = %1303
@@ -10236,7 +10236,7 @@ onig_node_free.exit416:                           ; preds = %1303
 onig_node_free.exit419:                           ; preds = %1306
   store ptr null, ptr %1308, align 8
   call fastcc void @node_free_body(ptr noundef nonnull %.0291)
-  call void @free(ptr noundef nonnull %.0291) #24
+  call void @free(ptr noundef nonnull %.0291) #25
   br label %node_new_quantifier.exit409
 
 1310:                                             ; preds = %1306
@@ -10259,7 +10259,7 @@ node_new_quantifier.exit409:                      ; preds = %40, %783, %prs_bag.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @node_new_ctype(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc noalias noundef ptr @node_new_ctype(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #15 {
   %calloc.i = tail call noalias noundef dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %4 = icmp eq ptr %calloc.i, null
   br i1 %4, label %26, label %5
@@ -10353,7 +10353,7 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
   %21 = phi i1 [ false, %4 ], [ true, %12 ], [ false, %15 ], [ %.not134, %.sink.split ]
   %22 = getelementptr inbounds i8, ptr %8, i64 96
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 %23(i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #24
+  %24 = call i32 %23(i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #25
   switch i32 %24, label %add_ctype_to_cc_by_range.exit [
     i32 0, label %25
     i32 -2, label %214
@@ -10873,13 +10873,13 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
 
 223:                                              ; preds = %.preheader174
   %224 = load ptr, ptr %220, align 8
-  %225 = call i32 %224(i32 noundef %.0120205) #24
+  %225 = call i32 %224(i32 noundef %.0120205) #25
   %226 = icmp eq i32 %225, 1
   br i1 %226, label %227, label %238
 
 227:                                              ; preds = %223, %.preheader174
   %228 = load ptr, ptr %221, align 8
-  %229 = call i32 %228(i32 noundef %.0120205, i32 noundef %1) #24
+  %229 = call i32 %228(i32 noundef %.0120205, i32 noundef %1) #25
   %.not144 = icmp eq i32 %229, 0
   br i1 %.not144, label %230, label %238
 
@@ -10905,7 +10905,7 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
 
 240:                                              ; preds = %.lr.ph207
   %241 = load ptr, ptr %220, align 8
-  %242 = call i32 %241(i32 noundef %.1206) #24
+  %242 = call i32 %241(i32 noundef %.1206) #25
   %243 = icmp eq i32 %242, 1
   br i1 %243, label %244, label %252
 
@@ -10949,13 +10949,13 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
 
 264:                                              ; preds = %.preheader
   %265 = load ptr, ptr %220, align 8
-  %266 = call i32 %265(i32 noundef %.2209) #24
+  %266 = call i32 %265(i32 noundef %.2209) #25
   %267 = icmp eq i32 %266, 1
   br i1 %267, label %268, label %279
 
 268:                                              ; preds = %264, %.preheader
   %269 = load ptr, ptr %221, align 8
-  %270 = call i32 %269(i32 noundef %.2209, i32 noundef %1) #24
+  %270 = call i32 %269(i32 noundef %.2209, i32 noundef %1) #25
   %.not142 = icmp eq i32 %270, 0
   br i1 %.not142, label %279, label %271
 
@@ -10991,13 +10991,13 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
 
 285:                                              ; preds = %.preheader177
   %286 = load ptr, ptr %282, align 8
-  %287 = call i32 %286(i32 noundef %.3202) #24
+  %287 = call i32 %286(i32 noundef %.3202) #25
   %288 = icmp eq i32 %287, 1
   br i1 %288, label %289, label %300
 
 289:                                              ; preds = %285, %.preheader177
   %290 = load ptr, ptr %283, align 8
-  %291 = call i32 %290(i32 noundef %.3202, i32 noundef %1) #24
+  %291 = call i32 %290(i32 noundef %.3202, i32 noundef %1) #25
   %.not140 = icmp eq i32 %291, 0
   br i1 %.not140, label %292, label %300
 
@@ -11023,7 +11023,7 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
 
 302:                                              ; preds = %.lr.ph
   %303 = load ptr, ptr %282, align 8
-  %304 = call i32 %303(i32 noundef %.4203) #24
+  %304 = call i32 %303(i32 noundef %.4203) #25
   %305 = icmp eq i32 %304, 1
   br i1 %305, label %306, label %314
 
@@ -11069,13 +11069,13 @@ define internal fastcc noundef i32 @add_ctype_to_cc(ptr nocapture noundef %0, i3
 
 327:                                              ; preds = %.preheader175
   %328 = load ptr, ptr %282, align 8
-  %329 = call i32 %328(i32 noundef %.5204) #24
+  %329 = call i32 %328(i32 noundef %.5204) #25
   %330 = icmp eq i32 %329, 1
   br i1 %330, label %331, label %342
 
 331:                                              ; preds = %327, %.preheader175
   %332 = load ptr, ptr %283, align 8
-  %333 = call i32 %332(i32 noundef %.5204, i32 noundef %1) #24
+  %333 = call i32 %332(i32 noundef %.5204, i32 noundef %1) #25
   %.not138 = icmp eq i32 %333, 0
   br i1 %.not138, label %342, label %334
 
@@ -11202,9 +11202,9 @@ define internal fastcc i32 @prs_cc(ptr nocapture noundef %0, ptr nocapture nound
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %50, align 8
-  %55 = tail call i32 %54(ptr noundef %.024.i, ptr noundef nonnull %47) #24
+  %55 = tail call i32 %54(ptr noundef %.024.i, ptr noundef nonnull %47) #25
   %56 = load ptr, ptr %49, align 8
-  %57 = tail call i32 %56(ptr noundef %.024.i) #24
+  %57 = tail call i32 %56(ptr noundef %.024.i) #25
   %58 = icmp eq i32 %55, 93
   br i1 %58, label %code_exist_check.exit, label %59
 
@@ -11243,9 +11243,9 @@ code_exist_check.exit:                            ; preds = %53
   %76 = getelementptr inbounds i8, ptr %4, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %46, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %13, i32 noundef 256, ptr noundef %75, ptr noundef %77, ptr noundef %78, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %13, i32 noundef 256, ptr noundef %75, ptr noundef %77, ptr noundef %78, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #25
   %79 = load ptr, ptr @onig_warn, align 8
-  call void %79(ptr noundef nonnull %13) #24
+  call void %79(ptr noundef nonnull %13) #25
   br label %CC_ESC_WARN.exit
 
 CC_ESC_WARN.exit:                                 ; preds = %code_exist_check.exit, %69, %74
@@ -11310,7 +11310,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %95 = getelementptr inbounds i8, ptr %94, i64 40
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %87, align 8
-  %98 = call i32 %96(i32 noundef %97) #24
+  %98 = call i32 %96(i32 noundef %97) #25
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %prs_posix_bracket.exit.thread, label %.thread
 
@@ -11400,7 +11400,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %.0215.lcssa460466 = phi i32 [ %.0215.lcssa460467, %.lr.ph405.preheader ], [ %.0215.lcssa, %.preheader362 ]
   %.0208461464 = phi i32 [ %.0208461465, %.lr.ph405.preheader ], [ %.0208, %.preheader362 ]
   %135 = load ptr, ptr %134, align 8
-  %136 = call i32 %135(ptr noundef nonnull %20) #24
+  %136 = call i32 %135(ptr noundef nonnull %20) #25
   %137 = icmp slt i32 %.0215.lcssa460466, %136
   br i1 %137, label %prs_posix_bracket.exit.thread, label %138
 
@@ -11436,7 +11436,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %150 = load ptr, ptr %149, align 8
   %151 = sext i32 %136 to i64
   %152 = getelementptr inbounds i8, ptr %20, i64 %151
-  %153 = call i32 %150(ptr noundef nonnull %20, ptr noundef nonnull %152) #24
+  %153 = call i32 %150(ptr noundef nonnull %20, ptr noundef nonnull %152) #25
   %.not291 = icmp eq i32 %153, 0
   br i1 %.not291, label %prs_posix_bracket.exit.thread, label %154
 
@@ -11444,7 +11444,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %155 = load ptr, ptr %83, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 32
   %157 = load ptr, ptr %156, align 8
-  %158 = call i32 %157(ptr noundef nonnull %20, ptr noundef nonnull %91) #24
+  %158 = call i32 %157(ptr noundef nonnull %20, ptr noundef nonnull %91) #25
   br label %184
 
 .loopexit361.thread:                              ; preds = %140, %100, %105, %.loopexit361
@@ -11465,7 +11465,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %162 = load ptr, ptr %83, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 40
   %164 = load ptr, ptr %163, align 8
-  %165 = call i32 %164(i32 noundef %.2234) #24
+  %165 = call i32 %164(i32 noundef %.2234) #25
   %166 = icmp slt i32 %165, 0
   br i1 %166, label %167, label %181
 
@@ -11522,13 +11522,13 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
 194:                                              ; preds = %190
   %195 = getelementptr inbounds i8, ptr %191, i64 32
   %196 = load ptr, ptr %195, align 8
-  %197 = call i32 %196(ptr noundef %192, ptr noundef nonnull %3) #24
+  %197 = call i32 %196(ptr noundef %192, ptr noundef nonnull %3) #25
   %198 = icmp eq i32 %197, 94
   br i1 %198, label %199, label %.critedge.i
 
 199:                                              ; preds = %194
   %200 = load ptr, ptr %191, align 8
-  %201 = call i32 %200(ptr noundef %192) #24
+  %201 = call i32 %200(ptr noundef %192) #25
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds i8, ptr %192, i64 %202
   br label %.critedge.i
@@ -11544,13 +11544,13 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %206 = getelementptr inbounds i8, ptr %.03948.i, i64 12
   %207 = load i16, ptr %206, align 4
   %208 = sext i16 %207 to i32
-  %209 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %191, ptr noundef %.0.i, ptr noundef %3, ptr noundef nonnull %205, i32 noundef %208) #24
+  %209 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %191, ptr noundef %.0.i, ptr noundef %3, ptr noundef nonnull %205, i32 noundef %208) #25
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %226
 
 211:                                              ; preds = %204
-  %212 = call ptr @onigenc_step(ptr noundef %191, ptr noundef %.0.i, ptr noundef %3, i32 noundef %208) #24
-  %213 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %191, ptr noundef %212, ptr noundef %3, ptr noundef nonnull @.str.19, i32 noundef 2) #24
+  %212 = call ptr @onigenc_step(ptr noundef %191, ptr noundef %.0.i, ptr noundef %3, i32 noundef %208) #25
+  %213 = call i32 @onigenc_with_ascii_strncmp(ptr noundef %191, ptr noundef %212, ptr noundef %3, ptr noundef nonnull @.str.19, i32 noundef 2) #25
   %.not45.i = icmp eq i32 %213, 0
   br i1 %.not45.i, label %214, label %prs_posix_bracket.exit.thread
 
@@ -11563,11 +11563,11 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
 
 .thread328:                                       ; preds = %214
   %218 = load ptr, ptr %191, align 8
-  %219 = call i32 %218(ptr noundef %212) #24
+  %219 = call i32 %218(ptr noundef %212) #25
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %212, i64 %220
   %222 = load ptr, ptr %191, align 8
-  %223 = call i32 %222(ptr noundef %221) #24
+  %223 = call i32 %222(ptr noundef %221) #25
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds i8, ptr %221, i64 %224
   store ptr %225, ptr %15, align 8
@@ -11605,9 +11605,9 @@ prs_posix_bracket.exit:                           ; preds = %214
   %241 = load ptr, ptr %83, align 8
   %242 = load ptr, ptr %85, align 8
   %243 = load ptr, ptr %86, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %12, i32 noundef 256, ptr noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %12, i32 noundef 256, ptr noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2) #25
   %244 = load ptr, ptr @onig_warn, align 8
-  call void %244(ptr noundef nonnull %12) #24
+  call void %244(ptr noundef nonnull %12) #25
   br label %CC_ESC_WARN.exit297
 
 CC_ESC_WARN.exit297:                              ; preds = %232, %235, %240
@@ -11675,9 +11675,9 @@ cc_cprop_next.exit:                               ; preds = %.loopexit562, %252,
 
 272:                                              ; preds = %271
   %273 = load ptr, ptr %270, align 8
-  %274 = call i32 %273(ptr noundef %.0.i299, ptr noundef nonnull %3) #24
+  %274 = call i32 %273(ptr noundef %.0.i299, ptr noundef nonnull %3) #25
   %275 = load ptr, ptr %269, align 8
-  %276 = call i32 %275(ptr noundef %.0.i299) #24
+  %276 = call i32 %275(ptr noundef %.0.i299) #25
   %277 = sext i32 %276 to i64
   %278 = getelementptr inbounds i8, ptr %.0.i299, i64 %277
   switch i32 %274, label %271 [
@@ -11691,7 +11691,7 @@ cc_cprop_next.exit:                               ; preds = %.loopexit562, %252,
 279:                                              ; preds = %272
   %280 = getelementptr inbounds i8, ptr %269, i64 80
   %281 = load ptr, ptr %280, align 8
-  %282 = call i32 %281(ptr noundef nonnull %269, ptr noundef %268, ptr noundef %.0.i299) #24
+  %282 = call i32 %281(ptr noundef nonnull %269, ptr noundef %268, ptr noundef %.0.i299) #25
   %283 = icmp sgt i32 %282, -1
   br i1 %283, label %287, label %284
 
@@ -11770,9 +11770,9 @@ cc_cprop_next.exit:                               ; preds = %.loopexit562, %252,
   %315 = load ptr, ptr %83, align 8
   %316 = load ptr, ptr %85, align 8
   %317 = load ptr, ptr %86, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %11, i32 noundef 256, ptr noundef %315, ptr noundef %316, ptr noundef %317, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %11, i32 noundef 256, ptr noundef %315, ptr noundef %316, ptr noundef %317, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3) #25
   %318 = load ptr, ptr @onig_warn, align 8
-  call void %318(ptr noundef nonnull %11) #24
+  call void %318(ptr noundef nonnull %11) #25
   br label %CC_ESC_WARN.exit302
 
 CC_ESC_WARN.exit302:                              ; preds = %306, %309, %314
@@ -11797,9 +11797,9 @@ CC_ESC_WARN.exit302:                              ; preds = %306, %309, %314
   %328 = load ptr, ptr %83, align 8
   %329 = load ptr, ptr %85, align 8
   %330 = load ptr, ptr %86, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %10, i32 noundef 256, ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %10, i32 noundef 256, ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3) #25
   %331 = load ptr, ptr @onig_warn, align 8
-  call void %331(ptr noundef nonnull %10) #24
+  call void %331(ptr noundef nonnull %10) #25
   br label %CC_ESC_WARN.exit304
 
 CC_ESC_WARN.exit304:                              ; preds = %319, %322, %327
@@ -11857,7 +11857,7 @@ CC_ESC_WARN.exit304:                              ; preds = %319, %322, %327
 
 354:                                              ; preds = %352
   call fastcc void @node_free_body(ptr noundef nonnull %351)
-  call void @free(ptr noundef nonnull %351) #24
+  call void @free(ptr noundef nonnull %351) #25
   br label %prs_posix_bracket.exit.thread
 
 355:                                              ; preds = %349
@@ -12061,11 +12061,11 @@ and_code_range_buf.exit.thread.thread73.i:        ; preds = %395
   br i1 %.not5.i.i, label %443, label %442
 
 442:                                              ; preds = %440
-  call void @free(ptr noundef nonnull %441) #24
+  call void @free(ptr noundef nonnull %441) #25
   br label %443
 
 443:                                              ; preds = %442, %440
-  call void @free(ptr noundef nonnull %437) #24
+  call void @free(ptr noundef nonnull %437) #25
   br label %or_cclass.exit
 
 444:                                              ; preds = %436
@@ -12077,11 +12077,11 @@ and_code_range_buf.exit.thread.thread73.i:        ; preds = %395
   br i1 %.not5.i62.i, label %448, label %447
 
 447:                                              ; preds = %445
-  call void @free(ptr noundef nonnull %446) #24
+  call void @free(ptr noundef nonnull %446) #25
   br label %448
 
 448:                                              ; preds = %447, %445
-  call void @free(ptr noundef nonnull %437) #24
+  call void @free(ptr noundef nonnull %437) #25
   br label %bbuf_free.exit63.i
 
 bbuf_free.exit63.i:                               ; preds = %448, %444
@@ -12108,11 +12108,11 @@ and_code_range_buf.exit.thread.i:                 ; preds = %._crit_edge.us.i.i,
   br i1 %.not5.i65.i, label %454, label %453
 
 453:                                              ; preds = %451
-  call void @free(ptr noundef nonnull %452) #24
+  call void @free(ptr noundef nonnull %452) #25
   br label %454
 
 454:                                              ; preds = %453, %451
-  call void @free(ptr noundef nonnull %363) #24
+  call void @free(ptr noundef nonnull %363) #25
   br label %or_cclass.exit
 
 or_cclass.exit:                                   ; preds = %428, %bitset_invert.exit.i, %and_code_range_buf.exit.thread.thread73.i, %439, %443, %and_code_range_buf.exit.i, %and_code_range_buf.exit.thread.i, %454
@@ -12127,7 +12127,7 @@ or_cclass.exit:                                   ; preds = %428, %bitset_invert
 
 457:                                              ; preds = %or_cclass.exit
   call fastcc void @node_free_body(ptr noundef nonnull %455)
-  call void @free(ptr noundef nonnull %455) #24
+  call void @free(ptr noundef nonnull %455) #25
   br label %onig_node_free.exit
 
 onig_node_free.exit:                              ; preds = %457, %or_cclass.exit
@@ -12168,11 +12168,11 @@ onig_node_free.exit:                              ; preds = %457, %or_cclass.exi
   br i1 %.not5.i, label %474, label %473
 
 473:                                              ; preds = %471
-  call void @free(ptr noundef nonnull %472) #24
+  call void @free(ptr noundef nonnull %472) #25
   br label %474
 
 474:                                              ; preds = %473, %471
-  call void @free(ptr noundef nonnull %470) #24
+  call void @free(ptr noundef nonnull %470) #25
   br label %bbuf_free.exit
 
 bbuf_free.exit:                                   ; preds = %474, %468, %464
@@ -12275,7 +12275,7 @@ bbuf_free.exit:                                   ; preds = %474, %468, %464
   %515 = load ptr, ptr %83, align 8
   %516 = getelementptr inbounds i8, ptr %515, i64 88
   %517 = load ptr, ptr %516, align 8
-  %518 = call i32 %517(i32 noundef 10, i32 noundef 0) #24
+  %518 = call i32 %517(i32 noundef 10, i32 noundef 0) #25
   %.not276 = icmp eq i32 %518, 0
   br i1 %.not276, label %.loopexit, label %519
 
@@ -12283,7 +12283,7 @@ bbuf_free.exit:                                   ; preds = %474, %468, %464
   %520 = load ptr, ptr %83, align 8
   %521 = getelementptr inbounds i8, ptr %520, i64 40
   %522 = load ptr, ptr %521, align 8
-  %523 = call i32 %522(i32 noundef 10) #24
+  %523 = call i32 %522(i32 noundef 10) #25
   %524 = icmp eq i32 %523, 1
   br i1 %524, label %525, label %529
 
@@ -12328,11 +12328,11 @@ prs_posix_bracket.exit.thread:                    ; preds = %211, %337, %297, %1
   br i1 %.not5.i312, label %541, label %540
 
 540:                                              ; preds = %538
-  call void @free(ptr noundef nonnull %539) #24
+  call void @free(ptr noundef nonnull %539) #25
   br label %541
 
 541:                                              ; preds = %540, %538
-  call void @free(ptr noundef nonnull %537) #24
+  call void @free(ptr noundef nonnull %537) #25
   br label %bbuf_free.exit313
 
 bbuf_free.exit313:                                ; preds = %66, %44, %541, %535, %node_new_cclass.exit.thread, %prs_posix_bracket.exit.thread, %40, %5, %.loopexit
@@ -12350,7 +12350,7 @@ define internal range(i32 -5, 1) i32 @i_apply_case_fold(i32 noundef %0, ptr noun
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq i32 %2, 1
-  %13 = tail call i32 @onig_is_code_in_cc(ptr noundef %11, i32 noundef %0, ptr noundef %9) #24
+  %13 = tail call i32 @onig_is_code_in_cc(ptr noundef %11, i32 noundef %0, ptr noundef %9) #25
   %cond = icmp eq i32 %13, 0
   br i1 %12, label %14, label %43
 
@@ -12377,7 +12377,7 @@ define internal range(i32 -5, 1) i32 @i_apply_case_fold(i32 noundef %0, ptr noun
   %25 = getelementptr inbounds i8, ptr %11, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %1, align 4
-  %28 = tail call i32 %26(i32 noundef %27) #24
+  %28 = tail call i32 %26(i32 noundef %27) #25
   %.not111 = icmp eq i32 %28, 1
   br i1 %.not111, label %33, label %29
 
@@ -12432,7 +12432,7 @@ define internal range(i32 -5, 1) i32 @i_apply_case_fold(i32 noundef %0, ptr noun
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv130
-  %58 = call i32 @onigenc_unicode_fold1_key(ptr noundef %57) #24
+  %58 = call i32 @onigenc_unicode_fold1_key(ptr noundef %57) #25
   %59 = icmp sgt i32 %58, -1
   br i1 %59, label %60, label %115
 
@@ -12458,7 +12458,7 @@ node_new_cclass.exit.thread:                      ; preds = %127, %60, %144, %on
 
 66:                                               ; preds = %.lr.ph125
   call fastcc void @node_free_body(ptr noundef nonnull %64)
-  call void @free(ptr noundef nonnull %64) #24
+  call void @free(ptr noundef nonnull %64) #25
   br label %onig_node_free.exit
 
 onig_node_free.exit:                              ; preds = %.lr.ph125, %66
@@ -12493,7 +12493,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %51, align 8
-  %83 = call i32 %82(i32 noundef %78) #24
+  %83 = call i32 %82(i32 noundef %78) #25
   %.not107 = icmp eq i32 %83, 1
   br i1 %.not107, label %86, label %84
 
@@ -12525,7 +12525,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
 97:                                               ; preds = %._crit_edge
   %98 = load ptr, ptr %51, align 8
   %99 = load i32, ptr %57, align 4
-  %100 = call i32 %98(i32 noundef %99) #24
+  %100 = call i32 %98(i32 noundef %99) #25
   %.not106 = icmp eq i32 %100, 1
   br i1 %.not106, label %105, label %101
 
@@ -12552,7 +12552,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
   %116 = load ptr, ptr %52, align 8
   %117 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv130
   %118 = load i32, ptr %117, align 4
-  %119 = call i32 %116(i32 noundef %118, ptr noundef nonnull %5) #24
+  %119 = call i32 %116(i32 noundef %118, ptr noundef nonnull %5) #25
   %120 = icmp eq i32 %.094120, 0
   br i1 %120, label %127, label %121
 
@@ -12584,7 +12584,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
 
 onig_node_free.exit.i:                            ; preds = %129
   call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i112)
-  call void @free(ptr noundef nonnull %calloc.i.i112) #24
+  call void @free(ptr noundef nonnull %calloc.i.i112) #25
   br label %node_new_cclass.exit.thread
 
 node_new_str.exit:                                ; preds = %129
@@ -12665,7 +12665,7 @@ onig_node_new_alt.exit:                           ; preds = %157, %159
 
 168:                                              ; preds = %166
   call fastcc void @node_free_body(ptr noundef nonnull %.092)
-  call void @free(ptr noundef nonnull %.092) #24
+  call void @free(ptr noundef nonnull %.092) #25
   br label %onig_node_free.exit114
 
 169:                                              ; preds = %onig_node_new_alt.exit
@@ -12781,13 +12781,13 @@ define internal fastcc noundef ptr @node_new_backref(i32 noundef %0, ptr nocaptu
 51:                                               ; preds = %.loopexit58
   %52 = zext nneg i32 %0 to i64
   %53 = shl nuw nsw i64 %52, 2
-  %54 = tail call noalias ptr @malloc(i64 noundef %53) #25
+  %54 = tail call noalias ptr @malloc(i64 noundef %53) #26
   %55 = icmp eq ptr %54, null
   br i1 %55, label %onig_node_free.exit, label %.lr.ph61.preheader
 
 onig_node_free.exit:                              ; preds = %51
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i)
-  tail call void @free(ptr noundef nonnull %calloc.i) #24
+  tail call void @free(ptr noundef nonnull %calloc.i) #25
   br label %59
 
 .lr.ph61.preheader:                               ; preds = %51
@@ -12808,7 +12808,7 @@ onig_node_free.exit:                              ; preds = %51
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_invalid_quantifier_target(ptr nocapture noundef readonly %0) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @is_invalid_quantifier_target(ptr nocapture noundef readonly %0) unnamed_addr #20 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %.loopexit11 [
     i32 6, label %.loopexit
@@ -12890,7 +12890,7 @@ define internal fastcc range(i32 -201, 3) i32 @assign_quantifier_body(ptr nocapt
 str_node_can_be_split.exit:                       ; preds = %17
   %24 = load ptr, ptr %18, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 %25(ptr noundef %22) #24
+  %26 = tail call i32 %25(ptr noundef %22) #25
   %27 = sext i32 %26 to i64
   %28 = load ptr, ptr %19, align 8
   %29 = load ptr, ptr %21, align 8
@@ -12904,7 +12904,7 @@ str_node_can_be_split.exit:                       ; preds = %17
 
 34:                                               ; preds = %str_node_can_be_split.exit
   %35 = load ptr, ptr %18, align 8
-  %36 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %35, ptr noundef %29, ptr noundef nonnull %28) #24
+  %36 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %35, ptr noundef %29, ptr noundef nonnull %28) #25
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %str_node_can_be_split.exit.thread, label %37
 
@@ -12931,7 +12931,7 @@ str_node_can_be_split.exit:                       ; preds = %17
 
 onig_node_free.exit.i.i:                          ; preds = %43
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i.i)
-  tail call void @free(ptr noundef nonnull %calloc.i.i.i) #24
+  tail call void @free(ptr noundef nonnull %calloc.i.i.i) #25
   br label %str_node_can_be_split.exit.thread
 
 48:                                               ; preds = %43
@@ -13081,7 +13081,7 @@ quantifier_type_num.exit75:                       ; preds = %quantifier_type_num
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %3, i64 48
   %113 = load ptr, ptr %112, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %5, i32 noundef 256, ptr noundef %109, ptr noundef %111, ptr noundef %113, ptr noundef nonnull @.str.20) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %5, i32 noundef 256, ptr noundef %109, ptr noundef %111, ptr noundef %113, ptr noundef nonnull @.str.20) #25
   br label %.thread.sink.split
 
 114:                                              ; preds = %100
@@ -13103,7 +13103,7 @@ quantifier_type_num.exit75:                       ; preds = %quantifier_type_num
   %127 = zext i32 %104 to i64
   %128 = getelementptr inbounds [7 x ptr], ptr @ReduceQStr, i64 0, i64 %127
   %129 = load ptr, ptr %128, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %5, i32 noundef 256, ptr noundef %118, ptr noundef %120, ptr noundef %122, ptr noundef nonnull @.str.21, ptr noundef %124, ptr noundef %126, ptr noundef %129) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %5, i32 noundef 256, ptr noundef %118, ptr noundef %120, ptr noundef %122, ptr noundef nonnull @.str.21, ptr noundef %124, ptr noundef %126, ptr noundef %129) #25
   br label %.thread.sink.split
 
 130:                                              ; preds = %quantifier_type_num.exit75
@@ -13130,7 +13130,7 @@ quantifier_type_num.exit75:                       ; preds = %quantifier_type_num
 
 .thread.sink.split:                               ; preds = %116, %107
   %139 = load ptr, ptr @onig_verb_warn, align 8
-  call void %139(ptr noundef nonnull %5) #24
+  call void %139(ptr noundef nonnull %5) #25
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %86, %85, %81, %80, %105, %114, %100, %94, %130
@@ -13150,7 +13150,7 @@ str_node_can_be_split.exit.thread:                ; preds = %134, %40, %onig_nod
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @scan_env_add_mem_entry(ptr nocapture noundef %0) unnamed_addr #13 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @scan_env_add_mem_entry(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -13177,7 +13177,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @scan_env_add_mem
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #25
+  %18 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #26
   %19 = icmp eq ptr %18, null
   br i1 %19, label %40, label %20
 
@@ -13190,7 +13190,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @scan_env_add_mem
   %23 = shl nsw i32 %12, 1
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 4
-  %26 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %25) #26
+  %26 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %25) #27
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %._crit_edge40
 
@@ -13259,7 +13259,7 @@ name_find.exit:                                   ; preds = %14
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %15, align 8
   %16 = ptrtoint ptr %6 to i64
-  %17 = call i32 @onig_st_lookup(ptr noundef nonnull %9, i64 noundef %16, ptr noundef nonnull %7) #24
+  %17 = call i32 @onig_st_lookup(ptr noundef nonnull %9, i64 noundef %16, ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %.pre.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -13268,7 +13268,7 @@ name_find.exit:                                   ; preds = %14
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %20 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_strend_table_with_size.hashType, i32 noundef 5) #24
+  %20 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_strend_table_with_size.hashType, i32 noundef 5) #25
   %21 = icmp eq ptr %20, null
   br i1 %21, label %onig_st_insert_strend.exit.thread, label %22
 
@@ -13278,24 +13278,24 @@ name_find.exit:                                   ; preds = %14
 
 23:                                               ; preds = %name_find.exit, %22
   %.0 = phi ptr [ %20, %22 ], [ %9, %name_find.exit ]
-  %24 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
+  %24 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #26
   %25 = icmp eq ptr %24, null
   br i1 %25, label %onig_st_insert_strend.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 96
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @onigenc_strdup(ptr noundef %28, ptr noundef %1, ptr noundef %2) #24
+  %29 = call ptr @onigenc_strdup(ptr noundef %28, ptr noundef %1, ptr noundef %2) #25
   store ptr %29, ptr %24, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %26
-  call void @free(ptr noundef nonnull %24) #24
+  call void @free(ptr noundef nonnull %24) #25
   br label %onig_st_insert_strend.exit.thread
 
 32:                                               ; preds = %26
-  %33 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %33 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %34 = icmp eq ptr %33, null
   br i1 %34, label %onig_st_insert_strend.exit.thread, label %35
 
@@ -13306,12 +13306,12 @@ name_find.exit:                                   ; preds = %14
   %38 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %37, ptr %38, align 8
   %39 = ptrtoint ptr %33 to i64
-  %40 = call i32 @onig_st_insert(ptr noundef nonnull %.0, i64 noundef %39, i64 noundef %36) #24
+  %40 = call i32 @onig_st_insert(ptr noundef nonnull %.0, i64 noundef %39, i64 noundef %36) #25
   %.not.i75 = icmp eq i32 %40, 0
   br i1 %.not.i75, label %.thread87, label %onig_st_insert_strend.exit
 
 onig_st_insert_strend.exit:                       ; preds = %35
-  call void @free(ptr noundef nonnull %33) #24
+  call void @free(ptr noundef nonnull %33) #25
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %onig_st_insert_strend.exit.thread, label %.thread87
 
@@ -13369,7 +13369,7 @@ onig_st_insert_strend.exit:                       ; preds = %35
   br i1 %66, label %67, label %.thread80
 
 67:                                               ; preds = %64
-  %68 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #25
+  %68 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #26
   %69 = getelementptr inbounds i8, ptr %.pre.i, i64 24
   store ptr %68, ptr %69, align 8
   %70 = icmp eq ptr %68, null
@@ -13403,7 +13403,7 @@ onig_st_insert_strend.exit:                       ; preds = %35
   %82 = load ptr, ptr %81, align 8
   %83 = sext i32 %80 to i64
   %84 = shl nsw i64 %83, 2
-  %85 = call ptr @realloc(ptr noundef %82, i64 noundef %84) #26
+  %85 = call ptr @realloc(ptr noundef %82, i64 noundef %84) #27
   store ptr %85, ptr %81, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %onig_st_insert_strend.exit.thread, label %87
@@ -13512,7 +13512,7 @@ onig_node_free.exit:                              ; preds = %22, %14, %9, %24, %
   %38 = phi ptr [ %calloc.i.i32, %19 ], [ %20, %24 ], [ null, %9 ], [ null, %14 ], [ %20, %22 ]
   %.pr60 = phi ptr [ %calloc.i.i30, %19 ], [ %calloc.i.i34, %24 ], [ null, %9 ], [ %calloc.i.i30, %14 ], [ null, %22 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i)
-  tail call void @free(ptr noundef nonnull %calloc.i.i) #24
+  tail call void @free(ptr noundef nonnull %calloc.i.i) #25
   %39 = icmp eq ptr %.pr60, null
   br i1 %39, label %onig_node_free.exit37, label %onig_node_free.exit.thread
 
@@ -13520,7 +13520,7 @@ onig_node_free.exit.thread:                       ; preds = %31, %onig_node_free
   %40 = phi ptr [ %38, %onig_node_free.exit ], [ %29, %31 ]
   %41 = phi ptr [ %.pr60, %onig_node_free.exit ], [ %calloc.i.i, %31 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %41)
-  tail call void @free(ptr noundef nonnull %41) #24
+  tail call void @free(ptr noundef nonnull %41) #25
   br label %onig_node_free.exit37
 
 onig_node_free.exit37:                            ; preds = %onig_node_free.exit, %onig_node_free.exit.thread
@@ -13530,7 +13530,7 @@ onig_node_free.exit37:                            ; preds = %onig_node_free.exit
 
 44:                                               ; preds = %onig_node_free.exit37
   tail call fastcc void @node_free_body(ptr noundef nonnull %42)
-  tail call void @free(ptr noundef nonnull %42) #24
+  tail call void @free(ptr noundef nonnull %42) #25
   br label %onig_node_free.exit38
 
 onig_node_free.exit38:                            ; preds = %2, %44, %onig_node_free.exit37, %37
@@ -13631,7 +13631,7 @@ define internal fastcc i32 @make_absent_tree(ptr nocapture noundef writeonly %0,
   %.03339.i = phi i32 [ 0, %.lr.ph.i ], [ %53, %47 ]
   %48 = load ptr, ptr %46, align 8
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 %49(ptr noundef %.040.i) #24
+  %50 = tail call i32 %49(ptr noundef %.040.i) #25
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %.040.i, i64 %51
   %53 = add nuw nsw i32 %.03339.i, 1
@@ -13651,7 +13651,7 @@ onig_node_free.exit.i:                            ; preds = %57
   %58 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %58, align 8
   tail call fastcc void @node_free_body(ptr noundef nonnull %2)
-  tail call void @free(ptr noundef nonnull %2) #24
+  tail call void @free(ptr noundef nonnull %2) #25
   br label %is_simple_one_char_repeat.exit
 
 is_simple_one_char_repeat.exit:                   ; preds = %57, %onig_node_free.exit.i
@@ -13732,7 +13732,7 @@ node_new_save_gimmick.exit.i:                     ; preds = %78, %76, %70, %59
 
 88:                                               ; preds = %84
   tail call fastcc void @node_free_body(ptr noundef nonnull %86)
-  tail call void @free(ptr noundef nonnull %86) #24
+  tail call void @free(ptr noundef nonnull %86) #25
   br label %onig_node_free.exit.i62
 
 onig_node_free.exit.i62:                          ; preds = %88, %84
@@ -13747,7 +13747,7 @@ make_absent_tree_for_simple_one_char_repeat.exit: ; preds = %onig_node_free.exit
 onig_node_free.exit64:                            ; preds = %make_absent_tree_for_simple_one_char_repeat.exit, %make_absent_tree_for_simple_one_char_repeat.exit.thread
   %.0.i6396 = phi i32 [ 0, %make_absent_tree_for_simple_one_char_repeat.exit.thread ], [ %.025.i, %make_absent_tree_for_simple_one_char_repeat.exit ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %.184)
-  tail call void @free(ptr noundef nonnull %.184) #24
+  tail call void @free(ptr noundef nonnull %.184) #25
   %.not61 = icmp eq i32 %.0.i6396, 0
   br i1 %.not61, label %.loopexit, label %onig_node_free.exit64.thread
 
@@ -13848,7 +13848,7 @@ onig_node_free.exit65.sink.split:                 ; preds = %15, %onig_node_free
   %.2.sink113 = phi ptr [ %.2, %onig_node_free.exit64.thread ], [ %calloc.i.i, %15 ]
   %.040.ph = phi i32 [ %.0.i6396, %onig_node_free.exit64.thread ], [ -5, %15 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %.2.sink113)
-  tail call void @free(ptr noundef nonnull %.2.sink113) #24
+  tail call void @free(ptr noundef nonnull %.2.sink113) #25
   br label %onig_node_free.exit65
 
 onig_node_free.exit65:                            ; preds = %onig_node_free.exit65.sink.split, %13, %111, %100, %93, %is_simple_one_char_repeat.exit.thread, %117, %123, %120, %106
@@ -13864,7 +13864,7 @@ onig_node_free.exit65:                            ; preds = %onig_node_free.exit
 
 131:                                              ; preds = %127
   tail call fastcc void @node_free_body(ptr noundef nonnull %129)
-  tail call void @free(ptr noundef nonnull %129) #24
+  tail call void @free(ptr noundef nonnull %129) #25
   br label %onig_node_free.exit76
 
 onig_node_free.exit76:                            ; preds = %127, %131
@@ -13898,7 +13898,7 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %10, align 8
-  %15 = tail call i32 %14(ptr noundef %.0, ptr noundef nonnull %2) #24
+  %15 = tail call i32 %14(ptr noundef %.0, ptr noundef nonnull %2) #25
   %16 = icmp eq i32 %15, 123
   br i1 %16, label %46, label %.lr.ph200
 
@@ -13913,9 +13913,9 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 .lr.ph200.split.us:                               ; preds = %.lr.ph200.split.us.preheader, %.thread.us
   %.1199.us = phi ptr [ %.4.us, %.thread.us ], [ %.0, %.lr.ph200.split.us.preheader ]
   %18 = load ptr, ptr %10, align 8
-  %19 = tail call i32 %18(ptr noundef %.1199.us, ptr noundef nonnull %2) #24
+  %19 = tail call i32 %18(ptr noundef %.1199.us, ptr noundef nonnull %2) #25
   %20 = load ptr, ptr %7, align 8
-  %21 = tail call i32 %20(ptr noundef %.1199.us) #24
+  %21 = tail call i32 %20(ptr noundef %.1199.us) #25
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %.1199.us, i64 %22
   %24 = icmp eq i32 %19, 125
@@ -13929,9 +13929,9 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 
 26:                                               ; preds = %.preheader181.us
   %27 = load ptr, ptr %10, align 8
-  %28 = tail call i32 %27(ptr noundef %.2197.us, ptr noundef nonnull %2) #24
+  %28 = tail call i32 %27(ptr noundef %.2197.us, ptr noundef nonnull %2) #25
   %29 = load ptr, ptr %7, align 8
-  %30 = tail call i32 %29(ptr noundef %.2197.us) #24
+  %30 = tail call i32 %29(ptr noundef %.2197.us) #25
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %.2197.us, i64 %31
   %33 = icmp eq i32 %28, 125
@@ -13953,9 +13953,9 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 .lr.ph200.split.split.us:                         ; preds = %.lr.ph200, %.thread.us204
   %.1199.us203 = phi ptr [ %43, %.thread.us204 ], [ %.0, %.lr.ph200 ]
   %38 = load ptr, ptr %10, align 8
-  %39 = tail call i32 %38(ptr noundef %.1199.us203, ptr noundef nonnull %2) #24
+  %39 = tail call i32 %38(ptr noundef %.1199.us203, ptr noundef nonnull %2) #25
   %40 = load ptr, ptr %7, align 8
-  %41 = tail call i32 %40(ptr noundef %.1199.us203) #24
+  %41 = tail call i32 %40(ptr noundef %.1199.us203) #25
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %.1199.us203, i64 %42
   %44 = icmp eq i32 %39, 125
@@ -13968,7 +13968,7 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 46:                                               ; preds = %13
   %47 = add i32 %.0149, 1
   %48 = load ptr, ptr %7, align 8
-  %49 = tail call i32 %48(ptr noundef %.0) #24
+  %49 = tail call i32 %48(ptr noundef %.0) #25
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %.0, i64 %50
   %52 = icmp ult ptr %51, %2
@@ -13982,9 +13982,9 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 
 54:                                               ; preds = %.split.us
   %55 = load ptr, ptr %10, align 8
-  %56 = tail call i32 %55(ptr noundef %.us-phi202, ptr noundef nonnull %2) #24
+  %56 = tail call i32 %55(ptr noundef %.us-phi202, ptr noundef nonnull %2) #25
   %57 = load ptr, ptr %7, align 8
-  %58 = tail call i32 %57(ptr noundef %.us-phi202) #24
+  %58 = tail call i32 %57(ptr noundef %.us-phi202) #25
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %.us-phi202, i64 %59
   %61 = icmp eq i32 %56, 91
@@ -13997,9 +13997,9 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 .preheader:                                       ; preds = %62, %.preheader
   %.5215 = phi ptr [ %69, %.preheader ], [ %60, %62 ]
   %64 = load ptr, ptr %10, align 8
-  %65 = tail call i32 %64(ptr noundef %.5215, ptr noundef nonnull %2) #24
+  %65 = tail call i32 %64(ptr noundef %.5215, ptr noundef nonnull %2) #25
   %66 = load ptr, ptr %7, align 8
-  %67 = tail call i32 %66(ptr noundef %.5215) #24
+  %67 = tail call i32 %66(ptr noundef %.5215) #25
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %.5215, i64 %68
   %70 = icmp ne i32 %65, 93
@@ -14016,9 +14016,9 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %10, align 8
-  %75 = tail call i32 %74(ptr noundef %69, ptr noundef nonnull %2) #24
+  %75 = tail call i32 %74(ptr noundef %69, ptr noundef nonnull %2) #25
   %76 = load ptr, ptr %7, align 8
-  %77 = tail call i32 %76(ptr noundef %69) #24
+  %77 = tail call i32 %76(ptr noundef %69) #25
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %69, i64 %78
   br label %80
@@ -14049,9 +14049,9 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 .sink.split:                                      ; preds = %85, %83, %81
   %.0154.ph = phi i32 [ 3, %81 ], [ 2, %83 ], [ 1, %85 ]
   %87 = load ptr, ptr %10, align 8
-  %88 = tail call i32 %87(ptr noundef %.7, ptr noundef nonnull %2) #24
+  %88 = tail call i32 %87(ptr noundef %.7, ptr noundef nonnull %2) #25
   %89 = load ptr, ptr %7, align 8
-  %90 = tail call i32 %89(ptr noundef %.7) #24
+  %90 = tail call i32 %89(ptr noundef %.7) #25
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %.7, i64 %91
   br label %93
@@ -14072,7 +14072,7 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %95, align 8
-  %99 = tail call ptr @onig_get_regex_ext(ptr noundef %98) #24
+  %99 = tail call ptr @onig_get_regex_ext(ptr noundef %98) #25
   %100 = icmp eq ptr %99, null
   br i1 %100, label %.loopexit, label %101
 
@@ -14087,7 +14087,7 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %3, i64 48
   %109 = load ptr, ptr %108, align 8
-  %110 = tail call i32 @onig_ext_set_pattern(ptr noundef %105, ptr noundef %107, ptr noundef %109) #24
+  %110 = tail call i32 @onig_ext_set_pattern(ptr noundef %105, ptr noundef %107, ptr noundef %109) #25
   %.not172 = icmp eq i32 %110, 0
   br i1 %.not172, label %111, label %.loopexit
 
@@ -14104,7 +14104,7 @@ define internal fastcc i32 @prs_callout_of_contents(ptr nocapture noundef writeo
   br i1 %.not174, label %117, label %.loopexit
 
 117:                                              ; preds = %112, %111
-  %118 = tail call ptr @onigenc_strdup(ptr noundef nonnull %7, ptr noundef %.0, ptr noundef %.us-phi201) #24
+  %118 = tail call ptr @onigenc_strdup(ptr noundef nonnull %7, ptr noundef %.0, ptr noundef %.us-phi201) #25
   %119 = icmp eq ptr %118, null
   br i1 %119, label %.loopexit, label %120
 
@@ -14134,7 +14134,7 @@ onig_reg_callout_list_at.exit:                    ; preds = %127
   br i1 %136, label %onig_reg_callout_list_at.exit.thread, label %137
 
 onig_reg_callout_list_at.exit.thread:             ; preds = %127, %120, %onig_reg_callout_list_at.exit
-  tail call void @free(ptr noundef nonnull %118) #24
+  tail call void @free(ptr noundef nonnull %118) #25
   br label %.loopexit
 
 137:                                              ; preds = %onig_reg_callout_list_at.exit
@@ -14144,7 +14144,7 @@ onig_reg_callout_list_at.exit.thread:             ; preds = %127, %120, %onig_re
   br i1 %138, label %node_new_callout.exit, label %139
 
 node_new_callout.exit:                            ; preds = %137
-  tail call void @free(ptr noundef nonnull %118) #24
+  tail call void @free(ptr noundef nonnull %118) #25
   br label %.loopexit
 
 139:                                              ; preds = %137
@@ -14203,9 +14203,9 @@ define internal fastcc i32 @prs_callout_of_name(ptr nocapture noundef writeonly 
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %14, align 8
-  %20 = tail call i32 %19(ptr noundef %16, ptr noundef nonnull %2) #24
+  %20 = tail call i32 %19(ptr noundef %16, ptr noundef nonnull %2) #25
   %21 = load ptr, ptr %11, align 8
-  %22 = tail call i32 %21(ptr noundef %16) #24
+  %22 = tail call i32 %21(ptr noundef %16) #25
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %16, i64 %23
   switch i32 %20, label %15 [
@@ -14222,7 +14222,7 @@ define internal fastcc i32 @prs_callout_of_name(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %25, %.thread.i
   %.03138.i = phi ptr [ %38, %.thread.i ], [ %12, %25 ]
   %27 = load ptr, ptr %14, align 8
-  %28 = tail call i32 %27(ptr noundef %.03138.i, ptr noundef nonnull %16) #24
+  %28 = tail call i32 %27(ptr noundef %.03138.i, ptr noundef nonnull %16) #25
   %29 = and i32 %28, -33
   %30 = add i32 %29, -65
   %or.cond34.i = icmp ult i32 %30, 26
@@ -14238,7 +14238,7 @@ define internal fastcc i32 @prs_callout_of_name(ptr nocapture noundef writeonly 
 
 .thread.i:                                        ; preds = %31, %.preheader.i
   %35 = load ptr, ptr %11, align 8
-  %36 = tail call i32 %35(ptr noundef %.03138.i) #24
+  %36 = tail call i32 %35(ptr noundef %.03138.i) #25
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %.03138.i, i64 %37
   %39 = icmp ult ptr %38, %16
@@ -14254,9 +14254,9 @@ is_allowed_callout_name.exit:                     ; preds = %.thread.i
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %42 = phi ptr [ %48, %.lr.ph ], [ %24, %40 ]
   %43 = load ptr, ptr %14, align 8
-  %44 = tail call i32 %43(ptr noundef %42, ptr noundef nonnull %2) #24
+  %44 = tail call i32 %43(ptr noundef %42, ptr noundef nonnull %2) #25
   %45 = load ptr, ptr %11, align 8
-  %46 = tail call i32 %45(ptr noundef %42) #24
+  %46 = tail call i32 %45(ptr noundef %42) #25
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %42, i64 %47
   %49 = icmp ne i32 %44, 93
@@ -14272,7 +14272,7 @@ is_allowed_callout_name.exit:                     ; preds = %.thread.i
 .preheader.i178:                                  ; preds = %._crit_edge, %.thread.i183
   %.03138.i179 = phi ptr [ %61, %.thread.i183 ], [ %24, %._crit_edge ]
   %50 = load ptr, ptr %14, align 8
-  %51 = tail call i32 %50(ptr noundef %.03138.i179, ptr noundef nonnull %42) #24
+  %51 = tail call i32 %50(ptr noundef %.03138.i179, ptr noundef nonnull %42) #25
   %52 = and i32 %51, -33
   %53 = add i32 %52, -65
   %or.cond34.i180 = icmp ult i32 %53, 26
@@ -14288,7 +14288,7 @@ is_allowed_callout_name.exit:                     ; preds = %.thread.i
 
 .thread.i183:                                     ; preds = %54, %.preheader.i178
   %58 = load ptr, ptr %11, align 8
-  %59 = tail call i32 %58(ptr noundef %.03138.i179) #24
+  %59 = tail call i32 %58(ptr noundef %.03138.i179) #25
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %.03138.i179, i64 %60
   %62 = icmp ult ptr %61, %42
@@ -14300,9 +14300,9 @@ is_allowed_callout_tag_name.exit:                 ; preds = %.thread.i183
 
 64:                                               ; preds = %is_allowed_callout_tag_name.exit
   %65 = load ptr, ptr %14, align 8
-  %66 = tail call i32 %65(ptr noundef nonnull %48, ptr noundef nonnull %2) #24
+  %66 = tail call i32 %65(ptr noundef nonnull %48, ptr noundef nonnull %2) #25
   %67 = load ptr, ptr %11, align 8
-  %68 = tail call i32 %67(ptr noundef nonnull %48) #24
+  %68 = tail call i32 %67(ptr noundef nonnull %48) #25
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i8, ptr %48, i64 %69
   br label %71
@@ -14335,9 +14335,9 @@ is_allowed_callout_tag_name.exit:                 ; preds = %.thread.i183
   %.012030.i = phi i32 [ %.2122.i, %91 ], [ 0, %77 ]
   %.012329.i = phi i32 [ %.2125.i, %91 ], [ 0, %77 ]
   %79 = load ptr, ptr %76, align 8
-  %80 = tail call i32 %79(ptr noundef %.133.i, ptr noundef nonnull %2) #24
+  %80 = tail call i32 %79(ptr noundef %.133.i, ptr noundef nonnull %2) #25
   %81 = load ptr, ptr %.val174, align 8
-  %82 = tail call i32 %81(ptr noundef %.133.i) #24
+  %82 = tail call i32 %81(ptr noundef %.133.i) #25
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %.133.i, i64 %83
   %.not.i186 = icmp eq i32 %.012030.i, 0
@@ -14391,7 +14391,7 @@ prs_callout_args.exit:                            ; preds = %96
 
 98:                                               ; preds = %prs_callout_args.exit
   %99 = load ptr, ptr %14, align 8
-  %100 = tail call i32 %99(ptr noundef %84, ptr noundef nonnull %2) #24
+  %100 = tail call i32 %99(ptr noundef %84, ptr noundef nonnull %2) #25
   br label %101
 
 101:                                              ; preds = %prs_callout_args.exit, %98
@@ -14436,9 +14436,9 @@ prs_callout_args.exit:                            ; preds = %96
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %14, align 8
-  %126 = tail call i32 %125(ptr noundef %122, ptr noundef nonnull %2) #24
+  %126 = tail call i32 %125(ptr noundef %122, ptr noundef nonnull %2) #25
   %127 = load ptr, ptr %11, align 8
-  %128 = tail call i32 %127(ptr noundef %122) #24
+  %128 = tail call i32 %127(ptr noundef %122) #25
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i8, ptr %122, i64 %129
   %.pre.pre = load ptr, ptr @GlobalCalloutNameList, align 8
@@ -14518,7 +14518,7 @@ onig_get_callout_in_by_name_id.exit:              ; preds = %.loopexit, %149, %1
 
 169:                                              ; preds = %166
   %170 = load ptr, ptr %167, align 8
-  %171 = tail call ptr @onig_get_regex_ext(ptr noundef %170) #24
+  %171 = tail call ptr @onig_get_regex_ext(ptr noundef %170) #25
   %172 = icmp eq ptr %171, null
   br i1 %172, label %node_new_callout.exit, label %173
 
@@ -14533,7 +14533,7 @@ onig_get_callout_in_by_name_id.exit:              ; preds = %.loopexit, %149, %1
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i8, ptr %3, i64 48
   %181 = load ptr, ptr %180, align 8
-  %182 = tail call i32 @onig_ext_set_pattern(ptr noundef %177, ptr noundef %179, ptr noundef %181) #24
+  %182 = tail call i32 @onig_ext_set_pattern(ptr noundef %177, ptr noundef %179, ptr noundef %181) #25
   %.not169 = icmp eq i32 %182, 0
   br i1 %.not169, label %183, label %node_new_callout.exit
 
@@ -14727,7 +14727,7 @@ node_new_callout.exit:                            ; preds = %194, %188, %204, %o
   br i1 %.not.i201, label %272, label %271
 
 271:                                              ; preds = %268
-  tail call void @free(ptr noundef nonnull %270) #24
+  tail call void @free(ptr noundef nonnull %270) #25
   br label %272
 
 272:                                              ; preds = %271, %268, %.lr.ph.i200
@@ -14741,7 +14741,7 @@ clear_callout_args.exit:                          ; preds = %15, %31, %54, %77, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -403, 1) i32 @set_whole_options(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #20 {
+define internal fastcc range(i32 -403, 1) i32 @set_whole_options(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #21 {
   %3 = getelementptr inbounds i8, ptr %1, i64 268
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2
@@ -14842,7 +14842,7 @@ define internal fastcc noundef ptr @make_list_or_alt(i32 noundef %0, i32 noundef
 
 onig_node_free.exit:                              ; preds = %13
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i)
-  tail call void @free(ptr noundef nonnull %calloc.i) #24
+  tail call void @free(ptr noundef nonnull %calloc.i) #25
   br label %22
 
 18:                                               ; preds = %13
@@ -15019,7 +15019,7 @@ node_new_save_gimmick.exit:                       ; preds = %node_new_save_gimmi
 
 72:                                               ; preds = %node_new_save_gimmick.exit
   tail call fastcc void @node_free_body(ptr noundef nonnull %70)
-  tail call void @free(ptr noundef nonnull %70) #24
+  tail call void @free(ptr noundef nonnull %70) #25
   br label %onig_node_free.exit
 
 onig_node_free.exit:                              ; preds = %node_new_save_gimmick.exit, %72
@@ -15106,13 +15106,13 @@ onig_node_free.exit:                              ; preds = %26, %21, %11, %16, 
   %33 = phi ptr [ %22, %24 ], [ null, %16 ], [ null, %11 ], [ %calloc.i.i31, %21 ], [ %22, %26 ]
   %34 = phi ptr [ null, %24 ], [ %calloc.i.i29, %16 ], [ null, %11 ], [ %calloc.i.i29, %21 ], [ %calloc.i.i33, %26 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i)
-  tail call void @free(ptr noundef nonnull %calloc.i.i) #24
+  tail call void @free(ptr noundef nonnull %calloc.i.i) #25
   %35 = icmp eq ptr %34, null
   br i1 %35, label %onig_node_free.exit36, label %36
 
 36:                                               ; preds = %onig_node_free.exit
   tail call fastcc void @node_free_body(ptr noundef nonnull %34)
-  tail call void @free(ptr noundef nonnull %34) #24
+  tail call void @free(ptr noundef nonnull %34) #25
   br label %onig_node_free.exit36
 
 onig_node_free.exit36:                            ; preds = %onig_node_free.exit, %36
@@ -15121,7 +15121,7 @@ onig_node_free.exit36:                            ; preds = %onig_node_free.exit
 
 38:                                               ; preds = %onig_node_free.exit36
   tail call fastcc void @node_free_body(ptr noundef nonnull %33)
-  tail call void @free(ptr noundef nonnull %33) #24
+  tail call void @free(ptr noundef nonnull %33) #25
   br label %onig_node_free.exit37
 
 onig_node_free.exit37:                            ; preds = %4, %38, %onig_node_free.exit36, %32
@@ -15141,7 +15141,7 @@ define internal fastcc range(i32 0, 2) i32 @is_allowed_callout_tag_name(ptr noca
 5:                                                ; preds = %.preheader, %.thread
   %.03138 = phi ptr [ %1, %.preheader ], [ %17, %.thread ]
   %6 = load ptr, ptr %4, align 8
-  %7 = tail call i32 %6(ptr noundef %.03138, ptr noundef nonnull %2) #24
+  %7 = tail call i32 %6(ptr noundef %.03138, ptr noundef nonnull %2) #25
   %8 = and i32 %7, -33
   %9 = add i32 %8, -65
   %or.cond34 = icmp ult i32 %9, 26
@@ -15157,7 +15157,7 @@ define internal fastcc range(i32 0, 2) i32 @is_allowed_callout_tag_name(ptr noca
 
 .thread:                                          ; preds = %10, %5
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call i32 %14(ptr noundef %.03138) #24
+  %15 = tail call i32 %14(ptr noundef %.03138) #25
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %.03138, i64 %16
   %18 = icmp ult ptr %17, %2
@@ -15170,7 +15170,7 @@ define internal fastcc range(i32 0, 2) i32 @is_allowed_callout_tag_name(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -5, 1) i32 @reg_callout_list_entry(ptr %.72.val, ptr nocapture noundef writeonly %0) unnamed_addr #2 {
-  %2 = tail call ptr @onig_get_regex_ext(ptr noundef %.72.val) #24
+  %2 = tail call ptr @onig_get_regex_ext(ptr noundef %.72.val) #25
   %3 = icmp eq ptr %2, null
   br i1 %3, label %33, label %4
 
@@ -15181,7 +15181,7 @@ define internal fastcc range(i32 -5, 1) i32 @reg_callout_list_entry(ptr %.72.val
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = tail call noalias dereferenceable_or_null(432) ptr @malloc(i64 noundef 432) #25
+  %9 = tail call noalias dereferenceable_or_null(432) ptr @malloc(i64 noundef 432) #26
   %10 = icmp eq ptr %9, null
   br i1 %10, label %33, label %.thread
 
@@ -15205,7 +15205,7 @@ define internal fastcc range(i32 -5, 1) i32 @reg_callout_list_entry(ptr %.72.val
   %16 = shl nsw i32 %.pre2, 1
   %17 = sext i32 %16 to i64
   %18 = mul nsw i64 %17, 144
-  %19 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %18) #26
+  %19 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %18) #27
   %20 = icmp eq ptr %19, null
   br i1 %20, label %33, label %21
 
@@ -15239,15 +15239,15 @@ define internal fastcc range(i32 -5, 1) i32 @reg_callout_list_entry(ptr %.72.val
   ret i32 %.0
 }
 
-declare ptr @onig_get_regex_ext(ptr noundef) local_unnamed_addr #7
+declare ptr @onig_get_regex_ext(ptr noundef) local_unnamed_addr #8
 
-declare i32 @onig_ext_set_pattern(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @onig_ext_set_pattern(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @callout_tag_entry(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
   %6 = alloca %struct.st_str_end_key, align 8
   %7 = alloca i64, align 8
-  %8 = tail call ptr @onig_get_regex_ext(ptr noundef %1) #24
+  %8 = tail call ptr @onig_get_regex_ext(ptr noundef %1) #25
   %9 = icmp eq ptr %8, null
   br i1 %9, label %ext_ensure_tag_table.exit, label %10
 
@@ -15258,7 +15258,7 @@ define internal fastcc noundef i32 @callout_tag_entry(ptr nocapture noundef writ
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_strend_table_with_size.hashType, i32 noundef 5) #24
+  %15 = tail call ptr @onig_st_init_table_with_size(ptr noundef nonnull @onig_st_init_strend_table_with_size.hashType, i32 noundef 5) #25
   %16 = icmp eq ptr %15, null
   br i1 %16, label %ext_ensure_tag_table.exit, label %17
 
@@ -15267,7 +15267,7 @@ define internal fastcc noundef i32 @callout_tag_entry(ptr nocapture noundef writ
   br label %18
 
 18:                                               ; preds = %17, %10
-  %19 = tail call ptr @onig_get_regex_ext(ptr noundef %1) #24
+  %19 = tail call ptr @onig_get_regex_ext(ptr noundef %1) #25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %ext_ensure_tag_table.exit, label %21
 
@@ -15296,7 +15296,7 @@ callout_tag_find.exit.i:                          ; preds = %28
   %29 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %3, ptr %29, align 8
   %30 = ptrtoint ptr %6 to i64
-  %31 = call i32 @onig_st_lookup(ptr noundef nonnull %23, i64 noundef %30, ptr noundef nonnull %7) #24
+  %31 = call i32 @onig_st_lookup(ptr noundef nonnull %23, i64 noundef %30, ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %.pre.i.i = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -15311,7 +15311,7 @@ callout_tag_find.exit.i:                          ; preds = %28
   br label %callout_tag_entry_raw.exit
 
 36:                                               ; preds = %callout_tag_find.exit.i, %callout_tag_find.exit.thread.i
-  %37 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %37 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %38 = icmp eq ptr %37, null
   br i1 %38, label %callout_tag_entry_raw.exit, label %39
 
@@ -15320,13 +15320,13 @@ callout_tag_find.exit.i:                          ; preds = %28
   %40 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %3, ptr %40, align 8
   %41 = ptrtoint ptr %37 to i64
-  %42 = call i32 @onig_st_insert(ptr noundef %23, i64 noundef %41, i64 noundef %4) #24
+  %42 = call i32 @onig_st_insert(ptr noundef %23, i64 noundef %41, i64 noundef %4) #25
   %.fr.i = freeze i32 %42
   %.not.i16.i = icmp eq i32 %.fr.i, 0
   br i1 %.not.i16.i, label %callout_tag_entry_raw.exit, label %onig_st_insert_strend.exit.i
 
 onig_st_insert_strend.exit.i:                     ; preds = %39
-  call void @free(ptr noundef nonnull %37) #24
+  call void @free(ptr noundef nonnull %37) #25
   %spec.select.i = call i32 @llvm.smin.i32(i32 %.fr.i, i32 0)
   br label %callout_tag_entry_raw.exit
 
@@ -15398,9 +15398,9 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   %.012030.us = phi i32 [ %.2122.us, %33 ], [ 0, %.lr.ph ]
   %.012329.us = phi i32 [ %.2125.us, %33 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %11, align 8
-  %17 = call i32 %16(ptr noundef %.133.us, ptr noundef nonnull %2) #24
+  %17 = call i32 %16(ptr noundef %.133.us, ptr noundef nonnull %2) #25
   %18 = load ptr, ptr %.8.val, align 8
-  %19 = call i32 %18(ptr noundef %.133.us) #24
+  %19 = call i32 %18(ptr noundef %.133.us) #25
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %.133.us, i64 %20
   %.not.us = icmp eq i32 %.012030.us, 0
@@ -15454,9 +15454,9 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   %.012030 = phi i32 [ %.2122, %47 ], [ 0, %.lr.ph ]
   %.012329 = phi i32 [ %.2125, %47 ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %11, align 8
-  %36 = call i32 %35(ptr noundef %.133, ptr noundef nonnull %2) #24
+  %36 = call i32 %35(ptr noundef %.133, ptr noundef nonnull %2) #25
   %37 = load ptr, ptr %.8.val, align 8
-  %38 = call i32 %37(ptr noundef %.133) #24
+  %38 = call i32 %37(ptr noundef %.133) #25
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %.133, i64 %39
   %.not = icmp eq i32 %.012030, 0
@@ -15562,13 +15562,13 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
 
 71:                                               ; preds = %70
   %72 = load ptr, ptr %11, align 8
-  %73 = call i32 %72(ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #24
+  %73 = call i32 %72(ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #25
   %74 = getelementptr inbounds %union.OnigValue, ptr %5, i64 %52
   store i32 %73, ptr %74, align 8
   br label %91
 
 75:                                               ; preds = %67
-  %76 = call ptr @onigenc_strdup(ptr noundef nonnull %.8.val, ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #24
+  %76 = call ptr @onigenc_strdup(ptr noundef nonnull %.8.val, ptr noundef nonnull %7, ptr noundef nonnull %.us-phi41) #25
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.thread, label %78
 
@@ -15647,7 +15647,7 @@ define internal fastcc i32 @prs_callout_args(i32 noundef %0, ptr nocapture nound
   br i1 %.not.i, label %105, label %104
 
 104:                                              ; preds = %101
-  call void @free(ptr noundef nonnull %103) #24
+  call void @free(ptr noundef nonnull %103) #25
   br label %105
 
 105:                                              ; preds = %104, %101, %.lr.ph.i
@@ -15675,7 +15675,7 @@ define internal fastcc range(i32 -229, 1) i32 @get_callout_name_id_by_name(ptr n
 10:                                               ; preds = %.thread.i, %.preheader.i
   %.03138.i = phi ptr [ %2, %.preheader.i ], [ %22, %.thread.i ]
   %11 = load ptr, ptr %9, align 8
-  %12 = tail call i32 %11(ptr noundef %.03138.i, ptr noundef nonnull %3) #24
+  %12 = tail call i32 %11(ptr noundef %.03138.i, ptr noundef nonnull %3) #25
   %13 = and i32 %12, -33
   %14 = add i32 %13, -65
   %or.cond34.i = icmp ult i32 %14, 26
@@ -15691,7 +15691,7 @@ define internal fastcc range(i32 -229, 1) i32 @get_callout_name_id_by_name(ptr n
 
 .thread.i:                                        ; preds = %15, %10
   %19 = load ptr, ptr %0, align 8
-  %20 = tail call i32 %19(ptr noundef %.03138.i) #24
+  %20 = tail call i32 %19(ptr noundef %.03138.i) #25
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %.03138.i, i64 %21
   %23 = icmp ult ptr %22, %3
@@ -15718,7 +15718,7 @@ callout_name_find.exit.thread:                    ; preds = %is_allowed_callout_
   %28 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %3, ptr %28, align 8
   %29 = ptrtoint ptr %7 to i64
-  %30 = call i32 @onig_st_lookup(ptr noundef nonnull %24, i64 noundef %29, ptr noundef nonnull %8) #24
+  %30 = call i32 @onig_st_lookup(ptr noundef nonnull %24, i64 noundef %29, ptr noundef nonnull %8) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %31 = icmp eq i32 %30, 0
   %32 = icmp ne ptr %0, @OnigEncodingASCII
@@ -15742,7 +15742,7 @@ callout_name_find.exit.thread:                    ; preds = %is_allowed_callout_
   %40 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %3, ptr %40, align 8
   %41 = ptrtoint ptr %6 to i64
-  %42 = call i32 @onig_st_lookup(ptr noundef nonnull %24, i64 noundef %41, ptr noundef nonnull %8) #24
+  %42 = call i32 @onig_st_lookup(ptr noundef nonnull %24, i64 noundef %41, ptr noundef nonnull %8) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %callout_name_find.exit
 
@@ -15778,9 +15778,9 @@ define internal fastcc range(i64 -232, 1) i64 @prs_long(ptr nocapture noundef re
   %.not3741 = phi i1 [ false, %.preheader ], [ true, %25 ]
   %.03240 = phi i64 [ 0, %.preheader ], [ %.133, %25 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %7(ptr noundef %.02943, ptr noundef nonnull %2) #24
+  %8 = tail call i32 %7(ptr noundef %.02943, ptr noundef nonnull %2) #25
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 %9(ptr noundef %.02943) #24
+  %10 = tail call i32 %9(ptr noundef %.02943) #25
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %.02943, i64 %11
   %13 = add i32 %8, -48
@@ -15859,9 +15859,9 @@ define internal fastcc i32 @fetch_token_cc(ptr nocapture noundef %0, ptr nocaptu
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %20, align 8
-  %25 = tail call i32 %24(ptr noundef %22, ptr noundef nonnull %2) #24
+  %25 = tail call i32 %24(ptr noundef %22, ptr noundef nonnull %2) #25
   %26 = load ptr, ptr %12, align 8
-  %27 = tail call i32 %26(ptr noundef %22) #24
+  %27 = tail call i32 %26(ptr noundef %22) #25
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %22, i64 %28
   switch i32 %25, label %.loopexit.i [
@@ -15935,9 +15935,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %12, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %47(ptr noundef %42, ptr noundef %2) #24
+  %48 = tail call i32 %47(ptr noundef %42, ptr noundef %2) #25
   %49 = load ptr, ptr %12, align 8
-  %50 = tail call i32 %49(ptr noundef %42) #24
+  %50 = tail call i32 %49(ptr noundef %42) #25
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %42, i64 %51
   store ptr %52, ptr %9, align 8
@@ -15980,9 +15980,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %46, align 8
-  %70 = tail call i32 %69(ptr noundef %52, ptr noundef %2) #24
+  %70 = tail call i32 %69(ptr noundef %52, ptr noundef %2) #25
   %71 = load ptr, ptr %12, align 8
-  %72 = tail call i32 %71(ptr noundef %52) #24
+  %72 = tail call i32 %71(ptr noundef %52) #25
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %52, i64 %73
   store ptr %74, ptr %9, align 8
@@ -16089,7 +16089,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %46, align 8
-  %103 = tail call i32 %102(ptr noundef %74, ptr noundef %2) #24
+  %103 = tail call i32 %102(ptr noundef %74, ptr noundef %2) #25
   %104 = icmp eq i32 %103, 123
   br i1 %104, label %105, label %306
 
@@ -16102,7 +16102,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %12, align 8
-  %111 = tail call i32 %110(ptr noundef %74) #24
+  %111 = tail call i32 %110(ptr noundef %74) #25
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds i8, ptr %74, i64 %112
   store ptr %113, ptr %9, align 8
@@ -16122,9 +16122,9 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %46, align 8
-  %123 = tail call i32 %122(ptr noundef %113, ptr noundef nonnull %2) #24
+  %123 = tail call i32 %122(ptr noundef %113, ptr noundef nonnull %2) #25
   %124 = load ptr, ptr %12, align 8
-  %125 = tail call i32 %124(ptr noundef %113) #24
+  %125 = tail call i32 %124(ptr noundef %113) #25
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i8, ptr %113, i64 %126
   store ptr %127, ptr %9, align 8
@@ -16148,7 +16148,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 136:                                              ; preds = %134
   %137 = load ptr, ptr %46, align 8
-  %138 = tail call i32 %137(ptr noundef %74, ptr noundef %2) #24
+  %138 = tail call i32 %137(ptr noundef %74, ptr noundef %2) #25
   %139 = icmp eq i32 %138, 123
   br i1 %139, label %140, label %306
 
@@ -16159,7 +16159,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 142:                                              ; preds = %140
   %143 = load ptr, ptr %12, align 8
-  %144 = tail call i32 %143(ptr noundef %74) #24
+  %144 = tail call i32 %143(ptr noundef %74) #25
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i8, ptr %74, i64 %145
   store ptr %146, ptr %9, align 8
@@ -16174,14 +16174,14 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr %46, align 8
-  %154 = tail call i32 %153(ptr noundef %150, ptr noundef nonnull %2) #24
+  %154 = tail call i32 %153(ptr noundef %150, ptr noundef nonnull %2) #25
   %155 = icmp ult i32 %154, 128
   br i1 %155, label %156, label %185
 
 156:                                              ; preds = %152
   %157 = getelementptr inbounds i8, ptr %12, i64 88
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call i32 %158(i32 noundef %154, i32 noundef 4) #24
+  %159 = tail call i32 %158(i32 noundef %154, i32 noundef 4) #25
   %.not244 = icmp eq i32 %159, 0
   br i1 %.not244, label %185, label %fetch_escaped_value.exit.thread
 
@@ -16191,7 +16191,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 162:                                              ; preds = %160
   %163 = load ptr, ptr %46, align 8
-  %164 = tail call i32 %163(ptr noundef %74, ptr noundef %2) #24
+  %164 = tail call i32 %163(ptr noundef %74, ptr noundef %2) #25
   %165 = icmp ne i32 %164, 123
   %.pre268 = load i32, ptr %14, align 4
   %166 = and i32 %.pre268, 1073741824
@@ -16201,7 +16201,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 167:                                              ; preds = %162
   %168 = load ptr, ptr %12, align 8
-  %169 = tail call i32 %168(ptr noundef %74) #24
+  %169 = tail call i32 %168(ptr noundef %74) #25
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i8, ptr %74, i64 %170
   store ptr %171, ptr %9, align 8
@@ -16216,14 +16216,14 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 177:                                              ; preds = %174
   %178 = load ptr, ptr %46, align 8
-  %179 = tail call i32 %178(ptr noundef %175, ptr noundef nonnull %2) #24
+  %179 = tail call i32 %178(ptr noundef %175, ptr noundef nonnull %2) #25
   %180 = icmp ult i32 %179, 128
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds i8, ptr %12, i64 88
   %183 = load ptr, ptr %182, align 8
-  %184 = tail call i32 %183(i32 noundef %179, i32 noundef 11) #24
+  %184 = tail call i32 %183(i32 noundef %179, i32 noundef 11) #25
   %.not242 = icmp eq i32 %184, 0
   br i1 %.not242, label %185, label %fetch_escaped_value.exit.thread
 
@@ -16232,7 +16232,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
   %storemerge = phi i32 [ 8, %152 ], [ 8, %156 ], [ 8, %149 ], [ 16, %177 ], [ 16, %181 ], [ 16, %174 ]
   store i32 %storemerge, ptr %53, align 4
   %187 = load ptr, ptr %12, align 8
-  %188 = tail call i32 %187(ptr noundef %74) #24
+  %188 = tail call i32 %187(ptr noundef %74) #25
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i8, ptr %74, i64 %189
   %191 = icmp ugt ptr %186, %190
@@ -16244,13 +16244,13 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 194:                                              ; preds = %192
   %195 = load ptr, ptr %46, align 8
-  %196 = tail call i32 %195(ptr noundef nonnull %186, ptr noundef %2) #24
+  %196 = tail call i32 %195(ptr noundef nonnull %186, ptr noundef %2) #25
   %197 = icmp eq i32 %196, 125
   br i1 %197, label %198, label %203
 
 198:                                              ; preds = %194
   %199 = load ptr, ptr %12, align 8
-  %200 = tail call i32 %199(ptr noundef nonnull %186) #24
+  %200 = tail call i32 %199(ptr noundef nonnull %186) #25
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds i8, ptr %186, i64 %201
   store ptr %202, ptr %9, align 8
@@ -16385,7 +16385,7 @@ fetch_escaped_value.exit:                         ; preds = %258
   %261 = getelementptr inbounds i8, ptr %260, i64 40
   %262 = load ptr, ptr %261, align 8
   %263 = load i32, ptr %8, align 4
-  %264 = tail call i32 %262(i32 noundef %263) #24
+  %264 = tail call i32 %262(i32 noundef %263) #25
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %fetch_escaped_value.exit.thread, label %266
 
@@ -16415,7 +16415,7 @@ fetch_escaped_value.exit:                         ; preds = %258
 
 274:                                              ; preds = %270
   %275 = load ptr, ptr %46, align 8
-  %276 = tail call i32 %275(ptr noundef %52, ptr noundef nonnull %2) #24
+  %276 = tail call i32 %275(ptr noundef %52, ptr noundef nonnull %2) #25
   %277 = icmp eq i32 %276, 58
   br i1 %277, label %278, label %.critedge
 
@@ -16423,7 +16423,7 @@ fetch_escaped_value.exit:                         ; preds = %258
   %279 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %52, ptr %279, align 8
   %280 = load ptr, ptr %12, align 8
-  %281 = tail call i32 %280(ptr noundef %52) #24
+  %281 = tail call i32 %280(ptr noundef %52) #25
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds i8, ptr %52, i64 %282
   store ptr %283, ptr %9, align 8
@@ -16465,13 +16465,13 @@ fetch_escaped_value.exit:                         ; preds = %258
 
 297:                                              ; preds = %292
   %298 = load ptr, ptr %46, align 8
-  %299 = tail call i32 %298(ptr noundef %52, ptr noundef nonnull %2) #24
+  %299 = tail call i32 %298(ptr noundef %52, ptr noundef nonnull %2) #25
   %300 = icmp eq i32 %299, 38
   br i1 %300, label %301, label %306
 
 301:                                              ; preds = %297
   %302 = load ptr, ptr %12, align 8
-  %303 = tail call i32 %302(ptr noundef %52) #24
+  %303 = tail call i32 %302(ptr noundef %52) #25
   %304 = sext i32 %303 to i64
   %305 = getelementptr inbounds i8, ptr %52, i64 %304
   store ptr %305, ptr %9, align 8
@@ -16512,9 +16512,9 @@ define internal fastcc void @CC_ESC_WARN(ptr nocapture noundef readonly %0, ptr 
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %3, i32 noundef 256, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef nonnull @.str.4, ptr noundef %1) #24
+  call void (ptr, i32, ptr, ptr, ptr, ptr, ...) @onig_snprintf_with_pattern(ptr noundef nonnull %3, i32 noundef 256, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef nonnull @.str.4, ptr noundef %1) #25
   %19 = load ptr, ptr @onig_warn, align 8
-  call void %19(ptr noundef nonnull %3) #24
+  call void %19(ptr noundef nonnull %3) #25
   br label %20
 
 20:                                               ; preds = %2, %12, %6
@@ -16816,7 +16816,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
   br i1 %or.cond.i, label %50, label %and_code_range_buf.exit
 
 50:                                               ; preds = %48
-  %51 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %51 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   store ptr %51, ptr %4, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %bbuf_free.exit, label %53
@@ -16833,7 +16833,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
 
 58:                                               ; preds = %53
   %59 = zext nneg i32 %55 to i64
-  %60 = call noalias ptr @malloc(i64 noundef %59) #25
+  %60 = call noalias ptr @malloc(i64 noundef %59) #26
   store ptr %60, ptr %51, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %bbuf_free.exit.sink.split, label %62
@@ -16861,7 +16861,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
   br i1 %.not93.i, label %and_code_range_buf.exit, label %73
 
 73:                                               ; preds = %72
-  %74 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %74 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   store ptr %74, ptr %4, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %bbuf_free.exit, label %76
@@ -16878,7 +16878,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
 
 81:                                               ; preds = %76
   %82 = zext nneg i32 %78 to i64
-  %83 = call noalias ptr @malloc(i64 noundef %82) #25
+  %83 = call noalias ptr @malloc(i64 noundef %82) #26
   store ptr %83, ptr %74, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %bbuf_free.exit.sink.split, label %85
@@ -17136,11 +17136,11 @@ and_code_range_buf.exit:                          ; preds = %and_code_range1.exi
   br i1 %.not5.i66, label %188, label %187
 
 187:                                              ; preds = %185
-  call void @free(ptr noundef nonnull %186) #24
+  call void @free(ptr noundef nonnull %186) #25
   br label %188
 
 188:                                              ; preds = %187, %185
-  call void @free(ptr noundef nonnull %.pre100103) #24
+  call void @free(ptr noundef nonnull %.pre100103) #25
   br label %bbuf_free.exit67
 
 bbuf_free.exit67:                                 ; preds = %184, %188
@@ -17171,13 +17171,13 @@ bbuf_free.exit.sink.split.sink.split:             ; preds = %192, %182
   %.sink112 = phi ptr [ %183, %182 ], [ %193, %192 ]
   %.sink.ph = phi ptr [ %.pre100103, %182 ], [ %14, %192 ]
   %.042.ph.ph = phi i32 [ %180, %182 ], [ 0, %192 ]
-  call void @free(ptr noundef nonnull %.sink112) #24
+  call void @free(ptr noundef nonnull %.sink112) #25
   br label %bbuf_free.exit.sink.split
 
 bbuf_free.exit.sink.split:                        ; preds = %bbuf_free.exit.sink.split.sink.split, %192, %182, %81, %58
   %.sink = phi ptr [ %51, %58 ], [ %74, %81 ], [ %.pre100103, %182 ], [ %14, %192 ], [ %.sink.ph, %bbuf_free.exit.sink.split.sink.split ]
   %.042.ph = phi i32 [ -5, %58 ], [ -5, %81 ], [ %180, %182 ], [ 0, %192 ], [ %.042.ph.ph, %bbuf_free.exit.sink.split.sink.split ]
-  call void @free(ptr noundef nonnull %.sink) #24
+  call void @free(ptr noundef nonnull %.sink) #25
   br label %bbuf_free.exit
 
 bbuf_free.exit:                                   ; preds = %177, %139, %128, %163, %bbuf_free.exit.sink.split, %50, %73, %.thread, %181, %bitset_invert.exit, %and_code_range_buf.exit.thread
@@ -17208,9 +17208,9 @@ define internal fastcc i32 @check_code_point_sequence_cc(ptr noundef %0, ptr nou
   %.157 = phi i32 [ 2, %27 ], [ %.05688, %.preheader67 ]
   %.153 = phi i32 [ 0, %27 ], [ %.05290, %.preheader67 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = tail call i32 %11(ptr noundef %10, ptr noundef nonnull %1) #24
+  %12 = tail call i32 %11(ptr noundef %10, ptr noundef nonnull %1) #25
   %13 = load ptr, ptr %3, align 8
-  %14 = tail call i32 %13(ptr noundef %10) #24
+  %14 = tail call i32 %13(ptr noundef %10) #25
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %10, i64 %15
   switch i32 %12, label %30 [
@@ -17232,9 +17232,9 @@ define internal fastcc i32 @check_code_point_sequence_cc(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %19 = phi ptr [ %25, %.backedge ], [ %16, %.preheader ]
   %20 = load ptr, ptr %8, align 8
-  %21 = tail call i32 %20(ptr noundef %19, ptr noundef nonnull %1) #24
+  %21 = tail call i32 %20(ptr noundef %19, ptr noundef nonnull %1) #25
   %22 = load ptr, ptr %3, align 8
-  %23 = tail call i32 %22(ptr noundef %19) #24
+  %23 = tail call i32 %22(ptr noundef %19) #25
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %19, i64 %24
   switch i32 %21, label %._crit_edge [
@@ -17277,7 +17277,7 @@ define internal fastcc i32 @check_code_point_sequence_cc(ptr noundef %0, ptr nou
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %3, i64 88
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 %38(i32 noundef %12, i32 noundef 11) #24
+  %39 = tail call i32 %38(i32 noundef %12, i32 noundef 11) #25
   %.not62 = icmp eq i32 %39, 0
   br i1 %.not62, label %49, label %.loopexit68
 
@@ -17290,7 +17290,7 @@ define internal fastcc i32 @check_code_point_sequence_cc(ptr noundef %0, ptr nou
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %3, i64 88
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 %45(i32 noundef %12, i32 noundef 4) #24
+  %46 = tail call i32 %45(i32 noundef %12, i32 noundef 4) #25
   %47 = icmp ne i32 %46, 0
   %48 = icmp ult i32 %12, 56
   %or.cond7 = select i1 %47, i1 %48, i1 false
@@ -17336,9 +17336,9 @@ define internal fastcc range(i32 0, 2) i32 @is_posix_bracket_start(ptr noundef %
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   %6 = getelementptr inbounds i8, ptr %2, i64 88
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %7(ptr noundef %0, ptr noundef nonnull %1) #24
+  %8 = tail call i32 %7(ptr noundef %0, ptr noundef nonnull %1) #25
   %9 = load ptr, ptr %2, align 8
-  %10 = tail call i32 %9(ptr noundef %0) #24
+  %10 = tail call i32 %9(ptr noundef %0) #25
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = icmp ne i32 %8, 58
@@ -17351,7 +17351,7 @@ define internal fastcc range(i32 0, 2) i32 @is_posix_bracket_start(ptr noundef %
 
 15:                                               ; preds = %._crit_edge
   %16 = load ptr, ptr %5, align 8
-  %17 = tail call i32 %16(ptr noundef %.lcssa, ptr noundef nonnull %1) #24
+  %17 = tail call i32 %16(ptr noundef %.lcssa, ptr noundef nonnull %1) #25
   %18 = icmp eq i32 %17, 93
   %narrow = and i1 %18, %13
   %spec.select = zext i1 %narrow to i32
@@ -17368,7 +17368,7 @@ define internal fastcc range(i32 0, 2) i32 @is_posix_bracket_start(ptr noundef %
 
 23:                                               ; preds = %.lr.ph42
   %24 = load ptr, ptr %6, align 8
-  %25 = tail call i32 %24(i32 noundef %20, i32 noundef 1) #24
+  %25 = tail call i32 %24(i32 noundef %20, i32 noundef 1) #25
   %.not = icmp ne i32 %25, 0
   %26 = add nuw nsw i32 %.0233041, 1
   %27 = icmp ult ptr %19, %1
@@ -17382,9 +17382,9 @@ define internal fastcc range(i32 0, 2) i32 @is_posix_bracket_start(ptr noundef %
 .backedge:                                        ; preds = %28, %23
   %.02330.be = phi i32 [ 1, %28 ], [ %26, %23 ]
   %29 = load ptr, ptr %5, align 8
-  %30 = tail call i32 %29(ptr noundef %19, ptr noundef nonnull %1) #24
+  %30 = tail call i32 %29(ptr noundef %19, ptr noundef nonnull %1) #25
   %31 = load ptr, ptr %2, align 8
-  %32 = tail call i32 %31(ptr noundef %19) #24
+  %32 = tail call i32 %31(ptr noundef %19) #25
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %19, i64 %33
   %35 = icmp eq i32 %30, 58
@@ -17395,9 +17395,9 @@ define internal fastcc range(i32 0, 2) i32 @is_posix_bracket_start(ptr noundef %
   ret i32 %.024
 }
 
-declare i32 @onigenc_with_ascii_strncmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i32 @onigenc_with_ascii_strncmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare ptr @onigenc_step(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @onigenc_step(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @or_code_range_buf(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #2 {
@@ -17444,7 +17444,7 @@ define internal fastcc noundef i32 @or_code_range_buf(ptr nocapture noundef read
   br i1 %25, label %26, label %46
 
 26:                                               ; preds = %24
-  %27 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %27 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   store ptr %27, ptr %5, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %bbuf_clone.exit, label %29
@@ -17461,13 +17461,13 @@ define internal fastcc noundef i32 @or_code_range_buf(ptr nocapture noundef read
 
 34:                                               ; preds = %29
   %35 = zext nneg i32 %31 to i64
-  %36 = tail call noalias ptr @malloc(i64 noundef %35) #25
+  %36 = tail call noalias ptr @malloc(i64 noundef %35) #26
   store ptr %36, ptr %27, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %bbuf_free.exit.i, label %38
 
 bbuf_free.exit.i:                                 ; preds = %34
-  tail call void @free(ptr noundef nonnull %27) #24
+  tail call void @free(ptr noundef nonnull %27) #25
   store ptr null, ptr %5, align 8
   br label %bbuf_clone.exit
 
@@ -17501,7 +17501,7 @@ bbuf_free.exit.i:                                 ; preds = %34
   br i1 %53, label %54, label %bbuf_clone.exit79
 
 54:                                               ; preds = %49
-  %55 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %55 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   store ptr %55, ptr %5, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %bbuf_clone.exit, label %57
@@ -17518,13 +17518,13 @@ bbuf_free.exit.i:                                 ; preds = %34
 
 62:                                               ; preds = %57
   %63 = zext nneg i32 %59 to i64
-  %64 = tail call noalias ptr @malloc(i64 noundef %63) #25
+  %64 = tail call noalias ptr @malloc(i64 noundef %63) #26
   store ptr %64, ptr %55, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %bbuf_free.exit.i78, label %66
 
 bbuf_free.exit.i78:                               ; preds = %62
-  tail call void @free(ptr noundef nonnull %55) #24
+  tail call void @free(ptr noundef nonnull %55) #25
   store ptr null, ptr %5, align 8
   br label %bbuf_clone.exit
 
@@ -17650,11 +17650,11 @@ define internal fastcc noundef i32 @not_code_range_buf(ptr nocapture noundef rea
   br i1 %.not5.i, label %36, label %35
 
 35:                                               ; preds = %33
-  tail call void @free(ptr noundef nonnull %34) #24
+  tail call void @free(ptr noundef nonnull %34) #25
   br label %36
 
 36:                                               ; preds = %35, %33
-  tail call void @free(ptr noundef nonnull %32) #24
+  tail call void @free(ptr noundef nonnull %32) #25
   br label %bbuf_free.exit
 
 37:                                               ; preds = %29, %21
@@ -17683,11 +17683,11 @@ define internal fastcc noundef i32 @not_code_range_buf(ptr nocapture noundef rea
   br i1 %.not5.i50, label %48, label %47
 
 47:                                               ; preds = %45
-  tail call void @free(ptr noundef nonnull %46) #24
+  tail call void @free(ptr noundef nonnull %46) #25
   br label %48
 
 48:                                               ; preds = %47, %45
-  tail call void @free(ptr noundef nonnull %44) #24
+  tail call void @free(ptr noundef nonnull %44) #25
   br label %bbuf_free.exit
 
 bbuf_free.exit:                                   ; preds = %37, %48, %43, %36, %31, %41, %5
@@ -17695,12 +17695,12 @@ bbuf_free.exit:                                   ; preds = %37, %48, %43, %36, 
   ret i32 %.032
 }
 
-declare i32 @onig_is_code_in_cc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @onig_is_code_in_cc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare i32 @onigenc_unicode_fold1_key(ptr noundef) local_unnamed_addr #7
+declare i32 @onigenc_unicode_fold1_key(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @i_callout_callout_list_set(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #20 {
+define internal noundef i32 @i_callout_callout_list_set(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #21 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = shl i64 %1, 32
@@ -17714,53 +17714,54 @@ define internal noundef i32 @i_callout_callout_list_set(ptr nocapture readnone %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #21
+declare i32 @llvm.fshl.i32(i32, i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
+declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #21
+declare i32 @llvm.smin.i32(i32, i32) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { nounwind allocsize(1) }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

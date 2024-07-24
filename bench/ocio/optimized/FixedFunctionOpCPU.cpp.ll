@@ -544,7 +544,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp43 = icmp sgt i64 %numPixels, 0
@@ -677,7 +677,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod03_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp48 = icmp sgt i64 %numPixels, 0
@@ -805,7 +805,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp22 = icmp sgt i64 %numPixels, 0
@@ -911,7 +911,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev26Renderer_ACES_RedMod10_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp27 = icmp sgt i64 %numPixels, 0
@@ -1015,7 +1015,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp28 = icmp sgt i64 %numPixels, 0
@@ -1126,7 +1126,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev24Renderer_ACES_Glow03_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp31 = icmp sgt i64 %numPixels, 0
@@ -1246,7 +1246,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_DarkToDim10_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp15 = icmp sgt i64 %numPixels, 0
@@ -1438,7 +1438,7 @@ entry:
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_Fwd5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp65 = icmp sgt i64 %numPixels, 0
@@ -1672,7 +1672,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev29Renderer_ACES_GamutComp13_Inv5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp73 = icmp sgt i64 %numPixels, 0
@@ -1848,7 +1848,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev25Renderer_REC2100_Surround5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp15 = icmp sgt i64 %numPixels, 0
@@ -1905,7 +1905,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_RGB_TO_HSV5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp55 = icmp sgt i64 %numPixels, 0
@@ -2004,7 +2004,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_HSV_TO_RGB5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp42 = icmp sgt i64 %numPixels, 0
@@ -2088,7 +2088,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_xyY5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
@@ -2135,7 +2135,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_xyY_TO_XYZ5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
@@ -2185,7 +2185,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_uvY5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
@@ -2233,7 +2233,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_uvY_TO_XYZ5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp16 = icmp sgt i64 %numPixels, 0
@@ -2285,7 +2285,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_XYZ_TO_LUV5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #4 align 2 {
 entry:
   %cmp20 = icmp sgt i64 %numPixels, 0
@@ -2352,7 +2352,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev19Renderer_LUV_TO_XYZ5applyEPKvPvl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
   %cmp23 = icmp sgt i64 %numPixels, 0
@@ -4280,13 +4280,13 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -89,8 +89,8 @@ if.end38:                                         ; preds = %if.end38.loopexit, 
   ret i32 %has_found_match.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @BrotliFindAllStaticDictionaryMatchesFor(ptr nocapture noundef readonly %dictionary, ptr noundef readonly %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef %matches) unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc i32 @BrotliFindAllStaticDictionaryMatchesFor(ptr nocapture noundef readonly %dictionary, ptr noundef readonly %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef %matches) unnamed_addr #1 {
 entry:
   %buckets = getelementptr inbounds i8, ptr %dictionary, i64 40
   %0 = load ptr, ptr %buckets, align 8
@@ -2300,20 +2300,21 @@ if.end1661:                                       ; preds = %if.end1658, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #1
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #2
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #2
+declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #2
+declare i64 @llvm.umax.i64(i64, i64) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

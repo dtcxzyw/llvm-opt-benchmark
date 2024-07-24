@@ -83,7 +83,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br i1 %26, label %.loopexit144, label %155
 
 27:                                               ; preds = %._crit_edge, %2
-  %28 = tail call ptr @__ctype_b_loc() #11
+  %28 = tail call ptr @__ctype_b_loc() #10
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -345,23 +345,23 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br i1 %146, label %.loopexit144, label %155
 
 .loopexit144:                                     ; preds = %.lr.ph, %97, %79, %54, %113, %145, %141, %25, %21
-  %147 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #12
+  %147 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #11
   br i1 %147, label %148, label %155
 
 148:                                              ; preds = %.loopexit144
-  %149 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %150 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #12
-  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 352, ptr noundef nonnull @__func__.pg_strtoint16_safe) #12
+  %149 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %150 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #11
+  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 352, ptr noundef nonnull @__func__.pg_strtoint16_safe) #11
   br label %155
 
 .loopexit143:                                     ; preds = %106, %88, %65, %69, %123, %127, %121, %139, %.loopexit
-  %151 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #12
+  %151 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #11
   br i1 %151, label %152, label %155
 
 152:                                              ; preds = %.loopexit143
-  %153 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %154 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #12
-  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @__func__.pg_strtoint16_safe) #12
+  %153 = tail call i32 @errcode(i32 noundef 33685634) #11
+  %154 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #11
+  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @__func__.pg_strtoint16_safe) #11
   br label %155
 
 155:                                              ; preds = %152, %.loopexit143, %148, %.loopexit144, %145, %25, %143, %23
@@ -444,7 +444,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %27, label %.loopexit138, label %157
 
 28:                                               ; preds = %._crit_edge, %2
-  %29 = tail call ptr @__ctype_b_loc() #11
+  %29 = tail call ptr @__ctype_b_loc() #10
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -706,23 +706,23 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %148, label %.loopexit138, label %157
 
 .loopexit138:                                     ; preds = %.lr.ph, %98, %80, %55, %114, %147, %143, %26, %22
-  %149 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #12
+  %149 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #11
   br i1 %149, label %150, label %157
 
 150:                                              ; preds = %.loopexit138
-  %151 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %152 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #12
-  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 614, ptr noundef nonnull @__func__.pg_strtoint32_safe) #12
+  %151 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %152 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #11
+  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 614, ptr noundef nonnull @__func__.pg_strtoint32_safe) #11
   br label %157
 
 .loopexit137:                                     ; preds = %107, %89, %66, %70, %125, %129, %123, %141, %.loopexit
-  %153 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #12
+  %153 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #11
   br i1 %153, label %154, label %157
 
 154:                                              ; preds = %.loopexit137
-  %155 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %156 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %0) #12
-  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 620, ptr noundef nonnull @__func__.pg_strtoint32_safe) #12
+  %155 = tail call i32 @errcode(i32 noundef 33685634) #11
+  %156 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %0) #11
+  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 620, ptr noundef nonnull @__func__.pg_strtoint32_safe) #11
   br label %157
 
 157:                                              ; preds = %154, %.loopexit137, %150, %.loopexit138, %147, %26, %145, %24
@@ -794,7 +794,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %28, label %.loopexit136, label %158
 
 29:                                               ; preds = %._crit_edge, %2
-  %30 = tail call ptr @__ctype_b_loc() #11
+  %30 = tail call ptr @__ctype_b_loc() #10
   %31 = load ptr, ptr %30, align 8
   br label %32
 
@@ -1056,23 +1056,23 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %149, label %.loopexit136, label %158
 
 .loopexit136:                                     ; preds = %.lr.ph, %99, %81, %56, %115, %148, %144, %27, %23
-  %150 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #12
+  %150 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #11
   br i1 %150, label %151, label %158
 
 151:                                              ; preds = %.loopexit136
-  %152 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %153 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #12
-  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 876, ptr noundef nonnull @__func__.pg_strtoint64_safe) #12
+  %152 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %153 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #11
+  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 876, ptr noundef nonnull @__func__.pg_strtoint64_safe) #11
   br label %158
 
 .loopexit135:                                     ; preds = %108, %90, %67, %71, %126, %130, %124, %142, %.loopexit
-  %154 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #12
+  %154 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #11
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %.loopexit135
-  %156 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %157 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull %0) #12
-  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 882, ptr noundef nonnull @__func__.pg_strtoint64_safe) #12
+  %156 = tail call i32 @errcode(i32 noundef 33685634) #11
+  %157 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull %0) #11
+  tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 882, ptr noundef nonnull @__func__.pg_strtoint64_safe) #11
   br label %158
 
 158:                                              ; preds = %155, %.loopexit135, %151, %.loopexit136, %148, %27, %146, %25
@@ -1083,9 +1083,9 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = tail call ptr @__errno_location() #11
+  %6 = tail call ptr @__errno_location() #10
   store i32 0, ptr %6, align 4
-  %7 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0) #12
+  %7 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0) #11
   %8 = load i32, ptr %6, align 4
   switch i32 %8, label %12 [
     i32 0, label %9
@@ -1098,12 +1098,12 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %4, %9
-  %13 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
+  %13 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #11
   br i1 %13, label %14, label %50
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #12
+  %15 = tail call i32 @errcode(i32 noundef 33685634) #11
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #11
   br label %.sink.split
 
 17:                                               ; preds = %9
@@ -1111,12 +1111,12 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %17
-  %20 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
+  %20 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #11
   br i1 %20, label %21, label %50
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %2) #12
+  %22 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %2) #11
   br label %.sink.split
 
 24:                                               ; preds = %17
@@ -1129,7 +1129,7 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %.not3743, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %26 = tail call ptr @__ctype_b_loc() #11
+  %26 = tail call ptr @__ctype_b_loc() #10
   %27 = load ptr, ptr %26, align 8
   br label %29
 
@@ -1154,12 +1154,12 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %.not37, label %.critedge.thread, label %29, !llvm.loop !12
 
 .critedge:                                        ; preds = %29
-  %39 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
+  %39 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #11
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %.critedge
-  %41 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #12
+  %41 = tail call i32 @errcode(i32 noundef 33685634) #11
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #11
   br label %.sink.split
 
 .critedge.thread:                                 ; preds = %36, %.preheader, %28
@@ -1169,17 +1169,17 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %or.cond, label %50, label %45
 
 45:                                               ; preds = %.critedge.thread
-  %46 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
+  %46 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #11
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %2) #12
+  %48 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %2) #11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %21, %40, %47
   %.sink = phi i32 [ 966, %47 ], [ 943, %40 ], [ 927, %21 ], [ 921, %14 ]
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.uint32in_subr) #12
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.uint32in_subr) #11
   br label %50
 
 50:                                               ; preds = %.sink.split, %.critedge.thread, %45, %.critedge, %19, %12
@@ -1196,9 +1196,9 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = tail call ptr @__errno_location() #11
+  %6 = tail call ptr @__errno_location() #10
   store i32 0, ptr %6, align 4
-  %7 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0) #12
+  %7 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0) #11
   %8 = load i32, ptr %6, align 4
   switch i32 %8, label %12 [
     i32 0, label %9
@@ -1211,13 +1211,13 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %4, %9
-  %13 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
+  %13 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #11
   br i1 %13, label %14, label %.critedge.thread
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #12
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 1007, ptr noundef nonnull @__func__.uint64in_subr) #12
+  %15 = tail call i32 @errcode(i32 noundef 33685634) #11
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #11
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 1007, ptr noundef nonnull @__func__.uint64in_subr) #11
   br label %.critedge.thread
 
 17:                                               ; preds = %9
@@ -1225,13 +1225,13 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %17
-  %20 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
+  %20 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #11
   br i1 %20, label %21, label %.critedge.thread
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %2) #12
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 1013, ptr noundef nonnull @__func__.uint64in_subr) #12
+  %22 = tail call i32 @errcode(i32 noundef 50331778) #11
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %2) #11
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 1013, ptr noundef nonnull @__func__.uint64in_subr) #11
   br label %.critedge.thread
 
 24:                                               ; preds = %17
@@ -1244,7 +1244,7 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %.not2630, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %26 = tail call ptr @__ctype_b_loc() #11
+  %26 = tail call ptr @__ctype_b_loc() #10
   %27 = load ptr, ptr %26, align 8
   br label %29
 
@@ -1269,13 +1269,13 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %.not26, label %.critedge.thread, label %29, !llvm.loop !13
 
 .critedge:                                        ; preds = %29
-  %39 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #12
+  %39 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #11
   br i1 %39, label %40, label %.critedge.thread
 
 40:                                               ; preds = %.critedge
-  %41 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #12
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 1029, ptr noundef nonnull @__func__.uint64in_subr) #12
+  %41 = tail call i32 @errcode(i32 noundef 33685634) #11
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %0) #11
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 1029, ptr noundef nonnull @__func__.uint64in_subr) #11
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %36, %.preheader, %28, %40, %.critedge, %21, %19, %14, %12
@@ -1283,7 +1283,7 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local range(i32 0, 12) i32 @pg_itoa(i16 noundef signext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = sext i16 %0 to i32
   %4 = icmp slt i16 %0, 0
@@ -1399,7 +1399,7 @@ pg_ltoa.exit:                                     ; preds = %9, %53, %62
   ret i32 %65
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %.thread, label %6
@@ -1530,7 +1530,7 @@ pg_ultoa_n.exit:                                  ; preds = %8, %62, %73
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %4, label %5
 
@@ -1642,7 +1642,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %4, label %5
 
@@ -1804,7 +1804,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local range(i32 0, 22) i32 @pg_lltoa(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 22) i32 @pg_lltoa(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %4, label %6
 
@@ -1827,7 +1827,7 @@ define dso_local range(i32 0, 22) i32 @pg_lltoa(i64 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local ptr @pg_ultostr_zeropad(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define dso_local ptr @pg_ultostr_zeropad(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ult i32 %1, 100
   %5 = icmp eq i32 %2, 2
   %or.cond = and i1 %4, %5
@@ -1976,13 +1976,13 @@ pg_ultoa_n.exit:                                  ; preds = %14, %67, %78
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -2096,24 +2096,23 @@ pg_ultoa_n.exit:                                  ; preds = %4, %57, %68
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

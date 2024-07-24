@@ -61,7 +61,7 @@ define void @print_tar_number(ptr nocapture noundef writeonly %0, i32 noundef %1
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @read_tar_number(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -128
@@ -114,7 +114,7 @@ define i64 @read_tar_number(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @tarChecksum(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @tarChecksum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %1, %10
@@ -143,8 +143,8 @@ define i32 @tarChecksum(ptr nocapture noundef readonly %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 3) i32 @tarCreateHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #3 {
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+define range(i32 0, 3) i32 @tarCreateHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #2 {
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %10 = icmp ugt i64 %9, 99
   br i1 %10, label %print_tar_number.exit115, label %11
 
@@ -153,24 +153,24 @@ define range(i32 0, 3) i32 @tarCreateHeader(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %12, label %.critedge
 
 12:                                               ; preds = %11
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %14 = icmp ugt i64 %13, 99
   br i1 %14, label %print_tar_number.exit115, label %15
 
 15:                                               ; preds = %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %0, i8 0, i64 512, i1 false)
-  %16 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 100) #10
+  %16 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 100) #9
   br label %18
 
 .critedge:                                        ; preds = %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %0, i8 0, i64 512, i1 false)
-  %17 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 100) #10
+  %17 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 100) #9
   %.old = and i32 %4, 61440
   %.old44 = icmp eq i32 %.old, 16384
   br i1 %.old44, label %18, label %25
 
 18:                                               ; preds = %15, %.critedge
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %20 = trunc i64 %19 to i32
   %21 = tail call i32 @llvm.smin.i32(i32 %20, i32 99)
   %22 = sext i32 %21 to i64
@@ -372,7 +372,7 @@ print_tar_number.exit93:                          ; preds = %.lr.ph.i85, %.lr.ph
 96:                                               ; preds = %print_tar_number.exit93
   store i8 50, ptr %95, align 1
   %97 = getelementptr i8, ptr %0, i64 157
-  %98 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 100) #10
+  %98 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 100) #9
   br label %print_tar_number.exit98
 
 99:                                               ; preds = %print_tar_number.exit93
@@ -388,13 +388,13 @@ print_tar_number.exit93:                          ; preds = %.lr.ph.i85, %.lr.ph
 
 print_tar_number.exit98:                          ; preds = %100, %101, %96
   %102 = getelementptr i8, ptr %0, i64 257
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %102, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %102, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false) #9
   %103 = getelementptr i8, ptr %0, i64 263
   store i16 12336, ptr %103, align 1
   %104 = getelementptr i8, ptr %0, i64 265
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %104, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 noundef 9, i1 false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %104, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 noundef 9, i1 false) #9
   %105 = getelementptr i8, ptr %0, i64 297
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %105, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 noundef 9, i1 false) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %105, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 noundef 9, i1 false) #9
   %106 = getelementptr i8, ptr %0, i64 329
   %107 = getelementptr i8, ptr %0, i64 336
   store i8 32, ptr %107, align 1
@@ -471,31 +471,30 @@ print_tar_number.exit115:                         ; preds = %.lr.ph.i107, %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

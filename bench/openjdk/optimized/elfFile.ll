@@ -1794,8 +1794,8 @@ _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %._crit_edge, %21
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp sgt i64 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge

@@ -22,10 +22,10 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Init_emoji_iso2022_kddi() local_unnamed_addr #0 {
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_kddi_decoder) #6
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_kddi_encoder) #6
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_from_stateless_ISO_2022_JP_KDDI_to_UTF8_KDDI) #6
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_from_UTF8_KDDI_to_stateless_ISO_2022_JP_KDDI) #6
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_kddi_decoder) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_kddi_encoder) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_from_stateless_ISO_2022_JP_KDDI_to_UTF8_KDDI) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_from_UTF8_KDDI_to_stateless_ISO_2022_JP_KDDI) #5
   ret void
 }
 
@@ -115,8 +115,8 @@ define internal range(i64 0, 4) i64 @fun_so_iso2022jp_kddi_decoder(ptr nocapture
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #4 {
   %6 = icmp eq i64 %2, 1
   br i1 %6, label %10, label %7
 
@@ -218,8 +218,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

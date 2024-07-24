@@ -55,7 +55,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   ret i32 %.
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 2) i32 @lpStringToInt64(ptr nocapture noundef readonly %s, i64 noundef %slen, ptr noundef writeonly %value) local_unnamed_addr #1 {
 entry:
   %0 = add i64 %slen, -21
@@ -175,7 +175,7 @@ return:                                           ; preds = %land.lhs.true39, %i
 define dso_local ptr @lpNew(i64 noundef %capacity) local_unnamed_addr #2 {
 entry:
   %cond = tail call i64 @llvm.umax.i64(i64 %capacity, i64 7)
-  %call = tail call ptr @zmalloc_usable(i64 noundef %cond, ptr noundef null) #15
+  %call = tail call ptr @zmalloc_usable(i64 noundef %cond, ptr noundef null) #16
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %do.body
 
@@ -196,7 +196,7 @@ declare ptr @zmalloc_usable(i64 noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @lpFree(ptr noundef %lp) local_unnamed_addr #2 {
 entry:
-  tail call void @zfree(ptr noundef %lp) #15
+  tail call void @zfree(ptr noundef %lp) #16
   ret void
 }
 
@@ -217,12 +217,12 @@ entry:
   %conv9 = zext i8 %3 to i64
   %shl10 = shl nuw nsw i64 %conv9, 24
   %or11 = or disjoint i64 %or7, %shl10
-  %call = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #15
+  %call = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #16
   %cmp = icmp ult i64 %or11, %call
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call14 = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11, ptr noundef null) #15
+  %call14 = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11, ptr noundef null) #16
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -334,8 +334,8 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 475) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 475) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %entry
@@ -438,8 +438,8 @@ if.end:                                           ; preds = %lpSkip.exit
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
 cond.false.i:                                     ; preds = %if.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpAssertValidEntry.exit:                          ; preds = %if.end
@@ -472,8 +472,8 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 486) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 486) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %entry
@@ -532,8 +532,8 @@ lpEncodeBacklen.exit:                             ; preds = %if.end.i, %if.else3
   br i1 %tobool.not.i13, label %cond.false.i, label %lpAssertValidEntry.exit
 
 cond.false.i:                                     ; preds = %lpEncodeBacklen.exit
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpAssertValidEntry.exit:                          ; preds = %lpEncodeBacklen.exit
@@ -564,8 +564,8 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
 cond.false.i:                                     ; preds = %if.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpAssertValidEntry.exit:                          ; preds = %if.end
@@ -638,8 +638,8 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   br i1 %tobool.not.i13.i, label %cond.false.i.i, label %lpAssertValidEntry.exit.i
 
 cond.false.i.i:                                   ; preds = %lpEncodeBacklen.exit.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpAssertValidEntry.exit.i:                        ; preds = %lpEncodeBacklen.exit.i
@@ -682,8 +682,8 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %while.body.preheader
 
 cond.false.i.i:                                   ; preds = %if.end.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader:                             ; preds = %if.end.i
@@ -731,8 +731,8 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 576) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 576) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %entry
@@ -979,7 +979,7 @@ if.end208:                                        ; preds = %if.then56, %if.then
   br i1 %tobool216.not, label %if.else220, label %if.then217
 
 if.then217:                                       ; preds = %if.end208
-  %call218 = tail call i32 @ll2string(ptr noundef nonnull %intbuf, i64 noundef 21, i64 noundef %val.0) #15
+  %call218 = tail call i32 @ll2string(ptr noundef nonnull %intbuf, i64 noundef 21, i64 noundef %val.0) #16
   %conv219 = sext i32 %call218 to i64
   store i64 %conv219, ptr %count, align 8
   br label %return
@@ -1041,8 +1041,8 @@ while.body.preheader:                             ; preds = %entry
   br label %while.body
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 695) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 695) #16
+  tail call void @abort() #17
   unreachable
 
 while.body:                                       ; preds = %while.body.preheader, %if.end87
@@ -1067,8 +1067,8 @@ if.then8:                                         ; preds = %if.then
   br i1 %5, label %cond.end23, label %cond.false22
 
 cond.false22:                                     ; preds = %if.then8
-  call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 701) #15
-  call void @abort() #16
+  call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 701) #16
+  call void @abort() #17
   unreachable
 
 cond.end23:                                       ; preds = %if.then8
@@ -1294,8 +1294,8 @@ if.then66:                                        ; preds = %if.end60
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
 cond.false.i:                                     ; preds = %if.then66
-  call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  call void @abort() #16
+  call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  call void @abort() #17
   unreachable
 
 lpAssertValidEntry.exit:                          ; preds = %if.then66
@@ -1307,8 +1307,8 @@ if.else68:                                        ; preds = %if.end60
   br i1 %cmp70.not, label %cond.false85, label %if.end87
 
 cond.false85:                                     ; preds = %if.else68
-  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 745) #15
-  call void @abort() #16
+  call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 745) #16
+  call void @abort() #17
   unreachable
 
 if.end87:                                         ; preds = %if.else68, %lpAssertValidEntry.exit
@@ -1431,8 +1431,8 @@ land.rhs5:                                        ; preds = %lpSkip.exit
   br i1 %cmp18, label %if.end25, label %cond.false
 
 cond.false:                                       ; preds = %lpSkip.exit, %land.rhs5
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 801) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 801) #16
+  tail call void @abort() #17
   unreachable
 
 if.end25:                                         ; preds = %land.rhs5, %entry
@@ -1888,8 +1888,8 @@ lpEncodeBacklen.exit132:                          ; preds = %switch.lookup191, %
   br i1 %or.cond181, label %if.end108, label %cond.false105
 
 cond.false105:                                    ; preds = %lpEncodeBacklen.exit132
-  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 837) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 837) #16
+  tail call void @abort() #17
   unreachable
 
 if.end108:                                        ; preds = %cond.end45, %lpEncodeBacklen.exit132
@@ -1907,12 +1907,12 @@ if.end115:                                        ; preds = %if.end108
   br i1 %cmp117, label %land.lhs.true, label %if.end129
 
 land.lhs.true:                                    ; preds = %if.end115
-  %call119 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #15
+  %call119 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #16
   %cmp120 = icmp ugt i64 %sub, %call119
   br i1 %cmp120, label %if.then122, label %if.end129
 
 if.then122:                                       ; preds = %land.lhs.true
-  %call123 = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %sub, ptr noundef null) #15
+  %call123 = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %sub, ptr noundef null) #16
   %cmp124 = icmp eq ptr %call123, null
   br i1 %cmp124, label %return, label %if.end127
 
@@ -1936,7 +1936,7 @@ if.end129:                                        ; preds = %if.end127, %land.lh
   br i1 %cmp145, label %if.then147, label %if.end154
 
 if.then147:                                       ; preds = %if.end129
-  %call148 = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp.addr.0, i64 noundef %sub, ptr noundef null) #15
+  %call148 = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp.addr.0, i64 noundef %sub, ptr noundef null) #16
   %cmp149 = icmp eq ptr %call148, null
   br i1 %cmp149, label %return, label %if.end152
 
@@ -2027,7 +2027,7 @@ lpEncodeString.exit:                              ; preds = %if.then.i141, %if.t
   br label %if.end180
 
 if.else174:                                       ; preds = %if.else171
-  tail call void @abort() #16
+  tail call void @abort() #17
   unreachable
 
 if.end180:                                        ; preds = %if.then170, %lpEncodeString.exit
@@ -2251,8 +2251,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %if.end
 
 cond.false.i.i:                                   ; preds = %if.end.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 if.then:                                          ; preds = %entry
@@ -2300,8 +2300,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %if.end
 
 cond.false.i.i:                                   ; preds = %if.end.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 if.then:                                          ; preds = %entry
@@ -2468,8 +2468,8 @@ if.end6:                                          ; preds = %lpSkip.exit
   br i1 %tobool.not.i, label %cond.false.i, label %lpAssertValidEntry.exit
 
 cond.false.i:                                     ; preds = %if.end6
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpAssertValidEntry.exit:                          ; preds = %if.end6
@@ -2529,12 +2529,12 @@ if.end59:                                         ; preds = %do.body46, %while.e
   %13 = zext i16 %12 to i64
   %14 = and i64 %sub, 4294901760
   %or11.i = or disjoint i64 %14, %13
-  %call.i42 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #15
+  %call.i42 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #16
   %cmp.i = icmp ult i64 %or11.i, %call.i42
   br i1 %cmp.i, label %if.then.i, label %lpShrinkToFit.exit
 
 if.then.i:                                        ; preds = %if.end59
-  %call14.i = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11.i, ptr noundef null) #15
+  %call14.i = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11.i, ptr noundef null) #16
   br label %lpShrinkToFit.exit
 
 lpShrinkToFit.exit:                               ; preds = %if.end59, %if.then.i
@@ -2615,12 +2615,12 @@ if.then22:                                        ; preds = %if.end8
   %4 = zext i16 %3 to i64
   %5 = and i64 %add30, 4294901760
   %or11.i = or disjoint i64 %5, %4
-  %call.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #15
+  %call.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #16
   %cmp.i = icmp ult i64 %or11.i, %call.i
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.then22
-  %call14.i = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11.i, ptr noundef null) #15
+  %call14.i = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11.i, ptr noundef null) #16
   br label %return
 
 if.else:                                          ; preds = %if.end8
@@ -2685,8 +2685,8 @@ if.end.i:                                         ; preds = %if.then29
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpFirst.exit
 
 cond.false.i.i:                                   ; preds = %if.end.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpFirst.exit:                                     ; preds = %if.end.i
@@ -2763,8 +2763,8 @@ lpEncodeBacklen.exit.i.i:                         ; preds = %if.end.i.i.i, %if.e
   br i1 %tobool.not.i13.i.i, label %cond.false.i.i.i, label %lpLast.exit
 
 cond.false.i.i.i:                                 ; preds = %lpEncodeBacklen.exit.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpLast.exit:                                      ; preds = %lpEncodeBacklen.exit.i.i
@@ -2829,8 +2829,8 @@ lpEncodeBacklen.exit.i:                           ; preds = %if.end.i.i, %if.els
   br i1 %tobool.not.i13.i, label %cond.false.i.i36, label %lpPrev.exit
 
 cond.false.i.i36:                                 ; preds = %lpEncodeBacklen.exit.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpPrev.exit:                                      ; preds = %lpEncodeBacklen.exit.i
@@ -2873,8 +2873,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp16, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1074) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1074) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %if.end
@@ -2895,8 +2895,8 @@ land.rhs:                                         ; preds = %for.body
   br i1 %cmp27.not, label %cond.false36, label %cond.end37
 
 cond.false36:                                     ; preds = %for.body, %land.rhs
-  tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 1089) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 1089) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end37:                                       ; preds = %land.rhs
@@ -2995,8 +2995,8 @@ if.end47:                                         ; preds = %lpSkip.exit, %if.th
   br i1 %cmp48, label %cond.end58, label %cond.false57
 
 cond.false57:                                     ; preds = %if.end47
-  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 1100) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 1100) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end58:                                       ; preds = %if.end47
@@ -3024,8 +3024,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp66, label %do.body, label %cond.false75
 
 cond.false75:                                     ; preds = %for.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 1108) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 1108) #16
+  tail call void @abort() #17
   unreachable
 
 do.body:                                          ; preds = %for.end
@@ -3066,12 +3066,12 @@ if.end113:                                        ; preds = %do.body100, %do.bod
   %19 = zext i16 %18 to i64
   %20 = and i64 %sub, 4294901760
   %or11.i = or disjoint i64 %20, %19
-  %call.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #15
+  %call.i = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %lp) #16
   %cmp.i = icmp ult i64 %or11.i, %call.i
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end113
-  %call14.i = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11.i, ptr noundef null) #15
+  %call14.i = tail call ptr @zrealloc_usable(ptr noundef nonnull %lp, i64 noundef %or11.i, ptr noundef null) #16
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.end113, %entry
@@ -3129,8 +3129,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader.i:                           ; preds = %if.end.i.i
@@ -3189,8 +3189,8 @@ if.end.i.i66:                                     ; preds = %if.end.i63
   br i1 %tobool.not.i.i.i68, label %cond.false.i.i.i83, label %while.body.preheader.i69
 
 cond.false.i.i.i83:                               ; preds = %if.end.i.i66
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader.i69:                         ; preds = %if.end.i.i66
@@ -3229,8 +3229,8 @@ lpLength.exit84:                                  ; preds = %lpLength.exit, %whi
   br i1 %cmp16, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %lpLength.exit84
-  tail call void @_serverAssert(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1169) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 1169) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %lpLength.exit84
@@ -3239,7 +3239,7 @@ cond.end:                                         ; preds = %lpLength.exit84
   %target.0 = load ptr, ptr %second.first, align 8
   %add18 = add nuw nsw i64 %retval.0.i62, %retval.0.i
   %cond = tail call i64 @llvm.umin.i64(i64 %add18, i64 65535)
-  %call24 = tail call ptr @zrealloc_usable(ptr noundef %target.0, i64 noundef %sub15, ptr noundef null) #15
+  %call24 = tail call ptr @zrealloc_usable(ptr noundef %target.0, i64 noundef %sub15, ptr noundef null) #16
   %add.ptr31 = getelementptr inbounds i8, ptr %call24, i64 %3
   %add.ptr32 = getelementptr inbounds i8, ptr %add.ptr31, i64 -1
   %sub34 = add nsw i64 %9, -6
@@ -3282,7 +3282,7 @@ do.body:                                          ; preds = %if.then26, %if.else
   %arrayidx56 = getelementptr inbounds i8, ptr %call24, i64 3
   store i8 %conv55, ptr %arrayidx56, align 1
   %13 = load ptr, ptr %first.second86, align 8
-  tail call void @zfree(ptr noundef %13) #15
+  tail call void @zfree(ptr noundef %13) #16
   store ptr null, ptr %first.second86, align 8
   store ptr %call24, ptr %second.first87, align 8
   br label %return
@@ -3297,7 +3297,7 @@ define dso_local ptr @lpDup(ptr nocapture noundef readonly %lp) local_unnamed_ad
 entry:
   %0 = load i32, ptr %lp, align 1
   %1 = zext i32 %0 to i64
-  %call1 = tail call ptr @zmalloc_usable(i64 noundef %1, ptr noundef null) #15
+  %call1 = tail call ptr @zmalloc_usable(i64 noundef %1, ptr noundef null) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1, ptr nonnull align 1 %lp, i64 %1, i1 false)
   ret ptr %call1
 }
@@ -3347,7 +3347,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @lpValidateNext(ptr noundef readnone %lp, ptr nocapture noundef %pp, i64 noundef %lpbytes) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @lpValidateNext(ptr noundef readnone %lp, ptr nocapture noundef %pp, i64 noundef %lpbytes) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3590,7 +3590,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool37.not, label %return, label %if.end39
 
 if.end39:                                         ; preds = %while.body
-  %call41 = tail call i32 %entry_cb(ptr noundef nonnull %10, i32 noundef %or31, ptr noundef %cb_userdata) #15
+  %call41 = tail call i32 %entry_cb(ptr noundef nonnull %10, i32 noundef %or31, ptr noundef %cb_userdata) #16
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %return, label %if.end44
 
@@ -3754,12 +3754,12 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1438) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1438) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %call = tail call i32 @rand() #15
+  %call = tail call i32 @rand() #16
   %conv3 = sext i32 %call to i64
   %rem = urem i64 %conv3, %total_count
   %rem.tr = trunc i64 %rem to i32
@@ -3770,8 +3770,8 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool7.not, label %cond.false15, label %cond.end16
 
 cond.false15:                                     ; preds = %cond.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1442) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1442) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end16:                                       ; preds = %cond.end
@@ -3804,8 +3804,8 @@ if.end:                                           ; preds = %lpGetValue.exit
   br i1 %tobool20.not, label %cond.false28, label %cond.end29
 
 cond.false28:                                     ; preds = %if.end
-  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1447) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1447) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end29:                                       ; preds = %if.end
@@ -3846,7 +3846,7 @@ entry:
   %p.addr.i.i.i = alloca ptr, align 8
   %conv = zext i32 %count to i64
   %mul = shl nuw nsw i64 %conv, 3
-  %call = tail call ptr @zmalloc_usable(i64 noundef %mul, ptr noundef null) #15
+  %call = tail call ptr @zmalloc_usable(i64 noundef %mul, ptr noundef null) #16
   %arrayidx.i = getelementptr inbounds i8, ptr %lp, i64 4
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -3874,8 +3874,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader.i:                           ; preds = %if.end.i.i
@@ -3914,13 +3914,13 @@ for.cond.preheader:                               ; preds = %while.end.i, %lpLen
   br i1 %cmp59.not, label %for.end, label %for.body
 
 cond.false:                                       ; preds = %lpLength.exit
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1460) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1460) #16
+  tail call void @abort() #17
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %call7 = tail call i32 @rand() #15
+  %call7 = tail call i32 @rand() #16
   %rem = urem i32 %call7, %retval.0.in.i84
   %arrayidx = getelementptr inbounds %struct.pick, ptr %call, i64 %indvars.iv
   store i32 %rem, ptr %arrayidx, align 4
@@ -3932,7 +3932,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #15
+  tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #16
   %add.ptr.i = getelementptr inbounds i8, ptr %lp, i64 6
   %6 = load i8, ptr %add.ptr.i, align 1
   %cmp.i = icmp eq i8 %6, -1
@@ -3948,8 +3948,8 @@ if.end.i21:                                       ; preds = %for.end
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpAssertValidEntry.exit.i
 
 cond.false.i.i:                                   ; preds = %if.end.i21
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpAssertValidEntry.exit.i:                        ; preds = %if.end.i21
@@ -3986,8 +3986,8 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %tobool.not.i24, label %cond.false.i, label %cond.end.i
 
 cond.false.i:                                     ; preds = %while.body
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 475) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 475) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end.i:                                       ; preds = %while.body
@@ -4224,8 +4224,8 @@ lpDecodeBacklen.exit.i:                           ; preds = %do.body.i.i
   br i1 %cmp45.not.i, label %lpNext.exit, label %cond.false.i.i32
 
 cond.false.i.i32:                                 ; preds = %lor.lhs.false.i, %if.end.i38, %if.end12.i, %lpEncodeBacklen.exit.i, %lpDecodeBacklen.exit.i, %if.end50.i.i, %if.end.i40.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpNext.exit:                                      ; preds = %lpDecodeBacklen.exit.i, %lpSkip.exit.i
@@ -4259,12 +4259,12 @@ while.end:                                        ; preds = %lpNext.exit, %while
   br i1 %exitcond81.not, label %for.end32, label %while.cond.preheader, !llvm.loop !16
 
 for.end32:                                        ; preds = %while.end, %lpFirst.exit
-  tail call void @zfree(ptr noundef %call) #15
+  tail call void @zfree(ptr noundef %call) #16
   ret void
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @uintCompare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
@@ -4283,7 +4283,7 @@ entry:
   %p.addr.i.i.i = alloca ptr, align 8
   %conv = zext i32 %count to i64
   %mul = shl nuw nsw i64 %conv, 3
-  %call = tail call ptr @zmalloc_usable(i64 noundef %mul, ptr noundef null) #15
+  %call = tail call ptr @zmalloc_usable(i64 noundef %mul, ptr noundef null) #16
   %arrayidx.i = getelementptr inbounds i8, ptr %lp, i64 4
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -4311,8 +4311,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader.i:                           ; preds = %if.end.i.i
@@ -4352,13 +4352,13 @@ for.cond.preheader:                               ; preds = %while.end.i, %lpLen
   br i1 %cmp48.not, label %for.end, label %for.body
 
 cond.false:                                       ; preds = %lpLength.exit
-  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1506) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1506) #16
+  tail call void @abort() #17
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %call7 = tail call i32 @rand() #15
+  %call7 = tail call i32 @rand() #16
   %rem = urem i32 %call7, %div3178
   %mul8 = shl nuw i32 %rem, 1
   %arrayidx = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv
@@ -4371,7 +4371,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #15
+  tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #16
   %6 = load i32, ptr %call, align 4
   %conv14 = zext i32 %6 to i64
   %call15 = tail call ptr @lpSeek(ptr noundef %lp, i64 noundef %conv14)
@@ -4468,8 +4468,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool21.not, label %cond.false29, label %cond.end30
 
 cond.false29:                                     ; preds = %while.body, %while.body.us
-  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1523) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1523) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end30:                                       ; preds = %while.body
@@ -4529,7 +4529,7 @@ while.end:                                        ; preds = %while.body42, %whil
   br i1 %20, label %while.body, label %while.end53, !llvm.loop !18
 
 while.end53:                                      ; preds = %while.end, %while.end.us, %for.end
-  tail call void @zfree(ptr noundef nonnull %call) #15
+  tail call void @zfree(ptr noundef nonnull %call) #16
   ret void
 }
 
@@ -4568,8 +4568,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader.i:                           ; preds = %if.end.i.i
@@ -4617,8 +4617,8 @@ if.end.i21:                                       ; preds = %lpLength.exit
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %lpFirst.exit
 
 cond.false.i.i:                                   ; preds = %if.end.i21
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 lpFirst.exit:                                     ; preds = %if.end.i21
@@ -4683,8 +4683,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool6.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %while.body, %while.body.us
-  tail call void @_serverAssert(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 1557) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 1557) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end:                                         ; preds = %while.body
@@ -4707,8 +4707,8 @@ cond.end:                                         ; preds = %while.body
   br i1 %tobool12.not, label %cond.false20, label %cond.end21
 
 cond.false20:                                     ; preds = %cond.end, %cond.end.us
-  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1560) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1560) #16
+  tail call void @abort() #17
   unreachable
 
 cond.end21:                                       ; preds = %cond.end
@@ -4782,8 +4782,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader.i:                           ; preds = %if.end.i.i
@@ -4829,7 +4829,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %i.021.us = phi i32 [ %inc21.us, %if.end19.us ], [ %0, %while.body.lr.ph ]
   %sub.us = sub i32 %retval.0.in.i, %i.021.us
   %spec.select.us = lshr i32 %sub.us, %div16
-  %call10.us = tail call i32 @rand() #15
+  %call10.us = tail call i32 @rand() #16
   %conv11.us = sitofp i32 %call10.us to double
   %conv14.us = uitofp i32 %spec.select.us to double
   %7 = insertelement <2 x double> poison, double %conv11.us, i64 0
@@ -4872,7 +4872,7 @@ while.cond.backedge:                              ; preds = %if.then, %if.end19
 if.end:                                           ; preds = %while.body
   %sub = sub i32 %retval.0.in.i, %i.021
   %spec.select = lshr i32 %sub, %div16
-  %call10 = tail call i32 @rand() #15
+  %call10 = tail call i32 @rand() #16
   %conv11 = sitofp i32 %call10 to double
   %conv14 = uitofp i32 %spec.select to double
   %15 = insertelement <2 x double> poison, double %conv11, i64 0
@@ -4934,8 +4934,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %while.body.preheader.i
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.preheader.i:                           ; preds = %if.end.i.i
@@ -4982,8 +4982,8 @@ if.end.i23:                                       ; preds = %lpLength.exit
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %while.body.lr.ph
 
 cond.false.i.i:                                   ; preds = %if.end.i23
-  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #15
-  tail call void @abort() #16
+  tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 1342) #16
+  tail call void @abort() #17
   unreachable
 
 while.body.lr.ph:                                 ; preds = %if.end.i23
@@ -5140,7 +5140,7 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp22, label %if.then24, label %if.end
 
 if.then24:                                        ; preds = %if.then
-  call void @perror(ptr noundef nonnull @.str.22) #17
+  call void @perror(ptr noundef nonnull @.str.22) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then24, %if.then
@@ -5153,7 +5153,7 @@ if.else:                                          ; preds = %for.end
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.else
-  call void @perror(ptr noundef nonnull @.str.22) #17
+  call void @perror(ptr noundef nonnull @.str.22) #18
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.then29, %if.end
@@ -5169,64 +5169,65 @@ while.end:                                        ; preds = %if.end31, %lpLength
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { cold }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -495,7 +495,7 @@ if.end26:                                         ; preds = %if.then20, %land.lh
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define dso_local noundef ptr @yyjson_alc_dyn_new() local_unnamed_addr #4 {
 entry:
-  %call.i = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %call.i = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -518,21 +518,21 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @default_malloc(ptr nocapture readnone %ctx, i64 noundef %size) #5 {
 entry:
-  %call = tail call noalias ptr @malloc(i64 noundef %size) #24
+  %call = tail call noalias ptr @malloc(i64 noundef %size) #26
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @default_realloc(ptr nocapture readnone %ctx, ptr nocapture noundef %ptr, i64 %old_size, i64 noundef %size) #6 {
 entry:
-  %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %size) #25
+  %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %size) #27
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @default_free(ptr nocapture readnone %ctx, ptr nocapture noundef %ptr) #6 {
 entry:
-  tail call void @free(ptr noundef %ptr) #26
+  tail call void @free(ptr noundef %ptr) #28
   ret void
 }
 
@@ -552,7 +552,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.then5, label %while.body
 
 if.then5:                                         ; preds = %if.end
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %and.i.i) #24
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %and.i.i) #26
   %tobool8.not = icmp eq ptr %call.i, null
   br i1 %tobool8.not, label %return, label %if.end18
 
@@ -592,7 +592,7 @@ if.end31:                                         ; preds = %while.body
   br i1 %tobool33.not, label %if.then34, label %while.body
 
 if.then34:                                        ; preds = %if.end31
-  %call.i49 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %size.addr.0) #25
+  %call.i49 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %size.addr.0) #27
   %tobool38.not = icmp eq ptr %call.i49, null
   br i1 %tobool38.not, label %return, label %if.end48
 
@@ -661,7 +661,7 @@ if.end.i27:                                       ; preds = %for.body.i.preheade
   br i1 %tobool.i.not, label %dyn_chunk_list_remove.exit, label %for.body.i, !llvm.loop !9
 
 dyn_chunk_list_remove.exit:                       ; preds = %if.end.i27, %if.end6, %if.then.i28
-  %call.i = tail call noalias noundef ptr @realloc(ptr noundef nonnull %add.ptr, i64 noundef %size.addr.0) #25
+  %call.i = tail call noalias noundef ptr @realloc(ptr noundef nonnull %add.ptr, i64 noundef %size.addr.0) #27
   %tobool10.not = icmp eq ptr %call.i, null
   br i1 %tobool10.not, label %if.end19, label %if.then17
 
@@ -769,7 +769,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %chunk.015 = phi ptr [ %1, %for.body ], [ %0, %if.end ]
   %next6 = getelementptr inbounds i8, ptr %chunk.015, i64 8
   %1 = load ptr, ptr %next6, align 8
-  tail call void @free(ptr noundef nonnull %chunk.015) #26
+  tail call void @free(ptr noundef nonnull %chunk.015) #28
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -783,12 +783,12 @@ for.body11:                                       ; preds = %for.end, %for.body1
   %chunk.117 = phi ptr [ %3, %for.body11 ], [ %2, %for.end ]
   %next12 = getelementptr inbounds i8, ptr %chunk.117, i64 8
   %3 = load ptr, ptr %next12, align 8
-  tail call void @free(ptr noundef nonnull %chunk.117) #26
+  tail call void @free(ptr noundef nonnull %chunk.117) #28
   %tobool10.not = icmp eq ptr %3, null
   br i1 %tobool10.not, label %for.end16, label %for.body11, !llvm.loop !12
 
 for.end16:                                        ; preds = %for.body11, %for.end
-  tail call void @free(ptr noundef %alc) #26
+  tail call void @free(ptr noundef %alc) #28
   br label %return
 
 return:                                           ; preds = %entry, %for.end16
@@ -809,7 +809,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %alc, align 8
   %ctx = getelementptr inbounds i8, ptr %alc, i64 24
   %2 = load ptr, ptr %ctx, align 8
-  %call = tail call ptr %1(ptr noundef %2, i64 noundef %.add) #26
+  %call = tail call ptr %1(ptr noundef %2, i64 noundef %.add) #28
   %tobool5.not = icmp eq ptr %call, null
   br i1 %tobool5.not, label %return, label %if.end15
 
@@ -855,7 +855,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %alc, align 8
   %ctx = getelementptr inbounds i8, ptr %alc, i64 24
   %3 = load ptr, ptr %ctx, align 8
-  %call = tail call ptr %2(ptr noundef %3, i64 noundef %.mul) #26
+  %call = tail call ptr %2(ptr noundef %3, i64 noundef %.mul) #28
   %tobool5.not = icmp eq ptr %call, null
   br i1 %tobool5.not, label %return, label %if.end15
 
@@ -944,7 +944,7 @@ if.then:                                          ; preds = %entry
 while.body.i:                                     ; preds = %if.then, %while.body.i
   %chunk.i.016 = phi ptr [ %1, %while.body.i ], [ %0, %if.then ]
   %1 = load ptr, ptr %chunk.i.016, align 8
-  tail call void %alc.sroa.1.0.copyload(ptr noundef %alc.sroa.4.0.copyload, ptr noundef nonnull %chunk.i.016) #26
+  tail call void %alc.sroa.1.0.copyload(ptr noundef %alc.sroa.4.0.copyload, ptr noundef nonnull %chunk.i.016) #28
   %tobool.i.not = icmp eq ptr %1, null
   br i1 %tobool.i.not, label %unsafe_yyjson_str_pool_release.exit, label %while.body.i, !llvm.loop !13
 
@@ -957,12 +957,12 @@ unsafe_yyjson_str_pool_release.exit:              ; preds = %while.body.i, %if.t
 while.body.i9:                                    ; preds = %unsafe_yyjson_str_pool_release.exit, %while.body.i9
   %chunk.i4.018 = phi ptr [ %3, %while.body.i9 ], [ %2, %unsafe_yyjson_str_pool_release.exit ]
   %3 = load ptr, ptr %chunk.i4.018, align 8
-  tail call void %alc.sroa.1.0.copyload(ptr noundef %alc.sroa.4.0.copyload, ptr noundef nonnull %chunk.i4.018) #26
+  tail call void %alc.sroa.1.0.copyload(ptr noundef %alc.sroa.4.0.copyload, ptr noundef nonnull %chunk.i4.018) #28
   %tobool.i8.not = icmp eq ptr %3, null
   br i1 %tobool.i8.not, label %unsafe_yyjson_val_pool_release.exit, label %while.body.i9, !llvm.loop !14
 
 unsafe_yyjson_val_pool_release.exit:              ; preds = %while.body.i9, %unsafe_yyjson_str_pool_release.exit
-  tail call void %alc.sroa.1.0.copyload(ptr noundef %alc.sroa.4.0.copyload, ptr noundef nonnull %doc) #26
+  tail call void %alc.sroa.1.0.copyload(ptr noundef %alc.sroa.4.0.copyload, ptr noundef nonnull %doc) #28
   br label %if.end
 
 if.end:                                           ; preds = %unsafe_yyjson_val_pool_release.exit, %entry
@@ -977,7 +977,7 @@ entry:
   %0 = load ptr, ptr %spec.store.select, align 8
   %ctx = getelementptr inbounds i8, ptr %spec.store.select, i64 24
   %1 = load ptr, ptr %ctx, align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef 120) #26
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef 120) #28
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %return, label %if.end3
 
@@ -1016,7 +1016,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr %spec.store.select.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %spec.store.select.i, i64 24
   %2 = load ptr, ptr %ctx.i, align 8
-  %call.i = tail call ptr %1(ptr noundef %2, i64 noundef 120) #26
+  %call.i = tail call ptr %1(ptr noundef %2, i64 noundef 120) #28
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %return, label %if.end4
 
@@ -1050,7 +1050,7 @@ if.then.i10:                                      ; preds = %if.end4
 while.body.i.i:                                   ; preds = %if.then.i10, %while.body.i.i
   %chunk.i.016.i = phi ptr [ %5, %while.body.i.i ], [ %4, %if.then.i10 ]
   %5 = load ptr, ptr %chunk.i.016.i, align 8
-  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %chunk.i.016.i) #26
+  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %chunk.i.016.i) #28
   %tobool.i.not.i = icmp eq ptr %5, null
   br i1 %tobool.i.not.i, label %unsafe_yyjson_str_pool_release.exit.i, label %while.body.i.i, !llvm.loop !13
 
@@ -1063,12 +1063,12 @@ unsafe_yyjson_str_pool_release.exit.i:            ; preds = %while.body.i.i, %if
 while.body.i9.i:                                  ; preds = %unsafe_yyjson_str_pool_release.exit.i, %while.body.i9.i
   %chunk.i4.018.i = phi ptr [ %7, %while.body.i9.i ], [ %6, %unsafe_yyjson_str_pool_release.exit.i ]
   %7 = load ptr, ptr %chunk.i4.018.i, align 8
-  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %chunk.i4.018.i) #26
+  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %chunk.i4.018.i) #28
   %tobool.i8.not.i = icmp eq ptr %7, null
   br i1 %tobool.i8.not.i, label %yyjson_mut_doc_free.exit, label %while.body.i9.i, !llvm.loop !14
 
 yyjson_mut_doc_free.exit:                         ; preds = %while.body.i9.i, %unsafe_yyjson_str_pool_release.exit.i
-  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %call.i) #26
+  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %call.i) #28
   br label %return
 
 if.then.i:                                        ; preds = %if.end4
@@ -1122,7 +1122,7 @@ if.end.i:                                         ; preds = %if.then.i
   %6 = load ptr, ptr %alc1.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %m_doc, i64 32
   %7 = load ptr, ptr %ctx.i, align 8
-  %call.i87 = tail call ptr %6(ptr noundef %7, i64 noundef %.mul.i) #26
+  %call.i87 = tail call ptr %6(ptr noundef %7, i64 noundef %.mul.i) #28
   %tobool5.not.i = icmp eq ptr %call.i87, null
   br i1 %tobool5.not.i, label %return, label %unsafe_yyjson_mut_val.exit.thread
 
@@ -1200,7 +1200,7 @@ if.end.i91:                                       ; preds = %if.then16
   %.add.i = tail call i64 @llvm.umax.i64(i64 %19, i64 %add.i92)
   %20 = load ptr, ptr %alc1.i, align 8
   %21 = load ptr, ptr %ctx.i94, align 8
-  %call.i95 = tail call ptr %20(ptr noundef %21, i64 noundef %.add.i) #26
+  %call.i95 = tail call ptr %20(ptr noundef %21, i64 noundef %.add.i) #28
   %tobool5.not.i96 = icmp eq ptr %call.i95, null
   br i1 %tobool5.not.i96, label %unsafe_yyjson_mut_strncpy.exit.thread, label %unsafe_yyjson_mut_str_alc.exit.thread
 
@@ -1370,7 +1370,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %spec.store.select.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %spec.store.select.i, i64 24
   %2 = load ptr, ptr %ctx.i, align 8
-  %call.i = tail call ptr %1(ptr noundef %2, i64 noundef 120) #26
+  %call.i = tail call ptr %1(ptr noundef %2, i64 noundef 120) #28
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not, label %if.then2, label %if.end3
 
@@ -1435,7 +1435,7 @@ if.then.i25:                                      ; preds = %yyjson_mut_val_mut_
 while.body.i.i:                                   ; preds = %if.then.i25, %while.body.i.i
   %chunk.i.016.i = phi ptr [ %4, %while.body.i.i ], [ %.pre, %if.then.i25 ]
   %4 = load ptr, ptr %chunk.i.016.i, align 8
-  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %chunk.i.016.i) #26
+  tail call void %alc.sroa.1.0.copyload.i(ptr noundef %alc.sroa.4.0.copyload.i, ptr noundef nonnull %chunk.i.016.i) #28
   %tobool.i.not.i = icmp eq ptr %4, null
   br i1 %tobool.i.not.i, label %unsafe_yyjson_str_pool_release.exit.i, label %while.body.i.i, !llvm.loop !13
 
@@ -1450,12 +1450,12 @@ unsafe_yyjson_str_pool_release.exit.i:            ; preds = %while.body.i.i, %if
 while.body.i9.i:                                  ; preds = %unsafe_yyjson_str_pool_release.exit.i, %while.body.i9.i
   %chunk.i4.018.i = phi ptr [ %6, %while.body.i9.i ], [ %5, %unsafe_yyjson_str_pool_release.exit.i ]
   %6 = load ptr, ptr %chunk.i4.018.i, align 8
-  tail call void %alc.sroa.1.0.copyload.i33(ptr noundef %alc.sroa.4.0.copyload.i34, ptr noundef nonnull %chunk.i4.018.i) #26
+  tail call void %alc.sroa.1.0.copyload.i33(ptr noundef %alc.sroa.4.0.copyload.i34, ptr noundef nonnull %chunk.i4.018.i) #28
   %tobool.i8.not.i = icmp eq ptr %6, null
   br i1 %tobool.i8.not.i, label %yyjson_mut_doc_free.exit, label %while.body.i9.i, !llvm.loop !14
 
 yyjson_mut_doc_free.exit:                         ; preds = %while.body.i9.i, %unsafe_yyjson_str_pool_release.exit.i
-  tail call void %alc.sroa.1.0.copyload.i33(ptr noundef %alc.sroa.4.0.copyload.i34, ptr noundef nonnull %call.i) #26
+  tail call void %alc.sroa.1.0.copyload.i33(ptr noundef %alc.sroa.4.0.copyload.i34, ptr noundef nonnull %call.i) #28
   br label %return
 
 if.then.i:                                        ; preds = %yyjson_mut_val_mut_copy.exit
@@ -1502,7 +1502,7 @@ if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %alc1.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %m_doc, i64 32
   %4 = load ptr, ptr %ctx.i, align 8
-  %call.i46 = tail call ptr %3(ptr noundef %4, i64 noundef %.mul.i) #26
+  %call.i46 = tail call ptr %3(ptr noundef %4, i64 noundef %.mul.i) #28
   %tobool5.not.i = icmp eq ptr %call.i46, null
   br i1 %tobool5.not.i, label %return, label %unsafe_yyjson_mut_val.exit.thread
 
@@ -1614,7 +1614,7 @@ if.end.i:                                         ; preds = %sw.bb29
   %18 = load ptr, ptr %alc1.i, align 8
   %ctx.i52 = getelementptr inbounds i8, ptr %m_doc, i64 32
   %19 = load ptr, ptr %ctx.i52, align 8
-  %call.i = tail call ptr %18(ptr noundef %19, i64 noundef %.add.i) #26
+  %call.i = tail call ptr %18(ptr noundef %19, i64 noundef %.add.i) #28
   %tobool5.not.i53 = icmp eq ptr %call.i, null
   br i1 %tobool5.not.i53, label %unsafe_yyjson_mut_strncpy.exit.thread, label %unsafe_yyjson_mut_str_alc.exit.thread
 
@@ -1713,7 +1713,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %spec.store.select, align 8
   %ctx = getelementptr inbounds i8, ptr %spec.store.select, i64 24
   %2 = load ptr, ptr %ctx, align 8
-  %call4 = call ptr %1(ptr noundef %2, i64 noundef %add) #26
+  %call4 = call ptr %1(ptr noundef %2, i64 noundef %add) #28
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -1732,7 +1732,7 @@ if.end7:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end7
   %5 = load ptr, ptr %spec.store.select, align 8
   %6 = load ptr, ptr %ctx, align 8
-  %call12 = call ptr %5(ptr noundef %6, i64 noundef %4) #26
+  %call12 = call ptr %5(ptr noundef %6, i64 noundef %4) #28
   store ptr %call12, ptr %str_hdr, align 8
   %str_pool = getelementptr inbounds i8, ptr %call4, i64 56
   store ptr %call12, ptr %str_pool, align 8
@@ -1743,7 +1743,7 @@ if.then14:                                        ; preds = %if.then9
   %free = getelementptr inbounds i8, ptr %spec.store.select, i64 16
   %7 = load ptr, ptr %free, align 8
   %8 = load ptr, ptr %ctx, align 8
-  call void %7(ptr noundef %8, ptr noundef nonnull %call4) #26
+  call void %7(ptr noundef %8, ptr noundef nonnull %call4) #28
   br label %return
 
 if.end17:                                         ; preds = %if.then9, %if.end7
@@ -3614,7 +3614,7 @@ if.then.i.i1096:                                  ; preds = %if.then.i1070
   %.mul.i = tail call i64 @llvm.umax.i64(i64 %37, i64 48)
   %38 = load ptr, ptr %alc1.i, align 8
   %39 = load ptr, ptr %ctx.i655, align 8
-  %call.i = tail call ptr %38(ptr noundef %39, i64 noundef %.mul.i) #26
+  %call.i = tail call ptr %38(ptr noundef %39, i64 noundef %.mul.i) #28
   %tobool5.not.i = icmp eq ptr %call.i, null
   br i1 %tobool5.not.i, label %unsafe_yyjson_mut_val.exit.i1084, label %unsafe_yyjson_val_pool_grow.exit.thread
 
@@ -3662,7 +3662,7 @@ if.end.i634:                                      ; preds = %if.then.i42.i
   %.add.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %46)
   %48 = load ptr, ptr %alc1.i, align 8
   %49 = load ptr, ptr %ctx.i655, align 8
-  %call.i638 = tail call ptr %48(ptr noundef %49, i64 noundef %.add.i) #26
+  %call.i638 = tail call ptr %48(ptr noundef %49, i64 noundef %.add.i) #28
   %tobool5.not.i639 = icmp eq ptr %call.i638, null
   br i1 %tobool5.not.i639, label %do.body123, label %unsafe_yyjson_mut_str_alc.exit.i.thread
 
@@ -3724,7 +3724,7 @@ if.end.i651:                                      ; preds = %if.then.i946
   %.add.i654 = tail call i64 @llvm.umax.i64(i64 %57, i64 %56)
   %58 = load ptr, ptr %alc1.i, align 8
   %59 = load ptr, ptr %ctx.i655, align 8
-  %call.i656 = tail call ptr %58(ptr noundef %59, i64 noundef %.add.i654) #26
+  %call.i656 = tail call ptr %58(ptr noundef %59, i64 noundef %.add.i654) #28
   %tobool5.not.i657 = icmp eq ptr %call.i656, null
   br i1 %tobool5.not.i657, label %do.body123, label %unsafe_yyjson_mut_str_alc.exit.thread
 
@@ -3803,7 +3803,7 @@ if.then.i.i1244:                                  ; preds = %if.then.i1222
   %.mul.i673 = tail call i64 @llvm.umax.i64(i64 %68, i64 48)
   %69 = load ptr, ptr %alc1.i, align 8
   %70 = load ptr, ptr %ctx.i655, align 8
-  %call.i675 = tail call ptr %69(ptr noundef %70, i64 noundef %.mul.i673) #26
+  %call.i675 = tail call ptr %69(ptr noundef %70, i64 noundef %.mul.i673) #28
   %tobool5.not.i676 = icmp eq ptr %call.i675, null
   br i1 %tobool5.not.i676, label %do.body123, label %unsafe_yyjson_mut_val.exit.i1236.thread
 
@@ -3863,7 +3863,7 @@ if.then.i.i:                                      ; preds = %if.then.i497
   %.mul.i692 = tail call i64 @llvm.umax.i64(i64 %76, i64 48)
   %77 = load ptr, ptr %alc1.i, align 8
   %78 = load ptr, ptr %ctx.i655, align 8
-  %call.i694 = tail call ptr %77(ptr noundef %78, i64 noundef %.mul.i692) #26
+  %call.i694 = tail call ptr %77(ptr noundef %78, i64 noundef %.mul.i692) #28
   %tobool5.not.i695 = icmp eq ptr %call.i694, null
   br i1 %tobool5.not.i695, label %do.body135, label %unsafe_yyjson_mut_val.exit.i.thread
 
@@ -7133,7 +7133,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %4 = load ptr, ptr %alc1.i.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %doc, i64 32
   %5 = load ptr, ptr %ctx.i, align 8
-  %call.i = tail call ptr %4(ptr noundef %5, i64 noundef %.mul.i) #26
+  %call.i = tail call ptr %4(ptr noundef %5, i64 noundef %.mul.i) #28
   %tobool5.not.i = icmp eq ptr %call.i, null
   br i1 %tobool5.not.i, label %return, label %unsafe_yyjson_mut_val.exit.i.thread
 
@@ -7492,7 +7492,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %4 = load ptr, ptr %alc1.i.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %doc, i64 32
   %5 = load ptr, ptr %ctx.i, align 8
-  %call.i134 = tail call ptr %4(ptr noundef %5, i64 noundef %.mul.i) #26
+  %call.i134 = tail call ptr %4(ptr noundef %5, i64 noundef %.mul.i) #28
   %tobool5.not.i = icmp eq ptr %call.i134, null
   br i1 %tobool5.not.i, label %return, label %unsafe_yyjson_mut_val.exit.i.thread
 
@@ -7942,7 +7942,7 @@ do.body73:                                        ; preds = %if.else64
 
 if.end91:                                         ; preds = %if.else64
   %add = add nuw i64 %len, 4
-  %call93 = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef %add) #26
+  %call93 = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef %add) #28
   %tobool94.not = icmp eq ptr %call93, null
   br i1 %tobool94.not, label %do.body104, label %if.end122
 
@@ -8068,7 +8068,7 @@ do.body143:                                       ; preds = %if.end.i7855, %skip
   br i1 %cmp.i366.not, label %if.then156, label %return
 
 if.then156:                                       ; preds = %do.body143
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %cur.0) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %cur.0) #28
   br label %return
 
 if.else162:                                       ; preds = %if.then132
@@ -8100,7 +8100,7 @@ do.body183:                                       ; preds = %if.end173
   br i1 %cmp.i366.not, label %if.then196, label %return
 
 if.then196:                                       ; preds = %do.body183
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %cur.0) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %cur.0) #28
   br label %return
 
 if.end202:                                        ; preds = %if.end173, %if.end124
@@ -8142,7 +8142,7 @@ if.then217:                                       ; preds = %land.lhs.true213
   %28 = add nuw nsw i64 %27, 8
   %cond8.i = select i1 %cmp.i1698.i.not, i64 24, i64 %28
   %mul.i = shl nuw i64 %cond8.i, 4
-  %call9.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef %mul.i) #26
+  %call9.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef %mul.i) #28
   %tobool10.i.not = icmp eq ptr %call9.i, null
   br i1 %tobool10.i.not, label %fail_alloc.i, label %if.end.i
 
@@ -8210,7 +8210,7 @@ if.then79.i:                                      ; preds = %arr_begin.i
   %add81.i = add i64 %div80.i7779, %alc_len.i.0
   %mul83.i = shl i64 %alc_len.i.0, 4
   %mul84.i = shl i64 %add81.i, 4
-  %call85.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.0, i64 noundef %mul83.i, i64 noundef %mul84.i) #26
+  %call85.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.0, i64 noundef %mul83.i, i64 noundef %mul84.i) #28
   %tobool86.i.not = icmp eq ptr %call85.i, null
   br i1 %tobool86.i.not, label %fail_alloc.i, label %if.end88.i
 
@@ -8470,7 +8470,7 @@ if.then312.i:                                     ; preds = %if.then301.i
   %add315.i = add i64 %div314.i7771, %alc_len.i.2.ph
   %mul318.i = shl i64 %alc_len.i.2.ph, 4
   %mul319.i = shl i64 %add315.i, 4
-  %call320.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul318.i, i64 noundef %mul319.i) #26
+  %call320.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul318.i, i64 noundef %mul319.i) #28
   %tobool321.i.not = icmp eq ptr %call320.i, null
   br i1 %tobool321.i.not, label %fail_alloc.i, label %if.end323.i
 
@@ -11122,7 +11122,7 @@ if.then362.i:                                     ; preds = %if.then351.i
   %add365.i = add i64 %div364.i7769, %alc_len.i.2.ph
   %mul368.i = shl i64 %alc_len.i.2.ph, 4
   %mul369.i = shl i64 %add365.i, 4
-  %call370.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul368.i, i64 noundef %mul369.i) #26
+  %call370.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul368.i, i64 noundef %mul369.i) #28
   %tobool371.i.not = icmp eq ptr %call370.i, null
   br i1 %tobool371.i.not, label %fail_alloc.i, label %if.end373.i
 
@@ -12222,7 +12222,7 @@ if.then414.i:                                     ; preds = %if.then403.i
   %add417.i = add i64 %div416.i7765, %alc_len.i.2.ph
   %mul420.i = shl i64 %alc_len.i.2.ph, 4
   %mul421.i = shl i64 %add417.i, 4
-  %call422.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul420.i, i64 noundef %mul421.i) #26
+  %call422.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul420.i, i64 noundef %mul421.i) #28
   %tobool423.i.not = icmp eq ptr %call422.i, null
   br i1 %tobool423.i.not, label %fail_alloc.i, label %if.end425.i
 
@@ -12265,7 +12265,7 @@ if.then465.i:                                     ; preds = %if.then454.i
   %add468.i = add i64 %div467.i7764, %alc_len.i.2.ph
   %mul471.i = shl i64 %alc_len.i.2.ph, 4
   %mul472.i = shl i64 %add468.i, 4
-  %call473.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul471.i, i64 noundef %mul472.i) #26
+  %call473.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul471.i, i64 noundef %mul472.i) #28
   %tobool474.i.not = icmp eq ptr %call473.i, null
   br i1 %tobool474.i.not, label %fail_alloc.i, label %if.end476.i
 
@@ -12309,7 +12309,7 @@ if.then516.i:                                     ; preds = %if.then505.i
   %add519.i = add i64 %div518.i7763, %alc_len.i.2.ph
   %mul522.i = shl i64 %alc_len.i.2.ph, 4
   %mul523.i = shl i64 %add519.i, 4
-  %call524.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul522.i, i64 noundef %mul523.i) #26
+  %call524.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul522.i, i64 noundef %mul523.i) #28
   %tobool525.i.not = icmp eq ptr %call524.i, null
   br i1 %tobool525.i.not, label %fail_alloc.i, label %if.end527.i
 
@@ -12456,7 +12456,7 @@ if.then632.i:                                     ; preds = %if.then621.i
   %add635.i = add i64 %div634.i7756, %alc_len.i.2.ph
   %mul638.i = shl i64 %alc_len.i.2.ph, 4
   %mul639.i = shl i64 %add635.i, 4
-  %call640.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul638.i, i64 noundef %mul639.i) #26
+  %call640.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.2.ph, i64 noundef %mul638.i, i64 noundef %mul639.i) #28
   %tobool641.i.not = icmp eq ptr %call640.i, null
   br i1 %tobool641.i.not, label %fail_alloc.i, label %if.end643.i
 
@@ -12890,7 +12890,7 @@ if.then766.i:                                     ; preds = %obj_begin.i
   %add769.i = add i64 %div768.i7781, %alc_len.i.11
   %mul772.i = shl i64 %alc_len.i.11, 4
   %mul773.i = shl i64 %add769.i, 4
-  %call774.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.11, i64 noundef %mul772.i, i64 noundef %mul773.i) #26
+  %call774.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.11, i64 noundef %mul772.i, i64 noundef %mul773.i) #28
   %tobool775.i.not = icmp eq ptr %call774.i, null
   br i1 %tobool775.i.not, label %fail_alloc.i, label %if.end777.i
 
@@ -13138,7 +13138,7 @@ if.then1002.i:                                    ; preds = %if.then991.i
   %add1005.i = add i64 %div1004.i7748, %alc_len.i.13.ph
   %mul1008.i = shl i64 %alc_len.i.13.ph, 4
   %mul1009.i = shl i64 %add1005.i, 4
-  %call1010.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.13.ph, i64 noundef %mul1008.i, i64 noundef %mul1009.i) #26
+  %call1010.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i.13.ph, i64 noundef %mul1008.i, i64 noundef %mul1009.i) #28
   %tobool1011.i.not = icmp eq ptr %call1010.i, null
   br i1 %tobool1011.i.not, label %fail_alloc.i, label %if.end1013.i
 
@@ -18794,7 +18794,7 @@ fail_string.i:                                    ; preds = %if.then285.i9911, %
   br i1 %tobool1461.i.not, label %if.else233thread-pre-split, label %if.then1462.i
 
 if.then1462.i:                                    ; preds = %fail_string.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.18) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.18) #28
   br label %if.else233thread-pre-split
 
 fail_number.i:                                    ; preds = %if.end48.i6584, %if.then89.i6567, %if.then1940.i5181, %if.else2023.i5149, %if.else2103.i5111, %if.else2368.i4986, %if.else2502.i4936, %if.then1837.i5523, %if.then1883.i5224, %if.then123.i6538, %if.then148.i6537, %if.then1791.i6421, %if.end48.i4599, %if.then89.i4582, %if.then1940.i3196, %if.else2023.i3164, %if.else2103.i3126, %if.else2368.i3001, %if.else2502.i2951, %if.then1837.i3538, %if.then1883.i3239, %if.then123.i4553, %if.then148.i4552, %if.then1791.i4436, %if.then.i6590, %if.then.i4605
@@ -18817,7 +18817,7 @@ fail_number.i:                                    ; preds = %if.end48.i6584, %if
   br i1 %tobool1483.i.not, label %if.else233thread-pre-split, label %if.then1484.i
 
 if.then1484.i:                                    ; preds = %fail_number.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.19) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.19) #28
   br label %if.else233thread-pre-split
 
 fail_alloc.i:                                     ; preds = %if.then1002.i, %if.then766.i, %if.then632.i, %if.then516.i, %if.then465.i, %if.then414.i, %if.then362.i, %if.then312.i, %if.then79.i, %if.then217
@@ -18838,7 +18838,7 @@ fail_alloc.i:                                     ; preds = %if.then1002.i, %if.
   br i1 %tobool1506.i.not, label %if.else233, label %if.then1507.i
 
 if.then1507.i:                                    ; preds = %fail_alloc.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.20) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.20) #28
   br label %if.else233thread-pre-split
 
 fail_trailing_comma.i:                            ; preds = %while.body1074.i, %while.body592.i, %while.cond1070.i.preheader, %while.cond.i.preheader
@@ -18859,7 +18859,7 @@ fail_trailing_comma.i:                            ; preds = %while.body1074.i, %
   br i1 %tobool1529.i.not, label %if.else233, label %if.then1530.i
 
 if.then1530.i:                                    ; preds = %fail_trailing_comma.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.21) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.21) #28
   br label %if.else233thread-pre-split
 
 fail_literal.i:                                   ; preds = %if.then1196.i, %if.then1180.i, %if.end489.i, %if.end438.i, %land.lhs.true16.i11093, %land.lhs.true.i11085, %if.then1231.i, %land.lhs.true16.i11039, %land.lhs.true.i11031, %if.then559.i, %if.end1223.i, %if.end551.i
@@ -18879,7 +18879,7 @@ fail_literal.i:                                   ; preds = %if.then1196.i, %if.
   br i1 %tobool1552.i.not, label %if.else233, label %if.then1553.i
 
 if.then1553.i:                                    ; preds = %fail_literal.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.22) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.22) #28
   br label %if.else233thread-pre-split
 
 fail_comment.i:                                   ; preds = %if.then1396.i, %if.end1332.i, %if.end1281.i, %if.end1129.i, %if.end1096.i, %if.end712.i, %if.end673.i
@@ -18900,7 +18900,7 @@ fail_comment.i:                                   ; preds = %if.then1396.i, %if.
   br i1 %tobool1575.i.not, label %if.else233, label %if.then1576.i
 
 if.then1576.i:                                    ; preds = %fail_comment.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.23) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.23) #28
   br label %if.else233thread-pre-split
 
 fail_character.i:                                 ; preds = %if.end1085.i, %if.end1118.i, %if.end1270.i, %if.end1321.i, %if.end701.i, %if.end662.i, %if.end.i11559, %if.then1264.i, %if.end656.i, %if.end.i11491, %land.lhs.true.i.i11508, %land.lhs.true16.i.i11516, %land.lhs.true.i.i11576, %land.lhs.true16.i.i11584, %if.end1332.i, %if.end1281.i, %if.end1129.i, %if.end1096.i, %if.end712.i, %if.end673.i
@@ -18920,11 +18920,11 @@ fail_character.i:                                 ; preds = %if.end1085.i, %if.e
   br i1 %tobool1598.i.not, label %if.else233, label %if.then1599.i
 
 if.then1599.i:                                    ; preds = %fail_character.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.24) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.24) #28
   br label %if.else233thread-pre-split
 
 if.then1622.i:                                    ; preds = %if.then1416.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.17) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i.17) #28
   br label %if.else233thread-pre-split
 
 if.else219:                                       ; preds = %land.lhs.true213, %if.then210
@@ -18939,7 +18939,7 @@ if.else219:                                       ; preds = %land.lhs.true213, %
   %1108 = add nuw nsw i64 %1107, 8
   %cond8.i432 = select i1 %cmp.i1293.i.not, i64 50, i64 %1108
   %mul.i434 = shl nuw i64 %cond8.i432, 4
-  %call9.i435 = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef %mul.i434) #26
+  %call9.i435 = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef %mul.i434) #28
   %tobool10.i436.not = icmp eq ptr %call9.i435, null
   br i1 %tobool10.i436.not, label %fail_alloc.i518, label %if.end.i441
 
@@ -18995,7 +18995,7 @@ if.then67.i:                                      ; preds = %arr_begin.i512
   %add69.i = add i64 %div68.i7736, %alc_len.i401.0
   %mul71.i = shl i64 %alc_len.i401.0, 4
   %mul72.i = shl i64 %add69.i, 4
-  %call73.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.0, i64 noundef %mul71.i, i64 noundef %mul72.i) #26
+  %call73.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.0, i64 noundef %mul71.i, i64 noundef %mul72.i) #28
   %tobool74.i.not = icmp eq ptr %call73.i, null
   br i1 %tobool74.i.not, label %fail_alloc.i518, label %if.end76.i
 
@@ -19067,7 +19067,7 @@ if.then118.i:                                     ; preds = %if.then107.i
   %add121.i = add i64 %div120.i7729, %alc_len.i401.2.ph
   %mul124.i = shl i64 %alc_len.i401.2.ph, 4
   %mul125.i = shl i64 %add121.i, 4
-  %call126.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul124.i, i64 noundef %mul125.i) #26
+  %call126.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul124.i, i64 noundef %mul125.i) #28
   %tobool127.i.not = icmp eq ptr %call126.i, null
   br i1 %tobool127.i.not, label %fail_alloc.i518, label %if.end129.i
 
@@ -21719,7 +21719,7 @@ if.then168.i:                                     ; preds = %if.then157.i
   %add171.i = add i64 %div170.i7727, %alc_len.i401.2.ph
   %mul174.i = shl i64 %alc_len.i401.2.ph, 4
   %mul175.i = shl i64 %add171.i, 4
-  %call176.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul174.i, i64 noundef %mul175.i) #26
+  %call176.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul174.i, i64 noundef %mul175.i) #28
   %tobool177.i.not = icmp eq ptr %call176.i, null
   br i1 %tobool177.i.not, label %fail_alloc.i518, label %if.end179.i
 
@@ -22819,7 +22819,7 @@ if.then220.i:                                     ; preds = %if.then209.i
   %add223.i = add i64 %div222.i7723, %alc_len.i401.2.ph
   %mul226.i = shl i64 %alc_len.i401.2.ph, 4
   %mul227.i = shl i64 %add223.i, 4
-  %call228.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul226.i, i64 noundef %mul227.i) #26
+  %call228.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul226.i, i64 noundef %mul227.i) #28
   %tobool229.i.not = icmp eq ptr %call228.i, null
   br i1 %tobool229.i.not, label %fail_alloc.i518, label %if.end231.i
 
@@ -22862,7 +22862,7 @@ if.then271.i:                                     ; preds = %if.then260.i
   %add274.i = add i64 %div273.i7722, %alc_len.i401.2.ph
   %mul277.i = shl i64 %alc_len.i401.2.ph, 4
   %mul278.i = shl i64 %add274.i, 4
-  %call279.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul277.i, i64 noundef %mul278.i) #26
+  %call279.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul277.i, i64 noundef %mul278.i) #28
   %tobool280.i.not = icmp eq ptr %call279.i, null
   br i1 %tobool280.i.not, label %fail_alloc.i518, label %if.end282.i
 
@@ -22906,7 +22906,7 @@ if.then322.i532:                                  ; preds = %if.then311.i
   %add325.i = add i64 %div324.i7721, %alc_len.i401.2.ph
   %mul328.i = shl i64 %alc_len.i401.2.ph, 4
   %mul329.i = shl i64 %add325.i, 4
-  %call330.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul328.i, i64 noundef %mul329.i) #26
+  %call330.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul328.i, i64 noundef %mul329.i) #28
   %tobool331.i.not = icmp eq ptr %call330.i, null
   br i1 %tobool331.i.not, label %fail_alloc.i518, label %if.end333.i
 
@@ -23053,7 +23053,7 @@ if.then436.i:                                     ; preds = %if.then425.i
   %add439.i = add i64 %div438.i7714, %alc_len.i401.2.ph
   %mul442.i = shl i64 %alc_len.i401.2.ph, 4
   %mul443.i = shl i64 %add439.i, 4
-  %call444.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul442.i, i64 noundef %mul443.i) #26
+  %call444.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.2.ph, i64 noundef %mul442.i, i64 noundef %mul443.i) #28
   %tobool445.i.not = icmp eq ptr %call444.i, null
   br i1 %tobool445.i.not, label %fail_alloc.i518, label %if.end447.i
 
@@ -23541,7 +23541,7 @@ if.then560.i:                                     ; preds = %obj_begin.i522
   %add563.i = add i64 %div562.i7738, %alc_len.i401.11
   %mul566.i = shl i64 %alc_len.i401.11, 4
   %mul567.i = shl i64 %add563.i, 4
-  %call568.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.11, i64 noundef %mul566.i, i64 noundef %mul567.i) #26
+  %call568.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.11, i64 noundef %mul566.i, i64 noundef %mul567.i) #28
   %tobool569.i.not = icmp eq ptr %call568.i, null
   br i1 %tobool569.i.not, label %fail_alloc.i518, label %if.end571.i
 
@@ -23602,7 +23602,7 @@ if.then611.i:                                     ; preds = %if.then600.i
   %add614.i = add i64 %div613.i7709, %alc_len.i401.13.ph
   %mul617.i = shl i64 %alc_len.i401.13.ph, 4
   %mul618.i = shl i64 %add614.i, 4
-  %call619.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.13.ph, i64 noundef %mul617.i, i64 noundef %mul618.i) #26
+  %call619.i = tail call ptr %alc.sroa.6.0(ptr noundef %alc.sroa.13.0, ptr noundef %val_hdr.i404.13.ph, i64 noundef %mul617.i, i64 noundef %mul618.i) #28
   %tobool620.i.not = icmp eq ptr %call619.i, null
   br i1 %tobool620.i.not, label %fail_alloc.i518, label %if.end622.i
 
@@ -29303,7 +29303,7 @@ fail_string.i504:                                 ; preds = %if.then285.i7853, %
   br i1 %tobool1056.i.not, label %if.else233thread-pre-split, label %if.then1057.i
 
 if.then1057.i:                                    ; preds = %fail_string.i504
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.18) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.18) #28
   br label %if.else233thread-pre-split
 
 fail_number.i523:                                 ; preds = %if.end48.i2614, %if.then89.i2597, %if.then1940.i1211, %if.else2023.i1179, %if.else2103.i1141, %if.else2368.i1016, %if.else2502.i966, %if.then1837.i1553, %if.then1883.i1254, %if.then123.i2568, %if.then148.i2567, %if.then1791.i2451, %if.end48.i, %if.then89.i, %if.then1940.i, %if.else2023.i, %if.else2103.i, %if.else2368.i, %if.else2502.i, %if.then1837.i, %if.then1883.i, %if.then123.i, %if.then148.i, %if.then1791.i, %if.then.i2620, %if.then.i641
@@ -29326,7 +29326,7 @@ fail_number.i523:                                 ; preds = %if.end48.i2614, %if
   br i1 %tobool1078.i.not, label %if.else233thread-pre-split, label %if.then1079.i525
 
 if.then1079.i525:                                 ; preds = %fail_number.i523
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.19) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.19) #28
   br label %if.else233thread-pre-split
 
 fail_alloc.i518:                                  ; preds = %if.then611.i, %if.then560.i, %if.then436.i, %if.then322.i532, %if.then271.i, %if.then220.i, %if.then168.i, %if.then118.i, %if.then67.i, %if.else219
@@ -29347,7 +29347,7 @@ fail_alloc.i518:                                  ; preds = %if.then611.i, %if.t
   br i1 %tobool1101.i.not, label %if.else233, label %if.then1102.i520
 
 if.then1102.i520:                                 ; preds = %fail_alloc.i518
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.20) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.20) #28
   br label %if.else233thread-pre-split
 
 fail_trailing_comma.i500:                         ; preds = %while.body683.i, %while.body.i530, %while.cond679.i.preheader, %while.cond.i527.preheader
@@ -29368,7 +29368,7 @@ fail_trailing_comma.i500:                         ; preds = %while.body683.i, %w
   br i1 %tobool1124.i.not, label %if.else233, label %if.then1125.i
 
 if.then1125.i:                                    ; preds = %fail_trailing_comma.i500
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.21) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.21) #28
   br label %if.else233thread-pre-split
 
 fail_literal.i510:                                ; preds = %if.then801.i, %if.then785.i, %if.end295.i, %if.end244.i, %land.lhs.true16.i10985, %land.lhs.true.i10977, %if.then836.i, %land.lhs.true16.i, %land.lhs.true.i10946, %if.then365.i, %if.end828.i, %if.end357.i
@@ -29388,7 +29388,7 @@ fail_literal.i510:                                ; preds = %if.then801.i, %if.t
   br i1 %tobool1147.i.not, label %if.else233, label %if.then1148.i511
 
 if.then1148.i511:                                 ; preds = %fail_literal.i510
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.22) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.22) #28
   br label %if.else233thread-pre-split
 
 fail_comment.i470:                                ; preds = %if.then991.i497, %if.end933.i, %if.end886.i, %if.end734.i, %if.end705.i, %if.end512.i, %if.end477.i
@@ -29409,7 +29409,7 @@ fail_comment.i470:                                ; preds = %if.then991.i497, %i
   br i1 %tobool1170.i.not, label %if.else233, label %if.then1171.i
 
 if.then1171.i:                                    ; preds = %fail_comment.i470
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.23) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.23) #28
   br label %if.else233thread-pre-split
 
 fail_character.i468:                              ; preds = %if.end694.i, %if.end723.i, %if.end875.i, %if.end922.i, %if.end501.i474, %if.end466.i, %if.end.i11423, %if.then869.i, %if.end460.i, %if.end.i11355, %land.lhs.true.i.i11372, %land.lhs.true16.i.i11380, %land.lhs.true.i.i11440, %land.lhs.true16.i.i11448, %if.end933.i, %if.end886.i, %if.end734.i, %if.end705.i, %if.end512.i, %if.end477.i
@@ -29495,11 +29495,11 @@ if.end31.i:                                       ; preds = %for.body.i233.i, %l
   br i1 %tobool1193.i.not, label %if.else233, label %if.then1194.i
 
 if.then1194.i:                                    ; preds = %.loopexit
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.24) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.24) #28
   br label %if.else233thread-pre-split
 
 if.then1217.i:                                    ; preds = %if.then1011.i
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.17) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %val_hdr.i404.17) #28
   br label %if.else233thread-pre-split
 
 if.else222:                                       ; preds = %if.end202
@@ -29510,7 +29510,7 @@ if.else222:                                       ; preds = %if.end202
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msg.i8313)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw_end.i8314)
   store ptr %18, ptr %cur.addr.i8312, align 8
-  %call.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef 80) #26
+  %call.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.13.0, i64 noundef 80) #28
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %do.body224.i, label %if.end.i8315
 
@@ -33546,7 +33546,7 @@ do.body.i:                                        ; preds = %if.then283.i.i, %if
   store i64 %sub.ptr.sub187.i8355, ptr %err.addr.0.sroa.phi7619.v.sroa.sel.v.sroa.sel, align 8
   store i32 %..i, ptr %err.addr.0.sroa.phi7619.v, align 8
   store ptr %.str.57..i, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %call.i) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %call.i) #28
   br label %if.end224.thread8624
 
 do.body201.i:                                     ; preds = %if.else2502.i.i, %if.else2368.i.i, %if.else2103.i.i, %if.else2023.i.i, %if.then1940.i.i, %if.then1883.i.i, %if.then1837.i.i, %if.then1791.i.i, %if.then148.i.i, %if.then123.i.i, %if.then89.i.i, %if.end48.i.i, %if.then.i.i8348
@@ -33634,7 +33634,7 @@ if.else210.i:                                     ; preds = %for.body.i233.i.i, 
 if.then219.i:                                     ; preds = %if.else210.i, %if.then203.i
   %.str.57.sink2241.i = phi ptr [ @.str.57, %if.then203.i ], [ %2624, %if.else210.i ]
   store ptr %.str.57.sink2241.i, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef %call.i) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef %call.i) #28
   br label %if.end224.thread8624
 
 do.body224.i:                                     ; preds = %if.else222
@@ -33669,7 +33669,7 @@ do.body247.i:                                     ; preds = %land.lhs.true16.i.i
   store i64 %sub.ptr.sub252.i, ptr %err.addr.0.sroa.phi7619.v.sroa.sel.v.sroa.sel, align 8
   store i32 %.2249.i, ptr %err.addr.0.sroa.phi7619.v, align 8
   store ptr %.str.57..str.59.i, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %call.i) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %call.i) #28
   br label %if.end224.thread8624
 
 do.body270.i:                                     ; preds = %if.then147.i
@@ -33683,7 +33683,7 @@ do.body270.i:                                     ; preds = %if.then147.i
   store i64 %sub.ptr.sub275.i, ptr %err.addr.0.sroa.phi7619.v.sroa.sel.v.sroa.sel, align 8
   store i32 %.2250.i, ptr %err.addr.0.sroa.phi7619.v, align 8
   store ptr %.str.29..str.57.i, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef %call.i) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef %call.i) #28
   br label %if.end224.thread8624
 
 do.body293.i:                                     ; preds = %if.end109.i
@@ -33761,7 +33761,7 @@ if.then311.i8358:                                 ; preds = %if.end15.i276.i1683
   store i64 %sub.ptr.sub298.i, ptr %err.addr.0.sroa.phi7619.v.sroa.sel.v.sroa.sel, align 8
   store i32 %.sink2245.i, ptr %err.addr.0.sroa.phi7619.v, align 8
   store ptr %.str.57.sink2244.i, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %call.i) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %call.i) #28
   br label %if.end224.thread8624
 
 if.end.i1691.i:                                   ; preds = %if.end153.i8334
@@ -33808,7 +33808,7 @@ if.then334.i:                                     ; preds = %for.body.i.i.i, %if
   store i64 %sub.ptr.sub321.i, ptr %err.addr.0.sroa.phi7619.v.sroa.sel.v.sroa.sel, align 8
   store i32 %.sink2248.i, ptr %err.addr.0.sroa.phi7619.v, align 8
   store ptr %.str.57.sink2247.i, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef %call.i) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef %call.i) #28
   br label %if.end224.thread8624
 
 if.end224.thread8624:                             ; preds = %do.body.i, %if.then219.i, %do.body247.i, %do.body270.i, %if.then311.i8358, %if.then334.i, %if.else233.i, %if.then226.i
@@ -33964,7 +33964,7 @@ if.end330:                                        ; preds = %if.end330.sink.spli
   br i1 %cmp.i366.not, label %if.then338, label %return
 
 if.then338:                                       ; preds = %if.end330
-  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %cur.0) #26
+  tail call void %alc.sroa.8.0(ptr noundef %alc.sroa.13.0, ptr noundef nonnull %cur.0) #28
   br label %return
 
 return:                                           ; preds = %if.then232, %if.then338, %if.end330, %do.body183, %if.then196, %do.body143, %if.then156, %do.body104, %do.body73, %do.body37, %do.body
@@ -34088,7 +34088,7 @@ do.body:                                          ; preds = %entry
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %call.i26 = tail call noalias ptr @fopen(ptr noundef nonnull %path, ptr noundef nonnull @.str.77) #26
+  %call.i26 = tail call noalias ptr @fopen(ptr noundef nonnull %path, ptr noundef nonnull @.str.77) #28
   %tobool7.not = icmp eq ptr %call.i26, null
   br i1 %tobool7.not, label %do.body17, label %if.end22
 
@@ -34179,7 +34179,7 @@ if.then31:                                        ; preds = %if.end28
   %3 = load ptr, ptr %alc, align 8
   %ctx32 = getelementptr inbounds i8, ptr %alc, i64 24
   %4 = load ptr, ptr %ctx32, align 8
-  %call33 = tail call ptr %3(ptr noundef %4, i64 noundef %add) #26
+  %call33 = tail call ptr %3(ptr noundef %4, i64 noundef %add) #28
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %do.body37, label %if.end47
 
@@ -34194,7 +34194,7 @@ do.body37:                                        ; preds = %if.then31
   br label %return
 
 if.end47:                                         ; preds = %if.then31
-  %call.i138 = tail call i64 @fread(ptr noundef nonnull %call33, i64 noundef 1, i64 noundef %spec.select80, ptr noundef nonnull %file) #26
+  %call.i138 = tail call i64 @fread(ptr noundef nonnull %call33, i64 noundef 1, i64 noundef %spec.select80, ptr noundef nonnull %file) #28
   %cmp49.not = icmp eq i64 %call.i138, %spec.select80
   br i1 %cmp49.not, label %if.end127, label %do.body52
 
@@ -34208,7 +34208,7 @@ do.body52:                                        ; preds = %if.end47
   store i32 13, ptr %spec.store.select, align 8
   %free58 = getelementptr inbounds i8, ptr %alc, i64 16
   %5 = load ptr, ptr %free58, align 8
-  tail call void %5(ptr noundef %4, ptr noundef nonnull %call33) #26
+  tail call void %5(ptr noundef %4, ptr noundef nonnull %call33) #28
   br label %return
 
 if.then72:                                        ; preds = %if.end122
@@ -34221,7 +34221,7 @@ if.then72:                                        ; preds = %if.end122
   store i32 2, ptr %spec.store.select, align 8
   %free73 = getelementptr inbounds i8, ptr %alc, i64 16
   %6 = load ptr, ptr %free73, align 8
-  tail call void %6(ptr noundef %1, ptr noundef nonnull %buf.1) #26
+  tail call void %6(ptr noundef %1, ptr noundef nonnull %buf.1) #28
   br label %return
 
 if.end77:                                         ; preds = %while.body.preheader, %if.end122
@@ -34234,7 +34234,7 @@ if.end77:                                         ; preds = %while.body.preheade
   br i1 %tobool79.not, label %if.then80, label %if.else97
 
 if.then80:                                        ; preds = %if.end77
-  %call83 = tail call ptr %2(ptr noundef %1, i64 noundef %add63121) #26
+  %call83 = tail call ptr %2(ptr noundef %1, i64 noundef %add63121) #28
   %tobool84.not = icmp eq ptr %call83, null
   br i1 %tobool84.not, label %do.body86, label %if.end114
 
@@ -34249,7 +34249,7 @@ do.body86:                                        ; preds = %if.then80
   br label %return
 
 if.else97:                                        ; preds = %if.end77
-  %call100 = tail call ptr %0(ptr noundef %1, ptr noundef nonnull %buf.0118, i64 noundef %buf_size.0119, i64 noundef %add63121) #26
+  %call100 = tail call ptr %0(ptr noundef %1, ptr noundef nonnull %buf.0118, i64 noundef %buf_size.0119, i64 noundef %add63121) #28
   %tobool101.not = icmp eq ptr %call100, null
   br i1 %tobool101.not, label %do.body103, label %if.end114
 
@@ -34263,7 +34263,7 @@ do.body103:                                       ; preds = %if.else97
   store i32 2, ptr %spec.store.select, align 8
   %free109 = getelementptr inbounds i8, ptr %alc, i64 16
   %7 = load ptr, ptr %free109, align 8
-  tail call void %7(ptr noundef %1, ptr noundef nonnull %buf.0118) #26
+  tail call void %7(ptr noundef %1, ptr noundef nonnull %buf.0118) #28
   br label %return
 
 if.end114:                                        ; preds = %if.else97, %if.then80
@@ -34272,7 +34272,7 @@ if.end114:                                        ; preds = %if.else97, %if.then
   %add.ptr115 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
   %idx.neg = sub nsw i64 0, %chunk_now.0120
   %add.ptr116 = getelementptr inbounds i8, ptr %add.ptr115, i64 %idx.neg
-  %call.i = tail call i64 @fread(ptr noundef nonnull %add.ptr116, i64 noundef 1, i64 noundef %chunk_now.0120, ptr noundef nonnull %file) #26
+  %call.i = tail call i64 @fread(ptr noundef nonnull %add.ptr116, i64 noundef 1, i64 noundef %chunk_now.0120, ptr noundef nonnull %file) #28
   %add118 = add nsw i64 %call.i, %file_size.3117
   %cmp119.not = icmp eq i64 %call.i, %chunk_now.0120
   br i1 %cmp119.not, label %if.end122, label %if.end127
@@ -34304,7 +34304,7 @@ if.else132:                                       ; preds = %if.end127
   %8 = load ptr, ptr %free133, align 8
   %ctx134 = getelementptr inbounds i8, ptr %alc, i64 24
   %9 = load ptr, ptr %ctx134, align 8
-  call void %8(ptr noundef %9, ptr noundef nonnull %buf.2) #26
+  call void %8(ptr noundef %9, ptr noundef nonnull %buf.2) #28
   br label %return
 
 return:                                           ; preds = %if.then72, %if.else132, %if.then131, %do.body103, %do.body86, %do.body52, %do.body37, %do.body
@@ -37024,7 +37024,7 @@ sw.bb.i:                                          ; preds = %if.then16
   %uni.i176.i = getelementptr inbounds i8, ptr %val, i64 8
   %2 = load ptr, ptr %uni.i176.i, align 8
   %add.i = add nuw nsw i64 %shr.i173.i, 2
-  %call29.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add.i) #26
+  %call29.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add.i) #28
   %tobool.i.not = icmp eq ptr %call29.i, null
   br i1 %tobool.i.not, label %if.end142.i, label %if.end.i
 
@@ -37039,7 +37039,7 @@ sw.bb32.i:                                        ; preds = %if.then16
   %3 = load ptr, ptr %uni.i.i, align 8
   %mul.i = mul nuw nsw i64 %shr.i.i, 6
   %add41.i = add nuw nsw i64 %mul.i, 4
-  %call42.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add41.i) #26
+  %call42.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add41.i) #28
   %tobool43.i.not = icmp eq ptr %call42.i, null
   br i1 %tobool43.i.not, label %if.end142.i, label %if.end45.i
 
@@ -37813,7 +37813,7 @@ if.end646.i1347:                                  ; preds = %err_esc.i1344
   br label %copy_utf8.i1323.backedge
 
 sw.bb74.i:                                        ; preds = %if.then16
-  %call78.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 34) #26
+  %call78.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 34) #28
   %tobool79.i.not = icmp eq ptr %call78.i, null
   br i1 %tobool79.i.not, label %if.end142.i, label %if.end81.i
 
@@ -39954,7 +39954,7 @@ write_u64_len_5_8.exit9575:                       ; preds = %if.else.i9507, %if.
   br label %sw.epilog.i
 
 sw.bb95.i:                                        ; preds = %if.then16
-  %call99.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #26
+  %call99.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #28
   %tobool100.i.not = icmp eq ptr %call99.i, null
   br i1 %tobool100.i.not, label %if.end142.i, label %if.end102.i
 
@@ -39970,7 +39970,7 @@ if.end102.i:                                      ; preds = %sw.bb95.i
   br label %sw.epilog.i
 
 sw.bb106.i:                                       ; preds = %if.then16
-  %call110.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #26
+  %call110.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #28
   %tobool111.i.not = icmp eq ptr %call110.i, null
   br i1 %tobool111.i.not, label %if.end142.i, label %if.end113.i
 
@@ -39980,7 +39980,7 @@ if.end113.i:                                      ; preds = %sw.bb106.i
   br label %sw.epilog.i
 
 sw.bb116.i:                                       ; preds = %if.then16
-  %call120.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #26
+  %call120.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #28
   %tobool121.i.not = icmp eq ptr %call120.i, null
   br i1 %tobool121.i.not, label %if.end142.i, label %if.end123.i
 
@@ -39990,7 +39990,7 @@ if.end123.i:                                      ; preds = %sw.bb116.i
   br label %sw.epilog.i
 
 sw.bb125.i:                                       ; preds = %if.then16
-  %call129.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #26
+  %call129.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #28
   %tobool130.i.not = icmp eq ptr %call129.i, null
   br i1 %tobool130.i.not, label %if.end142.i, label %if.end132.i
 
@@ -40057,7 +40057,7 @@ if.end149.i.cont:                                 ; preds = %if.end149.i, %if.en
   br label %return
 
 if.then155.i:                                     ; preds = %if.else.i2124
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call78.i) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call78.i) #28
   br i1 %tobool5.not, label %if.then155.i.cont, label %if.then155.i.else
 
 if.then155.i.else:                                ; preds = %if.then155.i
@@ -40072,7 +40072,7 @@ if.then155.i.cont:                                ; preds = %if.then155.i, %if.t
   br label %return
 
 if.then164.i:                                     ; preds = %err_cpy.i1337, %err_esc.i1344
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call42.i) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call42.i) #28
   br i1 %tobool5.not, label %if.then164.i.cont, label %if.then164.i.else
 
 if.then164.i.else:                                ; preds = %if.then164.i
@@ -40114,7 +40114,7 @@ get_enc_table_with_flag.exit328:                  ; preds = %if.else
   %mul.i63 = and i64 %297, -32
   %add.i1055.i = add i64 %mul.i63, 71
   %and.i1058.i = and i64 %add.i1055.i, -32
-  %call33.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i1058.i) #26
+  %call33.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i1058.i) #28
   %tobool34.i.not = icmp eq ptr %call33.i, null
   br i1 %tobool34.i.not, label %fail_alloc.i66, label %if.end.i69
 
@@ -40199,7 +40199,7 @@ size_align_up.exit1041.i:                         ; preds = %if.then55.i
   %add.i1037.i = add i64 %cond98.i, 7
   %and.i1040.i = and i64 %add.i1037.i, -8
   %add100.i = add i64 %and.i1040.i, %alc_len.i.0
-  %call102.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add100.i) #26
+  %call102.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add100.i) #28
   %tobool103.i.not = icmp eq ptr %call102.i, null
   br i1 %tobool103.i.not, label %fail_alloc.i66, label %if.end113.i83
 
@@ -41032,7 +41032,7 @@ size_align_up.exit1023.i:                         ; preds = %if.then175.i
   %add.i1019.i = add i64 %cond210.i, 7
   %and.i1022.i = and i64 %add.i1019.i, -8
   %add212.i = add i64 %and.i1022.i, %alc_len.i.0
-  %call216.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add212.i) #26
+  %call216.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add212.i) #28
   %tobool217.i.not = icmp eq ptr %call216.i, null
   br i1 %tobool217.i.not, label %fail_alloc.i66, label %if.end227.i
 
@@ -43290,7 +43290,7 @@ size_align_up.exit1005.i:                         ; preds = %if.then292.i
   %add.i1001.i = add i64 %cond319.i, 7
   %and.i1004.i = and i64 %add.i1001.i, -8
   %add321.i = add i64 %and.i1004.i, %alc_len.i.0
-  %call325.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add321.i) #26
+  %call325.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add321.i) #28
   %tobool326.i.not = icmp eq ptr %call325.i, null
   br i1 %tobool326.i.not, label %fail_alloc.i66, label %if.end336.i
 
@@ -43358,7 +43358,7 @@ size_align_up.exit987.i:                          ; preds = %if.else376.i
   %add.i983.i = add i64 %cond403.i, 7
   %and.i986.i = and i64 %add.i983.i, -8
   %add405.i = add i64 %and.i986.i, %alc_len.i.0
-  %call409.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add405.i) #26
+  %call409.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add405.i) #28
   %tobool410.i.not = icmp eq ptr %call409.i, null
   br i1 %tobool410.i.not, label %fail_alloc.i66, label %if.end420.i
 
@@ -43448,7 +43448,7 @@ size_align_up.exit969.i:                          ; preds = %if.then466.i
   %add.i965.i = add i64 %cond501.i, 7
   %and.i968.i = and i64 %add.i965.i, -8
   %add503.i = add i64 %and.i968.i, %alc_len.i.0
-  %call507.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add503.i) #26
+  %call507.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add503.i) #28
   %tobool508.i.not = icmp eq ptr %call507.i, null
   br i1 %tobool508.i.not, label %fail_alloc.i66, label %if.end518.i
 
@@ -43514,7 +43514,7 @@ size_align_up.exit951.i:                          ; preds = %if.then549.i
   %add.i947.i = add i64 %cond584.i, 7
   %and.i950.i = and i64 %add.i947.i, -8
   %add586.i = add i64 %and.i950.i, %alc_len.i.0
-  %call590.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add586.i) #26
+  %call590.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add586.i) #28
   %tobool591.i.not = icmp eq ptr %call590.i, null
   br i1 %tobool591.i.not, label %fail_alloc.i66, label %if.end601.i
 
@@ -43573,7 +43573,7 @@ size_align_up.exit933.i:                          ; preds = %if.then631.i
   %add.i929.i = add nuw i64 %cond655.i, 7
   %and.i932.i = and i64 %add.i929.i, -8
   %add657.i = add i64 %and.i932.i, %alc_len.i.0
-  %call661.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add657.i) #26
+  %call661.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.0, i64 noundef %alc_len.i.0, i64 noundef %add657.i) #28
   %tobool662.i.not = icmp eq ptr %call661.i, null
   br i1 %tobool662.i.not, label %fail_alloc.i66, label %if.end672.i
 
@@ -43655,7 +43655,7 @@ size_align_up.exit915.i:                          ; preds = %ctn_end.i
   %add.i911.i = add i64 %cond725.i, 7
   %and.i914.i = and i64 %add.i911.i, -8
   %add727.i = add i64 %and.i914.i, %alc_len.i.9
-  %call731.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.9, i64 noundef %alc_len.i.9, i64 noundef %add727.i) #26
+  %call731.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.9, i64 noundef %alc_len.i.9, i64 noundef %add727.i) #28
   %tobool732.i.not = icmp eq ptr %call731.i, null
   br i1 %tobool732.i.not, label %fail_alloc.i66, label %if.end742.i
 
@@ -43731,7 +43731,7 @@ size_align_up.exit.i:                             ; preds = %if.then793.i
   %add.i.i = add nuw i64 %cond812.i, 7
   %and.i897.i = and i64 %add.i.i, -8
   %add814.i = add i64 %and.i897.i, %alc_len.i.10
-  %call818.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.10, i64 noundef %alc_len.i.10, i64 noundef %add814.i) #26
+  %call818.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i36.10, i64 noundef %alc_len.i.10, i64 noundef %add814.i) #28
   %tobool819.i.not = icmp eq ptr %call818.i, null
   br i1 %tobool819.i.not, label %fail_alloc.i66, label %if.end829.i
 
@@ -43791,19 +43791,19 @@ fail_alloc.i66.cont:                              ; preds = %fail_alloc.i66, %fa
   br i1 %tobool852.i.not, label %return, label %if.then853.i
 
 if.then853.i:                                     ; preds = %fail_alloc.i66.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.13) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.13) #28
   br label %return
 
 if.then861.i:                                     ; preds = %if.end692.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.0) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.0) #28
   br label %return
 
 if.then870.i:                                     ; preds = %if.then261.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.2) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.2) #28
   br label %return
 
 if.then879.i:                                     ; preds = %if.then158.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.1) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i36.1) #28
   br label %return
 
 get_enc_table_with_flag.exit:                     ; preds = %if.else
@@ -43815,7 +43815,7 @@ get_enc_table_with_flag.exit:                     ; preds = %if.else
   %mul.i143 = mul i64 %div.i1424516, 18
   %add.i763.i = add i64 %mul.i143, 71
   %and.i766.i = and i64 %add.i763.i, -8
-  %call26.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i766.i) #26
+  %call26.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i766.i) #28
   %tobool.i145.not = icmp eq ptr %call26.i, null
   br i1 %tobool.i145.not, label %fail_alloc.i147, label %if.end.i150
 
@@ -43886,7 +43886,7 @@ size_align_up.exit749.i:                          ; preds = %if.then46.i
   %add.i745.i = add nuw i64 %cond.i199, 7
   %and.i748.i = and i64 %add.i745.i, -8
   %add74.i = add i64 %and.i748.i, %alc_len.i112.0
-  %call76.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add74.i) #26
+  %call76.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add74.i) #28
   %tobool77.i.not = icmp eq ptr %call76.i, null
   br i1 %tobool77.i.not, label %fail_alloc.i147, label %if.end87.i
 
@@ -44698,7 +44698,7 @@ size_align_up.exit731.i:                          ; preds = %if.then137.i
   %add.i727.i = add nuw i64 %cond156.i, 7
   %and.i730.i = and i64 %add.i727.i, -8
   %add158.i = add i64 %and.i730.i, %alc_len.i112.0
-  %call162.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add158.i) #26
+  %call162.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add158.i) #28
   %tobool163.i188.not = icmp eq ptr %call162.i, null
   br i1 %tobool163.i188.not, label %fail_alloc.i147, label %if.end173.i
 
@@ -46933,7 +46933,7 @@ size_align_up.exit713.i:                          ; preds = %if.then208.i
   %add.i709.i = add nuw i64 %cond232.i, 7
   %and.i712.i = and i64 %add.i709.i, -8
   %add234.i = add i64 %and.i712.i, %alc_len.i112.0
-  %call238.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add234.i) #26
+  %call238.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add234.i) #28
   %tobool239.i.not = icmp eq ptr %call238.i, null
   br i1 %tobool239.i.not, label %fail_alloc.i147, label %if.end249.i
 
@@ -47019,7 +47019,7 @@ size_align_up.exit695.i:                          ; preds = %if.then312.i
   %add.i691.i = add nuw i64 %cond331.i, 7
   %and.i694.i = and i64 %add.i691.i, -8
   %add333.i = add i64 %and.i694.i, %alc_len.i112.0
-  %call337.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add333.i) #26
+  %call337.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add333.i) #28
   %tobool338.i.not = icmp eq ptr %call337.i, null
   br i1 %tobool338.i.not, label %fail_alloc.i147, label %if.end348.i
 
@@ -47068,7 +47068,7 @@ size_align_up.exit677.i:                          ; preds = %if.then372.i
   %add.i673.i = add nuw i64 %cond391.i, 7
   %and.i676.i = and i64 %add.i673.i, -8
   %add393.i = add i64 %and.i676.i, %alc_len.i112.0
-  %call397.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add393.i) #26
+  %call397.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add393.i) #28
   %tobool398.i.not = icmp eq ptr %call397.i, null
   br i1 %tobool398.i.not, label %fail_alloc.i147, label %if.end408.i
 
@@ -47113,7 +47113,7 @@ size_align_up.exit659.i:                          ; preds = %if.then431.i
   %add.i655.i = add nuw i64 %cond455.i, 7
   %and.i658.i = and i64 %add.i655.i, -8
   %add457.i = add i64 %and.i658.i, %alc_len.i112.0
-  %call461.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add457.i) #26
+  %call461.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.0, i64 noundef %alc_len.i112.0, i64 noundef %add457.i) #28
   %tobool462.i.not = icmp eq ptr %call461.i, null
   br i1 %tobool462.i.not, label %fail_alloc.i147, label %if.end472.i
 
@@ -47208,7 +47208,7 @@ size_align_up.exit.i177:                          ; preds = %if.then535.i
   %add.i.i180 = add nuw i64 %cond554.i, 7
   %and.i641.i = and i64 %add.i.i180, -8
   %add556.i = add i64 %and.i641.i, %alc_len.i112.7
-  %call560.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.7, i64 noundef %alc_len.i112.7, i64 noundef %add556.i) #26
+  %call560.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i106.7, i64 noundef %alc_len.i112.7, i64 noundef %add556.i) #28
   %tobool561.i.not = icmp eq ptr %call560.i, null
   br i1 %tobool561.i.not, label %fail_alloc.i147, label %if.end571.i
 
@@ -47268,19 +47268,19 @@ fail_alloc.i147.cont:                             ; preds = %fail_alloc.i147, %f
   br i1 %tobool596.i.not, label %return, label %if.then597.i
 
 if.then597.i:                                     ; preds = %fail_alloc.i147.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.10) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.10) #28
   br label %return
 
 if.then605.i:                                     ; preds = %if.end491.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.0) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.0) #28
   br label %return
 
 if.then614.i:                                     ; preds = %if.then200.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.2) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.2) #28
   br label %return
 
 if.then623.i:                                     ; preds = %if.then125.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.1) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i106.1) #28
   br label %return
 
 return:                                           ; preds = %if.end590.i.cont, %if.then597.i, %fail_alloc.i147.cont, %if.then605.i, %if.end491.i.cont, %if.then614.i, %if.then200.i.cont, %if.then623.i, %if.then125.i.cont, %if.end847.i.cont, %if.then853.i, %fail_alloc.i66.cont, %if.then861.i, %if.end692.i.cont, %if.then870.i, %if.then261.i.cont, %if.then879.i, %if.then158.i.cont, %if.end137.i.cont, %if.end142.i.cont, %if.end149.i.cont, %if.then155.i.cont, %if.then164.i.cont, %if.then.cont
@@ -47336,7 +47336,7 @@ if.end:                                           ; preds = %lor.rhs
 
 if.end21:                                         ; preds = %if.end
   %1 = load i64, ptr %dat_len, align 8
-  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.97) #26
+  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.97) #28
   %cmp.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i, label %do.body.i, label %if.end3.i
 
@@ -47378,7 +47378,7 @@ write_dat_to_file.exit:                           ; preds = %do.body.i, %do.body
   %2 = load ptr, ptr %free, align 8
   %ctx = getelementptr inbounds i8, ptr %cond, i64 24
   %3 = load ptr, ptr %ctx, align 8
-  call void %2(ptr noundef %3, ptr noundef nonnull %call) #26
+  call void %2(ptr noundef %3, ptr noundef nonnull %call) #28
   br label %return
 
 return:                                           ; preds = %if.end, %write_dat_to_file.exit, %if.then
@@ -47429,7 +47429,7 @@ write_dat_to_fp.exit:                             ; preds = %if.end20, %if.then.
   %1 = load ptr, ptr %free, align 8
   %ctx = getelementptr inbounds i8, ptr %cond, i64 24
   %2 = load ptr, ptr %ctx, align 8
-  call void %1(ptr noundef %2, ptr noundef nonnull %call) #26
+  call void %1(ptr noundef %2, ptr noundef nonnull %call) #28
   br label %return
 
 return:                                           ; preds = %if.end, %write_dat_to_fp.exit, %if.then
@@ -47507,7 +47507,7 @@ write_dat_to_fp.exit.i:                           ; preds = %if.then.i.i, %if.en
   %2 = load ptr, ptr %free.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %3 = load ptr, ptr %ctx.i, align 8
-  call void %2(ptr noundef %3, ptr noundef nonnull %call.i) #26
+  call void %2(ptr noundef %3, ptr noundef nonnull %call.i) #28
   br label %yyjson_val_write_fp.exit
 
 yyjson_val_write_fp.exit:                         ; preds = %if.then.i, %if.end.i, %write_dat_to_fp.exit.i
@@ -47606,7 +47606,7 @@ sw.bb.i.i:                                        ; preds = %if.then16
   %uni.i176.i.i = getelementptr inbounds i8, ptr %val, i64 8
   %2 = load ptr, ptr %uni.i176.i.i, align 8
   %add.i.i = add nuw nsw i64 %shr.i173.i.i, 2
-  %call29.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add.i.i) #26
+  %call29.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add.i.i) #28
   %tobool.i.i.not = icmp eq ptr %call29.i.i, null
   br i1 %tobool.i.i.not, label %if.end142.i.i, label %if.end.i.i
 
@@ -47621,7 +47621,7 @@ sw.bb32.i.i:                                      ; preds = %if.then16
   %3 = load ptr, ptr %uni.i.i.i, align 8
   %mul.i.i = mul nuw nsw i64 %shr.i.i.i, 6
   %add41.i.i = add nuw nsw i64 %mul.i.i, 4
-  %call42.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add41.i.i) #26
+  %call42.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %add41.i.i) #28
   %tobool43.i.i.not = icmp eq ptr %call42.i.i, null
   br i1 %tobool43.i.i.not, label %if.end142.i.i, label %if.end45.i.i
 
@@ -48395,7 +48395,7 @@ if.end646.i.i:                                    ; preds = %err_esc.i.i
   br label %copy_utf8.i.i.backedge
 
 sw.bb74.i.i:                                      ; preds = %if.then16
-  %call78.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 34) #26
+  %call78.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 34) #28
   %tobool79.i.i.not = icmp eq ptr %call78.i.i, null
   br i1 %tobool79.i.i.not, label %if.end142.i.i, label %if.end81.i.i
 
@@ -50536,7 +50536,7 @@ write_u64_len_5_8.exit.i:                         ; preds = %if.else.i2134.i, %i
   br label %sw.epilog.i.i
 
 sw.bb95.i.i:                                      ; preds = %if.then16
-  %call99.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #26
+  %call99.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #28
   %tobool100.i.i.not = icmp eq ptr %call99.i.i, null
   br i1 %tobool100.i.i.not, label %if.end142.i.i, label %if.end102.i.i
 
@@ -50552,7 +50552,7 @@ if.end102.i.i:                                    ; preds = %sw.bb95.i.i
   br label %sw.epilog.i.i
 
 sw.bb106.i.i:                                     ; preds = %if.then16
-  %call110.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #26
+  %call110.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 8) #28
   %tobool111.i.i.not = icmp eq ptr %call110.i.i, null
   br i1 %tobool111.i.i.not, label %if.end142.i.i, label %if.end113.i.i
 
@@ -50562,7 +50562,7 @@ if.end113.i.i:                                    ; preds = %sw.bb106.i.i
   br label %sw.epilog.i.i
 
 sw.bb116.i.i:                                     ; preds = %if.then16
-  %call120.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #26
+  %call120.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #28
   %tobool121.i.i.not = icmp eq ptr %call120.i.i, null
   br i1 %tobool121.i.i.not, label %if.end142.i.i, label %if.end123.i.i
 
@@ -50572,7 +50572,7 @@ if.end123.i.i:                                    ; preds = %sw.bb116.i.i
   br label %sw.epilog.i.i
 
 sw.bb125.i.i:                                     ; preds = %if.then16
-  %call129.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #26
+  %call129.i.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef 4) #28
   %tobool130.i.i.not = icmp eq ptr %call129.i.i, null
   br i1 %tobool130.i.i.not, label %if.end142.i.i, label %if.end132.i.i
 
@@ -50639,7 +50639,7 @@ if.end149.i.i.cont:                               ; preds = %if.end149.i.i, %if.
   br label %return
 
 if.then155.i.i:                                   ; preds = %if.else.i179.i
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call78.i.i) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call78.i.i) #28
   br i1 %tobool5.not, label %if.then155.i.i.cont, label %if.then155.i.i.else
 
 if.then155.i.i.else:                              ; preds = %if.then155.i.i
@@ -50654,7 +50654,7 @@ if.then155.i.i.cont:                              ; preds = %if.then155.i.i, %if
   br label %return
 
 if.then164.i.i:                                   ; preds = %err_cpy.i.i, %err_esc.i.i
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call42.i.i) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %call42.i.i) #28
   br i1 %tobool5.not, label %if.then164.i.i.cont, label %if.then164.i.i.else
 
 if.then164.i.i.else:                              ; preds = %if.then164.i.i
@@ -50693,7 +50693,7 @@ get_enc_table_with_flag.exit.i311:                ; preds = %if.else
   %mul.i = shl i64 %estimated_val_num, 5
   %add.i1073.i = add i64 %mul.i, 79
   %and.i1076.i = and i64 %add.i1073.i, -32
-  %call33.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i1076.i) #26
+  %call33.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i1076.i) #28
   %tobool34.i.not = icmp eq ptr %call33.i, null
   br i1 %tobool34.i.not, label %fail_alloc.i, label %if.end.i
 
@@ -50791,7 +50791,7 @@ size_align_up.exit1059.i:                         ; preds = %if.then59.i
   %add.i1055.i = add i64 %cond104.i, 15
   %and.i1058.i = and i64 %add.i1055.i, -16
   %add106.i = add i64 %and.i1058.i, %alc_len.i.0
-  %call108.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add106.i) #26
+  %call108.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add106.i) #28
   %tobool109.i.not = icmp eq ptr %call108.i, null
   br i1 %tobool109.i.not, label %fail_alloc.i, label %if.end119.i
 
@@ -51624,7 +51624,7 @@ size_align_up.exit1041.i:                         ; preds = %if.then181.i
   %add.i1037.i = add i64 %cond216.i, 15
   %and.i1040.i = and i64 %add.i1037.i, -16
   %add218.i = add i64 %and.i1040.i, %alc_len.i.0
-  %call222.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add218.i) #26
+  %call222.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add218.i) #28
   %tobool223.i.not = icmp eq ptr %call222.i, null
   br i1 %tobool223.i.not, label %fail_alloc.i, label %if.end233.i
 
@@ -53882,7 +53882,7 @@ size_align_up.exit1023.i:                         ; preds = %if.then298.i
   %add.i1019.i = add i64 %cond325.i, 15
   %and.i1022.i = and i64 %add.i1019.i, -16
   %add327.i = add i64 %and.i1022.i, %alc_len.i.0
-  %call331.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add327.i) #26
+  %call331.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add327.i) #28
   %tobool332.i.not = icmp eq ptr %call331.i, null
   br i1 %tobool332.i.not, label %fail_alloc.i, label %if.end342.i
 
@@ -53950,7 +53950,7 @@ size_align_up.exit1005.i:                         ; preds = %if.else382.i
   %add.i1001.i = add i64 %cond409.i, 15
   %and.i1004.i = and i64 %add.i1001.i, -16
   %add411.i = add i64 %and.i1004.i, %alc_len.i.0
-  %call415.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add411.i) #26
+  %call415.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add411.i) #28
   %tobool416.i.not = icmp eq ptr %call415.i, null
   br i1 %tobool416.i.not, label %fail_alloc.i, label %if.end426.i
 
@@ -54055,7 +54055,7 @@ size_align_up.exit987.i:                          ; preds = %if.then481.i
   %add.i983.i = add i64 %cond516.i, 15
   %and.i986.i = and i64 %add.i983.i, -16
   %add518.i = add i64 %and.i986.i, %alc_len.i.0
-  %call522.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add518.i) #26
+  %call522.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add518.i) #28
   %tobool523.i.not = icmp eq ptr %call522.i, null
   br i1 %tobool523.i.not, label %fail_alloc.i, label %if.end533.i
 
@@ -54121,7 +54121,7 @@ size_align_up.exit969.i:                          ; preds = %if.then564.i
   %add.i965.i = add i64 %cond599.i, 15
   %and.i968.i = and i64 %add.i965.i, -16
   %add601.i = add i64 %and.i968.i, %alc_len.i.0
-  %call605.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add601.i) #26
+  %call605.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add601.i) #28
   %tobool606.i.not = icmp eq ptr %call605.i, null
   br i1 %tobool606.i.not, label %fail_alloc.i, label %if.end616.i
 
@@ -54180,7 +54180,7 @@ size_align_up.exit951.i:                          ; preds = %if.then646.i
   %add.i947.i = add nuw i64 %cond670.i, 15
   %and.i950.i = and i64 %add.i947.i, -16
   %add672.i = add i64 %and.i950.i, %alc_len.i.0
-  %call676.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add672.i) #26
+  %call676.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.0, i64 noundef %alc_len.i.0, i64 noundef %add672.i) #28
   %tobool677.i.not = icmp eq ptr %call676.i, null
   br i1 %tobool677.i.not, label %fail_alloc.i, label %if.end687.i
 
@@ -54267,7 +54267,7 @@ size_align_up.exit933.i:                          ; preds = %ctn_end.i
   %add.i929.i = add i64 %cond740.i, 15
   %and.i932.i = and i64 %add.i929.i, -16
   %add742.i = add i64 %and.i932.i, %alc_len.i.9
-  %call746.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.9, i64 noundef %alc_len.i.9, i64 noundef %add742.i) #26
+  %call746.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.9, i64 noundef %alc_len.i.9, i64 noundef %add742.i) #28
   %tobool747.i.not = icmp eq ptr %call746.i, null
   br i1 %tobool747.i.not, label %fail_alloc.i, label %if.end757.i
 
@@ -54347,7 +54347,7 @@ size_align_up.exit.i:                             ; preds = %if.then809.i
   %add.i.i327 = add nuw i64 %cond828.i, 15
   %and.i915.i = and i64 %add.i.i327, -16
   %add830.i = add i64 %and.i915.i, %alc_len.i.10
-  %call834.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.10, i64 noundef %alc_len.i.10, i64 noundef %add830.i) #26
+  %call834.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i.10, i64 noundef %alc_len.i.10, i64 noundef %add830.i) #28
   %tobool835.i.not = icmp eq ptr %call834.i, null
   br i1 %tobool835.i.not, label %fail_alloc.i, label %if.end845.i
 
@@ -54410,19 +54410,19 @@ fail_alloc.i.cont:                                ; preds = %fail_alloc.i, %fail
   br i1 %tobool870.i.not, label %return, label %if.then871.i
 
 if.then871.i:                                     ; preds = %fail_alloc.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.13) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.13) #28
   br label %return
 
 if.then879.i:                                     ; preds = %if.end707.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.0) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.0) #28
   br label %return
 
 if.then888.i:                                     ; preds = %if.then267.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.2) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.2) #28
   br label %return
 
 if.then897.i:                                     ; preds = %if.then164.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.1) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i.1) #28
   br label %return
 
 get_enc_table_with_flag.exit.i1734:               ; preds = %if.else
@@ -54431,7 +54431,7 @@ get_enc_table_with_flag.exit.i1734:               ; preds = %if.else
   %mul.i1748 = mul i64 %estimated_val_num, 18
   %add.i781.i = add i64 %mul.i1748, 79
   %and.i784.i = and i64 %add.i781.i, -16
-  %call26.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i784.i) #26
+  %call26.i = tail call ptr %alc.sroa.0.0(ptr noundef %alc.sroa.7.0, i64 noundef %and.i784.i) #28
   %tobool.i.not = icmp eq ptr %call26.i, null
   br i1 %tobool.i.not, label %fail_alloc.i1752, label %if.end.i1755
 
@@ -54515,7 +54515,7 @@ size_align_up.exit767.i:                          ; preds = %if.then49.i
   %add.i763.i = add nuw i64 %cond78.i, 15
   %and.i766.i = and i64 %add.i763.i, -16
   %add80.i = add i64 %and.i766.i, %alc_len.i1716.0
-  %call82.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add80.i) #26
+  %call82.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add80.i) #28
   %tobool83.i.not = icmp eq ptr %call82.i, null
   br i1 %tobool83.i.not, label %fail_alloc.i1752, label %if.end93.i
 
@@ -55327,7 +55327,7 @@ size_align_up.exit749.i:                          ; preds = %if.then143.i
   %add.i745.i = add nuw i64 %cond162.i, 15
   %and.i748.i = and i64 %add.i745.i, -16
   %add164.i = add i64 %and.i748.i, %alc_len.i1716.0
-  %call168.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add164.i) #26
+  %call168.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add164.i) #28
   %tobool169.i.not = icmp eq ptr %call168.i, null
   br i1 %tobool169.i.not, label %fail_alloc.i1752, label %if.end179.i
 
@@ -57562,7 +57562,7 @@ size_align_up.exit731.i:                          ; preds = %if.then214.i
   %add.i727.i = add nuw i64 %cond238.i, 15
   %and.i730.i = and i64 %add.i727.i, -16
   %add240.i = add i64 %and.i730.i, %alc_len.i1716.0
-  %call244.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add240.i) #26
+  %call244.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add240.i) #28
   %tobool245.i.not = icmp eq ptr %call244.i, null
   br i1 %tobool245.i.not, label %fail_alloc.i1752, label %if.end255.i
 
@@ -57656,7 +57656,7 @@ size_align_up.exit713.i:                          ; preds = %if.then327.i
   %add.i709.i = add nuw i64 %cond346.i, 15
   %and.i712.i = and i64 %add.i709.i, -16
   %add348.i = add i64 %and.i712.i, %alc_len.i1716.0
-  %call352.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add348.i) #26
+  %call352.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add348.i) #28
   %tobool353.i.not = icmp eq ptr %call352.i, null
   br i1 %tobool353.i.not, label %fail_alloc.i1752, label %if.end363.i
 
@@ -57705,7 +57705,7 @@ size_align_up.exit695.i:                          ; preds = %if.then387.i
   %add.i691.i = add nuw i64 %cond406.i, 15
   %and.i694.i = and i64 %add.i691.i, -16
   %add408.i = add i64 %and.i694.i, %alc_len.i1716.0
-  %call412.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add408.i) #26
+  %call412.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add408.i) #28
   %tobool413.i.not = icmp eq ptr %call412.i, null
   br i1 %tobool413.i.not, label %fail_alloc.i1752, label %if.end423.i
 
@@ -57750,7 +57750,7 @@ size_align_up.exit677.i:                          ; preds = %if.then446.i
   %add.i673.i = add nuw i64 %cond470.i, 15
   %and.i676.i = and i64 %add.i673.i, -16
   %add472.i = add i64 %and.i676.i, %alc_len.i1716.0
-  %call476.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add472.i) #26
+  %call476.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.0, i64 noundef %alc_len.i1716.0, i64 noundef %add472.i) #28
   %tobool477.i.not = icmp eq ptr %call476.i, null
   br i1 %tobool477.i.not, label %fail_alloc.i1752, label %if.end487.i
 
@@ -57847,7 +57847,7 @@ size_align_up.exit.i1788:                         ; preds = %if.then551.i
   %add.i.i1791 = add nuw i64 %cond570.i, 15
   %and.i659.i = and i64 %add.i.i1791, -16
   %add572.i = add i64 %and.i659.i, %alc_len.i1716.7
-  %call576.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.7, i64 noundef %alc_len.i1716.7, i64 noundef %add572.i) #26
+  %call576.i = tail call ptr %alc.sroa.5.0(ptr noundef %alc.sroa.7.0, ptr noundef %hdr.i1710.7, i64 noundef %alc_len.i1716.7, i64 noundef %add572.i) #28
   %tobool577.i.not = icmp eq ptr %call576.i, null
   br i1 %tobool577.i.not, label %fail_alloc.i1752, label %if.end587.i
 
@@ -57910,19 +57910,19 @@ fail_alloc.i1752.cont:                            ; preds = %fail_alloc.i1752, %
   br i1 %tobool614.i.not, label %return, label %if.then615.i1753
 
 if.then615.i1753:                                 ; preds = %fail_alloc.i1752.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.10) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.10) #28
   br label %return
 
 if.then623.i:                                     ; preds = %if.end506.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.0) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.0) #28
   br label %return
 
 if.then632.i:                                     ; preds = %if.then206.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.2) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.2) #28
   br label %return
 
 if.then641.i:                                     ; preds = %if.then131.i.cont
-  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.1) #26
+  tail call void %alc.sroa.6.0(ptr noundef %alc.sroa.7.0, ptr noundef nonnull %hdr.i1710.1) #28
   br label %return
 
 return:                                           ; preds = %if.end606.i.cont, %if.then615.i1753, %fail_alloc.i1752.cont, %if.then623.i, %if.end506.i.cont, %if.then632.i, %if.then206.i.cont, %if.then641.i, %if.then131.i.cont, %if.end863.i.cont, %if.then871.i, %fail_alloc.i.cont, %if.then879.i, %if.end707.i.cont, %if.then888.i, %if.then267.i.cont, %if.then897.i, %if.then164.i.cont, %if.end137.i.i.cont, %if.end142.i.i.cont, %if.end149.i.i.cont, %if.then155.i.i.cont, %if.then164.i.i.cont, %if.then.cont
@@ -58014,7 +58014,7 @@ if.end:                                           ; preds = %lor.rhs
 
 if.end21:                                         ; preds = %if.end
   %1 = load i64, ptr %dat_len, align 8
-  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.97) #26
+  %call.i.i.i = call noalias ptr @fopen(ptr noundef nonnull readonly %path, ptr noundef nonnull @.str.97) #28
   %cmp.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i, label %do.body.i, label %if.end3.i
 
@@ -58056,7 +58056,7 @@ write_dat_to_file.exit:                           ; preds = %do.body.i, %do.body
   %2 = load ptr, ptr %free, align 8
   %ctx = getelementptr inbounds i8, ptr %cond, i64 24
   %3 = load ptr, ptr %ctx, align 8
-  call void %2(ptr noundef %3, ptr noundef nonnull %call.i) #26
+  call void %2(ptr noundef %3, ptr noundef nonnull %call.i) #28
   br label %return
 
 return:                                           ; preds = %if.end, %write_dat_to_file.exit, %if.then
@@ -58107,7 +58107,7 @@ write_dat_to_fp.exit:                             ; preds = %if.end20, %if.then.
   %1 = load ptr, ptr %free, align 8
   %ctx = getelementptr inbounds i8, ptr %cond, i64 24
   %2 = load ptr, ptr %ctx, align 8
-  call void %1(ptr noundef %2, ptr noundef nonnull %call.i) #26
+  call void %1(ptr noundef %2, ptr noundef nonnull %call.i) #28
   br label %return
 
 return:                                           ; preds = %if.end, %write_dat_to_fp.exit, %if.then
@@ -58185,7 +58185,7 @@ write_dat_to_fp.exit.i:                           ; preds = %if.then.i.i, %if.en
   %2 = load ptr, ptr %free.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %3 = load ptr, ptr %ctx.i, align 8
-  call void %2(ptr noundef %3, ptr noundef nonnull %call.i.i) #26
+  call void %2(ptr noundef %3, ptr noundef nonnull %call.i.i) #28
   br label %yyjson_mut_val_write_fp.exit
 
 yyjson_mut_val_write_fp.exit:                     ; preds = %if.then.i, %if.end.i, %write_dat_to_fp.exit.i
@@ -58222,8 +58222,8 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone %hdr, ptr noundef %cur, ptr noundef %end, i32 noundef %code, i32 noundef %flg) unnamed_addr #11 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define internal fastcc zeroext i1 @is_truncated_end(ptr noundef readnone %hdr, ptr noundef %cur, ptr noundef %end, i32 noundef %code, i32 noundef %flg) unnamed_addr #20 {
 entry:
   %end186 = ptrtoint ptr %end to i64
   %cmp.not = icmp ult ptr %cur, %end
@@ -58843,8 +58843,8 @@ do.end111:                                        ; preds = %do.body103, %do.bod
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @bigint_set_buf(ptr nocapture noundef %big, i64 noundef %sig, ptr nocapture noundef %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone %dot_pos) unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @bigint_set_buf(ptr nocapture noundef %big, i64 noundef %sig, ptr nocapture noundef %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone %dot_pos) unnamed_addr #21 {
 entry:
   %tobool.not = icmp eq ptr %sig_cut, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -59138,10 +59138,10 @@ if.end67:                                         ; preds = %if.end66, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #20
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
@@ -59150,22 +59150,22 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
+declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #22
+declare i32 @llvm.abs.i32(i32, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -59187,13 +59187,15 @@ attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { nounwind allocsize(1) }
-attributes #26 = { nounwind }
+attributes #20 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

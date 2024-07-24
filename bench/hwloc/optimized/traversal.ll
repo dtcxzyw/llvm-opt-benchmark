@@ -548,7 +548,7 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 184
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %24, ptr noundef %26) #17
+  %27 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %24, ptr noundef %26) #18
   %.not38.us = icmp eq i32 %27, 0
   br i1 %.not38.us, label %.preheader.us, label %19
 
@@ -560,13 +560,13 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   %31 = getelementptr inbounds i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %45, align 8
-  %34 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %32, ptr noundef %33) #17
+  %34 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %32, ptr noundef %33) #18
   %.not39.us = icmp eq i32 %34, 0
   br i1 %.not39.us, label %43, label %35
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %44, align 8
-  %37 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %32, ptr noundef %36) #17
+  %37 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %32, ptr noundef %36) #18
   %.not40.us = icmp eq i32 %37, 0
   br i1 %.not40.us, label %38, label %43
 
@@ -623,7 +623,7 @@ define i32 @hwloc_get_largest_objs_inside_cpuset(ptr nocapture noundef readonly 
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 184
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef %12) #17
+  %13 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %1, ptr noundef %12) #18
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %18, label %14
 
@@ -649,7 +649,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 184
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %9, ptr noundef %1) #17
+  %10 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %9, ptr noundef %1) #18
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.preheader, label %14
 
@@ -683,24 +683,24 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %1, ptr noundef %26) #17
+  %27 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %1, ptr noundef %26) #18
   %.not30 = icmp eq i32 %27, 0
   br i1 %.not30, label %42, label %28
 
 28:                                               ; preds = %20
-  %29 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %1) #18
+  %29 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %1) #19
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @hwloc_bitmap_and(ptr noundef %29, ptr noundef %29, ptr noundef %34) #18
+  %35 = tail call i32 @hwloc_bitmap_and(ptr noundef %29, ptr noundef %29, ptr noundef %34) #19
   %36 = load ptr, ptr %13, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = tail call fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %38, ptr noundef %29, ptr noundef %2, ptr noundef nonnull %3)
   %40 = add nsw i32 %39, %.02833
-  tail call void @hwloc_bitmap_free(ptr noundef %29) #18
+  tail call void @hwloc_bitmap_free(ptr noundef %29) #19
   %41 = load i32, ptr %3, align 4
   %.not31 = icmp eq i32 %41, 0
   br i1 %.not31, label %.loopexit, label %._crit_edge
@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr nocapture nou
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   store i64 0, ptr %7, align 8
-  %9 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.21, i64 noundef 6) #17
+  %9 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.21, i64 noundef 6) #18
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %20
 
@@ -762,7 +762,7 @@ define range(i32 -1, 1) i32 @hwloc_type_sscanf(ptr noundef %0, ptr nocapture nou
   %15 = load i64, ptr %6, align 8
   %16 = select i1 %.not.i, i64 0, i64 %15
   %17 = or i64 %13, %16
-  %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06.i, i32 noundef 44) #17
+  %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06.i, i32 noundef 44) #18
   %.not8.i = icmp eq ptr %18, null
   %19 = getelementptr inbounds i8, ptr %18, i64 1
   br i1 %.not8.i, label %hwloc__osdev_types_sscanf.exit, label %12
@@ -773,7 +773,7 @@ hwloc__osdev_types_sscanf.exit:                   ; preds = %12
   br label %hwloc__type_match.exit
 
 20:                                               ; preds = %4
-  %21 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.22, i64 noundef 3) #17
+  %21 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.22, i64 noundef 3) #18
   %.not79 = icmp eq i32 %21, 0
   br i1 %.not79, label %22, label %32
 
@@ -790,7 +790,7 @@ hwloc__osdev_types_sscanf.exit:                   ; preds = %12
   %27 = load i64, ptr %5, align 8
   %28 = select i1 %.not.i103, i64 0, i64 %27
   %29 = or i64 %25, %28
-  %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06.i102, i32 noundef 44) #17
+  %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06.i102, i32 noundef 44) #18
   %.not8.i104 = icmp eq ptr %30, null
   %31 = getelementptr inbounds i8, ptr %30, i64 1
   br i1 %.not8.i104, label %hwloc__osdev_types_sscanf.exit107, label %24
@@ -1017,7 +1017,7 @@ hwloc__type_match.exit148.thread:                 ; preds = %._crit_edge.i.threa
   br i1 %or.cond100, label %117, label %137
 
 117:                                              ; preds = %113
-  %118 = call i64 @strtol(ptr noundef nonnull %114, ptr noundef nonnull %8, i32 noundef 10) #18
+  %118 = call i64 @strtol(ptr noundef nonnull %114, ptr noundef nonnull %8, i32 noundef 10) #19
   %119 = trunc i64 %118 to i32
   %120 = load ptr, ptr %8, align 8
   %121 = load i8, ptr %120, align 1
@@ -1079,7 +1079,7 @@ hwloc__type_match.exit148.thread:                 ; preds = %._crit_edge.i.threa
   br i1 %or.cond101, label %142, label %hwloc__type_match.exit
 
 142:                                              ; preds = %139
-  %143 = call i64 @strtol(ptr noundef nonnull %138, ptr noundef nonnull %8, i32 noundef 10) #18
+  %143 = call i64 @strtol(ptr noundef nonnull %138, ptr noundef nonnull %8, i32 noundef 10) #19
   %144 = trunc i64 %143 to i32
   br label %hwloc__type_match.exit
 
@@ -1145,8 +1145,8 @@ hwloc__type_match.exit:                           ; preds = %78, %61, %42, %._cr
   ret i32 %.071
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #8 {
   %4 = load i8, ptr %0, align 1
   %.not39 = icmp eq i8 %4, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -1207,8 +1207,8 @@ define internal fastcc ptr @hwloc__type_match(ptr noundef readonly %0, ptr nocap
   ret ptr %.023
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc range(i32 0, 2) i32 @hwloc__osdev_type_sscanf(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 {
   %3 = load i8, ptr %0, align 1
   %.not39.i = icmp eq i8 %3, 0
   br i1 %.not39.i, label %hwloc__type_match.exit85.thread, label %.lr.ph.i
@@ -1423,7 +1423,7 @@ hwloc__type_match.exit85.thread:                  ; preds = %2, %._crit_edge.i81
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @hwloc_get_type_depth_with_attr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
@@ -1606,7 +1606,7 @@ switch.lookup:                                    ; preds = %4, %4, %4, %4, %4, 
   %8 = sext i32 %7 to i64
   %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.hwloc_obj_type_snprintf, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %switch.load) #18
+  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %switch.load) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 10:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
@@ -1629,7 +1629,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   %.0.i41 = phi ptr [ %switch.load56, %switch.lookup54 ], [ @.str.84, %10 ]
   %.not39 = icmp eq i32 %6, 0
   %19 = select i1 %.not39, ptr @.str.55, ptr @.str.54
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.53, i32 noundef %14, ptr noundef nonnull %.0.i41, ptr noundef nonnull %19) #18
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.53, i32 noundef %14, ptr noundef nonnull %.0.i41, ptr noundef nonnull %19) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 21:                                               ; preds = %4
@@ -1640,11 +1640,11 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   br i1 %.not38, label %27, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.2, i32 noundef %24) #18
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.2, i32 noundef %24) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 27:                                               ; preds = %21
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.2) #18
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.2) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 29:                                               ; preds = %4
@@ -1654,11 +1654,11 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 1
   %35 = select i1 %34, ptr @.str.57, ptr @.str.58
-  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %35) #18
+  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %35) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 37:                                               ; preds = %4
-  %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.59) #18
+  %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.59) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 39:                                               ; preds = %4
@@ -1687,19 +1687,19 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   %.in.v.i = select i1 %.not14.i, i64 8, i64 16
   %.in.i = getelementptr inbounds i8, ptr %45, i64 %.in.v.i
   %49 = load ptr, ptr %.in.i, align 8, !noalias !13
-  %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef %49) #18
+  %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef %49) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 51:                                               ; preds = %44
   %.not.i = icmp eq i32 %6, 0
   %52 = select i1 %.not.i, ptr @.str.85, ptr @.str.18
-  %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %52) #18
+  %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %52) #19
   br label %hwloc__osdev_type_snprintf_short.exit
 
 54:                                               ; preds = %39
   %.not.i44 = icmp eq i32 %6, 0
   %55 = select i1 %.not.i44, ptr @.str.85, ptr @.str.18
-  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %55) #18
+  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %55) #19
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %hwloc__osdev_type_snprintf_short.exit, label %58
 
@@ -1742,7 +1742,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   %71 = zext nneg i8 %.16692.i to i32
   %.in.i47 = getelementptr inbounds i8, ptr %67, i64 %.in.v.i45
   %72 = load ptr, ptr %.in.i47, align 8, !noalias !16
-  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.16393.i, i64 noundef %.16094.i, ptr noundef nonnull @.str.86, i32 noundef %71, ptr noundef %72) #18
+  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.16393.i, i64 noundef %.16094.i, ptr noundef nonnull @.str.86, i32 noundef %71, ptr noundef %72) #19
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %hwloc__osdev_type_snprintf_short.exit, label %75
 
@@ -1782,7 +1782,7 @@ hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup5
   br i1 %89, label %90, label %hwloc__osdev_type_snprintf_short.exit
 
 90:                                               ; preds = %._crit_edge.i
-  %91 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.264.i, i64 noundef %.261.i, ptr noundef nonnull @.str.87) #18
+  %91 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.264.i, i64 noundef %.261.i, ptr noundef nonnull @.str.87) #19
   %92 = add nuw nsw i32 %91, %.258.i
   %.inv.i = icmp sgt i32 %91, -1
   %spec.select.i = select i1 %.inv.i, i32 %92, i32 -1
@@ -1802,7 +1802,7 @@ hwloc__osdev_type_snprintf_short.exit:            ; preds = %70, %90, %._crit_ed
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #6 {
@@ -1864,7 +1864,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %.not160, label %38, label %36
 
 36:                                               ; preds = %32
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.55, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull %6) #18
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.55, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull %6) #19
   br label %50
 
 38:                                               ; preds = %32, %31
@@ -1874,7 +1874,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %.not161, label %.thread171, label %41
 
 41:                                               ; preds = %38
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef nonnull %6) #18
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef nonnull %6) #19
   br label %50
 
 43:                                               ; preds = %28
@@ -1888,7 +1888,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %.not159, label %.loopexit, label %48
 
 48:                                               ; preds = %44
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.55, ptr noundef nonnull %7) #18
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.55, ptr noundef nonnull %7) #19
   br label %50
 
 50:                                               ; preds = %48, %36, %41
@@ -1947,7 +1947,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   ]
 
 71:                                               ; preds = %67
-  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 32, ptr noundef nonnull @.str.63, ptr noundef %3) #18
+  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 32, ptr noundef nonnull @.str.63, ptr noundef %3) #19
   br label %76
 
 73:                                               ; preds = %67
@@ -1955,18 +1955,18 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br label %76
 
 74:                                               ; preds = %67
-  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 32, ptr noundef nonnull @.str.64, ptr noundef %3, i32 noundef %70) #18
+  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 32, ptr noundef nonnull @.str.64, ptr noundef %3, i32 noundef %70) #19
   br label %76
 
 76:                                               ; preds = %73, %74, %71
   %77 = load ptr, ptr %64, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 12
   %79 = load i32, ptr %78, align 4
-  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef %62, ptr noundef nonnull @.str.65, ptr noundef %54, ptr noundef nonnull %8, ptr noundef %3, i32 noundef %79, ptr noundef nonnull %9) #18
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef %62, ptr noundef nonnull @.str.65, ptr noundef %54, ptr noundef nonnull %8, ptr noundef %3, i32 noundef %79, ptr noundef nonnull %9) #19
   br label %175
 
 81:                                               ; preds = %63
-  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef %62, ptr noundef nonnull @.str.62, ptr noundef %54, ptr noundef nonnull %8) #18
+  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef %62, ptr noundef nonnull @.str.62, ptr noundef %54, ptr noundef nonnull %8) #19
   br label %175
 
 83:                                               ; preds = %.thread171
@@ -1989,7 +1989,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 
 94:                                               ; preds = %90
   %95 = fpext float %92 to double
-  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef %3, double noundef %95) #18
+  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef %3, double noundef %95) #19
   %.pre192 = load ptr, ptr %85, align 8
   br label %97
 
@@ -2014,8 +2014,8 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %115 = getelementptr inbounds i8, ptr %98, i64 8
   %116 = load i16, ptr %115, align 8
   %117 = zext i16 %116 to i32
-  %118 = call ptr @hwloc_pci_class_string(i16 noundef zeroext %116) #18
-  %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.67, i32 noundef %99, i32 noundef %102, i32 noundef %105, i32 noundef %108, ptr noundef %3, i32 noundef %111, i32 noundef %114, ptr noundef %3, i32 noundef %117, ptr noundef %118, ptr noundef nonnull %12) #18
+  %118 = call ptr @hwloc_pci_class_string(i16 noundef zeroext %116) #19
+  %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.67, i32 noundef %99, i32 noundef %102, i32 noundef %105, i32 noundef %108, ptr noundef %3, i32 noundef %111, i32 noundef %114, ptr noundef %3, i32 noundef %117, ptr noundef %118, ptr noundef nonnull %12) #19
   %.pre193 = load ptr, ptr %85, align 8
   br label %121
 
@@ -2039,7 +2039,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %132 = getelementptr inbounds i8, ptr %122, i64 33
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
-  %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 64, ptr noundef nonnull @.str.68, i32 noundef %128, i32 noundef %131, i32 noundef %134) #18
+  %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 64, ptr noundef nonnull @.str.68, i32 noundef %128, i32 noundef %131, i32 noundef %134) #19
   br label %136
 
 136:                                              ; preds = %121, %126
@@ -2048,11 +2048,11 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %.not164, label %140, label %138
 
 138:                                              ; preds = %136
-  %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.69, ptr noundef nonnull %10, ptr noundef %3, ptr noundef nonnull %11) #18
+  %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.69, ptr noundef nonnull %10, ptr noundef %3, ptr noundef nonnull %11) #19
   br label %175
 
 140:                                              ; preds = %136
-  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %11) #18
+  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %11) #19
   br label %175
 
 142:                                              ; preds = %.thread171
@@ -2069,7 +2069,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 
 149:                                              ; preds = %143
   %150 = fpext float %147 to double
-  %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef %3, double noundef %150) #18
+  %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef %3, double noundef %150) #19
   %.pre191 = load ptr, ptr %144, align 8
   br label %152
 
@@ -2094,8 +2094,8 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %170 = getelementptr inbounds i8, ptr %153, i64 8
   %171 = load i16, ptr %170, align 8
   %172 = zext i16 %171 to i32
-  %173 = call ptr @hwloc_pci_class_string(i16 noundef zeroext %171) #18
-  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.67, i32 noundef %154, i32 noundef %157, i32 noundef %160, i32 noundef %163, ptr noundef %3, i32 noundef %166, i32 noundef %169, ptr noundef %3, i32 noundef %172, ptr noundef %173, ptr noundef nonnull %13) #18
+  %173 = call ptr @hwloc_pci_class_string(i16 noundef zeroext %171) #19
+  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.67, i32 noundef %154, i32 noundef %157, i32 noundef %160, i32 noundef %163, ptr noundef %3, i32 noundef %166, i32 noundef %169, ptr noundef %3, i32 noundef %172, ptr noundef %173, ptr noundef nonnull %13) #19
   br label %175
 
 175:                                              ; preds = %152, %140, %138, %76, %81
@@ -2140,11 +2140,11 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %191 = getelementptr inbounds %struct.hwloc_info_s, ptr %190, i64 %indvars.iv
   %192 = getelementptr inbounds i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
-  %194 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %193, i32 noundef 32) #17
+  %194 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %193, i32 noundef 32) #18
   %.not166 = icmp eq ptr %194, null
   %.str.55..str.70 = select i1 %.not166, ptr @.str.55, ptr @.str.70
   %195 = load ptr, ptr %191, align 8
-  %196 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0145183, i64 noundef %.0144184, ptr noundef nonnull @.str.71, ptr noundef %.2148182, ptr noundef %195, ptr noundef nonnull %.str.55..str.70, ptr noundef %193, ptr noundef nonnull %.str.55..str.70) #18
+  %196 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0145183, i64 noundef %.0144184, ptr noundef nonnull @.str.71, ptr noundef %.2148182, ptr noundef %195, ptr noundef nonnull %.str.55..str.70, ptr noundef %193, ptr noundef nonnull %.str.55..str.70) #19
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %.loopexit, label %198
 
@@ -2180,7 +2180,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.88, i64 noundef %1) #18
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.88, i64 noundef %1) #19
   br label %68
 
 7:                                                ; preds = %3
@@ -2192,7 +2192,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %10 = lshr i64 %1, 9
   %11 = add nuw nsw i64 %10, 1
   %12 = lshr i64 %11, 1
-  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %12, ptr noundef nonnull @.str.90) #18
+  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %12, ptr noundef nonnull @.str.90) #19
   br label %68
 
 14:                                               ; preds = %7
@@ -2210,7 +2210,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %narrow = add nuw nsw i32 %19, 1
   %20 = lshr i32 %narrow, 1
   %21 = zext nneg i32 %20 to i64
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %21, ptr noundef nonnull @.str.90) #18
+  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %21, ptr noundef nonnull @.str.90) #19
   br label %68
 
 23:                                               ; preds = %16
@@ -2221,7 +2221,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %26 = udiv i64 %1, 500000
   %27 = add nuw nsw i64 %26, 1
   %28 = lshr i64 %27, 1
-  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %28, ptr noundef nonnull @.str.91) #18
+  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %28, ptr noundef nonnull @.str.91) #19
   br label %68
 
 30:                                               ; preds = %23
@@ -2232,14 +2232,14 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %33 = udiv i64 %1, 500000000
   %34 = add nuw nsw i64 %33, 1
   %35 = lshr i64 %34, 1
-  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %35, ptr noundef nonnull @.str.92) #18
+  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %35, ptr noundef nonnull @.str.92) #19
   br label %68
 
 37:                                               ; preds = %30
   %38 = udiv i64 %1, 500000000000
   %39 = add nuw nsw i64 %38, 1
   %40 = lshr i64 %39, 1
-  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %40, ptr noundef nonnull @.str.93) #18
+  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %40, ptr noundef nonnull @.str.93) #19
   br label %68
 
 42:                                               ; preds = %14
@@ -2250,7 +2250,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %45 = lshr i64 %1, 9
   %46 = add nuw nsw i64 %45, 1
   %47 = lshr i64 %46, 1
-  %48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %47, ptr noundef nonnull @.str.94) #18
+  %48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %47, ptr noundef nonnull @.str.94) #19
   br label %68
 
 49:                                               ; preds = %42
@@ -2261,7 +2261,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %52 = lshr i64 %1, 19
   %53 = add nuw nsw i64 %52, 1
   %54 = lshr i64 %53, 1
-  %55 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %54, ptr noundef nonnull @.str.95) #18
+  %55 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %54, ptr noundef nonnull @.str.95) #19
   br label %68
 
 56:                                               ; preds = %49
@@ -2272,14 +2272,14 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
   %59 = lshr i64 %1, 29
   %60 = add nuw nsw i64 %59, 1
   %61 = lshr i64 %60, 1
-  %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %61, ptr noundef nonnull @.str.96) #18
+  %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %61, ptr noundef nonnull @.str.96) #19
   br label %68
 
 63:                                               ; preds = %56
   %64 = lshr i64 %1, 39
   %65 = add nuw nsw i64 %64, 1
   %66 = lshr i64 %65, 1
-  %67 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %66, ptr noundef nonnull @.str.97) #18
+  %67 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 25, ptr noundef nonnull @.str.89, i64 noundef %66, ptr noundef nonnull @.str.97) #19
   br label %68
 
 68:                                               ; preds = %63, %58, %51, %44, %37, %32, %25, %18, %9, %5
@@ -2287,12 +2287,12 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
-declare ptr @hwloc_pci_class_string(i16 noundef zeroext) local_unnamed_addr #12
+declare ptr @hwloc_pci_class_string(i16 noundef zeroext) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #13
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @hwloc_bitmap_singlify_per_core(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
@@ -2373,12 +2373,12 @@ hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %35, %.sink.split.i.
   %.015.i.i = phi ptr [ %45, %43 ], [ %37, %hwloc_get_next_obj_by_depth.exit.i.i ]
   %38 = getelementptr inbounds i8, ptr %.015.i.i, i64 184
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @hwloc_bitmap_intersects(ptr noundef readonly %1, ptr noundef %39) #17
+  %40 = tail call i32 @hwloc_bitmap_intersects(ptr noundef readonly %1, ptr noundef %39) #18
   %.not12.i.i = icmp eq i32 %40, 0
   br i1 %.not12.i.i, label %43, label %hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader
 
 hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader: ; preds = %.preheader.i.i
-  %41 = tail call i32 @hwloc_bitmap_next(ptr noundef %39, i32 noundef -1) #17
+  %41 = tail call i32 @hwloc_bitmap_next(ptr noundef %39, i32 noundef -1) #18
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %hwloc_get_next_obj_covering_cpuset_by_type.exit._crit_edge, label %.lr.ph
 
@@ -2389,13 +2389,13 @@ hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader: ; preds = %.preheader
   br i1 %.not11.i.i, label %.loopexit, label %.preheader.i.i, !llvm.loop !21
 
 hwloc_get_next_obj_covering_cpuset_by_type.exit._crit_edge: ; preds = %hwloc_get_next_obj_covering_cpuset_by_type.exit, %hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader
-  %46 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %1, ptr noundef %1, ptr noundef %39) #18
+  %46 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %1, ptr noundef %1, ptr noundef %39) #19
   br label %58
 
 .lr.ph:                                           ; preds = %hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader, %hwloc_get_next_obj_covering_cpuset_by_type.exit
   %47 = phi i32 [ %56, %hwloc_get_next_obj_covering_cpuset_by_type.exit ], [ %41, %hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader ]
   %.01830 = phi i32 [ %.1, %hwloc_get_next_obj_covering_cpuset_by_type.exit ], [ 0, %hwloc_get_next_obj_covering_cpuset_by_type.exit.preheader ]
-  %48 = tail call i32 @hwloc_bitmap_isset(ptr noundef %1, i32 noundef %47) #17
+  %48 = tail call i32 @hwloc_bitmap_isset(ptr noundef %1, i32 noundef %47) #18
   %.not22 = icmp eq i32 %48, 0
   br i1 %.not22, label %hwloc_get_next_obj_covering_cpuset_by_type.exit, label %49
 
@@ -2404,8 +2404,8 @@ hwloc_get_next_obj_covering_cpuset_by_type.exit._crit_edge: ; preds = %hwloc_get
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
-  %52 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %1, ptr noundef %1, ptr noundef %39) #18
-  %53 = tail call i32 @hwloc_bitmap_set(ptr noundef %1, i32 noundef %47) #18
+  %52 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %1, ptr noundef %1, ptr noundef %39) #19
+  %53 = tail call i32 @hwloc_bitmap_set(ptr noundef %1, i32 noundef %47) #19
   br label %58
 
 54:                                               ; preds = %49
@@ -2414,7 +2414,7 @@ hwloc_get_next_obj_covering_cpuset_by_type.exit._crit_edge: ; preds = %hwloc_get
 
 hwloc_get_next_obj_covering_cpuset_by_type.exit:  ; preds = %.lr.ph, %54
   %.1 = phi i32 [ %55, %54 ], [ %.01830, %.lr.ph ]
-  %56 = tail call i32 @hwloc_bitmap_next(ptr noundef %39, i32 noundef %47) #17
+  %56 = tail call i32 @hwloc_bitmap_next(ptr noundef %39, i32 noundef %47) #18
   %57 = icmp eq i32 %56, -1
   br i1 %57, label %hwloc_get_next_obj_covering_cpuset_by_type.exit._crit_edge, label %.lr.ph
 
@@ -2430,15 +2430,15 @@ hwloc_get_next_obj_covering_cpuset_by_type.exit:  ; preds = %.lr.ph, %54
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @hwloc_bitmap_next(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @hwloc_bitmap_andnot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @hwloc_bitmap_andnot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @hwloc_bitmap_isset(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @hwloc_bitmap_set(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare i32 @hwloc_bitmap_set(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define ptr @hwloc_get_obj_with_same_locality(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #14 {
+define ptr @hwloc_get_obj_with_same_locality(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #15 {
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %7, label %.loopexit.sink.split
 
@@ -2544,7 +2544,7 @@ hwloc_get_next_obj_by_type.exit:                  ; preds = %.sink.split.i.i.i, 
   %52 = load ptr, ptr %30, align 8
   %53 = getelementptr inbounds i8, ptr %50, i64 184
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %52, ptr noundef %54) #17
+  %55 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %52, ptr noundef %54) #18
   %.not96 = icmp eq i32 %55, 0
   br i1 %.not96, label %hwloc_get_type_depth.exit.i.backedge, label %56
 
@@ -2552,7 +2552,7 @@ hwloc_get_next_obj_by_type.exit:                  ; preds = %.sink.split.i.i.i, 
   %57 = load ptr, ptr %31, align 8
   %58 = getelementptr inbounds i8, ptr %50, i64 200
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %57, ptr noundef %59) #17
+  %60 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %57, ptr noundef %59) #18
   %.not97 = icmp eq i32 %60, 0
   br i1 %.not97, label %hwloc_get_type_depth.exit.i.backedge, label %61
 
@@ -2566,7 +2566,7 @@ hwloc_get_next_obj_by_type.exit:                  ; preds = %.sink.split.i.i.i, 
   br i1 %.not99, label %hwloc_get_type_depth.exit.i.backedge, label %65
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %64) #17
+  %66 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %64) #18
   %.not100 = icmp eq i32 %66, 0
   br i1 %.not100, label %67, label %hwloc_get_type_depth.exit.i.backedge
 
@@ -2583,8 +2583,8 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
   br label %hwloc_get_type_depth.exit.i
 
 71:                                               ; preds = %68
-  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %73 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %70, i64 noundef %72) #17
+  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %73 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %70, i64 noundef %72) #18
   %.not103 = icmp eq i32 %73, 0
   br i1 %.not103, label %.loopexit, label %hwloc_get_type_depth.exit.i.backedge
 
@@ -2636,7 +2636,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
   br i1 %.not88, label %.loopexit.sink.split, label %91
 
 91:                                               ; preds = %88
-  %92 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %90) #17
+  %92 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %90) #18
   %.not89 = icmp eq i32 %92, 0
   br i1 %.not89, label %93, label %.loopexit.sink.split
 
@@ -2651,8 +2651,8 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
   br i1 %.not91, label %.loopexit.sink.split, label %97
 
 97:                                               ; preds = %94
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %99 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %96, i64 noundef %98) #17
+  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %99 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %96, i64 noundef %98) #18
   %.not92 = icmp eq i32 %99, 0
   br i1 %.not92, label %.loopexit, label %.loopexit.sink.split
 
@@ -2695,7 +2695,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
   br i1 %.not81.us, label %111, label %109
 
 109:                                              ; preds = %106
-  %110 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %108) #17
+  %110 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %108) #18
   %.not82.us = icmp eq i32 %110, 0
   br i1 %.not82.us, label %.loopexit, label %111
 
@@ -2721,8 +2721,8 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
   br i1 %.not84.us, label %120, label %117
 
 117:                                              ; preds = %114
-  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %119 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %116, i64 noundef %118) #17
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %119 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %116, i64 noundef %118) #18
   %.not85.us = icmp eq i32 %119, 0
   br i1 %.not85.us, label %.loopexit, label %120
 
@@ -2745,7 +2745,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
   br i1 %.not81, label %134, label %126
 
 126:                                              ; preds = %123
-  %127 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %125) #17
+  %127 = tail call i32 @strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull %125) #18
   %.not82 = icmp eq i32 %127, 0
   br i1 %.not82, label %128, label %134
 
@@ -2756,8 +2756,8 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
   br i1 %.not84, label %134, label %131
 
 131:                                              ; preds = %128
-  %132 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  %133 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %130, i64 noundef %132) #17
+  %132 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %133 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %130, i64 noundef %132) #18
   %.not85 = icmp eq i32 %133, 0
   br i1 %.not85, label %.loopexit, label %134
 
@@ -2769,7 +2769,7 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
 
 .loopexit.sink.split:                             ; preds = %37, %34, %35, %45, %hwloc_get_next_obj_by_type.exit, %134, %120, %111, %103, %74, %100, %94, %97, %88, %91, %86, %77, %hwloc_get_type_depth.exit.i.lr.ph, %15, %6
   %.sink = phi i32 [ 22, %6 ], [ 22, %15 ], [ 2, %hwloc_get_type_depth.exit.i.lr.ph ], [ 22, %77 ], [ 2, %86 ], [ 2, %91 ], [ 2, %88 ], [ 2, %97 ], [ 2, %94 ], [ 2, %100 ], [ 22, %74 ], [ 2, %103 ], [ 2, %111 ], [ 2, %120 ], [ 2, %134 ], [ 2, %hwloc_get_next_obj_by_type.exit ], [ 2, %45 ], [ 2, %35 ], [ 2, %34 ], [ 2, %37 ]
-  %136 = tail call ptr @__errno_location() #19
+  %136 = tail call ptr @__errno_location() #20
   store i32 %.sink, ptr %136, align 4
   br label %.loopexit
 
@@ -2779,31 +2779,31 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %68, %71, %62, %65, 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #15
+declare ptr @__errno_location() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @hwloc_bitmap_intersects(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #12
+declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #13
 
-declare i32 @hwloc_bitmap_and(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @hwloc_bitmap_and(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
-declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #12
+declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2813,18 +2813,19 @@ attributes #4 = { nofree nounwind memory(read, argmem: readwrite) uwtable "frame
 attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(none) }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

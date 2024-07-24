@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @crc8_precompiled_37 = internal unnamed_addr constant [256 x i8] c"\007nY\DC\EB\B2\85\8F\B8\E1\D6Sd=\0A)\1EGp\F5\C2\9B\AC\A6\91\C8\FFzM\14#Re<\0B\8E\B9\E0\D7\DD\EA\B3\84\016oX{L\15\22\A7\90\C9\FE\F4\C3\9A\AD(\1FFq\A4\93\CA\FDxO\16!+\1CEr\F7\C0\99\AE\8D\BA\E3\D4Qf?\08\025l[\DE\E9\B0\87\F6\C1\98\AF*\1DDsyN\17 \A5\92\CB\FC\DF\E8\B1\86\034mZPg>\09\8C\BB\E2\D5\7FH\11&\A3\94\CD\FA\F0\C7\9E\A9,\1BBuVa8\0F\8A\BD\E4\D3\D9\EE\B7\80\052k\\-\1ACt\F1\C6\9F\A8\A2\95\CC\FB~I\10'\043j]\D8\EF\B6\81\8B\BC\E5\D2W`9\0E\DB\EC\B5\82\070i^Tc:\0D\88\BF\E6\D1\F2\C5\9C\AB.\19@w}J\13$\A1\96\CF\F8\89\BE\E7\D0Ub;\0C\061h_\DA\ED\B4\83\A0\97\CE\F9|K\12%/\18Av\F3\C4\9D\AA", align 16
 @crc8_precompiled_3b = internal unnamed_addr constant [256 x i8] c"\00;vM\EC\D7\9A\A1\E3\D8\95\AE\0F4yB\FD\C6\8B\B0\11*g\\\1E%hS\F2\C9\84\BF\C1\FA\B7\8C-\16[`\22\19To\CE\F5\B8\83<\07Jq\D0\EB\A6\9D\DF\E4\A9\923\08E~\B9\82\CF\F4Un#\18Za,\17\B6\8D\C0\FBD\7F2\09\A8\93\DE\E5\A7\9C\D1\EAKp=\06xC\0E5\94\AF\E2\D9\9B\A0\ED\D6wL\01:\85\BE\F3\C8iR\1F$f]\10+\8A\B1\FC\C7Ir?\04\A5\9E\D3\E8\AA\91\DC\E7F}0\0B\B4\8F\C2\F9Xc.\15Wl!\1A\BB\80\CD\F6\88\B3\FE\C5d_\12)kP\1D&\87\BC\F1\CAuN\038\99\A2\EF\D4\96\AD\E0\DBzA\0C7\F0\CB\86\BD\1C'jQ\13(e^\FF\C4\89\B2\0D6{@\E1\DA\97\AC\EE\D5\98\A3\029tO1\0AG|\DD\E6\AB\90\D2\E9\A4\9F>\05Hs\CC\F7\BA\81 \1BVm/\14Yb\C3\F8\B5\8E", align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define zeroext i8 @crc8_0x2F(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not1.i = icmp eq i32 %1, 0
   br i1 %.not1.i, label %crc8_precompiled.exit, label %.lr.ph.i
@@ -31,7 +31,7 @@ crc8_precompiled.exit:                            ; preds = %.lr.ph.i, %3
   ret i8 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define zeroext i8 @crc8_0x37(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not6 = icmp eq i32 %1, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -55,7 +55,7 @@ define zeroext i8 @crc8_0x37(ptr nocapture noundef readonly %0, i32 noundef %1, 
   ret i8 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define zeroext i8 @crc8_0x3B(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not6 = icmp eq i32 %1, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -79,7 +79,7 @@ define zeroext i8 @crc8_0x3B(ptr nocapture noundef readonly %0, i32 noundef %1, 
   ret i8 %.0.lcssa
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

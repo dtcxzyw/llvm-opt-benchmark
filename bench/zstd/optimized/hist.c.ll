@@ -11,7 +11,7 @@ entry:
   ret i32 %conv.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @HIST_count_simple(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -77,7 +77,7 @@ return:                                           ; preds = %for.body, %if.then
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %sourceSize, 1500
@@ -155,7 +155,7 @@ return:                                           ; preds = %if.then.i, %HIST_co
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef readonly %source, i64 noundef %sourceSize, i32 noundef %check, ptr nocapture noundef %workSpace) unnamed_addr #1 {
 entry:
   %add.ptr.ptr = getelementptr i8, ptr %source, i64 %sourceSize
@@ -373,7 +373,7 @@ return:                                           ; preds = %land.lhs.true, %if.
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %workSpace to i64
@@ -457,7 +457,7 @@ return:                                           ; preds = %if.end6.i, %HIST_co
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i64 -66, 4294967296) i64 @HIST_countFast(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize) local_unnamed_addr #1 {
 entry:
   %tmpCounters = alloca [1024 x i32], align 16
@@ -526,7 +526,7 @@ HIST_countFast_wksp.exit:                         ; preds = %if.then.i.i, %HIST_
   ret i64 %retval.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i64 -66, 4294967296) i64 @HIST_count(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %tmpCounters = alloca [1024 x i32], align 16
@@ -608,7 +608,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

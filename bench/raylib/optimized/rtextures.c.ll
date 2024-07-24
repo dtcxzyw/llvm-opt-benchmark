@@ -28196,8 +28196,8 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #38 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -28265,8 +28265,8 @@ define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #38 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -28334,8 +28334,8 @@ define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #13 {
   %1 = load i32, ptr %.0.val, align 8
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
   %3 = load i32, ptr %2, align 4
@@ -32056,7 +32056,7 @@ stbi__get8.exit26:                                ; preds = %78, %81, %stbi__ref
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__out_gif_code(ptr nocapture noundef %0, i16 noundef zeroext %1) unnamed_addr #38 {
+define internal fastcc void @stbi__out_gif_code(ptr nocapture noundef %0, i16 noundef zeroext %1) unnamed_addr #39 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2100
   %4 = zext i16 %1 to i64
   %5 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %3, i64 0, i64 %4
@@ -32953,7 +32953,7 @@ define internal void @stbiw__writef(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #39
+declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #40
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @stbiw__jpg_processDU(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) unnamed_addr #4 {
@@ -33673,7 +33673,7 @@ stbiw__jpg_writeBits.exit212:                     ; preds = %338, %stbiw__jpg_wr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6) unnamed_addr #40 {
+define internal fastcc range(i32 0, 2) i32 @stbir__calculate_region_transform(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6) unnamed_addr #38 {
   %8 = fsub double %6, %5
   %9 = icmp eq i32 %1, 0
   %10 = icmp eq i32 %4, 0
@@ -36163,8 +36163,8 @@ define internal void @stbir__fancy_alpha_unweight_4ch(ptr noundef %0, i32 nounde
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__fancy_alpha_unweight_2ch(ptr noundef %0, i32 noundef %1) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__fancy_alpha_unweight_2ch(ptr noundef %0, i32 noundef %1) #38 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -36337,8 +36337,8 @@ define internal void @stbir__simple_alpha_unweight_4ch(ptr noundef %0, i32 nound
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__simple_alpha_unweight_2ch(ptr noundef %0, i32 noundef %1) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__simple_alpha_unweight_2ch(ptr noundef %0, i32 noundef %1) #38 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds float, ptr %0, i64 %3
   br label %5
@@ -43746,8 +43746,8 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -43789,8 +43789,8 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha(ptr noundef writeonl
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -43832,8 +43832,8 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha_BGRA(ptr noundef wri
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44127,8 +44127,8 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -44170,8 +44170,8 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha_ARGB(ptr noundef wri
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44465,8 +44465,8 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds float, ptr %0, i64 %4
   br label %6
@@ -44508,8 +44508,8 @@ define internal void @stbir__decode_uint8_srgb4_linearalpha_ABGR(ptr noundef wri
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44803,8 +44803,8 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -44868,8 +44868,8 @@ define internal void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonl
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #30 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #38 {
   %4 = sext i32 %1 to i64
   %.idx = shl nsw i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
@@ -61500,9 +61500,9 @@ attributes #34 = { nofree norecurse nosync nounwind memory(write, argmem: readwr
 attributes #35 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #36 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #37 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #41 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #42 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #43 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }

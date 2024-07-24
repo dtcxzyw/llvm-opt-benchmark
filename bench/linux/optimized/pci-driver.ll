@@ -101,7 +101,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pci_add_dynid(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7) #0 align 16 {
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
-  %10 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 56) #14
+  %10 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 56) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %27, label %12
 
@@ -121,7 +121,7 @@ define dso_local i32 @pci_add_dynid(ptr noundef %0, i32 noundef %1, i32 noundef 
   %19 = getelementptr inbounds i8, ptr %10, i64 40
   store i64 %7, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @_raw_spin_lock(ptr noundef %20) #15
+  tail call void @_raw_spin_lock(ptr noundef %20) #14
   %21 = getelementptr inbounds i8, ptr %0, i64 256
   %22 = getelementptr inbounds i8, ptr %0, i64 264
   %23 = load ptr, ptr %22, align 8
@@ -130,9 +130,9 @@ define dso_local i32 @pci_add_dynid(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %23, ptr %24, align 8
   store volatile ptr %10, ptr %23, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %20) #15
+  tail call void @_raw_spin_unlock(ptr noundef %20) #14
   %25 = getelementptr inbounds i8, ptr %0, i64 104
-  %26 = tail call i32 @driver_attach(ptr noundef %25) #15
+  %26 = tail call i32 @driver_attach(ptr noundef %25) #14
   br label %27
 
 27:                                               ; preds = %12, %8
@@ -149,7 +149,7 @@ declare dso_local i32 @driver_attach(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
+; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local noundef ptr @pci_match_id(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
@@ -281,7 +281,7 @@ define dso_local i32 @__pci_register_driver(ptr noundef %0, ptr noundef %1, ptr 
   store volatile ptr %16, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 264
   store volatile ptr %16, ptr %17, align 8
-  %18 = tail call i32 @driver_register(ptr noundef %5) #15
+  %18 = tail call i32 @driver_register(ptr noundef %5) #14
   ret i32 %18
 }
 
@@ -291,9 +291,9 @@ declare dso_local i32 @driver_register(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_unregister_driver(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @driver_unregister(ptr noundef %2) #15
+  tail call void @driver_unregister(ptr noundef %2) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @_raw_spin_lock(ptr noundef %3) #15
+  tail call void @_raw_spin_lock(ptr noundef %3) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -309,12 +309,12 @@ define dso_local void @pci_unregister_driver(ptr noundef %0) #0 align 16 {
   store volatile ptr %8, ptr %10, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %9, align 8
-  tail call void @kfree(ptr noundef %7) #15
+  tail call void @kfree(ptr noundef %7) #14
   %12 = icmp eq ptr %8, %4
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %1
-  tail call void @_raw_spin_unlock(ptr noundef %3) #15
+  tail call void @_raw_spin_unlock(ptr noundef %3) #14
   ret void
 }
 
@@ -322,7 +322,7 @@ define dso_local void @pci_unregister_driver(ptr noundef %0) #0 align 16 {
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local ptr @pci_dev_driver(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local ptr @pci_dev_driver(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -357,7 +357,7 @@ define dso_local noundef ptr @pci_dev_get(ptr noundef returned %0) #0 align 16 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 184
-  %5 = tail call ptr @get_device(ptr noundef %4) #15
+  %5 = tail call ptr @get_device(ptr noundef %4) #14
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -374,7 +374,7 @@ define dso_local void @pci_dev_put(ptr noundef %0) #0 align 16 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @put_device(ptr noundef %4) #15
+  tail call void @put_device(ptr noundef %4) #14
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -414,7 +414,7 @@ define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly %0, ptr n
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 -116
   %6 = load i32, ptr %5, align 4
-  %7 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %6) #15
+  %7 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %6) #14
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %55
 
@@ -425,7 +425,7 @@ define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly %0, ptr n
   %13 = getelementptr i8, ptr %0, i64 -122
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %12, i32 noundef %15) #15
+  %16 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %12, i32 noundef %15) #14
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %55
 
@@ -436,7 +436,7 @@ define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly %0, ptr n
   %22 = getelementptr i8, ptr %0, i64 -118
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %25 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.10, i32 noundef %21, i32 noundef %24) #15
+  %25 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.10, i32 noundef %21, i32 noundef %24) #14
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %55
 
@@ -452,7 +452,7 @@ define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly %0, ptr n
 
 33:                                               ; preds = %31, %27
   %34 = phi ptr [ %32, %31 ], [ %29, %27 ]
-  %35 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef %34) #15
+  %35 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef %34) #14
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %55
 
@@ -471,7 +471,7 @@ define internal range(i32 -19, 1) i32 @pci_uevent(ptr noundef readonly %0, ptr n
   %49 = lshr i32 %46, 8
   %50 = and i32 %49, 255
   %51 = and i32 %46, 255
-  %52 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %48, i32 noundef %50, i32 noundef %51) #15
+  %52 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %48, i32 noundef %50, i32 noundef %51) #14
   %53 = icmp eq i32 %52, 0
   %54 = select i1 %53, i32 0, i32 -12
   br label %55
@@ -490,7 +490,7 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   %6 = icmp eq ptr %5, null
   %7 = getelementptr i8, ptr %5, i64 -104
   %8 = select i1 %6, ptr null, ptr %7
-  tail call void @pci_assign_irq(ptr noundef %3) #15
+  tail call void @pci_assign_irq(ptr noundef %3) #14
   %9 = tail call i32 @pcibios_alloc_irq(ptr noundef %3)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %.thread, label %11
@@ -500,7 +500,7 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @get_device(ptr noundef %0) #15
+  %14 = tail call ptr @get_device(ptr noundef %0) #14
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -515,7 +515,7 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   br i1 %21, label %.thread7, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
   store ptr %8, ptr %2, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %23, align 8
@@ -527,21 +527,21 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   %28 = load i40, ptr %27, align 1
   %29 = or i40 %28, 8589934592
   store i40 %29, ptr %27, align 1
-  tail call void @cpu_hotplug_disable() #15
+  tail call void @cpu_hotplug_disable() #14
   %30 = icmp ugt i32 %26, 63
   br i1 %30, label %49, label %31
 
 31:                                               ; preds = %22
   %32 = zext nneg i32 %26 to i64
-  %33 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %32) #15, !srcloc !12
+  %33 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %32) #14, !srcloc !12
   %34 = icmp ult i8 %33, 2
   tail call void @llvm.assume(i1 %34)
   %35 = icmp eq i8 %33, 0
   br i1 %35, label %49, label %36
 
 36:                                               ; preds = %31
-  %37 = tail call ptr @housekeeping_cpumask(i32 noundef 6) #15
-  %38 = tail call ptr @housekeeping_cpumask(i32 noundef 5) #15
+  %37 = tail call ptr @housekeeping_cpumask(i32 noundef 6) #14
+  %38 = tail call ptr @housekeeping_cpumask(i32 noundef 5) #14
   %39 = load i64, ptr %37, align 8
   %40 = load i64, ptr %38, align 8
   %41 = and i64 %40, %39
@@ -552,7 +552,7 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   br i1 %45, label %51, label %46
 
 46:                                               ; preds = %36
-  %47 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %44) #16, !srcloc !13
+  %47 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %44) #15, !srcloc !13
   %48 = trunc i64 %47 to i32
   br label %51
 
@@ -567,16 +567,16 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %51
-  %56 = call i64 @work_on_cpu_key(i32 noundef %52, ptr noundef nonnull @local_pci_probe, ptr noundef nonnull %2, ptr noundef nonnull @pci_call_probe.__key) #15
+  %56 = call i64 @work_on_cpu_key(i32 noundef %52, ptr noundef nonnull @local_pci_probe, ptr noundef nonnull %2, ptr noundef nonnull @pci_call_probe.__key) #14
   %57 = trunc i64 %56 to i32
   br label %69
 
 58:                                               ; preds = %51
-  %59 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #15
+  %59 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #14
   %60 = getelementptr i8, ptr %0, i64 -64
   store ptr %8, ptr %60, align 8
   %61 = load ptr, ptr %16, align 8
-  %62 = tail call i32 %61(ptr noundef %3, ptr noundef nonnull %20) #15
+  %62 = tail call i32 %61(ptr noundef %3, ptr noundef nonnull %20) #14
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %69, label %64
 
@@ -586,11 +586,11 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
 
 66:                                               ; preds = %64
   store ptr null, ptr %60, align 8
-  %67 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #15
+  %67 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #14
   br label %69
 
 68:                                               ; preds = %64
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %62) #17
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %62) #16
   br label %69
 
 69:                                               ; preds = %55, %58, %66, %68
@@ -598,8 +598,8 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   %71 = load i40, ptr %27, align 1
   %72 = and i40 %71, -8589934593
   store i40 %72, ptr %27, align 1
-  call void @cpu_hotplug_enable() #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
+  call void @cpu_hotplug_enable() #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
   %73 = icmp eq i32 %70, 0
   br i1 %73, label %.thread, label %.thread7
 
@@ -609,7 +609,7 @@ define internal i32 @pci_device_probe(ptr noundef %0) #0 align 16 {
   br i1 %12, label %.thread, label %75
 
 75:                                               ; preds = %.thread7
-  call void @put_device(ptr noundef %0) #15
+  call void @put_device(ptr noundef %0) #14
   br label %.thread
 
 .thread:                                          ; preds = %15, %75, %.thread7, %69, %1
@@ -628,9 +628,9 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #15
+  %9 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #14
   %10 = load ptr, ptr %5, align 8
-  tail call void %10(ptr noundef %2) #15
+  tail call void %10(ptr noundef %2) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 432
   %12 = load volatile i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
@@ -639,7 +639,7 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
 .lr.ph:                                           ; preds = %8, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %8 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #15, !srcloc !15
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #14, !srcloc !15
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -654,7 +654,7 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
 .thread:                                          ; preds = %20, %.lr.ph, %8, %1
   tail call void @pcibios_free_irq(ptr noundef %2)
   store ptr null, ptr %3, align 8
-  %23 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #15
+  %23 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #14
   %24 = getelementptr i8, ptr %0, i64 -32
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
@@ -669,7 +669,7 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %28
-  tail call void @put_device(ptr noundef %0) #15
+  tail call void @put_device(ptr noundef %0) #14
   br label %31
 
 31:                                               ; preds = %30, %28
@@ -681,7 +681,7 @@ define internal void @pci_device_shutdown(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -184
   %3 = getelementptr i8, ptr %0, i64 -64
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #15
+  %5 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #14
   %6 = icmp eq ptr %4, null
   br i1 %6, label %12, label %7
 
@@ -692,7 +692,7 @@ define internal void @pci_device_shutdown(ptr noundef %0) #0 align 16 {
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7
-  tail call void %9(ptr noundef %2) #15
+  tail call void %9(ptr noundef %2) #14
   br label %12
 
 12:                                               ; preds = %11, %7, %1
@@ -707,7 +707,7 @@ define internal void @pci_device_shutdown(ptr noundef %0) #0 align 16 {
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15
-  tail call void @pci_clear_master(ptr noundef %2) #15
+  tail call void @pci_clear_master(ptr noundef %2) #14
   br label %20
 
 20:                                               ; preds = %19, %15, %12
@@ -715,7 +715,7 @@ define internal void @pci_device_shutdown(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @pci_bus_num_vf(ptr nocapture readnone %0) #5 align 16 {
+define internal noundef i32 @pci_bus_num_vf(ptr nocapture readnone %0) #4 align 16 {
   ret i32 0
 }
 
@@ -727,24 +727,24 @@ define internal i32 @pci_dma_configure(ptr noundef %0) #0 align 16 {
   %5 = getelementptr i8, ptr %3, i64 -104
   %6 = select i1 %4, ptr null, ptr %5
   %7 = getelementptr i8, ptr %0, i64 -184
-  %8 = tail call ptr @pci_get_host_bridge_device(ptr noundef %7) #15
+  %8 = tail call ptr @pci_get_host_bridge_device(ptr noundef %7) #14
   %9 = getelementptr inbounds i8, ptr %8, i64 632
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %10) #15
+  %11 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %10) #14
   br i1 %11, label %12, label %.thread
 
 .thread:                                          ; preds = %1
-  tail call void @pci_put_host_bridge_device(ptr noundef %8) #15
+  tail call void @pci_put_host_bridge_device(ptr noundef %8) #14
   br label %20
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %9, align 8
-  %14 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %13) #15
+  %14 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %13) #14
   %15 = getelementptr i8, ptr %13, i64 -16
   %16 = select i1 %14, ptr %15, ptr null
-  %17 = tail call i32 @acpi_get_dma_attr(ptr noundef %16) #15
-  %18 = tail call i32 @acpi_dma_configure_id(ptr noundef %0, i32 noundef %17, ptr noundef null) #15
-  tail call void @pci_put_host_bridge_device(ptr noundef %8) #15
+  %17 = tail call i32 @acpi_get_dma_attr(ptr noundef %16) #14
+  %18 = tail call i32 @acpi_dma_configure_id(ptr noundef %0, i32 noundef %17, ptr noundef null) #14
+  tail call void @pci_put_host_bridge_device(ptr noundef %8) #14
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %26
 
@@ -755,7 +755,7 @@ define internal i32 @pci_dma_configure(ptr noundef %0) #0 align 16 {
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @iommu_device_use_default_domain(ptr noundef %0) #15
+  %25 = tail call i32 @iommu_device_use_default_domain(ptr noundef %0) #14
   br label %26
 
 26:                                               ; preds = %24, %20, %12
@@ -776,7 +776,7 @@ define internal void @pci_dma_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
-  tail call void @iommu_device_unuse_default_domain(ptr noundef %0) #15
+  tail call void @iommu_device_unuse_default_domain(ptr noundef %0) #14
   br label %11
 
 11:                                               ; preds = %10, %1
@@ -784,7 +784,7 @@ define internal void @pci_dma_cleanup(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @pcie_port_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal noundef range(i32 0, 2) i32 @pcie_port_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @pcie_port_bus_type
@@ -830,13 +830,13 @@ define internal noundef range(i32 0, 2) i32 @pcie_port_bus_match(ptr nocapture n
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @pci_driver_init() #7 section ".init.text" align 16 {
-  %1 = tail call i32 @bus_register(ptr noundef nonnull @pci_bus_type) #15
+define internal i32 @pci_driver_init() #6 section ".init.text" align 16 {
+  %1 = tail call i32 @bus_register(ptr noundef nonnull @pci_bus_type) #14
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @bus_register(ptr noundef nonnull @pcie_port_bus_type) #15
+  %4 = tail call i32 @bus_register(ptr noundef nonnull @pcie_port_bus_type) #14
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -845,7 +845,7 @@ define internal i32 @pci_driver_init() #7 section ".init.text" align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -870,19 +870,19 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
   %13 = select i1 %11, ptr null, ptr %12
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4, !annotation !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   store i32 -1, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
   store i32 -1, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   store i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
   store i64 0, ptr %10, align 8
   %16 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %17 = icmp slt i32 %16, 2
@@ -894,7 +894,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
-  %22 = call noalias align 8 dereferenceable_or_null(2080) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 2080) #14
+  %22 = call noalias align 8 dereferenceable_or_null(2080) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 2080) #13
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
@@ -920,7 +920,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
   store i32 %37, ptr %38, align 4
   %39 = call fastcc ptr @pci_match_device(ptr noundef %13, ptr noundef nonnull %22)
   %40 = icmp eq ptr %39, null
-  call void @kfree(ptr noundef nonnull %22) #15
+  call void @kfree(ptr noundef nonnull %22) #14
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %24, %18
@@ -961,7 +961,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
   %63 = load i32, ptr %8, align 4
   %64 = load i32, ptr %9, align 4
   %65 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
-  %66 = call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %65, i32 noundef 3520, i64 noundef 56) #14
+  %66 = call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %65, i32 noundef 3520, i64 noundef 56) #13
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread, label %68
 
@@ -981,7 +981,7 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
   %75 = getelementptr inbounds i8, ptr %66, i64 40
   store i64 %.pre, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %13, i64 248
-  call void @_raw_spin_lock(ptr noundef %76) #15
+  call void @_raw_spin_lock(ptr noundef %76) #14
   %77 = getelementptr inbounds i8, ptr %13, i64 256
   %78 = getelementptr inbounds i8, ptr %13, i64 264
   %79 = load ptr, ptr %78, align 8
@@ -990,9 +990,9 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
   %80 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %79, ptr %80, align 8
   store volatile ptr %66, ptr %79, align 8
-  call void @_raw_spin_unlock(ptr noundef %76) #15
+  call void @_raw_spin_unlock(ptr noundef %76) #14
   %81 = getelementptr inbounds i8, ptr %13, i64 104
-  %82 = call i32 @driver_attach(ptr noundef %81) #15
+  %82 = call i32 @driver_attach(ptr noundef %81) #14
   %.fr = freeze i32 %82
   %83 = icmp eq i32 %.fr, 0
   %84 = sext i32 %.fr to i64
@@ -1001,18 +1001,18 @@ define internal noundef i64 @new_id_store(ptr noundef %0, ptr nocapture noundef 
 
 .thread:                                          ; preds = %50, %68, %.thread4, %20, %24, %3
   %85 = phi i64 [ -17, %24 ], [ -22, %3 ], [ -12, %20 ], [ -12, %.thread4 ], [ %spec.select, %68 ], [ -22, %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   ret i64 %85
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @pci_match_device(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
@@ -1023,13 +1023,13 @@ define internal fastcc ptr @pci_match_device(ptr noundef %0, ptr nocapture nound
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %7) #15
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %7) #14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %6, %2
   %11 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @_raw_spin_lock(ptr noundef %11) #15
+  tail call void @_raw_spin_lock(ptr noundef %11) #14
   %12 = getelementptr inbounds i8, ptr %0, i64 256
   %13 = getelementptr inbounds i8, ptr %1, i64 60
   %14 = getelementptr inbounds i8, ptr %1, i64 62
@@ -1045,7 +1045,7 @@ define internal fastcc ptr @pci_match_device(ptr noundef %0, ptr nocapture nound
   br i1 %21, label %.thread, label %22
 
 .thread:                                          ; preds = %18
-  tail call void @_raw_spin_unlock(ptr noundef %11) #15
+  tail call void @_raw_spin_unlock(ptr noundef %11) #14
   br label %69
 
 22:                                               ; preds = %18
@@ -1116,7 +1116,7 @@ define internal fastcc ptr @pci_match_device(ptr noundef %0, ptr nocapture nound
   br i1 %66, label %18, label %67, !llvm.loop !21
 
 67:                                               ; preds = %64
-  tail call void @_raw_spin_unlock(ptr noundef %11) #15
+  tail call void @_raw_spin_unlock(ptr noundef %11) #14
   %68 = icmp eq ptr %23, null
   br i1 %68, label %69, label %.loopexit
 
@@ -1237,7 +1237,7 @@ define internal fastcc ptr @pci_match_device(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @remove_id_store(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
@@ -1247,17 +1247,17 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr nocapture nound
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4, !annotation !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   store i32 -1, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
   store i32 -1, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   store i32 0, ptr %9, align 4
   %10 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %11 = icmp slt i32 %10, 2
@@ -1268,7 +1268,7 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr nocapture nound
   %14 = getelementptr i8, ptr %0, i64 -104
   %15 = select i1 %13, ptr null, ptr %14
   %16 = getelementptr inbounds i8, ptr %15, i64 248
-  call void @_raw_spin_lock(ptr noundef %16) #15
+  call void @_raw_spin_lock(ptr noundef %16) #14
   %17 = getelementptr inbounds i8, ptr %15, i64 256
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
@@ -1431,7 +1431,7 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr nocapture nound
   store volatile ptr %.us-phi6, ptr %115, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %.us-phi, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %114, align 8
-  call void @kfree(ptr noundef %.us-phi) #15
+  call void @kfree(ptr noundef %.us-phi) #14
   br label %.loopexit
 
 117:                                              ; preds = %108, %104, %100, %96, %.lr.ph.split.split
@@ -1441,17 +1441,17 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr nocapture nound
 
 .loopexit:                                        ; preds = %117, %88, %66, %44, %12, %.thread
   %120 = phi i64 [ %2, %.thread ], [ -19, %12 ], [ -19, %44 ], [ -19, %66 ], [ -19, %88 ], [ -19, %117 ]
-  call void @_raw_spin_unlock(ptr noundef %16) #15
+  call void @_raw_spin_unlock(ptr noundef %16) #14
   br label %121
 
 121:                                              ; preds = %.loopexit, %3
   %122 = phi i64 [ %120, %.loopexit ], [ -22, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   ret i64 %122
 }
 
@@ -1476,14 +1476,14 @@ define internal range(i64 -2147483648, 1) i64 @local_pci_probe(ptr nocapture nou
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 184
-  %6 = tail call i32 @__pm_runtime_resume(ptr noundef %5, i32 noundef 4) #15
+  %6 = tail call i32 @__pm_runtime_resume(ptr noundef %5, i32 noundef 4) #14
   %7 = getelementptr inbounds i8, ptr %3, i64 120
   store ptr %4, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %9(ptr noundef %3, ptr noundef %11) #15
+  %12 = tail call i32 %9(ptr noundef %3, ptr noundef %11) #14
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %20, label %14
 
@@ -1493,12 +1493,12 @@ define internal range(i64 -2147483648, 1) i64 @local_pci_probe(ptr nocapture nou
 
 16:                                               ; preds = %14
   store ptr null, ptr %7, align 8
-  %17 = tail call i32 @__pm_runtime_idle(ptr noundef %5, i32 noundef 4) #15
+  %17 = tail call i32 @__pm_runtime_idle(ptr noundef %5, i32 noundef 4) #14
   %18 = sext i32 %12 to i64
   br label %20
 
 19:                                               ; preds = %14
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %5, ptr noundef nonnull @.str.13, i32 noundef %12) #17
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %5, ptr noundef nonnull @.str.13, i32 noundef %12) #16
   br label %20
 
 20:                                               ; preds = %19, %16, %1
@@ -1510,10 +1510,10 @@ define internal range(i64 -2147483648, 1) i64 @local_pci_probe(ptr nocapture nou
 declare dso_local void @cpu_hotplug_enable() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #12
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__pm_runtime_resume(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1565,7 +1565,7 @@ define internal i32 @pci_pm_prepare(ptr noundef %0) #0 align 16 {
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 %11(ptr noundef %0) #15
+  %14 = tail call i32 %11(ptr noundef %0) #14
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.thread4, label %16
 
@@ -1581,11 +1581,11 @@ define internal i32 @pci_pm_prepare(ptr noundef %0) #0 align 16 {
   br i1 %22, label %.thread, label %.thread4
 
 .thread:                                          ; preds = %1, %18, %16, %10, %6
-  %23 = tail call zeroext i1 @pci_dev_need_resume(ptr noundef %2) #15
+  %23 = tail call zeroext i1 @pci_dev_need_resume(ptr noundef %2) #14
   br i1 %23, label %.thread4, label %24
 
 24:                                               ; preds = %.thread
-  tail call void @pci_dev_adjust_pme(ptr noundef %2) #15
+  tail call void @pci_dev_adjust_pme(ptr noundef %2) #14
   br label %.thread4
 
 .thread4:                                         ; preds = %18, %13, %24, %.thread
@@ -1596,8 +1596,8 @@ define internal i32 @pci_pm_prepare(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pci_pm_complete(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -184
-  tail call void @pci_dev_complete_resume(ptr noundef %2) #15
-  tail call void @pm_generic_complete(ptr noundef %0) #15
+  tail call void @pci_dev_complete_resume(ptr noundef %2) #14
+  tail call void @pm_generic_complete(ptr noundef %0) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 452
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
@@ -1619,13 +1619,13 @@ define internal void @pci_pm_complete(ptr noundef %0) #0 align 16 {
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %0, i64 -32
   %17 = load i32, ptr %16, align 8
-  tail call void @pci_refresh_power_state(ptr noundef %2) #15
+  tail call void @pci_refresh_power_state(ptr noundef %2) #14
   %18 = load i32, ptr %16, align 8
   %19 = icmp slt i32 %18, %17
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 1) #15
+  %21 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 1) #14
   br label %22
 
 22:                                               ; preds = %20, %15, %11, %6, %1
@@ -1675,8 +1675,8 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
   br i1 %26, label %42, label %27, !prof !24
 
 27:                                               ; preds = %.critedge9
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %28 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %28 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %29 = getelementptr i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -1694,11 +1694,11 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
   %39 = getelementptr i8, ptr %0, i64 -122
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %28, ptr noundef %35, i32 noundef %38, i32 noundef %41) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %28, ptr noundef %35, i32 noundef %38, i32 noundef %41) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %42
 
 42:                                               ; preds = %.critedge9, %34
@@ -1716,7 +1716,7 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
   br i1 %48, label %49, label %94
 
 49:                                               ; preds = %45
-  tail call void @pci_disable_enabled_device(ptr noundef %2) #15
+  tail call void @pci_disable_enabled_device(ptr noundef %2) #14
   br label %94
 
 50:                                               ; preds = %.critedge
@@ -1727,11 +1727,11 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %50
-  %56 = tail call zeroext i1 @pci_dev_need_resume(ptr noundef %2) #15
+  %56 = tail call zeroext i1 @pci_dev_need_resume(ptr noundef %2) #14
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55, %50
-  %58 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #15
+  %58 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #14
   %59 = getelementptr i8, ptr %0, i64 1505
   %60 = load i40, ptr %59, align 1
   %61 = and i40 %60, -2097153
@@ -1739,7 +1739,7 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
   br label %63
 
 62:                                               ; preds = %55
-  tail call void @pci_dev_adjust_pme(ptr noundef %2) #15
+  tail call void @pci_dev_adjust_pme(ptr noundef %2) #14
   br label %63
 
 63:                                               ; preds = %62, %57
@@ -1751,9 +1751,9 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
 67:                                               ; preds = %63
   %68 = getelementptr i8, ptr %0, i64 -32
   %69 = load i32, ptr %68, align 8
-  %70 = tail call i32 %65(ptr noundef %0) #15
+  %70 = tail call i32 %65(ptr noundef %0) #14
   %71 = load ptr, ptr %64, align 8
-  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_suspend, ptr noundef %0, ptr noundef %71, i32 noundef %70) #15
+  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_suspend, ptr noundef %0, ptr noundef %71, i32 noundef %70) #14
   %72 = icmp eq i32 %70, 0
   br i1 %72, label %73, label %94
 
@@ -1779,8 +1779,8 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
 
 84:                                               ; preds = %80
   store i1 true, ptr @pci_pm_suspend.__already_done, align 1
-  tail call void asm sideeffect "485: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 485b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 485) #15, !srcloc !30
-  %85 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "485: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 485b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 485) #14, !srcloc !30
+  %85 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %86 = getelementptr i8, ptr %0, i64 80
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
@@ -1793,11 +1793,11 @@ define internal noundef i32 @pci_pm_suspend(ptr noundef %0) #0 align 16 {
 91:                                               ; preds = %89, %84
   %92 = phi ptr [ %90, %89 ], [ %87, %84 ]
   %93 = load ptr, ptr %64, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %85, ptr noundef %92, ptr noundef %93) #15
-  tail call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #15, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 838, i32 2313, i64 12) #15, !srcloc !32
-  tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_end\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #15, !srcloc !33
-  tail call void asm sideeffect "488: nop\0A\09.pushsection .discard.instr_end\0A\09.long 488b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 488) #15, !srcloc !34
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %85, ptr noundef %92, ptr noundef %93) #14
+  tail call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #14, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 838, i32 2313, i64 12) #14, !srcloc !32
+  tail call void asm sideeffect "487: nop\0A\09.pushsection .discard.instr_end\0A\09.long 487b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 487) #14, !srcloc !33
+  tail call void asm sideeffect "488: nop\0A\09.pushsection .discard.instr_end\0A\09.long 488b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 488) #14, !srcloc !34
   br label %94
 
 94:                                               ; preds = %91, %80, %78, %78, %73, %67, %63, %49, %45, %42
@@ -1827,20 +1827,20 @@ define internal i32 @pci_pm_resume(ptr noundef %0) #0 align 16 {
   br i1 %14, label %23, label %15
 
 15:                                               ; preds = %9
-  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 5) #15
+  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 5) #14
   %16 = getelementptr i8, ptr %0, i64 -32
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call i32 @pci_set_power_state(ptr noundef %2, i32 noundef 0) #15
+  %20 = tail call i32 @pci_set_power_state(ptr noundef %2, i32 noundef 0) #14
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19, %15
-  tail call void @pci_restore_state(ptr noundef %2) #15
-  tail call void @pci_pme_restore(ptr noundef %2) #15
+  tail call void @pci_restore_state(ptr noundef %2) #14
+  tail call void @pci_pme_restore(ptr noundef %2) #14
   br label %23
 
 23:                                               ; preds = %22, %19, %9
@@ -1868,12 +1868,12 @@ define internal i32 @pci_pm_resume(ptr noundef %0) #0 align 16 {
   br i1 %36, label %.thread, label %37, !prof !24
 
 .thread:                                          ; preds = %.critedge9
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
   br label %53
 
 37:                                               ; preds = %.critedge9
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %38 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %38 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %39 = getelementptr i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
@@ -1891,13 +1891,13 @@ define internal i32 @pci_pm_resume(ptr noundef %0) #0 align 16 {
   %49 = getelementptr i8, ptr %0, i64 -122
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %38, ptr noundef %45, i32 noundef %48, i32 noundef %51) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %38, ptr noundef %45, i32 noundef %48, i32 noundef %51) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   %.pre = load ptr, ptr %24, align 8
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
   %52 = icmp eq ptr %.pre, null
   br i1 %52, label %60, label %53
 
@@ -1909,23 +1909,23 @@ define internal i32 @pci_pm_resume(ptr noundef %0) #0 align 16 {
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %53
-  %59 = tail call i32 %56(ptr noundef %2) #15
+  %59 = tail call i32 %56(ptr noundef %2) #14
   br label %80
 
 60:                                               ; preds = %53, %44
-  %61 = tail call i32 @pci_reenable_device(ptr noundef %2) #15
+  %61 = tail call i32 @pci_reenable_device(ptr noundef %2) #14
   %62 = load i40, ptr %11, align 1
   %63 = and i40 %62, 32
   %64 = icmp eq i40 %63, 0
   br i1 %64, label %80, label %65
 
 65:                                               ; preds = %60
-  tail call void @pci_set_master(ptr noundef %2) #15
+  tail call void @pci_set_master(ptr noundef %2) #14
   br label %80
 
 .critedge:                                        ; preds = %23, %31
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
-  %66 = tail call i32 @pci_enable_wake(ptr noundef %2, i32 noundef 0, i1 noundef zeroext false) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
+  %66 = tail call i32 @pci_enable_wake(ptr noundef %2, i32 noundef 0, i1 noundef zeroext false) #14
   %67 = icmp eq ptr %10, null
   br i1 %67, label %74, label %68
 
@@ -1936,18 +1936,18 @@ define internal i32 @pci_pm_resume(ptr noundef %0) #0 align 16 {
   br i1 %71, label %80, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call i32 %70(ptr noundef %0) #15
+  %73 = tail call i32 %70(ptr noundef %0) #14
   br label %80
 
 74:                                               ; preds = %.critedge
-  %75 = tail call i32 @pci_reenable_device(ptr noundef %2) #15
+  %75 = tail call i32 @pci_reenable_device(ptr noundef %2) #14
   %76 = load i40, ptr %11, align 1
   %77 = and i40 %76, 32
   %78 = icmp eq i40 %77, 0
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %74
-  tail call void @pci_set_master(ptr noundef %2) #15
+  tail call void @pci_set_master(ptr noundef %2) #14
   br label %80
 
 80:                                               ; preds = %79, %74, %72, %68, %65, %60, %58
@@ -1994,8 +1994,8 @@ define internal noundef i32 @pci_pm_freeze(ptr noundef %0) #0 align 16 {
   br i1 %23, label %39, label %24, !prof !24
 
 24:                                               ; preds = %.critedge8
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %26 = getelementptr i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -2013,11 +2013,11 @@ define internal noundef i32 @pci_pm_freeze(ptr noundef %0) #0 align 16 {
   %36 = getelementptr i8, ptr %0, i64 -122
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %39
 
 39:                                               ; preds = %.critedge8, %31
@@ -2035,11 +2035,11 @@ define internal noundef i32 @pci_pm_freeze(ptr noundef %0) #0 align 16 {
   br i1 %45, label %46, label %60
 
 46:                                               ; preds = %42
-  tail call void @pci_disable_enabled_device(ptr noundef %2) #15
+  tail call void @pci_disable_enabled_device(ptr noundef %2) #14
   br label %60
 
 47:                                               ; preds = %.critedge
-  %48 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #15
+  %48 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #14
   %49 = getelementptr i8, ptr %0, i64 1505
   %50 = load i40, ptr %49, align 1
   %51 = and i40 %50, -2097153
@@ -2050,9 +2050,9 @@ define internal noundef i32 @pci_pm_freeze(ptr noundef %0) #0 align 16 {
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %47
-  %56 = tail call i32 %53(ptr noundef %0) #15
+  %56 = tail call i32 %53(ptr noundef %0) #14
   %57 = load ptr, ptr %52, align 8
-  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_freeze, ptr noundef %0, ptr noundef %57, i32 noundef %56) #15
+  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_freeze, ptr noundef %0, ptr noundef %57, i32 noundef %56) #14
   %58 = icmp eq i32 %56, 0
   br i1 %58, label %59, label %60
 
@@ -2103,12 +2103,12 @@ define internal i32 @pci_pm_thaw(ptr noundef %0) #0 align 16 {
   br i1 %23, label %.thread, label %24, !prof !24
 
 .thread:                                          ; preds = %.critedge9
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
   br label %40
 
 24:                                               ; preds = %.critedge9
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %26 = getelementptr i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -2126,13 +2126,13 @@ define internal i32 @pci_pm_thaw(ptr noundef %0) #0 align 16 {
   %36 = getelementptr i8, ptr %0, i64 -122
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   %.pre = load ptr, ptr %11, align 8
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
   %39 = icmp eq ptr %.pre, null
   br i1 %39, label %47, label %40
 
@@ -2144,11 +2144,11 @@ define internal i32 @pci_pm_thaw(ptr noundef %0) #0 align 16 {
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %40
-  %46 = tail call i32 %43(ptr noundef %2) #15
+  %46 = tail call i32 %43(ptr noundef %2) #14
   br label %73
 
 47:                                               ; preds = %40, %31
-  %48 = tail call i32 @pci_reenable_device(ptr noundef %2) #15
+  %48 = tail call i32 @pci_reenable_device(ptr noundef %2) #14
   %49 = getelementptr i8, ptr %0, i64 1505
   %50 = load i40, ptr %49, align 1
   %51 = and i40 %50, 32
@@ -2156,7 +2156,7 @@ define internal i32 @pci_pm_thaw(ptr noundef %0) #0 align 16 {
   br i1 %52, label %73, label %53
 
 53:                                               ; preds = %47
-  tail call void @pci_set_master(ptr noundef %2) #15
+  tail call void @pci_set_master(ptr noundef %2) #14
   br label %73
 
 .critedge:                                        ; preds = %9, %18
@@ -2170,11 +2170,11 @@ define internal i32 @pci_pm_thaw(ptr noundef %0) #0 align 16 {
   br i1 %58, label %68, label %59
 
 59:                                               ; preds = %55
-  %60 = tail call i32 %57(ptr noundef %0) #15
+  %60 = tail call i32 %57(ptr noundef %0) #14
   br label %68
 
 61:                                               ; preds = %.critedge
-  %62 = tail call i32 @pci_reenable_device(ptr noundef %2) #15
+  %62 = tail call i32 @pci_reenable_device(ptr noundef %2) #14
   %63 = getelementptr i8, ptr %0, i64 1505
   %64 = load i40, ptr %63, align 1
   %65 = and i40 %64, 32
@@ -2182,7 +2182,7 @@ define internal i32 @pci_pm_thaw(ptr noundef %0) #0 align 16 {
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %61
-  tail call void @pci_set_master(ptr noundef %2) #15
+  tail call void @pci_set_master(ptr noundef %2) #14
   br label %68
 
 68:                                               ; preds = %67, %61, %59, %55
@@ -2237,8 +2237,8 @@ define internal noundef i32 @pci_pm_poweroff(ptr noundef %0) #0 align 16 {
   br i1 %23, label %39, label %24, !prof !24
 
 24:                                               ; preds = %.critedge8
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %26 = getelementptr i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -2256,11 +2256,11 @@ define internal noundef i32 @pci_pm_poweroff(ptr noundef %0) #0 align 16 {
   %36 = getelementptr i8, ptr %0, i64 -122
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %39
 
 39:                                               ; preds = %.critedge8, %31
@@ -2278,7 +2278,7 @@ define internal noundef i32 @pci_pm_poweroff(ptr noundef %0) #0 align 16 {
   br i1 %45, label %46, label %69
 
 46:                                               ; preds = %42
-  tail call void @pci_disable_enabled_device(ptr noundef %2) #15
+  tail call void @pci_disable_enabled_device(ptr noundef %2) #14
   br label %69
 
 47:                                               ; preds = %.critedge
@@ -2289,11 +2289,11 @@ define internal noundef i32 @pci_pm_poweroff(ptr noundef %0) #0 align 16 {
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %47
-  %53 = tail call zeroext i1 @pci_dev_need_resume(ptr noundef %2) #15
+  %53 = tail call zeroext i1 @pci_dev_need_resume(ptr noundef %2) #14
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52, %47
-  %55 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #15
+  %55 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 0) #14
   %56 = getelementptr i8, ptr %0, i64 1505
   %57 = load i40, ptr %56, align 1
   %58 = and i40 %57, -2097153
@@ -2301,7 +2301,7 @@ define internal noundef i32 @pci_pm_poweroff(ptr noundef %0) #0 align 16 {
   br label %60
 
 59:                                               ; preds = %52
-  tail call void @pci_dev_adjust_pme(ptr noundef %2) #15
+  tail call void @pci_dev_adjust_pme(ptr noundef %2) #14
   br label %60
 
 60:                                               ; preds = %59, %54
@@ -2311,9 +2311,9 @@ define internal noundef i32 @pci_pm_poweroff(ptr noundef %0) #0 align 16 {
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call i32 %62(ptr noundef %0) #15
+  %65 = tail call i32 %62(ptr noundef %0) #14
   %66 = load ptr, ptr %61, align 8
-  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_poweroff, ptr noundef %0, ptr noundef %66, i32 noundef %65) #15
+  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_poweroff, ptr noundef %0, ptr noundef %66, i32 noundef %65) #14
   %67 = icmp eq i32 %65, 0
   br i1 %67, label %68, label %69
 
@@ -2347,20 +2347,20 @@ define internal i32 @pci_pm_restore(ptr noundef %0) #0 align 16 {
   br i1 %14, label %23, label %15
 
 15:                                               ; preds = %9
-  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 5) #15
+  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 5) #14
   %16 = getelementptr i8, ptr %0, i64 -32
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call i32 @pci_set_power_state(ptr noundef %2, i32 noundef 0) #15
+  %20 = tail call i32 @pci_set_power_state(ptr noundef %2, i32 noundef 0) #14
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19, %15
-  tail call void @pci_restore_state(ptr noundef %2) #15
-  tail call void @pci_pme_restore(ptr noundef %2) #15
+  tail call void @pci_restore_state(ptr noundef %2) #14
+  tail call void @pci_pme_restore(ptr noundef %2) #14
   br label %23
 
 23:                                               ; preds = %22, %19, %9
@@ -2388,12 +2388,12 @@ define internal i32 @pci_pm_restore(ptr noundef %0) #0 align 16 {
   br i1 %36, label %.thread, label %37, !prof !24
 
 .thread:                                          ; preds = %.critedge9
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
   br label %53
 
 37:                                               ; preds = %.critedge9
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %38 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %38 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %39 = getelementptr i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
@@ -2411,13 +2411,13 @@ define internal i32 @pci_pm_restore(ptr noundef %0) #0 align 16 {
   %49 = getelementptr i8, ptr %0, i64 -122
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %38, ptr noundef %45, i32 noundef %48, i32 noundef %51) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %38, ptr noundef %45, i32 noundef %48, i32 noundef %51) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   %.pre = load ptr, ptr %24, align 8
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
   %52 = icmp eq ptr %.pre, null
   br i1 %52, label %60, label %53
 
@@ -2429,23 +2429,23 @@ define internal i32 @pci_pm_restore(ptr noundef %0) #0 align 16 {
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %53
-  %59 = tail call i32 %56(ptr noundef %2) #15
+  %59 = tail call i32 %56(ptr noundef %2) #14
   br label %80
 
 60:                                               ; preds = %53, %44
-  %61 = tail call i32 @pci_reenable_device(ptr noundef %2) #15
+  %61 = tail call i32 @pci_reenable_device(ptr noundef %2) #14
   %62 = load i40, ptr %11, align 1
   %63 = and i40 %62, 32
   %64 = icmp eq i40 %63, 0
   br i1 %64, label %80, label %65
 
 65:                                               ; preds = %60
-  tail call void @pci_set_master(ptr noundef %2) #15
+  tail call void @pci_set_master(ptr noundef %2) #14
   br label %80
 
 .critedge:                                        ; preds = %23, %31
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
-  %66 = tail call i32 @pci_enable_wake(ptr noundef %2, i32 noundef 0, i1 noundef zeroext false) #15
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
+  %66 = tail call i32 @pci_enable_wake(ptr noundef %2, i32 noundef 0, i1 noundef zeroext false) #14
   %67 = icmp eq ptr %10, null
   br i1 %67, label %74, label %68
 
@@ -2456,18 +2456,18 @@ define internal i32 @pci_pm_restore(ptr noundef %0) #0 align 16 {
   br i1 %71, label %80, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call i32 %70(ptr noundef %0) #15
+  %73 = tail call i32 %70(ptr noundef %0) #14
   br label %80
 
 74:                                               ; preds = %.critedge
-  %75 = tail call i32 @pci_reenable_device(ptr noundef %2) #15
+  %75 = tail call i32 @pci_reenable_device(ptr noundef %2) #14
   %76 = load i40, ptr %11, align 1
   %77 = and i40 %76, 32
   %78 = icmp eq i40 %77, 0
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %74
-  tail call void @pci_set_master(ptr noundef %2) #15
+  tail call void @pci_set_master(ptr noundef %2) #14
   br label %80
 
 80:                                               ; preds = %79, %74, %72, %68, %65, %60, %58
@@ -2477,13 +2477,13 @@ define internal i32 @pci_pm_restore(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pci_pm_suspend_late(ptr noundef %0) #0 align 16 {
-  %2 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #15
+  %2 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #14
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 -184
-  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %4) #15
-  %5 = tail call i32 @pm_generic_suspend_late(ptr noundef %0) #15
+  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %4) #14
+  %5 = tail call i32 @pm_generic_suspend_late(ptr noundef %0) #14
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -2493,11 +2493,11 @@ define internal i32 @pci_pm_suspend_late(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pci_pm_resume_early(ptr noundef %0) #0 align 16 {
-  %2 = tail call zeroext i1 @dev_pm_skip_resume(ptr noundef %0) #15
+  %2 = tail call zeroext i1 @dev_pm_skip_resume(ptr noundef %0) #14
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @pm_generic_resume_early(ptr noundef %0) #15
+  %4 = tail call i32 @pm_generic_resume_early(ptr noundef %0) #14
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -2507,13 +2507,13 @@ define internal i32 @pci_pm_resume_early(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pci_pm_poweroff_late(ptr noundef %0) #0 align 16 {
-  %2 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #15
+  %2 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #14
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 -184
-  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %4) #15
-  %5 = tail call i32 @pm_generic_poweroff_late(ptr noundef %0) #15
+  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %4) #14
+  %5 = tail call i32 @pm_generic_poweroff_late(ptr noundef %0) #14
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -2536,7 +2536,7 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %6, %1
   %10 = phi ptr [ %8, %6 ], [ null, %1 ]
-  %11 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #15
+  %11 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #14
   br i1 %11, label %153, label %12
 
 12:                                               ; preds = %9
@@ -2564,8 +2564,8 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br i1 %25, label %41, label %26, !prof !24
 
 26:                                               ; preds = %.critedge9
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %27 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %27 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %28 = getelementptr i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
@@ -2583,11 +2583,11 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   %38 = getelementptr i8, ptr %0, i64 -122
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %27, ptr noundef %34, i32 noundef %37, i32 noundef %40) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %27, ptr noundef %34, i32 noundef %37, i32 noundef %40) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %41
 
 41:                                               ; preds = %.critedge9, %33
@@ -2598,7 +2598,7 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %41
-  %47 = tail call i32 @pci_save_state(ptr noundef %2) #15
+  %47 = tail call i32 @pci_save_state(ptr noundef %2) #14
   br label %48
 
 48:                                               ; preds = %46, %41
@@ -2612,7 +2612,7 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br label %53
 
 53:                                               ; preds = %52, %48
-  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #14
   br label %153
 
 .critedge:                                        ; preds = %12, %20
@@ -2620,7 +2620,7 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.critedge
-  %56 = tail call i32 @pci_save_state(ptr noundef %2) #15
+  %56 = tail call i32 @pci_save_state(ptr noundef %2) #14
   br label %.thread12
 
 57:                                               ; preds = %.critedge
@@ -2637,9 +2637,9 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
 61:                                               ; preds = %57
   %62 = getelementptr i8, ptr %0, i64 -32
   %63 = load i32, ptr %62, align 8
-  %64 = tail call i32 %59(ptr noundef %0) #15
+  %64 = tail call i32 %59(ptr noundef %0) #14
   %65 = load ptr, ptr %58, align 8
-  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_suspend_noirq, ptr noundef %0, ptr noundef %65, i32 noundef %64) #15
+  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_suspend_noirq, ptr noundef %0, ptr noundef %65, i32 noundef %64) #14
   %66 = icmp eq i32 %64, 0
   br i1 %66, label %67, label %153
 
@@ -2665,8 +2665,8 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
 
 78:                                               ; preds = %74
   store i1 true, ptr @pci_pm_suspend_noirq.__already_done, align 1
-  tail call void asm sideeffect "489: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 489b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 489) #15, !srcloc !35
-  %79 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "489: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 489b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 489) #14, !srcloc !35
+  %79 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %80 = getelementptr i8, ptr %0, i64 80
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -2679,11 +2679,11 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
 85:                                               ; preds = %83, %78
   %86 = phi ptr [ %84, %83 ], [ %81, %78 ]
   %87 = load ptr, ptr %58, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %79, ptr noundef %86, ptr noundef %87) #15
-  tail call void asm sideeffect "490: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 490b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 490) #15, !srcloc !36
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 884, i32 2313, i64 12) #15, !srcloc !37
-  tail call void asm sideeffect "491: nop\0A\09.pushsection .discard.instr_end\0A\09.long 491b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 491) #15, !srcloc !38
-  tail call void asm sideeffect "492: nop\0A\09.pushsection .discard.instr_end\0A\09.long 492b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 492) #15, !srcloc !39
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %79, ptr noundef %86, ptr noundef %87) #14
+  tail call void asm sideeffect "490: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 490b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 490) #14, !srcloc !36
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 884, i32 2313, i64 12) #14, !srcloc !37
+  tail call void asm sideeffect "491: nop\0A\09.pushsection .discard.instr_end\0A\09.long 491b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 491) #14, !srcloc !38
+  tail call void asm sideeffect "492: nop\0A\09.pushsection .discard.instr_end\0A\09.long 492b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 492) #14, !srcloc !39
   br label %.thread12
 
 .thread:                                          ; preds = %..thread_crit_edge, %67, %72, %72
@@ -2693,7 +2693,7 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br i1 %90, label %91, label %105
 
 91:                                               ; preds = %.thread
-  %92 = tail call i32 @pci_save_state(ptr noundef %2) #15
+  %92 = tail call i32 @pci_save_state(ptr noundef %2) #14
   %93 = getelementptr i8, ptr %0, i64 -27
   %94 = load i24, ptr %93, align 1
   %95 = and i24 %94, 32768
@@ -2710,7 +2710,7 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br i1 %or.cond, label %105, label %103
 
 103:                                              ; preds = %97
-  %104 = tail call i32 @pci_prepare_to_sleep(ptr noundef %2) #15
+  %104 = tail call i32 @pci_prepare_to_sleep(ptr noundef %2) #14
   br label %105
 
 105:                                              ; preds = %97, %103, %91, %.thread
@@ -2767,11 +2767,11 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br i1 %138, label %139, label %.thread12
 
 139:                                              ; preds = %135
-  %140 = tail call i32 @pci_write_config_word(ptr noundef %2, i32 noundef 4, i16 noundef zeroext 0) #15
+  %140 = tail call i32 @pci_write_config_word(ptr noundef %2, i32 noundef 4, i16 noundef zeroext 0) #14
   br label %.thread12
 
 .thread12:                                        ; preds = %85, %74, %139, %135, %127, %55
-  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #14
   %141 = getelementptr inbounds i8, ptr %0, i64 220
   %142 = load i16, ptr %141, align 4
   %143 = and i16 %142, 1
@@ -2817,7 +2817,7 @@ define internal i32 @pci_pm_resume_noirq(ptr noundef %0) #0 align 16 {
   %14 = load i24, ptr %13, align 1
   %15 = and i24 %14, 32768
   %16 = icmp eq i24 %15, 0
-  %17 = tail call zeroext i1 @dev_pm_skip_resume(ptr noundef %0) #15
+  %17 = tail call zeroext i1 @dev_pm_skip_resume(ptr noundef %0) #14
   br i1 %17, label %.thread6, label %18
 
 18:                                               ; preds = %9
@@ -2830,14 +2830,14 @@ define internal i32 @pci_pm_resume_noirq(ptr noundef %0) #0 align 16 {
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19, %18
-  %24 = tail call i32 @pci_power_up(ptr noundef %2) #15
-  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #15
-  tail call void @pci_restore_state(ptr noundef %2) #15
-  tail call void @pci_pme_restore(ptr noundef %2) #15
+  %24 = tail call i32 @pci_power_up(ptr noundef %2) #14
+  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #14
+  tail call void @pci_restore_state(ptr noundef %2) #14
+  tail call void @pci_pme_restore(ptr noundef %2) #14
   br label %25
 
 25:                                               ; preds = %23, %19
-  tail call void @pci_fixup_device(i32 noundef 6, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 6, ptr noundef %2) #14
   %26 = getelementptr i8, ptr %0, i64 -84
   %27 = load i8, ptr %26, align 4
   %28 = icmp eq i8 %27, 0
@@ -2854,7 +2854,7 @@ define internal i32 @pci_pm_resume_noirq(ptr noundef %0) #0 align 16 {
   ]
 
 34:                                               ; preds = %29, %29
-  tail call void @pcie_clear_root_pme_status(ptr noundef %2) #15
+  tail call void @pcie_clear_root_pme_status(ptr noundef %2) #14
   br label %35
 
 35:                                               ; preds = %34, %29, %25
@@ -2863,18 +2863,18 @@ define internal i32 @pci_pm_resume_noirq(ptr noundef %0) #0 align 16 {
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @pci_bridge_wait_for_secondary_bus(ptr noundef %2, ptr noundef nonnull @.str.18) #15
+  %39 = tail call i32 @pci_bridge_wait_for_secondary_bus(ptr noundef %2, ptr noundef nonnull @.str.18) #14
   %40 = icmp eq i32 %39, 0
   %41 = getelementptr i8, ptr %0, i64 -160
   %42 = load ptr, ptr %41, align 8
   br i1 %40, label %44, label %43
 
 43:                                               ; preds = %38
-  tail call void @pci_walk_bus(ptr noundef %42, ptr noundef nonnull @pci_dev_set_disconnected, ptr noundef null) #15
+  tail call void @pci_walk_bus(ptr noundef %42, ptr noundef nonnull @pci_dev_set_disconnected, ptr noundef null) #14
   br label %45
 
 44:                                               ; preds = %38
-  tail call void @pci_resume_bus(ptr noundef %42) #15
+  tail call void @pci_resume_bus(ptr noundef %42) #14
   br label %45
 
 45:                                               ; preds = %44, %43, %35
@@ -2902,8 +2902,8 @@ define internal i32 @pci_pm_resume_noirq(ptr noundef %0) #0 align 16 {
   br i1 %58, label %.thread6, label %59, !prof !24
 
 59:                                               ; preds = %.thread
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %60 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %60 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %61 = getelementptr i8, ptr %0, i64 80
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
@@ -2921,11 +2921,11 @@ define internal i32 @pci_pm_resume_noirq(ptr noundef %0) #0 align 16 {
   %71 = getelementptr i8, ptr %0, i64 -122
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %60, ptr noundef %67, i32 noundef %70, i32 noundef %73) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %60, ptr noundef %67, i32 noundef %70, i32 noundef %73) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %.thread6
 
 .thread5:                                         ; preds = %45, %53
@@ -2939,7 +2939,7 @@ define internal i32 @pci_pm_resume_noirq(ptr noundef %0) #0 align 16 {
   br i1 %78, label %.thread6, label %79
 
 79:                                               ; preds = %75
-  %80 = tail call i32 %77(ptr noundef %0) #15
+  %80 = tail call i32 %77(ptr noundef %0) #14
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread, %66, %79, %75, %.thread5, %9
@@ -2986,8 +2986,8 @@ define internal noundef i32 @pci_pm_freeze_noirq(ptr noundef %0) #0 align 16 {
   br i1 %23, label %39, label %24, !prof !24
 
 24:                                               ; preds = %.critedge8
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %25 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %26 = getelementptr i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -3005,11 +3005,11 @@ define internal noundef i32 @pci_pm_freeze_noirq(ptr noundef %0) #0 align 16 {
   %36 = getelementptr i8, ptr %0, i64 -122
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %25, ptr noundef %32, i32 noundef %35, i32 noundef %38) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %39
 
 39:                                               ; preds = %.critedge8, %31
@@ -3020,7 +3020,7 @@ define internal noundef i32 @pci_pm_freeze_noirq(ptr noundef %0) #0 align 16 {
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %39
-  %45 = tail call i32 @pci_save_state(ptr noundef %2) #15
+  %45 = tail call i32 @pci_save_state(ptr noundef %2) #14
   br label %46
 
 46:                                               ; preds = %44, %39
@@ -3034,7 +3034,7 @@ define internal noundef i32 @pci_pm_freeze_noirq(ptr noundef %0) #0 align 16 {
   br label %51
 
 51:                                               ; preds = %50, %46
-  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #14
   br label %73
 
 .critedge:                                        ; preds = %9, %18
@@ -3048,9 +3048,9 @@ define internal noundef i32 @pci_pm_freeze_noirq(ptr noundef %0) #0 align 16 {
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %53
-  %58 = tail call i32 %55(ptr noundef %0) #15
+  %58 = tail call i32 %55(ptr noundef %0) #14
   %59 = load ptr, ptr %54, align 8
-  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_freeze_noirq, ptr noundef %0, ptr noundef %59, i32 noundef %58) #15
+  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_freeze_noirq, ptr noundef %0, ptr noundef %59, i32 noundef %58) #14
   %60 = icmp eq i32 %58, 0
   br i1 %60, label %61, label %73
 
@@ -3062,7 +3062,7 @@ define internal noundef i32 @pci_pm_freeze_noirq(ptr noundef %0) #0 align 16 {
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %61
-  %67 = tail call i32 @pci_save_state(ptr noundef %2) #15
+  %67 = tail call i32 @pci_save_state(ptr noundef %2) #14
   br label %68
 
 68:                                               ; preds = %66, %61
@@ -3095,9 +3095,9 @@ define internal i32 @pci_pm_thaw_noirq(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %6, %1
   %10 = phi ptr [ %8, %6 ], [ null, %1 ]
-  %11 = tail call i32 @pci_power_up(ptr noundef %2) #15
-  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #15
-  tail call void @pci_restore_state(ptr noundef %2) #15
+  %11 = tail call i32 @pci_power_up(ptr noundef %2) #14
+  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #14
+  tail call void @pci_restore_state(ptr noundef %2) #14
   %12 = getelementptr i8, ptr %0, i64 -64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -3122,8 +3122,8 @@ define internal i32 @pci_pm_thaw_noirq(ptr noundef %0) #0 align 16 {
   br i1 %24, label %.thread6, label %25, !prof !24
 
 25:                                               ; preds = %.thread
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %26 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %26 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %27 = getelementptr i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -3141,11 +3141,11 @@ define internal i32 @pci_pm_thaw_noirq(ptr noundef %0) #0 align 16 {
   %37 = getelementptr i8, ptr %0, i64 -122
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %26, ptr noundef %33, i32 noundef %36, i32 noundef %39) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %26, ptr noundef %33, i32 noundef %36, i32 noundef %39) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %.thread6
 
 .thread5:                                         ; preds = %9, %19
@@ -3159,7 +3159,7 @@ define internal i32 @pci_pm_thaw_noirq(ptr noundef %0) #0 align 16 {
   br i1 %44, label %.thread6, label %45
 
 45:                                               ; preds = %41
-  %46 = tail call i32 %43(ptr noundef %0) #15
+  %46 = tail call i32 %43(ptr noundef %0) #14
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread, %32, %45, %41, %.thread5
@@ -3182,7 +3182,7 @@ define internal noundef i32 @pci_pm_poweroff_noirq(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %6, %1
   %10 = phi ptr [ %8, %6 ], [ null, %1 ]
-  %11 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #15
+  %11 = tail call zeroext i1 @dev_pm_skip_suspend(ptr noundef %0) #14
   br i1 %11, label %80, label %12
 
 12:                                               ; preds = %9
@@ -3210,8 +3210,8 @@ define internal noundef i32 @pci_pm_poweroff_noirq(ptr noundef %0) #0 align 16 {
   br i1 %25, label %41, label %26, !prof !24
 
 26:                                               ; preds = %.critedge8
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %27 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %27 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %28 = getelementptr i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
@@ -3229,11 +3229,11 @@ define internal noundef i32 @pci_pm_poweroff_noirq(ptr noundef %0) #0 align 16 {
   %38 = getelementptr i8, ptr %0, i64 -122
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %27, ptr noundef %34, i32 noundef %37, i32 noundef %40) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %27, ptr noundef %34, i32 noundef %37, i32 noundef %40) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %41
 
 41:                                               ; preds = %.critedge8, %33
@@ -3244,7 +3244,7 @@ define internal noundef i32 @pci_pm_poweroff_noirq(ptr noundef %0) #0 align 16 {
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %41
-  %47 = tail call i32 @pci_save_state(ptr noundef %2) #15
+  %47 = tail call i32 @pci_save_state(ptr noundef %2) #14
   br label %48
 
 48:                                               ; preds = %46, %41
@@ -3268,9 +3268,9 @@ define internal noundef i32 @pci_pm_poweroff_noirq(ptr noundef %0) #0 align 16 {
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %54
-  %59 = tail call i32 %56(ptr noundef %0) #15
+  %59 = tail call i32 %56(ptr noundef %0) #14
   %60 = load ptr, ptr %55, align 8
-  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_poweroff_noirq, ptr noundef %0, ptr noundef %60, i32 noundef %59) #15
+  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_pm_poweroff_noirq, ptr noundef %0, ptr noundef %60, i32 noundef %59) #14
   %61 = icmp eq i32 %59, 0
   br i1 %61, label %62, label %80
 
@@ -3288,7 +3288,7 @@ define internal noundef i32 @pci_pm_poweroff_noirq(ptr noundef %0) #0 align 16 {
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %67
-  %72 = tail call i32 @pci_prepare_to_sleep(ptr noundef %2) #15
+  %72 = tail call i32 @pci_prepare_to_sleep(ptr noundef %2) #14
   br label %73
 
 73:                                               ; preds = %71, %67, %62
@@ -3298,11 +3298,11 @@ define internal noundef i32 @pci_pm_poweroff_noirq(ptr noundef %0) #0 align 16 {
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %73
-  %78 = tail call i32 @pci_write_config_word(ptr noundef %2, i32 noundef 4, i16 noundef zeroext 0) #15
+  %78 = tail call i32 @pci_write_config_word(ptr noundef %2, i32 noundef 4, i16 noundef zeroext 0) #14
   br label %79
 
 79:                                               ; preds = %77, %73, %.critedge, %52, %48
-  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 7, ptr noundef %2) #14
   br label %80
 
 80:                                               ; preds = %79, %58, %9
@@ -3325,11 +3325,11 @@ define internal i32 @pci_pm_restore_noirq(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %6, %1
   %10 = phi ptr [ %8, %6 ], [ null, %1 ]
-  %11 = tail call i32 @pci_power_up(ptr noundef %2) #15
-  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #15
-  tail call void @pci_restore_state(ptr noundef %2) #15
-  tail call void @pci_pme_restore(ptr noundef %2) #15
-  tail call void @pci_fixup_device(i32 noundef 6, ptr noundef %2) #15
+  %11 = tail call i32 @pci_power_up(ptr noundef %2) #14
+  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #14
+  tail call void @pci_restore_state(ptr noundef %2) #14
+  tail call void @pci_pme_restore(ptr noundef %2) #14
+  tail call void @pci_fixup_device(i32 noundef 6, ptr noundef %2) #14
   %12 = getelementptr i8, ptr %0, i64 -64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -3354,8 +3354,8 @@ define internal i32 @pci_pm_restore_noirq(ptr noundef %0) #0 align 16 {
   br i1 %24, label %.thread6, label %25, !prof !24
 
 25:                                               ; preds = %.thread
-  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #15, !srcloc !25
-  %26 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "481: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 481b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 481) #14, !srcloc !25
+  %26 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %27 = getelementptr i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -3373,11 +3373,11 @@ define internal i32 @pci_pm_restore_noirq(ptr noundef %0) #0 align 16 {
   %37 = getelementptr i8, ptr %0, i64 -122
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %26, ptr noundef %33, i32 noundef %36, i32 noundef %39) #15
-  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #15, !srcloc !26
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #15, !srcloc !27
-  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #15, !srcloc !28
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #15, !srcloc !29
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.16, ptr noundef %26, ptr noundef %33, i32 noundef %36, i32 noundef %39) #14
+  tail call void asm sideeffect "482: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 482b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 482) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 707, i32 2313, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_end\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #14, !srcloc !28
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_end\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #14, !srcloc !29
   br label %.thread6
 
 .thread5:                                         ; preds = %9, %19
@@ -3391,7 +3391,7 @@ define internal i32 @pci_pm_restore_noirq(ptr noundef %0) #0 align 16 {
   br i1 %44, label %.thread6, label %45
 
 45:                                               ; preds = %41
-  %46 = tail call i32 %43(ptr noundef %0) #15
+  %46 = tail call i32 %43(ptr noundef %0) #14
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread, %32, %45, %41, %.thread5
@@ -3422,7 +3422,7 @@ define internal noundef i32 @pci_pm_runtime_suspend(ptr noundef %0) #0 align 16 
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @pci_save_state(ptr noundef %2) #15
+  %17 = tail call i32 @pci_save_state(ptr noundef %2) #14
   br label %60
 
 18:                                               ; preds = %9
@@ -3440,7 +3440,7 @@ define internal noundef i32 @pci_pm_runtime_suspend(ptr noundef %0) #0 align 16 
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call i32 %25(ptr noundef %0) #15
+  %28 = tail call i32 %25(ptr noundef %0) #14
   switch i32 %28, label %29 [
     i32 -11, label %60
     i32 -16, label %60
@@ -3449,11 +3449,11 @@ define internal noundef i32 @pci_pm_runtime_suspend(ptr noundef %0) #0 align 16 
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %24, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %30, i32 noundef %28) #17
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %30, i32 noundef %28) #16
   br label %60
 
 31:                                               ; preds = %27, %23
-  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %2) #14
   %32 = load ptr, ptr %24, align 8
   %33 = icmp ne ptr %32, null
   %.pre4 = load i40, ptr %19, align 1
@@ -3477,8 +3477,8 @@ define internal noundef i32 @pci_pm_runtime_suspend(ptr noundef %0) #0 align 16 
 
 42:                                               ; preds = %38
   store i1 true, ptr @pci_pm_runtime_suspend.__already_done, align 1
-  tail call void asm sideeffect "493: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 493b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 493) #15, !srcloc !40
-  %43 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "493: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 493b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 493) #14, !srcloc !40
+  %43 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %44 = getelementptr i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
@@ -3491,15 +3491,15 @@ define internal noundef i32 @pci_pm_runtime_suspend(ptr noundef %0) #0 align 16 
 49:                                               ; preds = %47, %42
   %50 = phi ptr [ %48, %47 ], [ %45, %42 ]
   %51 = load ptr, ptr %24, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %43, ptr noundef %50, ptr noundef %51) #15
-  tail call void asm sideeffect "494: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 494b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 494) #15, !srcloc !41
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 1331, i32 2313, i64 12) #15, !srcloc !42
-  tail call void asm sideeffect "495: nop\0A\09.pushsection .discard.instr_end\0A\09.long 495b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 495) #15, !srcloc !43
-  tail call void asm sideeffect "496: nop\0A\09.pushsection .discard.instr_end\0A\09.long 496b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 496) #15, !srcloc !44
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %43, ptr noundef %50, ptr noundef %51) #14
+  tail call void asm sideeffect "494: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 494b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 494) #14, !srcloc !41
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 1331, i32 2313, i64 12) #14, !srcloc !42
+  tail call void asm sideeffect "495: nop\0A\09.pushsection .discard.instr_end\0A\09.long 495b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 495) #14, !srcloc !43
+  tail call void asm sideeffect "496: nop\0A\09.pushsection .discard.instr_end\0A\09.long 496b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 496) #14, !srcloc !44
   br label %60
 
 52:                                               ; preds = %18
-  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %2) #15
+  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %2) #14
   %.pre = load i40, ptr %19, align 1
   br label %53
 
@@ -3510,8 +3510,8 @@ define internal noundef i32 @pci_pm_runtime_suspend(ptr noundef %0) #0 align 16 
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %53
-  %58 = tail call i32 @pci_save_state(ptr noundef %2) #15
-  %59 = tail call i32 @pci_finish_runtime_suspend(ptr noundef %2) #15
+  %58 = tail call i32 @pci_save_state(ptr noundef %2) #14
+  %59 = tail call i32 @pci_finish_runtime_suspend(ptr noundef %2) #14
   br label %60
 
 60:                                               ; preds = %57, %53, %49, %38, %29, %27, %27, %16
@@ -3536,35 +3536,35 @@ define internal i32 @pci_pm_runtime_resume(ptr noundef %0) #0 align 16 {
   %10 = phi ptr [ %8, %6 ], [ null, %1 ]
   %11 = getelementptr i8, ptr %0, i64 -32
   %12 = load i32, ptr %11, align 8
-  %13 = tail call i32 @pci_power_up(ptr noundef %2) #15
-  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #15
-  tail call void @pci_restore_state(ptr noundef %2) #15
-  tail call void @pci_pme_restore(ptr noundef %2) #15
+  %13 = tail call i32 @pci_power_up(ptr noundef %2) #14
+  tail call void @pci_update_current_state(ptr noundef %2, i32 noundef 0) #14
+  tail call void @pci_restore_state(ptr noundef %2) #14
+  tail call void @pci_pme_restore(ptr noundef %2) #14
   %14 = getelementptr i8, ptr %0, i64 -64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %35, label %17
 
 17:                                               ; preds = %9
-  tail call void @pci_fixup_device(i32 noundef 6, ptr noundef %2) #15
-  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #15
-  %18 = tail call i32 @pci_enable_wake(ptr noundef %2, i32 noundef 0, i1 noundef zeroext false) #15
+  tail call void @pci_fixup_device(i32 noundef 6, ptr noundef %2) #14
+  tail call void @pci_fixup_device(i32 noundef 4, ptr noundef %2) #14
+  %18 = tail call i32 @pci_enable_wake(ptr noundef %2, i32 noundef 0, i1 noundef zeroext false) #14
   %19 = icmp eq i32 %12, 4
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @pci_bridge_wait_for_secondary_bus(ptr noundef %2, ptr noundef nonnull @.str.18) #15
+  %21 = tail call i32 @pci_bridge_wait_for_secondary_bus(ptr noundef %2, ptr noundef nonnull @.str.18) #14
   %22 = icmp eq i32 %21, 0
   %23 = getelementptr i8, ptr %0, i64 -160
   %24 = load ptr, ptr %23, align 8
   br i1 %22, label %26, label %25
 
 25:                                               ; preds = %20
-  tail call void @pci_walk_bus(ptr noundef %24, ptr noundef nonnull @pci_dev_set_disconnected, ptr noundef null) #15
+  tail call void @pci_walk_bus(ptr noundef %24, ptr noundef nonnull @pci_dev_set_disconnected, ptr noundef null) #14
   br label %27
 
 26:                                               ; preds = %20
-  tail call void @pci_resume_bus(ptr noundef %24) #15
+  tail call void @pci_resume_bus(ptr noundef %24) #14
   br label %27
 
 27:                                               ; preds = %26, %25, %17
@@ -3578,7 +3578,7 @@ define internal i32 @pci_pm_runtime_resume(ptr noundef %0) #0 align 16 {
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call i32 %31(ptr noundef %0) #15
+  %34 = tail call i32 %31(ptr noundef %0) #14
   br label %35
 
 35:                                               ; preds = %33, %29, %27, %9
@@ -3619,7 +3619,7 @@ define internal i32 @pci_pm_runtime_idle(ptr noundef %0) #0 align 16 {
   br i1 %19, label %.thread3, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call i32 %18(ptr noundef %0) #15
+  %21 = tail call i32 %18(ptr noundef %0) #14
   br label %.thread3
 
 .thread3:                                         ; preds = %.thread, %20, %16, %14, %5
@@ -3659,9 +3659,9 @@ define internal fastcc noundef i32 @pci_legacy_suspend(ptr noundef %0, i32 %1) u
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %0, i64 -32
   %13 = load i32, ptr %12, align 8
-  %14 = tail call i32 %9(ptr noundef %3, i32 %1) #15
+  %14 = tail call i32 %9(ptr noundef %3, i32 %1) #14
   %15 = load ptr, ptr %8, align 8
-  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_legacy_suspend, ptr noundef %0, ptr noundef %15, i32 noundef %14) #15
+  tail call void @__suspend_report_result(ptr noundef nonnull @__func__.pci_legacy_suspend, ptr noundef %0, ptr noundef %15, i32 noundef %14) #14
   %16 = icmp eq i32 %14, 0
   br i1 %16, label %17, label %39
 
@@ -3687,8 +3687,8 @@ define internal fastcc noundef i32 @pci_legacy_suspend(ptr noundef %0, i32 %1) u
 
 28:                                               ; preds = %24
   store i1 true, ptr @pci_legacy_suspend.__already_done, align 1
-  tail call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #15, !srcloc !45
-  %29 = tail call ptr @dev_driver_string(ptr noundef %0) #15
+  tail call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #14, !srcloc !45
+  %29 = tail call ptr @dev_driver_string(ptr noundef %0) #14
   %30 = getelementptr i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -3701,15 +3701,15 @@ define internal fastcc noundef i32 @pci_legacy_suspend(ptr noundef %0, i32 %1) u
 35:                                               ; preds = %33, %28
   %36 = phi ptr [ %34, %33 ], [ %31, %28 ]
   %37 = load ptr, ptr %8, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.17, ptr noundef %29, ptr noundef %36, ptr noundef %37) #15
-  tail call void asm sideeffect "478: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 478b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 478) #15, !srcloc !46
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 653, i32 2313, i64 12) #15, !srcloc !47
-  tail call void asm sideeffect "479: nop\0A\09.pushsection .discard.instr_end\0A\09.long 479b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 479) #15, !srcloc !48
-  tail call void asm sideeffect "480: nop\0A\09.pushsection .discard.instr_end\0A\09.long 480b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 480) #15, !srcloc !49
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.17, ptr noundef %29, ptr noundef %36, ptr noundef %37) #14
+  tail call void asm sideeffect "478: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 478b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 478) #14, !srcloc !46
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 653, i32 2313, i64 12) #14, !srcloc !47
+  tail call void asm sideeffect "479: nop\0A\09.pushsection .discard.instr_end\0A\09.long 479b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 479) #14, !srcloc !48
+  tail call void asm sideeffect "480: nop\0A\09.pushsection .discard.instr_end\0A\09.long 480b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 480) #14, !srcloc !49
   br label %38
 
 38:                                               ; preds = %35, %24, %22, %22, %17, %7, %2
-  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %3) #15
+  tail call void @pci_fixup_device(i32 noundef 5, ptr noundef %3) #14
   br label %39
 
 39:                                               ; preds = %38, %11
@@ -3790,9 +3790,9 @@ declare dso_local i32 @pci_bridge_wait_for_secondary_bus(ptr noundef, ptr nounde
 declare dso_local void @pci_walk_bus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal noundef i32 @pci_dev_set_disconnected(ptr noundef %0, ptr nocapture readnone %1) #13 align 16 {
+define internal noundef i32 @pci_dev_set_disconnected(ptr noundef %0, ptr nocapture readnone %1) #12 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 180
-  %4 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 3, ptr elementtype(i32) %3) #15, !srcloc !50
+  %4 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 3, ptr elementtype(i32) %3) #14, !srcloc !50
   ret i32 0
 }
 
@@ -3800,7 +3800,7 @@ define internal noundef i32 @pci_dev_set_disconnected(ptr noundef %0, ptr nocapt
 declare dso_local void @pci_resume_bus(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #12
+declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pci_finish_runtime_suspend(ptr noundef) local_unnamed_addr #2
@@ -3811,21 +3811,20 @@ declare dso_local i32 @bus_register(ptr noundef) local_unnamed_addr #2
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { nounwind allocsize(2) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind memory(read) }
-attributes #17 = { cold nounwind }
+attributes #3 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { nounwind allocsize(2) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind memory(read) }
+attributes #16 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

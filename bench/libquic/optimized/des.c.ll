@@ -203,7 +203,7 @@ for.end:                                          ; preds = %for.body
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @DES_encrypt3(ptr nocapture noundef %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
@@ -281,7 +281,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @DES_encrypt2(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef %enc) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
@@ -1952,7 +1952,7 @@ if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @DES_decrypt3(ptr nocapture noundef %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
@@ -2030,7 +2030,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @DES_ecb_encrypt(ptr nocapture noundef readonly %in_block, ptr nocapture noundef writeonly %out_block, ptr noundef %schedule, i32 noundef %is_encrypt) local_unnamed_addr #1 {
 entry:
   %ll = alloca [2 x i32], align 8
@@ -2072,7 +2072,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @DES_encrypt1(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef %enc) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %data, align 4
@@ -4260,7 +4260,7 @@ if.end405:                                        ; preds = %if.end372, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @DES_ecb3_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, i32 noundef %enc) local_unnamed_addr #1 {
 entry:
   %ll = alloca [2 x i32], align 8
@@ -4788,7 +4788,7 @@ entry:
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

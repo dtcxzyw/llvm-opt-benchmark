@@ -543,7 +543,7 @@ define dso_local { i64, i64 } @i128_from_int(i64 noundef %0) local_unnamed_addr 
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local { i64, i64 } @i128_from_str(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %.not9 = icmp eq i8 %2, 0
@@ -627,7 +627,7 @@ define dso_local { i64, i64 } @i128_mult64(i64 %0, i64 %1, i64 noundef %2) local
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %.not10 = icmp eq ptr %0, %1
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -667,7 +667,7 @@ define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly %0, ptr nound
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local { i64, i64 } @i128_from_hexstrl(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %.not10 = icmp eq ptr %0, %1
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -1191,7 +1191,7 @@ i128_shl64.exit:                                  ; preds = %16, %13, %9, %7, %5
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @i128_get_bit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp sgt i32 %1, 63
   %4 = sub nsw i32 64, %1
@@ -1432,7 +1432,7 @@ define dso_local zeroext i1 @i128_is_neg(i64 %0, i64 %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 2) i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 2) i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4) local_unnamed_addr #9 {
   %6 = load i32, ptr %4, align 8
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, 5
@@ -1512,7 +1512,7 @@ define dso_local range(i32 0, 511) i32 @i128_popcnt(i64 %0, i64 %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 186) i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local range(i32 0, 186) i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1618,7 +1618,7 @@ define dso_local range(i32 0, 186) i32 @i128_ctz(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 186) i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local range(i32 0, 186) i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %46, label %3
@@ -1724,14 +1724,14 @@ define dso_local range(i32 0, 186) i32 @i128_clz(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -58, 128) i32 @i128_lsb(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local range(i32 -58, 128) i32 @i128_lsb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = tail call i32 @i128_ctz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -58, 128) i32 @i128_msb(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local range(i32 -58, 128) i32 @i128_msb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = tail call i32 @i128_clz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
@@ -2750,21 +2750,21 @@ i128_scomp.exit:                                  ; preds = %52, %31, %50, %29, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @int_to_u64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #9 {
+define dso_local i64 @int_to_u64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @int_to_i64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #9 {
+define dso_local i64 @int_to_i64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #9 {
+define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3728,7 +3728,7 @@ define dso_local double @int_to_real(ptr nocapture noundef readonly byval(%struc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @int_is_neg(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #9 {
+define dso_local zeroext i1 @int_is_neg(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -13
@@ -3859,10 +3859,10 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

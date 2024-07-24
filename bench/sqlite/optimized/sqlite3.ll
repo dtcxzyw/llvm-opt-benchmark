@@ -10717,7 +10717,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %16, %65, %._crit_ed
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 -255, 256) i32 @sqlite3_stricmp(ptr noundef readonly %0, ptr noundef readonly %1) #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
@@ -10766,7 +10766,7 @@ sqlite3StrICmp.exit:                              ; preds = %13, %11, %6, %4
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 -255, 256) i32 @sqlite3_strnicmp(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #8 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
@@ -11483,291 +11483,290 @@ robustFchown.exit:                                ; preds = %184, %181, %.thread
   %212 = select i1 %.not.i147, ptr null, ptr %1
   %213 = call i32 @sqlite3_uri_boolean(ptr noundef %212, ptr noundef nonnull @.str.86, i32 noundef 1)
   %.not46.i = icmp eq i32 %213, 0
-  br i1 %.not46.i, label %217, label %214
+  br i1 %.not46.i, label %216, label %214
 
 214:                                              ; preds = %199
-  %215 = load i16, ptr %208, align 2
-  %216 = or i16 %215, 16
-  store i16 %216, ptr %208, align 2
-  br label %217
+  %215 = or i16 %207, 16
+  store i16 %215, ptr %208, align 2
+  br label %216
 
-217:                                              ; preds = %214, %199
+216:                                              ; preds = %214, %199
+  %217 = phi i16 [ %215, %214 ], [ %207, %199 ]
   %218 = getelementptr inbounds i8, ptr %0, i64 24
   %219 = load ptr, ptr %218, align 8
   %220 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %219, ptr noundef nonnull dereferenceable(10) @.str.13) #58
   %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %225
+  br i1 %221, label %222, label %224
 
-222:                                              ; preds = %217
-  %223 = load i16, ptr %208, align 2
-  %224 = or i16 %223, 1
-  store i16 %224, ptr %208, align 2
-  br label %225
+222:                                              ; preds = %216
+  %223 = or i16 %217, 1
+  store i16 %223, ptr %208, align 2
+  br label %224
 
-225:                                              ; preds = %222, %217
-  %226 = and i32 %.3105, 128
-  %.not47.i = icmp eq i32 %226, 0
-  br i1 %.not47.i, label %227, label %unixLeaveMutex.exit.thread.i
+224:                                              ; preds = %222, %216
+  %225 = and i32 %.3105, 128
+  %.not47.i = icmp eq i32 %225, 0
+  br i1 %.not47.i, label %226, label %unixLeaveMutex.exit.thread.i
 
-227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %0, i64 32
+226:                                              ; preds = %224
+  %227 = getelementptr inbounds i8, ptr %0, i64 32
+  %228 = load ptr, ptr %227, align 8
   %229 = load ptr, ptr %228, align 8
-  %230 = load ptr, ptr %229, align 8
-  %231 = call ptr %230(ptr noundef %1, ptr noundef nonnull %2) #57
-  %232 = icmp eq ptr %231, @posixIoMethods
-  br i1 %232, label %233, label %301
+  %230 = call ptr %229(ptr noundef %1, ptr noundef nonnull %2) #57
+  %231 = icmp eq ptr %230, @posixIoMethods
+  br i1 %231, label %232, label %300
 
-233:                                              ; preds = %227
-  %234 = load ptr, ptr @unixBigLock, align 8
-  %.not.i.i.i148 = icmp eq ptr %234, null
-  br i1 %.not.i.i.i148, label %unixEnterMutex.exit.i149, label %235
+232:                                              ; preds = %226
+  %233 = load ptr, ptr @unixBigLock, align 8
+  %.not.i.i.i148 = icmp eq ptr %233, null
+  br i1 %.not.i.i.i148, label %unixEnterMutex.exit.i149, label %234
 
-235:                                              ; preds = %233
-  %236 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
-  call void %236(ptr noundef nonnull %234) #57
+234:                                              ; preds = %232
+  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
+  call void %235(ptr noundef nonnull %233) #57
   br label %unixEnterMutex.exit.i149
 
-unixEnterMutex.exit.i149:                         ; preds = %235, %233
-  %237 = getelementptr inbounds i8, ptr %2, i64 16
+unixEnterMutex.exit.i149:                         ; preds = %234, %232
+  %236 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
-  %238 = load i32, ptr %204, align 8
-  %239 = load ptr, ptr getelementptr inbounds (i8, ptr @aSyscall, i64 128), align 16
-  %240 = call i32 %239(i32 noundef %238, ptr noundef nonnull %7) #57
-  %.not.i.i150 = icmp eq i32 %240, 0
-  br i1 %.not.i.i150, label %245, label %241
+  %237 = load i32, ptr %204, align 8
+  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @aSyscall, i64 128), align 16
+  %239 = call i32 %238(i32 noundef %237, ptr noundef nonnull %7) #57
+  %.not.i.i150 = icmp eq i32 %239, 0
+  br i1 %.not.i.i150, label %244, label %240
 
-241:                                              ; preds = %unixEnterMutex.exit.i149
-  %242 = tail call ptr @__errno_location() #59
-  %243 = load i32, ptr %242, align 4
-  %244 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 %243, ptr %244, align 8
-  br label %287
+240:                                              ; preds = %unixEnterMutex.exit.i149
+  %241 = tail call ptr @__errno_location() #59
+  %242 = load i32, ptr %241, align 4
+  %243 = getelementptr inbounds i8, ptr %2, i64 32
+  store i32 %242, ptr %243, align 8
+  br label %286
 
-245:                                              ; preds = %unixEnterMutex.exit.i149
-  %246 = load <2 x i64>, ptr %7, align 16
-  store <2 x i64> %246, ptr %6, align 16
+244:                                              ; preds = %unixEnterMutex.exit.i149
+  %245 = load <2 x i64>, ptr %7, align 16
+  store <2 x i64> %245, ptr %6, align 16
   %.035.i.i = load ptr, ptr @inodeList, align 8
   %cond36.i.i = icmp eq ptr %.035.i.i, null
   br i1 %cond36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %245, %247
-  %.037.i.i = phi ptr [ %.0.i.i152, %247 ], [ %.035.i.i, %245 ]
+.lr.ph.i.i:                                       ; preds = %244, %246
+  %.037.i.i = phi ptr [ %.0.i.i152, %246 ], [ %.035.i.i, %244 ]
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %.037.i.i, i64 16)
   %.not26.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not26.i.i, label %.critedge.i.i, label %247
+  br i1 %.not26.i.i, label %.critedge.i.i, label %246
 
-247:                                              ; preds = %.lr.ph.i.i
-  %248 = getelementptr inbounds i8, ptr %.037.i.i, i64 64
-  %.0.i.i152 = load ptr, ptr %248, align 8
+246:                                              ; preds = %.lr.ph.i.i
+  %247 = getelementptr inbounds i8, ptr %.037.i.i, i64 64
+  %.0.i.i152 = load ptr, ptr %247, align 8
   %cond.i.i = icmp eq ptr %.0.i.i152, null
   br i1 %cond.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !71
 
-._crit_edge.i.i:                                  ; preds = %247, %245
-  %249 = call i32 @sqlite3_initialize()
-  %.not.i.i50.i = icmp eq i32 %249, 0
-  br i1 %.not.i.i50.i, label %sqlite3_malloc64.exit.i.i, label %287
+._crit_edge.i.i:                                  ; preds = %246, %244
+  %248 = call i32 @sqlite3_initialize()
+  %.not.i.i50.i = icmp eq i32 %248, 0
+  br i1 %.not.i.i50.i, label %sqlite3_malloc64.exit.i.i, label %286
 
 sqlite3_malloc64.exit.i.i:                        ; preds = %._crit_edge.i.i
-  %250 = call fastcc ptr @sqlite3Malloc(i64 noundef 80)
-  %251 = icmp eq ptr %250, null
-  br i1 %251, label %287, label %252
+  %249 = call fastcc ptr @sqlite3Malloc(i64 noundef 80)
+  %250 = icmp eq ptr %249, null
+  br i1 %250, label %286, label %251
 
-252:                                              ; preds = %sqlite3_malloc64.exit.i.i
-  %253 = getelementptr i8, ptr %250, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %253, i8 0, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  %254 = load i8, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 4), align 4
-  %.not27.i.i = icmp eq i8 %254, 0
-  br i1 %.not27.i.i, label %276, label %255
+251:                                              ; preds = %sqlite3_malloc64.exit.i.i
+  %252 = getelementptr i8, ptr %249, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %252, i8 0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
+  %253 = load i8, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 4), align 4
+  %.not27.i.i = icmp eq i8 %253, 0
+  br i1 %.not27.i.i, label %275, label %254
 
-255:                                              ; preds = %252
-  %256 = call i32 @sqlite3_initialize()
-  %.not.i29.i.i = icmp eq i32 %256, 0
+254:                                              ; preds = %251
+  %255 = call i32 @sqlite3_initialize()
+  %.not.i29.i.i = icmp eq i32 %255, 0
   br i1 %.not.i29.i.i, label %sqlite3_mutex_alloc.exit.i.i, label %sqlite3_mutex_alloc.exit.thread.i.i
 
-sqlite3_mutex_alloc.exit.thread.i.i:              ; preds = %255
-  store ptr null, ptr %253, align 8
-  br label %260
+sqlite3_mutex_alloc.exit.thread.i.i:              ; preds = %254
+  store ptr null, ptr %252, align 8
+  br label %259
 
-sqlite3_mutex_alloc.exit.i.i:                     ; preds = %255
-  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 112), align 8
-  %258 = call ptr %257(i32 noundef 0) #57
-  store ptr %258, ptr %253, align 8
-  %259 = icmp eq ptr %258, null
-  br i1 %259, label %260, label %276
+sqlite3_mutex_alloc.exit.i.i:                     ; preds = %254
+  %256 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 112), align 8
+  %257 = call ptr %256(i32 noundef 0) #57
+  store ptr %257, ptr %252, align 8
+  %258 = icmp eq ptr %257, null
+  br i1 %258, label %259, label %275
 
-260:                                              ; preds = %sqlite3_mutex_alloc.exit.i.i, %sqlite3_mutex_alloc.exit.thread.i.i
-  %261 = load i32, ptr @sqlite3Config, align 8
-  %.not.i31.i.i = icmp eq i32 %261, 0
-  br i1 %.not.i31.i.i, label %sqlite3_mutex_leave.exit.sink.split.i.i.i, label %262
+259:                                              ; preds = %sqlite3_mutex_alloc.exit.i.i, %sqlite3_mutex_alloc.exit.thread.i.i
+  %260 = load i32, ptr @sqlite3Config, align 8
+  %.not.i31.i.i = icmp eq i32 %260, 0
+  br i1 %.not.i31.i.i, label %sqlite3_mutex_leave.exit.sink.split.i.i.i, label %261
 
-262:                                              ; preds = %260
-  %263 = load ptr, ptr @mem0, align 8
-  %.not.i.i.i.i = icmp eq ptr %263, null
-  br i1 %.not.i.i.i.i, label %sqlite3_mutex_enter.exit.i.i.i, label %264
+261:                                              ; preds = %259
+  %262 = load ptr, ptr @mem0, align 8
+  %.not.i.i.i.i = icmp eq ptr %262, null
+  br i1 %.not.i.i.i.i, label %sqlite3_mutex_enter.exit.i.i.i, label %263
 
-264:                                              ; preds = %262
-  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
-  call void %265(ptr noundef nonnull %263) #57
+263:                                              ; preds = %261
+  %264 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
+  call void %264(ptr noundef nonnull %262) #57
   br label %sqlite3_mutex_enter.exit.i.i.i
 
-sqlite3_mutex_enter.exit.i.i.i:                   ; preds = %264, %262
-  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
-  %267 = call i32 %266(ptr noundef nonnull %250) #57
-  %268 = sext i32 %267 to i64
-  %269 = load i64, ptr @sqlite3Stat, align 8
-  %270 = sub nsw i64 %269, %268
-  store i64 %270, ptr @sqlite3Stat, align 8
-  %271 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %272 = add nsw i64 %271, -1
-  store i64 %272, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %273 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
-  call void %273(ptr noundef nonnull %250) #57
-  %274 = load ptr, ptr @mem0, align 8
-  %.not.i4.i.i.i = icmp eq ptr %274, null
-  br i1 %.not.i4.i.i.i, label %287, label %sqlite3_mutex_leave.exit.sink.split.i.i.i
+sqlite3_mutex_enter.exit.i.i.i:                   ; preds = %263, %261
+  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
+  %266 = call i32 %265(ptr noundef nonnull %249) #57
+  %267 = sext i32 %266 to i64
+  %268 = load i64, ptr @sqlite3Stat, align 8
+  %269 = sub nsw i64 %268, %267
+  store i64 %269, ptr @sqlite3Stat, align 8
+  %270 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %271 = add nsw i64 %270, -1
+  store i64 %271, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %272 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
+  call void %272(ptr noundef nonnull %249) #57
+  %273 = load ptr, ptr @mem0, align 8
+  %.not.i4.i.i.i = icmp eq ptr %273, null
+  br i1 %.not.i4.i.i.i, label %286, label %sqlite3_mutex_leave.exit.sink.split.i.i.i
 
-sqlite3_mutex_leave.exit.sink.split.i.i.i:        ; preds = %sqlite3_mutex_enter.exit.i.i.i, %260
-  %.sink6.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %260 ]
-  %.sink.i.i.i = phi ptr [ %274, %sqlite3_mutex_enter.exit.i.i.i ], [ %250, %260 ]
-  %275 = load ptr, ptr %.sink6.i.i.i, align 8
-  call void %275(ptr noundef nonnull %.sink.i.i.i) #57
-  br label %287
+sqlite3_mutex_leave.exit.sink.split.i.i.i:        ; preds = %sqlite3_mutex_enter.exit.i.i.i, %259
+  %.sink6.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %259 ]
+  %.sink.i.i.i = phi ptr [ %273, %sqlite3_mutex_enter.exit.i.i.i ], [ %249, %259 ]
+  %274 = load ptr, ptr %.sink6.i.i.i, align 8
+  call void %274(ptr noundef nonnull %.sink.i.i.i) #57
+  br label %286
 
-276:                                              ; preds = %sqlite3_mutex_alloc.exit.i.i, %252
-  %277 = getelementptr inbounds i8, ptr %250, i64 48
-  store i32 1, ptr %277, align 8
-  %278 = load ptr, ptr @inodeList, align 8
-  %279 = getelementptr inbounds i8, ptr %250, i64 64
-  store ptr %278, ptr %279, align 8
-  %280 = getelementptr inbounds i8, ptr %250, i64 72
-  store ptr null, ptr %280, align 8
-  %.not28.i.i = icmp eq ptr %278, null
-  br i1 %.not28.i.i, label %283, label %281
+275:                                              ; preds = %sqlite3_mutex_alloc.exit.i.i, %251
+  %276 = getelementptr inbounds i8, ptr %249, i64 48
+  store i32 1, ptr %276, align 8
+  %277 = load ptr, ptr @inodeList, align 8
+  %278 = getelementptr inbounds i8, ptr %249, i64 64
+  store ptr %277, ptr %278, align 8
+  %279 = getelementptr inbounds i8, ptr %249, i64 72
+  store ptr null, ptr %279, align 8
+  %.not28.i.i = icmp eq ptr %277, null
+  br i1 %.not28.i.i, label %282, label %280
 
-281:                                              ; preds = %276
-  %282 = getelementptr inbounds i8, ptr %278, i64 72
-  store ptr %250, ptr %282, align 8
-  br label %283
+280:                                              ; preds = %275
+  %281 = getelementptr inbounds i8, ptr %277, i64 72
+  store ptr %249, ptr %281, align 8
+  br label %282
 
-283:                                              ; preds = %281, %276
-  store ptr %250, ptr @inodeList, align 8
+282:                                              ; preds = %280, %275
+  store ptr %249, ptr @inodeList, align 8
   br label %findInodeInfo.exit.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %284 = getelementptr inbounds i8, ptr %.037.i.i, i64 48
-  %285 = load i32, ptr %284, align 8
-  %286 = add nsw i32 %285, 1
-  store i32 %286, ptr %284, align 8
+  %283 = getelementptr inbounds i8, ptr %.037.i.i, i64 48
+  %284 = load i32, ptr %283, align 8
+  %285 = add nsw i32 %284, 1
+  store i32 %285, ptr %283, align 8
   br label %findInodeInfo.exit.i
 
-findInodeInfo.exit.i:                             ; preds = %.critedge.i.i, %283
-  %.1.i.i = phi ptr [ %250, %283 ], [ %.037.i.i, %.critedge.i.i ]
-  store ptr %.1.i.i, ptr %237, align 8
+findInodeInfo.exit.i:                             ; preds = %.critedge.i.i, %282
+  %.1.i.i = phi ptr [ %249, %282 ], [ %.037.i.i, %.critedge.i.i ]
+  store ptr %.1.i.i, ptr %236, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   br label %robust_close.exit.i
 
-287:                                              ; preds = %sqlite3_mutex_leave.exit.sink.split.i.i.i, %sqlite3_mutex_enter.exit.i.i.i, %sqlite3_malloc64.exit.i.i, %._crit_edge.i.i, %241
-  %.022.i.ph.i = phi i32 [ 7, %._crit_edge.i.i ], [ 7, %sqlite3_mutex_leave.exit.sink.split.i.i.i ], [ 7, %sqlite3_mutex_enter.exit.i.i.i ], [ 7, %sqlite3_malloc64.exit.i.i ], [ 10, %241 ]
+286:                                              ; preds = %sqlite3_mutex_leave.exit.sink.split.i.i.i, %sqlite3_mutex_enter.exit.i.i.i, %sqlite3_malloc64.exit.i.i, %._crit_edge.i.i, %240
+  %.022.i.ph.i = phi i32 [ 7, %._crit_edge.i.i ], [ 7, %sqlite3_mutex_leave.exit.sink.split.i.i.i ], [ 7, %sqlite3_mutex_enter.exit.i.i.i ], [ 7, %sqlite3_malloc64.exit.i.i ], [ 10, %240 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
-  %288 = load ptr, ptr getelementptr inbounds (i8, ptr @aSyscall, i64 32), align 16
-  %289 = call i32 %288(i32 noundef %.3) #57
-  %.not.i51.i = icmp eq i32 %289, 0
-  br i1 %.not.i51.i, label %robust_close.exit.i, label %290
+  %287 = load ptr, ptr getelementptr inbounds (i8, ptr @aSyscall, i64 32), align 16
+  %288 = call i32 %287(i32 noundef %.3) #57
+  %.not.i51.i = icmp eq i32 %288, 0
+  br i1 %.not.i51.i, label %robust_close.exit.i, label %289
 
-290:                                              ; preds = %287
+289:                                              ; preds = %286
   %.not3.i.i = icmp eq ptr %2, null
-  br i1 %.not3.i.i, label %293, label %291
+  br i1 %.not3.i.i, label %292, label %290
 
-291:                                              ; preds = %290
-  %292 = load ptr, ptr %206, align 8
-  br label %293
+290:                                              ; preds = %289
+  %291 = load ptr, ptr %206, align 8
+  br label %292
 
-293:                                              ; preds = %291, %290
-  %294 = phi ptr [ %292, %291 ], [ null, %290 ]
-  %295 = tail call ptr @__errno_location() #59
-  %296 = load i32, ptr %295, align 4
-  %297 = icmp eq ptr %294, null
-  %spec.store.select.i.i.i = select i1 %297, ptr @.str.4, ptr %294
-  call void (i32, ptr, ...) @sqlite3_log(i32 noundef 4106, ptr noundef nonnull @.str.75, i32 noundef 44074, i32 noundef %296, ptr noundef nonnull @.str.45, ptr noundef nonnull %spec.store.select.i.i.i, ptr noundef nonnull @.str.4)
+292:                                              ; preds = %290, %289
+  %293 = phi ptr [ %291, %290 ], [ null, %289 ]
+  %294 = tail call ptr @__errno_location() #59
+  %295 = load i32, ptr %294, align 4
+  %296 = icmp eq ptr %293, null
+  %spec.store.select.i.i.i = select i1 %296, ptr @.str.4, ptr %293
+  call void (i32, ptr, ...) @sqlite3_log(i32 noundef 4106, ptr noundef nonnull @.str.75, i32 noundef 44074, i32 noundef %295, ptr noundef nonnull @.str.45, ptr noundef nonnull %spec.store.select.i.i.i, ptr noundef nonnull @.str.4)
   br label %robust_close.exit.i
 
-robust_close.exit.i:                              ; preds = %293, %287, %findInodeInfo.exit.i
-  %.022.i65.i = phi i32 [ 0, %findInodeInfo.exit.i ], [ %.022.i.ph.i, %287 ], [ %.022.i.ph.i, %293 ]
-  %.0.i151 = phi i32 [ %.3, %findInodeInfo.exit.i ], [ -1, %287 ], [ -1, %293 ]
-  %298 = load ptr, ptr @unixBigLock, align 8
-  %.not.i.i52.i = icmp eq ptr %298, null
-  br i1 %.not.i.i52.i, label %unixLeaveMutex.exit.i, label %299
+robust_close.exit.i:                              ; preds = %292, %286, %findInodeInfo.exit.i
+  %.022.i65.i = phi i32 [ 0, %findInodeInfo.exit.i ], [ %.022.i.ph.i, %286 ], [ %.022.i.ph.i, %292 ]
+  %.0.i151 = phi i32 [ %.3, %findInodeInfo.exit.i ], [ -1, %286 ], [ -1, %292 ]
+  %297 = load ptr, ptr @unixBigLock, align 8
+  %.not.i.i52.i = icmp eq ptr %297, null
+  br i1 %.not.i.i52.i, label %unixLeaveMutex.exit.i, label %298
 
-299:                                              ; preds = %robust_close.exit.i
-  %300 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
-  call void %300(ptr noundef nonnull %298) #57
+298:                                              ; preds = %robust_close.exit.i
+  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
+  call void %299(ptr noundef nonnull %297) #57
   br label %unixLeaveMutex.exit.i
 
-301:                                              ; preds = %227
-  %302 = icmp eq ptr %231, @dotlockIoMethods
-  br i1 %302, label %303, label %unixLeaveMutex.exit.thread.i
+300:                                              ; preds = %226
+  %301 = icmp eq ptr %230, @dotlockIoMethods
+  br i1 %301, label %302, label %unixLeaveMutex.exit.thread.i
 
-303:                                              ; preds = %301
-  %304 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #58
-  %305 = trunc i64 %304 to i32
-  %306 = add nsw i32 %305, 6
-  %307 = call i32 @sqlite3_initialize()
-  %.not.i53.i = icmp eq i32 %307, 0
+302:                                              ; preds = %300
+  %303 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #58
+  %304 = trunc i64 %303 to i32
+  %305 = add nsw i32 %304, 6
+  %306 = call i32 @sqlite3_initialize()
+  %.not.i53.i = icmp eq i32 %306, 0
   br i1 %.not.i53.i, label %sqlite3_malloc64.exit.i, label %sqlite3_malloc64.exit.thread.i
 
-sqlite3_malloc64.exit.i:                          ; preds = %303
-  %308 = sext i32 %306 to i64
-  %309 = call fastcc ptr @sqlite3Malloc(i64 noundef %308)
-  %310 = icmp eq ptr %309, null
-  br i1 %310, label %sqlite3_malloc64.exit.thread.i, label %311
+sqlite3_malloc64.exit.i:                          ; preds = %302
+  %307 = sext i32 %305 to i64
+  %308 = call fastcc ptr @sqlite3Malloc(i64 noundef %307)
+  %309 = icmp eq ptr %308, null
+  br i1 %309, label %sqlite3_malloc64.exit.thread.i, label %310
 
-311:                                              ; preds = %sqlite3_malloc64.exit.i
-  %312 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %306, ptr noundef nonnull %309, ptr noundef nonnull @.str.87, ptr noundef %1)
+310:                                              ; preds = %sqlite3_malloc64.exit.i
+  %311 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %305, ptr noundef nonnull %308, ptr noundef nonnull @.str.87, ptr noundef %1)
   br label %sqlite3_malloc64.exit.thread.i
 
-sqlite3_malloc64.exit.thread.i:                   ; preds = %311, %sqlite3_malloc64.exit.i, %303
-  %.0.i5469.i = phi ptr [ %309, %311 ], [ null, %sqlite3_malloc64.exit.i ], [ null, %303 ]
-  %.043.i = phi i32 [ 0, %311 ], [ 7, %sqlite3_malloc64.exit.i ], [ 7, %303 ]
-  %313 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %.0.i5469.i, ptr %313, align 8
+sqlite3_malloc64.exit.thread.i:                   ; preds = %310, %sqlite3_malloc64.exit.i, %302
+  %.0.i5469.i = phi ptr [ %308, %310 ], [ null, %sqlite3_malloc64.exit.i ], [ null, %302 ]
+  %.043.i = phi i32 [ 0, %310 ], [ 7, %sqlite3_malloc64.exit.i ], [ 7, %302 ]
+  %312 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %.0.i5469.i, ptr %312, align 8
   br label %unixLeaveMutex.exit.i
 
-unixLeaveMutex.exit.thread.i:                     ; preds = %301, %225
-  %.04260.ph.i = phi ptr [ %231, %301 ], [ @nolockIoMethods, %225 ]
-  %314 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 0, ptr %314, align 8
+unixLeaveMutex.exit.thread.i:                     ; preds = %300, %224
+  %.04260.ph.i = phi ptr [ %230, %300 ], [ @nolockIoMethods, %224 ]
+  %313 = getelementptr inbounds i8, ptr %2, i64 32
+  store i32 0, ptr %313, align 8
   br label %fillInUnixFile.exit.thread195
 
-unixLeaveMutex.exit.i:                            ; preds = %sqlite3_malloc64.exit.thread.i, %299, %robust_close.exit.i
-  %.04260.i = phi ptr [ @dotlockIoMethods, %sqlite3_malloc64.exit.thread.i ], [ @posixIoMethods, %robust_close.exit.i ], [ @posixIoMethods, %299 ]
-  %.144.i = phi i32 [ %.043.i, %sqlite3_malloc64.exit.thread.i ], [ %.022.i65.i, %robust_close.exit.i ], [ %.022.i65.i, %299 ]
-  %.1.i = phi i32 [ %.3, %sqlite3_malloc64.exit.thread.i ], [ %.0.i151, %robust_close.exit.i ], [ %.0.i151, %299 ]
-  %315 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 0, ptr %315, align 8
+unixLeaveMutex.exit.i:                            ; preds = %sqlite3_malloc64.exit.thread.i, %298, %robust_close.exit.i
+  %.04260.i = phi ptr [ @dotlockIoMethods, %sqlite3_malloc64.exit.thread.i ], [ @posixIoMethods, %robust_close.exit.i ], [ @posixIoMethods, %298 ]
+  %.144.i = phi i32 [ %.043.i, %sqlite3_malloc64.exit.thread.i ], [ %.022.i65.i, %robust_close.exit.i ], [ %.022.i65.i, %298 ]
+  %.1.i = phi i32 [ %.3, %sqlite3_malloc64.exit.thread.i ], [ %.0.i151, %robust_close.exit.i ], [ %.0.i151, %298 ]
+  %314 = getelementptr inbounds i8, ptr %2, i64 32
+  store i32 0, ptr %314, align 8
   %.not49.i = icmp eq i32 %.144.i, 0
-  br i1 %.not49.i, label %fillInUnixFile.exit.thread195, label %316
+  br i1 %.not49.i, label %fillInUnixFile.exit.thread195, label %315
 
-316:                                              ; preds = %unixLeaveMutex.exit.i
-  %317 = icmp sgt i32 %.1.i, -1
-  br i1 %317, label %318, label %fillInUnixFile.exit.thread
+315:                                              ; preds = %unixLeaveMutex.exit.i
+  %316 = icmp sgt i32 %.1.i, -1
+  br i1 %316, label %317, label %fillInUnixFile.exit.thread
 
-318:                                              ; preds = %316
-  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @aSyscall, i64 32), align 16
-  %320 = call i32 %319(i32 noundef %.1.i) #57
-  %.not.i55.i = icmp eq i32 %320, 0
-  br i1 %.not.i55.i, label %fillInUnixFile.exit.thread, label %321
+317:                                              ; preds = %315
+  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @aSyscall, i64 32), align 16
+  %319 = call i32 %318(i32 noundef %.1.i) #57
+  %.not.i55.i = icmp eq i32 %319, 0
+  br i1 %.not.i55.i, label %fillInUnixFile.exit.thread, label %320
 
-321:                                              ; preds = %318
-  %322 = load ptr, ptr %206, align 8
-  %323 = tail call ptr @__errno_location() #59
-  %324 = load i32, ptr %323, align 4
-  %325 = icmp eq ptr %322, null
-  %spec.store.select.i.i57.i = select i1 %325, ptr @.str.4, ptr %322
-  call void (i32, ptr, ...) @sqlite3_log(i32 noundef 4106, ptr noundef nonnull @.str.75, i32 noundef 44159, i32 noundef %324, ptr noundef nonnull @.str.45, ptr noundef nonnull %spec.store.select.i.i57.i, ptr noundef nonnull @.str.4)
+320:                                              ; preds = %317
+  %321 = load ptr, ptr %206, align 8
+  %322 = tail call ptr @__errno_location() #59
+  %323 = load i32, ptr %322, align 4
+  %324 = icmp eq ptr %321, null
+  %spec.store.select.i.i57.i = select i1 %324, ptr @.str.4, ptr %321
+  call void (i32, ptr, ...) @sqlite3_log(i32 noundef 4106, ptr noundef nonnull @.str.75, i32 noundef 44159, i32 noundef %323, ptr noundef nonnull @.str.45, ptr noundef nonnull %spec.store.select.i.i57.i, ptr noundef nonnull @.str.4)
   br label %fillInUnixFile.exit.thread
 
 fillInUnixFile.exit.thread195:                    ; preds = %unixLeaveMutex.exit.thread.i, %unixLeaveMutex.exit.i
@@ -11776,49 +11775,49 @@ fillInUnixFile.exit.thread195:                    ; preds = %unixLeaveMutex.exit
   call fastcc void @verifyDbFile(ptr noundef nonnull %2)
   br label %sqlite3_free.exit
 
-fillInUnixFile.exit.thread:                       ; preds = %.thread, %321, %318, %316
-  %.1101194 = phi i32 [ %.144.i, %321 ], [ %.144.i, %318 ], [ %.144.i, %316 ], [ %spec.select, %.thread ]
-  %326 = getelementptr inbounds i8, ptr %2, i64 48
-  %327 = load ptr, ptr %326, align 8
-  %328 = icmp eq ptr %327, null
-  br i1 %328, label %sqlite3_free.exit, label %329
+fillInUnixFile.exit.thread:                       ; preds = %.thread, %320, %317, %315
+  %.1101194 = phi i32 [ %.144.i, %320 ], [ %.144.i, %317 ], [ %.144.i, %315 ], [ %spec.select, %.thread ]
+  %325 = getelementptr inbounds i8, ptr %2, i64 48
+  %326 = load ptr, ptr %325, align 8
+  %327 = icmp eq ptr %326, null
+  br i1 %327, label %sqlite3_free.exit, label %328
 
-329:                                              ; preds = %fillInUnixFile.exit.thread
-  %330 = load i32, ptr @sqlite3Config, align 8
-  %.not.i153 = icmp eq i32 %330, 0
-  br i1 %.not.i153, label %sqlite3_mutex_leave.exit.sink.split.i, label %331
+328:                                              ; preds = %fillInUnixFile.exit.thread
+  %329 = load i32, ptr @sqlite3Config, align 8
+  %.not.i153 = icmp eq i32 %329, 0
+  br i1 %.not.i153, label %sqlite3_mutex_leave.exit.sink.split.i, label %330
 
-331:                                              ; preds = %329
-  %332 = load ptr, ptr @mem0, align 8
-  %.not.i.i154 = icmp eq ptr %332, null
-  br i1 %.not.i.i154, label %sqlite3_mutex_enter.exit.i155, label %333
+330:                                              ; preds = %328
+  %331 = load ptr, ptr @mem0, align 8
+  %.not.i.i154 = icmp eq ptr %331, null
+  br i1 %.not.i.i154, label %sqlite3_mutex_enter.exit.i155, label %332
 
-333:                                              ; preds = %331
-  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
-  call void %334(ptr noundef nonnull %332) #57
+332:                                              ; preds = %330
+  %333 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
+  call void %333(ptr noundef nonnull %331) #57
   br label %sqlite3_mutex_enter.exit.i155
 
-sqlite3_mutex_enter.exit.i155:                    ; preds = %333, %331
-  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
-  %336 = call i32 %335(ptr noundef nonnull %327) #57
-  %337 = sext i32 %336 to i64
-  %338 = load i64, ptr @sqlite3Stat, align 8
-  %339 = sub nsw i64 %338, %337
-  store i64 %339, ptr @sqlite3Stat, align 8
-  %340 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %341 = add nsw i64 %340, -1
-  store i64 %341, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %342 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
-  call void %342(ptr noundef nonnull %327) #57
-  %343 = load ptr, ptr @mem0, align 8
-  %.not.i4.i = icmp eq ptr %343, null
+sqlite3_mutex_enter.exit.i155:                    ; preds = %332, %330
+  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
+  %335 = call i32 %334(ptr noundef nonnull %326) #57
+  %336 = sext i32 %335 to i64
+  %337 = load i64, ptr @sqlite3Stat, align 8
+  %338 = sub nsw i64 %337, %336
+  store i64 %338, ptr @sqlite3Stat, align 8
+  %339 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %340 = add nsw i64 %339, -1
+  store i64 %340, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %341 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
+  call void %341(ptr noundef nonnull %326) #57
+  %342 = load ptr, ptr @mem0, align 8
+  %.not.i4.i = icmp eq ptr %342, null
   br i1 %.not.i4.i, label %sqlite3_free.exit, label %sqlite3_mutex_leave.exit.sink.split.i
 
-sqlite3_mutex_leave.exit.sink.split.i:            ; preds = %sqlite3_mutex_enter.exit.i155, %329
-  %.sink6.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i155 ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %329 ]
-  %.sink.i = phi ptr [ %343, %sqlite3_mutex_enter.exit.i155 ], [ %327, %329 ]
-  %344 = load ptr, ptr %.sink6.i, align 8
-  call void %344(ptr noundef nonnull %.sink.i) #57
+sqlite3_mutex_leave.exit.sink.split.i:            ; preds = %sqlite3_mutex_enter.exit.i155, %328
+  %.sink6.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i155 ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %328 ]
+  %.sink.i = phi ptr [ %342, %sqlite3_mutex_enter.exit.i155 ], [ %326, %328 ]
+  %343 = load ptr, ptr %.sink6.i, align 8
+  call void %343(ptr noundef nonnull %.sink.i) #57
   br label %sqlite3_free.exit
 
 sqlite3_free.exit:                                ; preds = %77, %sqlite3_mutex_leave.exit.sink.split.i, %sqlite3_mutex_enter.exit.i155, %fillInUnixFile.exit.thread, %fillInUnixFile.exit.thread195, %findCreateFileMode.exit, %83, %sqlite3_malloc64.exit
@@ -16585,7 +16584,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_free.exit60
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_database_file_object(ptr nocapture noundef readonly %0) #8 {
+define dso_local ptr @sqlite3_database_file_object(ptr nocapture noundef readonly %0) #14 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %1
@@ -23103,7 +23102,7 @@ sqlite3ValueBytes.exit:                           ; preds = %8, %11, %16, %20, %
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local double @sqlite3_value_double(ptr nocapture noundef readonly %0) #14 {
+define dso_local double @sqlite3_value_double(ptr nocapture noundef readonly %0) #15 {
   %2 = alloca double, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
@@ -23151,7 +23150,7 @@ sqlite3VdbeRealValue.exit:                        ; preds = %7, %11, %14, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @sqlite3_value_int(ptr nocapture noundef readonly %0) #15 {
+define dso_local i32 @sqlite3_value_int(ptr nocapture noundef readonly %0) #16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
@@ -23212,7 +23211,7 @@ sqlite3VdbeIntValue.exit:                         ; preds = %7, %11, %14, %16, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @sqlite3VdbeIntValue(ptr nocapture noundef readonly %0) unnamed_addr #15 {
+define internal fastcc i64 @sqlite3VdbeIntValue(ptr nocapture noundef readonly %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
@@ -23272,7 +23271,7 @@ sqlite3RealToI64.exit:                            ; preds = %16, %14, %11, %18, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @sqlite3_value_int64(ptr nocapture noundef readonly %0) #15 {
+define dso_local i64 @sqlite3_value_int64(ptr nocapture noundef readonly %0) #16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
@@ -23351,7 +23350,7 @@ define dso_local range(i32 0, 256) i32 @sqlite3_value_subtype(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_value_pointer(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #16 {
+define dso_local ptr @sqlite3_value_pointer(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 4031
@@ -24873,7 +24872,7 @@ sqlite3VdbeMemRelease.exit:                       ; preds = %9, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @sqlite3_result_subtype(ptr nocapture noundef readonly %0, i32 noundef %1) #17 {
+define dso_local void @sqlite3_result_subtype(ptr nocapture noundef readonly %0, i32 noundef %1) #18 {
   %3 = load ptr, ptr %0, align 8
   %4 = trunc i32 %1 to i8
   %5 = getelementptr inbounds i8, ptr %3, i64 23
@@ -25887,7 +25886,7 @@ sqlite3DbMallocRaw.exit:                          ; preds = %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_user_data(ptr nocapture noundef readonly %0) #18 {
+define dso_local ptr @sqlite3_user_data(ptr nocapture noundef readonly %0) #19 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -25896,7 +25895,7 @@ define dso_local ptr @sqlite3_user_data(ptr nocapture noundef readonly %0) #18 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_context_db_handle(ptr nocapture noundef readonly %0) #18 {
+define dso_local ptr @sqlite3_context_db_handle(ptr nocapture noundef readonly %0) #19 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -25904,7 +25903,7 @@ define dso_local ptr @sqlite3_context_db_handle(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @sqlite3_vtab_nochange(ptr nocapture noundef readonly %0) #18 {
+define dso_local range(i32 0, 2) i32 @sqlite3_vtab_nochange(ptr nocapture noundef readonly %0) #19 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 20
   %4 = load i16, ptr %3, align 4
@@ -26344,7 +26343,7 @@ createAggContext.exit:                            ; preds = %31, %sqlite3VdbeMem
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_get_auxdata(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+define dso_local ptr @sqlite3_get_auxdata(ptr nocapture noundef readonly %0, i32 noundef %1) #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 296
@@ -26544,7 +26543,7 @@ sqlite3DbMallocRaw.exit:                          ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @sqlite3_aggregate_count(ptr nocapture noundef readonly %0) #18 {
+define dso_local i32 @sqlite3_aggregate_count(ptr nocapture noundef readonly %0) #19 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -28415,7 +28414,7 @@ define dso_local range(i32 -32768, 32768) i32 @sqlite3_bind_parameter_count(ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @sqlite3_bind_parameter_name(ptr noundef readonly %0, i32 noundef %1) #8 {
+define dso_local noundef ptr @sqlite3_bind_parameter_name(ptr noundef readonly %0, i32 noundef %1) #14 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %sqlite3VListNumToName.exit, label %4
 
@@ -29674,7 +29673,7 @@ sqlite3StrAccumFinish.exit:                       ; preds = %338, %343, %348, %3
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local i32 @sqlite3_value_numeric_type(ptr nocapture noundef %0) #14 {
+define dso_local i32 @sqlite3_value_numeric_type(ptr nocapture noundef %0) #15 {
   %2 = alloca double, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
@@ -29772,7 +29771,7 @@ applyNumericAffinity.exit:                        ; preds = %9, %sqlite3VdbeInte
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc void @applyNumericAffinity(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #14 {
+define internal fastcc void @applyNumericAffinity(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #15 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 22
   %5 = load i8, ptr %4, align 2
@@ -32074,7 +32073,7 @@ define internal fastcc ptr @sqlite3VdbeAddOpList(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3VdbeUsesBtree(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #19 {
+define internal fastcc void @sqlite3VdbeUsesBtree(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #20 {
   %3 = shl nuw i32 1, %1
   %4 = getelementptr inbounds i8, ptr %0, i64 204
   %5 = load i32, ptr %4, align 4
@@ -38025,7 +38024,7 @@ sqlite3BinaryCompareCollSeq.exit:                 ; preds = %46, %44, %42, %35, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @sqlite3_vtab_in(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #20 {
+define dso_local range(i32 0, 2) i32 @sqlite3_vtab_in(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #21 {
   %4 = icmp slt i32 %1, 32
   %5 = shl nuw i32 1, %1
   %6 = select i1 %4, i32 %5, i32 0
@@ -38131,7 +38130,7 @@ define dso_local i32 @sqlite3_vtab_distinct(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @sqlite3_keyword_name(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #21 {
+define dso_local range(i32 0, 2) i32 @sqlite3_keyword_name(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #22 {
   %or.cond = icmp ugt i32 %0, 146
   br i1 %or.cond, label %14, label %4
 
@@ -38160,7 +38159,7 @@ define dso_local noundef i32 @sqlite3_keyword_count() #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @sqlite3_keyword_check(ptr nocapture noundef readonly %0, i32 noundef %1) #22 {
+define dso_local range(i32 0, 2) i32 @sqlite3_keyword_check(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
   %3 = icmp sgt i32 %1, 1
   br i1 %3, label %4, label %sqlite3KeywordCode.exit
 
@@ -38279,7 +38278,7 @@ sqlite3KeywordCode.exit:                          ; preds = %.critedge.us.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @sqlite3_complete(ptr noundef readonly %0) #8 {
+define dso_local range(i32 0, 2) i32 @sqlite3_complete(ptr noundef readonly %0) #14 {
   br label %2
 
 2:                                                ; preds = %.loopexit, %1
@@ -43953,7 +43952,7 @@ sqlite3ErrStr.exit:                               ; preds = %1, %2, %3, %4, %7, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @sqlite3_limit(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #20 {
+define dso_local i32 @sqlite3_limit(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #21 {
   %or.cond = icmp ugt i32 %1, 11
   br i1 %or.cond, label %15, label %4
 
@@ -45962,7 +45961,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3DbFree.exit1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sqlite3FindTable(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #8 {
+define internal fastcc ptr @sqlite3FindTable(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #14 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %206, label %.preheader232
 
@@ -46831,7 +46830,7 @@ sqlite3_strnicmp.exit.thread208:                  ; preds = %33, %195, %147, %sq
   ret ptr %.048
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 2) i32 @sqlite3IsRowid(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   br label %2
 
@@ -46922,7 +46921,7 @@ sqlite3StrICmp.exit.thread:                       ; preds = %6, %21, %36, %38
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sqlite3ColumnType(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #16 {
+define internal fastcc ptr @sqlite3ColumnType(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 14
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 4
@@ -49646,8 +49645,8 @@ sqlite3_free.exit:                                ; preds = %sqlite3_mutex_leave
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_uri_parameter(ptr noundef readonly %0, ptr noundef readonly %1) #12 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define dso_local ptr @sqlite3_uri_parameter(ptr noundef readonly %0, ptr noundef readonly %1) #27 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -49714,8 +49713,8 @@ uriParameter.exit:                                ; preds = %26, %.lr.ph.i, %dat
   ret ptr %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_uri_key(ptr noundef readonly %0, i32 noundef %1) #12 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define dso_local ptr @sqlite3_uri_key(ptr noundef readonly %0, i32 noundef %1) #27 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -49790,8 +49789,8 @@ databaseName.exit:                                ; preds = %13
   ret ptr %.016
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @sqlite3_uri_boolean(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #27 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
+define dso_local range(i32 0, 2) i32 @sqlite3_uri_boolean(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #28 {
   %4 = alloca i32, align 4
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -49972,7 +49971,7 @@ sqlite3GetBoolean.exit:                           ; preds = %79, %39, %sqlite3St
   ret i32 %83
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @sqlite3GetBoolean(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #28 {
   %3 = alloca i32, align 4
   %4 = load i8, ptr %0, align 1
@@ -50082,8 +50081,8 @@ getSafetyLevel.exit:                              ; preds = %47, %sqlite3Strlen3
   ret i8 %49
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @sqlite3_uri_int64(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) #27 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
+define dso_local i64 @sqlite3_uri_int64(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) #28 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -50158,7 +50157,7 @@ sqlite3_uri_parameter.exit.thread:                ; preds = %28, %databaseName.e
   ret i64 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i32 @sqlite3DecOrHexToI64(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 48
@@ -50255,7 +50254,7 @@ define internal fastcc i32 @sqlite3DecOrHexToI64(ptr noundef %0, ptr nocapture n
   ret i32 %.028
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local noundef ptr @sqlite3_filename_database(ptr noundef readonly %0) #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %databaseName.exit, label %.preheader
@@ -50293,8 +50292,8 @@ databaseName.exit:                                ; preds = %11, %1
   ret ptr %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_filename_journal(ptr noundef readonly %0) #12 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define dso_local ptr @sqlite3_filename_journal(ptr noundef readonly %0) #27 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %.preheader
 
@@ -50359,8 +50358,8 @@ databaseName.exit:                                ; preds = %11
   ret ptr %.012
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_filename_wal(ptr noundef readonly %0) #12 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define dso_local ptr @sqlite3_filename_wal(ptr noundef readonly %0) #27 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %sqlite3_filename_journal.exit.thread, label %.preheader.i
 
@@ -50430,7 +50429,7 @@ sqlite3_filename_journal.exit.thread:             ; preds = %1, %sqlite3Strlen30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_db_name(ptr nocapture noundef readonly %0, i32 noundef %1) #18 {
+define dso_local ptr @sqlite3_db_name(ptr nocapture noundef readonly %0, i32 noundef %1) #19 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %13, label %4
 
@@ -50454,7 +50453,7 @@ define dso_local ptr @sqlite3_db_name(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sqlite3_db_filename(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #8 {
+define dso_local ptr @sqlite3_db_filename(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #14 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.sqlite3FindDbName.exit.thread7_crit_edge.i, label %3
 
@@ -50586,7 +50585,7 @@ sqlite3BtreeGetFilename.exit:                     ; preds = %sqlite3_stricmp.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 2) i32 @sqlite3_db_readonly(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #8 {
+define dso_local range(i32 -1, 2) i32 @sqlite3_db_readonly(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #14 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.sqlite3FindDbName.exit.thread7_crit_edge.i, label %3
 
@@ -53365,7 +53364,7 @@ unixModeBit.exit:                                 ; preds = %128, %120, %118, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @unixSectorSize(ptr nocapture noundef %0) #20 {
+define internal i32 @unixSectorSize(ptr nocapture noundef %0) #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -53395,7 +53394,7 @@ setDeviceCharacteristics.exit:                    ; preds = %1, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @unixDeviceCharacteristics(ptr nocapture noundef %0) #20 {
+define internal i32 @unixDeviceCharacteristics(ptr nocapture noundef %0) #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -55666,7 +55665,7 @@ define internal noundef i32 @nolockUnlock(ptr nocapture readnone %0, i32 %1) #2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @nolockCheckReservedLock(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #21 {
+define internal noundef i32 @nolockCheckReservedLock(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #22 {
   store i32 0, ptr %1, align 4
   ret i32 0
 }
@@ -57945,14 +57944,14 @@ sqlite3_mutex_enter.exit.i.i.i:                   ; preds = %203, %201
   tail call void %212(ptr noundef nonnull %166) #57
   %213 = load ptr, ptr @mem0, align 8
   %.not.i4.i.i.i = icmp eq ptr %213, null
-  br i1 %.not.i4.i.i.i, label %638, label %sqlite3_mutex_leave.exit.sink.split.i.i.i
+  br i1 %.not.i4.i.i.i, label %637, label %sqlite3_mutex_leave.exit.sink.split.i.i.i
 
 sqlite3_mutex_leave.exit.sink.split.i.i.i:        ; preds = %sqlite3_mutex_enter.exit.i.i.i, %199
   %.sink6.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %199 ]
   %.sink.i.i.i = phi ptr [ %213, %sqlite3_mutex_enter.exit.i.i.i ], [ %166, %199 ]
   %214 = load ptr, ptr %.sink6.i.i.i, align 8
   tail call void %214(ptr noundef nonnull %.sink.i.i.i) #57
-  br label %638
+  br label %637
 
 .thread.i:                                        ; preds = %190, %159, %158, %sqlite3Strlen30.exit.i, %149, %148
   %.not2089.i = phi i1 [ false, %159 ], [ true, %158 ], [ false, %190 ], [ true, %sqlite3Strlen30.exit.i ], [ true, %148 ], [ false, %149 ]
@@ -57982,7 +57981,7 @@ sqlite3_mutex_leave.exit.sink.split.i.i.i:        ; preds = %sqlite3_mutex_enter
 
 227:                                              ; preds = %.thread.i
   %.not.i231.i = icmp eq ptr %.1186.i, null
-  br i1 %.not.i231.i, label %638, label %228
+  br i1 %.not.i231.i, label %637, label %228
 
 228:                                              ; preds = %227
   %229 = load i32, ptr @sqlite3Config, align 8
@@ -58013,14 +58012,14 @@ sqlite3_mutex_enter.exit.i.i259.i:                ; preds = %232, %230
   tail call void %241(ptr noundef nonnull %.1186.i) #57
   %242 = load ptr, ptr @mem0, align 8
   %.not.i4.i.i260.i = icmp eq ptr %242, null
-  br i1 %.not.i4.i.i260.i, label %638, label %sqlite3_mutex_leave.exit.sink.split.i.i261.i
+  br i1 %.not.i4.i.i260.i, label %637, label %sqlite3_mutex_leave.exit.sink.split.i.i261.i
 
 sqlite3_mutex_leave.exit.sink.split.i.i261.i:     ; preds = %sqlite3_mutex_enter.exit.i.i259.i, %228
   %.sink6.i.i262.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i.i259.i ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %228 ]
   %.sink.i.i263.i = phi ptr [ %242, %sqlite3_mutex_enter.exit.i.i259.i ], [ %.1186.i, %228 ]
   %243 = load ptr, ptr %.sink6.i.i262.i, align 8
   tail call void %243(ptr noundef nonnull %.sink.i.i263.i) #57
-  br label %638
+  br label %637
 
 244:                                              ; preds = %.thread.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %226, i8 0, i64 %225, i1 false)
@@ -58130,12 +58129,12 @@ sqlite3DbFree.exit234.i:                          ; preds = %sqlite3_mutex_leave
   store ptr %0, ptr %226, align 8
   %292 = getelementptr inbounds i8, ptr %226, i64 180
   store i32 %.0176, ptr %292, align 4
-  br i1 %.not2089.i, label %346, label %293
+  br i1 %.not2089.i, label %345, label %293
 
 293:                                              ; preds = %sqlite3DbFree.exit234.i
   %294 = load i8, ptr %.01828.i, align 1
   %.not216.i = icmp eq i8 %294, 0
-  br i1 %.not216.i, label %346, label %295
+  br i1 %.not216.i, label %345, label %295
 
 295:                                              ; preds = %293
   store i32 0, ptr %9, align 4
@@ -58232,829 +58231,828 @@ setSectorSize.exit.i:                             ; preds = %sqlite3OsSectorSize
   store i8 %340, ptr %341, align 1
   %342 = and i32 %.0.i235.i, 8192
   %.not218.i = icmp eq i32 %342, 0
-  br i1 %.not218.i, label %343, label %346
+  br i1 %.not218.i, label %343, label %345
 
 343:                                              ; preds = %337
-  %344 = load ptr, ptr %260, align 8
-  %345 = call i32 @sqlite3_uri_boolean(ptr noundef %344, ptr noundef nonnull @.str.100, i32 noundef 0)
-  %.not219.i = icmp eq i32 %345, 0
-  br i1 %.not219.i, label %351, label %346
+  %344 = call i32 @sqlite3_uri_boolean(ptr noundef %338, ptr noundef nonnull @.str.100, i32 noundef 0)
+  %.not219.i = icmp eq i32 %344, 0
+  br i1 %.not219.i, label %350, label %345
 
-346:                                              ; preds = %343, %337, %293, %sqlite3DbFree.exit234.i
+345:                                              ; preds = %343, %337, %293, %sqlite3DbFree.exit234.i
   %.0189.i = phi i32 [ 0, %293 ], [ 0, %sqlite3DbFree.exit234.i ], [ %.lobit.i, %343 ], [ %.lobit.i, %337 ]
   %.0187.i = phi i32 [ %.0176, %293 ], [ %.0176, %sqlite3DbFree.exit234.i ], [ 1, %343 ], [ 1, %337 ]
-  %347 = getelementptr inbounds i8, ptr %226, i64 21
-  store i8 1, ptr %347, align 1
-  %348 = getelementptr inbounds i8, ptr %226, i64 22
-  store i8 4, ptr %348, align 2
-  %349 = getelementptr inbounds i8, ptr %226, i64 17
-  store i8 1, ptr %349, align 1
-  %350 = and i32 %.0187.i, 1
-  br label %351
+  %346 = getelementptr inbounds i8, ptr %226, i64 21
+  store i8 1, ptr %346, align 1
+  %347 = getelementptr inbounds i8, ptr %226, i64 22
+  store i8 4, ptr %347, align 2
+  %348 = getelementptr inbounds i8, ptr %226, i64 17
+  store i8 1, ptr %348, align 1
+  %349 = and i32 %.0187.i, 1
+  br label %350
 
-351:                                              ; preds = %346, %343
-  %.not.i240.i = phi i1 [ true, %343 ], [ false, %346 ]
-  %352 = phi i8 [ 0, %343 ], [ 1, %346 ]
-  %.1190.ph.i = phi i32 [ %.lobit.i, %343 ], [ %.0189.i, %346 ]
-  %.0188.ph.i = phi i32 [ %306, %343 ], [ %350, %346 ]
-  %353 = call fastcc i32 @sqlite3PagerSetPagesize(ptr noundef nonnull %226, ptr noundef nonnull %8, i32 noundef -1)
-  %354 = icmp eq i32 %353, 0
-  br i1 %354, label %355, label %.thread54.i
+350:                                              ; preds = %345, %343
+  %.not.i240.i = phi i1 [ true, %343 ], [ false, %345 ]
+  %351 = phi i8 [ 0, %343 ], [ 1, %345 ]
+  %.1190.ph.i = phi i32 [ %.lobit.i, %343 ], [ %.0189.i, %345 ]
+  %.0188.ph.i = phi i32 [ %306, %343 ], [ %349, %345 ]
+  %352 = call fastcc i32 @sqlite3PagerSetPagesize(ptr noundef nonnull %226, ptr noundef nonnull %8, i32 noundef -1)
+  %353 = icmp eq i32 %352, 0
+  br i1 %353, label %354, label %.thread54.i
 
-355:                                              ; preds = %351
-  %356 = load i32, ptr %8, align 4
+354:                                              ; preds = %350
+  %355 = load i32, ptr %8, align 4
   %.lobit221.i = lshr exact i32 %147, 1
-  %357 = xor i32 %.lobit221.i, 1
-  %358 = select i1 %.not.i264, ptr null, ptr @pagerStress
-  %359 = load ptr, ptr %246, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %359, i8 0, i64 80, i1 false)
-  %360 = getelementptr inbounds i8, ptr %359, i64 40
-  store i32 1, ptr %360, align 8
-  %361 = getelementptr inbounds i8, ptr %359, i64 44
-  store i32 136, ptr %361, align 4
-  %362 = trunc nuw nsw i32 %357 to i8
-  %363 = getelementptr inbounds i8, ptr %359, i64 48
-  store i8 %362, ptr %363, align 8
-  %364 = getelementptr inbounds i8, ptr %359, i64 49
-  store i8 2, ptr %364, align 1
-  %365 = getelementptr inbounds i8, ptr %359, i64 56
-  store ptr %358, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %359, i64 64
-  store ptr %226, ptr %366, align 8
-  %367 = getelementptr inbounds i8, ptr %359, i64 32
-  store i32 100, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %359, i64 36
-  store i32 1, ptr %368, align 4
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 200), align 8
-  %370 = call ptr %369(i32 noundef %356, i32 noundef 216, i32 noundef %357) #57
-  %371 = icmp eq ptr %370, null
-  br i1 %371, label %.thread54.i, label %372
+  %356 = xor i32 %.lobit221.i, 1
+  %357 = select i1 %.not.i264, ptr null, ptr @pagerStress
+  %358 = load ptr, ptr %246, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %358, i8 0, i64 80, i1 false)
+  %359 = getelementptr inbounds i8, ptr %358, i64 40
+  store i32 1, ptr %359, align 8
+  %360 = getelementptr inbounds i8, ptr %358, i64 44
+  store i32 136, ptr %360, align 4
+  %361 = trunc nuw nsw i32 %356 to i8
+  %362 = getelementptr inbounds i8, ptr %358, i64 48
+  store i8 %361, ptr %362, align 8
+  %363 = getelementptr inbounds i8, ptr %358, i64 49
+  store i8 2, ptr %363, align 1
+  %364 = getelementptr inbounds i8, ptr %358, i64 56
+  store ptr %357, ptr %364, align 8
+  %365 = getelementptr inbounds i8, ptr %358, i64 64
+  store ptr %226, ptr %365, align 8
+  %366 = getelementptr inbounds i8, ptr %358, i64 32
+  store i32 100, ptr %366, align 8
+  %367 = getelementptr inbounds i8, ptr %358, i64 36
+  store i32 1, ptr %367, align 4
+  %368 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 200), align 8
+  %369 = call ptr %368(i32 noundef %355, i32 noundef 216, i32 noundef %356) #57
+  %370 = icmp eq ptr %369, null
+  br i1 %370, label %.thread54.i, label %371
 
-372:                                              ; preds = %355
-  %373 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 208), align 8
-  %374 = load i32, ptr %367, align 8
-  %375 = icmp sgt i32 %374, -1
-  br i1 %375, label %numberOfCachePages.exit.i.i.i, label %376
+371:                                              ; preds = %354
+  %372 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 208), align 8
+  %373 = load i32, ptr %366, align 8
+  %374 = icmp sgt i32 %373, -1
+  br i1 %374, label %numberOfCachePages.exit.i.i.i, label %375
 
-376:                                              ; preds = %372
-  %377 = sext i32 %374 to i64
-  %378 = mul nsw i64 %377, -1024
-  %379 = load i32, ptr %360, align 8
-  %380 = load i32, ptr %361, align 4
-  %381 = add nsw i32 %380, %379
-  %382 = sext i32 %381 to i64
-  %383 = sdiv i64 %378, %382
-  %spec.store.select.i.i.i.i = call i64 @llvm.smin.i64(i64 %383, i64 1000000000)
-  %384 = trunc i64 %spec.store.select.i.i.i.i to i32
+375:                                              ; preds = %371
+  %376 = sext i32 %373 to i64
+  %377 = mul nsw i64 %376, -1024
+  %378 = load i32, ptr %359, align 8
+  %379 = load i32, ptr %360, align 4
+  %380 = add nsw i32 %379, %378
+  %381 = sext i32 %380 to i64
+  %382 = sdiv i64 %377, %381
+  %spec.store.select.i.i.i.i = call i64 @llvm.smin.i64(i64 %382, i64 1000000000)
+  %383 = trunc i64 %spec.store.select.i.i.i.i to i32
   br label %numberOfCachePages.exit.i.i.i
 
-numberOfCachePages.exit.i.i.i:                    ; preds = %376, %372
-  %.0.i.i.i.i = phi i32 [ %384, %376 ], [ %374, %372 ]
-  call void %373(ptr noundef nonnull %370, i32 noundef %.0.i.i.i.i) #57
-  %385 = getelementptr inbounds i8, ptr %359, i64 72
-  %386 = load ptr, ptr %385, align 8
-  %.not15.i.i.i = icmp eq ptr %386, null
-  br i1 %.not15.i.i.i, label %413, label %387
+numberOfCachePages.exit.i.i.i:                    ; preds = %375, %371
+  %.0.i.i.i.i = phi i32 [ %383, %375 ], [ %373, %371 ]
+  call void %372(ptr noundef nonnull %369, i32 noundef %.0.i.i.i.i) #57
+  %384 = getelementptr inbounds i8, ptr %358, i64 72
+  %385 = load ptr, ptr %384, align 8
+  %.not15.i.i.i = icmp eq ptr %385, null
+  br i1 %.not15.i.i.i, label %412, label %386
 
-387:                                              ; preds = %numberOfCachePages.exit.i.i.i
-  %388 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 256), align 8
-  call void %388(ptr noundef nonnull %386) #57
-  br label %413
+386:                                              ; preds = %numberOfCachePages.exit.i.i.i
+  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 256), align 8
+  call void %387(ptr noundef nonnull %385) #57
+  br label %412
 
-.thread54.i:                                      ; preds = %355, %351, %295
-  %.6.ph.i = phi i32 [ 7, %355 ], [ %353, %351 ], [ %301, %295 ]
-  %389 = load ptr, ptr %248, align 8
-  %390 = load ptr, ptr %389, align 8
-  %.not.i237.i = icmp eq ptr %390, null
-  br i1 %.not.i237.i, label %395, label %391
+.thread54.i:                                      ; preds = %354, %350, %295
+  %.6.ph.i = phi i32 [ 7, %354 ], [ %352, %350 ], [ %301, %295 ]
+  %388 = load ptr, ptr %248, align 8
+  %389 = load ptr, ptr %388, align 8
+  %.not.i237.i = icmp eq ptr %389, null
+  br i1 %.not.i237.i, label %394, label %390
 
-391:                                              ; preds = %.thread54.i
-  %392 = getelementptr inbounds i8, ptr %390, i64 8
-  %393 = load ptr, ptr %392, align 8
-  %394 = call i32 %393(ptr noundef nonnull %389) #57
-  store ptr null, ptr %389, align 8
-  br label %395
+390:                                              ; preds = %.thread54.i
+  %391 = getelementptr inbounds i8, ptr %389, i64 8
+  %392 = load ptr, ptr %391, align 8
+  %393 = call i32 %392(ptr noundef nonnull %388) #57
+  store ptr null, ptr %388, align 8
+  br label %394
 
-395:                                              ; preds = %391, %.thread54.i
-  %396 = getelementptr inbounds i8, ptr %226, i64 280
-  %397 = load ptr, ptr %396, align 8
-  call fastcc void @pcache1Free(ptr noundef %397)
-  %398 = load i32, ptr @sqlite3Config, align 8
-  %.not.i238.i = icmp eq i32 %398, 0
-  br i1 %.not.i238.i, label %sqlite3_mutex_leave.exit.sink.split.i.i, label %399
+394:                                              ; preds = %390, %.thread54.i
+  %395 = getelementptr inbounds i8, ptr %226, i64 280
+  %396 = load ptr, ptr %395, align 8
+  call fastcc void @pcache1Free(ptr noundef %396)
+  %397 = load i32, ptr @sqlite3Config, align 8
+  %.not.i238.i = icmp eq i32 %397, 0
+  br i1 %.not.i238.i, label %sqlite3_mutex_leave.exit.sink.split.i.i, label %398
 
-399:                                              ; preds = %395
-  %400 = load ptr, ptr @mem0, align 8
-  %.not.i.i.i = icmp eq ptr %400, null
-  br i1 %.not.i.i.i, label %sqlite3_mutex_enter.exit.i.i, label %401
+398:                                              ; preds = %394
+  %399 = load ptr, ptr @mem0, align 8
+  %.not.i.i.i = icmp eq ptr %399, null
+  br i1 %.not.i.i.i, label %sqlite3_mutex_enter.exit.i.i, label %400
 
-401:                                              ; preds = %399
-  %402 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
-  call void %402(ptr noundef nonnull %400) #57
+400:                                              ; preds = %398
+  %401 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
+  call void %401(ptr noundef nonnull %399) #57
   br label %sqlite3_mutex_enter.exit.i.i
 
-sqlite3_mutex_enter.exit.i.i:                     ; preds = %401, %399
-  %403 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
-  %404 = call i32 %403(ptr noundef nonnull %226) #57
-  %405 = sext i32 %404 to i64
-  %406 = load i64, ptr @sqlite3Stat, align 8
-  %407 = sub nsw i64 %406, %405
-  store i64 %407, ptr @sqlite3Stat, align 8
-  %408 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %409 = add nsw i64 %408, -1
-  store i64 %409, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %410 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
-  call void %410(ptr noundef nonnull %226) #57
-  %411 = load ptr, ptr @mem0, align 8
-  %.not.i4.i.i = icmp eq ptr %411, null
-  br i1 %.not.i4.i.i, label %638, label %sqlite3_mutex_leave.exit.sink.split.i.i
+sqlite3_mutex_enter.exit.i.i:                     ; preds = %400, %398
+  %402 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
+  %403 = call i32 %402(ptr noundef nonnull %226) #57
+  %404 = sext i32 %403 to i64
+  %405 = load i64, ptr @sqlite3Stat, align 8
+  %406 = sub nsw i64 %405, %404
+  store i64 %406, ptr @sqlite3Stat, align 8
+  %407 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %408 = add nsw i64 %407, -1
+  store i64 %408, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %409 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
+  call void %409(ptr noundef nonnull %226) #57
+  %410 = load ptr, ptr @mem0, align 8
+  %.not.i4.i.i = icmp eq ptr %410, null
+  br i1 %.not.i4.i.i, label %637, label %sqlite3_mutex_leave.exit.sink.split.i.i
 
-sqlite3_mutex_leave.exit.sink.split.i.i:          ; preds = %sqlite3_mutex_enter.exit.i.i, %395
-  %.sink6.i.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i.i ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %395 ]
-  %.sink.i239.i = phi ptr [ %411, %sqlite3_mutex_enter.exit.i.i ], [ %226, %395 ]
-  %412 = load ptr, ptr %.sink6.i.i, align 8
-  call void %412(ptr noundef nonnull %.sink.i239.i) #57
-  br label %638
+sqlite3_mutex_leave.exit.sink.split.i.i:          ; preds = %sqlite3_mutex_enter.exit.i.i, %394
+  %.sink6.i.i = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i.i ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %394 ]
+  %.sink.i239.i = phi ptr [ %410, %sqlite3_mutex_enter.exit.i.i ], [ %226, %394 ]
+  %411 = load ptr, ptr %.sink6.i.i, align 8
+  call void %411(ptr noundef nonnull %.sink.i239.i) #57
+  br label %637
 
-413:                                              ; preds = %387, %numberOfCachePages.exit.i.i.i
-  store ptr %370, ptr %385, align 8
-  store i32 %356, ptr %360, align 8
-  %414 = trunc nuw nsw i32 %142 to i8
-  %415 = xor i8 %414, 1
-  %416 = getelementptr inbounds i8, ptr %226, i64 10
-  store i8 %415, ptr %416, align 2
-  %417 = getelementptr inbounds i8, ptr %226, i64 188
-  store i32 -2, ptr %417, align 4
-  %418 = getelementptr inbounds i8, ptr %226, i64 16
-  store i8 %352, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %226, i64 8
-  store i8 %352, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %226, i64 23
-  store i8 %352, ptr %420, align 1
-  %421 = getelementptr inbounds i8, ptr %226, i64 19
-  store i8 %.01917.i, ptr %421, align 1
-  %422 = trunc nuw nsw i32 %.0188.ph.i to i8
-  %423 = getelementptr inbounds i8, ptr %226, i64 18
-  store i8 %422, ptr %423, align 2
-  br i1 %.not.i240.i, label %sqlite3PagerSetFlags.exit.i, label %424
+412:                                              ; preds = %386, %numberOfCachePages.exit.i.i.i
+  store ptr %369, ptr %384, align 8
+  store i32 %355, ptr %359, align 8
+  %413 = trunc nuw nsw i32 %142 to i8
+  %414 = xor i8 %413, 1
+  %415 = getelementptr inbounds i8, ptr %226, i64 10
+  store i8 %414, ptr %415, align 2
+  %416 = getelementptr inbounds i8, ptr %226, i64 188
+  store i32 -2, ptr %416, align 4
+  %417 = getelementptr inbounds i8, ptr %226, i64 16
+  store i8 %351, ptr %417, align 8
+  %418 = getelementptr inbounds i8, ptr %226, i64 8
+  store i8 %351, ptr %418, align 8
+  %419 = getelementptr inbounds i8, ptr %226, i64 23
+  store i8 %351, ptr %419, align 1
+  %420 = getelementptr inbounds i8, ptr %226, i64 19
+  store i8 %.01917.i, ptr %420, align 1
+  %421 = trunc nuw nsw i32 %.0188.ph.i to i8
+  %422 = getelementptr inbounds i8, ptr %226, i64 18
+  store i8 %421, ptr %422, align 2
+  br i1 %.not.i240.i, label %sqlite3PagerSetFlags.exit.i, label %423
 
-424:                                              ; preds = %413
+423:                                              ; preds = %412
   br label %sqlite3PagerSetFlags.exit.i
 
-sqlite3PagerSetFlags.exit.i:                      ; preds = %424, %413
-  %.sink74.i = phi i8 [ 1, %424 ], [ 0, %413 ]
-  %.sink73.i = phi i8 [ 0, %424 ], [ 1, %413 ]
-  %.sink.i266 = phi i8 [ 0, %424 ], [ 2, %413 ]
-  %storemerge.i.i = phi i8 [ 0, %424 ], [ 10, %413 ]
-  %425 = getelementptr inbounds i8, ptr %226, i64 11
-  store i8 %.sink74.i, ptr %425, align 1
-  %426 = getelementptr inbounds i8, ptr %226, i64 12
-  store i8 %.sink73.i, ptr %426, align 4
-  %427 = getelementptr inbounds i8, ptr %226, i64 13
-  store i8 0, ptr %427, align 1
-  %428 = getelementptr inbounds i8, ptr %226, i64 14
-  store i8 %.sink.i266, ptr %428, align 2
-  %429 = getelementptr inbounds i8, ptr %226, i64 15
-  store i8 %storemerge.i.i, ptr %429, align 1
-  %430 = getelementptr inbounds i8, ptr %226, i64 25
-  %431 = load i8, ptr %430, align 1
-  %432 = and i8 %431, -2
-  store i8 %432, ptr %430, align 1
-  %433 = getelementptr inbounds i8, ptr %226, i64 176
-  store i16 136, ptr %433, align 8
-  %434 = getelementptr inbounds i8, ptr %226, i64 208
-  store i64 -1, ptr %434, align 8
+sqlite3PagerSetFlags.exit.i:                      ; preds = %423, %412
+  %.sink74.i = phi i8 [ 1, %423 ], [ 0, %412 ]
+  %.sink73.i = phi i8 [ 0, %423 ], [ 1, %412 ]
+  %.sink.i266 = phi i8 [ 0, %423 ], [ 2, %412 ]
+  %storemerge.i.i = phi i8 [ 0, %423 ], [ 10, %412 ]
+  %424 = getelementptr inbounds i8, ptr %226, i64 11
+  store i8 %.sink74.i, ptr %424, align 1
+  %425 = getelementptr inbounds i8, ptr %226, i64 12
+  store i8 %.sink73.i, ptr %425, align 4
+  %426 = getelementptr inbounds i8, ptr %226, i64 13
+  store i8 0, ptr %426, align 1
+  %427 = getelementptr inbounds i8, ptr %226, i64 14
+  store i8 %.sink.i266, ptr %427, align 2
+  %428 = getelementptr inbounds i8, ptr %226, i64 15
+  store i8 %storemerge.i.i, ptr %428, align 1
+  %429 = getelementptr inbounds i8, ptr %226, i64 25
+  %430 = load i8, ptr %429, align 1
+  %431 = and i8 %430, -2
+  store i8 %431, ptr %429, align 1
+  %432 = getelementptr inbounds i8, ptr %226, i64 176
+  store i16 136, ptr %432, align 8
+  %433 = getelementptr inbounds i8, ptr %226, i64 208
+  store i64 -1, ptr %433, align 8
   br i1 %.not.i240.i, label %sqlite3OsDeviceCharacteristics.exit.i244.i, label %setSectorSize.exit253.i
 
 sqlite3OsDeviceCharacteristics.exit.i244.i:       ; preds = %sqlite3PagerSetFlags.exit.i
-  %435 = load ptr, ptr %248, align 8
-  %436 = load ptr, ptr %435, align 8, !nonnull !176, !noundef !176
-  %437 = getelementptr inbounds i8, ptr %436, i64 96
-  %438 = load ptr, ptr %437, align 8
-  %439 = call i32 %438(ptr noundef nonnull %435) #57
-  %440 = and i32 %439, 4096
-  %.not5.i245.i = icmp eq i32 %440, 0
+  %434 = load ptr, ptr %248, align 8
+  %435 = load ptr, ptr %434, align 8, !nonnull !176, !noundef !176
+  %436 = getelementptr inbounds i8, ptr %435, i64 96
+  %437 = load ptr, ptr %436, align 8
+  %438 = call i32 %437(ptr noundef nonnull %434) #57
+  %439 = and i32 %438, 4096
+  %.not5.i245.i = icmp eq i32 %439, 0
   br i1 %.not5.i245.i, label %sqlite3OsDeviceCharacteristics.exit.sqlite3OsDeviceCharacteristics.exit.thread_crit_edge.i246.i, label %setSectorSize.exit253.i
 
 sqlite3OsDeviceCharacteristics.exit.sqlite3OsDeviceCharacteristics.exit.thread_crit_edge.i246.i: ; preds = %sqlite3OsDeviceCharacteristics.exit.i244.i
   %.pre.i247.i = load ptr, ptr %248, align 8
   %.pre8.i248.i = load ptr, ptr %.pre.i247.i, align 8
-  %441 = getelementptr inbounds i8, ptr %.pre8.i248.i, i64 88
-  %442 = load ptr, ptr %441, align 8
-  %.not.i.i.i249.i = icmp eq ptr %442, null
+  %440 = getelementptr inbounds i8, ptr %.pre8.i248.i, i64 88
+  %441 = load ptr, ptr %440, align 8
+  %.not.i.i.i249.i = icmp eq ptr %441, null
   br i1 %.not.i.i.i249.i, label %setSectorSize.exit253.i, label %sqlite3OsSectorSize.exit.i.i250.i
 
 sqlite3OsSectorSize.exit.i.i250.i:                ; preds = %sqlite3OsDeviceCharacteristics.exit.sqlite3OsDeviceCharacteristics.exit.thread_crit_edge.i246.i
-  %443 = call i32 %442(ptr noundef nonnull %.pre.i247.i) #57
-  %.fr.i.i251.i = freeze i32 %443
-  %444 = icmp slt i32 %.fr.i.i251.i, 32
-  %445 = call i32 @llvm.umin.i32(i32 %.fr.i.i251.i, i32 65536)
-  %spec.select.i.i252.i = select i1 %444, i32 512, i32 %445
+  %442 = call i32 %441(ptr noundef nonnull %.pre.i247.i) #57
+  %.fr.i.i251.i = freeze i32 %442
+  %443 = icmp slt i32 %.fr.i.i251.i, 32
+  %444 = call i32 @llvm.umin.i32(i32 %.fr.i.i251.i, i32 65536)
+  %spec.select.i.i252.i = select i1 %443, i32 512, i32 %444
   br label %setSectorSize.exit253.i
 
 setSectorSize.exit253.i:                          ; preds = %sqlite3OsSectorSize.exit.i.i250.i, %sqlite3OsDeviceCharacteristics.exit.sqlite3OsDeviceCharacteristics.exit.thread_crit_edge.i246.i, %sqlite3OsDeviceCharacteristics.exit.i244.i, %sqlite3PagerSetFlags.exit.i
   %.sink.i243.i = phi i32 [ 512, %sqlite3OsDeviceCharacteristics.exit.i244.i ], [ 512, %sqlite3PagerSetFlags.exit.i ], [ 4096, %sqlite3OsDeviceCharacteristics.exit.sqlite3OsDeviceCharacteristics.exit.thread_crit_edge.i246.i ], [ %spec.select.i.i252.i, %sqlite3OsSectorSize.exit.i.i250.i ]
-  %446 = getelementptr inbounds i8, ptr %226, i64 184
-  store i32 %.sink.i243.i, ptr %446, align 8
-  br i1 %143, label %447, label %.sink.split.i
+  %445 = getelementptr inbounds i8, ptr %226, i64 184
+  store i32 %.sink.i243.i, ptr %445, align 8
+  br i1 %143, label %446, label %.sink.split.i
 
-447:                                              ; preds = %setSectorSize.exit253.i
-  %448 = icmp ne i32 %.1190.ph.i, 0
-  %or.cond.i = select i1 %.not.i264, i1 true, i1 %448
-  br i1 %or.cond.i, label %.sink.split.i, label %450
+446:                                              ; preds = %setSectorSize.exit253.i
+  %447 = icmp ne i32 %.1190.ph.i, 0
+  %or.cond.i = select i1 %.not.i264, i1 true, i1 %447
+  br i1 %or.cond.i, label %.sink.split.i, label %449
 
-.sink.split.i:                                    ; preds = %447, %setSectorSize.exit253.i
-  %.sink75.i = phi i8 [ 2, %setSectorSize.exit253.i ], [ 4, %447 ]
-  %449 = getelementptr inbounds i8, ptr %226, i64 9
-  store i8 %.sink75.i, ptr %449, align 1
-  br label %450
+.sink.split.i:                                    ; preds = %446, %setSectorSize.exit253.i
+  %.sink75.i = phi i8 [ 2, %setSectorSize.exit253.i ], [ 4, %446 ]
+  %448 = getelementptr inbounds i8, ptr %226, i64 9
+  store i8 %.sink75.i, ptr %448, align 1
+  br label %449
 
-450:                                              ; preds = %.sink.split.i, %447
-  %451 = getelementptr inbounds i8, ptr %226, i64 264
-  store ptr @pageReinit, ptr %451, align 8
-  %452 = getelementptr inbounds i8, ptr %226, i64 48
-  %453 = load i32, ptr %452, align 8
-  %.not.i254.i = icmp eq i32 %453, 0
-  br i1 %.not.i254.i, label %456, label %454
+449:                                              ; preds = %.sink.split.i, %446
+  %450 = getelementptr inbounds i8, ptr %226, i64 264
+  store ptr @pageReinit, ptr %450, align 8
+  %451 = getelementptr inbounds i8, ptr %226, i64 48
+  %452 = load i32, ptr %451, align 8
+  %.not.i254.i = icmp eq i32 %452, 0
+  br i1 %.not.i254.i, label %455, label %453
 
-454:                                              ; preds = %450
-  %455 = getelementptr inbounds i8, ptr %226, i64 272
-  store ptr @getPageError, ptr %455, align 8
-  br label %462
+453:                                              ; preds = %449
+  %454 = getelementptr inbounds i8, ptr %226, i64 272
+  store ptr @getPageError, ptr %454, align 8
+  br label %461
 
-456:                                              ; preds = %450
-  %457 = getelementptr inbounds i8, ptr %226, i64 27
-  %458 = load i8, ptr %457, align 1
-  %.not5.i255.i = icmp eq i8 %458, 0
-  %459 = getelementptr inbounds i8, ptr %226, i64 272
-  br i1 %.not5.i255.i, label %461, label %460
+455:                                              ; preds = %449
+  %456 = getelementptr inbounds i8, ptr %226, i64 27
+  %457 = load i8, ptr %456, align 1
+  %.not5.i255.i = icmp eq i8 %457, 0
+  %458 = getelementptr inbounds i8, ptr %226, i64 272
+  br i1 %.not5.i255.i, label %460, label %459
 
-460:                                              ; preds = %456
-  store ptr @getPageMMap, ptr %459, align 8
-  br label %462
+459:                                              ; preds = %455
+  store ptr @getPageMMap, ptr %458, align 8
+  br label %461
 
-461:                                              ; preds = %456
-  store ptr @getPageNormal, ptr %459, align 8
-  br label %462
+460:                                              ; preds = %455
+  store ptr @getPageNormal, ptr %458, align 8
+  br label %461
 
-462:                                              ; preds = %461, %460, %454
+461:                                              ; preds = %460, %459, %453
   store ptr %226, ptr %140, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %463 = getelementptr inbounds i8, ptr %2, i64 64
-  %464 = load i64, ptr %463, align 8
-  %465 = getelementptr inbounds i8, ptr %226, i64 160
-  store i64 %464, ptr %465, align 8
+  %462 = getelementptr inbounds i8, ptr %2, i64 64
+  %463 = load i64, ptr %462, align 8
+  %464 = getelementptr inbounds i8, ptr %226, i64 160
+  store i64 %463, ptr %464, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %466 = load ptr, ptr %248, align 8
-  %467 = load ptr, ptr %466, align 8
-  %.not.i.i268 = icmp eq ptr %467, null
-  br i1 %.not.i.i268, label %sqlite3PagerSetMmapLimit.exit, label %468
+  %465 = load ptr, ptr %248, align 8
+  %466 = load ptr, ptr %465, align 8
+  %.not.i.i268 = icmp eq ptr %466, null
+  br i1 %.not.i.i268, label %sqlite3PagerSetMmapLimit.exit, label %467
 
-468:                                              ; preds = %462
-  %469 = load i32, ptr %467, align 8
-  %470 = icmp sgt i32 %469, 2
-  br i1 %470, label %setGetterMethod.exit.i.i, label %sqlite3PagerSetMmapLimit.exit
+467:                                              ; preds = %461
+  %468 = load i32, ptr %466, align 8
+  %469 = icmp sgt i32 %468, 2
+  br i1 %469, label %setGetterMethod.exit.i.i, label %sqlite3PagerSetMmapLimit.exit
 
-setGetterMethod.exit.i.i:                         ; preds = %468
-  store i64 %464, ptr %7, align 8
-  %471 = icmp sgt i64 %464, 0
-  %472 = zext i1 %471 to i8
-  %473 = getelementptr inbounds i8, ptr %226, i64 27
-  store i8 %472, ptr %473, align 1
-  %474 = load i32, ptr %452, align 8
-  %.not.i.i.i269 = icmp eq i32 %474, 0
-  %475 = getelementptr inbounds i8, ptr %226, i64 272
-  %getPageMMap.getPageNormal.i.i = select i1 %471, ptr @getPageMMap, ptr @getPageNormal
+setGetterMethod.exit.i.i:                         ; preds = %467
+  store i64 %463, ptr %7, align 8
+  %470 = icmp sgt i64 %463, 0
+  %471 = zext i1 %470 to i8
+  %472 = getelementptr inbounds i8, ptr %226, i64 27
+  store i8 %471, ptr %472, align 1
+  %473 = load i32, ptr %451, align 8
+  %.not.i.i.i269 = icmp eq i32 %473, 0
+  %474 = getelementptr inbounds i8, ptr %226, i64 272
+  %getPageMMap.getPageNormal.i.i = select i1 %470, ptr @getPageMMap, ptr @getPageNormal
   %getPageError.sink.i.i = select i1 %.not.i.i.i269, ptr %getPageMMap.getPageNormal.i.i, ptr @getPageError
-  store ptr %getPageError.sink.i.i, ptr %475, align 8
-  %476 = load ptr, ptr %466, align 8
-  %.not.i7.i.i = icmp eq ptr %476, null
-  br i1 %.not.i7.i.i, label %sqlite3PagerSetMmapLimit.exit, label %477
+  store ptr %getPageError.sink.i.i, ptr %474, align 8
+  %475 = load ptr, ptr %465, align 8
+  %.not.i7.i.i = icmp eq ptr %475, null
+  br i1 %.not.i7.i.i, label %sqlite3PagerSetMmapLimit.exit, label %476
 
-477:                                              ; preds = %setGetterMethod.exit.i.i
-  %478 = getelementptr inbounds i8, ptr %476, i64 80
-  %479 = load ptr, ptr %478, align 8
-  %480 = call i32 %479(ptr noundef nonnull %466, i32 noundef 18, ptr noundef nonnull %7) #57
+476:                                              ; preds = %setGetterMethod.exit.i.i
+  %477 = getelementptr inbounds i8, ptr %475, i64 80
+  %478 = load ptr, ptr %477, align 8
+  %479 = call i32 %478(ptr noundef nonnull %465, i32 noundef 18, ptr noundef nonnull %7) #57
   br label %sqlite3PagerSetMmapLimit.exit
 
-sqlite3PagerSetMmapLimit.exit:                    ; preds = %462, %468, %setGetterMethod.exit.i.i, %477
+sqlite3PagerSetMmapLimit.exit:                    ; preds = %461, %467, %setGetterMethod.exit.i.i, %476
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %481 = load ptr, ptr %140, align 8
+  %480 = load ptr, ptr %140, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %10, i8 0, i64 100, i1 false)
-  %482 = getelementptr inbounds i8, ptr %481, i64 72
+  %481 = getelementptr inbounds i8, ptr %480, i64 72
+  %482 = load ptr, ptr %481, align 8
   %483 = load ptr, ptr %482, align 8
-  %484 = load ptr, ptr %483, align 8
-  %.not.i270 = icmp eq ptr %484, null
-  br i1 %.not.i270, label %sqlite3PagerReadFileheader.exit.thread, label %485
+  %.not.i270 = icmp eq ptr %483, null
+  br i1 %.not.i270, label %sqlite3PagerReadFileheader.exit.thread, label %484
 
-485:                                              ; preds = %sqlite3PagerSetMmapLimit.exit
-  %486 = getelementptr inbounds i8, ptr %484, i64 16
-  %487 = load ptr, ptr %486, align 8
-  %488 = call i32 %487(ptr noundef nonnull %483, ptr noundef nonnull %10, i32 noundef 100, i64 noundef 0) #57
-  switch i32 %488, label %.thread371 [
+484:                                              ; preds = %sqlite3PagerSetMmapLimit.exit
+  %485 = getelementptr inbounds i8, ptr %483, i64 16
+  %486 = load ptr, ptr %485, align 8
+  %487 = call i32 %486(ptr noundef nonnull %482, ptr noundef nonnull %10, i32 noundef 100, i64 noundef 0) #57
+  switch i32 %487, label %.thread371 [
     i32 522, label %sqlite3PagerReadFileheader.exit.thread
     i32 0, label %sqlite3PagerReadFileheader.exit.thread
   ]
 
-sqlite3PagerReadFileheader.exit.thread:           ; preds = %485, %485, %sqlite3PagerSetMmapLimit.exit
-  %489 = trunc i32 %28 to i8
-  %490 = getelementptr inbounds i8, ptr %140, i64 32
-  store i8 %489, ptr %490, align 8
-  %491 = getelementptr inbounds i8, ptr %140, i64 8
-  store ptr %2, ptr %491, align 8
-  %492 = load ptr, ptr %140, align 8
-  %493 = getelementptr inbounds i8, ptr %492, i64 232
-  store ptr @btreeInvokeBusyHandler, ptr %493, align 8
-  %494 = getelementptr inbounds i8, ptr %492, i64 240
-  store ptr %140, ptr %494, align 8
-  %495 = getelementptr inbounds i8, ptr %492, i64 72
+sqlite3PagerReadFileheader.exit.thread:           ; preds = %484, %484, %sqlite3PagerSetMmapLimit.exit
+  %488 = trunc i32 %28 to i8
+  %489 = getelementptr inbounds i8, ptr %140, i64 32
+  store i8 %488, ptr %489, align 8
+  %490 = getelementptr inbounds i8, ptr %140, i64 8
+  store ptr %2, ptr %490, align 8
+  %491 = load ptr, ptr %140, align 8
+  %492 = getelementptr inbounds i8, ptr %491, i64 232
+  store ptr @btreeInvokeBusyHandler, ptr %492, align 8
+  %493 = getelementptr inbounds i8, ptr %491, i64 240
+  store ptr %140, ptr %493, align 8
+  %494 = getelementptr inbounds i8, ptr %491, i64 72
+  %495 = load ptr, ptr %494, align 8
   %496 = load ptr, ptr %495, align 8
-  %497 = load ptr, ptr %496, align 8
-  %.not.i.i272 = icmp eq ptr %497, null
-  br i1 %.not.i.i272, label %sqlite3PagerSetBusyHandler.exit, label %498
+  %.not.i.i272 = icmp eq ptr %496, null
+  br i1 %.not.i.i272, label %sqlite3PagerSetBusyHandler.exit, label %497
 
-498:                                              ; preds = %sqlite3PagerReadFileheader.exit.thread
-  %499 = getelementptr inbounds i8, ptr %497, i64 80
-  %500 = load ptr, ptr %499, align 8
-  %501 = call i32 %500(ptr noundef nonnull %496, i32 noundef 15, ptr noundef nonnull %493) #57
+497:                                              ; preds = %sqlite3PagerReadFileheader.exit.thread
+  %498 = getelementptr inbounds i8, ptr %496, i64 80
+  %499 = load ptr, ptr %498, align 8
+  %500 = call i32 %499(ptr noundef nonnull %495, i32 noundef 15, ptr noundef nonnull %492) #57
   br label %sqlite3PagerSetBusyHandler.exit
 
-sqlite3PagerSetBusyHandler.exit:                  ; preds = %sqlite3PagerReadFileheader.exit.thread, %498
-  %502 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %140, ptr %502, align 8
-  %503 = getelementptr inbounds i8, ptr %140, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %503, i8 0, i64 16, i1 false)
-  %504 = load ptr, ptr %140, align 8
-  %505 = getelementptr i8, ptr %504, i64 18
-  %.val = load i8, ptr %505, align 2
+sqlite3PagerSetBusyHandler.exit:                  ; preds = %sqlite3PagerReadFileheader.exit.thread, %497
+  %501 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %140, ptr %501, align 8
+  %502 = getelementptr inbounds i8, ptr %140, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %502, i8 0, i64 16, i1 false)
+  %503 = load ptr, ptr %140, align 8
+  %504 = getelementptr i8, ptr %503, i64 18
+  %.val = load i8, ptr %504, align 2
   %.not213 = icmp eq i8 %.val, 0
-  br i1 %.not213, label %510, label %506
+  br i1 %.not213, label %509, label %505
 
-506:                                              ; preds = %sqlite3PagerSetBusyHandler.exit
-  %507 = getelementptr inbounds i8, ptr %140, i64 40
-  %508 = load i16, ptr %507, align 8
-  %509 = or i16 %508, 1
-  store i16 %509, ptr %507, align 8
-  br label %510
+505:                                              ; preds = %sqlite3PagerSetBusyHandler.exit
+  %506 = getelementptr inbounds i8, ptr %140, i64 40
+  %507 = load i16, ptr %506, align 8
+  %508 = or i16 %507, 1
+  store i16 %508, ptr %506, align 8
+  br label %509
 
-510:                                              ; preds = %506, %sqlite3PagerSetBusyHandler.exit
-  %511 = load i8, ptr %139, align 16
-  %512 = zext i8 %511 to i32
-  %513 = shl nuw nsw i32 %512, 8
-  %514 = getelementptr inbounds i8, ptr %10, i64 17
-  %515 = load i8, ptr %514, align 1
-  %516 = zext i8 %515 to i32
-  %517 = shl nuw nsw i32 %516, 16
-  %518 = or disjoint i32 %517, %513
-  %519 = getelementptr inbounds i8, ptr %140, i64 52
-  store i32 %518, ptr %519, align 4
-  %520 = add nsw i32 %518, -65537
-  %or.cond235 = icmp ult i32 %520, -65025
-  br i1 %or.cond235, label %524, label %521
+509:                                              ; preds = %505, %sqlite3PagerSetBusyHandler.exit
+  %510 = load i8, ptr %139, align 16
+  %511 = zext i8 %510 to i32
+  %512 = shl nuw nsw i32 %511, 8
+  %513 = getelementptr inbounds i8, ptr %10, i64 17
+  %514 = load i8, ptr %513, align 1
+  %515 = zext i8 %514 to i32
+  %516 = shl nuw nsw i32 %515, 16
+  %517 = or disjoint i32 %516, %512
+  %518 = getelementptr inbounds i8, ptr %140, i64 52
+  store i32 %517, ptr %518, align 4
+  %519 = add nsw i32 %517, -65537
+  %or.cond235 = icmp ult i32 %519, -65025
+  br i1 %or.cond235, label %523, label %520
 
-521:                                              ; preds = %510
-  %522 = add nuw nsw i32 %518, 131071
-  %523 = and i32 %522, %518
-  %.not214 = icmp eq i32 %523, 0
-  br i1 %.not214, label %527, label %524
+520:                                              ; preds = %509
+  %521 = add nuw nsw i32 %517, 131071
+  %522 = and i32 %521, %517
+  %.not214 = icmp eq i32 %522, 0
+  br i1 %.not214, label %526, label %523
 
-524:                                              ; preds = %521, %510
-  store i32 0, ptr %519, align 4
+523:                                              ; preds = %520, %509
+  store i32 0, ptr %518, align 4
   %or.cond3 = or i1 %11, %26
-  br i1 %or.cond3, label %573, label %525
+  br i1 %or.cond3, label %572, label %524
 
-525:                                              ; preds = %524
-  %526 = getelementptr inbounds i8, ptr %140, i64 33
-  store i8 0, ptr %526, align 1
+524:                                              ; preds = %523
+  %525 = getelementptr inbounds i8, ptr %140, i64 33
+  store i8 0, ptr %525, align 1
   br label %.sink.split
 
-527:                                              ; preds = %521
-  %528 = getelementptr inbounds i8, ptr %10, i64 20
-  %529 = load i8, ptr %528, align 4
-  %530 = getelementptr inbounds i8, ptr %140, i64 40
-  %531 = load i16, ptr %530, align 8
-  %532 = or i16 %531, 2
-  store i16 %532, ptr %530, align 8
-  %533 = getelementptr inbounds i8, ptr %10, i64 52
-  %534 = load i8, ptr %533, align 4
-  %535 = zext i8 %534 to i32
-  %536 = shl nuw i32 %535, 24
-  %537 = getelementptr inbounds i8, ptr %10, i64 53
-  %538 = load i8, ptr %537, align 1
-  %539 = zext i8 %538 to i32
-  %540 = shl nuw nsw i32 %539, 16
-  %541 = or disjoint i32 %540, %536
-  %542 = getelementptr inbounds i8, ptr %10, i64 54
-  %543 = load i8, ptr %542, align 2
-  %544 = zext i8 %543 to i32
-  %545 = shl nuw nsw i32 %544, 8
-  %546 = or disjoint i32 %541, %545
-  %547 = getelementptr inbounds i8, ptr %10, i64 55
-  %548 = load i8, ptr %547, align 1
-  %549 = zext i8 %548 to i32
-  %550 = or disjoint i32 %546, %549
-  %.not215 = icmp ne i32 %550, 0
-  %551 = zext i1 %.not215 to i8
-  %552 = getelementptr inbounds i8, ptr %140, i64 33
-  store i8 %551, ptr %552, align 1
-  %553 = getelementptr inbounds i8, ptr %10, i64 64
-  %554 = load i8, ptr %553, align 16
-  %555 = zext i8 %554 to i32
-  %556 = shl nuw i32 %555, 24
-  %557 = getelementptr inbounds i8, ptr %10, i64 65
-  %558 = load i8, ptr %557, align 1
-  %559 = zext i8 %558 to i32
-  %560 = shl nuw nsw i32 %559, 16
-  %561 = or disjoint i32 %560, %556
-  %562 = getelementptr inbounds i8, ptr %10, i64 66
-  %563 = load i8, ptr %562, align 2
-  %564 = zext i8 %563 to i32
-  %565 = shl nuw nsw i32 %564, 8
-  %566 = or disjoint i32 %561, %565
-  %567 = getelementptr inbounds i8, ptr %10, i64 67
-  %568 = load i8, ptr %567, align 1
-  %569 = zext i8 %568 to i32
-  %570 = or disjoint i32 %566, %569
-  %.not216 = icmp ne i32 %570, 0
-  %571 = zext i1 %.not216 to i8
+526:                                              ; preds = %520
+  %527 = getelementptr inbounds i8, ptr %10, i64 20
+  %528 = load i8, ptr %527, align 4
+  %529 = getelementptr inbounds i8, ptr %140, i64 40
+  %530 = load i16, ptr %529, align 8
+  %531 = or i16 %530, 2
+  store i16 %531, ptr %529, align 8
+  %532 = getelementptr inbounds i8, ptr %10, i64 52
+  %533 = load i8, ptr %532, align 4
+  %534 = zext i8 %533 to i32
+  %535 = shl nuw i32 %534, 24
+  %536 = getelementptr inbounds i8, ptr %10, i64 53
+  %537 = load i8, ptr %536, align 1
+  %538 = zext i8 %537 to i32
+  %539 = shl nuw nsw i32 %538, 16
+  %540 = or disjoint i32 %539, %535
+  %541 = getelementptr inbounds i8, ptr %10, i64 54
+  %542 = load i8, ptr %541, align 2
+  %543 = zext i8 %542 to i32
+  %544 = shl nuw nsw i32 %543, 8
+  %545 = or disjoint i32 %540, %544
+  %546 = getelementptr inbounds i8, ptr %10, i64 55
+  %547 = load i8, ptr %546, align 1
+  %548 = zext i8 %547 to i32
+  %549 = or disjoint i32 %545, %548
+  %.not215 = icmp ne i32 %549, 0
+  %550 = zext i1 %.not215 to i8
+  %551 = getelementptr inbounds i8, ptr %140, i64 33
+  store i8 %550, ptr %551, align 1
+  %552 = getelementptr inbounds i8, ptr %10, i64 64
+  %553 = load i8, ptr %552, align 16
+  %554 = zext i8 %553 to i32
+  %555 = shl nuw i32 %554, 24
+  %556 = getelementptr inbounds i8, ptr %10, i64 65
+  %557 = load i8, ptr %556, align 1
+  %558 = zext i8 %557 to i32
+  %559 = shl nuw nsw i32 %558, 16
+  %560 = or disjoint i32 %559, %555
+  %561 = getelementptr inbounds i8, ptr %10, i64 66
+  %562 = load i8, ptr %561, align 2
+  %563 = zext i8 %562 to i32
+  %564 = shl nuw nsw i32 %563, 8
+  %565 = or disjoint i32 %560, %564
+  %566 = getelementptr inbounds i8, ptr %10, i64 67
+  %567 = load i8, ptr %566, align 1
+  %568 = zext i8 %567 to i32
+  %569 = or disjoint i32 %565, %568
+  %.not216 = icmp ne i32 %569, 0
+  %570 = zext i1 %.not216 to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %527, %525
-  %.sink = phi i8 [ 0, %525 ], [ %571, %527 ]
-  %.0185.ph = phi i8 [ 0, %525 ], [ %529, %527 ]
-  %572 = getelementptr inbounds i8, ptr %140, i64 34
-  store i8 %.sink, ptr %572, align 2
-  br label %573
+.sink.split:                                      ; preds = %526, %524
+  %.sink = phi i8 [ 0, %524 ], [ %570, %526 ]
+  %.0185.ph = phi i8 [ 0, %524 ], [ %528, %526 ]
+  %571 = getelementptr inbounds i8, ptr %140, i64 34
+  store i8 %.sink, ptr %571, align 2
+  br label %572
 
-573:                                              ; preds = %.sink.split, %524
-  %.0185 = phi i8 [ 0, %524 ], [ %.0185.ph, %.sink.split ]
-  %574 = zext i8 %.0185 to i32
-  %575 = call fastcc i32 @sqlite3PagerSetPagesize(ptr noundef nonnull %504, ptr noundef nonnull %519, i32 noundef %574)
-  %.not217 = icmp eq i32 %575, 0
-  br i1 %.not217, label %576, label %.thread371
+572:                                              ; preds = %.sink.split, %523
+  %.0185 = phi i8 [ 0, %523 ], [ %.0185.ph, %.sink.split ]
+  %573 = zext i8 %.0185 to i32
+  %574 = call fastcc i32 @sqlite3PagerSetPagesize(ptr noundef nonnull %503, ptr noundef nonnull %518, i32 noundef %573)
+  %.not217 = icmp eq i32 %574, 0
+  br i1 %.not217, label %575, label %.thread371
 
-576:                                              ; preds = %573
-  %577 = load i32, ptr %519, align 4
-  %578 = sub i32 %577, %574
-  %579 = getelementptr inbounds i8, ptr %140, i64 56
-  store i32 %578, ptr %579, align 8
-  %580 = getelementptr inbounds i8, ptr %140, i64 104
-  store i32 1, ptr %580, align 8
-  %581 = getelementptr inbounds i8, ptr %32, i64 17
-  %582 = load i8, ptr %581, align 1
-  %.not218 = icmp eq i8 %582, 0
-  br i1 %.not218, label %sqlite3_mutex_leave.exit282, label %583
+575:                                              ; preds = %572
+  %576 = load i32, ptr %518, align 4
+  %577 = sub i32 %576, %573
+  %578 = getelementptr inbounds i8, ptr %140, i64 56
+  store i32 %577, ptr %578, align 8
+  %579 = getelementptr inbounds i8, ptr %140, i64 104
+  store i32 1, ptr %579, align 8
+  %580 = getelementptr inbounds i8, ptr %32, i64 17
+  %581 = load i8, ptr %580, align 1
+  %.not218 = icmp eq i8 %581, 0
+  br i1 %.not218, label %sqlite3_mutex_leave.exit282, label %582
 
-583:                                              ; preds = %576
-  %584 = load i8, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 4), align 4
-  %.not.i273 = icmp eq i8 %584, 0
+582:                                              ; preds = %575
+  %583 = load i8, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 4), align 4
+  %.not.i273 = icmp eq i8 %583, 0
   br i1 %.not.i273, label %sqlite3_mutex_enter.exit280.thread, label %sqlite3MutexAlloc.exit275
 
-sqlite3MutexAlloc.exit275:                        ; preds = %583
-  %585 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 112), align 8
-  %586 = call ptr %585(i32 noundef 2) #57
+sqlite3MutexAlloc.exit275:                        ; preds = %582
+  %584 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 112), align 8
+  %585 = call ptr %584(i32 noundef 2) #57
   %.pr341 = load i8, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 4), align 4
   %.not219 = icmp eq i8 %.pr341, 0
-  br i1 %.not219, label %591, label %sqlite3MutexAlloc.exit278
+  br i1 %.not219, label %590, label %sqlite3MutexAlloc.exit278
 
 sqlite3MutexAlloc.exit278:                        ; preds = %sqlite3MutexAlloc.exit275
-  %587 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 112), align 8
-  %588 = call ptr %587(i32 noundef 0) #57
-  %589 = getelementptr inbounds i8, ptr %140, i64 88
-  store ptr %588, ptr %589, align 8
-  %590 = icmp eq ptr %588, null
-  br i1 %590, label %.thread371, label %591
+  %586 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 112), align 8
+  %587 = call ptr %586(i32 noundef 0) #57
+  %588 = getelementptr inbounds i8, ptr %140, i64 88
+  store ptr %587, ptr %588, align 8
+  %589 = icmp eq ptr %587, null
+  br i1 %589, label %.thread371, label %590
 
-591:                                              ; preds = %sqlite3MutexAlloc.exit278, %sqlite3MutexAlloc.exit275
-  %.not.i279 = icmp eq ptr %586, null
-  br i1 %.not.i279, label %sqlite3_mutex_enter.exit280.thread, label %594
+590:                                              ; preds = %sqlite3MutexAlloc.exit278, %sqlite3MutexAlloc.exit275
+  %.not.i279 = icmp eq ptr %585, null
+  br i1 %.not.i279, label %sqlite3_mutex_enter.exit280.thread, label %593
 
-sqlite3_mutex_enter.exit280.thread:               ; preds = %591, %583
-  %592 = load ptr, ptr @sqlite3SharedCacheList, align 8
-  %593 = getelementptr inbounds i8, ptr %140, i64 112
-  store ptr %592, ptr %593, align 8
+sqlite3_mutex_enter.exit280.thread:               ; preds = %590, %582
+  %591 = load ptr, ptr @sqlite3SharedCacheList, align 8
+  %592 = getelementptr inbounds i8, ptr %140, i64 112
+  store ptr %591, ptr %592, align 8
   store ptr %140, ptr @sqlite3SharedCacheList, align 8
   br label %sqlite3_mutex_leave.exit282
 
-594:                                              ; preds = %591
-  %595 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
-  call void %595(ptr noundef nonnull %586) #57
-  %596 = load ptr, ptr @sqlite3SharedCacheList, align 8
-  %597 = getelementptr inbounds i8, ptr %140, i64 112
-  store ptr %596, ptr %597, align 8
+593:                                              ; preds = %590
+  %594 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
+  call void %594(ptr noundef nonnull %585) #57
+  %595 = load ptr, ptr @sqlite3SharedCacheList, align 8
+  %596 = getelementptr inbounds i8, ptr %140, i64 112
+  store ptr %595, ptr %596, align 8
   store ptr %140, ptr @sqlite3SharedCacheList, align 8
-  %598 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
-  call void %598(ptr noundef nonnull %586) #57
+  %597 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
+  call void %597(ptr noundef nonnull %585) #57
   br label %sqlite3_mutex_leave.exit282
 
-sqlite3_mutex_leave.exit282:                      ; preds = %594, %sqlite3_mutex_enter.exit280.thread, %576, %sqlite3_free.exit261
-  %.0180332 = phi ptr [ %.0180334, %576 ], [ %.0.i241315321326, %sqlite3_free.exit261 ], [ %.0180334, %sqlite3_mutex_enter.exit280.thread ], [ %.0180334, %594 ]
-  %.2 = phi ptr [ %140, %576 ], [ %.0178420, %sqlite3_free.exit261 ], [ %140, %sqlite3_mutex_enter.exit280.thread ], [ %140, %594 ]
-  %599 = getelementptr inbounds i8, ptr %32, i64 17
-  %600 = load i8, ptr %599, align 1
-  %.not220 = icmp eq i8 %600, 0
+sqlite3_mutex_leave.exit282:                      ; preds = %593, %sqlite3_mutex_enter.exit280.thread, %575, %sqlite3_free.exit261
+  %.0180332 = phi ptr [ %.0180334, %575 ], [ %.0.i241315321326, %sqlite3_free.exit261 ], [ %.0180334, %sqlite3_mutex_enter.exit280.thread ], [ %.0180334, %593 ]
+  %.2 = phi ptr [ %140, %575 ], [ %.0178420, %sqlite3_free.exit261 ], [ %140, %sqlite3_mutex_enter.exit280.thread ], [ %140, %593 ]
+  %598 = getelementptr inbounds i8, ptr %32, i64 17
+  %599 = load i8, ptr %598, align 1
+  %.not220 = icmp eq i8 %599, 0
   br i1 %.not220, label %.thread363, label %.preheader411
 
 .preheader411:                                    ; preds = %sqlite3_mutex_leave.exit282
-  %601 = getelementptr inbounds i8, ptr %2, i64 40
-  %602 = load i32, ptr %601, align 8
-  %603 = icmp sgt i32 %602, 0
-  br i1 %603, label %.lr.ph428, label %.thread363
+  %600 = getelementptr inbounds i8, ptr %2, i64 40
+  %601 = load i32, ptr %600, align 8
+  %602 = icmp sgt i32 %601, 0
+  br i1 %602, label %.lr.ph428, label %.thread363
 
 .lr.ph428:                                        ; preds = %.preheader411
-  %604 = getelementptr inbounds i8, ptr %2, i64 32
-  %605 = load ptr, ptr %604, align 8
-  %wide.trip.count = zext nneg i32 %602 to i64
-  br label %606
+  %603 = getelementptr inbounds i8, ptr %2, i64 32
+  %604 = load ptr, ptr %603, align 8
+  %wide.trip.count = zext nneg i32 %601 to i64
+  br label %605
 
-606:                                              ; preds = %.lr.ph428, %631
-  %indvars.iv440 = phi i64 [ 0, %.lr.ph428 ], [ %indvars.iv.next441, %631 ]
-  %607 = getelementptr inbounds %struct.Db, ptr %605, i64 %indvars.iv440, i32 1
-  %608 = load ptr, ptr %607, align 8
-  %.not221 = icmp eq ptr %608, null
-  br i1 %.not221, label %631, label %609
+605:                                              ; preds = %.lr.ph428, %630
+  %indvars.iv440 = phi i64 [ 0, %.lr.ph428 ], [ %indvars.iv.next441, %630 ]
+  %606 = getelementptr inbounds %struct.Db, ptr %604, i64 %indvars.iv440, i32 1
+  %607 = load ptr, ptr %606, align 8
+  %.not221 = icmp eq ptr %607, null
+  br i1 %.not221, label %630, label %608
 
-609:                                              ; preds = %606
-  %610 = getelementptr inbounds i8, ptr %608, i64 17
-  %611 = load i8, ptr %610, align 1
-  %.not222 = icmp eq i8 %611, 0
-  br i1 %.not222, label %631, label %.preheader410
+608:                                              ; preds = %605
+  %609 = getelementptr inbounds i8, ptr %607, i64 17
+  %610 = load i8, ptr %609, align 1
+  %.not222 = icmp eq i8 %610, 0
+  br i1 %.not222, label %630, label %.preheader410
 
-.preheader410:                                    ; preds = %609, %.preheader410
-  %.0173 = phi ptr [ %613, %.preheader410 ], [ %608, %609 ]
-  %612 = getelementptr inbounds i8, ptr %.0173, i64 40
-  %613 = load ptr, ptr %612, align 8
-  %.not223 = icmp eq ptr %613, null
-  br i1 %.not223, label %614, label %.preheader410, !llvm.loop !249
+.preheader410:                                    ; preds = %608, %.preheader410
+  %.0173 = phi ptr [ %612, %.preheader410 ], [ %607, %608 ]
+  %611 = getelementptr inbounds i8, ptr %.0173, i64 40
+  %612 = load ptr, ptr %611, align 8
+  %.not223 = icmp eq ptr %612, null
+  br i1 %.not223, label %613, label %.preheader410, !llvm.loop !249
 
-614:                                              ; preds = %.preheader410
-  %615 = getelementptr inbounds i8, ptr %.0173, i64 40
-  %616 = getelementptr inbounds i8, ptr %32, i64 8
-  %617 = load ptr, ptr %616, align 8
-  %618 = getelementptr inbounds i8, ptr %.0173, i64 8
-  %619 = load ptr, ptr %618, align 8
-  %620 = icmp ult ptr %617, %619
-  br i1 %620, label %.thread363.sink.split, label %.preheader
+613:                                              ; preds = %.preheader410
+  %614 = getelementptr inbounds i8, ptr %.0173, i64 40
+  %615 = getelementptr inbounds i8, ptr %32, i64 8
+  %616 = load ptr, ptr %615, align 8
+  %617 = getelementptr inbounds i8, ptr %.0173, i64 8
+  %618 = load ptr, ptr %617, align 8
+  %619 = icmp ult ptr %616, %618
+  br i1 %619, label %.thread363.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %614, %624
-  %.1 = phi ptr [ %622, %624 ], [ %.0173, %614 ]
-  %621 = getelementptr inbounds i8, ptr %.1, i64 32
-  %622 = load ptr, ptr %621, align 8
-  %.not224 = icmp eq ptr %622, null
-  br i1 %.not224, label %.critedge.thread, label %624
+.preheader:                                       ; preds = %613, %623
+  %.1 = phi ptr [ %621, %623 ], [ %.0173, %613 ]
+  %620 = getelementptr inbounds i8, ptr %.1, i64 32
+  %621 = load ptr, ptr %620, align 8
+  %.not224 = icmp eq ptr %621, null
+  br i1 %.not224, label %.critedge.thread, label %623
 
 .critedge.thread:                                 ; preds = %.preheader
-  %623 = getelementptr inbounds i8, ptr %.1, i64 32
+  %622 = getelementptr inbounds i8, ptr %.1, i64 32
   br label %.thread363.sink.split
 
-624:                                              ; preds = %.preheader
-  %625 = getelementptr inbounds i8, ptr %622, i64 8
-  %626 = load ptr, ptr %625, align 8
-  %627 = icmp ult ptr %626, %617
-  br i1 %627, label %.preheader, label %628, !llvm.loop !250
+623:                                              ; preds = %.preheader
+  %624 = getelementptr inbounds i8, ptr %621, i64 8
+  %625 = load ptr, ptr %624, align 8
+  %626 = icmp ult ptr %625, %616
+  br i1 %626, label %.preheader, label %627, !llvm.loop !250
 
-628:                                              ; preds = %624
-  %629 = getelementptr inbounds i8, ptr %.1, i64 32
-  %630 = getelementptr inbounds i8, ptr %32, i64 32
-  store ptr %622, ptr %630, align 8
+627:                                              ; preds = %623
+  %628 = getelementptr inbounds i8, ptr %.1, i64 32
+  %629 = getelementptr inbounds i8, ptr %32, i64 32
+  store ptr %621, ptr %629, align 8
   br label %.thread363.sink.split
 
-631:                                              ; preds = %606, %609
+630:                                              ; preds = %605, %608
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count
-  br i1 %exitcond.not, label %.thread363, label %606, !llvm.loop !251
+  br i1 %exitcond.not, label %.thread363, label %605, !llvm.loop !251
 
-.thread363.sink.split:                            ; preds = %628, %.critedge.thread, %614
-  %.sink465 = phi i64 [ 32, %614 ], [ 32, %.critedge.thread ], [ 40, %628 ]
-  %.0173.lcssa451.sink = phi ptr [ %.0173, %614 ], [ null, %.critedge.thread ], [ %.1, %628 ]
-  %.sink463 = phi ptr [ %32, %614 ], [ %32, %.critedge.thread ], [ %622, %628 ]
-  %.sink461 = phi ptr [ null, %614 ], [ %.1, %.critedge.thread ], [ %32, %628 ]
-  %.sink460 = phi ptr [ %615, %614 ], [ %623, %.critedge.thread ], [ %629, %628 ]
-  %632 = getelementptr inbounds i8, ptr %32, i64 %.sink465
-  store ptr %.0173.lcssa451.sink, ptr %632, align 8
-  %633 = getelementptr inbounds i8, ptr %.sink463, i64 40
-  store ptr %.sink461, ptr %633, align 8
+.thread363.sink.split:                            ; preds = %627, %.critedge.thread, %613
+  %.sink465 = phi i64 [ 32, %613 ], [ 32, %.critedge.thread ], [ 40, %627 ]
+  %.0173.lcssa451.sink = phi ptr [ %.0173, %613 ], [ null, %.critedge.thread ], [ %.1, %627 ]
+  %.sink463 = phi ptr [ %32, %613 ], [ %32, %.critedge.thread ], [ %621, %627 ]
+  %.sink461 = phi ptr [ null, %613 ], [ %.1, %.critedge.thread ], [ %32, %627 ]
+  %.sink460 = phi ptr [ %614, %613 ], [ %622, %.critedge.thread ], [ %628, %627 ]
+  %631 = getelementptr inbounds i8, ptr %32, i64 %.sink465
+  store ptr %.0173.lcssa451.sink, ptr %631, align 8
+  %632 = getelementptr inbounds i8, ptr %.sink463, i64 40
+  store ptr %.sink461, ptr %632, align 8
   store ptr %32, ptr %.sink460, align 8
   br label %.thread363
 
-.thread363:                                       ; preds = %631, %.thread363.sink.split, %.preheader411, %sqlite3_mutex_leave.exit282
+.thread363:                                       ; preds = %630, %.thread363.sink.split, %.preheader411, %sqlite3_mutex_leave.exit282
   store ptr %32, ptr %3, align 8
-  %634 = getelementptr inbounds i8, ptr %32, i64 8
-  %635 = load ptr, ptr %634, align 8
+  %633 = getelementptr inbounds i8, ptr %32, i64 8
+  %634 = load ptr, ptr %633, align 8
   call fastcc void @sqlite3BtreeEnter(ptr noundef %32)
-  %636 = getelementptr inbounds i8, ptr %635, i64 72
-  %637 = load i8, ptr %599, align 1
-  %.not.i10.i = icmp eq i8 %637, 0
-  br i1 %.not.i10.i, label %sqlite3BtreeSchema.exit, label %672
+  %635 = getelementptr inbounds i8, ptr %634, i64 72
+  %636 = load i8, ptr %598, align 1
+  %.not.i10.i = icmp eq i8 %636, 0
+  br i1 %.not.i10.i, label %sqlite3BtreeSchema.exit, label %671
 
 .thread394:                                       ; preds = %160, %151
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %.thread371
 
-638:                                              ; preds = %sqlite3_mutex_leave.exit.sink.split.i.i.i, %sqlite3_mutex_enter.exit.i.i.i, %sqlite3_mutex_leave.exit.sink.split.i.i261.i, %sqlite3_mutex_enter.exit.i.i259.i, %227, %sqlite3_mutex_enter.exit.i.i, %sqlite3_mutex_leave.exit.sink.split.i.i
+637:                                              ; preds = %sqlite3_mutex_leave.exit.sink.split.i.i.i, %sqlite3_mutex_enter.exit.i.i.i, %sqlite3_mutex_leave.exit.sink.split.i.i261.i, %sqlite3_mutex_enter.exit.i.i259.i, %227, %sqlite3_mutex_enter.exit.i.i, %sqlite3_mutex_leave.exit.sink.split.i.i
   %.0.i265.ph = phi i32 [ %.6.ph.i, %sqlite3_mutex_leave.exit.sink.split.i.i ], [ %.6.ph.i, %sqlite3_mutex_enter.exit.i.i ], [ 7, %227 ], [ 7, %sqlite3_mutex_enter.exit.i.i259.i ], [ 7, %sqlite3_mutex_leave.exit.sink.split.i.i261.i ], [ %.1194.ph.i, %sqlite3_mutex_enter.exit.i.i.i ], [ %.1194.ph.i, %sqlite3_mutex_leave.exit.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %.thread371
 
-.thread371:                                       ; preds = %638, %573, %sqlite3MutexAlloc.exit278, %485, %.thread394
-  %.4361378 = phi i32 [ %.0.i265.ph, %638 ], [ 7, %.thread394 ], [ %488, %485 ], [ %575, %573 ], [ 7, %sqlite3MutexAlloc.exit278 ]
-  %639 = load ptr, ptr %140, align 8
-  %.not229 = icmp eq ptr %639, null
-  br i1 %.not229, label %641, label %640
+.thread371:                                       ; preds = %637, %572, %sqlite3MutexAlloc.exit278, %484, %.thread394
+  %.4361378 = phi i32 [ %.0.i265.ph, %637 ], [ 7, %.thread394 ], [ %487, %484 ], [ %574, %572 ], [ 7, %sqlite3MutexAlloc.exit278 ]
+  %638 = load ptr, ptr %140, align 8
+  %.not229 = icmp eq ptr %638, null
+  br i1 %.not229, label %640, label %639
 
-640:                                              ; preds = %.thread371
-  call fastcc void @sqlite3PagerClose(ptr noundef nonnull %639, ptr noundef null)
-  br label %641
+639:                                              ; preds = %.thread371
+  call fastcc void @sqlite3PagerClose(ptr noundef nonnull %638, ptr noundef null)
+  br label %640
 
-641:                                              ; preds = %.thread371, %640
-  %642 = load i32, ptr @sqlite3Config, align 8
-  %.not.i283 = icmp eq i32 %642, 0
-  br i1 %.not.i283, label %sqlite3_mutex_leave.exit.sink.split.i287, label %643
+640:                                              ; preds = %.thread371, %639
+  %641 = load i32, ptr @sqlite3Config, align 8
+  %.not.i283 = icmp eq i32 %641, 0
+  br i1 %.not.i283, label %sqlite3_mutex_leave.exit.sink.split.i287, label %642
 
-643:                                              ; preds = %641
-  %644 = load ptr, ptr @mem0, align 8
-  %.not.i.i284 = icmp eq ptr %644, null
-  br i1 %.not.i.i284, label %sqlite3_mutex_enter.exit.i285, label %645
+642:                                              ; preds = %640
+  %643 = load ptr, ptr @mem0, align 8
+  %.not.i.i284 = icmp eq ptr %643, null
+  br i1 %.not.i.i284, label %sqlite3_mutex_enter.exit.i285, label %644
 
-645:                                              ; preds = %643
-  %646 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
-  call void %646(ptr noundef nonnull %644) #57
+644:                                              ; preds = %642
+  %645 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
+  call void %645(ptr noundef nonnull %643) #57
   br label %sqlite3_mutex_enter.exit.i285
 
-sqlite3_mutex_enter.exit.i285:                    ; preds = %645, %643
-  %647 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
-  %648 = call i32 %647(ptr noundef nonnull %140) #57
-  %649 = sext i32 %648 to i64
-  %650 = load i64, ptr @sqlite3Stat, align 8
-  %651 = sub nsw i64 %650, %649
-  store i64 %651, ptr @sqlite3Stat, align 8
-  %652 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %653 = add nsw i64 %652, -1
-  store i64 %653, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %654 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
-  call void %654(ptr noundef nonnull %140) #57
-  %655 = load ptr, ptr @mem0, align 8
-  %.not.i4.i286 = icmp eq ptr %655, null
+sqlite3_mutex_enter.exit.i285:                    ; preds = %644, %642
+  %646 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
+  %647 = call i32 %646(ptr noundef nonnull %140) #57
+  %648 = sext i32 %647 to i64
+  %649 = load i64, ptr @sqlite3Stat, align 8
+  %650 = sub nsw i64 %649, %648
+  store i64 %650, ptr @sqlite3Stat, align 8
+  %651 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %652 = add nsw i64 %651, -1
+  store i64 %652, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %653 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
+  call void %653(ptr noundef nonnull %140) #57
+  %654 = load ptr, ptr @mem0, align 8
+  %.not.i4.i286 = icmp eq ptr %654, null
   br i1 %.not.i4.i286, label %sqlite3_free.exit290, label %sqlite3_mutex_leave.exit.sink.split.i287
 
-sqlite3_mutex_leave.exit.sink.split.i287:         ; preds = %sqlite3_mutex_enter.exit.i285, %641
-  %.sink6.i288 = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i285 ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %641 ]
-  %.sink.i289 = phi ptr [ %655, %sqlite3_mutex_enter.exit.i285 ], [ %140, %641 ]
-  %656 = load ptr, ptr %.sink6.i288, align 8
-  call void %656(ptr noundef nonnull %.sink.i289) #57
+sqlite3_mutex_leave.exit.sink.split.i287:         ; preds = %sqlite3_mutex_enter.exit.i285, %640
+  %.sink6.i288 = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i285 ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %640 ]
+  %.sink.i289 = phi ptr [ %654, %sqlite3_mutex_enter.exit.i285 ], [ %140, %640 ]
+  %655 = load ptr, ptr %.sink6.i288, align 8
+  call void %655(ptr noundef nonnull %.sink.i289) #57
   br label %sqlite3_free.exit290
 
 sqlite3_free.exit290:                             ; preds = %sqlite3_free.exit261.thread, %sqlite3_mutex_leave.exit.sink.split.i287, %sqlite3_mutex_enter.exit.i285
   %.4361379404 = phi i32 [ %.4361378, %sqlite3_mutex_enter.exit.i285 ], [ %.4361378, %sqlite3_mutex_leave.exit.sink.split.i287 ], [ 7, %sqlite3_free.exit261.thread ]
-  %657 = load i32, ptr @sqlite3Config, align 8
-  %.not.i291 = icmp eq i32 %657, 0
-  br i1 %.not.i291, label %sqlite3_mutex_leave.exit.sink.split.i295, label %658
+  %656 = load i32, ptr @sqlite3Config, align 8
+  %.not.i291 = icmp eq i32 %656, 0
+  br i1 %.not.i291, label %sqlite3_mutex_leave.exit.sink.split.i295, label %657
 
-658:                                              ; preds = %sqlite3_free.exit290
-  %659 = load ptr, ptr @mem0, align 8
-  %.not.i.i292 = icmp eq ptr %659, null
-  br i1 %.not.i.i292, label %sqlite3_mutex_enter.exit.i293, label %660
+657:                                              ; preds = %sqlite3_free.exit290
+  %658 = load ptr, ptr @mem0, align 8
+  %.not.i.i292 = icmp eq ptr %658, null
+  br i1 %.not.i.i292, label %sqlite3_mutex_enter.exit.i293, label %659
 
-660:                                              ; preds = %658
-  %661 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
-  call void %661(ptr noundef nonnull %659) #57
+659:                                              ; preds = %657
+  %660 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 128), align 8
+  call void %660(ptr noundef nonnull %658) #57
   br label %sqlite3_mutex_enter.exit.i293
 
-sqlite3_mutex_enter.exit.i293:                    ; preds = %660, %658
-  %662 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
-  %663 = call i32 %662(ptr noundef nonnull %32) #57
-  %664 = sext i32 %663 to i64
-  %665 = load i64, ptr @sqlite3Stat, align 8
-  %666 = sub nsw i64 %665, %664
-  store i64 %666, ptr @sqlite3Stat, align 8
-  %667 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %668 = add nsw i64 %667, -1
-  store i64 %668, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
-  %669 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
-  call void %669(ptr noundef nonnull %32) #57
-  %670 = load ptr, ptr @mem0, align 8
-  %.not.i4.i294 = icmp eq ptr %670, null
+sqlite3_mutex_enter.exit.i293:                    ; preds = %659, %657
+  %661 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 56), align 8
+  %662 = call i32 %661(ptr noundef nonnull %32) #57
+  %663 = sext i32 %662 to i64
+  %664 = load i64, ptr @sqlite3Stat, align 8
+  %665 = sub nsw i64 %664, %663
+  store i64 %665, ptr @sqlite3Stat, align 8
+  %666 = load i64, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %667 = add nsw i64 %666, -1
+  store i64 %667, ptr getelementptr inbounds (i8, ptr @sqlite3Stat, i64 72), align 8
+  %668 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), align 8
+  call void %668(ptr noundef nonnull %32) #57
+  %669 = load ptr, ptr @mem0, align 8
+  %.not.i4.i294 = icmp eq ptr %669, null
   br i1 %.not.i4.i294, label %sqlite3_free.exit298, label %sqlite3_mutex_leave.exit.sink.split.i295
 
 sqlite3_mutex_leave.exit.sink.split.i295:         ; preds = %sqlite3_mutex_enter.exit.i293, %sqlite3_free.exit290
   %.sink6.i296 = phi ptr [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), %sqlite3_mutex_enter.exit.i293 ], [ getelementptr inbounds (i8, ptr @sqlite3Config, i64 40), %sqlite3_free.exit290 ]
-  %.sink.i297 = phi ptr [ %670, %sqlite3_mutex_enter.exit.i293 ], [ %32, %sqlite3_free.exit290 ]
-  %671 = load ptr, ptr %.sink6.i296, align 8
-  call void %671(ptr noundef nonnull %.sink.i297) #57
+  %.sink.i297 = phi ptr [ %669, %sqlite3_mutex_enter.exit.i293 ], [ %32, %sqlite3_free.exit290 ]
+  %670 = load ptr, ptr %.sink6.i296, align 8
+  call void %670(ptr noundef nonnull %.sink.i297) #57
   br label %sqlite3_free.exit298
 
 sqlite3_free.exit298:                             ; preds = %sqlite3_mutex_enter.exit.i293, %sqlite3_mutex_leave.exit.sink.split.i295
   store ptr null, ptr %3, align 8
-  br label %720
+  br label %719
 
-672:                                              ; preds = %.thread363
-  %673 = getelementptr inbounds i8, ptr %32, i64 20
-  %674 = load i32, ptr %673, align 4
-  %675 = add nsw i32 %674, -1
-  store i32 %675, ptr %673, align 4
-  %676 = icmp eq i32 %675, 0
-  br i1 %676, label %677, label %sqlite3BtreeSchema.exit
+671:                                              ; preds = %.thread363
+  %672 = getelementptr inbounds i8, ptr %32, i64 20
+  %673 = load i32, ptr %672, align 4
+  %674 = add nsw i32 %673, -1
+  store i32 %674, ptr %672, align 4
+  %675 = icmp eq i32 %674, 0
+  br i1 %675, label %676, label %sqlite3BtreeSchema.exit
 
-677:                                              ; preds = %672
-  %678 = load ptr, ptr %634, align 8
-  %679 = getelementptr inbounds i8, ptr %678, i64 88
-  %680 = load ptr, ptr %679, align 8
-  %.not.i.i.i.i300 = icmp eq ptr %680, null
-  br i1 %.not.i.i.i.i300, label %unlockBtreeMutex.exit.i.i, label %681
+676:                                              ; preds = %671
+  %677 = load ptr, ptr %633, align 8
+  %678 = getelementptr inbounds i8, ptr %677, i64 88
+  %679 = load ptr, ptr %678, align 8
+  %.not.i.i.i.i300 = icmp eq ptr %679, null
+  br i1 %.not.i.i.i.i300, label %unlockBtreeMutex.exit.i.i, label %680
 
-681:                                              ; preds = %677
-  %682 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
-  call void %682(ptr noundef nonnull %680) #57
+680:                                              ; preds = %676
+  %681 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
+  call void %681(ptr noundef nonnull %679) #57
   br label %unlockBtreeMutex.exit.i.i
 
-unlockBtreeMutex.exit.i.i:                        ; preds = %681, %677
-  %683 = getelementptr inbounds i8, ptr %32, i64 18
-  store i8 0, ptr %683, align 2
+unlockBtreeMutex.exit.i.i:                        ; preds = %680, %676
+  %682 = getelementptr inbounds i8, ptr %32, i64 18
+  store i8 0, ptr %682, align 2
   br label %sqlite3BtreeSchema.exit
 
-sqlite3BtreeSchema.exit:                          ; preds = %672, %unlockBtreeMutex.exit.i.i, %.thread363
-  %684 = load ptr, ptr %636, align 8
-  %685 = icmp eq ptr %684, null
-  br i1 %685, label %686, label %sqlite3BtreeSetCacheSize.exit
+sqlite3BtreeSchema.exit:                          ; preds = %671, %unlockBtreeMutex.exit.i.i, %.thread363
+  %683 = load ptr, ptr %635, align 8
+  %684 = icmp eq ptr %683, null
+  br i1 %684, label %685, label %sqlite3BtreeSetCacheSize.exit
 
-686:                                              ; preds = %sqlite3BtreeSchema.exit
-  %687 = load ptr, ptr %634, align 8
+685:                                              ; preds = %sqlite3BtreeSchema.exit
+  %686 = load ptr, ptr %633, align 8
   call fastcc void @sqlite3BtreeEnter(ptr noundef nonnull %32)
-  %688 = load ptr, ptr %687, align 8
-  %689 = getelementptr i8, ptr %688, i64 288
-  %.val.i302 = load ptr, ptr %689, align 8
-  %690 = getelementptr inbounds i8, ptr %.val.i302, i64 32
-  store i32 -2000, ptr %690, align 8
-  %691 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 208), align 8
-  %692 = getelementptr inbounds i8, ptr %.val.i302, i64 72
-  %693 = load ptr, ptr %692, align 8
-  %694 = getelementptr inbounds i8, ptr %.val.i302, i64 40
-  %695 = load i32, ptr %694, align 8
-  %696 = getelementptr inbounds i8, ptr %.val.i302, i64 44
-  %697 = load i32, ptr %696, align 4
-  %698 = add nsw i32 %697, %695
-  %699 = sdiv i32 2048000, %698
-  call void %691(ptr noundef %693, i32 noundef %699) #57
-  %700 = load i8, ptr %599, align 1
-  %.not.i.i305 = icmp eq i8 %700, 0
-  br i1 %.not.i.i305, label %sqlite3BtreeSetCacheSize.exit, label %701
+  %687 = load ptr, ptr %686, align 8
+  %688 = getelementptr i8, ptr %687, i64 288
+  %.val.i302 = load ptr, ptr %688, align 8
+  %689 = getelementptr inbounds i8, ptr %.val.i302, i64 32
+  store i32 -2000, ptr %689, align 8
+  %690 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 208), align 8
+  %691 = getelementptr inbounds i8, ptr %.val.i302, i64 72
+  %692 = load ptr, ptr %691, align 8
+  %693 = getelementptr inbounds i8, ptr %.val.i302, i64 40
+  %694 = load i32, ptr %693, align 8
+  %695 = getelementptr inbounds i8, ptr %.val.i302, i64 44
+  %696 = load i32, ptr %695, align 4
+  %697 = add nsw i32 %696, %694
+  %698 = sdiv i32 2048000, %697
+  call void %690(ptr noundef %692, i32 noundef %698) #57
+  %699 = load i8, ptr %598, align 1
+  %.not.i.i305 = icmp eq i8 %699, 0
+  br i1 %.not.i.i305, label %sqlite3BtreeSetCacheSize.exit, label %700
 
-701:                                              ; preds = %686
-  %702 = getelementptr inbounds i8, ptr %32, i64 20
-  %703 = load i32, ptr %702, align 4
-  %704 = add nsw i32 %703, -1
-  store i32 %704, ptr %702, align 4
-  %705 = icmp eq i32 %704, 0
-  br i1 %705, label %706, label %sqlite3BtreeSetCacheSize.exit
+700:                                              ; preds = %685
+  %701 = getelementptr inbounds i8, ptr %32, i64 20
+  %702 = load i32, ptr %701, align 4
+  %703 = add nsw i32 %702, -1
+  store i32 %703, ptr %701, align 4
+  %704 = icmp eq i32 %703, 0
+  br i1 %704, label %705, label %sqlite3BtreeSetCacheSize.exit
 
-706:                                              ; preds = %701
-  %707 = load ptr, ptr %634, align 8
-  %708 = getelementptr inbounds i8, ptr %707, i64 88
-  %709 = load ptr, ptr %708, align 8
-  %.not.i.i.i.i306 = icmp eq ptr %709, null
-  br i1 %.not.i.i.i.i306, label %unlockBtreeMutex.exit.i.i307, label %710
+705:                                              ; preds = %700
+  %706 = load ptr, ptr %633, align 8
+  %707 = getelementptr inbounds i8, ptr %706, i64 88
+  %708 = load ptr, ptr %707, align 8
+  %.not.i.i.i.i306 = icmp eq ptr %708, null
+  br i1 %.not.i.i.i.i306, label %unlockBtreeMutex.exit.i.i307, label %709
 
-710:                                              ; preds = %706
-  %711 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
-  call void %711(ptr noundef nonnull %709) #57
+709:                                              ; preds = %705
+  %710 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
+  call void %710(ptr noundef nonnull %708) #57
   br label %unlockBtreeMutex.exit.i.i307
 
-unlockBtreeMutex.exit.i.i307:                     ; preds = %710, %706
-  %712 = getelementptr inbounds i8, ptr %32, i64 18
-  store i8 0, ptr %712, align 2
+unlockBtreeMutex.exit.i.i307:                     ; preds = %709, %705
+  %711 = getelementptr inbounds i8, ptr %32, i64 18
+  store i8 0, ptr %711, align 2
   br label %sqlite3BtreeSetCacheSize.exit
 
-sqlite3BtreeSetCacheSize.exit:                    ; preds = %unlockBtreeMutex.exit.i.i307, %701, %686, %sqlite3BtreeSchema.exit
-  %713 = load ptr, ptr %.2, align 8
-  %714 = getelementptr i8, ptr %713, i64 72
-  %.val237 = load ptr, ptr %714, align 8
-  %715 = load ptr, ptr %.val237, align 8
-  %.not227 = icmp eq ptr %715, null
-  br i1 %.not227, label %720, label %sqlite3OsFileControlHint.exit
+sqlite3BtreeSetCacheSize.exit:                    ; preds = %unlockBtreeMutex.exit.i.i307, %700, %685, %sqlite3BtreeSchema.exit
+  %712 = load ptr, ptr %.2, align 8
+  %713 = getelementptr i8, ptr %712, i64 72
+  %.val237 = load ptr, ptr %713, align 8
+  %714 = load ptr, ptr %.val237, align 8
+  %.not227 = icmp eq ptr %714, null
+  br i1 %.not227, label %719, label %sqlite3OsFileControlHint.exit
 
 sqlite3OsFileControlHint.exit:                    ; preds = %sqlite3BtreeSetCacheSize.exit
-  %716 = getelementptr inbounds i8, ptr %.2, i64 8
-  %717 = getelementptr inbounds i8, ptr %715, i64 80
-  %718 = load ptr, ptr %717, align 8
-  %719 = call i32 %718(ptr noundef nonnull %.val237, i32 noundef 30, ptr noundef nonnull %716) #57
-  br label %720
+  %715 = getelementptr inbounds i8, ptr %.2, i64 8
+  %716 = getelementptr inbounds i8, ptr %714, i64 80
+  %717 = load ptr, ptr %716, align 8
+  %718 = call i32 %717(ptr noundef nonnull %.val237, i32 noundef 30, ptr noundef nonnull %715) #57
+  br label %719
 
-720:                                              ; preds = %sqlite3BtreeSetCacheSize.exit, %sqlite3OsFileControlHint.exit, %sqlite3_free.exit298
+719:                                              ; preds = %sqlite3BtreeSetCacheSize.exit, %sqlite3OsFileControlHint.exit, %sqlite3_free.exit298
   %.4360 = phi i32 [ 0, %sqlite3BtreeSetCacheSize.exit ], [ 0, %sqlite3OsFileControlHint.exit ], [ %.4361379404, %sqlite3_free.exit298 ]
   %.0180333358 = phi ptr [ %.0180332, %sqlite3BtreeSetCacheSize.exit ], [ %.0180332, %sqlite3OsFileControlHint.exit ], [ %.0180334, %sqlite3_free.exit298 ]
   %.not230 = icmp eq ptr %.0180333358, null
   br i1 %.not230, label %sqlite3_free.exit, label %sqlite3_mutex_leave.exit310
 
-sqlite3_mutex_leave.exit310:                      ; preds = %720
-  %721 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
-  call void %721(ptr noundef nonnull %.0180333358) #57
+sqlite3_mutex_leave.exit310:                      ; preds = %719
+  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 144), align 8
+  call void %720(ptr noundef nonnull %.0180333358) #57
   br label %sqlite3_free.exit
 
-sqlite3_free.exit:                                ; preds = %25, %sqlite3_mutex_leave.exit.sink.split.i, %sqlite3_mutex_enter.exit.i, %720, %sqlite3_mutex_leave.exit310, %sqlite3_mutex_leave.exit251, %76
-  %.0 = phi i32 [ 19, %sqlite3_mutex_leave.exit251 ], [ %75, %76 ], [ %.4360, %sqlite3_mutex_leave.exit310 ], [ %.4360, %720 ], [ 7, %sqlite3_mutex_enter.exit.i ], [ 7, %sqlite3_mutex_leave.exit.sink.split.i ], [ 7, %25 ]
+sqlite3_free.exit:                                ; preds = %25, %sqlite3_mutex_leave.exit.sink.split.i, %sqlite3_mutex_enter.exit.i, %719, %sqlite3_mutex_leave.exit310, %sqlite3_mutex_leave.exit251, %76
+  %.0 = phi i32 [ 19, %sqlite3_mutex_leave.exit251 ], [ %75, %76 ], [ %.4360, %sqlite3_mutex_leave.exit310 ], [ %.4360, %719 ], [ 7, %sqlite3_mutex_enter.exit.i ], [ 7, %sqlite3_mutex_leave.exit.sink.split.i ], [ 7, %25 ]
   ret i32 %.0
 }
 
@@ -59991,7 +59989,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_leave
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @memdbAccess(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3) #21 {
+define internal noundef i32 @memdbAccess(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3) #22 {
   store i32 0, ptr %3, align 4
   ret i32 0
 }
@@ -62333,7 +62331,7 @@ memjrnlFreeChunks.exit:                           ; preds = %sqlite3_free.exit.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 523) i32 @memjrnlRead(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 noundef %3) #15 {
+define internal range(i32 0, 523) i32 @memjrnlRead(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 noundef %3) #16 {
   %5 = sext i32 %2 to i64
   %6 = add nsw i64 %5, %3
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -62820,7 +62818,7 @@ define internal noundef i32 @memjrnlSync(ptr nocapture readnone %0, i32 %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @memjrnlFileSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #20 {
+define internal noundef i32 @memjrnlFileSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -63089,7 +63087,7 @@ backupUpdate.exit:                                ; preds = %22, %3
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @walChecksumBytes(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #37 {
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
@@ -65532,7 +65530,7 @@ walChecksumBytes.exit:                            ; preds = %.preheader96.i
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 2) i32 @walDecodeFrame(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #28 {
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   %7 = getelementptr inbounds i8, ptr %0, i64 104
@@ -66040,7 +66038,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_leave
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @getPageError(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2, i32 %3) #20 {
+define internal i32 @getPageError(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2, i32 %3) #21 {
   store ptr null, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
@@ -70073,7 +70071,7 @@ sqlite3BackupRestart.exit:                        ; preds = %.lr.ph.i, %sqlite3P
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sqlite3PcacheDirtyList(ptr nocapture noundef readonly %0) unnamed_addr #15 {
+define internal fastcc ptr @sqlite3PcacheDirtyList(ptr nocapture noundef readonly %0) unnamed_addr #16 {
   %2 = alloca %struct.PgHdr, align 8
   %3 = alloca %struct.PgHdr, align 8
   %4 = alloca %struct.PgHdr, align 8
@@ -70337,7 +70335,7 @@ define internal fastcc i32 @read32bits(ptr noundef %0, i64 noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3PcacheMakeDirty(ptr noundef %0) unnamed_addr #17 {
+define internal fastcc void @sqlite3PcacheMakeDirty(ptr noundef %0) unnamed_addr #18 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 17
@@ -71292,7 +71290,7 @@ define internal fastcc range(i32 0, 780) i32 @decodeFlags(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i16 @cellSizePtrTableLeaf(ptr nocapture noundef readonly %0, ptr noundef %1) #8 {
+define internal zeroext i16 @cellSizePtrTableLeaf(ptr nocapture noundef readonly %0, ptr noundef %1) #14 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = icmp slt i8 %3, 0
@@ -71419,7 +71417,7 @@ define internal zeroext i16 @cellSizePtrTableLeaf(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @btreeParseCellPtr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #37 {
+define internal void @btreeParseCellPtr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #38 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
   %6 = icmp slt i8 %4, 0
@@ -71605,7 +71603,7 @@ define internal void @btreeParseCellPtr(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i16 @cellSizePtrIdxLeaf(ptr nocapture noundef readonly %0, ptr noundef %1) #8 {
+define internal zeroext i16 @cellSizePtrIdxLeaf(ptr nocapture noundef readonly %0, ptr noundef %1) #14 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = icmp slt i8 %3, 0
@@ -71682,7 +71680,7 @@ define internal zeroext i16 @cellSizePtrIdxLeaf(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @btreeParseCellPtrIndex(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #37 {
+define internal void @btreeParseCellPtrIndex(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #38 {
   %4 = getelementptr inbounds i8, ptr %0, i64 10
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i64
@@ -71779,7 +71777,7 @@ define internal void @btreeParseCellPtrIndex(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i16 @cellSizePtr(ptr nocapture noundef readonly %0, ptr noundef %1) #8 {
+define internal zeroext i16 @cellSizePtr(ptr nocapture noundef readonly %0, ptr noundef %1) #14 {
   %.ptr33 = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i8, ptr %.ptr33, align 1
   %4 = zext i8 %3 to i32
@@ -71853,7 +71851,7 @@ define internal zeroext i16 @cellSizePtr(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal zeroext i16 @cellSizePtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #22 {
+define internal zeroext i16 @cellSizePtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #8 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -71872,7 +71870,7 @@ define internal zeroext i16 @cellSizePtrNoPayload(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @btreeParseCellPtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #20 {
+define internal void @btreeParseCellPtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #21 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = tail call fastcc zeroext i8 @sqlite3GetVarint(ptr noundef nonnull %4, ptr noundef %2)
   %narrow = add nuw nsw i8 %5, 4
@@ -71889,7 +71887,7 @@ define internal void @btreeParseCellPtrNoPayload(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #20 {
+define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #21 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %5, label %7
@@ -88200,7 +88198,7 @@ define internal fastcc range(i32 0, 8) i32 @sqlite3VdbeMemClearAndResize(ptr nou
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @sqlite3AtoF(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #38 {
+define internal fastcc range(i32 -1, -2147483648) i32 @sqlite3AtoF(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #39 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -89175,7 +89173,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @sqlite3AtoF(ptr noundef r
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 -1, 4) i32 @sqlite3Atoi64(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #37 {
   %5 = zext i8 %3 to i32
   %6 = icmp eq i8 %3, 1
@@ -109399,7 +109397,7 @@ vdbeMemClearExternAndSetNull.exit:                ; preds = %31, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @sqlite3SubInt64(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #20 {
+define internal fastcc range(i32 0, 2) i32 @sqlite3SubInt64(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #21 {
   %3 = icmp eq i64 %1, -9223372036854775808
   %4 = load i64, ptr %0, align 8
   br i1 %3, label %5, label %9
@@ -109449,7 +109447,7 @@ sqlite3AddInt64.exit:                             ; preds = %sqlite3AddInt64.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @sqlite3MulInt64(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #20 {
+define internal fastcc range(i32 0, 2) i32 @sqlite3MulInt64(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #21 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp sgt i64 %1, 0
   br i1 %4, label %5, label %11
@@ -109616,7 +109614,7 @@ computeNumericType.exit:                          ; preds = %37, %39, %47, %49, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3VdbeMemIntegerify(ptr nocapture noundef %0) unnamed_addr #15 {
+define internal fastcc void @sqlite3VdbeMemIntegerify(ptr nocapture noundef %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
@@ -109771,7 +109769,7 @@ sqlite3VdbeIntegerAffinity.exit:                  ; preds = %sqlite3RealToI64.ex
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc void @sqlite3VdbeMemRealify(ptr nocapture noundef %0) unnamed_addr #14 {
+define internal fastcc void @sqlite3VdbeMemRealify(ptr nocapture noundef %0) unnamed_addr #15 {
   %2 = alloca double, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i16, ptr %3, align 4
@@ -110434,7 +110432,7 @@ sqlite3BlobCompare.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeBooleanValue(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #14 {
+define internal fastcc i32 @sqlite3VdbeBooleanValue(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #15 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i16, ptr %4, align 4
@@ -110526,7 +110524,7 @@ define internal fastcc i32 @sqlite3VdbeFinishMoveto(ptr nocapture noundef %0) un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #20 {
+define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #21 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
@@ -110615,7 +110613,7 @@ define internal fastcc i32 @sqlite3VdbeMemFromBtreeZeroOffset(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sqlite3VdbeSerialGet(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #20 {
+define internal fastcc void @sqlite3VdbeSerialGet(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #21 {
   switch i32 %1, label %139 [
     i32 10, label %4
     i32 11, label %7
@@ -111097,7 +111095,7 @@ sqlite3RCStrNew.exit.thread:                      ; preds = %sqlite3_malloc64.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @sqlite3PutVarint(ptr nocapture noundef writeonly %0, i64 noundef %1) unnamed_addr #39 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @sqlite3PutVarint(ptr nocapture noundef writeonly %0, i64 noundef %1) unnamed_addr #40 {
   %3 = alloca [10 x i8], align 1
   %4 = icmp ult i64 %1, 128
   br i1 %4, label %5, label %7
@@ -111194,7 +111192,7 @@ putVarint64.exit:                                 ; preds = %21, %putVarint64.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @sqlite3BtreeRowCountEst(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc i64 @sqlite3BtreeRowCountEst(ptr nocapture noundef readonly %0) unnamed_addr #14 {
   %2 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %3, label %.loopexit
@@ -113520,7 +113518,7 @@ btreeLast.exit:                                   ; preds = %57, %moveToRightmos
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @sqlite3IntFloatCompare(i64 noundef %0, double noundef %1) unnamed_addr #40 {
+define internal fastcc range(i32 -1, 2) i32 @sqlite3IntFloatCompare(i64 noundef %0, double noundef %1) unnamed_addr #41 {
   %3 = fcmp ord double %1, 0.000000e+00
   br i1 %3, label %4, label %28
 
@@ -119070,7 +119068,7 @@ sqlite3VarintLen.exit:                            ; preds = %.lr.ph.i197, %616
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3RootPageMoved(ptr nocapture readonly %.32.val, i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #15 {
+define internal fastcc void @sqlite3RootPageMoved(ptr nocapture readonly %.32.val, i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #16 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds %struct.Db, ptr %.32.val, i64 %4, i32 4
   %6 = load ptr, ptr %5, align 8
@@ -120985,7 +120983,7 @@ rowSetListToTree.exit67:                          ; preds = %.lr.ph.i60, %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @sqlite3VdbeFrameMemDel(ptr noundef %0) #17 {
+define internal void @sqlite3VdbeFrameMemDel(ptr noundef %0) #18 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 272
   %4 = load ptr, ptr %3, align 8
@@ -125871,7 +125869,7 @@ allocateTempSpace.exit:                           ; preds = %50, %46, %53, %34, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @invalidateIncrblobCursors(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #15 {
+define internal fastcc void @invalidateIncrblobCursors(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 19
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -136250,7 +136248,7 @@ sqlite3DbFree.exit:                               ; preds = %sqlite3DbStrDup.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3SetTextEncoding(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #15 {
+define internal fastcc void @sqlite3SetTextEncoding(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 100
   store i8 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 616
@@ -136630,7 +136628,7 @@ findCollSeqEntry.exit.thread:                     ; preds = %sqlite3DbMallocRaw.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sqlite3HashFind(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc ptr @sqlite3HashFind(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -138183,7 +138181,7 @@ sqlite3DbFree.exit108:                            ; preds = %sqlite3DbFree.exit1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sqlite3FindIndex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #8 {
+define internal fastcc ptr @sqlite3FindIndex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -138376,7 +138374,7 @@ sqlite3HashFind.exit._crit_edge:                  ; preds = %sqlite3DbIsNamed.ex
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @analysisLoader(ptr nocapture noundef readonly %0, i32 %1, ptr noundef readonly %2, ptr nocapture readnone %3) #27 {
+define internal noundef i32 @analysisLoader(ptr nocapture noundef readonly %0, i32 %1, ptr noundef readonly %2, ptr nocapture readnone %3) #42 {
   %5 = alloca %struct.Index, align 8
   %6 = icmp eq ptr %2, null
   br i1 %6, label %72, label %7
@@ -138514,7 +138512,7 @@ sqlite3PrimaryKeyIndex.exit.thread:               ; preds = %43, %sqlite3_stricm
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3DefaultRowEst(ptr nocapture noundef readonly %0) unnamed_addr #15 {
+define internal fastcc void @sqlite3DefaultRowEst(ptr nocapture noundef readonly %0) unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 94
@@ -138580,7 +138578,7 @@ define internal fastcc void @sqlite3DefaultRowEst(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decodeIntArray(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #27 {
+define internal fastcc void @decodeIntArray(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #42 {
   %5 = alloca i32, align 4
   %6 = load i8, ptr %0, align 1
   %7 = icmp ne i8 %6, 0
@@ -138831,7 +138829,7 @@ sqlite3_strglob.exit65:                           ; preds = %sqlite3_strglob.exi
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 2) i32 @sqlite3GetInt32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #37 {
   %3 = load i8, ptr %0, align 1
   %.not55 = icmp eq i8 %3, 45
@@ -140564,7 +140562,7 @@ sqlite3DbFree.exit:                               ; preds = %sqlite3DbFree.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @rowSetEntrySort(ptr noundef %0) unnamed_addr #15 {
+define internal fastcc ptr @rowSetEntrySort(ptr noundef %0) unnamed_addr #16 {
   %2 = alloca %struct.RowSetEntry, align 8
   %3 = alloca %struct.RowSetEntry, align 8
   %4 = alloca [40 x ptr], align 16
@@ -140733,7 +140731,7 @@ rowSetEntryMerge.exit35:                          ; preds = %48, %52
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @rowSetTreeToList(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #41 {
+define internal fastcc void @rowSetTreeToList(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #43 {
   %4 = alloca ptr, align 8
   br label %tailrecurse
 
@@ -140765,7 +140763,7 @@ tailrecurse:                                      ; preds = %10, %3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @rowSetNDeepTree(ptr noundef %0, i32 noundef %1) unnamed_addr #41 {
+define internal fastcc ptr @rowSetNDeepTree(ptr noundef %0, i32 noundef %1) unnamed_addr #43 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %common.ret24, label %5
@@ -142041,7 +142039,7 @@ sqlite3DbStrDup.exit.thread:                      ; preds = %sqlite3DbMallocRaw.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @sqlite3GetToken(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #42 {
+define internal fastcc i32 @sqlite3GetToken(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #37 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds [256 x i8], ptr @aiClass, i64 0, i64 %4
@@ -142861,7 +142859,7 @@ define internal fastcc i32 @sqlite3GetToken(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @keywordCode(ptr nocapture noundef readonly %0, i32 noundef returned %1, ptr nocapture noundef writeonly %2) unnamed_addr #42 {
+define internal fastcc noundef i32 @keywordCode(ptr nocapture noundef readonly %0, i32 noundef returned %1, ptr nocapture noundef writeonly %2) unnamed_addr #37 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %5
@@ -144047,7 +144045,7 @@ sqlite3_malloc.exit.thread:                       ; preds = %121, %sqlite3_mallo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @pragmaVtabBestIndex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #15 {
+define internal noundef i32 @pragmaVtabBestIndex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #16 {
   %3 = alloca [2 x i32], align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   store double 1.000000e+00, ptr %4, align 8
@@ -144918,7 +144916,7 @@ sqlite3_result_value.exit:                        ; preds = %58, %sqlite3VdbeMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @pragmaVtabRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #20 {
+define internal noundef i32 @pragmaVtabRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -145597,7 +145595,7 @@ sqlite3ExprListDelete.exit:                       ; preds = %exprListDeleteNN.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @sqlite3Utf8Read(ptr nocapture noundef %0) unnamed_addr #37 {
+define internal fastcc i32 @sqlite3Utf8Read(ptr nocapture noundef %0) unnamed_addr #38 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %3, ptr %0, align 8
@@ -145652,7 +145650,7 @@ define internal fastcc i32 @sqlite3Utf8Read(ptr nocapture noundef %0) unnamed_ad
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i32 @sqlite3Utf8CharLen(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #8 {
   %3 = icmp sgt i32 %1, -1
   %4 = zext nneg i32 %1 to i64
@@ -148028,7 +148026,7 @@ sqlite3ValueFree.exit:                            ; preds = %sqlite3VdbeMemRelea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc signext i8 @sqlite3AffinityType(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #15 {
+define internal fastcc signext i8 @sqlite3AffinityType(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #16 {
   %3 = alloca i32, align 4
   %4 = load i8, ptr %0, align 1
   %.not64 = icmp eq i8 %4, 0
@@ -156851,7 +156849,7 @@ sqlite3RenameTokenMap.exit:                       ; preds = %52, %52, %52, %62, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3ExprIdToTrueFalse(ptr nocapture noundef %0) unnamed_addr #37 {
+define internal fastcc void @sqlite3ExprIdToTrueFalse(ptr nocapture noundef %0) unnamed_addr #38 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 67110912
@@ -156929,7 +156927,7 @@ sqlite3IsTrueOrFalse.exit:                        ; preds = %29, %1, %.loopexit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3AddNotNull(ptr %.352.val, i32 noundef %0) unnamed_addr #15 {
+define internal fastcc void @sqlite3AddNotNull(ptr %.352.val, i32 noundef %0) unnamed_addr #16 {
   %2 = icmp eq ptr %.352.val, null
   br i1 %2, label %.loopexit, label %3
 
@@ -169778,7 +169776,7 @@ sqlite3ExprAlloc.exit:                            ; preds = %14, %sqlite3Dequote
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @sqlite3SrcListShiftJoinType(ptr noundef %0) unnamed_addr #42 {
+define internal fastcc void @sqlite3SrcListShiftJoinType(ptr noundef %0) unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -170599,7 +170597,7 @@ sqlite3_strnicmp.exit.thread.thread:              ; preds = %sqlite3_strnicmp.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sqlite3ExprListSetSortOrder(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 {
+define internal fastcc void @sqlite3ExprListSetSortOrder(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #21 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %19, label %5
 
@@ -196745,7 +196743,7 @@ sqlite3ReleaseTempRange.exit:                     ; preds = %sqlite3IndexedExprL
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc signext i16 @sqlite3TableColumnToStorage(ptr nocapture noundef readonly %0, i16 noundef signext %1) unnamed_addr #8 {
+define internal fastcc signext i16 @sqlite3TableColumnToStorage(ptr nocapture noundef readonly %0, i16 noundef signext %1) unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
@@ -197500,7 +197498,7 @@ sqlite3VdbeAddOp2.exit:                           ; preds = %20, %22, %76, %code
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @sqlite3ExprTruthValue(ptr noundef readonly %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @sqlite3ExprTruthValue(ptr noundef readonly %0) unnamed_addr #14 {
   %.not8.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not8.i)
   %2 = getelementptr inbounds i8, ptr %0, i64 4
@@ -198701,7 +198699,7 @@ define internal fastcc void @sqlite3ExprFunctionUsable(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @sqlite3GetTempRange(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #20 {
+define internal fastcc i32 @sqlite3GetTempRange(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #21 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %4, label %18
 
@@ -201995,7 +201993,7 @@ sqlite3ExprDelete.exit:                           ; preds = %sqlite3ReleaseTempR
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @exprToRegister(ptr noundef %0, i32 noundef %1) unnamed_addr #15 {
+define internal fastcc void @exprToRegister(ptr noundef %0, i32 noundef %1) unnamed_addr #16 {
   %.not8.i = icmp eq ptr %0, null
   br i1 %.not8.i, label %sqlite3ExprSkipCollateAndLikely.exit.thread, label %.lr.ph.i
 
@@ -202614,7 +202612,7 @@ sqlite3ReleaseTempReg.exit115:                    ; preds = %209, %205, %sqlite3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @setDoNotMergeFlagOnCopy(ptr nocapture noundef readonly %0) unnamed_addr #17 {
+define internal fastcc void @setDoNotMergeFlagOnCopy(ptr nocapture noundef readonly %0) unnamed_addr #18 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 103
   %4 = load i8, ptr %3, align 1
@@ -203274,7 +203272,7 @@ sqlite3_stricmp.exit.thread135:                   ; preds = %189, %159, %180, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc signext i8 @sqlite3ExprAffinity(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc signext i8 @sqlite3ExprAffinity(ptr nocapture noundef readonly %0) unnamed_addr #14 {
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %1
@@ -204205,7 +204203,7 @@ sqlite3VdbeChangeP4.exit:                         ; preds = %57, %sqlite3DbStrND
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @exprNodeIsConstant(ptr nocapture noundef %0, ptr nocapture noundef %1) #37 {
+define internal range(i32 0, 3) i32 @exprNodeIsConstant(ptr nocapture noundef %0, ptr nocapture noundef %1) #38 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 2
@@ -204383,7 +204381,7 @@ sqlite3ExprIdToTrueFalse.exit.thread:             ; preds = %51, %23, %11, %11, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @sqlite3SelectWalkFail(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #21 {
+define internal noundef i32 @sqlite3SelectWalkFail(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #22 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i16 0, ptr %3, align 4
   ret i32 2
@@ -205004,7 +205002,7 @@ define internal void @sqlite3WalkWinDefnDummyCallback(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @sqlite3SelectPopWith(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal void @sqlite3SelectPopWith(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 408
   %5 = load ptr, ptr %4, align 8
@@ -207065,7 +207063,7 @@ sqlite3ExprVectorSize.exit:                       ; preds = %457, %458
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @sqlite3ExprCanBeNull(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @sqlite3ExprCanBeNull(ptr nocapture noundef readonly %0) unnamed_addr #14 {
   br label %2
 
 2:                                                ; preds = %.critedge, %1
@@ -210429,7 +210427,7 @@ sqlite3ExprDelete.exit:                           ; preds = %26, %sqlite3ExprCod
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sqlite3ExprSimplifiedAndOr(ptr noundef readonly %0) unnamed_addr #43 {
+define internal fastcc ptr @sqlite3ExprSimplifiedAndOr(ptr noundef readonly %0) unnamed_addr #44 {
   %2 = load i8, ptr %0, align 8
   %.off = add i8 %2, -43
   %switch = icmp ult i8 %.off, 2
@@ -213014,7 +213012,7 @@ sqlite3ExprDelete.exit:                           ; preds = %29, %35
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @estimateIndexWidth(ptr nocapture noundef %0) unnamed_addr #37 {
+define internal fastcc void @estimateIndexWidth(ptr nocapture noundef %0) unnamed_addr #38 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -214108,7 +214106,7 @@ sqlite3VdbeUsesBtree.exit:                        ; preds = %59, %64, %69
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @isDupColumn(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @isDupColumn(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #14 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %3 to i64
@@ -214179,7 +214177,7 @@ sqlite3StrICmp.exit.thread:                       ; preds = %sqlite3StrICmp.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @recomputeColumnsNotIndexed(ptr nocapture noundef %0) unnamed_addr #37 {
+define internal fastcc void @recomputeColumnsNotIndexed(ptr nocapture noundef %0) unnamed_addr #38 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i16, ptr %2, align 8
   %.not = icmp eq i16 %3, 0
@@ -220288,7 +220286,7 @@ sqlite3ExprAddCollateToken.exit:                  ; preds = %7, %3, %sqlite3Toke
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @incrAggDepth(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #20 {
+define internal noundef i32 @incrAggDepth(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #21 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, -88
   br i1 %4, label %5, label %12
@@ -220371,7 +220369,7 @@ define internal fastcc i32 @sqlite3AuthReadCol(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @exprRefToSrcList(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #37 {
+define internal noundef i32 @exprRefToSrcList(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #38 {
   %3 = load i8, ptr %1, align 8
   switch i8 %3, label %.critedge.thread [
     i8 -89, label %4
@@ -220506,7 +220504,7 @@ define internal range(i32 0, 3) i32 @selectRefEnter(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @selectRefLeave(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define internal void @selectRefLeave(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -224318,7 +224316,7 @@ resolveFromTermToCte.exit.thread:                 ; preds = %165, %148, %.thread
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3SrcListAssignCursors(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #41 {
+define internal fastcc void @sqlite3SrcListAssignCursors(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #43 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -225741,7 +225739,7 @@ sqlite3ColumnSetColl.exit:                        ; preds = %145, %sqlite3Strlen
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 8) i32 @sqlite3ExprDataType(ptr noundef readonly %0) unnamed_addr #43 {
+define internal fastcc range(i32 0, 8) i32 @sqlite3ExprDataType(ptr noundef readonly %0) unnamed_addr #44 {
   %.not3952 = icmp eq ptr %0, null
   br i1 %.not3952, label %.loopexit25, label %.lr.ph
 
@@ -226014,7 +226012,7 @@ sqlite3ColumnType.exit:                           ; preds = %6, %70, %67, %62, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @tableAndColumnIndex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef writeonly %4, ptr nocapture noundef writeonly %5, i32 noundef %6) unnamed_addr #15 {
+define internal fastcc range(i32 0, 2) i32 @tableAndColumnIndex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef writeonly %4, ptr nocapture noundef writeonly %5, i32 noundef %6) unnamed_addr #16 {
   %.not28 = icmp sgt i32 %1, %2
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
@@ -226408,7 +226406,7 @@ sqlite3ColumnIndex.exit.thread:                   ; preds = %sqlite3StrICmp.exit
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3SetJoinExpr(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #41 {
+define internal fastcc void @sqlite3SetJoinExpr(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #43 {
   %.not20 = icmp eq ptr %0, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph22
 
@@ -226524,7 +226522,7 @@ define internal void @selectAddSubqueryTypeInfo(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @sqlite3ExprIsInteger(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #41 {
+define internal fastcc range(i32 0, 2) i32 @sqlite3ExprIsInteger(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #43 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %.lr.ph
@@ -226656,7 +226654,7 @@ define internal fastcc void @sqlite3ResolveOrderGroupBy(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @resolveRemoveWindowsCb(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #17 {
+define internal noundef i32 @resolveRemoveWindowsCb(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #18 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16777216
@@ -226810,7 +226808,7 @@ sqlite3ResolveExprNames.exit.thread:              ; preds = %sqlite3ExprCheckHei
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @identPut(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #42 {
+define internal fastcc void @identPut(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #37 {
   %4 = load i32, ptr %1, align 4
   %5 = load i8, ptr %2, align 1
   %.not52.not = icmp eq i8 %5, 0
@@ -227028,7 +227026,7 @@ sqlite3KeywordCode.exit.thread:                   ; preds = %.critedge.us.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @renameUnmapExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #15 {
+define internal noundef i32 @renameUnmapExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 416
   %.08.i = load ptr, ptr %4, align 8
@@ -231505,7 +231503,7 @@ exprListDeleteNN.exit:                            ; preds = %12
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @sameSrcAlias(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #43 {
+define internal fastcc range(i32 0, 2) i32 @sameSrcAlias(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #44 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %sqlite3_stricmp.exit.thread
@@ -231851,7 +231849,7 @@ generateColumnTypes.exit:                         ; preds = %sqlite3VdbeSetColNa
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @unsetJoinExpr(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #41 {
+define internal fastcc void @unsetJoinExpr(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #43 {
   %.not31 = icmp eq ptr %0, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph33
 
@@ -259558,7 +259556,7 @@ sqlite3VdbeGetOp.exit24:                          ; preds = %40, %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @isSimpleCount(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #18 {
+define internal fastcc ptr @isSimpleCount(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -261738,7 +261736,7 @@ sqlite3ExprDelete.exit:                           ; preds = %72, %sqlite3ExprDup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @sqlite3WindowExtraAggFuncDepth(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #20 {
+define internal noundef i32 @sqlite3WindowExtraAggFuncDepth(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #21 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, -88
   br i1 %4, label %5, label %13
@@ -261762,7 +261760,7 @@ define internal noundef i32 @sqlite3WindowExtraAggFuncDepth(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @sqlite3WalkerDepthIncrease(ptr nocapture noundef %0, ptr nocapture readnone %1) #20 {
+define internal noundef i32 @sqlite3WalkerDepthIncrease(ptr nocapture noundef %0, ptr nocapture readnone %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -261771,7 +261769,7 @@ define internal noundef i32 @sqlite3WalkerDepthIncrease(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @sqlite3WalkerDepthDecrease(ptr nocapture noundef %0, ptr nocapture readnone %1) #20 {
+define internal void @sqlite3WalkerDepthDecrease(ptr nocapture noundef %0, ptr nocapture readnone %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -262093,7 +262091,7 @@ define internal range(i32 0, 2) i32 @selectWindowRewriteSelectCb(ptr noundef %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compoundHasDifferentAffinities(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @compoundHasDifferentAffinities(ptr nocapture noundef readonly %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -262477,7 +262475,7 @@ define internal fastcc void @recomputeColumnsUsed(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @srclistRenumberCursors(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #41 {
+define internal fastcc void @srclistRenumberCursors(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #43 {
   %invariant.gep = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %2, align 8
   %6 = icmp sgt i32 %5, 0
@@ -262556,7 +262554,7 @@ define internal fastcc void @srclistRenumberCursors(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @renumberCursorsCb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #19 {
+define internal noundef i32 @renumberCursorsCb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #20 {
   %3 = load i8, ptr %1, align 8
   switch i8 %3, label %renumberCursorDoMapping.exit [
     i8 -77, label %4
@@ -262995,7 +262993,7 @@ sqlite3VectorErrorMsg.exit:                       ; preds = %188, %.preheader, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @recomputeColumnsUsedExpr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define internal noundef i32 @recomputeColumnsUsedExpr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #18 {
   %3 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %3, -89
   br i1 %.not, label %4, label %41
@@ -264921,7 +264919,7 @@ sqlite3DbReallocOrFree.exit:                      ; preds = %39
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @binCollFunc(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #44 {
+define internal i32 @binCollFunc(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #45 {
   %6 = tail call i32 @llvm.smin.i32(i32 %1, i32 %3)
   %7 = sext i32 %6 to i64
   %8 = tail call i32 @memcmp(ptr noundef %2, ptr noundef %4, i64 noundef %7) #58
@@ -264932,7 +264930,7 @@ define internal i32 @binCollFunc(ptr nocapture readnone %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @heightOfSelect(ptr noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #37 {
+define internal fastcc void @heightOfSelect(ptr noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #38 {
   %.not38 = icmp eq ptr %0, null
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -266666,7 +266664,7 @@ sqlite3LogEstAdd.exit352:                         ; preds = %265, %271, %273, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @whereReverseScanOrder(ptr nocapture noundef %0) unnamed_addr #37 {
+define internal fastcc void @whereReverseScanOrder(ptr nocapture noundef %0) unnamed_addr #38 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -266728,7 +266726,7 @@ define internal fastcc void @whereReverseScanOrder(ptr nocapture noundef %0) unn
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @whereOmitNoopJoin(ptr nocapture noundef %0) unnamed_addr #41 {
+define internal fastcc i64 @whereOmitNoopJoin(ptr nocapture noundef %0) unnamed_addr #43 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -267115,7 +267113,7 @@ sqlite3WhereExprListUsage.exit92:                 ; preds = %sqlite3WhereExprUsa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @whereCheckIfBloomFilterIsUseful(ptr nocapture noundef readonly %0) unnamed_addr #15 {
+define internal fastcc void @whereCheckIfBloomFilterIsUseful(ptr nocapture noundef readonly %0) unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 856
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
@@ -274188,7 +274186,7 @@ sqlite3ExprDelete.exit:                           ; preds = %sqlite3ExprDup.exit
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @exprSelectUsage(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #41 {
+define internal fastcc i64 @exprSelectUsage(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #43 {
   %.not169 = icmp eq ptr %1, null
   br i1 %.not169, label %._crit_edge, label %.lr.ph172
 
@@ -276712,7 +276710,7 @@ sqlite3PExpr.exit:                                ; preds = %.thread, %36, %6, %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @sqlite3WhereExprUsageFull(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #41 {
+define internal fastcc i64 @sqlite3WhereExprUsageFull(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #43 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, -77
   br i1 %4, label %5, label %sqlite3WhereGetMask.exit
@@ -277409,7 +277407,7 @@ sqlite3PExpr.exit:                                ; preds = %38, %15, %36, %60, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @exprNodeIsDeterministic(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #20 {
+define internal range(i32 0, 3) i32 @exprNodeIsDeterministic(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #21 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, -84
   br i1 %4, label %5, label %12
@@ -277939,7 +277937,7 @@ sqlite3StrICmp.exit:                              ; preds = %144, %.lr.ph120, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @sqlite3IndexAffinityOk(ptr nocapture noundef readonly %0, i8 noundef signext %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @sqlite3IndexAffinityOk(ptr nocapture noundef readonly %0, i8 noundef signext %1) unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc signext i8 @sqlite3ExprAffinity(ptr noundef %4)
@@ -284170,7 +284168,7 @@ exprIsCoveredByIndex.exit.thread:                 ; preds = %20, %49, %29, %25, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @exprIdxCover(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #37 {
+define internal range(i32 0, 3) i32 @exprIdxCover(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #38 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, -89
   br i1 %4, label %5, label %28
@@ -287852,7 +287850,7 @@ sqlite3ExprCode.exit:                             ; preds = %71, %78, %56, %13, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @disableTerm(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #15 {
+define internal fastcc void @disableTerm(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 4
@@ -289524,7 +289522,7 @@ sqlite3ExprNeedsNoAffinityChange.exit.thread:     ; preds = %sqlite3ExprNeedsNoA
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @updateRangeAffinityStr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #37 {
+define internal fastcc void @updateRangeAffinityStr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #38 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -301242,7 +301240,7 @@ sqlite3ArrayAllocate.exit:                        ; preds = %10, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @aggregateIdxEprRefToColCallback(ptr nocapture readnone %0, ptr nocapture noundef %1) #19 {
+define internal range(i32 0, 2) i32 @aggregateIdxEprRefToColCallback(ptr nocapture readnone %0, ptr nocapture noundef %1) #20 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -301702,7 +301700,7 @@ triggersReallyExist.exit:                         ; preds = %.loopexit.i, %183
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @sqlite3FkRequired(i64 %.0.val.48.val, ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc range(i32 0, 3) i32 @sqlite3FkRequired(i64 %.0.val.48.val, ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #14 {
   %.0.val.48.val.fr = freeze i64 %.0.val.48.val
   %4 = and i64 %.0.val.48.val.fr, 16384
   %.not = icmp eq i64 %4, 0
@@ -304530,7 +304528,7 @@ sqlite3VdbeSetColName.exit:                       ; preds = %sqlite3VdbeAddOp2.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @fkParentIsModified(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @fkParentIsModified(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #14 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -322848,7 +322846,7 @@ sqlite3VdbeChangeP5.exit65:                       ; preds = %415, %sqlite3VdbeAp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @checkConstraintExprNode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #19 {
+define internal noundef i32 @checkConstraintExprNode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #20 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, -89
   br i1 %4, label %5, label %19
@@ -322881,7 +322879,7 @@ define internal noundef i32 @checkConstraintExprNode(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @exprColumnFlagUnion(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #19 {
+define internal noundef i32 @exprColumnFlagUnion(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #20 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, -89
   br i1 %4, label %5, label %20
@@ -326129,7 +326127,7 @@ sqlite3BtreeLeave.exit:                           ; preds = %unlockBtreeMutex.ex
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 -1, 2) i32 @getLockingMode(ptr noundef readonly %0) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %sqlite3StrICmp.exit.thread, label %.preheader
@@ -326193,7 +326191,7 @@ sqlite3StrICmp.exit.thread:                       ; preds = %5, %22, %20, %1
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 256) i32 @getAutoVacuum(ptr nocapture noundef readonly %0) unnamed_addr #37 {
   %2 = alloca i32, align 4
   br label %3
@@ -326578,7 +326576,7 @@ sqlite3BtreeTxnState.exit:                        ; preds = %7
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define internal fastcc zeroext i8 @getSafetyLevel(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #28 {
   %4 = alloca i32, align 4
   %5 = load i8, ptr %0, align 1
@@ -345284,7 +345282,7 @@ sqlite3_result_double.exit:                       ; preds = %56, %23, %120, %sql
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) #45
+declare double @exp(double noundef) #46
 
 ; Function Attrs: nounwind uwtable
 define internal void @math1Func(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
@@ -345430,7 +345428,7 @@ sqlite3_result_double.exit:                       ; preds = %74, %sqlite3VdbeMem
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) #45
+declare double @pow(double noundef, double noundef) #46
 
 ; Function Attrs: nounwind uwtable
 define internal void @math2Func(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
@@ -345628,49 +345626,49 @@ sqlite3_result_double.exit:                       ; preds = %103, %sqlite3VdbeMe
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @fmod(double noundef, double noundef) #45
+declare double @fmod(double noundef, double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @acos(double noundef) #45
+declare double @acos(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @asin(double noundef) #45
+declare double @asin(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan(double noundef) #45
+declare double @atan(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan2(double noundef, double noundef) #45
+declare double @atan2(double noundef, double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) #45
+declare double @cos(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) #45
+declare double @sin(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tan(double noundef) #45
+declare double @tan(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cosh(double noundef) #45
+declare double @cosh(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sinh(double noundef) #45
+declare double @sinh(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tanh(double noundef) #45
+declare double @tanh(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @acosh(double noundef) #45
+declare double @acosh(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @asinh(double noundef) #45
+declare double @asinh(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atanh(double noundef) #45
+declare double @atanh(double noundef) #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) #45
+declare double @sqrt(double noundef) #46
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef double @degToRad(double noundef %0) #2 {
@@ -346430,13 +346428,13 @@ declare double @llvm.ceil.f64(double) #31
 declare double @llvm.floor.f64(double) #31
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #45
+declare double @log(double noundef) local_unnamed_addr #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log10(double noundef) local_unnamed_addr #45
+declare double @log10(double noundef) local_unnamed_addr #46
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log2(double noundef) local_unnamed_addr #45
+declare double @log2(double noundef) local_unnamed_addr #46
 
 ; Function Attrs: nounwind uwtable
 define internal void @renameColumnFunc(ptr nocapture noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
@@ -350739,7 +350737,7 @@ sqlite3FindDbName.exit:                           ; preds = %sqlite3_stricmp.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @renameColumnExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #15 {
+define internal noundef i32 @renameColumnExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %1, align 8
@@ -351470,7 +351468,7 @@ sqlite3ResolveExprNames.exit128:                  ; preds = %255, %sqlite3ExprCh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @renameColumnElistNames(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #15 {
+define internal fastcc void @renameColumnElistNames(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #16 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -351582,7 +351580,7 @@ renameTokenFind.exit:                             ; preds = %25, %.lr.ph, %.lr.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @renameColumnIdlistNames(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #15 {
+define internal fastcc void @renameColumnIdlistNames(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #16 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -352545,7 +352543,7 @@ renameTokenFree.exit:                             ; preds = %sqlite3DbFree.exit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @renameTableExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #15 {
+define internal noundef i32 @renameTableExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %1, align 8
@@ -352722,7 +352720,7 @@ renameTokenFind.exit:                             ; preds = %.lr.ph, %.lr.ph.i._
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @renameQuotefixExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #15 {
+define internal noundef i32 @renameQuotefixExprCb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #16 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, 117
   br i1 %4, label %5, label %renameTokenFind.exit
@@ -360502,7 +360500,7 @@ setDateTimeToCurrent.exit:                        ; preds = %sqlite3_value_bytes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @computeJD(ptr nocapture noundef %0) unnamed_addr #20 {
+define internal fastcc void @computeJD(ptr nocapture noundef %0) unnamed_addr #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %.not = icmp eq i8 %3, 0
@@ -360691,7 +360689,7 @@ sqlite3_free.exit:                                ; preds = %sqlite3_mutex_leave
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parseHhMmSs(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #46 {
+define internal fastcc range(i32 0, 2) i32 @parseHhMmSs(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #47 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -360870,7 +360868,7 @@ parseTimezone.exit:                               ; preds = %61, %83
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal i32 @getDigits(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #46 {
+define internal i32 @getDigits(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #47 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -360977,7 +360975,7 @@ define internal i32 @getDigits(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @computeFloor(ptr nocapture noundef %0) unnamed_addr #20 {
+define internal fastcc void @computeFloor(ptr nocapture noundef %0) unnamed_addr #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 29
@@ -361215,7 +361213,7 @@ osLocaltime.exit.thread:                          ; preds = %73, %osLocaltime.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @computeYMD_HMS(ptr nocapture noundef %0) unnamed_addr #20 {
+define internal fastcc void @computeYMD_HMS(ptr nocapture noundef %0) unnamed_addr #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 41
   %3 = load i8, ptr %2, align 1
   %.not.i = icmp eq i8 %3, 0
@@ -365016,7 +365014,7 @@ define internal fastcc i32 @jsonLookupStep(ptr noundef %0, i32 noundef %1, ptr n
   switch i8 %10, label %.loopexit [
     i8 0, label %11
     i8 46, label %133
-    i8 91, label %273
+    i8 91, label %271
   ]
 
 11:                                               ; preds = %4
@@ -365315,384 +365313,382 @@ jsonBlobEdit.exit:                                ; preds = %jsonBlobExpand.exit
   %167 = icmp ult i32 %164, %166
   br i1 %167, label %.lr.ph308, label %._crit_edge309
 
-.lr.ph308:                                        ; preds = %162, %215
-  %168 = phi ptr [ %189, %215 ], [ %134, %162 ]
-  %.0218306 = phi i32 [ %218, %215 ], [ %164, %162 ]
-  %169 = zext i32 %.0218306 to i64
-  %170 = getelementptr inbounds i8, ptr %168, i64 %169
-  %171 = load i8, ptr %170, align 1
-  %172 = and i8 %171, 15
-  %173 = add nsw i8 %172, -11
-  %or.cond = icmp ult i8 %173, -4
-  br i1 %or.cond, label %.loopexit, label %174
+.lr.ph308:                                        ; preds = %162, %213
+  %.0218306 = phi i32 [ %216, %213 ], [ %164, %162 ]
+  %168 = zext i32 %.0218306 to i64
+  %169 = getelementptr inbounds i8, ptr %134, i64 %168
+  %170 = load i8, ptr %169, align 1
+  %171 = and i8 %170, 15
+  %172 = add nsw i8 %171, -11
+  %or.cond = icmp ult i8 %172, -4
+  br i1 %or.cond, label %.loopexit, label %173
 
-174:                                              ; preds = %.lr.ph308
-  %175 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.0218306, ptr noundef nonnull %6)
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %.loopexit, label %177
+173:                                              ; preds = %.lr.ph308
+  %174 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.0218306, ptr noundef nonnull %6)
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %.loopexit, label %176
 
-177:                                              ; preds = %174
-  %178 = add i32 %175, %.0218306
-  %179 = load i32, ptr %6, align 4
-  %180 = add i32 %179, %178
-  %.not255 = icmp ult i32 %180, %166
-  br i1 %.not255, label %181, label %.loopexit
+176:                                              ; preds = %173
+  %177 = add i32 %174, %.0218306
+  %178 = load i32, ptr %6, align 4
+  %179 = add i32 %178, %177
+  %.not255 = icmp ult i32 %179, %166
+  br i1 %.not255, label %180, label %.loopexit
 
-181:                                              ; preds = %177
-  %182 = zext i32 %178 to i64
-  %183 = getelementptr inbounds i8, ptr %168, i64 %182
-  %184 = icmp eq i8 %172, 7
-  %185 = icmp eq i8 %172, 10
-  %186 = or i1 %184, %185
-  %187 = zext i1 %186 to i32
-  %188 = tail call fastcc i32 @jsonLabelCompare(ptr noundef nonnull %.0212, i32 noundef %.0213, i32 noundef %.0211, ptr noundef %183, i32 noundef %179, i32 noundef %187)
-  %.not256 = icmp eq i32 %188, 0
-  %189 = load ptr, ptr %0, align 8
-  %190 = zext i32 %180 to i64
-  %191 = getelementptr inbounds i8, ptr %189, i64 %190
-  %192 = load i8, ptr %191, align 1
-  %193 = and i8 %192, 15
-  %194 = icmp ugt i8 %193, 12
-  br i1 %.not256, label %211, label %195
+180:                                              ; preds = %176
+  %181 = zext i32 %177 to i64
+  %182 = getelementptr inbounds i8, ptr %134, i64 %181
+  %183 = icmp eq i8 %171, 7
+  %184 = icmp eq i8 %171, 10
+  %185 = or i1 %183, %184
+  %186 = zext i1 %185 to i32
+  %187 = tail call fastcc i32 @jsonLabelCompare(ptr noundef nonnull %.0212, i32 noundef %.0213, i32 noundef %.0211, ptr noundef %182, i32 noundef %178, i32 noundef %186)
+  %.not256 = icmp eq i32 %187, 0
+  %188 = zext i32 %179 to i64
+  %189 = getelementptr inbounds i8, ptr %134, i64 %188
+  %190 = load i8, ptr %189, align 1
+  %191 = and i8 %190, 15
+  %192 = icmp ugt i8 %191, 12
+  br i1 %.not256, label %209, label %193
 
-195:                                              ; preds = %181
-  br i1 %194, label %.loopexit, label %196
+193:                                              ; preds = %180
+  br i1 %192, label %.loopexit, label %194
 
-196:                                              ; preds = %195
-  %197 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %180, ptr noundef nonnull %6)
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %.loopexit, label %199
+194:                                              ; preds = %193
+  %195 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %179, ptr noundef nonnull %6)
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %.loopexit, label %197
 
-199:                                              ; preds = %196
-  %200 = add i32 %197, %180
-  %201 = load i32, ptr %6, align 4
-  %202 = add i32 %200, %201
-  %203 = icmp ugt i32 %202, %166
-  br i1 %203, label %.loopexit, label %204
+197:                                              ; preds = %194
+  %198 = add i32 %195, %179
+  %199 = load i32, ptr %6, align 4
+  %200 = add i32 %198, %199
+  %201 = icmp ugt i32 %200, %166
+  br i1 %201, label %.loopexit, label %202
 
-204:                                              ; preds = %199
-  %205 = zext i32 %.2 to i64
-  %206 = getelementptr inbounds i8, ptr %138, i64 %205
-  %207 = tail call fastcc i32 @jsonLookupStep(ptr noundef nonnull %0, i32 noundef %180, ptr noundef nonnull %206, i32 noundef %.0218306)
-  %208 = getelementptr inbounds i8, ptr %0, i64 52
-  %209 = load i32, ptr %208, align 4
-  %.not257 = icmp eq i32 %209, 0
-  br i1 %.not257, label %.loopexit, label %210
+202:                                              ; preds = %197
+  %203 = zext i32 %.2 to i64
+  %204 = getelementptr inbounds i8, ptr %138, i64 %203
+  %205 = tail call fastcc i32 @jsonLookupStep(ptr noundef nonnull %0, i32 noundef %179, ptr noundef nonnull %204, i32 noundef %.0218306)
+  %206 = getelementptr inbounds i8, ptr %0, i64 52
+  %207 = load i32, ptr %206, align 4
+  %.not257 = icmp eq i32 %207, 0
+  br i1 %.not257, label %.loopexit, label %208
 
-210:                                              ; preds = %204
+208:                                              ; preds = %202
   tail call fastcc void @jsonAfterEditSizeAdjust(ptr noundef nonnull %0, i32 noundef %1)
   br label %.loopexit
 
-211:                                              ; preds = %181
-  br i1 %194, label %.loopexit, label %212
+209:                                              ; preds = %180
+  br i1 %192, label %.loopexit, label %210
 
-212:                                              ; preds = %211
-  %213 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %180, ptr noundef nonnull %6)
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %.loopexit, label %215
+210:                                              ; preds = %209
+  %211 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %179, ptr noundef nonnull %6)
+  %212 = icmp eq i32 %211, 0
+  br i1 %212, label %.loopexit, label %213
 
-215:                                              ; preds = %212
-  %216 = load i32, ptr %6, align 4
-  %217 = add i32 %213, %180
-  %218 = add i32 %217, %216
-  %219 = icmp ult i32 %218, %166
-  br i1 %219, label %.lr.ph308, label %._crit_edge309, !llvm.loop !1390
+213:                                              ; preds = %210
+  %214 = load i32, ptr %6, align 4
+  %215 = add i32 %211, %179
+  %216 = add i32 %215, %214
+  %217 = icmp ult i32 %216, %166
+  br i1 %217, label %.lr.ph308, label %._crit_edge309, !llvm.loop !1390
 
-._crit_edge309:                                   ; preds = %215, %162
-  %.0218.lcssa = phi i32 [ %164, %162 ], [ %218, %215 ]
-  %220 = icmp ugt i32 %.0218.lcssa, %166
-  br i1 %220, label %.loopexit, label %221
+._crit_edge309:                                   ; preds = %213, %162
+  %.0218.lcssa = phi i32 [ %164, %162 ], [ %216, %213 ]
+  %218 = icmp ugt i32 %.0218.lcssa, %166
+  br i1 %218, label %.loopexit, label %219
 
-221:                                              ; preds = %._crit_edge309
-  %222 = getelementptr inbounds i8, ptr %0, i64 51
-  %223 = load i8, ptr %222, align 1
-  %224 = icmp ugt i8 %223, 2
-  br i1 %224, label %225, label %.loopexit
+219:                                              ; preds = %._crit_edge309
+  %220 = getelementptr inbounds i8, ptr %0, i64 51
+  %221 = load i8, ptr %220, align 1
+  %222 = icmp ugt i8 %221, 2
+  br i1 %222, label %223, label %.loopexit
 
-225:                                              ; preds = %221
+223:                                              ; preds = %219
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
-  %226 = getelementptr inbounds i8, ptr %0, i64 24
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %227, ptr %228, align 8
+  %224 = getelementptr inbounds i8, ptr %0, i64 24
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %225, ptr %226, align 8
   %.not251 = icmp eq i32 %.0211, 0
-  %229 = select i1 %.not251, i8 9, i8 10
-  call fastcc void @jsonBlobAppendNode(ptr noundef nonnull %8, i8 noundef zeroext %229, i32 noundef %.0213, ptr noundef null)
-  %230 = getelementptr inbounds i8, ptr %8, i64 47
+  %227 = select i1 %.not251, i8 9, i8 10
+  call fastcc void @jsonBlobAppendNode(ptr noundef nonnull %8, i8 noundef zeroext %227, i32 noundef %.0213, ptr noundef null)
+  %228 = getelementptr inbounds i8, ptr %8, i64 47
+  %229 = load i8, ptr %228, align 1
+  %230 = getelementptr inbounds i8, ptr %0, i64 47
   %231 = load i8, ptr %230, align 1
-  %232 = getelementptr inbounds i8, ptr %0, i64 47
-  %233 = load i8, ptr %232, align 1
-  %234 = or i8 %233, %231
-  store i8 %234, ptr %232, align 1
-  %235 = zext i32 %.2 to i64
-  %236 = getelementptr inbounds i8, ptr %138, i64 %235
-  %237 = call fastcc i32 @jsonCreateEditSubstructure(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %236)
-  %238 = icmp ugt i32 %237, -4
-  br i1 %238, label %272, label %239
+  %232 = or i8 %231, %229
+  store i8 %232, ptr %230, align 1
+  %233 = zext i32 %.2 to i64
+  %234 = getelementptr inbounds i8, ptr %138, i64 %233
+  %235 = call fastcc i32 @jsonCreateEditSubstructure(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %234)
+  %236 = icmp ugt i32 %235, -4
+  br i1 %236, label %270, label %237
 
-239:                                              ; preds = %225
-  %240 = getelementptr inbounds i8, ptr %8, i64 8
-  %241 = load i32, ptr %240, align 8
-  %242 = add i32 %241, %.0213
-  %243 = getelementptr inbounds i8, ptr %7, i64 8
-  %244 = load i32, ptr %243, align 8
-  %245 = add i32 %242, %244
-  %246 = call fastcc i32 @jsonBlobMakeEditable(ptr noundef nonnull %0, i32 noundef %245)
-  %.not252 = icmp eq i32 %246, 0
-  br i1 %.not252, label %272, label %247
+237:                                              ; preds = %223
+  %238 = getelementptr inbounds i8, ptr %8, i64 8
+  %239 = load i32, ptr %238, align 8
+  %240 = add i32 %239, %.0213
+  %241 = getelementptr inbounds i8, ptr %7, i64 8
+  %242 = load i32, ptr %241, align 8
+  %243 = add i32 %240, %242
+  %244 = call fastcc i32 @jsonBlobMakeEditable(ptr noundef nonnull %0, i32 noundef %243)
+  %.not252 = icmp eq i32 %244, 0
+  br i1 %.not252, label %270, label %245
 
-247:                                              ; preds = %239
-  %248 = load i32, ptr %243, align 8
-  %249 = add i32 %248, %242
-  call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.0218.lcssa, i32 noundef 0, ptr noundef null, i32 noundef %249)
-  %250 = load i8, ptr %232, align 1
-  %.not253 = icmp eq i8 %250, 0
-  br i1 %.not253, label %251, label %272
+245:                                              ; preds = %237
+  %246 = load i32, ptr %241, align 8
+  %247 = add i32 %246, %240
+  call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.0218.lcssa, i32 noundef 0, ptr noundef null, i32 noundef %247)
+  %248 = load i8, ptr %230, align 1
+  %.not253 = icmp eq i8 %248, 0
+  br i1 %.not253, label %249, label %270
 
-251:                                              ; preds = %247
-  %252 = load ptr, ptr %0, align 8
-  %253 = zext i32 %.0218.lcssa to i64
-  %254 = getelementptr inbounds i8, ptr %252, i64 %253
-  %255 = load ptr, ptr %8, align 8
-  %256 = zext i32 %241 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %254, ptr align 1 %255, i64 %256, i1 false)
-  %257 = add i32 %241, %.0218.lcssa
-  %258 = load ptr, ptr %0, align 8
-  %259 = zext i32 %257 to i64
-  %260 = getelementptr inbounds i8, ptr %258, i64 %259
-  %261 = zext i32 %.0213 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %260, ptr nonnull align 1 %.0212, i64 %261, i1 false)
-  %262 = add i32 %257, %.0213
-  %263 = load ptr, ptr %0, align 8
-  %264 = zext i32 %262 to i64
-  %265 = getelementptr inbounds i8, ptr %263, i64 %264
-  %266 = load ptr, ptr %7, align 8
-  %267 = load i32, ptr %243, align 8
-  %268 = zext i32 %267 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %265, ptr align 1 %266, i64 %268, i1 false)
-  %269 = getelementptr inbounds i8, ptr %0, i64 52
-  %270 = load i32, ptr %269, align 4
-  %.not254 = icmp eq i32 %270, 0
-  br i1 %.not254, label %272, label %271
+249:                                              ; preds = %245
+  %250 = load ptr, ptr %0, align 8
+  %251 = zext i32 %.0218.lcssa to i64
+  %252 = getelementptr inbounds i8, ptr %250, i64 %251
+  %253 = load ptr, ptr %8, align 8
+  %254 = zext i32 %239 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %252, ptr align 1 %253, i64 %254, i1 false)
+  %255 = add i32 %239, %.0218.lcssa
+  %256 = load ptr, ptr %0, align 8
+  %257 = zext i32 %255 to i64
+  %258 = getelementptr inbounds i8, ptr %256, i64 %257
+  %259 = zext i32 %.0213 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr nonnull align 1 %.0212, i64 %259, i1 false)
+  %260 = add i32 %255, %.0213
+  %261 = load ptr, ptr %0, align 8
+  %262 = zext i32 %260 to i64
+  %263 = getelementptr inbounds i8, ptr %261, i64 %262
+  %264 = load ptr, ptr %7, align 8
+  %265 = load i32, ptr %241, align 8
+  %266 = zext i32 %265 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %263, ptr align 1 %264, i64 %266, i1 false)
+  %267 = getelementptr inbounds i8, ptr %0, i64 52
+  %268 = load i32, ptr %267, align 4
+  %.not254 = icmp eq i32 %268, 0
+  br i1 %.not254, label %270, label %269
 
-271:                                              ; preds = %251
+269:                                              ; preds = %249
   call fastcc void @jsonAfterEditSizeAdjust(ptr noundef nonnull %0, i32 noundef %1)
-  br label %272
+  br label %270
 
-272:                                              ; preds = %247, %271, %251, %239, %225
+270:                                              ; preds = %245, %269, %249, %237, %223
   call fastcc void @jsonParseReset(ptr noundef nonnull %7)
   call fastcc void @jsonParseReset(ptr noundef nonnull %8)
   br label %.loopexit
 
-273:                                              ; preds = %4
-  %274 = load ptr, ptr %0, align 8
-  %275 = zext i32 %1 to i64
-  %276 = getelementptr inbounds i8, ptr %274, i64 %275
-  %277 = load i8, ptr %276, align 1
-  %278 = and i8 %277, 15
-  %.not = icmp eq i8 %278, 11
-  br i1 %.not, label %279, label %.loopexit
+271:                                              ; preds = %4
+  %272 = load ptr, ptr %0, align 8
+  %273 = zext i32 %1 to i64
+  %274 = getelementptr inbounds i8, ptr %272, i64 %273
+  %275 = load i8, ptr %274, align 1
+  %276 = and i8 %275, 15
+  %.not = icmp eq i8 %276, 11
+  br i1 %.not, label %277, label %.loopexit
 
-279:                                              ; preds = %273
-  %280 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %6)
-  %281 = getelementptr inbounds i8, ptr %2, i64 1
-  %282 = load i8, ptr %281, align 1
-  %283 = zext i8 %282 to i64
-  %284 = add nsw i64 %283, -58
-  %.not235294 = icmp ult i64 %284, -10
+277:                                              ; preds = %271
+  %278 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %6)
+  %279 = getelementptr inbounds i8, ptr %2, i64 1
+  %280 = load i8, ptr %279, align 1
+  %281 = zext i8 %280 to i64
+  %282 = add nsw i64 %281, -58
+  %.not235294 = icmp ult i64 %282, -10
   br i1 %.not235294, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %279, %.lr.ph
-  %285 = phi i8 [ %293, %.lr.ph ], [ %282, %279 ]
-  %.3296 = phi i32 [ %290, %.lr.ph ], [ 1, %279 ]
-  %.0214295 = phi i32 [ %289, %.lr.ph ], [ 0, %279 ]
-  %286 = mul i32 %.0214295, 10
-  %287 = sext i8 %285 to i32
-  %288 = add i32 %286, -48
-  %289 = add i32 %288, %287
-  %290 = add i32 %.3296, 1
-  %291 = zext i32 %290 to i64
-  %292 = getelementptr inbounds i8, ptr %2, i64 %291
-  %293 = load i8, ptr %292, align 1
-  %294 = zext i8 %293 to i64
-  %295 = add nsw i64 %294, -58
-  %.not235 = icmp ult i64 %295, -10
+.lr.ph:                                           ; preds = %277, %.lr.ph
+  %283 = phi i8 [ %291, %.lr.ph ], [ %280, %277 ]
+  %.3296 = phi i32 [ %288, %.lr.ph ], [ 1, %277 ]
+  %.0214295 = phi i32 [ %287, %.lr.ph ], [ 0, %277 ]
+  %284 = mul i32 %.0214295, 10
+  %285 = sext i8 %283 to i32
+  %286 = add i32 %284, -48
+  %287 = add i32 %286, %285
+  %288 = add i32 %.3296, 1
+  %289 = zext i32 %288 to i64
+  %290 = getelementptr inbounds i8, ptr %2, i64 %289
+  %291 = load i8, ptr %290, align 1
+  %292 = zext i8 %291 to i64
+  %293 = add nsw i64 %292, -58
+  %.not235 = icmp ult i64 %293, -10
   br i1 %.not235, label %._crit_edge, label %.lr.ph, !llvm.loop !1391
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %296 = icmp ugt i32 %290, 1
-  %.not236 = icmp eq i8 %293, 93
-  %or.cond261 = and i1 %296, %.not236
-  br i1 %or.cond261, label %339, label %._crit_edge.thread
+  %294 = icmp ugt i32 %288, 1
+  %.not236 = icmp eq i8 %291, 93
+  %or.cond261 = and i1 %294, %.not236
+  br i1 %or.cond261, label %337, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %279, %._crit_edge
-  %297 = icmp eq i8 %282, 35
-  br i1 %297, label %298, label %.loopexit
+._crit_edge.thread:                               ; preds = %277, %._crit_edge
+  %295 = icmp eq i8 %280, 35
+  br i1 %295, label %296, label %.loopexit
 
-298:                                              ; preds = %._crit_edge.thread
+296:                                              ; preds = %._crit_edge.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %299 = call fastcc i32 @jsonbPayloadSize(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %5)
-  %300 = add i32 %299, %1
-  %301 = load i32, ptr %5, align 4
-  %302 = add i32 %300, %301
-  %303 = icmp ne i32 %299, 0
-  %304 = icmp ult i32 %300, %302
-  %305 = select i1 %303, i1 %304, i1 false
-  br i1 %305, label %.lr.ph.i, label %jsonbArrayCount.exit
+  %297 = call fastcc i32 @jsonbPayloadSize(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %5)
+  %298 = add i32 %297, %1
+  %299 = load i32, ptr %5, align 4
+  %300 = add i32 %298, %299
+  %301 = icmp ne i32 %297, 0
+  %302 = icmp ult i32 %298, %300
+  %303 = select i1 %301, i1 %302, i1 false
+  br i1 %303, label %.lr.ph.i, label %jsonbArrayCount.exit
 
-.lr.ph.i:                                         ; preds = %298, %.lr.ph.i
-  %.017.i = phi i32 [ %310, %.lr.ph.i ], [ 0, %298 ]
-  %.01516.i = phi i32 [ %309, %.lr.ph.i ], [ %300, %298 ]
-  %306 = call fastcc i32 @jsonbPayloadSize(ptr noundef readonly %0, i32 noundef %.01516.i, ptr noundef nonnull %5)
-  %307 = load i32, ptr %5, align 4
-  %308 = add i32 %306, %.01516.i
-  %309 = add i32 %308, %307
-  %310 = add i32 %.017.i, 1
-  %311 = icmp ne i32 %306, 0
-  %312 = icmp ult i32 %309, %302
-  %313 = select i1 %311, i1 %312, i1 false
-  br i1 %313, label %.lr.ph.i, label %jsonbArrayCount.exit, !llvm.loop !1379
+.lr.ph.i:                                         ; preds = %296, %.lr.ph.i
+  %.017.i = phi i32 [ %308, %.lr.ph.i ], [ 0, %296 ]
+  %.01516.i = phi i32 [ %307, %.lr.ph.i ], [ %298, %296 ]
+  %304 = call fastcc i32 @jsonbPayloadSize(ptr noundef readonly %0, i32 noundef %.01516.i, ptr noundef nonnull %5)
+  %305 = load i32, ptr %5, align 4
+  %306 = add i32 %304, %.01516.i
+  %307 = add i32 %306, %305
+  %308 = add i32 %.017.i, 1
+  %309 = icmp ne i32 %304, 0
+  %310 = icmp ult i32 %307, %300
+  %311 = select i1 %309, i1 %310, i1 false
+  br i1 %311, label %.lr.ph.i, label %jsonbArrayCount.exit, !llvm.loop !1379
 
-jsonbArrayCount.exit:                             ; preds = %.lr.ph.i, %298
-  %.0.lcssa.i = phi i32 [ 0, %298 ], [ %310, %.lr.ph.i ]
+jsonbArrayCount.exit:                             ; preds = %.lr.ph.i, %296
+  %.0.lcssa.i = phi i32 [ 0, %296 ], [ %308, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %314 = getelementptr inbounds i8, ptr %2, i64 2
-  %315 = load i8, ptr %314, align 1
-  %316 = icmp eq i8 %315, 45
-  br i1 %316, label %317, label %337
+  %312 = getelementptr inbounds i8, ptr %2, i64 2
+  %313 = load i8, ptr %312, align 1
+  %314 = icmp eq i8 %313, 45
+  br i1 %314, label %315, label %335
 
-317:                                              ; preds = %jsonbArrayCount.exit
-  %318 = getelementptr inbounds i8, ptr %2, i64 3
-  %319 = load i8, ptr %318, align 1
-  %320 = zext i8 %319 to i64
-  %321 = add nsw i64 %320, -58
-  %.not237 = icmp ult i64 %321, -10
+315:                                              ; preds = %jsonbArrayCount.exit
+  %316 = getelementptr inbounds i8, ptr %2, i64 3
+  %317 = load i8, ptr %316, align 1
+  %318 = zext i8 %317 to i64
+  %319 = add nsw i64 %318, -58
+  %.not237 = icmp ult i64 %319, -10
   br i1 %.not237, label %.loopexit, label %.preheader282
 
-.preheader282:                                    ; preds = %317, %.preheader282
-  %322 = phi i8 [ %330, %.preheader282 ], [ %319, %317 ]
-  %.4 = phi i32 [ %327, %.preheader282 ], [ 3, %317 ]
-  %.0 = phi i32 [ %326, %.preheader282 ], [ 0, %317 ]
-  %323 = mul i32 %.0, 10
-  %324 = sext i8 %322 to i32
-  %325 = add i32 %323, -48
-  %326 = add i32 %325, %324
-  %327 = add i32 %.4, 1
-  %328 = zext i32 %327 to i64
-  %329 = getelementptr inbounds i8, ptr %2, i64 %328
-  %330 = load i8, ptr %329, align 1
-  %331 = zext i8 %330 to i64
-  %332 = add nsw i64 %331, -58
-  %.not238 = icmp ult i64 %332, -10
-  br i1 %.not238, label %333, label %.preheader282, !llvm.loop !1392
+.preheader282:                                    ; preds = %315, %.preheader282
+  %320 = phi i8 [ %328, %.preheader282 ], [ %317, %315 ]
+  %.4 = phi i32 [ %325, %.preheader282 ], [ 3, %315 ]
+  %.0 = phi i32 [ %324, %.preheader282 ], [ 0, %315 ]
+  %321 = mul i32 %.0, 10
+  %322 = sext i8 %320 to i32
+  %323 = add i32 %321, -48
+  %324 = add i32 %323, %322
+  %325 = add i32 %.4, 1
+  %326 = zext i32 %325 to i64
+  %327 = getelementptr inbounds i8, ptr %2, i64 %326
+  %328 = load i8, ptr %327, align 1
+  %329 = zext i8 %328 to i64
+  %330 = add nsw i64 %329, -58
+  %.not238 = icmp ult i64 %330, -10
+  br i1 %.not238, label %331, label %.preheader282, !llvm.loop !1392
 
-333:                                              ; preds = %.preheader282
-  %334 = icmp ugt i32 %326, %.0.lcssa.i
-  br i1 %334, label %.loopexit, label %335
+331:                                              ; preds = %.preheader282
+  %332 = icmp ugt i32 %324, %.0.lcssa.i
+  br i1 %332, label %.loopexit, label %333
 
-335:                                              ; preds = %333
-  %336 = sub i32 %.0.lcssa.i, %326
-  br label %337
+333:                                              ; preds = %331
+  %334 = sub i32 %.0.lcssa.i, %324
+  br label %335
 
-337:                                              ; preds = %335, %jsonbArrayCount.exit
-  %338 = phi i8 [ %330, %335 ], [ %315, %jsonbArrayCount.exit ]
-  %.1215 = phi i32 [ %336, %335 ], [ %.0.lcssa.i, %jsonbArrayCount.exit ]
-  %.5 = phi i32 [ %327, %335 ], [ 2, %jsonbArrayCount.exit ]
-  %.not239 = icmp eq i8 %338, 93
-  br i1 %.not239, label %339, label %.loopexit
+335:                                              ; preds = %333, %jsonbArrayCount.exit
+  %336 = phi i8 [ %328, %333 ], [ %313, %jsonbArrayCount.exit ]
+  %.1215 = phi i32 [ %334, %333 ], [ %.0.lcssa.i, %jsonbArrayCount.exit ]
+  %.5 = phi i32 [ %325, %333 ], [ 2, %jsonbArrayCount.exit ]
+  %.not239 = icmp eq i8 %336, 93
+  br i1 %.not239, label %337, label %.loopexit
 
-339:                                              ; preds = %._crit_edge, %337
-  %.2216 = phi i32 [ %.1215, %337 ], [ %289, %._crit_edge ]
-  %.6 = phi i32 [ %.5, %337 ], [ %290, %._crit_edge ]
-  %340 = add i32 %280, %1
-  %341 = load i32, ptr %6, align 4
-  %342 = add i32 %341, %340
-  %343 = icmp ult i32 %340, %342
-  br i1 %343, label %.lr.ph302, label %._crit_edge303
+337:                                              ; preds = %._crit_edge, %335
+  %.2216 = phi i32 [ %.1215, %335 ], [ %287, %._crit_edge ]
+  %.6 = phi i32 [ %.5, %335 ], [ %288, %._crit_edge ]
+  %338 = add i32 %278, %1
+  %339 = load i32, ptr %6, align 4
+  %340 = add i32 %339, %338
+  %341 = icmp ult i32 %338, %340
+  br i1 %341, label %.lr.ph302, label %._crit_edge303
 
-.lr.ph302:                                        ; preds = %339, %356
-  %.3217300 = phi i32 [ %357, %356 ], [ %.2216, %339 ]
-  %.1219299 = phi i32 [ %360, %356 ], [ %340, %339 ]
-  %344 = icmp eq i32 %.3217300, 0
-  br i1 %344, label %345, label %353
+.lr.ph302:                                        ; preds = %337, %354
+  %.3217300 = phi i32 [ %355, %354 ], [ %.2216, %337 ]
+  %.1219299 = phi i32 [ %358, %354 ], [ %338, %337 ]
+  %342 = icmp eq i32 %.3217300, 0
+  br i1 %342, label %343, label %351
 
-345:                                              ; preds = %.lr.ph302
-  %346 = add i32 %.6, 1
-  %347 = zext i32 %346 to i64
-  %348 = getelementptr inbounds i8, ptr %2, i64 %347
-  %349 = tail call fastcc i32 @jsonLookupStep(ptr noundef nonnull %0, i32 noundef %.1219299, ptr noundef nonnull %348, i32 noundef 0)
-  %350 = getelementptr inbounds i8, ptr %0, i64 52
-  %351 = load i32, ptr %350, align 4
-  %.not243 = icmp eq i32 %351, 0
-  br i1 %.not243, label %.loopexit, label %352
+343:                                              ; preds = %.lr.ph302
+  %344 = add i32 %.6, 1
+  %345 = zext i32 %344 to i64
+  %346 = getelementptr inbounds i8, ptr %2, i64 %345
+  %347 = tail call fastcc i32 @jsonLookupStep(ptr noundef nonnull %0, i32 noundef %.1219299, ptr noundef nonnull %346, i32 noundef 0)
+  %348 = getelementptr inbounds i8, ptr %0, i64 52
+  %349 = load i32, ptr %348, align 4
+  %.not243 = icmp eq i32 %349, 0
+  br i1 %.not243, label %.loopexit, label %350
 
-352:                                              ; preds = %345
+350:                                              ; preds = %343
   tail call fastcc void @jsonAfterEditSizeAdjust(ptr noundef nonnull %0, i32 noundef %1)
   br label %.loopexit
 
-353:                                              ; preds = %.lr.ph302
-  %354 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.1219299, ptr noundef nonnull %6)
-  %355 = icmp eq i32 %354, 0
-  br i1 %355, label %.loopexit, label %356
+351:                                              ; preds = %.lr.ph302
+  %352 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.1219299, ptr noundef nonnull %6)
+  %353 = icmp eq i32 %352, 0
+  br i1 %353, label %.loopexit, label %354
 
-356:                                              ; preds = %353
-  %357 = add i32 %.3217300, -1
-  %358 = load i32, ptr %6, align 4
-  %359 = add i32 %354, %.1219299
-  %360 = add i32 %359, %358
-  %361 = icmp ult i32 %360, %342
-  br i1 %361, label %.lr.ph302, label %._crit_edge303, !llvm.loop !1393
+354:                                              ; preds = %351
+  %355 = add i32 %.3217300, -1
+  %356 = load i32, ptr %6, align 4
+  %357 = add i32 %352, %.1219299
+  %358 = add i32 %357, %356
+  %359 = icmp ult i32 %358, %340
+  br i1 %359, label %.lr.ph302, label %._crit_edge303, !llvm.loop !1393
 
-._crit_edge303:                                   ; preds = %356, %339
-  %.1219.lcssa = phi i32 [ %340, %339 ], [ %360, %356 ]
-  %.3217.lcssa = phi i32 [ %.2216, %339 ], [ %357, %356 ]
-  %362 = icmp ugt i32 %.1219.lcssa, %342
-  br i1 %362, label %.loopexit, label %363
+._crit_edge303:                                   ; preds = %354, %337
+  %.1219.lcssa = phi i32 [ %338, %337 ], [ %358, %354 ]
+  %.3217.lcssa = phi i32 [ %.2216, %337 ], [ %355, %354 ]
+  %360 = icmp ugt i32 %.1219.lcssa, %340
+  br i1 %360, label %.loopexit, label %361
 
-363:                                              ; preds = %._crit_edge303
+361:                                              ; preds = %._crit_edge303
   %.not240 = icmp eq i32 %.3217.lcssa, 0
-  br i1 %.not240, label %364, label %.loopexit
+  br i1 %.not240, label %362, label %.loopexit
 
-364:                                              ; preds = %363
-  %365 = getelementptr inbounds i8, ptr %0, i64 51
-  %366 = load i8, ptr %365, align 1
-  %367 = icmp ugt i8 %366, 2
-  br i1 %367, label %368, label %.loopexit
+362:                                              ; preds = %361
+  %363 = getelementptr inbounds i8, ptr %0, i64 51
+  %364 = load i8, ptr %363, align 1
+  %365 = icmp ugt i8 %364, 2
+  br i1 %365, label %366, label %.loopexit
 
-368:                                              ; preds = %364
-  %369 = add i32 %.6, 1
-  %370 = zext i32 %369 to i64
-  %371 = getelementptr inbounds i8, ptr %2, i64 %370
-  %372 = call fastcc i32 @jsonCreateEditSubstructure(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %371)
-  %373 = icmp ugt i32 %372, -4
-  br i1 %373, label %381, label %374
+366:                                              ; preds = %362
+  %367 = add i32 %.6, 1
+  %368 = zext i32 %367 to i64
+  %369 = getelementptr inbounds i8, ptr %2, i64 %368
+  %370 = call fastcc i32 @jsonCreateEditSubstructure(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %369)
+  %371 = icmp ugt i32 %370, -4
+  br i1 %371, label %379, label %372
 
-374:                                              ; preds = %368
-  %375 = getelementptr inbounds i8, ptr %9, i64 8
-  %376 = load i32, ptr %375, align 8
-  %377 = call fastcc i32 @jsonBlobMakeEditable(ptr noundef nonnull %0, i32 noundef %376)
-  %.not241 = icmp eq i32 %377, 0
-  br i1 %.not241, label %381, label %378
+372:                                              ; preds = %366
+  %373 = getelementptr inbounds i8, ptr %9, i64 8
+  %374 = load i32, ptr %373, align 8
+  %375 = call fastcc i32 @jsonBlobMakeEditable(ptr noundef nonnull %0, i32 noundef %374)
+  %.not241 = icmp eq i32 %375, 0
+  br i1 %.not241, label %379, label %376
 
-378:                                              ; preds = %374
-  %379 = load ptr, ptr %9, align 8
-  %380 = load i32, ptr %375, align 8
-  call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.1219.lcssa, i32 noundef 0, ptr noundef %379, i32 noundef %380)
-  br label %381
+376:                                              ; preds = %372
+  %377 = load ptr, ptr %9, align 8
+  %378 = load i32, ptr %373, align 8
+  call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.1219.lcssa, i32 noundef 0, ptr noundef %377, i32 noundef %378)
+  br label %379
 
-381:                                              ; preds = %378, %374, %368
+379:                                              ; preds = %376, %372, %366
   call fastcc void @jsonParseReset(ptr noundef nonnull %9)
-  %382 = getelementptr inbounds i8, ptr %0, i64 52
-  %383 = load i32, ptr %382, align 4
-  %.not242 = icmp eq i32 %383, 0
-  br i1 %.not242, label %.loopexit, label %384
+  %380 = getelementptr inbounds i8, ptr %0, i64 52
+  %381 = load i32, ptr %380, align 4
+  %.not242 = icmp eq i32 %381, 0
+  br i1 %.not242, label %.loopexit, label %382
 
-384:                                              ; preds = %381
+382:                                              ; preds = %379
   call fastcc void @jsonAfterEditSizeAdjust(ptr noundef nonnull %0, i32 noundef %1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %353, %143, %212, %211, %177, %174, %.lr.ph308, %317, %221, %364, %4, %381, %384, %363, %._crit_edge303, %345, %352, %._crit_edge.thread, %337, %333, %273, %._crit_edge309, %204, %210, %196, %199, %195, %160, %.critedge2, %272, %jsonBlobEdit.exit
-  %.0207 = phi i32 [ %.1, %jsonBlobEdit.exit ], [ %237, %272 ], [ -3, %.critedge2 ], [ -2, %160 ], [ -1, %195 ], [ -1, %199 ], [ -1, %196 ], [ %207, %210 ], [ %207, %204 ], [ -1, %._crit_edge309 ], [ -2, %273 ], [ -2, %333 ], [ -3, %337 ], [ -3, %._crit_edge.thread ], [ %349, %352 ], [ %349, %345 ], [ -1, %._crit_edge303 ], [ -2, %363 ], [ %372, %384 ], [ %372, %381 ], [ -3, %4 ], [ -2, %364 ], [ -2, %221 ], [ -3, %317 ], [ -1, %.lr.ph308 ], [ -1, %174 ], [ -1, %177 ], [ -1, %211 ], [ -1, %212 ], [ -3, %143 ], [ -1, %353 ]
+.loopexit:                                        ; preds = %351, %143, %210, %209, %176, %173, %.lr.ph308, %315, %219, %362, %4, %379, %382, %361, %._crit_edge303, %343, %350, %._crit_edge.thread, %335, %331, %271, %._crit_edge309, %202, %208, %194, %197, %193, %160, %.critedge2, %270, %jsonBlobEdit.exit
+  %.0207 = phi i32 [ %.1, %jsonBlobEdit.exit ], [ %235, %270 ], [ -3, %.critedge2 ], [ -2, %160 ], [ -1, %193 ], [ -1, %197 ], [ -1, %194 ], [ %205, %208 ], [ %205, %202 ], [ -1, %._crit_edge309 ], [ -2, %271 ], [ -2, %331 ], [ -3, %335 ], [ -3, %._crit_edge.thread ], [ %347, %350 ], [ %347, %343 ], [ -1, %._crit_edge303 ], [ -2, %361 ], [ %370, %382 ], [ %370, %379 ], [ -3, %4 ], [ -2, %362 ], [ -2, %219 ], [ -3, %315 ], [ -1, %.lr.ph308 ], [ -1, %173 ], [ -1, %176 ], [ -1, %209 ], [ -1, %210 ], [ -3, %143 ], [ -1, %351 ]
   ret i32 %.0207
 }
 
@@ -366459,7 +366455,7 @@ sqlite3DbMallocZero.exit.thread:                  ; preds = %70, %sqlite3_set_au
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 10) i32 @jsonbPayloadSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 {
+define internal fastcc range(i32 0, 10) i32 @jsonbPayloadSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #20 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, %1
@@ -368287,7 +368283,7 @@ sqlite3_strnicmp.exit589.thread602:               ; preds = %744, %sqlite3_strni
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @json5Whitespace(ptr nocapture noundef readonly %0) unnamed_addr #22 {
+define internal fastcc i32 @json5Whitespace(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   %invariant.gep = getelementptr i8, ptr %0, i64 2
   br label %2
 
@@ -368738,7 +368734,7 @@ jsonBlobExpandAndAppendNode.exit:                 ; preds = %jsonBlobExpand.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @jsonIs4HexB(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #20 {
+define internal fastcc range(i32 0, 2) i32 @jsonIs4HexB(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #21 {
   %3 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %3, 117
   br i1 %.not, label %4, label %jsonIs4Hex.exit.thread
@@ -369194,8 +369190,8 @@ jsonBlobExpand.exit._crit_edge:                   ; preds = %jsonBlobExpand.exit
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @jsonLabelCompare(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #27 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
+define internal fastcc range(i32 0, 2) i32 @jsonLabelCompare(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #28 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = icmp ne i32 %2, 0
@@ -369497,7 +369493,7 @@ define internal fastcc i32 @jsonCreateEditSubstructure(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @sqlite3Utf8ReadLimited(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #42 {
+define internal fastcc i32 @sqlite3Utf8ReadLimited(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #37 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = icmp ugt i8 %4, -65
@@ -369547,7 +369543,7 @@ define internal fastcc i32 @sqlite3Utf8ReadLimited(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @jsonUnescapeOneChar(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #42 {
+define internal fastcc i32 @jsonUnescapeOneChar(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #37 {
   %4 = icmp ult i32 %1, 2
   br i1 %4, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -372874,7 +372870,7 @@ sqlite3_value_bytes.exit.thread:                  ; preds = %51, %32, %30, %48, 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @jsonbValidityCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #27 {
+define internal fastcc i32 @jsonbValidityCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #42 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = icmp ugt i32 %3, 1000
@@ -375490,8 +375486,8 @@ jsonBlobEdit.exit223:                             ; preds = %75, %102, %jsonBlob
   %137 = getelementptr inbounds i8, ptr %0, i64 47
   br label %138
 
-138:                                              ; preds = %.lr.ph260, %265
-  %.0181254 = phi i32 [ %126, %.lr.ph260 ], [ %158, %265 ]
+138:                                              ; preds = %.lr.ph260, %261
+  %.0181254 = phi i32 [ %126, %.lr.ph260 ], [ %158, %261 ]
   %139 = load ptr, ptr %2, align 8
   %140 = zext i32 %.0181254 to i64
   %141 = getelementptr inbounds i8, ptr %139, i64 %140
@@ -375532,195 +375528,187 @@ jsonBlobEdit.exit223:                             ; preds = %75, %102, %jsonBlob
   br i1 %163, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %160
-  %164 = zext i32 %149 to i64
-  %165 = icmp eq i8 %143, 7
-  %166 = icmp eq i8 %143, 10
-  %167 = or i1 %165, %166
-  %168 = zext i1 %167 to i32
-  br label %171
+  %164 = load ptr, ptr %0, align 8
+  %165 = zext i32 %149 to i64
+  %166 = getelementptr inbounds i8, ptr %139, i64 %165
+  %167 = icmp eq i8 %143, 7
+  %168 = icmp eq i8 %143, 10
+  %169 = or i1 %167, %168
+  %170 = zext i1 %169 to i32
+  br label %173
 
-169:                                              ; preds = %193
-  %170 = icmp ult i32 %191, %162
-  br i1 %170, label %171, label %._crit_edge.loopexit, !llvm.loop !1421
+171:                                              ; preds = %194
+  %172 = icmp ult i32 %192, %162
+  br i1 %172, label %173, label %._crit_edge, !llvm.loop !1421
 
-171:                                              ; preds = %.lr.ph, %169
-  %.0170250 = phi i32 [ %132, %.lr.ph ], [ %191, %169 ]
-  %172 = load ptr, ptr %0, align 8
-  %173 = zext i32 %.0170250 to i64
-  %174 = getelementptr inbounds i8, ptr %172, i64 %173
-  %175 = load i8, ptr %174, align 1
-  %176 = and i8 %175, 15
-  %177 = add nsw i8 %176, -11
-  %or.cond5 = icmp ult i8 %177, -4
-  br i1 %or.cond5, label %.loopexit, label %178
+173:                                              ; preds = %.lr.ph, %171
+  %.0170250 = phi i32 [ %132, %.lr.ph ], [ %192, %171 ]
+  %174 = zext i32 %.0170250 to i64
+  %175 = getelementptr inbounds i8, ptr %164, i64 %174
+  %176 = load i8, ptr %175, align 1
+  %177 = and i8 %176, 15
+  %178 = add nsw i8 %177, -11
+  %or.cond5 = icmp ult i8 %178, -4
+  br i1 %or.cond5, label %.loopexit, label %179
 
-178:                                              ; preds = %171
-  %179 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.0170250, ptr noundef nonnull %6)
-  %180 = icmp eq i32 %179, 0
-  br i1 %180, label %.loopexit, label %181
+179:                                              ; preds = %173
+  %180 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.0170250, ptr noundef nonnull %6)
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %.loopexit, label %182
 
-181:                                              ; preds = %178
-  %182 = add i32 %179, %.0170250
-  %183 = load i32, ptr %6, align 4
-  %184 = add i32 %183, %182
-  %.not202 = icmp ult i32 %184, %162
-  br i1 %.not202, label %185, label %.loopexit
+182:                                              ; preds = %179
+  %183 = add i32 %180, %.0170250
+  %184 = load i32, ptr %6, align 4
+  %185 = add i32 %184, %183
+  %.not202 = icmp ult i32 %185, %162
+  br i1 %.not202, label %186, label %.loopexit
 
-185:                                              ; preds = %181
-  %186 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %184, ptr noundef nonnull %7)
-  %187 = icmp eq i32 %186, 0
-  br i1 %187, label %.loopexit, label %188
+186:                                              ; preds = %182
+  %187 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %185, ptr noundef nonnull %7)
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %.loopexit, label %189
 
-188:                                              ; preds = %185
-  %189 = add i32 %186, %184
-  %190 = load i32, ptr %7, align 4
-  %191 = add i32 %189, %190
-  %192 = icmp ugt i32 %191, %162
-  br i1 %192, label %.loopexit, label %193
+189:                                              ; preds = %186
+  %190 = add i32 %187, %185
+  %191 = load i32, ptr %7, align 4
+  %192 = add i32 %190, %191
+  %193 = icmp ugt i32 %192, %162
+  br i1 %193, label %.loopexit, label %194
 
-193:                                              ; preds = %188
-  %194 = load ptr, ptr %2, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 %164
-  %196 = zext i32 %182 to i64
-  %197 = getelementptr inbounds i8, ptr %172, i64 %196
-  %198 = icmp eq i8 %176, 7
-  %199 = icmp eq i8 %176, 10
-  %200 = or i1 %198, %199
-  %201 = zext i1 %200 to i32
-  %202 = tail call fastcc i32 @jsonLabelCompare(ptr noundef %195, i32 noundef %150, i32 noundef %168, ptr noundef %197, i32 noundef %183, i32 noundef %201)
-  %.not203 = icmp eq i32 %202, 0
-  br i1 %.not203, label %169, label %203, !llvm.loop !1421
+194:                                              ; preds = %189
+  %195 = zext i32 %183 to i64
+  %196 = getelementptr inbounds i8, ptr %164, i64 %195
+  %197 = icmp eq i8 %177, 7
+  %198 = icmp eq i8 %177, 10
+  %199 = or i1 %197, %198
+  %200 = zext i1 %199 to i32
+  %201 = tail call fastcc i32 @jsonLabelCompare(ptr noundef %166, i32 noundef %150, i32 noundef %170, ptr noundef %196, i32 noundef %184, i32 noundef %200)
+  %.not203 = icmp eq i32 %201, 0
+  br i1 %.not203, label %171, label %202, !llvm.loop !1421
 
-203:                                              ; preds = %193
-  %204 = load ptr, ptr %2, align 8
-  %205 = zext i32 %151 to i64
-  %206 = getelementptr inbounds i8, ptr %204, i64 %205
-  %207 = load i8, ptr %206, align 1
-  %208 = and i8 %207, 15
-  %209 = icmp eq i8 %208, 0
-  br i1 %209, label %210, label %215
+202:                                              ; preds = %194
+  %203 = zext i32 %151 to i64
+  %204 = getelementptr inbounds i8, ptr %139, i64 %203
+  %205 = load i8, ptr %204, align 1
+  %206 = and i8 %205, 15
+  %207 = icmp eq i8 %206, 0
+  br i1 %207, label %208, label %213
 
-210:                                              ; preds = %203
-  %211 = add nuw nsw i32 %186, %179
-  %212 = add i32 %211, %183
-  %213 = add i32 %212, %190
-  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.0170250, i32 noundef %213, ptr noundef null, i32 noundef 0)
-  %214 = load i8, ptr %137, align 1
-  %.not210 = icmp eq i8 %214, 0
-  br i1 %.not210, label %265, label %.loopexit
+208:                                              ; preds = %202
+  %209 = add nuw nsw i32 %187, %180
+  %210 = add i32 %209, %184
+  %211 = add i32 %210, %191
+  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %.0170250, i32 noundef %211, ptr noundef null, i32 noundef 0)
+  %212 = load i8, ptr %137, align 1
+  %.not210 = icmp eq i8 %212, 0
+  br i1 %.not210, label %261, label %.loopexit
 
-215:                                              ; preds = %203
+213:                                              ; preds = %202
+  store i32 0, ptr %136, align 4
+  %214 = tail call fastcc i32 @jsonMergePatch(ptr noundef nonnull %0, i32 noundef %185, ptr noundef nonnull %2, i32 noundef %151)
+  %.not209 = icmp eq i32 %214, 0
+  br i1 %.not209, label %215, label %.loopexit
+
+215:                                              ; preds = %213
   %216 = load i32, ptr %136, align 4
+  %217 = add nsw i32 %216, %161
+  store i32 %217, ptr %136, align 4
+  br label %261
+
+._crit_edge:                                      ; preds = %171, %160
+  %218 = zext i32 %151 to i64
+  %219 = getelementptr inbounds i8, ptr %139, i64 %218
+  %220 = load i8, ptr %219, align 1
+  %221 = and i8 %220, 15
+  %.not204 = icmp eq i8 %221, 0
+  br i1 %.not204, label %261, label %222
+
+222:                                              ; preds = %._crit_edge
+  %223 = add i32 %150, %146
+  %.not205 = icmp eq i8 %221, 12
+  br i1 %.not205, label %242, label %224
+
+224:                                              ; preds = %222
+  %225 = add i32 %157, %153
+  %226 = add i32 %225, %223
+  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %162, i32 noundef 0, ptr noundef null, i32 noundef %226)
+  %227 = load i8, ptr %137, align 1
+  %.not208 = icmp eq i8 %227, 0
+  br i1 %.not208, label %228, label %.loopexit
+
+228:                                              ; preds = %224
+  %229 = load ptr, ptr %0, align 8
+  %230 = zext i32 %162 to i64
+  %231 = getelementptr inbounds i8, ptr %229, i64 %230
+  %232 = load ptr, ptr %2, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 %140
+  %234 = zext i32 %223 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %231, ptr align 1 %233, i64 %234, i1 false)
+  %235 = load ptr, ptr %0, align 8
+  %236 = add i32 %162, %223
+  %237 = zext i32 %236 to i64
+  %238 = getelementptr inbounds i8, ptr %235, i64 %237
+  %239 = load ptr, ptr %2, align 8
+  %240 = getelementptr inbounds i8, ptr %239, i64 %218
+  %241 = zext i32 %225 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %238, ptr align 1 %240, i64 %241, i1 false)
+  br label %261
+
+242:                                              ; preds = %222
+  %243 = add i32 %223, 1
+  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %162, i32 noundef 0, ptr noundef null, i32 noundef %243)
+  %244 = load i8, ptr %137, align 1
+  %.not206 = icmp eq i8 %244, 0
+  br i1 %.not206, label %245, label %.loopexit
+
+245:                                              ; preds = %242
+  %246 = load ptr, ptr %0, align 8
+  %247 = zext i32 %162 to i64
+  %248 = getelementptr inbounds i8, ptr %246, i64 %247
+  %249 = load ptr, ptr %2, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 %140
+  %251 = zext i32 %223 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %248, ptr align 1 %250, i64 %251, i1 false)
+  %252 = load ptr, ptr %0, align 8
+  %253 = add i32 %162, %223
+  %254 = zext i32 %253 to i64
+  %255 = getelementptr inbounds i8, ptr %252, i64 %254
+  store i8 0, ptr %255, align 1
+  %256 = load i32, ptr %136, align 4
   store i32 0, ptr %136, align 4
-  %217 = tail call fastcc i32 @jsonMergePatch(ptr noundef nonnull %0, i32 noundef %184, ptr noundef nonnull %2, i32 noundef %151)
-  %.not209 = icmp eq i32 %217, 0
-  br i1 %.not209, label %218, label %.loopexit
+  %257 = tail call fastcc i32 @jsonMergePatch(ptr noundef nonnull %0, i32 noundef %253, ptr noundef nonnull %2, i32 noundef %151)
+  %.not207 = icmp eq i32 %257, 0
+  br i1 %.not207, label %258, label %.loopexit
 
-218:                                              ; preds = %215
-  %219 = load i32, ptr %136, align 4
-  %220 = add nsw i32 %219, %216
-  store i32 %220, ptr %136, align 4
-  br label %265
+258:                                              ; preds = %245
+  %259 = load i32, ptr %136, align 4
+  %260 = add nsw i32 %259, %256
+  store i32 %260, ptr %136, align 4
+  br label %261
 
-._crit_edge.loopexit:                             ; preds = %169
-  %.pre = load ptr, ptr %2, align 8
-  br label %._crit_edge
+261:                                              ; preds = %._crit_edge, %258, %228, %215, %208
+  %262 = icmp ult i32 %158, %128
+  br i1 %262, label %138, label %._crit_edge261, !llvm.loop !1422
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %160
-  %221 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %139, %160 ]
-  %222 = zext i32 %151 to i64
-  %223 = getelementptr inbounds i8, ptr %221, i64 %222
-  %224 = load i8, ptr %223, align 1
-  %225 = and i8 %224, 15
-  %.not204 = icmp eq i8 %225, 0
-  br i1 %.not204, label %265, label %226
+._crit_edge261:                                   ; preds = %261, %131
+  %263 = getelementptr inbounds i8, ptr %0, i64 52
+  %264 = load i32, ptr %263, align 4
+  %.not199 = icmp eq i32 %264, 0
+  br i1 %.not199, label %.loopexit.sink.split, label %265
 
-226:                                              ; preds = %._crit_edge
-  %227 = add i32 %150, %146
-  %.not205 = icmp eq i8 %225, 12
-  br i1 %.not205, label %246, label %228
-
-228:                                              ; preds = %226
-  %229 = add i32 %157, %153
-  %230 = add i32 %229, %227
-  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %162, i32 noundef 0, ptr noundef null, i32 noundef %230)
-  %231 = load i8, ptr %137, align 1
-  %.not208 = icmp eq i8 %231, 0
-  br i1 %.not208, label %232, label %.loopexit
-
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %0, align 8
-  %234 = zext i32 %162 to i64
-  %235 = getelementptr inbounds i8, ptr %233, i64 %234
-  %236 = load ptr, ptr %2, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 %140
-  %238 = zext i32 %227 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %235, ptr align 1 %237, i64 %238, i1 false)
-  %239 = load ptr, ptr %0, align 8
-  %240 = add i32 %162, %227
-  %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds i8, ptr %239, i64 %241
-  %243 = load ptr, ptr %2, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 %222
-  %245 = zext i32 %229 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %242, ptr align 1 %244, i64 %245, i1 false)
-  br label %265
-
-246:                                              ; preds = %226
-  %247 = add i32 %227, 1
-  tail call fastcc void @jsonBlobEdit(ptr noundef nonnull %0, i32 noundef %162, i32 noundef 0, ptr noundef null, i32 noundef %247)
-  %248 = load i8, ptr %137, align 1
-  %.not206 = icmp eq i8 %248, 0
-  br i1 %.not206, label %249, label %.loopexit
-
-249:                                              ; preds = %246
-  %250 = load ptr, ptr %0, align 8
-  %251 = zext i32 %162 to i64
-  %252 = getelementptr inbounds i8, ptr %250, i64 %251
-  %253 = load ptr, ptr %2, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 %140
-  %255 = zext i32 %227 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %252, ptr align 1 %254, i64 %255, i1 false)
-  %256 = load ptr, ptr %0, align 8
-  %257 = add i32 %162, %227
-  %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds i8, ptr %256, i64 %258
-  store i8 0, ptr %259, align 1
-  %260 = load i32, ptr %136, align 4
-  store i32 0, ptr %136, align 4
-  %261 = tail call fastcc i32 @jsonMergePatch(ptr noundef nonnull %0, i32 noundef %257, ptr noundef nonnull %2, i32 noundef %151)
-  %.not207 = icmp eq i32 %261, 0
-  br i1 %.not207, label %262, label %.loopexit
-
-262:                                              ; preds = %249
-  %263 = load i32, ptr %136, align 4
-  %264 = add nsw i32 %263, %260
-  store i32 %264, ptr %136, align 4
-  br label %265
-
-265:                                              ; preds = %._crit_edge, %262, %232, %218, %210
-  %266 = icmp ult i32 %158, %128
-  br i1 %266, label %138, label %._crit_edge261, !llvm.loop !1422
-
-._crit_edge261:                                   ; preds = %265, %131
-  %267 = getelementptr inbounds i8, ptr %0, i64 52
-  %268 = load i32, ptr %267, align 4
-  %.not199 = icmp eq i32 %268, 0
-  br i1 %.not199, label %.loopexit.sink.split, label %269
-
-269:                                              ; preds = %._crit_edge261
+265:                                              ; preds = %._crit_edge261
   tail call fastcc void @jsonAfterEditSizeAdjust(ptr noundef nonnull %0, i32 noundef %1)
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %._crit_edge261, %269, %65, %64, %jsonBlobExpand.exit.i, %jsonBlobExpand.exit.thread.i
-  %270 = getelementptr inbounds i8, ptr %0, i64 47
-  %271 = load i8, ptr %270, align 1
-  %.not200 = icmp eq i8 %271, 0
-  %272 = select i1 %.not200, i32 0, i32 3
+.loopexit.sink.split:                             ; preds = %._crit_edge261, %265, %65, %64, %jsonBlobExpand.exit.i, %jsonBlobExpand.exit.thread.i
+  %266 = getelementptr inbounds i8, ptr %0, i64 47
+  %267 = load i8, ptr %266, align 1
+  %.not200 = icmp eq i8 %267, 0
+  %268 = select i1 %.not200, i32 0, i32 3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %249, %246, %228, %215, %210, %155, %152, %148, %145, %138, %188, %185, %181, %178, %171, %.loopexit.sink.split, %125, %122
-  %.0 = phi i32 [ 2, %122 ], [ 1, %125 ], [ %272, %.loopexit.sink.split ], [ 1, %171 ], [ 1, %178 ], [ 1, %181 ], [ 1, %185 ], [ 1, %188 ], [ %261, %249 ], [ 3, %246 ], [ 3, %228 ], [ %217, %215 ], [ 3, %210 ], [ 2, %155 ], [ 2, %152 ], [ 2, %148 ], [ 2, %145 ], [ 2, %138 ]
+.loopexit:                                        ; preds = %245, %242, %224, %213, %208, %155, %152, %148, %145, %138, %189, %186, %182, %179, %173, %.loopexit.sink.split, %125, %122
+  %.0 = phi i32 [ 2, %122 ], [ 1, %125 ], [ %268, %.loopexit.sink.split ], [ 1, %173 ], [ 1, %179 ], [ 1, %182 ], [ 1, %186 ], [ 1, %189 ], [ %257, %245 ], [ 3, %242 ], [ 3, %224 ], [ %214, %213 ], [ 3, %208 ], [ 2, %155 ], [ 2, %152 ], [ 2, %148 ], [ 2, %145 ], [ 2, %138 ]
   ret i32 %.0
 }
 
@@ -376160,7 +376148,7 @@ define internal noalias noundef ptr @sqlite3MemMalloc(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @sqlite3MemFree(ptr nocapture noundef %0) #47 {
+define internal void @sqlite3MemFree(ptr nocapture noundef %0) #48 {
   tail call void @free(ptr noundef %0) #57
   ret void
 }
@@ -376206,13 +376194,13 @@ define internal void @sqlite3MemShutdown(ptr nocapture readnone %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #48
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #49
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #49
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #50
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #50
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #51
 
 ; Function Attrs: nounwind
 declare i64 @malloc_usable_size(ptr noundef) local_unnamed_addr #30
@@ -376974,7 +376962,7 @@ pcache1RemoveFromHash.exit:                       ; preds = %34, %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @pcache1Rekey(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #15 {
+define internal void @pcache1Rekey(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = urem i32 %2, %6
@@ -377869,7 +377857,7 @@ sqlite3BtreeLeave.exit:                           ; preds = %unlockBtreeMutex.ex
   ret i32 %.1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @nocaseCollatingFunc(ptr nocapture readnone %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly %4) #8 {
   %6 = tail call i32 @llvm.smin.i32(i32 %1, i32 %3)
   %7 = icmp eq ptr %2, null
@@ -377950,7 +377938,7 @@ sqlite3_strnicmp.exit.thread12:                   ; preds = %sqlite3_strnicmp.ex
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal i32 @rtrimCollFunc(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #51 {
+define internal i32 @rtrimCollFunc(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #27 {
   %invariant.gep = getelementptr i8, ptr %2, i64 -1
   %.not21 = icmp eq i32 %1, 0
   br i1 %.not21, label %.critedge, label %.lr.ph.preheader
@@ -378336,7 +378324,7 @@ sqlite3DbMallocZero.exit.thread:                  ; preds = %sqlite3DbMallocRaw.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 20) i32 @jsonEachBestIndex(ptr nocapture readnone %0, ptr nocapture noundef %1) #15 {
+define internal range(i32 0, 20) i32 @jsonEachBestIndex(ptr nocapture readnone %0, ptr nocapture noundef %1) #16 {
   %3 = alloca [2 x i32], align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 -1, ptr %4, align 4
@@ -380008,7 +379996,7 @@ jsonEachPathLength.exit:                          ; preds = %jsonEachPathLength.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @jsonEachRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #20 {
+define internal noundef i32 @jsonEachRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -380476,27 +380464,27 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { nofree nounwind memory(read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -380505,21 +380493,21 @@ attributes #33 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #34 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #35 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #36 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #42 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #43 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #44 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #45 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #46 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #47 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #48 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #49 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #50 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #51 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #41 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #43 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #44 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #45 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #46 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #47 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #48 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #49 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #50 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #51 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #52 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #53 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #54 = { nofree nounwind willreturn memory(argmem: read) }

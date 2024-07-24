@@ -6230,8 +6230,8 @@ default.unreachable:                              ; preds = %.lr.ph141
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -6368,8 +6368,8 @@ default.unreachable:                              ; preds = %.lr.ph78
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 768
@@ -19776,8 +19776,8 @@ default.unreachable:                              ; preds = %.lr.ph164
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -19927,8 +19927,8 @@ default.unreachable:                              ; preds = %.lr.ph89
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 768
@@ -27261,278 +27261,279 @@ default.unreachable:                              ; preds = %.lr.ph163
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.smax.v64i8(<64 x i8>, <64 x i8>) #2
+declare <64 x i8> @llvm.smax.v64i8(<64 x i8>, <64 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.smax.v32i8(<32 x i8>, <32 x i8>) #2
+declare <32 x i8> @llvm.smax.v32i8(<32 x i8>, <32 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <16 x i8> @llvm.x86.sse3.ldu.dq(ptr) #3
+declare <16 x i8> @llvm.x86.sse3.ldu.dq(ptr) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.smax.v16i8(<16 x i8>, <16 x i8>) #2
+declare <16 x i8> @llvm.smax.v16i8(<16 x i8>, <16 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.umax.v64i8(<64 x i8>, <64 x i8>) #2
+declare <64 x i8> @llvm.umax.v64i8(<64 x i8>, <64 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.umax.v32i8(<32 x i8>, <32 x i8>) #2
+declare <32 x i8> @llvm.umax.v32i8(<32 x i8>, <32 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.umax.v16i8(<16 x i8>, <16 x i8>) #2
+declare <16 x i8> @llvm.umax.v16i8(<16 x i8>, <16 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i16> @llvm.smax.v32i16(<32 x i16>, <32 x i16>) #2
+declare <32 x i16> @llvm.smax.v32i16(<32 x i16>, <32 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i16> @llvm.smax.v16i16(<16 x i16>, <16 x i16>) #2
+declare <16 x i16> @llvm.smax.v16i16(<16 x i16>, <16 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.smax.v8i16(<8 x i16>, <8 x i16>) #2
+declare <8 x i16> @llvm.smax.v8i16(<8 x i16>, <8 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i16> @llvm.umax.v32i16(<32 x i16>, <32 x i16>) #2
+declare <32 x i16> @llvm.umax.v32i16(<32 x i16>, <32 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i16> @llvm.umax.v16i16(<16 x i16>, <16 x i16>) #2
+declare <16 x i16> @llvm.umax.v16i16(<16 x i16>, <16 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.umax.v8i16(<8 x i16>, <8 x i16>) #2
+declare <8 x i16> @llvm.umax.v8i16(<8 x i16>, <8 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i32> @llvm.smax.v16i32(<16 x i32>, <16 x i32>) #2
+declare <16 x i32> @llvm.smax.v16i32(<16 x i32>, <16 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i32> @llvm.smax.v8i32(<8 x i32>, <8 x i32>) #2
+declare <8 x i32> @llvm.smax.v8i32(<8 x i32>, <8 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.smax.v4i32(<4 x i32>, <4 x i32>) #2
+declare <4 x i32> @llvm.smax.v4i32(<4 x i32>, <4 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i32> @llvm.umax.v16i32(<16 x i32>, <16 x i32>) #2
+declare <16 x i32> @llvm.umax.v16i32(<16 x i32>, <16 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i32> @llvm.umax.v8i32(<8 x i32>, <8 x i32>) #2
+declare <8 x i32> @llvm.umax.v8i32(<8 x i32>, <8 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.umax.v4i32(<4 x i32>, <4 x i32>) #2
+declare <4 x i32> @llvm.umax.v4i32(<4 x i32>, <4 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.smax.v8i64(<8 x i64>, <8 x i64>) #2
+declare <8 x i64> @llvm.smax.v8i64(<8 x i64>, <8 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.smax.v4i64(<4 x i64>, <4 x i64>) #2
+declare <4 x i64> @llvm.smax.v4i64(<4 x i64>, <4 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.smax.v2i64(<2 x i64>, <2 x i64>) #2
+declare <2 x i64> @llvm.smax.v2i64(<2 x i64>, <2 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.umax.v8i64(<8 x i64>, <8 x i64>) #2
+declare <8 x i64> @llvm.umax.v8i64(<8 x i64>, <8 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.umax.v4i64(<4 x i64>, <4 x i64>) #2
+declare <4 x i64> @llvm.umax.v4i64(<4 x i64>, <4 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.umax.v2i64(<2 x i64>, <2 x i64>) #2
+declare <2 x i64> @llvm.umax.v2i64(<2 x i64>, <2 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float>, <16 x float>, i32 immarg) #4
+declare <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float>, <16 x float>, i32 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #4
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #4
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x double> @llvm.x86.avx512.max.pd.512(<8 x double>, <8 x double>, i32 immarg) #4
+declare <8 x double> @llvm.x86.avx512.max.pd.512(<8 x double>, <8 x double>, i32 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x double> @llvm.x86.avx.max.pd.256(<4 x double>, <4 x double>) #4
+declare <4 x double> @llvm.x86.avx.max.pd.256(<4 x double>, <4 x double>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x double> @llvm.x86.sse2.max.pd(<2 x double>, <2 x double>) #4
+declare <2 x double> @llvm.x86.sse2.max.pd(<2 x double>, <2 x double>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.smin.v64i8(<64 x i8>, <64 x i8>) #2
+declare <64 x i8> @llvm.smin.v64i8(<64 x i8>, <64 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.smin.v32i8(<32 x i8>, <32 x i8>) #2
+declare <32 x i8> @llvm.smin.v32i8(<32 x i8>, <32 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.smin.v16i8(<16 x i8>, <16 x i8>) #2
+declare <16 x i8> @llvm.smin.v16i8(<16 x i8>, <16 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.umin.v64i8(<64 x i8>, <64 x i8>) #2
+declare <64 x i8> @llvm.umin.v64i8(<64 x i8>, <64 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.umin.v32i8(<32 x i8>, <32 x i8>) #2
+declare <32 x i8> @llvm.umin.v32i8(<32 x i8>, <32 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.umin.v16i8(<16 x i8>, <16 x i8>) #2
+declare <16 x i8> @llvm.umin.v16i8(<16 x i8>, <16 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i16> @llvm.smin.v32i16(<32 x i16>, <32 x i16>) #2
+declare <32 x i16> @llvm.smin.v32i16(<32 x i16>, <32 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i16> @llvm.smin.v16i16(<16 x i16>, <16 x i16>) #2
+declare <16 x i16> @llvm.smin.v16i16(<16 x i16>, <16 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.smin.v8i16(<8 x i16>, <8 x i16>) #2
+declare <8 x i16> @llvm.smin.v8i16(<8 x i16>, <8 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i16> @llvm.umin.v32i16(<32 x i16>, <32 x i16>) #2
+declare <32 x i16> @llvm.umin.v32i16(<32 x i16>, <32 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i16> @llvm.umin.v16i16(<16 x i16>, <16 x i16>) #2
+declare <16 x i16> @llvm.umin.v16i16(<16 x i16>, <16 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.umin.v8i16(<8 x i16>, <8 x i16>) #2
+declare <8 x i16> @llvm.umin.v8i16(<8 x i16>, <8 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i32> @llvm.smin.v16i32(<16 x i32>, <16 x i32>) #2
+declare <16 x i32> @llvm.smin.v16i32(<16 x i32>, <16 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i32> @llvm.smin.v8i32(<8 x i32>, <8 x i32>) #2
+declare <8 x i32> @llvm.smin.v8i32(<8 x i32>, <8 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.smin.v4i32(<4 x i32>, <4 x i32>) #2
+declare <4 x i32> @llvm.smin.v4i32(<4 x i32>, <4 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i32> @llvm.umin.v16i32(<16 x i32>, <16 x i32>) #2
+declare <16 x i32> @llvm.umin.v16i32(<16 x i32>, <16 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i32> @llvm.umin.v8i32(<8 x i32>, <8 x i32>) #2
+declare <8 x i32> @llvm.umin.v8i32(<8 x i32>, <8 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.umin.v4i32(<4 x i32>, <4 x i32>) #2
+declare <4 x i32> @llvm.umin.v4i32(<4 x i32>, <4 x i32>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.smin.v8i64(<8 x i64>, <8 x i64>) #2
+declare <8 x i64> @llvm.smin.v8i64(<8 x i64>, <8 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.smin.v4i64(<4 x i64>, <4 x i64>) #2
+declare <4 x i64> @llvm.smin.v4i64(<4 x i64>, <4 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.smin.v2i64(<2 x i64>, <2 x i64>) #2
+declare <2 x i64> @llvm.smin.v2i64(<2 x i64>, <2 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.umin.v8i64(<8 x i64>, <8 x i64>) #2
+declare <8 x i64> @llvm.umin.v8i64(<8 x i64>, <8 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.umin.v4i64(<4 x i64>, <4 x i64>) #2
+declare <4 x i64> @llvm.umin.v4i64(<4 x i64>, <4 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.umin.v2i64(<2 x i64>, <2 x i64>) #2
+declare <2 x i64> @llvm.umin.v2i64(<2 x i64>, <2 x i64>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float>, <16 x float>, i32 immarg) #4
+declare <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float>, <16 x float>, i32 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #4
+declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #4
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x double> @llvm.x86.avx512.min.pd.512(<8 x double>, <8 x double>, i32 immarg) #4
+declare <8 x double> @llvm.x86.avx512.min.pd.512(<8 x double>, <8 x double>, i32 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x double> @llvm.x86.avx.min.pd.256(<4 x double>, <4 x double>) #4
+declare <4 x double> @llvm.x86.avx.min.pd.256(<4 x double>, <4 x double>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x double> @llvm.x86.sse2.min.pd(<2 x double>, <2 x double>) #4
+declare <2 x double> @llvm.x86.sse2.min.pd(<2 x double>, <2 x double>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.sadd.sat.v64i8(<64 x i8>, <64 x i8>) #2
+declare <64 x i8> @llvm.sadd.sat.v64i8(<64 x i8>, <64 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.sadd.sat.v32i8(<32 x i8>, <32 x i8>) #2
+declare <32 x i8> @llvm.sadd.sat.v32i8(<32 x i8>, <32 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8>, <16 x i8>) #2
+declare <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8>, <16 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.uadd.sat.v64i8(<64 x i8>, <64 x i8>) #2
+declare <64 x i8> @llvm.uadd.sat.v64i8(<64 x i8>, <64 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.uadd.sat.v32i8(<32 x i8>, <32 x i8>) #2
+declare <32 x i8> @llvm.uadd.sat.v32i8(<32 x i8>, <32 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8>, <16 x i8>) #2
+declare <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8>, <16 x i8>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i16> @llvm.sadd.sat.v32i16(<32 x i16>, <32 x i16>) #2
+declare <32 x i16> @llvm.sadd.sat.v32i16(<32 x i16>, <32 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i16> @llvm.sadd.sat.v16i16(<16 x i16>, <16 x i16>) #2
+declare <16 x i16> @llvm.sadd.sat.v16i16(<16 x i16>, <16 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16>, <8 x i16>) #2
+declare <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16>, <8 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i16> @llvm.uadd.sat.v32i16(<32 x i16>, <32 x i16>) #2
+declare <32 x i16> @llvm.uadd.sat.v32i16(<32 x i16>, <32 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i16> @llvm.uadd.sat.v16i16(<16 x i16>, <16 x i16>) #2
+declare <16 x i16> @llvm.uadd.sat.v16i16(<16 x i16>, <16 x i16>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16>, <8 x i16>) #2
+declare <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16>, <8 x i16>) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #5
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #5
+declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #5
+declare i16 @llvm.umin.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #5
+declare i16 @llvm.smin.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #5
+declare i8 @llvm.umin.i8(i8, i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #5
+declare i8 @llvm.smin.i8(i8, i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #5
+declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #5
+declare i64 @llvm.smax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #5
+declare i16 @llvm.umax.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #5
+declare i16 @llvm.smax.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #5
+declare i8 @llvm.umax.i8(i8, i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #5
+declare i8 @llvm.smax.i8(i8, i8) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

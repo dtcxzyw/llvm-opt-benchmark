@@ -449,7 +449,7 @@ return:                                           ; preds = %entry, %sw.default,
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %name, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
@@ -494,7 +494,7 @@ return:                                           ; preds = %for.body, %for.cond
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
@@ -520,7 +520,7 @@ return:                                           ; preds = %for.body, %for.cond
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
@@ -561,7 +561,7 @@ return:                                           ; preds = %for.body.i, %for.co
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %len, 0
@@ -590,7 +590,7 @@ return:                                           ; preds = %for.body, %for.cond
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
@@ -616,7 +616,7 @@ return:                                           ; preds = %for.body, %for.cond
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %value, i64 noundef %len) local_unnamed_addr #9 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %value, i64 %len
@@ -690,7 +690,7 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind willreturn memory(none) }
 attributes #12 = { noreturn nounwind }

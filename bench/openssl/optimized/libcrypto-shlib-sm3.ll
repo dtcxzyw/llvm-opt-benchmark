@@ -3,7 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-shlib-sm3.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @ossl_sm3_update(ptr noundef %c, ptr noundef %data_, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
@@ -91,8 +91,8 @@ return:                                           ; preds = %if.end38, %if.then4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_sm3_block_data_order(ptr nocapture noundef %ctx, ptr noundef readonly %p, i64 noundef %num) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @ossl_sm3_block_data_order(ptr nocapture noundef %ctx, ptr noundef readonly %p, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %tobool.not3051 = icmp eq i64 %num, 0
   br i1 %tobool.not3051, label %for.end, label %for.body.lr.ph
@@ -2511,17 +2511,17 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_sm3_transform(ptr nocapture noundef %c, ptr noundef %data) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @ossl_sm3_transform(ptr nocapture noundef %c, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   tail call void @ossl_sm3_block_data_order(ptr noundef %c, ptr noundef %data, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sm3_final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #4 {
+define noundef i32 @ossl_sm3_final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #3 {
 entry:
   %data = getelementptr inbounds i8, ptr %c, i64 40
   %num = getelementptr inbounds i8, ptr %c, i64 104
@@ -2581,7 +2581,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i8 %conv37, ptr %incdec.ptr34, align 1
   tail call void @ossl_sm3_block_data_order(ptr noundef nonnull %c, ptr noundef nonnull %data, i64 noundef 1)
   store i32 0, ptr %num, align 4
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %data, i64 noundef 64) #8
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %data, i64 noundef 64) #7
   %3 = load i32, ptr %c, align 4
   %shr43 = lshr i32 %3, 24
   %conv45 = trunc nuw i32 %shr43 to i8
@@ -2719,10 +2719,10 @@ if.end:                                           ; preds = %if.then, %entry
   ret i32 1
 }
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_sm3_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #6 {
+define noundef i32 @ossl_sm3_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %0, i8 0, i64 76, i1 false)
@@ -2733,17 +2733,16 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

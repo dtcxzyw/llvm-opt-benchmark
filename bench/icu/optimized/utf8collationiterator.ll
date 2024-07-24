@@ -1218,8 +1218,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7524FCDUTF8CollationIterator9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(496) %this) unnamed_addr #12 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef i32 @_ZNK6icu_7524FCDUTF8CollationIterator9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(496) %this) unnamed_addr #7 align 2 {
 entry:
   %state = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load i32, ptr %state, align 8

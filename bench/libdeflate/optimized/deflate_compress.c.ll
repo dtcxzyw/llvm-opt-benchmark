@@ -9866,8 +9866,8 @@ if.end67:                                         ; preds = %for.body44.i338, %i
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_find_min_cost_path(ptr noundef %c, i32 noundef %block_length, ptr nocapture noundef readonly %cache_ptr) unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @deflate_find_min_cost_path(ptr noundef %c, i32 noundef %block_length, ptr nocapture noundef readonly %cache_ptr) unnamed_addr #10 {
 entry:
   %idxprom = zext i32 %block_length to i64
   %arrayidx.idx = shl nuw nsw i64 %idxprom, 3

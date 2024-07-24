@@ -465,8 +465,8 @@ return:                                           ; preds = %return.loopexit, %f
   ret i1 %cmp.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK2pb3pbc14is_cardinalityEv(ptr noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef zeroext i1 @_ZNK2pb3pbc14is_cardinalityEv(ptr noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8

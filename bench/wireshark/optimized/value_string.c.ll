@@ -40,7 +40,7 @@ define ptr @val_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 35, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 35, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -74,8 +74,8 @@ define ptr @val_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %5
-  %17 = tail call ptr @wmem_packet_scope() #11
-  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, i32 noundef %0) #11
+  %17 = tail call ptr @wmem_packet_scope() #12
+  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, i32 noundef %0) #12
   br label %try_val_to_str.exit
 
 try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.loopexit
@@ -86,7 +86,7 @@ try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph
 ; Function Attrs: noreturn
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not15.i = icmp eq ptr %1, null
   br i1 %.not15.i, label %try_val_to_str_idx.exit, label %.preheader.i
@@ -132,7 +132,7 @@ define noalias ptr @val_to_str_wmem(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 49, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 49, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %4
@@ -167,11 +167,11 @@ define noalias ptr @val_to_str_wmem(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader
   %.lcssa = phi ptr [ %8, %.lr.ph.i.i.preheader ], [ %17, %.lr.ph.i.i ]
-  %18 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %.lcssa) #11
+  %18 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %.lcssa) #12
   br label %20
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %6
-  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %1) #11
+  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %1) #12
   br label %20
 
 20:                                               ; preds = %.loopexit, %try_val_to_str.exit
@@ -187,7 +187,7 @@ define ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly %1, ptr nounde
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 67, ptr noundef nonnull @.str.3) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 67, ptr noundef nonnull @.str.3) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -233,7 +233,7 @@ define ptr @try_val_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noun
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @.str.4) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @.str.4) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -284,7 +284,7 @@ define ptr @char_val_to_str(i8 noundef signext %0, ptr noundef readonly %1, ptr 
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 115, ptr noundef nonnull @.str.5) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 115, ptr noundef nonnull @.str.5) #11
   unreachable
 
 6:                                                ; preds = %3
@@ -319,9 +319,9 @@ define ptr @char_val_to_str(i8 noundef signext %0, ptr noundef readonly %1, ptr 
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %6
-  %19 = tail call ptr @wmem_packet_scope() #11
-  %20 = call ptr @hfinfo_char_value_format_display(i32 noundef 2, ptr noundef nonnull %4, i32 noundef %7) #11
-  %21 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %19, ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef %20) #11
+  %19 = tail call ptr @wmem_packet_scope() #12
+  %20 = call ptr @hfinfo_char_value_format_display(i32 noundef 2, ptr noundef nonnull %4, i32 noundef %7) #12
+  %21 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %19, ptr noundef nonnull @.str.6, ptr noundef nonnull %2, ptr noundef %20) #12
   br label %try_val_to_str.exit
 
 try_val_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.loopexit
@@ -337,7 +337,7 @@ define ptr @val64_to_str(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -371,8 +371,8 @@ define ptr @val64_to_str(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %5
-  %17 = tail call ptr @wmem_packet_scope() #11
-  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, i64 noundef %0) #11
+  %17 = tail call ptr @wmem_packet_scope() #12
+  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, i64 noundef %0) #12
   br label %try_val64_to_str.exit
 
 try_val64_to_str.exit:                            ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.loopexit
@@ -380,7 +380,7 @@ try_val64_to_str.exit:                            ; preds = %.lr.ph.i.i, %.lr.ph
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not15.i = icmp eq ptr %1, null
   br i1 %.not15.i, label %try_val64_to_str_idx.exit, label %.preheader.i
@@ -422,7 +422,7 @@ define ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly %1, ptr noun
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @.str.3) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @.str.3) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -468,7 +468,7 @@ define ptr @try_val64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr no
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 161, ptr noundef nonnull @.str.4) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 161, ptr noundef nonnull @.str.4) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -526,7 +526,7 @@ define i32 @str_to_val(ptr nocapture noundef readonly %0, ptr noundef readonly %
 .lr.ph.i:                                         ; preds = %.preheader.i, %9
   %6 = phi ptr [ %13, %9 ], [ %5, %.preheader.i ]
   %.012.i = phi i32 [ %10, %9 ], [ 0, %.preheader.i ]
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #12
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %0) #13
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %str_to_val_idx.exit, label %9
 
@@ -567,7 +567,7 @@ define i32 @str_to_val_idx(ptr nocapture noundef readonly %0, ptr noundef readon
 .lr.ph:                                           ; preds = %.preheader, %8
   %5 = phi ptr [ %12, %8 ], [ %4, %.preheader ]
   %.012 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #12
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #13
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -593,7 +593,7 @@ define noalias noundef ptr @value_string_ext_new(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @.str.7) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -601,7 +601,7 @@ define noalias noundef ptr @value_string_ext_new(ptr noundef %0, i32 noundef %1,
   br i1 %.not13, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 270, ptr noundef nonnull @.str.8) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 270, ptr noundef nonnull @.str.8) #11
   unreachable
 
 7:                                                ; preds = %5
@@ -613,12 +613,12 @@ define noalias noundef ptr @value_string_ext_new(ptr noundef %0, i32 noundef %1,
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 272, ptr noundef nonnull @.str.9) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 272, ptr noundef nonnull @.str.9) #11
   unreachable
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @wmem_epan_scope() #11
-  %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 32) #11
+  %15 = tail call ptr @wmem_epan_scope() #12
+  %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 32) #12
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 12
@@ -654,7 +654,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %11, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 461, ptr noundef nonnull @.str.10) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 461, ptr noundef nonnull @.str.10) #11
   unreachable
 
 16:                                               ; preds = %11
@@ -676,7 +676,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %22, label %23
 
 22:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 468, ptr noundef nonnull @.str.11) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 468, ptr noundef nonnull @.str.11) #11
   unreachable
 
 23:                                               ; preds = %.lr.ph
@@ -694,7 +694,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
 27:                                               ; preds = %.thread
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 477, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.13, ptr noundef %29, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %.05273, i32 noundef %.05273) #11
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 477, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.13, ptr noundef %29, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %.05273, i32 noundef %.05273) #12
   br label %.thread61
 
 30:                                               ; preds = %.thread
@@ -704,7 +704,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 484, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.14, ptr noundef %34, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %17, i32 noundef %17) #11
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 484, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.14, ptr noundef %34, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %17, i32 noundef %17) #12
   br label %.thread61
 
 35:                                               ; preds = %23, %30
@@ -722,14 +722,14 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
 .thread61:                                        ; preds = %._crit_edge, %27, %32, %._crit_edge.thread
   %_try_val_to_str_index.sink = phi ptr [ @_try_val_to_str_index, %._crit_edge.thread ], [ @_try_val_to_str_linear, %32 ], [ @_try_val_to_str_linear, %27 ], [ @_try_val_to_str_bsearch, %._crit_edge ]
   store ptr %_try_val_to_str_index.sink, ptr %1, align 8
-  %36 = tail call ptr %_try_val_to_str_index.sink(i32 noundef %0, ptr noundef nonnull %1) #11
+  %36 = tail call ptr %_try_val_to_str_index.sink(i32 noundef %0, ptr noundef nonnull %1) #12
   ret ptr %36
 }
 
 ; Function Attrs: nounwind uwtable
 define void @value_string_ext_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @wmem_epan_scope() #11
-  tail call void @wmem_free(ptr noundef %2, ptr noundef %0) #11
+  %2 = tail call ptr @wmem_epan_scope() #12
+  tail call void @wmem_free(ptr noundef %2, ptr noundef %0) #12
   ret void
 }
 
@@ -742,7 +742,7 @@ define ptr @try_val_to_str_ext(i32 noundef %0, ptr noundef %1) local_unnamed_add
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr %4(i32 noundef %0, ptr noundef nonnull %1) #11
+  %5 = tail call ptr %4(i32 noundef %0, ptr noundef nonnull %1) #12
   %.not8 = icmp eq ptr %5, null
   br i1 %.not8, label %9, label %6
 
@@ -763,7 +763,7 @@ define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr nocapture
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %1, align 8
-  %6 = tail call ptr %5(i32 noundef %0, ptr noundef nonnull %1) #11
+  %6 = tail call ptr %5(i32 noundef %0, ptr noundef nonnull %1) #12
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %17, label %7
 
@@ -795,7 +795,7 @@ define ptr @val_to_str_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 330, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 330, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -804,7 +804,7 @@ define ptr @val_to_str_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2) local
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %1, align 8
-  %8 = tail call ptr %7(i32 noundef %0, ptr noundef nonnull %1) #11
+  %8 = tail call ptr %7(i32 noundef %0, ptr noundef nonnull %1) #12
   %.not8.i = icmp eq ptr %8, null
   br i1 %.not8.i, label %try_val_to_str_ext.exit.thread, label %try_val_to_str_ext.exit
 
@@ -815,8 +815,8 @@ try_val_to_str_ext.exit:                          ; preds = %6
   br i1 %.not9, label %try_val_to_str_ext.exit.thread, label %13
 
 try_val_to_str_ext.exit.thread:                   ; preds = %5, %6, %try_val_to_str_ext.exit
-  %11 = tail call ptr @wmem_packet_scope() #11
-  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull %2, i32 noundef %0) #11
+  %11 = tail call ptr @wmem_packet_scope() #12
+  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull %2, i32 noundef %0) #12
   br label %13
 
 13:                                               ; preds = %try_val_to_str_ext.exit, %try_val_to_str_ext.exit.thread
@@ -830,7 +830,7 @@ define ptr @val_to_str_ext_wmem(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %4
@@ -839,7 +839,7 @@ define ptr @val_to_str_ext_wmem(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8
-  %9 = tail call ptr %8(i32 noundef %1, ptr noundef nonnull %2) #11
+  %9 = tail call ptr %8(i32 noundef %1, ptr noundef nonnull %2) #12
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %try_val_to_str_ext.exit.thread, label %try_val_to_str_ext.exit
 
@@ -850,11 +850,11 @@ try_val_to_str_ext.exit:                          ; preds = %7
   br i1 %.not11, label %try_val_to_str_ext.exit.thread, label %12
 
 12:                                               ; preds = %try_val_to_str_ext.exit
-  %13 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %11) #11
+  %13 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %11) #12
   br label %15
 
 try_val_to_str_ext.exit.thread:                   ; preds = %6, %7, %try_val_to_str_ext.exit
-  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %1) #11
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %1) #12
   br label %15
 
 15:                                               ; preds = %try_val_to_str_ext.exit.thread, %12
@@ -868,7 +868,7 @@ define ptr @val_to_str_ext_const(i32 noundef %0, ptr noundef %1, ptr noundef rea
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 360, ptr noundef nonnull @.str.3) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 360, ptr noundef nonnull @.str.3) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -877,7 +877,7 @@ define ptr @val_to_str_ext_const(i32 noundef %0, ptr noundef %1, ptr noundef rea
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %1, align 8
-  %8 = tail call ptr %7(i32 noundef %0, ptr noundef nonnull %1) #11
+  %8 = tail call ptr %7(i32 noundef %0, ptr noundef nonnull %1) #12
   %.not8.i = icmp eq ptr %8, null
   br i1 %.not8.i, label %try_val_to_str_ext.exit, label %9
 
@@ -896,7 +896,7 @@ try_val_to_str_ext.exit:                          ; preds = %5, %6, %9
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -926,7 +926,7 @@ define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -968,7 +968,7 @@ define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @_try_val_to_str_index(i32 noundef %0, ptr nocapture noundef readonly %1) #6 {
+define internal ptr @_try_val_to_str_index(i32 noundef %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 %0, %4
@@ -995,7 +995,7 @@ define noalias noundef ptr @val64_string_ext_new(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @.str.7) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @.str.7) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -1003,7 +1003,7 @@ define noalias noundef ptr @val64_string_ext_new(ptr noundef %0, i32 noundef %1,
   br i1 %.not13, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 555, ptr noundef nonnull @.str.8) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 555, ptr noundef nonnull @.str.8) #11
   unreachable
 
 7:                                                ; preds = %5
@@ -1015,12 +1015,12 @@ define noalias noundef ptr @val64_string_ext_new(ptr noundef %0, i32 noundef %1,
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @.str.9) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @.str.9) #11
   unreachable
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @wmem_epan_scope() #11
-  %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 40) #11
+  %15 = tail call ptr @wmem_epan_scope() #12
+  %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 40) #12
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
@@ -1052,7 +1052,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %11, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @.str.10) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @.str.10) #11
   unreachable
 
 16:                                               ; preds = %11
@@ -1073,7 +1073,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %22, label %23
 
 22:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 753, ptr noundef nonnull @.str.11) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 753, ptr noundef nonnull @.str.11) #11
   unreachable
 
 23:                                               ; preds = %.lr.ph
@@ -1092,7 +1092,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   %28 = trunc nuw i64 %indvars.iv to i32
   %29 = getelementptr inbounds i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 762, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.16, ptr noundef %30, i32 noundef %28, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %.05273, i64 noundef %.05273) #11
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 762, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.16, ptr noundef %30, i32 noundef %28, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %.05273, i64 noundef %.05273) #12
   br label %.thread61
 
 31:                                               ; preds = %.thread
@@ -1103,7 +1103,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   %34 = trunc nuw i64 %indvars.iv to i32
   %35 = getelementptr inbounds i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 769, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.17, ptr noundef %36, i32 noundef %34, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %17, i64 noundef %17) #11
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 769, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.17, ptr noundef %36, i32 noundef %34, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %17, i64 noundef %17) #12
   br label %.thread61
 
 37:                                               ; preds = %23, %31
@@ -1121,14 +1121,14 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
 .thread61:                                        ; preds = %._crit_edge, %27, %33, %._crit_edge.thread
   %_try_val64_to_str_index.sink = phi ptr [ @_try_val64_to_str_index, %._crit_edge.thread ], [ @_try_val64_to_str_linear, %33 ], [ @_try_val64_to_str_linear, %27 ], [ @_try_val64_to_str_bsearch, %._crit_edge ]
   store ptr %_try_val64_to_str_index.sink, ptr %1, align 8
-  %38 = tail call ptr %_try_val64_to_str_index.sink(i64 noundef %0, ptr noundef nonnull %1) #11
+  %38 = tail call ptr %_try_val64_to_str_index.sink(i64 noundef %0, ptr noundef nonnull %1) #12
   ret ptr %38
 }
 
 ; Function Attrs: nounwind uwtable
 define void @val64_string_ext_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @wmem_epan_scope() #11
-  tail call void @wmem_free(ptr noundef %2, ptr noundef %0) #11
+  %2 = tail call ptr @wmem_epan_scope() #12
+  tail call void @wmem_free(ptr noundef %2, ptr noundef %0) #12
   ret void
 }
 
@@ -1139,7 +1139,7 @@ define ptr @try_val64_to_str_ext(i64 noundef %0, ptr noundef %1) local_unnamed_a
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr %4(i64 noundef %0, ptr noundef nonnull %1) #11
+  %5 = tail call ptr %4(i64 noundef %0, ptr noundef nonnull %1) #12
   %.not8 = icmp eq ptr %5, null
   br i1 %.not8, label %9, label %6
 
@@ -1160,7 +1160,7 @@ define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr nocaptu
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %1, align 8
-  %6 = tail call ptr %5(i64 noundef %0, ptr noundef nonnull %1) #11
+  %6 = tail call ptr %5(i64 noundef %0, ptr noundef nonnull %1) #12
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %17, label %7
 
@@ -1192,7 +1192,7 @@ define ptr @val64_to_str_ext(i64 noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 615, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 615, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -1201,7 +1201,7 @@ define ptr @val64_to_str_ext(i64 noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %1, align 8
-  %8 = tail call ptr %7(i64 noundef %0, ptr noundef nonnull %1) #11
+  %8 = tail call ptr %7(i64 noundef %0, ptr noundef nonnull %1) #12
   %.not8.i = icmp eq ptr %8, null
   br i1 %.not8.i, label %try_val64_to_str_ext.exit.thread, label %try_val64_to_str_ext.exit
 
@@ -1212,8 +1212,8 @@ try_val64_to_str_ext.exit:                        ; preds = %6
   br i1 %.not9, label %try_val64_to_str_ext.exit.thread, label %13
 
 try_val64_to_str_ext.exit.thread:                 ; preds = %5, %6, %try_val64_to_str_ext.exit
-  %11 = tail call ptr @wmem_packet_scope() #11
-  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull %2, i64 noundef %0) #11
+  %11 = tail call ptr @wmem_packet_scope() #12
+  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull %2, i64 noundef %0) #12
   br label %13
 
 13:                                               ; preds = %try_val64_to_str_ext.exit, %try_val64_to_str_ext.exit.thread
@@ -1227,7 +1227,7 @@ define ptr @val64_to_str_ext_wmem(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 629, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 629, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %4
@@ -1236,7 +1236,7 @@ define ptr @val64_to_str_ext_wmem(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8
-  %9 = tail call ptr %8(i64 noundef %1, ptr noundef nonnull %2) #11
+  %9 = tail call ptr %8(i64 noundef %1, ptr noundef nonnull %2) #12
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %try_val64_to_str_ext.exit.thread, label %try_val64_to_str_ext.exit
 
@@ -1247,11 +1247,11 @@ try_val64_to_str_ext.exit:                        ; preds = %7
   br i1 %.not11, label %try_val64_to_str_ext.exit.thread, label %12
 
 12:                                               ; preds = %try_val64_to_str_ext.exit
-  %13 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %11) #11
+  %13 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %11) #12
   br label %15
 
 try_val64_to_str_ext.exit.thread:                 ; preds = %6, %7, %try_val64_to_str_ext.exit
-  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %1) #11
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %1) #12
   br label %15
 
 15:                                               ; preds = %try_val64_to_str_ext.exit.thread, %12
@@ -1265,7 +1265,7 @@ define ptr @val64_to_str_ext_const(i64 noundef %0, ptr noundef %1, ptr noundef r
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @.str.3) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @.str.3) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -1274,7 +1274,7 @@ define ptr @val64_to_str_ext_const(i64 noundef %0, ptr noundef %1, ptr noundef r
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %1, align 8
-  %8 = tail call ptr %7(i64 noundef %0, ptr noundef nonnull %1) #11
+  %8 = tail call ptr %7(i64 noundef %0, ptr noundef nonnull %1) #12
   %.not8.i = icmp eq ptr %8, null
   br i1 %.not8.i, label %try_val64_to_str_ext.exit, label %9
 
@@ -1291,7 +1291,7 @@ try_val64_to_str_ext.exit:                        ; preds = %5, %6, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1321,7 +1321,7 @@ define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocapture noundef readonly %1) #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -1363,7 +1363,7 @@ define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @_try_val64_to_str_index(i64 noundef %0, ptr nocapture noundef readonly %1) #6 {
+define internal ptr @_try_val64_to_str_index(i64 noundef %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %0, %4
@@ -1390,7 +1390,7 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 807, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 807, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -1405,13 +1405,13 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) 
 
 .lr.ph.i.i.preheader:                             ; preds = %.preheader.i.i
   %8 = load ptr, ptr %1, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %0) #12
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %0) #13
   %.not14.i.i14 = icmp eq i32 %9, 0
   br i1 %.not14.i.i14, label %try_str_to_str.exit, label %.lr.ph
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
   %10 = load ptr, ptr %14, align 8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %0) #12
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %0) #13
   %.not14.i.i = icmp eq i32 %11, 0
   br i1 %.not14.i.i, label %try_str_to_str.exit, label %.lr.ph, !llvm.loop !14
 
@@ -1426,8 +1426,8 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.i.i, %5
-  %17 = tail call ptr @wmem_packet_scope() #11
-  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, ptr noundef %0) #11
+  %17 = tail call ptr @wmem_packet_scope() #12
+  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull %2, ptr noundef %0) #12
   br label %try_str_to_str.exit
 
 try_str_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i.preheader, %.loopexit
@@ -1448,13 +1448,13 @@ define ptr @try_str_to_str(ptr nocapture noundef readonly %0, ptr noundef readon
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %5 = load ptr, ptr %1, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #12
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #13
   %.not14.i4 = icmp eq i32 %6, 0
   br i1 %.not14.i4, label %try_str_to_str_idx.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %7 = load ptr, ptr %11, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #12
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #13
   %.not14.i = icmp eq i32 %8, 0
   br i1 %.not14.i, label %try_str_to_str_idx.exit, label %.lr.ph, !llvm.loop !14
 
@@ -1474,7 +1474,7 @@ try_str_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
+define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1488,7 +1488,7 @@ define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef re
   %6 = phi ptr [ %15, %12 ], [ %1, %.preheader ]
   %.018 = phi i32 [ %13, %12 ], [ 0, %.preheader ]
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #12
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #13
   %.not14 = icmp eq i32 %8, 0
   br i1 %.not14, label %9, label %12
 
@@ -1522,7 +1522,7 @@ define ptr @rval_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2)
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 855, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 855, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -1563,8 +1563,8 @@ define ptr @rval_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2)
   br i1 %.not17.i.i, label %.loopexit, label %9, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %.preheader.i.i, %5
-  %22 = tail call ptr @wmem_packet_scope() #11
-  %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %22, ptr noundef nonnull %2, i32 noundef %0) #11
+  %22 = tail call ptr @wmem_packet_scope() #12
+  %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %22, ptr noundef nonnull %2, i32 noundef %0) #12
   br label %try_rval_to_str.exit
 
 try_rval_to_str.exit:                             ; preds = %13, %.loopexit
@@ -1572,7 +1572,7 @@ try_rval_to_str.exit:                             ; preds = %13, %.loopexit
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define ptr @try_rval_to_str(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %try_rval_to_str_idx.exit, label %.preheader.i
@@ -1621,7 +1621,7 @@ define ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly %1, ptr nound
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 871, ptr noundef nonnull @.str.3) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 871, ptr noundef nonnull @.str.3) #11
   unreachable
 
 5:                                                ; preds = %3
@@ -1668,8 +1668,8 @@ try_rval_to_str.exit:                             ; preds = %13, %16, %5, %.preh
   ret ptr %.
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1720,8 +1720,8 @@ define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noc
   ret ptr %.015
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1768,7 +1768,7 @@ define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr n
   ret ptr %.015
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define ptr @try_rval64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %try_rval64_to_str_idx.exit, label %.preheader.i
@@ -1813,7 +1813,7 @@ define ptr @bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, p
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 945, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 945, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %4
@@ -1851,8 +1851,8 @@ define ptr @bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, p
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !17
 
 .loopexit:                                        ; preds = %16, %6, %.preheader.i
-  %22 = tail call ptr @wmem_packet_scope() #11
-  %23 = tail call noalias ptr @wmem_strdup(ptr noundef %22, ptr noundef nonnull %3) #11
+  %22 = tail call ptr @wmem_packet_scope() #12
+  %23 = tail call noalias ptr @wmem_strdup(ptr noundef %22, ptr noundef nonnull %3) #12
   br label %try_bytesval_to_str.exit
 
 try_bytesval_to_str.exit:                         ; preds = %14, %.loopexit
@@ -1906,7 +1906,7 @@ define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %4
@@ -1944,8 +1944,8 @@ define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %.not17.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
 
 .loopexit:                                        ; preds = %15, %6, %.preheader.i
-  %21 = tail call ptr @wmem_packet_scope() #11
-  %22 = tail call noalias ptr @wmem_strdup(ptr noundef %21, ptr noundef nonnull %3) #11
+  %21 = tail call ptr @wmem_packet_scope() #12
+  %22 = tail call noalias ptr @wmem_strdup(ptr noundef %21, ptr noundef nonnull %3) #12
   br label %try_bytesprefix_to_str.exit
 
 try_bytesprefix_to_str.exit:                      ; preds = %13, %.loopexit
@@ -1994,7 +1994,7 @@ define ptr @try_bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @value_string_ext_validate(ptr noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @value_string_ext_validate(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2016,7 +2016,7 @@ define hidden range(i32 0, 2) i32 @value_string_ext_validate(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @value_string_ext_match_type_str(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden nonnull ptr @value_string_ext_match_type_str(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, @_try_val_to_str_ext_init
   br i1 %3, label %10, label %4
@@ -2040,7 +2040,7 @@ define hidden nonnull ptr @value_string_ext_match_type_str(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @val64_string_ext_validate(ptr noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @val64_string_ext_validate(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2062,7 +2062,7 @@ define hidden range(i32 0, 2) i32 @val64_string_ext_validate(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @val64_string_ext_match_type_str(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden nonnull ptr @val64_string_ext_match_type_str(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, @_try_val64_to_str_ext_init
   br i1 %3, label %10, label %4
@@ -2086,21 +2086,22 @@ define hidden nonnull ptr @val64_string_ext_match_type_str(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

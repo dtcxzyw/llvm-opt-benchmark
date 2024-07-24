@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @bicubictableinited = internal unnamed_addr global i1 false, align 1
 @bicubic_coeff = internal unnamed_addr global [513 x i32] zeroinitializer, align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @BilinearInterp(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -158,7 +158,7 @@ define internal void @BilinearInterp(ptr nocapture noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BicubicInterp(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal void @BicubicInterp(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #1 {
   %.b = load i1, ptr @bicubictableinited, align 1
   br i1 %.b, label %42, label %.preheader
 
@@ -581,7 +581,7 @@ init_bicubic_table.exit:                          ; preds = %.lr.ph36.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19) local_unnamed_addr #1 {
+define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19) local_unnamed_addr #2 {
   %21 = alloca %struct.SurfaceDataRasInfo, align 8
   %22 = alloca %struct.SurfaceDataRasInfo, align 8
   %23 = alloca %struct._CompositeInfo, align 4
@@ -1129,23 +1129,23 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   ret void
 }
 
-declare ptr @GetNativePrim(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @GetNativePrim(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @Region_GetInfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Region_GetInfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @SurfaceData_GetOps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SurfaceData_GetOps(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @SurfaceData_IntersectBounds(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SurfaceData_IntersectBounds(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Transform_GetInfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Transform_GetInfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
-declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = load i32, ptr %2, align 4
@@ -1251,7 +1251,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #1 {
+define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #2 {
   %16 = alloca %struct.SurfaceDataBounds, align 4
   %17 = alloca double, align 8
   %18 = alloca double, align 8
@@ -1449,8 +1449,8 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef %1
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @calculateEdges(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @calculateEdges(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = load double, ptr %2, align 8
   %9 = fmul double %8, 0x41F0000000000000
   %10 = fptosi double %9 to i64
@@ -1561,16 +1561,16 @@ define internal fastcc void @calculateEdges(ptr nocapture noundef writeonly %0, 
   ret void
 }
 
-declare void @Region_StartIteration(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Region_StartIteration(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @Region_NextIteration(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Region_NextIteration(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Region_EndIteration(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Region_EndIteration(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
-declare void @Transform_transform(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Transform_transform(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #6
@@ -1584,11 +1584,11 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

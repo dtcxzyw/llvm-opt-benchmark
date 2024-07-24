@@ -3326,8 +3326,8 @@ entry:
   ret i8 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @reftable_obj_record_encode(ptr nocapture noundef readonly %rec, ptr nocapture writeonly %s.coerce0, i64 %s.coerce1, i32 %hash_size) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal i32 @reftable_obj_record_encode(ptr nocapture noundef readonly %rec, ptr nocapture writeonly %s.coerce0, i64 %s.coerce1, i32 %hash_size) #0 {
 entry:
   %buf.i48 = alloca [10 x i8], align 1
   %buf.i18 = alloca [10 x i8], align 1

@@ -216,8 +216,8 @@ if.end:                                           ; preds = %for.end, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind uwtable
-define void @sp_forcezero(ptr noundef %a) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @sp_forcezero(ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -377,7 +377,7 @@ if.end:                                           ; preds = %_sp_copy.exit.i, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define range(i32 -3, 1) i32 @sp_exch(ptr noundef %a, ptr noundef %b) local_unnamed_addr #5 {
+define range(i32 -3, 1) i32 @sp_exch(ptr noundef %a, ptr noundef %b) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %b, null
@@ -452,16 +452,16 @@ if.end70:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #6
+declare ptr @llvm.stacksave.p0() #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #6
+declare void @llvm.stackrestore.p0(ptr) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @sp_cond_swap_ct_ex(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap, ptr nocapture noundef %t) local_unnamed_addr #8 {
+define noundef i32 @sp_cond_swap_ct_ex(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap, ptr nocapture noundef %t) local_unnamed_addr #7 {
 entry:
   %conv = sext i32 %swap to i64
   %sub = sub nsw i64 0, %conv
@@ -562,7 +562,7 @@ for.end46:                                        ; preds = %for.body36, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_cond_swap_ct(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_cond_swap_ct(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap) local_unnamed_addr #7 {
 entry:
   %conv = sext i32 %cnt to i64
   %cmp = icmp ult i32 %cnt, 2
@@ -654,7 +654,7 @@ if.end13:                                         ; preds = %for.body36.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @sp_cmp_mag(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #9 {
+define range(i32 -1, 2) i32 @sp_cmp_mag(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %if.end8, label %if.else
@@ -709,7 +709,7 @@ if.end8:                                          ; preds = %if.else14.i, %for.b
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @sp_cmp(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #9 {
+define range(i32 -1, 2) i32 @sp_cmp(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %if.end8, label %if.else
@@ -764,7 +764,7 @@ if.end8:                                          ; preds = %if.else14.i.i, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @sp_is_bit_set(ptr noundef readonly %a, i32 noundef %b) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @sp_is_bit_set(ptr noundef readonly %a, i32 noundef %b) local_unnamed_addr #9 {
 entry:
   %shr = lshr i32 %b, 6
   %cmp.not = icmp eq ptr %a, null
@@ -793,7 +793,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @sp_count_bits(ptr noundef readonly %a) local_unnamed_addr #9 {
+define i32 @sp_count_bits(ptr noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end23, label %land.lhs.true
@@ -853,7 +853,7 @@ if.end23:                                         ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @sp_leading_bit(ptr noundef readonly %a) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @sp_leading_bit(ptr noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -888,7 +888,7 @@ if.end:                                           ; preds = %while.end, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_set_bit(ptr noundef %a, i32 noundef %i) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_set_bit(ptr noundef %a, i32 noundef %i) local_unnamed_addr #7 {
 entry:
   %shr = ashr i32 %i, 6
   %cmp = icmp eq ptr %a, null
@@ -1033,7 +1033,7 @@ if.end4:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @sp_cmp_d(ptr noundef readonly %a, i64 noundef %d) local_unnamed_addr #10 {
+define range(i32 -1, 2) i32 @sp_cmp_d(ptr noundef readonly %a, i64 noundef %d) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.end21, label %if.else
@@ -1069,7 +1069,7 @@ if.end21:                                         ; preds = %if.else12, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_add_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_add_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %r, null
@@ -1183,7 +1183,7 @@ if.end8:                                          ; preds = %for.body56.i, %entr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_sub_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_sub_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %r, null
@@ -1299,7 +1299,7 @@ if.end8:                                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_mul_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_mul_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %r, null
@@ -1390,7 +1390,7 @@ if.end8:                                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_div_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r, ptr noundef writeonly %rem) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_div_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef %r, ptr noundef writeonly %rem) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne i64 %d, 0
@@ -1719,7 +1719,7 @@ if.end17:                                         ; preds = %if.end17.sink.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_mod_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef writeonly %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_mod_d(ptr noundef readonly %a, i64 noundef %d, ptr noundef writeonly %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %r, null
@@ -1853,7 +1853,7 @@ if.end23:                                         ; preds = %if.end23.sink.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_div_2(ptr noundef readonly %a, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_div_2(ptr noundef readonly %a, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %r, null
@@ -1938,8 +1938,8 @@ if.end8:                                          ; preds = %entry, %land.lhs.tr
   ret i32 %err.09
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -3, 1) i32 @sp_div_2_mod_ct(ptr noundef readonly %a, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #11 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 -3, 1) i32 @sp_div_2_mod_ct(ptr noundef readonly %a, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %m, null
@@ -2089,7 +2089,7 @@ if.end37:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_add(ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_add(ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %b, null
@@ -2251,7 +2251,7 @@ if.end14:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_sub(ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_sub(ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %b, null
@@ -2380,7 +2380,7 @@ if.end14:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -3, 1) i32 @sp_addmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @sp_addmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %a, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
@@ -2411,7 +2411,7 @@ if.end16:                                         ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_addmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_addmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -2454,7 +2454,7 @@ do.end34:                                         ; preds = %entry, %if.then8.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -3, 1) i32 @sp_submod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @sp_submod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %a, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
@@ -2490,7 +2490,7 @@ if.end21:                                         ; preds = %if.else8, %if.else,
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_submod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_submod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %m, align 8
@@ -2786,7 +2786,7 @@ do.end101:                                        ; preds = %cond.end22, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_addmod_ct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_addmod_ct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %m, align 8
   %size = getelementptr inbounds i8, ptr %r, i64 4
@@ -2931,7 +2931,7 @@ if.end69:                                         ; preds = %sp_clamp_ct.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_submod_ct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_submod_ct(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr noundef readonly %m, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %m, align 8
   %size = getelementptr inbounds i8, ptr %r, i64 4
@@ -3054,7 +3054,7 @@ if.end8:                                          ; preds = %_sp_submod_ct.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_lshd(ptr noundef %a, i32 noundef %s) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_lshd(ptr noundef %a, i32 noundef %s) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp sgt i32 %s, -1
@@ -3109,13 +3109,13 @@ if.end25:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @sp_rshd(ptr noundef %a, i32 noundef %c) local_unnamed_addr #8 {
+define void @sp_rshd(ptr noundef %a, i32 noundef %c) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp sgt i32 %c, 0
@@ -3158,7 +3158,7 @@ if.end11:                                         ; preds = %for.body, %if.then3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_rshb(ptr noundef readonly %a, i32 noundef %n, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_rshb(ptr noundef readonly %a, i32 noundef %n, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %shr = ashr i32 %n, 6
   %cmp = icmp ne ptr %a, null
@@ -3280,7 +3280,7 @@ if.end68:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -3, 1) i32 @sp_div(ptr noundef %a, ptr noundef readonly %d, ptr noundef %r, ptr noundef %rem) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @sp_div(ptr noundef %a, ptr noundef readonly %d, ptr noundef %r, ptr noundef %rem) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %d, null
@@ -3465,7 +3465,7 @@ if.end68:                                         ; preds = %land.lhs.true36, %e
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_div(ptr noundef readonly %a, ptr nocapture noundef readonly %d, ptr noundef %r, ptr noundef %rem, i32 noundef %used) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_div(ptr noundef readonly %a, ptr nocapture noundef readonly %d, ptr noundef %r, ptr noundef %rem, i32 noundef %used) unnamed_addr #10 {
 entry:
   %td = alloca [4 x ptr], align 16
   %cmp = icmp ult i32 %used, 2
@@ -4653,7 +4653,7 @@ do.end176:                                        ; preds = %do.end176.sink.spli
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -3, 1) i32 @sp_mod(ptr noundef %a, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @sp_mod(ptr noundef %a, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %m, null
@@ -4677,7 +4677,7 @@ if.end9:                                          ; preds = %entry, %if.then8, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_mul(ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_mul(ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %b, null
@@ -4876,7 +4876,7 @@ if.end27:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_mul(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %r) unnamed_addr #8 {
+define internal fastcc void @_sp_mul(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef %r) unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -5010,7 +5010,7 @@ for.end78:                                        ; preds = %for.end78.loopexit,
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_mulmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define i32 @sp_mulmod(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %a, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %b, i64 1
@@ -5058,7 +5058,7 @@ if.end15:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_invmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define i32 @sp_invmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %m, null
@@ -5172,7 +5172,7 @@ if.end55:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_invmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_invmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) unnamed_addr #10 {
 entry:
   %t = alloca [3 x ptr], align 16
   %0 = load i32, ptr %m, align 8
@@ -6783,7 +6783,7 @@ do.end167:                                        ; preds = %land.rhs.i104, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 1) i32 @sp_invmod_mont_ct(ptr noundef %a, ptr noundef %m, ptr noundef %r, i64 noundef %mp) local_unnamed_addr #13 {
+define range(i32 -3, 1) i32 @sp_invmod_mont_ct(ptr noundef %a, ptr noundef %m, ptr noundef %r, i64 noundef %mp) local_unnamed_addr #12 {
 entry:
   %pre.i = alloca [10 x ptr], align 16
   %cmp = icmp eq ptr %a, null
@@ -6828,7 +6828,7 @@ if.then3.i:                                       ; preds = %land.lhs.true21, %l
   %narrow.i = mul i32 %0, 160
   %4 = zext i32 %narrow.i to i64
   %mul13.i = add nuw nsw i64 %4, 160
-  %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef %mul13.i) #21
+  %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef %mul13.i) #19
   %cmp14.i = icmp eq ptr %call.i, null
   br i1 %cmp14.i, label %_sp_invmod_mont_ct.exit, label %if.else.i
 
@@ -7274,7 +7274,7 @@ _sp_copy.exit153.i:                               ; preds = %if.else.i148.i, %if
 
 do.body225.i:                                     ; preds = %if.end98.i, %for.body71.i, %if.end175.i, %for.body158.i, %for.body196.i, %_sp_copy.exit153.i, %if.then219.i, %if.then212.i
   %err.17.i = phi i32 [ 0, %if.then219.i ], [ %call216.i, %if.then212.i ], [ 0, %_sp_copy.exit153.i ], [ %call197.i, %for.body196.i ], [ %call159.i, %for.body158.i ], [ %call174.i, %if.end175.i ], [ %call82.i, %for.body71.i ], [ %call97.i, %if.end98.i ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %call.i) #21
+  tail call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
   br label %_sp_invmod_mont_ct.exit
 
 _sp_invmod_mont_ct.exit:                          ; preds = %if.then3.i, %do.body225.i
@@ -7288,7 +7288,7 @@ if.end27:                                         ; preds = %if.end11, %land.lhs
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_exptmod_ex(ptr noundef %b, ptr noundef readonly %e, i32 noundef %digits, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define i32 @sp_exptmod_ex(ptr noundef %b, ptr noundef readonly %e, i32 noundef %digits, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %cmp.not.i114 = icmp eq ptr %e, null
   br i1 %cmp.not.i114, label %sp_count_bits.exit143.thread, label %land.lhs.true.i115
@@ -7506,7 +7506,7 @@ if.end121:                                        ; preds = %if.end69, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_base_2(ptr nocapture noundef readonly %e, i32 noundef %digits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_base_2(ptr nocapture noundef readonly %e, i32 noundef %digits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %m, align 8
   %.fr = freeze i32 %0
@@ -7788,7 +7788,7 @@ do.end216:                                        ; preds = %if.end201, %if.end6
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_mont_ex(ptr noundef %b, ptr nocapture noundef readonly %e, i32 noundef %bits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_exptmod_mont_ex(ptr noundef %b, ptr nocapture noundef readonly %e, i32 noundef %bits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #10 {
 entry:
   %t = alloca [4 x ptr], align 16
   %0 = load i32, ptr %m, align 8
@@ -8185,7 +8185,7 @@ do.end215:                                        ; preds = %_sp_copy.exit98, %d
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @_sp_exptmod_ex(ptr noundef %b, ptr nocapture noundef readonly %e, i32 noundef %bits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #4 {
+define internal fastcc i32 @_sp_exptmod_ex(ptr noundef %b, ptr nocapture noundef readonly %e, i32 noundef %bits, ptr noundef %m, ptr nocapture noundef writeonly %r) unnamed_addr #10 {
 entry:
   %t = alloca [3 x ptr], align 16
   %0 = load i32, ptr %m, align 8
@@ -8579,7 +8579,7 @@ do.end166:                                        ; preds = %_sp_copy.exit83, %d
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_exptmod(ptr noundef %b, ptr noundef %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define i32 @sp_exptmod(ptr noundef %b, ptr noundef %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %e, i64 1
@@ -8601,7 +8601,7 @@ do.end10:                                         ; preds = %if.then7, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sp_exptmod_nct(ptr noundef %b, ptr noundef readonly %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #13 {
+define i32 @sp_exptmod_nct(ptr noundef %b, ptr noundef readonly %e, ptr noundef %m, ptr noundef %r) local_unnamed_addr #12 {
 entry:
   %t.i = alloca [34 x ptr], align 16
   %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
@@ -8752,7 +8752,7 @@ if.then18.i:                                      ; preds = %if.end12.i
   %narrow.i = add nuw nsw i32 %shl.i, 2
   %add30.i = zext nneg i32 %narrow.i to i64
   %mul31.i = mul nuw nsw i64 %add28.i, %add30.i
-  %call32.i = tail call ptr @wolfSSL_Malloc(i64 noundef %mul31.i) #21
+  %call32.i = tail call ptr @wolfSSL_Malloc(i64 noundef %mul31.i) #19
   %cmp33.i = icmp eq ptr %call32.i, null
   br i1 %cmp33.i, label %_sp_exptmod_nct.exit, label %if.else36.i
 
@@ -9270,7 +9270,7 @@ do.body425.sink.split.i:                          ; preds = %_sp_copy.exit251.i,
 
 do.body425.i:                                     ; preds = %for.body146.i, %for.body166.i, %if.end364.i, %for.body287.i, %if.then400.i, %for.body386.i, %do.body425.sink.split.i, %if.end233.i, %if.end135.i, %if.end128.i, %if.then120.i, %sp_mod.exit.i, %if.end6.i.i
   %err.20333.i = phi i32 [ -3, %if.end6.i.i ], [ %call.i.i, %sp_mod.exit.i ], [ %call232.i, %if.end233.i ], [ %call122.i, %if.then120.i ], [ %call127.i, %if.end128.i ], [ %call134.i, %if.end135.i ], [ 0, %do.body425.sink.split.i ], [ %call387.i, %for.body386.i ], [ %call401.i, %if.then400.i ], [ %call288.i, %for.body287.i ], [ %call363.i, %if.end364.i ], [ %call172.i, %for.body166.i ], [ %call149.i, %for.body146.i ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %call32.i) #21
+  tail call void @wolfSSL_Free(ptr noundef nonnull %call32.i) #19
   br label %_sp_exptmod_nct.exit
 
 _sp_exptmod_nct.exit:                             ; preds = %if.end12.i, %if.then18.i, %do.body425.i
@@ -9284,7 +9284,7 @@ if.end45:                                         ; preds = %if.else23, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_div_2d(ptr noundef readonly %a, i32 noundef %e, ptr noundef %r, ptr noundef %rem) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_div_2d(ptr noundef readonly %a, i32 noundef %e, ptr noundef %r, ptr noundef %rem) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp sgt i32 %e, -1
@@ -9580,7 +9580,7 @@ if.end40:                                         ; preds = %if.end40.sink.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_mod_2d(ptr noundef readonly %a, i32 noundef %e, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_mod_2d(ptr noundef readonly %a, i32 noundef %e, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %sub = add i32 %e, 63
   %shr = lshr i32 %sub, 6
@@ -9673,7 +9673,7 @@ if.end42:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_mul_2d(ptr noundef readonly %a, i32 noundef %e, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_mul_2d(ptr noundef readonly %a, i32 noundef %e, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %r, null
@@ -9865,7 +9865,7 @@ if.end18:                                         ; preds = %entry, %sp_count_bi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_sqr(ptr noundef readonly %a, ptr noundef %r) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_sqr(ptr noundef readonly %a, ptr noundef %r) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %r, null
@@ -10025,7 +10025,7 @@ if.end18:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_sqr(ptr nocapture noundef readonly %a, ptr nocapture noundef %r) unnamed_addr #8 {
+define internal fastcc void @_sp_sqr(ptr nocapture noundef readonly %a, ptr nocapture noundef %r) unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %a, align 8
   %mul = shl i32 %0, 1
@@ -10167,7 +10167,7 @@ for.end98:                                        ; preds = %for.end98.loopexit,
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_sqrmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) local_unnamed_addr #4 {
+define i32 @sp_sqrmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %m, null
@@ -10227,7 +10227,7 @@ if.end31:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @_sp_sqrmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) unnamed_addr #4 {
+define internal fastcc i32 @_sp_sqrmod(ptr noundef %a, ptr noundef %m, ptr noundef %r) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %mul = shl i32 %0, 1
@@ -10273,7 +10273,7 @@ do.end28:                                         ; preds = %entry, %if.then8.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_mont_red_ex(ptr noundef %a, ptr noundef %m, i64 noundef %mp, i32 noundef %ct) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_mont_red_ex(ptr noundef %a, ptr noundef %m, i64 noundef %mp, i32 noundef %ct) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %m, null
@@ -10302,7 +10302,7 @@ if.end8:                                          ; preds = %if.else, %entry, %l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_sp_mont_red(ptr noundef %a, ptr noundef readonly %m, i64 noundef %mp, i32 noundef %ct) unnamed_addr #8 {
+define internal fastcc void @_sp_mont_red(ptr noundef %a, ptr noundef readonly %m, i64 noundef %mp, i32 noundef %ct) unnamed_addr #7 {
 entry:
   %cmp.not.i = icmp eq ptr %m, null
   br i1 %cmp.not.i, label %sp_count_bits.exit, label %land.lhs.true.i
@@ -11084,7 +11084,7 @@ if.end9:                                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_mont_norm(ptr noundef %norm, ptr noundef readonly %m) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_mont_norm(ptr noundef %norm, ptr noundef readonly %m) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %norm, null
   %cmp1 = icmp ne ptr %m, null
@@ -11302,7 +11302,7 @@ if.end32:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @sp_unsigned_bin_size(ptr noundef readonly %a) local_unnamed_addr #9 {
+define i32 @sp_unsigned_bin_size(ptr noundef readonly %a) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq ptr %a, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true.i
@@ -11368,7 +11368,7 @@ if.end:                                           ; preds = %sp_count_bits.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_read_unsigned_bin(ptr noundef %a, ptr noundef readonly %in, i32 noundef %inSz) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_read_unsigned_bin(ptr noundef %a, ptr noundef readonly %in, i32 noundef %inSz) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.end108, label %lor.lhs.false
@@ -11571,7 +11571,7 @@ if.end108:                                        ; preds = %land.lhs.true4, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @sp_to_unsigned_bin(ptr noundef readonly %a, ptr noundef writeonly %out) local_unnamed_addr #8 {
+define i32 @sp_to_unsigned_bin(ptr noundef readonly %a, ptr noundef writeonly %out) local_unnamed_addr #7 {
 entry:
   %cmp.not.i = icmp eq ptr %a, null
   br i1 %cmp.not.i, label %sp_to_unsigned_bin_len.exit, label %land.lhs.true.i.i
@@ -11715,7 +11715,7 @@ sp_to_unsigned_bin_len.exit:                      ; preds = %for.inc29.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @sp_to_unsigned_bin_len(ptr noundef readonly %a, ptr noundef writeonly %out, i32 noundef %outSz) local_unnamed_addr #8 {
+define i32 @sp_to_unsigned_bin_len(ptr noundef readonly %a, ptr noundef writeonly %out, i32 noundef %outSz) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %out, null
@@ -11804,7 +11804,7 @@ if.end41:                                         ; preds = %for.inc29, %for.inc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -3, 1) i32 @sp_to_unsigned_bin_len_ct(ptr noundef readonly %a, ptr noundef writeonly %out, i32 noundef %outSz) local_unnamed_addr #8 {
+define range(i32 -3, 1) i32 @sp_to_unsigned_bin_len_ct(ptr noundef readonly %a, ptr noundef writeonly %out, i32 noundef %outSz) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %out, null
@@ -11866,7 +11866,7 @@ if.end22:                                         ; preds = %for.end, %if.then5,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @sp_to_unsigned_bin_at_pos(i32 noundef %o, ptr noundef readonly %a, ptr noundef writeonly %out) local_unnamed_addr #8 {
+define i32 @sp_to_unsigned_bin_at_pos(i32 noundef %o, ptr noundef readonly %a, ptr noundef writeonly %out) local_unnamed_addr #7 {
 entry:
   %cmp.not.i = icmp eq ptr %a, null
   br i1 %cmp.not.i, label %sp_to_unsigned_bin_len.exit, label %land.lhs.true.i.i
@@ -12014,8 +12014,8 @@ sp_to_unsigned_bin_len.exit:                      ; preds = %sp_unsigned_bin_siz
   ret i32 %16
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @sp_read_radix(ptr noundef %a, ptr noundef readonly %in, i32 noundef %radix) local_unnamed_addr #14 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
+define noundef i32 @sp_read_radix(ptr noundef %a, ptr noundef readonly %in, i32 noundef %radix) local_unnamed_addr #13 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %in, null
@@ -12044,7 +12044,7 @@ while.end:                                        ; preds = %while.body, %if.the
   ]
 
 if.then12:                                        ; preds = %while.end
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %in.addr.0.lcssa) #22
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %in.addr.0.lcssa) #20
   %1 = trunc i64 %call.i to i32
   %i.037.i = add i32 %1, -1
   %cmp38.i = icmp slt i32 %i.037.i, 0
@@ -12307,8 +12307,8 @@ if.end22:                                         ; preds = %for.inc.i, %if.then
   ret i32 %err.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -3, 1) i32 @sp_tohex(ptr noundef readonly %a, ptr noundef writeonly %str) local_unnamed_addr #15 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 -3, 1) i32 @sp_tohex(ptr noundef readonly %a, ptr noundef writeonly %str) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %a, null
   %cmp1 = icmp ne ptr %str, null
@@ -12439,7 +12439,7 @@ if.end61:                                         ; preds = %if.end60, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define range(i32 -3, 1) i32 @sp_todecimal(ptr noundef readonly %a, ptr noundef %str) local_unnamed_addr #16 {
+define range(i32 -3, 1) i32 @sp_todecimal(ptr noundef readonly %a, ptr noundef %str) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %str, null
@@ -12619,7 +12619,7 @@ if.end80:                                         ; preds = %if.else6, %entry, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define range(i32 -3, 1) i32 @sp_toradix(ptr noundef %a, ptr noundef %str, i32 noundef %radix) local_unnamed_addr #16 {
+define range(i32 -3, 1) i32 @sp_toradix(ptr noundef %a, ptr noundef %str, i32 noundef %radix) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %str, null
@@ -12763,7 +12763,7 @@ if.end10:                                         ; preds = %if.end60.i, %if.els
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define range(i32 -3, 1) i32 @sp_radix_size(ptr noundef readonly %a, i32 noundef %radix, ptr noundef writeonly %size) local_unnamed_addr #16 {
+define range(i32 -3, 1) i32 @sp_radix_size(ptr noundef readonly %a, i32 noundef %radix, ptr noundef writeonly %size) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %size, null
@@ -12973,7 +12973,7 @@ if.end55:                                         ; preds = %if.else, %entry, %s
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i32 @sp_prime_is_prime(ptr noundef %a, i32 noundef %trials, ptr noundef %result) local_unnamed_addr #4 {
+define i32 @sp_prime_is_prime(ptr noundef %a, i32 noundef %trials, ptr noundef %result) local_unnamed_addr #10 {
 entry:
   %d.i = alloca i64, align 8
   %cmp = icmp eq ptr %a, null
@@ -13125,7 +13125,7 @@ do.end49:                                         ; preds = %if.end40.thread, %i
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @_sp_prime_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef %result) unnamed_addr #4 {
+define internal fastcc i32 @_sp_prime_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef %result) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %add = add i32 %0, 1
@@ -13211,7 +13211,7 @@ do.end107:                                        ; preds = %for.cond.preheader.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sp_prime_is_prime_ex(ptr noundef %a, i32 noundef %trials, ptr noundef writeonly %result, ptr noundef %rng) local_unnamed_addr #13 {
+define i32 @sp_prime_is_prime_ex(ptr noundef %a, i32 noundef %trials, ptr noundef writeonly %result, ptr noundef %rng) local_unnamed_addr #12 {
 entry:
   %d.i = alloca i64, align 8
   %ret = alloca i32, align 4
@@ -13378,7 +13378,7 @@ do.end54:                                         ; preds = %if.then51, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_sp_prime_random_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef %result, ptr noundef %rng) unnamed_addr #13 {
+define internal fastcc i32 @_sp_prime_random_trials(ptr noundef %a, i32 noundef %trials, ptr nocapture noundef %result, ptr noundef %rng) unnamed_addr #12 {
 land.lhs.true.i:
   %.pr.pre = load i32, ptr %a, align 8
   %cmp1.not.i = icmp eq i32 %.pr.pre, 0
@@ -13579,7 +13579,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %_sp_sub_d.exit
 
 while.body.lr.ph:                                 ; preds = %lor.lhs.false186, %while.body.lr.ph.lr.ph
   %trials.addr.0.ph265 = phi i32 [ %trials, %while.body.lr.ph.lr.ph ], [ %dec191, %lor.lhs.false186 ]
-  %call139.us.us260 = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %dp.i.i67, i32 noundef %div63) #21
+  %call139.us.us260 = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %dp.i.i67, i32 noundef %div63) #19
   %cmp140.not.us.us261 = icmp eq i32 %call139.us.us260, 0
   br i1 %cmp146.not, label %while.body.lr.ph.split.us.split.us, label %while.body.lr.ph.split.split.us
 
@@ -13635,7 +13635,7 @@ if.else14.i.i.us.us:                              ; preds = %for.body.i.i.us.us
   br i1 %cmp21.i.i.us.us, label %if.end182, label %for.cond.i.i.us.us, !llvm.loop !11
 
 if.then181.us.us:                                 ; preds = %for.cond.i.i.us.us, %for.body.i.i.us.us, %lor.lhs.false.us.us, %if.else9.i.us.us, %if.else3.i.us.us
-  %call139.us.us = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %dp.i.i67, i32 noundef %div63) #21
+  %call139.us.us = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %dp.i.i67, i32 noundef %div63) #19
   %cmp140.not.us.us = icmp eq i32 %call139.us.us, 0
   br i1 %cmp140.not.us.us, label %if.end143.us.us, label %if.then.i82
 
@@ -13717,7 +13717,7 @@ if.else14.i.i.us248:                              ; preds = %for.body.i.i.us243
   br i1 %cmp21.i.i.us249, label %if.end182, label %for.cond.i.i.us239, !llvm.loop !11
 
 if.then181.us250:                                 ; preds = %for.cond.i.i.us239, %for.body.i.i.us243, %lor.lhs.false.us234, %if.else9.i.us232, %if.else3.i.us230
-  %call139.us226 = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %dp.i.i67, i32 noundef %div63) #21
+  %call139.us226 = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %dp.i.i67, i32 noundef %div63) #19
   %cmp140.not.us227 = icmp eq i32 %call139.us226, 0
   br i1 %cmp140.not.us227, label %if.end143.us228, label %if.then.i82
 
@@ -13863,7 +13863,7 @@ do.end198:                                        ; preds = %for.body.i.i188, %i
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define range(i32 -3, 1) i32 @sp_gcd(ptr noundef %a, ptr noundef %b, ptr noundef %r) local_unnamed_addr #4 {
+define range(i32 -3, 1) i32 @sp_gcd(ptr noundef %a, ptr noundef %b, ptr noundef %r) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null
@@ -13926,7 +13926,7 @@ if.end43:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_gcd(ptr noundef %a, ptr noundef %b, ptr nocapture noundef writeonly %r) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_gcd(ptr noundef %a, ptr noundef %b, ptr nocapture noundef writeonly %r) unnamed_addr #10 {
 entry:
   %d = alloca [3 x ptr], align 16
   %0 = load i32, ptr %a, align 8
@@ -14166,7 +14166,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @_sp_mulmod_tmp(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) unnamed_addr #4 {
+define internal fastcc i32 @_sp_mulmod_tmp(ptr noundef %a, ptr noundef %b, ptr noundef %m, ptr noundef %r) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -14213,7 +14213,7 @@ do.end32:                                         ; preds = %entry, %if.then8.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @_sp_invmod_div(ptr noundef readonly %a, ptr nocapture noundef readonly %m, ptr noundef %x, ptr noundef %y, ptr noundef %b, ptr noundef %c, ptr noundef %inv) unnamed_addr #4 {
+define internal fastcc range(i32 -3, 1) i32 @_sp_invmod_div(ptr noundef readonly %a, ptr nocapture noundef readonly %m, ptr noundef %x, ptr noundef %y, ptr noundef %b, ptr noundef %c, ptr noundef %inv) unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %m, align 8
   %add = add i32 %0, 1
@@ -15216,15 +15216,15 @@ do.end98:                                         ; preds = %if.else54, %while.b
   ret i32 %err.5
 }
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #17
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #15
 
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #17
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #4 {
+define internal fastcc i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #10 {
 entry:
   store i32 0, ptr %result, align 4
   %cmp.i = icmp eq ptr %b, null
@@ -15629,61 +15629,59 @@ if.end33:                                         ; preds = %for.cond.i.i, %for.
   ret i32 %err.4
 }
 
-declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #17
+declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #19
+declare i64 @llvm.ctpop.i64(i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #19
+declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

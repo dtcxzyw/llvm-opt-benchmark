@@ -26,7 +26,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ucnv_fromUWriteBytes_75(ptr noundef writeonly %cnv, ptr nocapture noundef readonly %bytes, i32 noundef %length, ptr nocapture noundef %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr nocapture noundef writeonly %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %target, align 8
@@ -128,7 +128,7 @@ if.end25:                                         ; preds = %if.end24, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ucnv_toUWriteUChars_75(ptr noundef writeonly %cnv, ptr nocapture noundef readonly %uchars, i32 noundef %length, ptr nocapture noundef %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr nocapture noundef writeonly %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %target, align 8
@@ -342,7 +342,7 @@ if.end46:                                         ; preds = %if.end45, %if.end21
 }
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

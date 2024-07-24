@@ -43,28 +43,28 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %add.i.i = add i32 %mul.i.i, %v1.0.i
   %0 = tail call i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
   %mul1.i.i = mul i32 %0, -1640531535
-  %1 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i.i) #33, !srcloc !4
+  %1 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i.i) #32, !srcloc !4
   %add.ptr11.i = getelementptr inbounds i8, ptr %input.addr.0.i, i64 4
   %retval.0.i29.i = load i32, ptr %add.ptr11.i, align 1
   %mul.i30.i = mul i32 %retval.0.i29.i, -2048144777
   %add.i31.i = add i32 %mul.i30.i, %v2.0.i
   %2 = tail call i32 @llvm.fshl.i32(i32 %add.i31.i, i32 %add.i31.i, i32 13)
   %mul1.i32.i = mul i32 %2, -1640531535
-  %3 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i32.i) #33, !srcloc !4
+  %3 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i32.i) #32, !srcloc !4
   %add.ptr14.i = getelementptr inbounds i8, ptr %input.addr.0.i, i64 8
   %retval.0.i33.i = load i32, ptr %add.ptr14.i, align 1
   %mul.i34.i = mul i32 %retval.0.i33.i, -2048144777
   %add.i35.i = add i32 %mul.i34.i, %v3.0.i
   %4 = tail call i32 @llvm.fshl.i32(i32 %add.i35.i, i32 %add.i35.i, i32 13)
   %mul1.i36.i = mul i32 %4, -1640531535
-  %5 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i36.i) #33, !srcloc !4
+  %5 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i36.i) #32, !srcloc !4
   %add.ptr17.i = getelementptr inbounds i8, ptr %input.addr.0.i, i64 12
   %retval.0.i37.i = load i32, ptr %add.ptr17.i, align 1
   %mul.i38.i = mul i32 %retval.0.i37.i, -2048144777
   %add.i39.i = add i32 %mul.i38.i, %v4.0.i
   %6 = tail call i32 @llvm.fshl.i32(i32 %add.i39.i, i32 %add.i39.i, i32 13)
   %mul1.i40.i = mul i32 %6, -1640531535
-  %7 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i40.i) #33, !srcloc !4
+  %7 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i40.i) #32, !srcloc !4
   %add.ptr20.i = getelementptr inbounds i8, ptr %input.addr.0.i, i64 16
   %cmp21.i = icmp ult ptr %add.ptr20.i, %add.ptr6.i
   br i1 %cmp21.i, label %do.body.i, label %if.end26.thread.i, !llvm.loop !5
@@ -153,14 +153,14 @@ _ZL18XXH32_endian_alignPKhmj13XXH_alignment.exit: ; preds = %do.body9.i.i, %whil
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @ROCKSDB_XXH32_createState() local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias noundef dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #34
+  %call.i = tail call noalias noundef dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #33
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i32 @ROCKSDB_XXH32_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
 entry:
-  tail call void @free(ptr noundef %statePtr) #33
+  tail call void @free(ptr noundef %statePtr) #32
   ret i32 0
 }
 
@@ -252,7 +252,7 @@ if.then21:                                        ; preds = %if.end19
   %add.i = add i32 %mul.i, %4
   %5 = tail call i32 @llvm.fshl.i32(i32 %add.i, i32 %add.i, i32 13)
   %mul1.i = mul i32 %5, -1640531535
-  %6 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i) #33, !srcloc !4
+  %6 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i) #32, !srcloc !4
   store i32 %6, ptr %v, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %state, i64 28
   %arrayidx37 = getelementptr inbounds i8, ptr %state, i64 12
@@ -262,7 +262,7 @@ if.then21:                                        ; preds = %if.end19
   %add.i68 = add i32 %mul.i67, %7
   %8 = tail call i32 @llvm.fshl.i32(i32 %add.i68, i32 %add.i68, i32 13)
   %mul1.i69 = mul i32 %8, -1640531535
-  %9 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i69) #33, !srcloc !4
+  %9 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i69) #32, !srcloc !4
   store i32 %9, ptr %arrayidx37, align 4
   %incdec.ptr42 = getelementptr inbounds i8, ptr %state, i64 32
   %arrayidx44 = getelementptr inbounds i8, ptr %state, i64 16
@@ -272,7 +272,7 @@ if.then21:                                        ; preds = %if.end19
   %add.i71 = add i32 %mul.i70, %10
   %11 = tail call i32 @llvm.fshl.i32(i32 %add.i71, i32 %add.i71, i32 13)
   %mul1.i72 = mul i32 %11, -1640531535
-  %12 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i72) #33, !srcloc !4
+  %12 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i72) #32, !srcloc !4
   store i32 %12, ptr %arrayidx44, align 4
   %incdec.ptr49 = getelementptr inbounds i8, ptr %state, i64 36
   %arrayidx51 = getelementptr inbounds i8, ptr %state, i64 20
@@ -282,7 +282,7 @@ if.then21:                                        ; preds = %if.end19
   %add.i74 = add i32 %mul.i73, %13
   %14 = tail call i32 @llvm.fshl.i32(i32 %add.i74, i32 %add.i74, i32 13)
   %mul1.i75 = mul i32 %14, -1640531535
-  %15 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i75) #33, !srcloc !4
+  %15 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i75) #32, !srcloc !4
   store i32 %15, ptr %arrayidx51, align 4
   %16 = load i32, ptr %memsize, align 4
   %sub57 = sub i32 16, %16
@@ -312,7 +312,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add.i77 = add i32 %mul.i76, %17
   %18 = tail call i32 @llvm.fshl.i32(i32 %add.i77, i32 %add.i77, i32 13)
   %mul1.i78 = mul i32 %18, -1640531535
-  %19 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i78) #33, !srcloc !4
+  %19 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i78) #32, !srcloc !4
   store i32 %19, ptr %v66, align 4
   %add.ptr72 = getelementptr inbounds i8, ptr %p.1, i64 4
   %20 = load i32, ptr %arrayidx74, align 4
@@ -321,7 +321,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add.i80 = add i32 %mul.i79, %20
   %21 = tail call i32 @llvm.fshl.i32(i32 %add.i80, i32 %add.i80, i32 13)
   %mul1.i81 = mul i32 %21, -1640531535
-  %22 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i81) #33, !srcloc !4
+  %22 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i81) #32, !srcloc !4
   store i32 %22, ptr %arrayidx74, align 4
   %add.ptr79 = getelementptr inbounds i8, ptr %p.1, i64 8
   %23 = load i32, ptr %arrayidx81, align 4
@@ -330,7 +330,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add.i83 = add i32 %mul.i82, %23
   %24 = tail call i32 @llvm.fshl.i32(i32 %add.i83, i32 %add.i83, i32 13)
   %mul1.i84 = mul i32 %24, -1640531535
-  %25 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i84) #33, !srcloc !4
+  %25 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i84) #32, !srcloc !4
   store i32 %25, ptr %arrayidx81, align 4
   %add.ptr86 = getelementptr inbounds i8, ptr %p.1, i64 12
   %26 = load i32, ptr %arrayidx88, align 4
@@ -339,7 +339,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add.i86 = add i32 %mul.i85, %26
   %27 = tail call i32 @llvm.fshl.i32(i32 %add.i86, i32 %add.i86, i32 13)
   %mul1.i87 = mul i32 %27, -1640531535
-  %28 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i87) #33, !srcloc !4
+  %28 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i87) #32, !srcloc !4
   store i32 %28, ptr %arrayidx88, align 4
   %add.ptr93 = getelementptr inbounds i8, ptr %p.1, i64 16
   %cmp94.not = icmp ugt ptr %add.ptr93, %add.ptr62
@@ -364,7 +364,7 @@ return:                                           ; preds = %if.end95, %if.then9
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ROCKSDB_XXH32_digest(ptr nocapture noundef readonly %state) local_unnamed_addr #8 {
 entry:
   %large_len = getelementptr inbounds i8, ptr %state, i64 4
@@ -458,14 +458,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ROCKSDB_XXH32_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #11 {
+define noundef i32 @ROCKSDB_XXH32_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #8 {
 entry:
   %src.val = load i32, ptr %src, align 1
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src.val)
   ret i32 %or7.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ROCKSDB_XXH64(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %input, null
@@ -642,14 +642,14 @@ _ZL18XXH64_endian_alignPKhmm13XXH_alignment.exit: ; preds = %while.body18.i.i, %
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @ROCKSDB_XXH64_createState() local_unnamed_addr #2 {
 entry:
-  %call.i = tail call noalias noundef dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #34
+  %call.i = tail call noalias noundef dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #33
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef i32 @ROCKSDB_XXH64_freeState(ptr nocapture noundef %statePtr) local_unnamed_addr #3 {
 entry:
-  tail call void @free(ptr noundef %statePtr) #33
+  tail call void @free(ptr noundef %statePtr) #32
   ret i32 0
 }
 
@@ -680,8 +680,8 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @ROCKSDB_XXH64_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #12 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
+define noundef i32 @ROCKSDB_XXH64_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %input, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -812,7 +812,7 @@ return:                                           ; preds = %if.end96, %if.then9
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ROCKSDB_XXH64_digest(ptr nocapture noundef readonly %state) local_unnamed_addr #8 {
 entry:
   %0 = load i64, ptr %state, align 8
@@ -958,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @ROCKSDB_XXH64_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #11 {
+define noundef i64 @ROCKSDB_XXH64_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #8 {
 entry:
   %src.val = load i64, ptr %src, align 1
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %src.val)
@@ -968,7 +968,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef i64 @ROCKSDB_XXH3_64bits(ptr nocapture noundef %input, i64 noundef %length) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm) #33
+  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm) #32
   ret i64 %call
 }
 
@@ -1380,7 +1380,7 @@ for.body26.i:                                     ; preds = %for.body26.i, %for.
   %indvars.iv68.i = phi i64 [ 8, %for.body26.preheader.i ], [ %indvars.iv.next69.i, %for.body26.i ]
   %acc.163.i = phi i64 [ %xor.i5.i.i52, %for.body26.preheader.i ], [ %29, %for.body26.i ]
   %acc_end.062.i = phi i64 [ %xor.i.i42.i, %for.body26.preheader.i ], [ %add35.i, %for.body26.i ]
-  %29 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %acc.163.i) #33, !srcloc !15
+  %29 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %acc.163.i) #32, !srcloc !15
   %30 = shl nuw nsw i64 %indvars.iv68.i, 4
   %add.ptr29.i53 = getelementptr inbounds i8, ptr %input, i64 %30
   %31 = getelementptr i8, ptr %secret, i64 %30
@@ -1427,7 +1427,7 @@ return:                                           ; preds = %if.end10.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define internal noundef i64 @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture readnone %secret, i64 %secretLen) #13 {
+define internal noundef i64 @_ZL25XXH3_hashLong_64b_defaultPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture readnone %secret, i64 %secretLen) #12 {
 entry:
   %acc.i = alloca [8 x i64], align 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i)
@@ -1571,12 +1571,12 @@ _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %f
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef i64 @ROCKSDB_XXH3_64bits_withSecret(ptr nocapture noundef %input, i64 noundef %length, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef 0, ptr noundef %secret, i64 noundef %secretSize, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #33
+  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef 0, ptr noundef %secret, i64 noundef %secretSize, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #32
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i64 @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture noundef readonly %secret, i64 noundef %secretLen) #14 {
+define internal noundef i64 @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture noundef readonly %secret, i64 noundef %secretLen) #13 {
 entry:
   %acc.i = alloca [8 x i64], align 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i)
@@ -1733,12 +1733,12 @@ _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit: ; preds = %f
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef i64 @ROCKSDB_XXH3_64bits_withSeed(ptr nocapture noundef %input, i64 noundef %length, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #33
+  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #32
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i64 @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed, ptr nocapture readnone %secret, i64 %secretLen) #14 {
+define internal noundef i64 @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed, ptr nocapture readnone %secret, i64 %secretLen) #13 {
 entry:
   %acc.i7.i = alloca [8 x i64], align 64
   %acc.i.i = alloca [8 x i64], align 64
@@ -2051,14 +2051,14 @@ _ZL35XXH3_hashLong_64b_withSeed_internalPKvmmPFvPmPKhS3_mEPFvPvS0_EPFvS6_mE.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i64 @ROCKSDB_XXH3_64bits_withSecretandSeed(ptr nocapture noundef %input, i64 noundef %length, ptr nocapture noundef readonly %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #15 {
+define i64 @ROCKSDB_XXH3_64bits_withSecretandSeed(ptr nocapture noundef %input, i64 noundef %length, ptr nocapture noundef readonly %secret, i64 noundef %secretSize, i64 noundef %seed) local_unnamed_addr #14 {
 entry:
   %acc.i.i = alloca [8 x i64], align 64
   %cmp = icmp ult i64 %length, 241
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef null) #33
+  %call = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef %input, i64 noundef %length, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef null) #32
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2216,9 +2216,9 @@ return:                                           ; preds = %_ZL28XXH3_hashLong_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias ptr @ROCKSDB_XXH3_createState() local_unnamed_addr #16 {
+define noalias ptr @ROCKSDB_XXH3_createState() local_unnamed_addr #15 {
 entry:
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(640) ptr @malloc(i64 noundef 640) #34
+  %call.i.i = tail call noalias noundef dereferenceable_or_null(640) ptr @malloc(i64 noundef 640) #33
   %cmp11.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp11.not.i, label %return, label %if.end
 
@@ -2255,7 +2255,7 @@ if.then.i:                                        ; preds = %entry
   %idx.ext.i = zext i8 %0 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 %idx.neg.i
-  tail call void @free(ptr noundef %add.ptr.i) #33
+  tail call void @free(ptr noundef %add.ptr.i) #32
   br label %_ZL15XXH_alignedFreePv.exit
 
 _ZL15XXH_alignedFreePv.exit:                      ; preds = %entry, %if.then.i
@@ -2330,7 +2330,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #16 {
 entry:
   %cmp = icmp eq ptr %statePtr, null
   br i1 %cmp, label %return, label %if.end
@@ -2445,15 +2445,15 @@ return:                                           ; preds = %entry, %if.end6
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #17 {
 entry:
   tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len) unnamed_addr #19 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define internal fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len) unnamed_addr #18 {
 entry:
   %cmp = icmp eq ptr %input, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -2983,7 +2983,7 @@ entry:
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #33
+  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #32
   %add.ptr = getelementptr inbounds i8, ptr %cond, i64 11
   %mul = mul i64 %1, -7046029288634856825
   br label %for.body.i
@@ -3028,14 +3028,14 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   %seed = getelementptr inbounds i8, ptr %state, i64 552
   %10 = load i64, ptr %seed, align 8
-  %call.i = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef %10, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #33
+  %call.i = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef %10, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #32
   br label %return
 
 if.end10:                                         ; preds = %if.end
   %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %11 = load i64, ptr %secretLimit, align 32
   %add = add i64 %11, 64
-  %call.i16 = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #33
+  %call.i16 = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #32
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then6, %_ZL14XXH3_mergeAccsPKmPKhm.exit
@@ -3044,7 +3044,7 @@ return:                                           ; preds = %if.end10, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef %acc, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %secret) unnamed_addr #14 {
+define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef %acc, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %secret) unnamed_addr #13 {
 entry:
   %lastStripe = alloca [64 x i8], align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %acc, ptr noundef nonnull readonly align 1 dereferenceable(64) %state, i64 64, i1 false)
@@ -3241,7 +3241,7 @@ if.end35:                                         ; preds = %if.else, %_ZL19XXH3
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m) #33
+  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m) #32
   ret { i64, i64 } %call
 }
 
@@ -3897,21 +3897,21 @@ return:                                           ; preds = %if.end11, %_ZL22XXH
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define internal { i64, i64 } @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture readnone %secret, i64 %secretLen) #20 {
+define internal { i64, i64 } @_ZL26XXH3_hashLong_128b_defaultPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture readnone %secret, i64 %secretLen) #19 {
 entry:
-  %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192) #33
+  %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192) #32
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define { i64, i64 } @ROCKSDB_XXH3_128bits_withSecret(ptr nocapture noundef %input, i64 noundef %len, ptr nocapture noundef %secret, i64 noundef %secretSize) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef 0, ptr noundef %secret, i64 noundef %secretSize, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #33
+  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef 0, ptr noundef %secret, i64 noundef %secretSize, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #32
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal { i64, i64 } @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture noundef readonly %secret, i64 noundef %secretLen) #21 {
+define internal { i64, i64 } @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 %seed64, ptr nocapture noundef readonly %secret, i64 noundef %secretLen) #20 {
 entry:
   %call = tail call fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr noundef %input, i64 noundef %len, ptr noundef %secret, i64 noundef %secretLen)
   ret { i64, i64 } %call
@@ -3920,12 +3920,12 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #33
+  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal { i64, i64 } @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed64, ptr nocapture readnone %secret, i64 %secretLen) #14 {
+define internal { i64, i64 } @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m(ptr nocapture noundef readonly %input, i64 noundef %len, i64 noundef %seed64, ptr nocapture readnone %secret, i64 %secretLen) #13 {
 entry:
   %secret.i = alloca [192 x i8], align 64
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %secret.i)
@@ -3971,7 +3971,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef null) #33
+  %call = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef null) #32
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3986,7 +3986,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define { i64, i64 } @ROCKSDB_XXH128(ptr nocapture noundef %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #33
+  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   ret { i64, i64 } %call.i
 }
 
@@ -4051,7 +4051,7 @@ ROCKSDB_XXH3_64bits_reset_withSecret.exit:        ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSeed(ptr nocapture noundef %statePtr, i64 noundef %seed) local_unnamed_addr #16 {
 entry:
   %cmp.i = icmp eq ptr %statePtr, null
   br i1 %cmp.i, label %ROCKSDB_XXH3_64bits_reset_withSeed.exit, label %if.end.i
@@ -4166,8 +4166,8 @@ ROCKSDB_XXH3_64bits_reset_withSecretandSeed.exit: ; preds = %entry, %if.end6.i
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr nocapture noundef %state, ptr nocapture noundef %input, i64 noundef %len) local_unnamed_addr #17 {
 entry:
   tail call fastcc void @_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE(ptr noundef %state, ptr noundef %input, i64 noundef %len)
   ret i32 0
@@ -4188,7 +4188,7 @@ entry:
   br i1 %cmp2, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #33
+  call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #32
   %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %2 = load i64, ptr %secretLimit, align 32
   %3 = add i64 %2, -11
@@ -4270,7 +4270,7 @@ if.end17:                                         ; preds = %entry
   br i1 %tobool.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.end17
-  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef %18, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #33
+  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef %18, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   %19 = extractvalue { i64, i64 } %call.i, 0
   %20 = extractvalue { i64, i64 } %call.i, 1
   br label %return
@@ -4279,7 +4279,7 @@ if.end23:                                         ; preds = %if.end17
   %secretLimit27 = getelementptr inbounds i8, ptr %state, i64 544
   %21 = load i64, ptr %secretLimit27, align 32
   %add28 = add i64 %21, 64
-  %call.i48 = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add28, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #33
+  %call.i48 = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add28, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #32
   %22 = extractvalue { i64, i64 } %call.i48, 0
   %23 = extractvalue { i64, i64 } %call.i48, 1
   br label %return
@@ -4293,7 +4293,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH128_isEqual(i64 %h1.coerce0, i64 %h1.coerce1, i64 %h2.coerce0, i64 %h2.coerce1) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH128_isEqual(i64 %h1.coerce0, i64 %h1.coerce1, i64 %h2.coerce0, i64 %h2.coerce1) local_unnamed_addr #21 {
 entry:
   %h1 = alloca %struct.XXH128_hash_t, align 8
   %h2 = alloca %struct.XXH128_hash_t, align 8
@@ -4310,7 +4310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ROCKSDB_XXH128_cmp(ptr nocapture noundef readonly %h128_1, ptr nocapture noundef readonly %h128_2) local_unnamed_addr #11 {
+define range(i32 -1, 2) i32 @ROCKSDB_XXH128_cmp(ptr nocapture noundef readonly %h128_1, ptr nocapture noundef readonly %h128_2) local_unnamed_addr #8 {
 entry:
   %h1.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %h128_1, i64 8
   %h1.sroa.3.0.copyload = load i64, ptr %h1.sroa.3.0..sroa_idx, align 8
@@ -4340,7 +4340,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #23
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ROCKSDB_XXH128_canonicalFromHash(ptr nocapture noundef writeonly %dst, i64 %hash.coerce0, i64 %hash.coerce1) local_unnamed_addr #10 {
@@ -4354,7 +4354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @ROCKSDB_XXH128_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #11 {
+define { i64, i64 } @ROCKSDB_XXH128_hashFromCanonical(ptr nocapture noundef readonly %src) local_unnamed_addr #8 {
 entry:
   %src.val = load i64, ptr %src, align 1
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %src.val)
@@ -4367,7 +4367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @ROCKSDB_XXH3_generateSecret(ptr nocapture noundef %secretBuffer, i64 noundef %secretSize, ptr nocapture noundef %customSeed, i64 noundef %customSeedSize) local_unnamed_addr #24 {
+define range(i32 0, 2) i32 @ROCKSDB_XXH3_generateSecret(ptr nocapture noundef %secretBuffer, i64 noundef %secretSize, ptr nocapture noundef %customSeed, i64 noundef %customSeedSize) local_unnamed_addr #23 {
 entry:
   %cmp = icmp eq ptr %secretBuffer, null
   %cmp1 = icmp ult i64 %secretSize, 136
@@ -4393,7 +4393,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
 
 while.end:                                        ; preds = %while.body
   %div22 = lshr i64 %secretSize, 4
-  %call.i.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %spec.select23, i64 noundef %spec.select, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #33
+  %call.i.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %spec.select23, i64 noundef %spec.select, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   %0 = extractvalue { i64, i64 } %call.i.i, 0
   %1 = extractvalue { i64, i64 } %call.i.i, 1
   %or19.i2.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
@@ -4462,7 +4462,7 @@ return:                                           ; preds = %if.end3, %entry, %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr nocapture noundef writeonly %secretBuffer, i64 noundef %seed) local_unnamed_addr #17 {
+define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr nocapture noundef writeonly %secretBuffer, i64 noundef %seed) local_unnamed_addr #16 {
 entry:
   %secret = alloca [192 x i8], align 64
   %vecinit.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
@@ -4490,19 +4490,19 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit:        ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #25
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #26
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #27
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #28
+declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #27
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr nocapture noundef readonly %input, i64 noundef %len, ptr nocapture noundef readonly %secret, i64 noundef %secretSize) unnamed_addr #14 {
+define internal fastcc { i64, i64 } @_ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E(ptr nocapture noundef readonly %input, i64 noundef %len, ptr nocapture noundef readonly %secret, i64 noundef %secretSize) unnamed_addr #13 {
 entry:
   %acc = alloca [8 x i64], align 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %acc, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
@@ -4690,37 +4690,37 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit40:                ; preds = %for.body.i13
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #29
+declare void @llvm.assume(i1 noundef) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #30
+declare i32 @llvm.bswap.i32(i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #30
+declare i64 @llvm.bswap.i64(i64) #29
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #30
+declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #30
+declare i32 @llvm.umax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #30
+declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #30
+declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.fshl.v4i64(<4 x i64>, <4 x i64>, <4 x i64>) #30
+declare <4 x i64> @llvm.fshl.v4i64(<4 x i64>, <4 x i64>, <4 x i64>) #29
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -4730,33 +4730,32 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #25 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #26 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #31 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #32 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #33 = { nounwind }
-attributes #34 = { nounwind allocsize(0) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #21 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #25 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #31 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #32 = { nounwind }
+attributes #33 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

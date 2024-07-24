@@ -743,7 +743,7 @@ entry:
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_Z18bcdec__color_blockPKvPvii(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch, i32 noundef %onlyOpaqueMode) local_unnamed_addr #5 {
 entry:
   %refColors = alloca [4 x i32], align 16
@@ -903,7 +903,7 @@ for.end106:                                       ; preds = %for.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_Z24bcdec__sharp_alpha_blockPKvPvi(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #5 {
 entry:
   %idx.ext = sext i32 %destinationPitch to i64
@@ -941,7 +941,7 @@ for.end11:                                        ; preds = %for.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch, i32 noundef %pixelSize) local_unnamed_addr #5 {
 entry:
   %alpha = alloca [8 x i8], align 1
@@ -1115,7 +1115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami(ptr nocapture noundef %bstream, i32 noundef %numBits) local_unnamed_addr #7 {
+define hidden noundef i32 @_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami(ptr nocapture noundef %bstream, i32 noundef %numBits) local_unnamed_addr #5 {
 entry:
   %notmask.i = shl nsw i32 -1, %numBits
   %sub.i = xor i32 %notmask.i, -1
@@ -1158,14 +1158,14 @@ while.end:                                        ; preds = %while.body, %entry
   ret i32 %result.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @bcdec_bc1(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #5 {
 entry:
   tail call void @_Z18bcdec__color_blockPKvPvii(ptr noundef %compressedBlock, ptr noundef %decompressedBlock, i32 noundef %destinationPitch, i32 noundef 0)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @bcdec_bc2(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #5 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %compressedBlock, i64 8
@@ -1206,7 +1206,7 @@ _Z24bcdec__sharp_alpha_blockPKvPvi.exit:          ; preds = %for.end.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @bcdec_bc3(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #5 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %compressedBlock, i64 8
@@ -1216,14 +1216,14 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @bcdec_bc4(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #5 {
 entry:
   tail call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef %compressedBlock, ptr noundef %decompressedBlock, i32 noundef %destinationPitch, i32 noundef 1)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @bcdec_bc5(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #5 {
 entry:
   tail call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef %compressedBlock, ptr noundef %decompressedBlock, i32 noundef %destinationPitch, i32 noundef 2)
@@ -1234,7 +1234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z18bcdec__extend_signii(i32 noundef %val, i32 noundef %bits) local_unnamed_addr #8 {
+define hidden noundef i32 @_Z18bcdec__extend_signii(i32 noundef %val, i32 noundef %bits) local_unnamed_addr #7 {
 entry:
   %sub = sub nsw i32 32, %bits
   %shl = shl i32 %val, %sub
@@ -1243,7 +1243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %val, i32 noundef %a0, i32 noundef %bits, i32 noundef %isSigned) local_unnamed_addr #8 {
+define hidden noundef i32 @_Z24bcdec__transform_inverseiiii(i32 noundef %val, i32 noundef %a0, i32 noundef %bits, i32 noundef %isSigned) local_unnamed_addr #7 {
 entry:
   %add = add nsw i32 %a0, %val
   %notmask = shl nsw i32 -1, %bits
@@ -1258,7 +1258,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %val, i32 noundef %bits, i32 noundef %isSigned) local_unnamed_addr #8 {
+define hidden noundef i32 @_Z17bcdec__unquantizeiii(i32 noundef %val, i32 noundef %bits, i32 noundef %isSigned) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq i32 %isSigned, 0
   br i1 %tobool.not, label %if.then, label %if.else11
@@ -1318,7 +1318,7 @@ if.end39:                                         ; preds = %if.end33, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -33554432, 33554432) i32 @_Z18bcdec__interpolateiiPii(i32 noundef %a, i32 noundef %b, ptr nocapture noundef readonly %weights, i32 noundef %index) local_unnamed_addr #9 {
+define hidden noundef range(i32 -33554432, 33554432) i32 @_Z18bcdec__interpolateiiPii(i32 noundef %a, i32 noundef %b, ptr nocapture noundef readonly %weights, i32 noundef %index) local_unnamed_addr #8 {
 entry:
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds i32, ptr %weights, i64 %idxprom
@@ -1333,7 +1333,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %val, i32 noundef %isSigned) local_unnamed_addr #8 {
+define hidden noundef zeroext i16 @_Z24bcdec__finish_unquantizeii(i32 noundef %val, i32 noundef %isSigned) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq i32 %isSigned, 0
   br i1 %tobool.not, label %if.then, label %if.else
@@ -1373,7 +1373,7 @@ return:                                           ; preds = %cond.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef float @_Z26bcdec__half_to_float_quickt(i16 noundef zeroext %half) local_unnamed_addr #8 {
+define hidden noundef float @_Z26bcdec__half_to_float_quickt(i16 noundef zeroext %half) local_unnamed_addr #7 {
 entry:
   %conv = zext i16 %half to i32
   %and = shl nuw nsw i32 %conv, 13
@@ -1407,8 +1407,8 @@ if.end6:                                          ; preds = %if.else, %if.then4,
   ret float %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @bcdec_bc6h_half(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch, i32 noundef %isSigned) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @bcdec_bc6h_half(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch, i32 noundef %isSigned) local_unnamed_addr #9 {
 entry:
   %r = alloca [4 x i32], align 16
   %g = alloca [4 x i32], align 16
@@ -3455,8 +3455,8 @@ for.end1068:                                      ; preds = %for.end1063, %for.c
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @bcdec_bc6h_float(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch, i32 noundef %isSigned) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @bcdec_bc6h_float(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch, i32 noundef %isSigned) local_unnamed_addr #9 {
 entry:
   %block = alloca [48 x i16], align 16
   call void @bcdec_bc6h_half(ptr noundef %compressedBlock, ptr noundef nonnull %block, i32 noundef 12, i32 noundef %isSigned)
@@ -3601,8 +3601,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @bcdec_bc7(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @bcdec_bc7(ptr nocapture noundef readonly %compressedBlock, ptr nocapture noundef writeonly %decompressedBlock, i32 noundef %destinationPitch) local_unnamed_addr #9 {
 entry:
   %endpoints = alloca [6 x [4 x i32]], align 16
   %indices = alloca [4 x [4 x i8]], align 16
@@ -4342,7 +4342,7 @@ for.end515:                                       ; preds = %for.end510.split, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN18OpenImageIO_v2_6_024dds_input_imageio_createEv() local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN18OpenImageIO_v2_6_024dds_input_imageio_createEv() local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN18OpenImageIO_v2_6_010ImageInputnwEm(i64 noundef 448)
   invoke void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %call)
@@ -4401,20 +4401,20 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZN18OpenImageIO_v2_6_027dds_imageio_library_versionEv() local_unnamed_addr #8 {
+define noalias noundef ptr @_ZN18OpenImageIO_v2_6_027dds_imageio_library_versionEv() local_unnamed_addr #7 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput18validate_signatureEj(i32 noundef %signature) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput18validate_signatureEj(i32 noundef %signature) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq i32 %signature, 542327876
   ret i1 %cmp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08DDSInput10valid_fileEPNS_10Filesystem7IOProxyE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %ioproxy) unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08DDSInput10valid_fileEPNS_10Filesystem7IOProxyE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %ioproxy) unnamed_addr #10 align 2 {
 entry:
   %magic = alloca i32, align 4
   %tobool.not = icmp eq ptr %ioproxy, null
@@ -4446,7 +4446,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_010ImageInput28ioproxy_retrieve_from_configERKNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(160) %config)
   %call = tail call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec)
@@ -4456,7 +4456,7 @@ entry:
 declare void @_ZN18OpenImageIO_v2_6_010ImageInput28ioproxy_retrieve_from_configERKNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp153 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -4901,7 +4901,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioseekEli(ptr no
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput6ioreadEPvmm(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK18OpenImageIO_v2_6_010ImageInput6errorfIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %fmt) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK18OpenImageIO_v2_6_010ImageInput6errorfIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %fmt) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i = alloca %"class.fmt::v8::format_arg_store", align 16
@@ -4936,7 +4936,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN18OpenImageIO_v2_6_017get_int_attributeENS_17basic_string_viewIcSt11char_traitsIcEEEi(ptr noundef %name, i32 noundef %defaultval) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden noundef i32 @_ZN18OpenImageIO_v2_6_017get_int_attributeENS_17basic_string_viewIcSt11char_traitsIcEEEi(ptr noundef %name, i32 noundef %defaultval) local_unnamed_addr #10 comdat {
 entry:
   %val = alloca i32, align 4
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -5014,7 +5014,7 @@ return:                                           ; preds = %for.inc11, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput13seek_subimageEii(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %subimage, i32 noundef %miplevel) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput13seek_subimageEii(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %subimage, i32 noundef %miplevel) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca i32, align 4
   %h = alloca i32, align 4
@@ -5651,7 +5651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(160) ptr @_ZN18OpenImageIO_v2_6_09ImageSpecaSERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(160) ptr @_ZN18OpenImageIO_v2_6_09ImageSpecaSERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #10 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
   %channelformats = getelementptr inbounds i8, ptr %this, i64 72
@@ -5670,7 +5670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_08DDSInput22internal_seek_subimageEiiRjS1_S1_(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %cubeface, i32 noundef %miplevel, ptr nocapture noundef nonnull align 4 dereferenceable(4) %w, ptr nocapture noundef nonnull align 4 dereferenceable(4) %h, ptr nocapture noundef nonnull align 4 dereferenceable(4) %d) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_08DDSInput22internal_seek_subimageEiiRjS1_S1_(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %cubeface, i32 noundef %miplevel, ptr nocapture noundef nonnull align 4 dereferenceable(4) %w, ptr nocapture noundef nonnull align 4 dereferenceable(4) %h, ptr nocapture noundef nonnull align 4 dereferenceable(4) %d) local_unnamed_addr #10 align 2 {
 entry:
   %flags2 = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load i32, ptr %flags2, align 8
@@ -5838,7 +5838,7 @@ return:                                           ; preds = %for.end66, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNK18OpenImageIO_v2_6_08DDSInput16current_subimageEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZNK18OpenImageIO_v2_6_08DDSInput16current_subimageEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK18OpenImageIO_v2_6_010ImageInput4lockEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %m_subimage = getelementptr inbounds i8, ptr %this, i64 240
@@ -5858,7 +5858,7 @@ _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNK18OpenImageIO_v2_6_08DDSInput16current_miplevelEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZNK18OpenImageIO_v2_6_08DDSInput16current_miplevelEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK18OpenImageIO_v2_6_010ImageInput4lockEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %m_miplevel = getelementptr inbounds i8, ptr %this, i64 244
@@ -5987,7 +5987,7 @@ _ZN18OpenImageIO_v2_6_014ParamValueListaSEOS0_.exit: ; preds = %invoke.cont.i.i.
 declare void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK18OpenImageIO_v2_6_010ImageInput8errorfmtIJjEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %fmt, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK18OpenImageIO_v2_6_010ImageInput8errorfmtIJjEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %fmt, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.141", align 16
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -6019,7 +6019,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEEj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %name, i32 noundef %value) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEEj(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %name, i32 noundef %value) local_unnamed_addr #10 comdat align 2 {
 entry:
   %value.addr = alloca i32, align 4
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -6047,7 +6047,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %__a)
@@ -6089,7 +6089,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput16internal_readimgEPhiii(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %dst, i32 noundef %w, i32 noundef %h, i32 noundef %d) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput16internal_readimgEPhiii(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %dst, i32 noundef %w, i32 noundef %h, i32 noundef %d) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rgba.addr.i = alloca ptr, align 8
   %width.addr.i = alloca i32, align 4
@@ -6625,15 +6625,15 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIA
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 
 declare noundef i32 @_ZNK18OpenImageIO_v2_6_010ImageInput7threadsEv(ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput17readimg_scanlinesEv(ptr noundef nonnull align 8 dereferenceable(448) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput17readimg_scanlinesEv(ptr noundef nonnull align 8 dereferenceable(448) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_buf = getelementptr inbounds i8, ptr %this, i64 216
   %m_spec = getelementptr inbounds i8, ptr %this, i64 8
@@ -6657,7 +6657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -6768,7 +6768,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 declare noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec14scanline_bytesEb(ptr noundef nonnull align 8 dereferenceable(160), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput13readimg_tilesEv(ptr noundef nonnull align 8 dereferenceable(448) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput13readimg_tilesEv(ptr noundef nonnull align 8 dereferenceable(448) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_buf = getelementptr inbounds i8, ptr %this, i64 216
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 224
@@ -6803,10 +6803,10 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec10tile_bytesEb(ptr noundef nonnull align 8 dereferenceable(160), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput5closeEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput5closeEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_subimage.i = getelementptr inbounds i8, ptr %this, i64 240
   store i32 -1, ptr %m_subimage.i, align 8
@@ -6829,7 +6829,7 @@ _ZN18OpenImageIO_v2_6_08DDSInput4initEv.exit:     ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput20read_native_scanlineEiiiiPv(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %subimage, i32 noundef %miplevel, i32 noundef %y, i32 noundef %z, ptr nocapture noundef writeonly %data) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput20read_native_scanlineEiiiiPv(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %subimage, i32 noundef %miplevel, i32 noundef %y, i32 noundef %z, ptr nocapture noundef writeonly %data) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK18OpenImageIO_v2_6_010ImageInput4lockEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %call = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput13seek_subimageEii(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %subimage, i32 noundef %miplevel)
@@ -6925,7 +6925,7 @@ _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit6: ; preds = %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput16read_native_tileEiiiiiPv(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %subimage, i32 noundef %miplevel, i32 noundef %x, i32 noundef %y, i32 noundef %z, ptr nocapture noundef writeonly %data) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput16read_native_tileEiiiiiPv(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %subimage, i32 noundef %miplevel, i32 noundef %x, i32 noundef %y, i32 noundef %z, ptr nocapture noundef writeonly %data) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w = alloca i32, align 4
   %h = alloca i32, align 4
@@ -7059,7 +7059,7 @@ _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit13: ; preds = %c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -7162,7 +7162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNK18OpenImageIO_v2_6_08DDSInput8supportsENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %feature) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZNK18OpenImageIO_v2_6_08DDSInput8supportsENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %feature) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_len.i.i = getelementptr inbounds i8, ptr %feature, i64 8
   %0 = load i64, ptr %m_len.i.i, align 8
@@ -7234,7 +7234,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZN18OpenImageIO_v2_6_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(184)) unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
   tail call void @_ZSt9terminatev() #28
   unreachable
@@ -7247,10 +7247,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012getattributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %__x, %this
   br i1 %cmp.not, label %if.end75, label %if.then
@@ -7419,7 +7419,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %__x, %this
   br i1 %cmp.not, label %if.end75, label %if.then
@@ -7623,16 +7623,16 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #18
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #17
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEEEPS5_mT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEEEPS5_mT_SF_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i = icmp eq i64 %__n, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %cond.true.i
@@ -7750,7 +7750,7 @@ unreachable:                                      ; preds = %invoke.cont9
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_010ParamValueESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_010ParamValueESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %agg.tmp2.i.i.i.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -7963,7 +7963,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_010ParamValueESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_010ParamValueESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %agg.tmp2.i.i.i.i.i.i = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -8068,7 +8068,7 @@ declare void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_view
 declare void @_ZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS_6paroptE(i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef byval(%"class.OpenImageIO_v2_6_0::paropt") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS1_7DDS_pvt11CompressionERKNS5_13dds_pixformatEiE3$_0E9_M_invokeERKSt9_Any_dataOlSF_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #10 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS1_7DDS_pvt11CompressionERKNS5_13dds_pixformatEiE3$_0E9_M_invokeERKSt9_Any_dataOlSF_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #18 align 2 {
 entry:
   %rgbai.i.i.i = alloca [64 x i8], align 16
   %rgbh.i.i.i = alloca [48 x i16], align 16
@@ -8085,8 +8085,8 @@ entry:
   %1 = load i32, ptr %0, align 4
   %.sroa.speculated71.i.i.i = tail call i32 @llvm.smin.i32(i32 %1, i32 %mul3.i.i.i)
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 24
-  %cmp91.i.i.i = icmp slt i32 %mul.i.i.i, %.sroa.speculated71.i.i.i
-  br i1 %cmp91.i.i.i, label %for.cond7.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
+  %cmp95.i.i.i = icmp slt i32 %mul.i.i.i, %.sroa.speculated71.i.i.i
+  br i1 %cmp95.i.i.i, label %for.cond7.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 for.cond7.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 32
@@ -8119,22 +8119,24 @@ for.cond7.preheader.preheader.i.i.i:              ; preds = %for.cond7.preheader
   br label %for.cond7.preheader.i.i.i
 
 for.cond7.preheader.i.i.i:                        ; preds = %for.inc123.i.i.i, %for.cond7.preheader.preheader.i.i.i
-  %21 = phi i32 [ %9, %for.cond7.preheader.preheader.i.i.i ], [ %91, %for.inc123.i.i.i ]
-  %indvars.iv105.i.i.i = phi i64 [ %19, %for.cond7.preheader.preheader.i.i.i ], [ %indvars.iv.next106.i.i.i, %for.inc123.i.i.i ]
-  %srcBlocks.093.i.i.i = phi ptr [ %add.ptr.i.i.i, %for.cond7.preheader.preheader.i.i.i ], [ %srcBlocks.1.lcssa.i.i.i, %for.inc123.i.i.i ]
-  %cmp887.i.i.i = icmp sgt i32 %21, 0
-  br i1 %cmp887.i.i.i, label %for.body9.lr.ph.i.i.i, label %for.inc123.i.i.i
+  %21 = phi i32 [ %9, %for.cond7.preheader.preheader.i.i.i ], [ %100, %for.inc123.i.i.i ]
+  %22 = phi ptr [ %8, %for.cond7.preheader.preheader.i.i.i ], [ %101, %for.inc123.i.i.i ]
+  %indvars.iv109.i.i.i = phi i64 [ %19, %for.cond7.preheader.preheader.i.i.i ], [ %indvars.iv.next110.i.i.i, %for.inc123.i.i.i ]
+  %srcBlocks.097.i.i.i = phi ptr [ %add.ptr.i.i.i, %for.cond7.preheader.preheader.i.i.i ], [ %srcBlocks.1.lcssa.i.i.i, %for.inc123.i.i.i ]
+  %cmp891.i.i.i = icmp sgt i32 %21, 0
+  br i1 %cmp891.i.i.i, label %for.body9.lr.ph.i.i.i, label %for.inc123.i.i.i
 
 for.body9.lr.ph.i.i.i:                            ; preds = %for.cond7.preheader.i.i.i
-  %22 = trunc nsw i64 %indvars.iv105.i.i.i to i32
+  %23 = trunc nsw i64 %indvars.iv109.i.i.i to i32
   br label %for.body9.i.i.i
 
 for.body9.i.i.i:                                  ; preds = %for.inc120.i.i.i, %for.body9.lr.ph.i.i.i
-  %indvars.iv102.i.i.i = phi i64 [ 0, %for.body9.lr.ph.i.i.i ], [ %indvars.iv.next103.i.i.i, %for.inc120.i.i.i ]
-  %srcBlocks.190.i.i.i = phi ptr [ %srcBlocks.093.i.i.i, %for.body9.lr.ph.i.i.i ], [ %add.ptr24.i.i.i, %for.inc120.i.i.i ]
-  %23 = load ptr, ptr %4, align 8
-  %24 = load i32, ptr %23, align 4
-  switch i32 %24, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit" [
+  %indvars.iv106.i.i.i = phi i64 [ 0, %for.body9.lr.ph.i.i.i ], [ %indvars.iv.next107.i.i.i, %for.inc120.i.i.i ]
+  %24 = phi ptr [ %22, %for.body9.lr.ph.i.i.i ], [ %98, %for.inc120.i.i.i ]
+  %srcBlocks.194.i.i.i = phi ptr [ %srcBlocks.097.i.i.i, %for.body9.lr.ph.i.i.i ], [ %add.ptr2475119.i.i.i, %for.inc120.i.i.i ]
+  %25 = load ptr, ptr %4, align 8
+  %26 = load i32, ptr %25, align 4
+  switch i32 %26, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit" [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb10.i.i.i
     i32 3, label %sw.bb10.i.i.i
@@ -8148,31 +8150,31 @@ for.body9.i.i.i:                                  ; preds = %for.inc120.i.i.i, %
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.body9.i.i.i
-  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 0)
-  br label %sw.epilog.i.i.i
+  call void @_Z18bcdec__color_blockPKvPvii(ptr noundef readonly %srcBlocks.194.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 0)
+  br label %if.else.sink.split.i.i.i
 
 sw.bb10.i.i.i:                                    ; preds = %for.body9.i.i.i, %for.body9.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.190.i.i.i, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.194.i.i.i, i64 8
   call void @_Z18bcdec__color_blockPKvPvii(ptr noundef nonnull readonly %add.ptr.i.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 1)
   br label %for.cond1.preheader.i.i.i.i.i
 
 for.cond1.preheader.i.i.i.i.i:                    ; preds = %for.end.i.i.i.i.i, %sw.bb10.i.i.i
   %indvars.iv12.i.i.i.i.i = phi i64 [ 0, %sw.bb10.i.i.i ], [ %indvars.iv.next13.i.i.i.i.i, %for.end.i.i.i.i.i ]
   %decompressed.08.i.i.i.i.i = phi ptr [ %add.ptr1.i38.i.i.i, %sw.bb10.i.i.i ], [ %add.ptr.i.i.i.i.i, %for.end.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %srcBlocks.190.i.i.i, i64 %indvars.iv12.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %srcBlocks.194.i.i.i, i64 %indvars.iv12.i.i.i.i.i
   br label %for.body3.i.i.i.i.i
 
 for.body3.i.i.i.i.i:                              ; preds = %for.body3.i.i.i.i.i, %for.cond1.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %for.cond1.preheader.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %for.body3.i.i.i.i.i ]
-  %25 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %conv.i.i.i.i.i = zext i16 %25 to i32
-  %26 = shl nuw nsw i64 %indvars.iv.i.i.i.i.i, 2
-  %27 = trunc nuw nsw i64 %26 to i32
-  %shr.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i, %27
-  %28 = trunc i32 %shr.i.i.i.i.i to i8
-  %29 = and i8 %28, 15
-  %conv5.i.i.i.i.i = mul nuw i8 %29, 17
-  %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %decompressed.08.i.i.i.i.i, i64 %26
+  %27 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
+  %conv.i.i.i.i.i = zext i16 %27 to i32
+  %28 = shl nuw nsw i64 %indvars.iv.i.i.i.i.i, 2
+  %29 = trunc nuw nsw i64 %28 to i32
+  %shr.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i, %29
+  %30 = trunc i32 %shr.i.i.i.i.i to i8
+  %31 = and i8 %30, 15
+  %conv5.i.i.i.i.i = mul nuw i8 %31, 17
+  %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %decompressed.08.i.i.i.i.i, i64 %28
   store i8 %conv5.i.i.i.i.i, ptr %arrayidx8.i.i.i.i.i, align 1
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -8185,43 +8187,41 @@ for.end.i.i.i.i.i:                                ; preds = %for.body3.i.i.i.i.i
   br i1 %exitcond15.not.i.i.i.i.i, label %sw.epilog.i.i.i, label %for.cond1.preheader.i.i.i.i.i, !llvm.loop !8
 
 sw.bb12.i.i.i:                                    ; preds = %for.body9.i.i.i, %for.body9.i.i.i
-  %add.ptr.i37.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.190.i.i.i, i64 8
+  %add.ptr.i37.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.194.i.i.i, i64 8
   call void @_Z18bcdec__color_blockPKvPvii(ptr noundef nonnull readonly %add.ptr.i37.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16, i32 noundef 1)
-  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %add.ptr1.i38.i.i.i, i32 noundef 16, i32 noundef 4)
+  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.194.i.i.i, ptr noundef nonnull %add.ptr1.i38.i.i.i, i32 noundef 16, i32 noundef 4)
   br label %sw.epilog.i.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %for.body9.i.i.i
-  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 4, i32 noundef 1)
-  br label %sw.epilog.i.i.i
+  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.194.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 4, i32 noundef 1)
+  br label %if.else.sink.split.i.i.i
 
 sw.bb16.i.i.i:                                    ; preds = %for.body9.i.i.i
-  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 8, i32 noundef 2)
-  %add.ptr.i39.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.190.i.i.i, i64 8
+  call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef readonly %srcBlocks.194.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 8, i32 noundef 2)
+  %add.ptr.i39.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.194.i.i.i, i64 8
   call void @_Z25bcdec__smooth_alpha_blockPKvPvii(ptr noundef nonnull readonly %add.ptr.i39.i.i.i, ptr noundef nonnull %add.ptr1.i40.i.i.i, i32 noundef 8, i32 noundef 2)
-  br label %sw.epilog.i.i.i
+  br label %if.else.sink.split.i.i.i
 
 sw.bb18.i.i.i:                                    ; preds = %for.body9.i.i.i, %for.body9.i.i.i
-  %cmp20.i.i.i = icmp eq i32 %24, 9
+  %cmp20.i.i.i = icmp eq i32 %26, 9
   %conv21.i.i.i = zext i1 %cmp20.i.i.i to i32
-  call void @bcdec_bc6h_half(ptr noundef %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbh.i.i.i, i32 noundef 12, i32 noundef %conv21.i.i.i)
-  br label %sw.epilog.i.i.i
+  call void @bcdec_bc6h_half(ptr noundef %srcBlocks.194.i.i.i, ptr noundef nonnull %rgbh.i.i.i, i32 noundef 12, i32 noundef %conv21.i.i.i)
+  br label %if.else.sink.split.i.i.i
 
 sw.bb22.i.i.i:                                    ; preds = %for.body9.i.i.i
-  call void @bcdec_bc7(ptr noundef %srcBlocks.190.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16)
-  br label %sw.epilog.i.i.i
+  call void @bcdec_bc7(ptr noundef %srcBlocks.194.i.i.i, ptr noundef nonnull %rgbai.i.i.i, i32 noundef 16)
+  br label %if.else.sink.split.i.i.i
 
-sw.epilog.i.i.i:                                  ; preds = %for.end.i.i.i.i.i, %sw.bb22.i.i.i, %sw.bb18.i.i.i, %sw.bb16.i.i.i, %sw.bb14.i.i.i, %sw.bb12.i.i.i, %sw.bb.i.i.i
-  %30 = load ptr, ptr %2, align 8
-  %31 = load i64, ptr %30, align 8
-  %add.ptr24.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.190.i.i.i, i64 %31
-  %32 = load ptr, ptr %4, align 8
-  %33 = load i32, ptr %32, align 4
-  %cmp25.i.i.i = icmp eq i32 %33, 5
-  %.pre.i.i.i = load ptr, ptr %5, align 8
+sw.epilog.i.i.i:                                  ; preds = %for.end.i.i.i.i.i, %sw.bb12.i.i.i
+  %32 = load ptr, ptr %2, align 8
+  %33 = load i64, ptr %32, align 8
+  %add.ptr24.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.194.i.i.i, i64 %33
+  %cmp25.i.i.i = icmp eq i32 %26, 5
+  %.pre112.i.i.i = load ptr, ptr %5, align 8
   br i1 %cmp25.i.i.i, label %land.lhs.true.i.i.i, label %if.else.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %sw.epilog.i.i.i
-  %fourCC.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 8
+  %fourCC.i.i.i = getelementptr inbounds i8, ptr %.pre112.i.i.i, i64 8
   %34 = load i32, ptr %fourCC.i.i.i, align 4
   %cmp26.i.i.i = icmp eq i32 %34, 1111971922
   br i1 %cmp26.i.i.i, label %for.body29.i.i.i, label %if.else.i.i.i
@@ -8238,56 +8238,65 @@ for.body29.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   store i8 %36, ptr %arrayidx34.i.i.i, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond.not.i.i.i, label %if.end53.i.i.i, label %for.body29.i.i.i, !llvm.loop !81
+  br i1 %exitcond.not.i.i.i, label %for.body103.preheader.i.i.i, label %for.body29.i.i.i, !llvm.loop !81
 
-if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %sw.epilog.i.i.i
-  %flags.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 4
-  %39 = load i32, ptr %flags.i.i.i, align 4
-  %tobool.not.i.i.i = icmp sgt i32 %39, -1
+if.else.sink.split.i.i.i:                         ; preds = %sw.bb22.i.i.i, %sw.bb18.i.i.i, %sw.bb16.i.i.i, %sw.bb14.i.i.i, %sw.bb.i.i.i
+  %39 = load ptr, ptr %2, align 8
+  %40 = load i64, ptr %39, align 8
+  %add.ptr24114.i.i.i = getelementptr inbounds i8, ptr %srcBlocks.194.i.i.i, i64 %40
+  %.pre112116.i.i.i = load ptr, ptr %5, align 8
+  br label %if.else.i.i.i
+
+if.else.i.i.i:                                    ; preds = %if.else.sink.split.i.i.i, %land.lhs.true.i.i.i, %sw.epilog.i.i.i
+  %41 = phi ptr [ %.pre112.i.i.i, %land.lhs.true.i.i.i ], [ %.pre112.i.i.i, %sw.epilog.i.i.i ], [ %.pre112116.i.i.i, %if.else.sink.split.i.i.i ]
+  %add.ptr2476.i.i.i = phi ptr [ %add.ptr24.i.i.i, %land.lhs.true.i.i.i ], [ %add.ptr24.i.i.i, %sw.epilog.i.i.i ], [ %add.ptr24114.i.i.i, %if.else.sink.split.i.i.i ]
+  %flags.i.i.i = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = load i32, ptr %flags.i.i.i, align 4
+  %tobool.not.i.i.i = icmp sgt i32 %42, -1
   br i1 %tobool.not.i.i.i, label %if.end53.i.i.i, label %if.then43.i.i.i
 
 if.then43.i.i.i:                                  ; preds = %if.else.i.i.i
-  switch i32 %33, label %if.end53.i.i.i [
+  switch i32 %26, label %if.end53.i.i.i [
     i32 7, label %for.body.i.i.i.i
     i32 5, label %for.body.i41.i.i.i
   ]
 
 for.body.i.i.i.i:                                 ; preds = %if.then43.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i ], [ 15, %if.then43.i.i.i ]
-  %40 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %40
-  %41 = load i8, ptr %arrayidx.i.i.i.i, align 2
-  %42 = or disjoint i64 %40, 1
-  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %42
-  %43 = load i8, ptr %arrayidx4.i.i.i.i, align 1
-  %44 = mul nuw nsw i64 %indvars.iv.i.i.i.i, 3
-  %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %44
-  store i8 %41, ptr %arrayidx8.i.i.i.i, align 1
+  %43 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %43
+  %44 = load i8, ptr %arrayidx.i.i.i.i, align 2
+  %45 = or disjoint i64 %43, 1
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %45
+  %46 = load i8, ptr %arrayidx4.i.i.i.i, align 1
+  %47 = mul nuw nsw i64 %indvars.iv.i.i.i.i, 3
+  %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %47
+  store i8 %44, ptr %arrayidx8.i.i.i.i, align 1
   %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i.i, i64 1
-  store i8 %43, ptr %arrayidx12.i.i.i.i, align 1
-  %conv1.i.i.i.i.i = uitofp i8 %41 to float
+  store i8 %46, ptr %arrayidx12.i.i.i.i, align 1
+  %conv1.i.i.i.i.i = uitofp i8 %44 to float
   %div.i.i.i.i.i = fdiv float %conv1.i.i.i.i.i, 2.550000e+02
-  %45 = tail call float @llvm.fmuladd.f32(float %div.i.i.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %conv3.i.i.i.i.i = uitofp i8 %43 to float
+  %48 = tail call float @llvm.fmuladd.f32(float %div.i.i.i.i.i, float 2.000000e+00, float -1.000000e+00)
+  %conv3.i.i.i.i.i = uitofp i8 %46 to float
   %div4.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i, 2.550000e+02
-  %46 = tail call float @llvm.fmuladd.f32(float %div4.i.i.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %neg.i.i.i.i.i = fneg float %45
-  %47 = tail call float @llvm.fmuladd.f32(float %neg.i.i.i.i.i, float %45, float 1.000000e+00)
-  %neg5.i.i.i.i.i = fneg float %46
-  %48 = tail call float @llvm.fmuladd.f32(float %neg5.i.i.i.i.i, float %46, float %47)
-  %cmp.i.i.i.i.i = fcmp ogt float %48, 0.000000e+00
+  %49 = tail call float @llvm.fmuladd.f32(float %div4.i.i.i.i.i, float 2.000000e+00, float -1.000000e+00)
+  %neg.i.i.i.i.i = fneg float %48
+  %50 = tail call float @llvm.fmuladd.f32(float %neg.i.i.i.i.i, float %48, float 1.000000e+00)
+  %neg5.i.i.i.i.i = fneg float %49
+  %51 = tail call float @llvm.fmuladd.f32(float %neg5.i.i.i.i.i, float %49, float %50)
+  %cmp.i.i.i.i.i = fcmp ogt float %51, 0.000000e+00
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i
-  %49 = tail call float @llvm.sqrt.f32(float %48)
-  %50 = fadd float %49, 1.000000e+00
-  %51 = fmul float %50, 2.550000e+02
-  %52 = fmul float %51, 5.000000e-01
-  %53 = fptosi float %52 to i32
+  %52 = tail call float @llvm.sqrt.f32(float %51)
+  %53 = fadd float %52, 1.000000e+00
+  %54 = fmul float %53, 2.550000e+02
+  %55 = fmul float %54, 5.000000e-01
+  %56 = fptosi float %55 to i32
   br label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i
 
 _ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i
-  %nz.0.i.i.i.i.i = phi i32 [ %53, %if.then.i.i.i.i.i ], [ 127, %for.body.i.i.i.i ]
+  %nz.0.i.i.i.i.i = phi i32 [ %56, %if.then.i.i.i.i.i ], [ 127, %for.body.i.i.i.i ]
   %spec.store.select.i.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %nz.0.i.i.i.i.i, i32 0)
   %spec.store.select1.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i.i.i.i.i, i32 255)
   %conv14.i.i.i.i.i = trunc nuw i32 %spec.store.select1.i.i.i.i.i to i8
@@ -8295,45 +8304,45 @@ _ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i: ; preds = %if.then.i.i
   store i8 %conv14.i.i.i.i.i, ptr %arrayidx16.i.i.i.i, align 1
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %cmp.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %if.end53.i.i.i, label %for.body.i.i.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i.i.i, label %for.body103.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !82
 
 for.body.i41.i.i.i:                               ; preds = %if.then43.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i
   %indvars.iv.i42.i.i.i = phi i64 [ %indvars.iv.next.i60.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i ], [ 0, %if.then43.i.i.i ]
-  %54 = shl nuw nsw i64 %indvars.iv.i42.i.i.i, 2
-  %55 = or disjoint i64 %54, 3
-  %arrayidx.i43.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %55
-  %56 = load i8, ptr %arrayidx.i43.i.i.i, align 1
-  %57 = or disjoint i64 %54, 1
-  %arrayidx4.i44.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %57
-  %58 = load i8, ptr %arrayidx4.i44.i.i.i, align 1
-  %59 = mul nuw nsw i64 %indvars.iv.i42.i.i.i, 3
-  %arrayidx8.i45.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %59
-  store i8 %56, ptr %arrayidx8.i45.i.i.i, align 1
+  %57 = shl nuw nsw i64 %indvars.iv.i42.i.i.i, 2
+  %58 = or disjoint i64 %57, 3
+  %arrayidx.i43.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %58
+  %59 = load i8, ptr %arrayidx.i43.i.i.i, align 1
+  %60 = or disjoint i64 %57, 1
+  %arrayidx4.i44.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %60
+  %61 = load i8, ptr %arrayidx4.i44.i.i.i, align 1
+  %62 = mul nuw nsw i64 %indvars.iv.i42.i.i.i, 3
+  %arrayidx8.i45.i.i.i = getelementptr inbounds i8, ptr %rgbai.i.i.i, i64 %62
+  store i8 %59, ptr %arrayidx8.i45.i.i.i, align 1
   %arrayidx12.i46.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i45.i.i.i, i64 1
-  store i8 %58, ptr %arrayidx12.i46.i.i.i, align 1
-  %conv1.i.i47.i.i.i = uitofp i8 %56 to float
+  store i8 %61, ptr %arrayidx12.i46.i.i.i, align 1
+  %conv1.i.i47.i.i.i = uitofp i8 %59 to float
   %div.i.i48.i.i.i = fdiv float %conv1.i.i47.i.i.i, 2.550000e+02
-  %60 = tail call float @llvm.fmuladd.f32(float %div.i.i48.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %conv3.i.i49.i.i.i = uitofp i8 %58 to float
+  %63 = tail call float @llvm.fmuladd.f32(float %div.i.i48.i.i.i, float 2.000000e+00, float -1.000000e+00)
+  %conv3.i.i49.i.i.i = uitofp i8 %61 to float
   %div4.i.i50.i.i.i = fdiv float %conv3.i.i49.i.i.i, 2.550000e+02
-  %61 = tail call float @llvm.fmuladd.f32(float %div4.i.i50.i.i.i, float 2.000000e+00, float -1.000000e+00)
-  %neg.i.i51.i.i.i = fneg float %60
-  %62 = tail call float @llvm.fmuladd.f32(float %neg.i.i51.i.i.i, float %60, float 1.000000e+00)
-  %neg5.i.i52.i.i.i = fneg float %61
-  %63 = tail call float @llvm.fmuladd.f32(float %neg5.i.i52.i.i.i, float %61, float %62)
-  %cmp.i.i53.i.i.i = fcmp ogt float %63, 0.000000e+00
+  %64 = tail call float @llvm.fmuladd.f32(float %div4.i.i50.i.i.i, float 2.000000e+00, float -1.000000e+00)
+  %neg.i.i51.i.i.i = fneg float %63
+  %65 = tail call float @llvm.fmuladd.f32(float %neg.i.i51.i.i.i, float %63, float 1.000000e+00)
+  %neg5.i.i52.i.i.i = fneg float %64
+  %66 = tail call float @llvm.fmuladd.f32(float %neg5.i.i52.i.i.i, float %64, float %65)
+  %cmp.i.i53.i.i.i = fcmp ogt float %66, 0.000000e+00
   br i1 %cmp.i.i53.i.i.i, label %if.then.i.i61.i.i.i, label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i
 
 if.then.i.i61.i.i.i:                              ; preds = %for.body.i41.i.i.i
-  %64 = tail call float @llvm.sqrt.f32(float %63)
-  %65 = fadd float %64, 1.000000e+00
-  %66 = fmul float %65, 2.550000e+02
-  %67 = fmul float %66, 5.000000e-01
-  %68 = fptosi float %67 to i32
+  %67 = tail call float @llvm.sqrt.f32(float %66)
+  %68 = fadd float %67, 1.000000e+00
+  %69 = fmul float %68, 2.550000e+02
+  %70 = fmul float %69, 5.000000e-01
+  %71 = fptosi float %70 to i32
   br label %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i
 
 _ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i: ; preds = %if.then.i.i61.i.i.i, %for.body.i41.i.i.i
-  %nz.0.i.i55.i.i.i = phi i32 [ %68, %if.then.i.i61.i.i.i ], [ 127, %for.body.i41.i.i.i ]
+  %nz.0.i.i55.i.i.i = phi i32 [ %71, %if.then.i.i61.i.i.i ], [ 127, %for.body.i41.i.i.i ]
   %spec.store.select.i.i56.i.i.i = tail call i32 @llvm.smax.i32(i32 %nz.0.i.i55.i.i.i, i32 0)
   %spec.store.select1.i.i57.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i.i56.i.i.i, i32 255)
   %conv14.i.i58.i.i.i = trunc nuw i32 %spec.store.select1.i.i57.i.i.i to i8
@@ -8341,102 +8350,116 @@ _ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i: ; preds = %if.then.i
   store i8 %conv14.i.i58.i.i.i, ptr %arrayidx16.i59.i.i.i, align 1
   %indvars.iv.next.i60.i.i.i = add nuw nsw i64 %indvars.iv.i42.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i60.i.i.i, 16
-  br i1 %exitcond.not.i.i.i.i, label %if.end53.i.i.i, label %for.body.i41.i.i.i, !llvm.loop !83
+  br i1 %exitcond.not.i.i.i.i, label %for.body103.preheader.i.i.i, label %for.body.i41.i.i.i, !llvm.loop !83
 
-if.end53.i.i.i:                                   ; preds = %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i, %for.body29.i.i.i, %if.then43.i.i.i, %if.else.i.i.i
-  %69 = and i32 %33, -2
-  %switch.i.i.i = icmp eq i32 %69, 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = load i32, ptr %72, align 4
-  %conv59.i.i.i = sext i32 %73 to i64
-  %mul61.i.i.i = mul nsw i64 %indvars.iv105.i.i.i, %conv59.i.i.i
-  %add63.i.i.i = add nsw i64 %mul61.i.i.i, %indvars.iv102.i.i.i
-  %74 = load ptr, ptr %7, align 8
-  %75 = load i32, ptr %74, align 4
-  %conv58.i.i.i = sext i32 %75 to i64
-  %mul64.i.i.i = mul i64 %add63.i.i.i, %conv58.i.i.i
-  %76 = trunc nuw nsw i64 %indvars.iv102.i.i.i to i32
+if.end53.i.i.i:                                   ; preds = %if.then43.i.i.i, %if.else.i.i.i
+  %72 = and i32 %26, -2
+  %switch.i.i.i = icmp eq i32 %72, 8
   br i1 %switch.i.i.i, label %for.body70.preheader.i.i.i, label %for.body103.preheader.i.i.i
 
 for.body70.preheader.i.i.i:                       ; preds = %if.end53.i.i.i
-  %add.ptr65.i.i.i = getelementptr inbounds i16, ptr %71, i64 %mul64.i.i.i
+  %73 = load ptr, ptr %6, align 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i32, ptr %24, align 4
+  %conv59.i.i.i = sext i32 %75 to i64
+  %mul61.i.i.i = mul nsw i64 %indvars.iv109.i.i.i, %conv59.i.i.i
+  %add63.i.i.i = add nsw i64 %mul61.i.i.i, %indvars.iv106.i.i.i
+  %76 = load ptr, ptr %7, align 8
+  %77 = load i32, ptr %76, align 4
+  %conv58.i.i.i = sext i32 %77 to i64
+  %mul64.i.i.i = mul i64 %add63.i.i.i, %conv58.i.i.i
+  %add.ptr65.i.i.i = getelementptr inbounds i16, ptr %74, i64 %mul64.i.i.i
+  %78 = trunc nuw nsw i64 %indvars.iv106.i.i.i to i32
   br label %for.body70.i.i.i
 
 for.body70.i.i.i:                                 ; preds = %for.body70.i.i.i, %for.body70.preheader.i.i.i
-  %77 = phi i32 [ %80, %for.body70.i.i.i ], [ %75, %for.body70.preheader.i.i.i ]
-  %78 = phi i32 [ %82, %for.body70.i.i.i ], [ %73, %for.body70.preheader.i.i.i ]
-  %py.086.i.i.i = phi i32 [ %inc82.i.i.i, %for.body70.i.i.i ], [ 0, %for.body70.preheader.i.i.i ]
-  %dst.085.i.i.i = phi ptr [ %add.ptr80.i.i.i, %for.body70.i.i.i ], [ %add.ptr65.i.i.i, %for.body70.preheader.i.i.i ]
-  %src.084.i.i.i = phi ptr [ %add.ptr77.i.i.i, %for.body70.i.i.i ], [ %rgbh.i.i.i, %for.body70.preheader.i.i.i ]
-  %sub.i.i.i = sub nsw i32 %78, %76
+  %79 = phi i32 [ %82, %for.body70.i.i.i ], [ %77, %for.body70.preheader.i.i.i ]
+  %80 = phi i32 [ %84, %for.body70.i.i.i ], [ %75, %for.body70.preheader.i.i.i ]
+  %py.090.i.i.i = phi i32 [ %inc82.i.i.i, %for.body70.i.i.i ], [ 0, %for.body70.preheader.i.i.i ]
+  %dst.089.i.i.i = phi ptr [ %add.ptr80.i.i.i, %for.body70.i.i.i ], [ %add.ptr65.i.i.i, %for.body70.preheader.i.i.i ]
+  %src.088.i.i.i = phi ptr [ %add.ptr77.i.i.i, %for.body70.i.i.i ], [ %rgbh.i.i.i, %for.body70.preheader.i.i.i ]
+  %sub.i.i.i = sub nsw i32 %80, %78
   %.sroa.speculated68.i.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 4)
-  %mul73.i.i.i = shl i32 %77, 1
+  %mul73.i.i.i = shl i32 %79, 1
   %mul74.i.i.i = mul i32 %mul73.i.i.i, %.sroa.speculated68.i.i.i
   %conv75.i.i.i = sext i32 %mul74.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %dst.085.i.i.i, ptr align 2 %src.084.i.i.i, i64 %conv75.i.i.i, i1 false)
-  %79 = load ptr, ptr %7, align 8
-  %80 = load i32, ptr %79, align 4
-  %mul76.i.i.i = shl nsw i32 %80, 2
-  %idx.ext.i.i.i = sext i32 %mul76.i.i.i to i64
-  %add.ptr77.i.i.i = getelementptr inbounds i16, ptr %src.084.i.i.i, i64 %idx.ext.i.i.i
-  %81 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %dst.089.i.i.i, ptr align 2 %src.088.i.i.i, i64 %conv75.i.i.i, i1 false)
+  %81 = load ptr, ptr %7, align 8
   %82 = load i32, ptr %81, align 4
-  %mul78.i.i.i = mul nsw i32 %82, %80
+  %mul76.i.i.i = shl nsw i32 %82, 2
+  %idx.ext.i.i.i = sext i32 %mul76.i.i.i to i64
+  %add.ptr77.i.i.i = getelementptr inbounds i16, ptr %src.088.i.i.i, i64 %idx.ext.i.i.i
+  %83 = load ptr, ptr %3, align 8
+  %84 = load i32, ptr %83, align 4
+  %mul78.i.i.i = mul nsw i32 %84, %82
   %idx.ext79.i.i.i = sext i32 %mul78.i.i.i to i64
-  %add.ptr80.i.i.i = getelementptr inbounds i16, ptr %dst.085.i.i.i, i64 %idx.ext79.i.i.i
-  %inc82.i.i.i = add nuw nsw i32 %py.086.i.i.i, 1
-  %cmp67.i.i.i = icmp ult i32 %py.086.i.i.i, 3
-  %add68.i.i.i = or disjoint i32 %inc82.i.i.i, %22
+  %add.ptr80.i.i.i = getelementptr inbounds i16, ptr %dst.089.i.i.i, i64 %idx.ext79.i.i.i
+  %inc82.i.i.i = add nuw nsw i32 %py.090.i.i.i, 1
+  %cmp67.i.i.i = icmp ult i32 %py.090.i.i.i, 3
+  %add68.i.i.i = or disjoint i32 %inc82.i.i.i, %23
   %cmp69.i.i.i = icmp slt i32 %add68.i.i.i, %.sroa.speculated71.i.i.i
   %or.cond.i.i.i = select i1 %cmp67.i.i.i, i1 %cmp69.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %for.body70.i.i.i, label %for.inc120.i.i.i, !llvm.loop !84
 
-for.body103.preheader.i.i.i:                      ; preds = %if.end53.i.i.i
-  %add.ptr95.i.i.i = getelementptr inbounds i8, ptr %71, i64 %mul64.i.i.i
+for.body103.preheader.i.i.i:                      ; preds = %for.body29.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i, %if.end53.i.i.i
+  %add.ptr2475120.i.i.i = phi ptr [ %add.ptr2476.i.i.i, %if.end53.i.i.i ], [ %add.ptr2476.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i.i.i.i ], [ %add.ptr2476.i.i.i, %_ZN18OpenImageIO_v2_6_0L14ComputeNormalZEhh.exit.i54.i.i.i ], [ %add.ptr24.i.i.i, %for.body29.i.i.i ]
+  %85 = load ptr, ptr %6, align 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i32, ptr %24, align 4
+  %conv89.i.i.i = sext i32 %87 to i64
+  %mul91.i.i.i = mul nsw i64 %indvars.iv109.i.i.i, %conv89.i.i.i
+  %add93.i.i.i = add nsw i64 %mul91.i.i.i, %indvars.iv106.i.i.i
+  %88 = load ptr, ptr %7, align 8
+  %89 = load i32, ptr %88, align 4
+  %conv88.i.i.i = sext i32 %89 to i64
+  %mul94.i.i.i = mul i64 %add93.i.i.i, %conv88.i.i.i
+  %add.ptr95.i.i.i = getelementptr inbounds i8, ptr %86, i64 %mul94.i.i.i
+  %90 = trunc nuw nsw i64 %indvars.iv106.i.i.i to i32
   br label %for.body103.i.i.i
 
 for.body103.i.i.i:                                ; preds = %for.body103.i.i.i, %for.body103.preheader.i.i.i
-  %83 = phi i32 [ %86, %for.body103.i.i.i ], [ %75, %for.body103.preheader.i.i.i ]
-  %84 = phi i32 [ %88, %for.body103.i.i.i ], [ %73, %for.body103.preheader.i.i.i ]
-  %py96.082.i.i.i = phi i32 [ %inc117.i.i.i, %for.body103.i.i.i ], [ 0, %for.body103.preheader.i.i.i ]
-  %dst87.081.i.i.i = phi ptr [ %add.ptr115.i.i.i, %for.body103.i.i.i ], [ %add.ptr95.i.i.i, %for.body103.preheader.i.i.i ]
-  %src85.080.i.i.i = phi ptr [ %add.ptr112.i.i.i, %for.body103.i.i.i ], [ %rgbai.i.i.i, %for.body103.preheader.i.i.i ]
-  %sub106.i.i.i = sub nsw i32 %84, %76
+  %91 = phi i32 [ %94, %for.body103.i.i.i ], [ %89, %for.body103.preheader.i.i.i ]
+  %92 = phi i32 [ %96, %for.body103.i.i.i ], [ %87, %for.body103.preheader.i.i.i ]
+  %py96.086.i.i.i = phi i32 [ %inc117.i.i.i, %for.body103.i.i.i ], [ 0, %for.body103.preheader.i.i.i ]
+  %dst87.085.i.i.i = phi ptr [ %add.ptr115.i.i.i, %for.body103.i.i.i ], [ %add.ptr95.i.i.i, %for.body103.preheader.i.i.i ]
+  %src85.084.i.i.i = phi ptr [ %add.ptr112.i.i.i, %for.body103.i.i.i ], [ %rgbai.i.i.i, %for.body103.preheader.i.i.i ]
+  %sub106.i.i.i = sub nsw i32 %92, %90
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %sub106.i.i.i, i32 4)
-  %mul108.i.i.i = mul nsw i32 %.sroa.speculated.i.i.i, %83
+  %mul108.i.i.i = mul nsw i32 %.sroa.speculated.i.i.i, %91
   %conv109.i.i.i = sext i32 %mul108.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst87.081.i.i.i, ptr align 1 %src85.080.i.i.i, i64 %conv109.i.i.i, i1 false)
-  %85 = load ptr, ptr %7, align 8
-  %86 = load i32, ptr %85, align 4
-  %mul110.i.i.i = shl nsw i32 %86, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst87.085.i.i.i, ptr align 1 %src85.084.i.i.i, i64 %conv109.i.i.i, i1 false)
+  %93 = load ptr, ptr %7, align 8
+  %94 = load i32, ptr %93, align 4
+  %mul110.i.i.i = shl nsw i32 %94, 2
   %idx.ext111.i.i.i = sext i32 %mul110.i.i.i to i64
-  %add.ptr112.i.i.i = getelementptr inbounds i8, ptr %src85.080.i.i.i, i64 %idx.ext111.i.i.i
-  %87 = load ptr, ptr %3, align 8
-  %88 = load i32, ptr %87, align 4
-  %mul113.i.i.i = mul nsw i32 %88, %86
+  %add.ptr112.i.i.i = getelementptr inbounds i8, ptr %src85.084.i.i.i, i64 %idx.ext111.i.i.i
+  %95 = load ptr, ptr %3, align 8
+  %96 = load i32, ptr %95, align 4
+  %mul113.i.i.i = mul nsw i32 %96, %94
   %idx.ext114.i.i.i = sext i32 %mul113.i.i.i to i64
-  %add.ptr115.i.i.i = getelementptr inbounds i8, ptr %dst87.081.i.i.i, i64 %idx.ext114.i.i.i
-  %inc117.i.i.i = add nuw nsw i32 %py96.082.i.i.i, 1
-  %cmp98.i.i.i = icmp ult i32 %py96.082.i.i.i, 3
-  %add100.i.i.i = or disjoint i32 %inc117.i.i.i, %22
+  %add.ptr115.i.i.i = getelementptr inbounds i8, ptr %dst87.085.i.i.i, i64 %idx.ext114.i.i.i
+  %inc117.i.i.i = add nuw nsw i32 %py96.086.i.i.i, 1
+  %cmp98.i.i.i = icmp ult i32 %py96.086.i.i.i, 3
+  %add100.i.i.i = or disjoint i32 %inc117.i.i.i, %23
   %cmp101.i.i.i = icmp slt i32 %add100.i.i.i, %.sroa.speculated71.i.i.i
   %or.cond36.i.i.i = select i1 %cmp98.i.i.i, i1 %cmp101.i.i.i, i1 false
   br i1 %or.cond36.i.i.i, label %for.body103.i.i.i, label %for.inc120.i.i.i, !llvm.loop !85
 
 for.inc120.i.i.i:                                 ; preds = %for.body103.i.i.i, %for.body70.i.i.i
-  %89 = phi i32 [ %82, %for.body70.i.i.i ], [ %88, %for.body103.i.i.i ]
-  %indvars.iv.next103.i.i.i = add nuw nsw i64 %indvars.iv102.i.i.i, 4
-  %90 = trunc nuw i64 %indvars.iv.next103.i.i.i to i32
-  %cmp8.i.i.i = icmp sgt i32 %89, %90
+  %97 = phi i32 [ %84, %for.body70.i.i.i ], [ %96, %for.body103.i.i.i ]
+  %add.ptr2475119.i.i.i = phi ptr [ %add.ptr2476.i.i.i, %for.body70.i.i.i ], [ %add.ptr2475120.i.i.i, %for.body103.i.i.i ]
+  %98 = phi ptr [ %83, %for.body70.i.i.i ], [ %95, %for.body103.i.i.i ]
+  %indvars.iv.next107.i.i.i = add nuw nsw i64 %indvars.iv106.i.i.i, 4
+  %99 = trunc nuw i64 %indvars.iv.next107.i.i.i to i32
+  %cmp8.i.i.i = icmp sgt i32 %97, %99
   br i1 %cmp8.i.i.i, label %for.body9.i.i.i, label %for.inc123.i.i.i, !llvm.loop !86
 
 for.inc123.i.i.i:                                 ; preds = %for.inc120.i.i.i, %for.cond7.preheader.i.i.i
-  %91 = phi i32 [ %21, %for.cond7.preheader.i.i.i ], [ %89, %for.inc120.i.i.i ]
-  %srcBlocks.1.lcssa.i.i.i = phi ptr [ %srcBlocks.093.i.i.i, %for.cond7.preheader.i.i.i ], [ %add.ptr24.i.i.i, %for.inc120.i.i.i ]
-  %indvars.iv.next106.i.i.i = add nsw i64 %indvars.iv105.i.i.i, 4
-  %cmp.i.i.i = icmp slt i64 %indvars.iv.next106.i.i.i, %20
+  %100 = phi i32 [ %21, %for.cond7.preheader.i.i.i ], [ %97, %for.inc120.i.i.i ]
+  %101 = phi ptr [ %22, %for.cond7.preheader.i.i.i ], [ %98, %for.inc120.i.i.i ]
+  %srcBlocks.1.lcssa.i.i.i = phi ptr [ %srcBlocks.097.i.i.i, %for.cond7.preheader.i.i.i ], [ %add.ptr2475119.i.i.i, %for.inc120.i.i.i ]
+  %indvars.iv.next110.i.i.i = add nsw i64 %indvars.iv109.i.i.i, 4
+  %cmp.i.i.i = icmp slt i64 %indvars.iv.next110.i.i.i, %20
   br i1 %cmp.i.i.i, label %for.cond7.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", !llvm.loop !87
 
 "_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS0_7DDS_pvt11CompressionERKNS4_13dds_pixformatEiE3$_0JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.inc123.i.i.i, %for.body9.i.i.i, %entry, %for.cond7.preheader.lr.ph.i.i.i
@@ -8446,7 +8469,7 @@ for.inc123.i.i.i:                                 ; preds = %for.inc120.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS1_7DDS_pvt11CompressionERKNS5_13dds_pixformatEiE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #11 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvllEZN18OpenImageIO_v2_6_0L15DecompressImageEPhiiPKhNS1_7DDS_pvt11CompressionERKNS5_13dds_pixformatEiE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #10 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -8497,10 +8520,10 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew = alloca i64, align 8
   %__guard = alloca %struct._Guard, align 8
@@ -8601,7 +8624,7 @@ declare void @_ZNK18OpenImageIO_v2_6_010ImageInput6unlockEv(ptr noundef nonnull 
 declare void @_ZNK18OpenImageIO_v2_6_010ImageInput12append_errorENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v88vsprintfINS0_17basic_string_viewIcEEcEENSt7__cxx1112basic_stringIT0_St11char_traitsIS6_ESaIS6_EEERKT_NS0_17basic_format_argsINS0_20basic_printf_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS6_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS0_6detail6bufferISJ_EEEE4typeESJ_EEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %fmt, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v88vsprintfINS0_17basic_string_viewIcEEcEENSt7__cxx1112basic_stringIT0_St11char_traitsIS6_ESaIS6_EEERKT_NS0_17basic_format_argsINS0_20basic_printf_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS6_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS0_6detail6bufferISJ_EEEE4typeESJ_EEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %fmt, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3.i = alloca %"class.std::allocator.12", align 1
@@ -8673,7 +8696,7 @@ lpad2.body:                                       ; preds = %lpad4.i, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail7vprintfIcNS0_20basic_printf_contextINS0_8appenderEcEEEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS7_EENS0_17basic_format_argsIT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr %format.coerce0, i64 %format.coerce1, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail7vprintfIcNS0_20basic_printf_contextINS0_8appenderEcEEEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS7_EENS0_17basic_format_argsIT0_EE(ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr %format.coerce0, i64 %format.coerce1, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %parse_ctx.i = alloca %"class.fmt::v8::basic_printf_parse_context", align 8
   %ref.tmp2.i.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -10460,7 +10483,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEE10deallocateEv.exit: ; preds = %ent
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEE4growEm(ptr noundef nonnull align 8 dereferenceable(536) %this, i64 noundef %size) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEE4growEm(ptr noundef nonnull align 8 dereferenceable(536) %this, i64 noundef %size) unnamed_addr #10 comdat align 2 {
 entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_.i, align 8
@@ -10516,10 +10539,10 @@ if.end16:                                         ; preds = %if.then14, %_ZSt18u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail12parse_headerIcZNS1_7vprintfIcNS0_20basic_printf_contextINS0_8appenderEcEEEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS8_EENS0_17basic_format_argsIT0_EEEUliE_EEiRPKS8_SI_RNS0_18basic_format_specsIS8_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %it, ptr noundef %end, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %get_arg.coerce0, ptr %get_arg.coerce1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail12parse_headerIcZNS1_7vprintfIcNS0_20basic_printf_contextINS0_8appenderEcEEEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS8_EENS0_17basic_format_argsIT0_EEEUliE_EEiRPKS8_SI_RNS0_18basic_format_specsIS8_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %it, ptr noundef %end, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %get_arg.coerce0, ptr %get_arg.coerce1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %get_arg = alloca %class.anon.39, align 8
   %ref.tmp19 = alloca %"class.fmt::v8::format_error", align 8
@@ -10903,7 +10926,7 @@ return:                                           ; preds = %_ZN3fmt2v86detail11
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZZN3fmt2v86detail7vprintfIcNS0_20basic_printf_contextINS0_8appenderEcEEEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS7_EENS0_17basic_format_argsIT0_EEENKUliE_clEi(ptr noalias sret(%"class.fmt::v8::basic_format_arg") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %arg_index) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZZN3fmt2v86detail7vprintfIcNS0_20basic_printf_contextINS0_8appenderEcEEEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS7_EENS0_17basic_format_argsIT0_EEENKUliE_clEi(ptr noalias sret(%"class.fmt::v8::basic_format_arg") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %arg_index) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i9 = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i.i3 = alloca %"class.fmt::v8::format_error", align 8
@@ -11035,7 +11058,7 @@ _ZN3fmt2v86detail7get_argINS0_20basic_printf_contextINS0_8appenderEcEEiEENT_10fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail11convert_argIaNS0_20basic_printf_contextINS0_8appenderEcEEcEEvRNS0_16basic_format_argIT0_EET1_(ptr noundef nonnull align 16 dereferenceable(20) %arg, i8 noundef signext %type) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden void @_ZN3fmt2v86detail11convert_argIaNS0_20basic_printf_contextINS0_8appenderEcEEcEEvRNS0_16basic_format_argIT0_EET1_(ptr noundef nonnull align 16 dereferenceable(20) %arg, i8 noundef signext %type) local_unnamed_addr #10 comdat {
 entry:
   %type_.i = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load i32, ptr %type_.i, align 16
@@ -11157,7 +11180,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail11convert_argIsNS0_20basic_printf_contextINS0_8appenderEcEEcEEvRNS0_16basic_format_argIT0_EET1_(ptr noundef nonnull align 16 dereferenceable(20) %arg, i8 noundef signext %type) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden void @_ZN3fmt2v86detail11convert_argIsNS0_20basic_printf_contextINS0_8appenderEcEEcEEvRNS0_16basic_format_argIT0_EET1_(ptr noundef nonnull align 16 dereferenceable(20) %arg, i8 noundef signext %type) local_unnamed_addr #10 comdat {
 entry:
   %type_.i = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load i32, ptr %type_.i, align 16
@@ -11280,7 +11303,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i8 @_ZN3fmt2v86detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %type) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden noundef zeroext i8 @_ZN3fmt2v86detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %type) local_unnamed_addr #10 comdat {
 entry:
   switch i8 %type, label %sw.default [
     i8 100, label %return
@@ -11359,10 +11382,10 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #17
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.fmt::v8::format_error", align 8
   %cmp.i = icmp slt i32 %value, 0
@@ -11392,7 +11415,7 @@ if.end7:                                          ; preds = %entry, %do.body, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp5 = alloca %"class.fmt::v8::format_error", align 8
   %cmp = icmp slt i32 %value, 0
@@ -11410,7 +11433,7 @@ if.end7:                                          ; preds = %do.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.fmt::v8::format_error", align 8
   %cmp.i = icmp slt i64 %value, 0
@@ -11444,7 +11467,7 @@ if.end7:                                          ; preds = %do.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp5 = alloca %"class.fmt::v8::format_error", align 8
   %cmp = icmp ugt i64 %value, 2147483647
@@ -11463,7 +11486,7 @@ if.end7:                                          ; preds = %do.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclInTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %.coerce0, i64 noundef %.coerce1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclInTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %.coerce0, i64 noundef %.coerce1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11474,7 +11497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIoTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %.coerce0, i64 noundef %.coerce1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIoTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %.coerce0, i64 noundef %.coerce1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11485,7 +11508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i8 noundef signext %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, i8 noundef signext %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.fmt::v8::format_error", align 8
   %conv = sext i8 %value to i32
@@ -11519,7 +11542,7 @@ if.end7:                                          ; preds = %do.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIfTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIfTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11530,7 +11553,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIdTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIdTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11541,7 +11564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIeTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, x86_fp80 noundef %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIeTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, x86_fp80 noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11552,7 +11575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIPKcTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIPKcTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11563,7 +11586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclINS0_17basic_string_viewIcEETnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %.coerce0, i64 %.coerce1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclINS0_17basic_string_viewIcEETnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %.coerce0, i64 %.coerce1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11574,7 +11597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIPKvTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclIPKvTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11585,7 +11608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclINS0_16basic_format_argINS0_20basic_printf_contextINS0_8appenderEcEEE6handleETnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjSC_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %.coerce0, ptr %.coerce1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclINS0_16basic_format_argINS0_20basic_printf_contextINS0_8appenderEcEEE6handleETnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjSC_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr %.coerce0, ptr %.coerce1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11596,7 +11619,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclINS0_9monostateETnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS7_(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail20printf_width_handlerIcEclINS0_9monostateETnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS7_(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.fmt::v8::format_error", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.45)
@@ -11609,7 +11632,7 @@ entry:
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail20printf_arg_formatterINS0_8appenderEcEclIcTnNSt9enable_ifIXsr6detail11is_integralIT_EE5valueEiE4typeELi0EEES3_S7_(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 noundef signext %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail20printf_arg_formatterINS0_8appenderEcEclIcTnNSt9enable_ifIXsr6detail11is_integralIT_EE5valueEiE4typeELi0EEES3_S7_(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 noundef signext %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -11754,7 +11777,7 @@ return:                                           ; preds = %_ZN3fmt2v86detail18
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail20printf_arg_formatterINS0_8appenderEcEclEPKv(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail20printf_arg_formatterINS0_8appenderEcEclEPKv(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.anon.108, align 8
   %s.i = alloca %"struct.fmt::v8::basic_format_specs", align 4
@@ -11828,7 +11851,7 @@ cond.end:                                         ; preds = %cond.false, %_ZN3fm
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, i64 %arg.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, i64 %arg.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i349 = alloca %class.anon.68, align 1
@@ -12782,7 +12805,7 @@ _ZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %loc.coerce, i1 noundef zeroext %localized) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail14digit_groupingIcEC2ENS1_10locale_refEb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %loc.coerce, i1 noundef zeroext %localized) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i = alloca %"struct.fmt::v8::detail::thousands_sep_result", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::thousands_sep_result", align 8
@@ -12839,7 +12862,7 @@ if.end:                                           ; preds = %if.else, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail19write_int_localizedINS0_8appenderEmcEET_S4_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingIS7_EE(ptr %out.coerce, i64 noundef %value, i32 noundef %prefix, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail19write_int_localizedINS0_8appenderEmcEET_S4_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingIS7_EE(ptr %out.coerce, i64 noundef %value, i32 noundef %prefix, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat {
 entry:
   %prefix.addr = alloca i32, align 4
   %num_digits = alloca i32, align 4
@@ -12963,7 +12986,7 @@ _ZNK3fmt2v86detail14digit_groupingIcE16count_separatorsEi.exit: ; preds = %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail18thousands_sep_implIcEENS1_20thousands_sep_resultIT_EENS1_10locale_refE(ptr noalias sret(%"struct.fmt::v8::detail::thousands_sep_result") align 8 %agg.result, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail18thousands_sep_implIcEENS1_20thousands_sep_resultIT_EENS1_10locale_refE(ptr noalias sret(%"struct.fmt::v8::detail::thousands_sep_result") align 8 %agg.result, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::locale", align 8
   %grouping = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13042,7 +13065,7 @@ declare void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_19write_int_localizedIS5_mcEET_S7_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingISA_EEEUlS5_E_EES8_S8_SD_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_19write_int_localizedIS5_mcEET_S7_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingISA_EEEUlS5_E_EES8_S8_SD_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -13334,7 +13357,7 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr no
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK3fmt2v86detail14digit_groupingIcE5applyINS0_8appenderEcEET_S6_NS0_17basic_string_viewIT0_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %out.coerce, ptr %digits.coerce0, i64 %digits.coerce1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZNK3fmt2v86detail14digit_groupingIcE5applyINS0_8appenderEcEET_S6_NS0_17basic_string_viewIT0_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %out.coerce, ptr %digits.coerce0, i64 %digits.coerce1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %separators = alloca %"class.fmt::v8::basic_memory_buffer.56", align 8
   %conv = trunc i64 %digits.coerce1 to i32
@@ -13538,7 +13561,7 @@ _ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEED2Ev.exit49: ; preds = %for.end, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEE4growEm(ptr noundef nonnull align 8 dereferenceable(2040) %this, i64 noundef %size) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIiLm500ESaIiEE4growEm(ptr noundef nonnull align 8 dereferenceable(2040) %this, i64 noundef %size) unnamed_addr #10 comdat align 2 {
 entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_.i, align 8
@@ -13607,7 +13630,7 @@ if.end16:                                         ; preds = %if.then14, %_ZSt18u
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -13845,7 +13868,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [10 x i8], align 1
   %0 = load i32, ptr %this, align 8
@@ -14032,7 +14055,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E0_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(36) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E0_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(36) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -14270,7 +14293,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [9 x i8], align 1
   %0 = load i32, ptr %this, align 8
@@ -14472,7 +14495,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E1_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E1_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -14710,7 +14733,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [33 x i8], align 16
   %0 = load i32, ptr %this, align 8
@@ -14905,7 +14928,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E2_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E2_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -15143,7 +15166,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_jEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [11 x i8], align 1
   %0 = load i32, ptr %this, align 8
@@ -15338,7 +15361,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_10write_charIcS5_EET0_S7_T_RKNS0_18basic_format_specsIS8_EEEUlS5_E_EES7_S7_RKNS9_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 1 dereferenceable(1) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_10write_charIcS5_EET0_S7_T_RKNS0_18basic_format_specsIS8_EEEUlS5_E_EES7_S7_RKNS9_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 1 dereferenceable(1) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -15591,7 +15614,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, i64 %arg.coerce0, i32 %arg.coerce1, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, i64 %arg.coerce0, i32 %arg.coerce1, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i361 = alloca %class.anon.68, align 1
@@ -16552,7 +16575,7 @@ _ZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -16790,7 +16813,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [20 x i8], align 16
   %0 = load i32, ptr %this, align 8
@@ -16975,7 +16998,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E0_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E0_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -17213,7 +17236,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [17 x i8], align 16
   %0 = load i32, ptr %this, align 8
@@ -17413,7 +17436,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E1_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E1_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -17651,7 +17674,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [65 x i8], align 16
   %0 = load i32, ptr %this, align 8
@@ -17846,7 +17869,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E2_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_mEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E2_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(40) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -18084,7 +18107,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_mEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [22 x i8], align 16
   %0 = load i32, ptr %this, align 8
@@ -18279,7 +18302,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEmEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, ptr noundef byval(%"struct.fmt::v8::detail::write_int_arg.88") align 16 %arg, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, ptr noundef byval(%"struct.fmt::v8::detail::write_int_arg.88") align 16 %arg, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i368 = alloca %class.anon.68, align 1
@@ -19273,7 +19296,7 @@ _ZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail19write_int_localizedINS0_8appenderEocEET_S4_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingIS7_EE(ptr %out.coerce, i64 noundef %value.coerce0, i64 noundef %value.coerce1, i32 noundef %prefix, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail19write_int_localizedINS0_8appenderEocEET_S4_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingIS7_EE(ptr %out.coerce, i64 noundef %value.coerce0, i64 noundef %value.coerce1, i32 noundef %prefix, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat {
 entry:
   %prefix.addr = alloca i32, align 4
   %num_digits = alloca i32, align 4
@@ -19438,7 +19461,7 @@ _ZNK3fmt2v86detail14digit_groupingIcE16count_separatorsEi.exit: ; preds = %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_19write_int_localizedIS5_ocEET_S7_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingISA_EEEUlS5_E_EES8_S8_SD_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_19write_int_localizedIS5_ocEET_S7_T0_jRKNS0_18basic_format_specsIT1_EERKNS1_14digit_groupingISA_EEEUlS5_E_EES8_S8_SD_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -19718,7 +19741,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -19956,7 +19979,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [39 x i8], align 16
   %0 = load i32, ptr %this, align 16
@@ -20145,7 +20168,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E0_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E0_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -20383,7 +20406,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E0_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [33 x i8], align 16
   %0 = load i32, ptr %this, align 16
@@ -20585,7 +20608,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E1_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E1_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -20823,7 +20846,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E1_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [129 x i8], align 16
   %0 = load i32, ptr %this, align 16
@@ -21018,7 +21041,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E2_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_oEET0_S8_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS5_E2_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 16 dereferenceable(64) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -21256,7 +21279,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_intINS0_8appenderEcZNS1_9write_intIcS3_oEET0_S5_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refEEUlS3_E2_EESA_SA_ijRKNS9_IS5_EES7_ENKUlS3_E_clES3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [43 x i8], align 16
   %0 = load i32, ptr %this, align 16
@@ -21451,7 +21474,7 @@ _ZZN3fmt2v86detail9write_intIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_11write_bytesILS4_1EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_11write_bytesILS4_1EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -21745,7 +21768,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt2v86detail16check_char_specsIcNS1_13error_handlerEEEbRKNS0_18basic_format_specsIT_EEOT0_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %eh) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt2v86detail16check_char_specsIcNS1_13error_handlerEEEbRKNS0_18basic_format_specsIT_EEOT0_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %eh) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -21796,7 +21819,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, float noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, float noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.112, align 8
@@ -22087,7 +22110,7 @@ return:                                           ; preds = %_ZN3fmt2v819basic_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %eh) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %eh) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i = alloca %"class.fmt::v8::format_error", align 8
   %alt = getelementptr inbounds i8, ptr %specs, i64 9
@@ -22181,7 +22204,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb14, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #10 comdat {
 entry:
   %format9 = alloca [7 x i8], align 1
   %specs.sroa.1.0.extract.shift = lshr i64 %specs.coerce, 32
@@ -22463,7 +22486,7 @@ return:                                           ; preds = %_ZN3fmt2v86detail6b
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #10 comdat {
 entry:
   %ref.tmp24.i = alloca %"class.fmt::v8::format_error", align 8
   %exp = alloca i32, align 4
@@ -23091,7 +23114,7 @@ return:                                           ; preds = %if.end103, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_15write_nonfiniteIcS5_EET0_S7_bNS0_18basic_format_specsIT_EERKNS1_11float_specsEEUlS5_E_EES7_S7_RKNS8_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_15write_nonfiniteIcS5_EET0_S7_bNS0_18basic_format_specsIT_EERKNS1_11float_specsEEUlS5_E_EES7_S7_RKNS8_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -23400,10 +23423,10 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_11write_bytesILS4_2EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_11write_bytesILS4_2EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -24044,7 +24067,7 @@ return:                                           ; preds = %if.then66, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEjTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i32 noundef %value) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEjTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i32 noundef %value) local_unnamed_addr #10 comdat {
 entry:
   %buffer.i = alloca [10 x i8], align 1
   %or.i.i = or i32 %value, 1
@@ -24956,7 +24979,7 @@ return:                                           ; preds = %if.then67, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEmTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEmTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value) local_unnamed_addr #10 comdat {
 entry:
   %buffer.i = alloca [20 x i8], align 16
   %or.i.i = or i64 %value, 1
@@ -25127,7 +25150,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail13format_dragonENS1_2fpEbiRNS1_6bufferIcEERi(i64 %value.coerce0, i32 %value.coerce1, i1 noundef zeroext %is_predecessor_closer, i32 noundef %num_digits, ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr noundef nonnull align 4 dereferenceable(4) %exp10) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail13format_dragonENS1_2fpEbiRNS1_6bufferIcEERi(i64 %value.coerce0, i32 %value.coerce1, i1 noundef zeroext %is_predecessor_closer, i32 noundef %num_digits, ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr noundef nonnull align 4 dereferenceable(4) %exp10) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %numerator = alloca %"class.fmt::v8::detail::bigint", align 8
   %denominator = alloca %"class.fmt::v8::detail::bigint", align 8
@@ -26925,7 +26948,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail6bigint12assign_pow10Ei(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %exp) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail6bigint12assign_pow10Ei(ptr noundef nonnull align 8 dereferenceable(172) %this, i32 noundef %exp) local_unnamed_addr #10 comdat align 2 {
 entry:
   %cmp2 = icmp eq i32 %exp, 0
   br i1 %cmp2, label %if.then, label %while.cond
@@ -27124,7 +27147,7 @@ return:                                           ; preds = %_ZN3fmt2v86detail6b
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail6bigint13divmod_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(172) %divisor) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail6bigint13divmod_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(172) %divisor) local_unnamed_addr #10 comdat align 2 {
 entry:
   %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %size_.i.i.i, align 8
@@ -27403,7 +27426,7 @@ return:                                           ; preds = %for.end.i42, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4growEm(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %size) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE4growEm(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %size) unnamed_addr #10 comdat align 2 {
 entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_.i, align 8
@@ -27469,7 +27492,7 @@ if.end16:                                         ; preds = %if.then14, %_ZSt18u
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail6bigint6squareEv(ptr noundef nonnull align 8 dereferenceable(172) %this) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail6bigint6squareEv(ptr noundef nonnull align 8 dereferenceable(172) %this) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n = alloca %"class.fmt::v8::basic_memory_buffer.119", align 8
   %size_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -27774,7 +27797,7 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEED2Ev.exit48: ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 8 dereferenceable(16) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 8 dereferenceable(16) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::locale", align 8
   %fspecs = alloca %"struct.fmt::v8::detail::float_specs", align 8
@@ -28211,7 +28234,7 @@ return:                                           ; preds = %cond.true52, %cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -28331,7 +28354,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit14: ; preds = %
 declare noundef signext i8 @_ZNKSt7__cxx118numpunctIcE13decimal_pointEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(36) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(36) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -28569,7 +28592,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcEET_S4_PKciiT0_(ptr %out.coerce, ptr noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcEET_S4_PKciiT0_(ptr %out.coerce, ptr noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point) local_unnamed_addr #10 comdat {
 entry:
   %idx.ext = sext i32 %integral_size to i64
   %add.ptr = getelementptr inbounds i8, ptr %significand, i64 %idx.ext
@@ -28710,7 +28733,7 @@ return:                                           ; preds = %_ZSt20uninitialized
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail14write_exponentIcNS0_8appenderEEET0_iS4_(i32 noundef %exp, ptr %it.coerce) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail14write_exponentIcNS0_8appenderEEET0_iS4_(i32 noundef %exp, ptr %it.coerce) local_unnamed_addr #10 comdat {
 entry:
   %cmp3 = icmp slt i32 %exp, 0
   %size_.i.i = getelementptr inbounds i8, ptr %it.coerce, i64 16
@@ -28892,7 +28915,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit77: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(72) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(72) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -29130,7 +29153,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E0_clES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E0_clES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -29261,7 +29284,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appenderEPKcNS1_14digit_groupingIcEEEET0_S8_T1_iiRKT2_(ptr %out.coerce, ptr noundef %significand, i32 noundef %significand_size, i32 noundef %exponent, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appenderEPKcNS1_14digit_groupingIcEEEET0_S8_T1_iiRKT2_(ptr %out.coerce, ptr noundef %significand, i32 noundef %significand_size, i32 noundef %exponent, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp14 = alloca %"class.std::allocator.12", align 1
@@ -29513,7 +29536,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(64) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(64) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -29751,7 +29774,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E1_clES3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E1_clES3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -29851,7 +29874,7 @@ cond.end:                                         ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcPKcNS1_14digit_groupingIcEEEET_S8_T1_iiT0_RKT2_(ptr %out.coerce, ptr noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcPKcNS1_14digit_groupingIcEEEET_S8_T1_iiT0_RKT2_(ptr %out.coerce, ptr noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp = alloca %"class.std::allocator.12", align 1
@@ -29985,7 +30008,7 @@ return:                                           ; preds = %_ZN3fmt2v819basic_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(56) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_SA_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESB_SB_SI_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(56) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -30223,7 +30246,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E2_clES3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14digit_groupingIcEEEET_S7_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E2_clES3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -30417,7 +30440,7 @@ return:                                           ; preds = %_ZSt20uninitialized
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, double noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, double noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.112, align 8
@@ -30705,7 +30728,7 @@ return:                                           ; preds = %_ZN3fmt2v819basic_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, x86_fp80 noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %out.coerce, x86_fp80 noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.112, align 8
@@ -30994,7 +31017,7 @@ return:                                           ; preds = %_ZN3fmt2v819basic_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #10 comdat {
 entry:
   %format9 = alloca [7 x i8], align 1
   %specs.sroa.1.0.extract.shift = lshr i64 %specs.coerce, 32
@@ -31278,7 +31301,7 @@ return:                                           ; preds = %_ZN3fmt2v86detail6b
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail12format_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail12format_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %value, i32 noundef %precision, i64 %specs.coerce, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #10 comdat {
 entry:
   %exp = alloca i32, align 4
   %specs.sroa.2.0.extract.shift = lshr i64 %specs.coerce, 32
@@ -31475,7 +31498,7 @@ return:                                           ; preds = %if.end74, %if.end30
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_PKT_RKNS0_18basic_format_specsIS5_EENS1_10locale_refE(ptr %out.coerce, ptr noundef %s, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_PKT_RKNS0_18basic_format_specsIS5_EENS1_10locale_refE(ptr %out.coerce, ptr noundef %s, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %write.i = alloca %class.anon.137, align 8
   %ref.tmp2.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -31551,7 +31574,7 @@ cond.end:                                         ; preds = %_ZN3fmt2v86detail9w
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr %s.coerce0, i64 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(16) %specs) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr %s.coerce0, i64 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(16) %specs) local_unnamed_addr #10 comdat {
 entry:
   %decode.i.i = alloca %class.anon.136, align 8
   %buf.i.i = alloca [7 x i8], align 1
@@ -31639,7 +31662,7 @@ cond.end:                                         ; preds = %entry, %_ZN3fmt2v86
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcZNS1_5writeIcS5_EET0_S7_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS9_EEEUlS5_E_EES7_S7_RKNSB_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcZNS1_5writeIcS5_EET0_S7_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS9_EEEUlS5_E_EES7_S7_RKNSB_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -31933,7 +31956,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %buf_ptr, ptr noundef %ptr) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %buf_ptr, ptr noundef %ptr) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load i8, ptr %buf_ptr, align 1
   %1 = lshr i8 %0, 3
@@ -32038,7 +32061,7 @@ _ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_poi
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_ptrIcNS0_8appenderEmEET0_S4_T1_PKNS0_18basic_format_specsIT_EEENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail9write_ptrIcNS0_8appenderEmEET0_S4_T1_PKNS0_18basic_format_specsIT_EEENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i = alloca [17 x i8], align 16
   %size_.i.i = getelementptr inbounds i8, ptr %it.coerce, i64 16
@@ -32194,7 +32217,7 @@ _ZN3fmt2v86detail11format_uintILj4EcNS0_8appenderEmEET1_S4_T2_ib.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_ptrIcS5_mEET0_S7_T1_PKNS0_18basic_format_specsIT_EEEUlS5_E_EES7_S7_RKNS9_IS8_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(12) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_ptrIcS5_mEET0_S7_T1_PKNS0_18basic_format_specsIT_EEEUlS5_E_EES7_S7_RKNS9_IS8_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(12) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -32440,7 +32463,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3.i = alloca %"class.std::allocator.12", align 1
@@ -32509,7 +32532,7 @@ lpad3.body:                                       ; preds = %lpad4.i, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i94 = alloca %"class.fmt::v8::format_error", align 8
   %parse_ctx.i = alloca %"class.fmt::v8::basic_format_parse_context", align 8
@@ -32983,7 +33006,7 @@ return:                                           ; preds = %if.end28.i, %_ZSt20
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIbEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, i1 noundef zeroext %value) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIbEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, i1 noundef zeroext %value) local_unnamed_addr #10 comdat align 2 {
 _ZN3fmt2v86detail5writeIcNS0_8appenderEbTnNSt9enable_ifIXsr3std7is_sameIT1_bEE5valueEiE4typeELi0EEET0_S8_S5_RKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit:
   %ref.tmp.i.i = alloca %class.anon.108, align 8
   %ref.tmp = alloca %"struct.fmt::v8::basic_format_specs", align 4
@@ -33011,7 +33034,7 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEbTnNSt9enable_ifIXsr3std7is_sameIT1_bEE5v
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIfEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, float noundef %value) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIfEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, float noundef %value) local_unnamed_addr #10 comdat align 2 {
 entry:
   %specs.i.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i.i = alloca %class.anon.109, align 8
@@ -33064,7 +33087,7 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIdEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %value) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIdEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %value) local_unnamed_addr #10 comdat align 2 {
 entry:
   %specs.i.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i.i = alloca %class.anon.109, align 8
@@ -33120,7 +33143,7 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr13is_fast_floatIT1_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclINS0_17basic_string_viewIcEEEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclINS0_17basic_string_viewIcEEEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #10 comdat align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %value.coerce0, i64 %value.coerce1
@@ -33181,7 +33204,7 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIPKvEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %value) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail21default_arg_formatterIcEclIPKvEENS0_8appenderET_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %value) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN3fmt2v86detail23check_pointer_type_specINS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit.i:
   %write.i.i = alloca %class.anon.137, align 8
   %ref.tmp = alloca %"struct.fmt::v8::basic_format_specs", align 4
@@ -33221,7 +33244,7 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEvTnNSt9enable_ifIXsr3std7is_sameIT1_vEE5v
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEiTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i32 noundef %value) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEiTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i32 noundef %value) local_unnamed_addr #10 comdat {
 entry:
   %buffer.i = alloca [10 x i8], align 1
   %cmp.i = icmp slt i32 %value, 0
@@ -33433,7 +33456,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderExTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderExTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value) local_unnamed_addr #10 comdat {
 entry:
   %buffer.i = alloca [20 x i8], align 16
   %cmp.i = icmp slt i64 %value, 0
@@ -33644,7 +33667,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEyTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEyTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value) local_unnamed_addr #10 comdat {
 entry:
   %buffer.i = alloca [20 x i8], align 16
   %or.i.i = or i64 %value, 1
@@ -33815,7 +33838,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEnTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEnTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #10 comdat {
 entry:
   %buffer.i = alloca [39 x i8], align 16
   %cmp.i = icmp slt i64 %value.coerce1, 0
@@ -34074,7 +34097,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEoTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEoTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %out.coerce, i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #10 comdat {
 if.end:
   %buffer.i = alloca [39 x i8], align 16
   %n.sroa.2.0.insert.ext.i.i = zext i64 %value.coerce1 to i128
@@ -34278,7 +34301,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(8) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(8) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::locale", align 8
   %fspecs = alloca %"struct.fmt::v8::detail::float_specs", align 8
@@ -34723,7 +34746,7 @@ return:                                           ; preds = %cond.true52, %cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E_clES3_(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E_clES3_(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -34841,7 +34864,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit14: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 4 dereferenceable(28) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 4 dereferenceable(28) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -35079,7 +35102,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEjcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES7_S7_T0_iiT1_(ptr %out.coerce, i32 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEjcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES7_S7_T0_iiT1_(ptr %out.coerce, i32 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point) local_unnamed_addr #10 comdat {
 entry:
   %buffer = alloca [11 x i8], align 1
   %tobool.not.i = icmp eq i8 %decimal_point, 0
@@ -35272,7 +35295,7 @@ _ZN3fmt2v86detail17copy_str_noinlineIcPcNS0_8appenderEEET1_T0_S6_S5_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(72) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(72) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -35510,7 +35533,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E0_clES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E0_clES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -35641,7 +35664,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appenderEjNS1_14digit_groupingIcEEEET0_S6_T1_iiRKT2_(ptr %out.coerce, i32 noundef %significand, i32 noundef %significand_size, i32 noundef %exponent, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appenderEjNS1_14digit_groupingIcEEEET0_S6_T1_iiRKT2_(ptr %out.coerce, i32 noundef %significand, i32 noundef %significand_size, i32 noundef %exponent, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i5 = alloca [10 x i8], align 1
   %buffer.i.i = alloca [10 x i8], align 1
@@ -35979,7 +36002,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(64) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(64) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -36217,7 +36240,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E1_clES3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E1_clES3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -36317,7 +36340,7 @@ cond.end:                                         ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcjNS1_14digit_groupingIcEEEET_S6_T1_iiT0_RKT2_(ptr %out.coerce, i32 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcjNS1_14digit_groupingIcEEEET_S6_T1_iiT0_RKT2_(ptr %out.coerce, i32 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp = alloca %"class.std::allocator.12", align 1
@@ -36451,7 +36474,7 @@ return:                                           ; preds = %_ZN3fmt2v819basic_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(56) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(56) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -36689,7 +36712,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E2_clES3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E2_clES3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [10 x i8], align 1
   %0 = load ptr, ptr %this, align 8
@@ -36929,7 +36952,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 8 dereferenceable(16) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %out.coerce, ptr noundef nonnull align 8 dereferenceable(16) %fp, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 %fspecs.coerce, ptr %loc.coerce) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::locale", align 8
   %fspecs = alloca %"struct.fmt::v8::detail::float_specs", align 8
@@ -37376,7 +37399,7 @@ return:                                           ; preds = %cond.true52, %cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E_clES3_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -37494,7 +37517,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit14: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(36) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(36) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -37732,7 +37755,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEmcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES7_S7_T0_iiT1_(ptr %out.coerce, i64 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEmcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES7_S7_T0_iiT1_(ptr %out.coerce, i64 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point) local_unnamed_addr #10 comdat {
 entry:
   %buffer = alloca [21 x i8], align 16
   %tobool.not.i = icmp eq i8 %decimal_point, 0
@@ -37920,7 +37943,7 @@ _ZN3fmt2v86detail17copy_str_noinlineIcPcNS0_8appenderEEET1_T0_S6_S5_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(72) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E0_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(72) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -38158,7 +38181,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E0_clES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E0_clES3_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -38289,7 +38312,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appenderEmNS1_14digit_groupingIcEEEET0_S6_T1_iiRKT2_(ptr %out.coerce, i64 noundef %significand, i32 noundef %significand_size, i32 noundef %exponent, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appenderEmNS1_14digit_groupingIcEEEET0_S6_T1_iiRKT2_(ptr %out.coerce, i64 noundef %significand, i32 noundef %significand_size, i32 noundef %exponent, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i5 = alloca [20 x i8], align 16
   %buffer.i.i = alloca [20 x i8], align 16
@@ -38623,7 +38646,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(64) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E1_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(64) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -38861,7 +38884,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E1_clES3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E1_clES3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -38961,7 +38984,7 @@ cond.end:                                         ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcmNS1_14digit_groupingIcEEEET_S6_T1_iiT0_RKT2_(ptr %out.coerce, i64 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8appenderEcmNS1_14digit_groupingIcEEEET_S6_T1_iiT0_RKT2_(ptr %out.coerce, i64 noundef %significand, i32 noundef %significand_size, i32 noundef %integral_size, i8 noundef signext %decimal_point, ptr noundef nonnull align 8 dereferenceable(40) %grouping) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp = alloca %"class.std::allocator.12", align 1
@@ -39095,7 +39118,7 @@ return:                                           ; preds = %_ZN3fmt2v819basic_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(56) %f) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_14do_write_floatIS5_NS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_SC_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEEUlS5_E2_EESD_SD_SK_mmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(56) %f) local_unnamed_addr #10 comdat {
 entry:
   %0 = load i32, ptr %specs, align 4
   %conv = zext i32 %0 to i64
@@ -39333,7 +39356,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E2_clES3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %it.coerce) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden ptr @_ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refEENKUlS3_E2_clES3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %it.coerce) local_unnamed_addr #10 comdat align 2 {
 entry:
   %buffer.i.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -39571,7 +39594,7 @@ return:                                           ; preds = %_ZNSt20back_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_PKT_(ptr %out.coerce, ptr noundef %value) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_PKT_(ptr %out.coerce, ptr noundef %value) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %tobool.not = icmp eq ptr %value, null
@@ -39646,7 +39669,7 @@ if.end:                                           ; preds = %_ZSt20uninitialized
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(64) %handler) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEPKS5_SS_SS_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(64) %handler) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i206 = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i204 = alloca %"class.fmt::v8::format_error", align 8
@@ -40293,7 +40316,7 @@ return:                                           ; preds = %if.end30, %if.else2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZZN3fmt2v86detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSW_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pbegin, ptr noundef %pend) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZZN3fmt2v86detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS5_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS4_ISF_EEEE4typeESF_EEEENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSW_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %pbegin, ptr noundef %pend) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i = alloca %"class.fmt::v8::format_error", align 8
   %cmp = icmp eq ptr %pbegin, %pend
@@ -40458,7 +40481,7 @@ return:                                           ; preds = %entry, %if.then6, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler15on_format_specsEiPKcSQ_(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %id, ptr noundef %begin, ptr noundef %end) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler15on_format_specsEiPKcSQ_(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %id, ptr noundef %begin, ptr noundef %end) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write.i.i = alloca %class.anon.137, align 8
   %ref.tmp2.i.i.i.i226 = alloca %"class.fmt::v8::format_error", align 8
@@ -41139,7 +41162,7 @@ return:                                           ; preds = %_ZN3fmt2v816visit_f
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15do_parse_arg_idIcRZNS1_23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS6_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS6_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS5_ISG_EEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS6_ST_ST_OT0_E10id_adapterEEST_ST_ST_SV_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(12) %handler) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15do_parse_arg_idIcRZNS1_23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS6_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS6_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS5_ISG_EEEE4typeESG_EEEENS1_10locale_refEE14format_handlerEEPKS6_ST_ST_OT0_E10id_adapterEEST_ST_ST_SV_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(12) %handler) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %begin33 = ptrtoint ptr %begin to i64
   %end32 = ptrtoint ptr %end to i64
@@ -41310,7 +41333,7 @@ return:                                           ; preds = %if.then14, %_ZZN3fm
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idENS7_IcEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %id.coerce0, i64 %id.coerce1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idENS7_IcEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %id.coerce0, i64 %id.coerce1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i = alloca %"class.fmt::v8::format_error", align 8
   %args_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -41381,7 +41404,7 @@ if.end:                                           ; preds = %if.then, %_ZN3fmt2v
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %message) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE8on_errorEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %message) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i = alloca %"class.fmt::v8::format_error", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i)
@@ -41394,7 +41417,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail11parse_alignIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(28) %handler) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail11parse_alignIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(28) %handler) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -41500,7 +41523,7 @@ return:                                           ; preds = %if.else16, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE7on_signENS0_4sign4typeE(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %s) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE7on_signENS0_4sign4typeE(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %s) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -41557,7 +41580,7 @@ if.end:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(28) %handler) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(28) %handler) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i15 = alloca %"class.fmt::v8::format_error", align 8
   %agg.tmp.i.i = alloca %"class.fmt::v8::basic_format_arg.146", align 16
@@ -41694,7 +41717,7 @@ return:                                           ; preds = %if.else, %if.then5,
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(28) %handler) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(28) %handler) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i.i21 = alloca %"class.fmt::v8::format_error", align 8
@@ -41873,7 +41896,7 @@ return:                                           ; preds = %if.then.i23, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE12on_localizedEv(ptr noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE12on_localizedEv(ptr noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
   %arg_type_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -41901,7 +41924,7 @@ _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15do_parse_arg_idIcRZNS1_11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SB_SB_OT0_E13width_adapterEESB_SB_SB_SD_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(8) %handler) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15do_parse_arg_idIcRZNS1_11parse_widthIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SB_SB_OT0_E13width_adapterEESB_SB_SB_SD_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(8) %handler) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %begin34 = ptrtoint ptr %begin to i64
   %end33 = ptrtoint ptr %end to i64
@@ -42082,7 +42105,7 @@ return:                                           ; preds = %if.then14, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef byval(%"class.fmt::v8::basic_format_arg.146") align 16 %arg) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_13width_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef byval(%"class.fmt::v8::basic_format_arg.146") align 16 %arg) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i62 = alloca %"class.fmt::v8::format_error", align 8
@@ -42291,7 +42314,7 @@ if.end:                                           ; preds = %sw.bb50.i, %sw.bb24
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE7get_argEi(ptr noalias sret(%"class.fmt::v8::basic_format_arg.146") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %arg_id) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE7get_argEi(ptr noalias sret(%"class.fmt::v8::basic_format_arg.146") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %arg_id) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i2 = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -42379,7 +42402,7 @@ _ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE(ptr noalias sret(%"class.fmt::v8::basic_format_arg.146") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getIcEENS0_16basic_format_argIS4_EENS0_17basic_string_viewIT_EE(ptr noalias sret(%"class.fmt::v8::basic_format_arg.146") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %and.i.i = and i64 %0, 4611686018427387904
@@ -42479,7 +42502,7 @@ cond.end:                                         ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE7get_argENS1_7auto_idE(ptr noalias sret(%"class.fmt::v8::basic_format_arg.146") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3fmt2v86detail13specs_handlerIcE7get_argENS1_7auto_idE(ptr noalias sret(%"class.fmt::v8::basic_format_arg.146") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i1 = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i.i = alloca %"class.fmt::v8::format_error", align 8
@@ -42579,7 +42602,7 @@ _ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15do_parse_arg_idIcRZNS1_15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SB_SB_OT0_E17precision_adapterEESB_SB_SB_SD_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(8) %handler) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN3fmt2v86detail15do_parse_arg_idIcRZNS1_15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SB_SB_OT0_E17precision_adapterEESB_SB_SB_SD_(ptr noundef %begin, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(8) %handler) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %begin35 = ptrtoint ptr %begin to i64
   %end34 = ptrtoint ptr %end to i64
@@ -42762,7 +42785,7 @@ return:                                           ; preds = %if.then14, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef byval(%"class.fmt::v8::basic_format_arg.146") align 16 %arg) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail16get_dynamic_specINS1_17precision_checkerENS0_16basic_format_argINS0_20basic_format_contextINS0_8appenderEcEEEENS1_13error_handlerEEEiT0_T1_(ptr noundef byval(%"class.fmt::v8::basic_format_arg.146") align 16 %arg) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp2.i.i.i62 = alloca %"class.fmt::v8::format_error", align 8
@@ -42974,7 +42997,7 @@ if.end:                                           ; preds = %sw.bb50.i, %sw.bb24
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ddsinput.cpp() #21 section ".text.startup" {
@@ -43043,20 +43066,20 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

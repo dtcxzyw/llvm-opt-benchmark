@@ -94,7 +94,7 @@ define hidden noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dere
   %7 = load double, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %10 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %11 = fdiv double %7, %10
   br label %12
 
@@ -115,13 +115,13 @@ _ZNK6AbsSeq3avgEv.exit:                           ; preds = %1
   %6 = load double, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef double %8(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %9 = tail call noundef double %8(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %10 = fdiv double %6, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load double, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %16 = fdiv double %12, %15
   %17 = fneg double %10
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %10, double %16)
@@ -146,13 +146,13 @@ _ZNK6AbsSeq3avgEv.exit.i:                         ; preds = %1
   %6 = load double, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef double %8(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %9 = tail call noundef double %8(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %10 = fdiv double %6, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load double, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %15 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %16 = fdiv double %12, %15
   %17 = fneg double %10
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %10, double %16)
@@ -166,12 +166,12 @@ _ZNK6AbsSeq8varianceEv.exit:                      ; preds = %_ZNK6AbsSeq3avgEv.e
 21:                                               ; preds = %_ZNK6AbsSeq8varianceEv.exit
   %22 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %22, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #12
   unreachable
 
 _ZNK6AbsSeq8varianceEv.exit.thread:               ; preds = %_ZNK6AbsSeq3avgEv.exit.i, %1, %_ZNK6AbsSeq8varianceEv.exit
   %.06.i4 = phi double [ %18, %_ZNK6AbsSeq8varianceEv.exit ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %_ZNK6AbsSeq3avgEv.exit.i ]
-  %23 = tail call double @sqrt(double noundef %.06.i4) #12
+  %23 = tail call double @sqrt(double noundef %.06.i4) #11
   ret double %23
 }
 
@@ -208,7 +208,7 @@ define hidden noundef double @_ZNK6AbsSeq9dvarianceEv(ptr nocapture noundef nonn
 11:                                               ; preds = %9
   %12 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %12, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #12
   unreachable
 
 13:                                               ; preds = %5, %9, %1
@@ -236,7 +236,7 @@ define hidden noundef double @_ZNK6AbsSeq3dsdEv(ptr nocapture noundef nonnull re
 11:                                               ; preds = %9
   %12 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %12, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #12
   unreachable
 
 _ZNK6AbsSeq9dvarianceEv.exit:                     ; preds = %5
@@ -246,12 +246,12 @@ _ZNK6AbsSeq9dvarianceEv.exit:                     ; preds = %5
 14:                                               ; preds = %_ZNK6AbsSeq9dvarianceEv.exit
   %15 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %15, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 109, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 109, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #12
   unreachable
 
 _ZNK6AbsSeq9dvarianceEv.exit.thread:              ; preds = %9, %1, %_ZNK6AbsSeq9dvarianceEv.exit
   %.07.i4 = phi double [ %7, %_ZNK6AbsSeq9dvarianceEv.exit ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %9 ]
-  %16 = tail call double @sqrt(double noundef %.07.i4) #12
+  %16 = tail call double @sqrt(double noundef %.07.i4) #11
   ret double %16
 }
 
@@ -306,8 +306,8 @@ define hidden noundef zeroext i1 @_ZN9NumberSeq10check_numsEPS_iPS0_(ptr nocaptu
   ret i1 %.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #8 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -378,7 +378,7 @@ define hidden void @_ZN12TruncatedSeqC2Eid(ptr nocapture noundef nonnull align 8
   store i32 0, ptr %8, align 4
   %9 = sext i32 %1 to i64
   %10 = shl nsw i64 %9, 3
-  %11 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %10, i8 noundef zeroext 9, i32 noundef 0) #12
+  %11 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %10, i8 noundef zeroext 9, i32 noundef 0) #11
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %11, ptr %12, align 8
   %13 = load i32, ptr %7, align 8
@@ -400,18 +400,18 @@ define hidden void @_ZN12TruncatedSeqC2Eid(ptr nocapture noundef nonnull align 8
   ret void
 }
 
-declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #9
+declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12TruncatedSeqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12TruncatedSeq, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  tail call void @_Z8FreeHeapPv(ptr noundef %3) #12
+  tail call void @_Z8FreeHeapPv(ptr noundef %3) #11
   ret void
 }
 
-declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #9
+declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #3 align 2 {
@@ -487,12 +487,12 @@ _ZNK6AbsSeq3avgEv.exit.i:                         ; preds = %46
   %49 = load double, ptr %28, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef double %51(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %52 = tail call noundef double %51(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %53 = fdiv double %49, %52
   %54 = load double, ptr %31, align 8
   %55 = load ptr, ptr %0, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef double %56(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %57 = tail call noundef double %56(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %58 = fdiv double %54, %57
   %59 = fneg double %53
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %53, double %58)
@@ -504,7 +504,7 @@ _ZNK6AbsSeq3avgEv.exit.i:                         ; preds = %46
 63:                                               ; preds = %_ZNK6AbsSeq3avgEv.exit.i
   %64 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %64, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #13
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #12
   unreachable
 
 _ZNK6AbsSeq8varianceEv.exit.thread:               ; preds = %_ZNK6AbsSeq3avgEv.exit.i, %46
@@ -681,7 +681,7 @@ define hidden void @_ZN6AbsSeq4dumpEv(ptr noundef nonnull align 8 dereferenceabl
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %2) #12
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %2) #11
   ret void
 }
 
@@ -693,18 +693,18 @@ define hidden void @_ZN6AbsSeq7dump_onEP12outputStream(ptr nocapture noundef non
   %6 = load double, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i32 noundef %4, double noundef %6, double noundef %8) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i32 noundef %4, double noundef %6, double noundef %8) #11
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load double, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load double, ptr %13, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, double noundef %10, double noundef %12, double noundef %14) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, double noundef %10, double noundef %12, double noundef %14) #11
   ret void
 }
 
-declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #9
+declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9NumberSeq7dump_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
@@ -714,19 +714,19 @@ define hidden void @_ZN9NumberSeq7dump_onEP12outputStream(ptr nocapture noundef 
   %6 = load double, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i32 noundef %4, double noundef %6, double noundef %8) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i32 noundef %4, double noundef %6, double noundef %8) #11
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load double, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load double, ptr %13, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, double noundef %10, double noundef %12, double noundef %14) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, double noundef %10, double noundef %12, double noundef %14) #11
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load double, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 64
   %18 = load double, ptr %17, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, double noundef %16, double noundef %18) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, double noundef %16, double noundef %18) #11
   ret void
 }
 
@@ -738,19 +738,19 @@ define hidden void @_ZN12TruncatedSeq7dump_onEP12outputStream(ptr nocapture noun
   %6 = load double, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i32 noundef %4, double noundef %6, double noundef %8) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i32 noundef %4, double noundef %6, double noundef %8) #11
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load double, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load double, ptr %13, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, double noundef %10, double noundef %12, double noundef %14) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, double noundef %10, double noundef %12, double noundef %14) #11
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 68
   %18 = load i32, ptr %17, align 4
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, i32 noundef %16, i32 noundef %18) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, i32 noundef %16, i32 noundef %18) #11
   %19 = load i32, ptr %15, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -767,15 +767,15 @@ define hidden void @_ZN12TruncatedSeq7dump_onEP12outputStream(ptr nocapture noun
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
-  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14) #12
+  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #11
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14) #11
   br label %27
 
 27:                                               ; preds = %26, %22
   %28 = load ptr, ptr %21, align 8
   %29 = getelementptr inbounds double, ptr %28, i64 %indvars.iv
   %30 = load double, ptr %29, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15, i32 noundef %23, double noundef %30) #12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15, i32 noundef %23, double noundef %30) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %15, align 8
   %32 = sext i32 %31 to i64
@@ -783,13 +783,13 @@ define hidden void @_ZN12TruncatedSeq7dump_onEP12outputStream(ptr nocapture noun
   br i1 %33, label %22, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %27, %2
-  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
+  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #11
   ret void
 }
 
-declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
-declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #9
+declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK6AbsSeq5totalEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
@@ -816,10 +816,10 @@ define linkonce_odr hidden noundef double @_ZNK9NumberSeq4lastEv(ptr noundef non
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -829,12 +829,11 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

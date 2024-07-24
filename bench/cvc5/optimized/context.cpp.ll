@@ -1067,8 +1067,8 @@ _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE9push_backERKS3_.exit: ; preds 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pContext, i1 noundef zeroext %preNotify) unnamed_addr #10 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pContext, i1 noundef zeroext %preNotify) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %this, align 8
   br i1 %preNotify, label %if.then, label %if.else

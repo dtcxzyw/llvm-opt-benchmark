@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_local_arch = external local_unnamed_addr global i32, align 4
 @alignment_of_long_double.val = internal unnamed_addr global i1 false, align 8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int1_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -91,7 +91,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %.lr.ph34.us.i.us
   ret i32 %35
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int2_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -215,7 +215,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int4_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -339,7 +339,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_int8_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -463,7 +463,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float2_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -587,7 +587,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float4_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -711,7 +711,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float8_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -836,7 +836,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @copy_float16_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_float16_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #1 {
 datatype_check.exit:
   %9 = alloca [32 x i8], align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1245,7 +1245,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %..loopexit_crit_edg
   ret i32 %159
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_short_float_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1370,7 +1370,7 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_float_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1495,7 +1495,7 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_double_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1621,7 +1621,7 @@ opal_dt_swap_bytes.exit.loopexit:                 ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @copy_long_double_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
+define internal noundef i32 @copy_long_double_complex_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #1 {
 datatype_check.exit:
   %9 = alloca [32 x i8], align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2033,7 +2033,7 @@ opal_dt_swap_bytes.exit:                          ; preds = %..loopexit_crit_edg
   ret i32 %161
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_cxx_bool_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
@@ -2159,7 +2159,7 @@ datatype_check.exit:                              ; preds = %17, %15, %9
   ret i32 %47
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @copy_wchar_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
 datatype_check.exit:
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2283,7 +2283,7 @@ opal_dt_swap_bytes.exit.loopexit.us:              ; preds = %..loopexit_crit_edg
   ret i32 %52
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @copy_long_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
@@ -2582,7 +2582,7 @@ opal_dt_swap_bytes.exit146:                       ; preds = %.lr.ph.i142
   ret i32 %111
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @copy_unsigned_long_heterogeneous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, i64 %6, i64 noundef %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
@@ -2882,21 +2882,22 @@ opal_dt_swap_bytes.exit146:                       ; preds = %.lr.ph.i142
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #2
+declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

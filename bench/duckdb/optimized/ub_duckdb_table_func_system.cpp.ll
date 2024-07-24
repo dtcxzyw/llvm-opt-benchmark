@@ -77786,8 +77786,8 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_21DuckDBConstraintsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_1EEEvT_SJ_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS3_21DuckDBConstraintsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_1EEEvT_SJ_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader

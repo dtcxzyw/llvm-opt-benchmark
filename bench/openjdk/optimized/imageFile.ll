@@ -27,7 +27,7 @@ $_ZN15ImageFileReader10index_sizeEv = comdat any
 @_ZN15ImageFileReaderC1EPKcb = hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN15ImageFileReaderC2EPKcb
 @_ZN15ImageFileReaderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15ImageFileReaderD2Ev
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, -2147483648) i32 @_ZN12ImageStrings9hash_codeEPKci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.09 = load i8, ptr %0, align 1
   %.not10 = icmp eq i8 %.09, 0
@@ -124,7 +124,7 @@ _ZN12ImageStrings9hash_codeEPKci.exit:            ; preds = %.lr.ph.i, %21
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN12ImageStrings11starts_withEPKcS1_(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 1
   %.not13 = icmp eq i8 %3, 0
@@ -154,7 +154,7 @@ define hidden noundef ptr @_ZN12ImageStrings11starts_withEPKcS1_(ptr noundef rea
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN13ImageLocation8set_dataEPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %.critedge, label %.lr.ph.preheader
@@ -692,7 +692,7 @@ define hidden void @_ZN20ImageFileReaderTable6removeEP15ImageFileReader(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFileReader(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFileReader(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -726,7 +726,7 @@ define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFil
   ret i1 %.lcssa
 }
 
-declare void @_ZN21SimpleCriticalSectionC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #16
+declare void @_ZN21SimpleCriticalSectionC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1389,7 +1389,7 @@ define hidden void @_ZN15ImageFileReaderC2EPKcb(ptr nocapture noundef nonnull wr
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
-declare noundef ptr @_ZN6Endian11get_handlerEb(i1 noundef zeroext) local_unnamed_addr #16
+declare noundef ptr @_ZN6Endian11get_handlerEb(i1 noundef zeroext) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ImageFileReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
@@ -1464,7 +1464,7 @@ _ZN15ImageFileReader5closeEv.exit:                ; preds = %17, %14
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
   tail call void @_ZSt9terminatev() #27
   unreachable
@@ -1474,9 +1474,9 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZSt9terminatev() local_unnamed_addr
 
-declare noundef i32 @_ZN9osSupport12openReadOnlyEPKc(ptr noundef) local_unnamed_addr #16
+declare noundef i32 @_ZN9osSupport12openReadOnlyEPKc(ptr noundef) local_unnamed_addr #17
 
-declare noundef i64 @_ZN9osSupport4sizeEPKc(ptr noundef) local_unnamed_addr #16
+declare noundef i64 @_ZN9osSupport4sizeEPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK15ImageFileReader7read_atEPhyy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
@@ -1521,13 +1521,13 @@ define linkonce_odr hidden noundef i64 @_ZN15ImageFileReader10index_sizeEv(ptr n
   ret i64 %30
 }
 
-declare noundef ptr @_ZN9osSupport10map_memoryEiPKcmm(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noundef ptr @_ZN9osSupport10map_memoryEiPKcmm(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #17
 
-declare noundef i32 @_ZN9osSupport12unmap_memoryEPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
+declare noundef i32 @_ZN9osSupport12unmap_memoryEPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
 
-declare noundef i32 @_ZN9osSupport5closeEi(i32 noundef) local_unnamed_addr #16
+declare noundef i32 @_ZN9osSupport5closeEi(i32 noundef) local_unnamed_addr #17
 
-declare noundef i64 @_ZN9osSupport4readEiPcll(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noundef i64 @_ZN9osSupport4readEiPcll(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13ImageLocationPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
@@ -1923,18 +1923,18 @@ _ZN13ImageLocationC2EPh.exit:                     ; preds = %.lr.ph.i, %_ZN13Ima
   ret void
 }
 
-declare void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageStringsP6Endian(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #16
+declare void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageStringsP6Endian(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN15ImageFileReader21get_image_module_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZN15ImageFileReader21get_image_module_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-declare void @_ZN21SimpleCriticalSection5enterEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #16
+declare void @_ZN21SimpleCriticalSection5enterEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #17
 
-declare void @_ZN21SimpleCriticalSection4exitEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #16
+declare void @_ZN21SimpleCriticalSection4exitEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #17
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_imageFile.cpp() #19 section ".text.startup" {
@@ -1949,9 +1949,9 @@ define internal void @_GLOBAL__sub_I_imageFile.cpp() #19 section ".text.startup"
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1965,9 +1965,9 @@ attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zero
 attributes #13 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind willreturn memory(read) }

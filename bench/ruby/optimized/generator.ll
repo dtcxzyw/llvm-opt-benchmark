@@ -166,192 +166,192 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Init_generator() local_unnamed_addr #0 {
-  tail call void @rb_ext_ractor_safe(i1 noundef zeroext true) #14
-  %1 = tail call i64 @rb_require(ptr noundef nonnull @.str) #14
-  %2 = tail call i64 @rb_define_module(ptr noundef nonnull @.str.1) #14
+  tail call void @rb_ext_ractor_safe(i1 noundef zeroext true) #15
+  %1 = tail call i64 @rb_require(ptr noundef nonnull @.str) #15
+  %2 = tail call i64 @rb_define_module(ptr noundef nonnull @.str.1) #15
   store i64 %2, ptr @mJSON, align 8
-  %3 = tail call i64 @rb_define_module_under(i64 noundef %2, ptr noundef nonnull @.str.2) #14
-  %4 = tail call i64 @rb_define_module_under(i64 noundef %3, ptr noundef nonnull @.str.3) #14
+  %3 = tail call i64 @rb_define_module_under(i64 noundef %2, ptr noundef nonnull @.str.2) #15
+  %4 = tail call i64 @rb_define_module_under(i64 noundef %3, ptr noundef nonnull @.str.3) #15
   store i64 %4, ptr @mGenerator, align 8
-  %5 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #14
+  %5 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #15
   store i64 %5, ptr @eGeneratorError, align 8
-  %6 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.5) #14
+  %6 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.5) #15
   store i64 %6, ptr @eNestingError, align 8
   %7 = load i64, ptr @eGeneratorError, align 8
-  tail call void @rb_gc_register_mark_object(i64 noundef %7) #14
+  tail call void @rb_gc_register_mark_object(i64 noundef %7) #15
   %8 = load i64, ptr @eNestingError, align 8
-  tail call void @rb_gc_register_mark_object(i64 noundef %8) #14
+  tail call void @rb_gc_register_mark_object(i64 noundef %8) #15
   %9 = load i64, ptr @mGenerator, align 8
   %10 = load i64, ptr @rb_cObject, align 8
-  %11 = tail call i64 @rb_define_class_under(i64 noundef %9, ptr noundef nonnull @.str.6, i64 noundef %10) #14
+  %11 = tail call i64 @rb_define_class_under(i64 noundef %9, ptr noundef nonnull @.str.6, i64 noundef %10) #15
   store i64 %11, ptr @cState, align 8
-  tail call void @rb_define_alloc_func(i64 noundef %11, ptr noundef nonnull @cState_s_allocate) #14
+  tail call void @rb_define_alloc_func(i64 noundef %11, ptr noundef nonnull @cState_s_allocate) #15
   %12 = load i64, ptr @cState, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %12, ptr noundef nonnull @.str.7, ptr noundef nonnull @cState_from_state_s, i32 noundef 1) #14
+  tail call void @rb_define_singleton_method(i64 noundef %12, ptr noundef nonnull @.str.7, ptr noundef nonnull @cState_from_state_s, i32 noundef 1) #15
   %13 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %13, ptr noundef nonnull @.str.8, ptr noundef nonnull @cState_initialize, i32 noundef -1) #14
+  tail call void @rb_define_method(i64 noundef %13, ptr noundef nonnull @.str.8, ptr noundef nonnull @cState_initialize, i32 noundef -1) #15
   %14 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %14, ptr noundef nonnull @.str.9, ptr noundef nonnull @cState_init_copy, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %14, ptr noundef nonnull @.str.9, ptr noundef nonnull @cState_init_copy, i32 noundef 1) #15
   %15 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %15, ptr noundef nonnull @.str.10, ptr noundef nonnull @cState_indent, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %15, ptr noundef nonnull @.str.10, ptr noundef nonnull @cState_indent, i32 noundef 0) #15
   %16 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %16, ptr noundef nonnull @.str.11, ptr noundef nonnull @cState_indent_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %16, ptr noundef nonnull @.str.11, ptr noundef nonnull @cState_indent_set, i32 noundef 1) #15
   %17 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %17, ptr noundef nonnull @.str.12, ptr noundef nonnull @cState_space, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %17, ptr noundef nonnull @.str.12, ptr noundef nonnull @cState_space, i32 noundef 0) #15
   %18 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %18, ptr noundef nonnull @.str.13, ptr noundef nonnull @cState_space_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %18, ptr noundef nonnull @.str.13, ptr noundef nonnull @cState_space_set, i32 noundef 1) #15
   %19 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.14, ptr noundef nonnull @cState_space_before, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %19, ptr noundef nonnull @.str.14, ptr noundef nonnull @cState_space_before, i32 noundef 0) #15
   %20 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.15, ptr noundef nonnull @cState_space_before_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %20, ptr noundef nonnull @.str.15, ptr noundef nonnull @cState_space_before_set, i32 noundef 1) #15
   %21 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %21, ptr noundef nonnull @.str.16, ptr noundef nonnull @cState_object_nl, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %21, ptr noundef nonnull @.str.16, ptr noundef nonnull @cState_object_nl, i32 noundef 0) #15
   %22 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %22, ptr noundef nonnull @.str.17, ptr noundef nonnull @cState_object_nl_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %22, ptr noundef nonnull @.str.17, ptr noundef nonnull @cState_object_nl_set, i32 noundef 1) #15
   %23 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.18, ptr noundef nonnull @cState_array_nl, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %23, ptr noundef nonnull @.str.18, ptr noundef nonnull @cState_array_nl, i32 noundef 0) #15
   %24 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %24, ptr noundef nonnull @.str.19, ptr noundef nonnull @cState_array_nl_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %24, ptr noundef nonnull @.str.19, ptr noundef nonnull @cState_array_nl_set, i32 noundef 1) #15
   %25 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %25, ptr noundef nonnull @.str.20, ptr noundef nonnull @cState_max_nesting, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %25, ptr noundef nonnull @.str.20, ptr noundef nonnull @cState_max_nesting, i32 noundef 0) #15
   %26 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %26, ptr noundef nonnull @.str.21, ptr noundef nonnull @cState_max_nesting_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %26, ptr noundef nonnull @.str.21, ptr noundef nonnull @cState_max_nesting_set, i32 noundef 1) #15
   %27 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #15
   %28 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.23, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.23, ptr noundef nonnull @cState_script_safe, i32 noundef 0) #15
   %29 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.24, ptr noundef nonnull @cState_script_safe_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.24, ptr noundef nonnull @cState_script_safe_set, i32 noundef 1) #15
   %30 = load i64, ptr @cState, align 8
-  tail call void @rb_define_alias(i64 noundef %30, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.22) #14
+  tail call void @rb_define_alias(i64 noundef %30, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.22) #15
   %31 = load i64, ptr @cState, align 8
-  tail call void @rb_define_alias(i64 noundef %31, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.23) #14
+  tail call void @rb_define_alias(i64 noundef %31, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.23) #15
   %32 = load i64, ptr @cState, align 8
-  tail call void @rb_define_alias(i64 noundef %32, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.24) #14
+  tail call void @rb_define_alias(i64 noundef %32, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.24) #15
   %33 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.28, ptr noundef nonnull @cState_strict, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.28, ptr noundef nonnull @cState_strict, i32 noundef 0) #15
   %34 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.29, ptr noundef nonnull @cState_strict, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.29, ptr noundef nonnull @cState_strict, i32 noundef 0) #15
   %35 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.30, ptr noundef nonnull @cState_strict_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.30, ptr noundef nonnull @cState_strict_set, i32 noundef 1) #15
   %36 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %36, ptr noundef nonnull @.str.31, ptr noundef nonnull @cState_check_circular_p, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %36, ptr noundef nonnull @.str.31, ptr noundef nonnull @cState_check_circular_p, i32 noundef 0) #15
   %37 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %37, ptr noundef nonnull @.str.32, ptr noundef nonnull @cState_allow_nan_p, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %37, ptr noundef nonnull @.str.32, ptr noundef nonnull @cState_allow_nan_p, i32 noundef 0) #15
   %38 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.33, ptr noundef nonnull @cState_ascii_only_p, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.33, ptr noundef nonnull @cState_ascii_only_p, i32 noundef 0) #15
   %39 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.34, ptr noundef nonnull @cState_depth, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %39, ptr noundef nonnull @.str.34, ptr noundef nonnull @cState_depth, i32 noundef 0) #15
   %40 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.35, ptr noundef nonnull @cState_depth_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.35, ptr noundef nonnull @cState_depth_set, i32 noundef 1) #15
   %41 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.36, ptr noundef nonnull @cState_buffer_initial_length, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.36, ptr noundef nonnull @cState_buffer_initial_length, i32 noundef 0) #15
   %42 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.37, ptr noundef nonnull @cState_buffer_initial_length_set, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %42, ptr noundef nonnull @.str.37, ptr noundef nonnull @cState_buffer_initial_length_set, i32 noundef 1) #15
   %43 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.38, ptr noundef nonnull @cState_configure, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.38, ptr noundef nonnull @cState_configure, i32 noundef 1) #15
   %44 = load i64, ptr @cState, align 8
-  tail call void @rb_define_alias(i64 noundef %44, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38) #14
+  tail call void @rb_define_alias(i64 noundef %44, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38) #15
   %45 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.40, ptr noundef nonnull @cState_to_h, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.40, ptr noundef nonnull @cState_to_h, i32 noundef 0) #15
   %46 = load i64, ptr @cState, align 8
-  tail call void @rb_define_alias(i64 noundef %46, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40) #14
+  tail call void @rb_define_alias(i64 noundef %46, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40) #15
   %47 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.42, ptr noundef nonnull @cState_aref, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.42, ptr noundef nonnull @cState_aref, i32 noundef 1) #15
   %48 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.43, ptr noundef nonnull @cState_aset, i32 noundef 2) #14
+  tail call void @rb_define_method(i64 noundef %48, ptr noundef nonnull @.str.43, ptr noundef nonnull @cState_aset, i32 noundef 2) #15
   %49 = load i64, ptr @cState, align 8
-  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.44, ptr noundef nonnull @cState_generate, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.44, ptr noundef nonnull @cState_generate, i32 noundef 1) #15
   %50 = load i64, ptr @mGenerator, align 8
-  %51 = tail call i64 @rb_define_module_under(i64 noundef %50, ptr noundef nonnull @.str.45) #14
+  %51 = tail call i64 @rb_define_module_under(i64 noundef %50, ptr noundef nonnull @.str.45) #15
   store i64 %51, ptr @mGeneratorMethods, align 8
-  %52 = tail call i64 @rb_define_module_under(i64 noundef %51, ptr noundef nonnull @.str.46) #14
-  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.47, ptr noundef nonnull @mObject_to_json, i32 noundef -1) #14
+  %52 = tail call i64 @rb_define_module_under(i64 noundef %51, ptr noundef nonnull @.str.46) #15
+  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.47, ptr noundef nonnull @mObject_to_json, i32 noundef -1) #15
   %53 = load i64, ptr @mGeneratorMethods, align 8
-  %54 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.48) #14
-  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.47, ptr noundef nonnull @mHash_to_json, i32 noundef -1) #14
+  %54 = tail call i64 @rb_define_module_under(i64 noundef %53, ptr noundef nonnull @.str.48) #15
+  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.47, ptr noundef nonnull @mHash_to_json, i32 noundef -1) #15
   %55 = load i64, ptr @mGeneratorMethods, align 8
-  %56 = tail call i64 @rb_define_module_under(i64 noundef %55, ptr noundef nonnull @.str.49) #14
-  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.47, ptr noundef nonnull @mArray_to_json, i32 noundef -1) #14
+  %56 = tail call i64 @rb_define_module_under(i64 noundef %55, ptr noundef nonnull @.str.49) #15
+  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.47, ptr noundef nonnull @mArray_to_json, i32 noundef -1) #15
   %57 = load i64, ptr @mGeneratorMethods, align 8
-  %58 = tail call i64 @rb_define_module_under(i64 noundef %57, ptr noundef nonnull @.str.50) #14
-  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.47, ptr noundef nonnull @mInteger_to_json, i32 noundef -1) #14
+  %58 = tail call i64 @rb_define_module_under(i64 noundef %57, ptr noundef nonnull @.str.50) #15
+  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.47, ptr noundef nonnull @mInteger_to_json, i32 noundef -1) #15
   %59 = load i64, ptr @mGeneratorMethods, align 8
-  %60 = tail call i64 @rb_define_module_under(i64 noundef %59, ptr noundef nonnull @.str.51) #14
-  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.47, ptr noundef nonnull @mFloat_to_json, i32 noundef -1) #14
+  %60 = tail call i64 @rb_define_module_under(i64 noundef %59, ptr noundef nonnull @.str.51) #15
+  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.47, ptr noundef nonnull @mFloat_to_json, i32 noundef -1) #15
   %61 = load i64, ptr @mGeneratorMethods, align 8
-  %62 = tail call i64 @rb_define_module_under(i64 noundef %61, ptr noundef nonnull @.str.52) #14
+  %62 = tail call i64 @rb_define_module_under(i64 noundef %61, ptr noundef nonnull @.str.52) #15
   store i64 %62, ptr @mString, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %62, ptr noundef nonnull @.str.53, ptr noundef nonnull @mString_included_s, i32 noundef 1) #14
+  tail call void @rb_define_singleton_method(i64 noundef %62, ptr noundef nonnull @.str.53, ptr noundef nonnull @mString_included_s, i32 noundef 1) #15
   %63 = load i64, ptr @mString, align 8
-  tail call void @rb_define_method(i64 noundef %63, ptr noundef nonnull @.str.47, ptr noundef nonnull @mString_to_json, i32 noundef -1) #14
+  tail call void @rb_define_method(i64 noundef %63, ptr noundef nonnull @.str.47, ptr noundef nonnull @mString_to_json, i32 noundef -1) #15
   %64 = load i64, ptr @mString, align 8
-  tail call void @rb_define_method(i64 noundef %64, ptr noundef nonnull @.str.54, ptr noundef nonnull @mString_to_json_raw, i32 noundef -1) #14
+  tail call void @rb_define_method(i64 noundef %64, ptr noundef nonnull @.str.54, ptr noundef nonnull @mString_to_json_raw, i32 noundef -1) #15
   %65 = load i64, ptr @mString, align 8
-  tail call void @rb_define_method(i64 noundef %65, ptr noundef nonnull @.str.55, ptr noundef nonnull @mString_to_json_raw_object, i32 noundef 0) #14
+  tail call void @rb_define_method(i64 noundef %65, ptr noundef nonnull @.str.55, ptr noundef nonnull @mString_to_json_raw_object, i32 noundef 0) #15
   %66 = load i64, ptr @mString, align 8
-  %67 = tail call i64 @rb_define_module_under(i64 noundef %66, ptr noundef nonnull @.str.56) #14
+  %67 = tail call i64 @rb_define_module_under(i64 noundef %66, ptr noundef nonnull @.str.56) #15
   store i64 %67, ptr @mString_Extend, align 8
-  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.57, ptr noundef nonnull @mString_Extend_json_create, i32 noundef 1) #14
+  tail call void @rb_define_method(i64 noundef %67, ptr noundef nonnull @.str.57, ptr noundef nonnull @mString_Extend_json_create, i32 noundef 1) #15
   %68 = load i64, ptr @mGeneratorMethods, align 8
-  %69 = tail call i64 @rb_define_module_under(i64 noundef %68, ptr noundef nonnull @.str.58) #14
-  tail call void @rb_define_method(i64 noundef %69, ptr noundef nonnull @.str.47, ptr noundef nonnull @mTrueClass_to_json, i32 noundef -1) #14
+  %69 = tail call i64 @rb_define_module_under(i64 noundef %68, ptr noundef nonnull @.str.58) #15
+  tail call void @rb_define_method(i64 noundef %69, ptr noundef nonnull @.str.47, ptr noundef nonnull @mTrueClass_to_json, i32 noundef -1) #15
   %70 = load i64, ptr @mGeneratorMethods, align 8
-  %71 = tail call i64 @rb_define_module_under(i64 noundef %70, ptr noundef nonnull @.str.59) #14
-  tail call void @rb_define_method(i64 noundef %71, ptr noundef nonnull @.str.47, ptr noundef nonnull @mFalseClass_to_json, i32 noundef -1) #14
+  %71 = tail call i64 @rb_define_module_under(i64 noundef %70, ptr noundef nonnull @.str.59) #15
+  tail call void @rb_define_method(i64 noundef %71, ptr noundef nonnull @.str.47, ptr noundef nonnull @mFalseClass_to_json, i32 noundef -1) #15
   %72 = load i64, ptr @mGeneratorMethods, align 8
-  %73 = tail call i64 @rb_define_module_under(i64 noundef %72, ptr noundef nonnull @.str.60) #14
-  tail call void @rb_define_method(i64 noundef %73, ptr noundef nonnull @.str.47, ptr noundef nonnull @mNilClass_to_json, i32 noundef -1) #14
-  %74 = tail call i64 @rb_intern(ptr noundef nonnull @.str.61) #14
+  %73 = tail call i64 @rb_define_module_under(i64 noundef %72, ptr noundef nonnull @.str.60) #15
+  tail call void @rb_define_method(i64 noundef %73, ptr noundef nonnull @.str.47, ptr noundef nonnull @mNilClass_to_json, i32 noundef -1) #15
+  %74 = tail call i64 @rb_intern(ptr noundef nonnull @.str.61) #15
   store i64 %74, ptr @i_to_s, align 8
-  %75 = tail call i64 @rb_intern(ptr noundef nonnull @.str.47) #14
+  %75 = tail call i64 @rb_intern(ptr noundef nonnull @.str.47) #15
   store i64 %75, ptr @i_to_json, align 8
-  %76 = tail call i64 @rb_intern(ptr noundef nonnull @.str.62) #14
+  %76 = tail call i64 @rb_intern(ptr noundef nonnull @.str.62) #15
   store i64 %76, ptr @i_new, align 8
-  %77 = tail call i64 @rb_intern(ptr noundef nonnull @.str.10) #14
+  %77 = tail call i64 @rb_intern(ptr noundef nonnull @.str.10) #15
   store i64 %77, ptr @i_indent, align 8
-  %78 = tail call i64 @rb_intern(ptr noundef nonnull @.str.12) #14
+  %78 = tail call i64 @rb_intern(ptr noundef nonnull @.str.12) #15
   store i64 %78, ptr @i_space, align 8
-  %79 = tail call i64 @rb_intern(ptr noundef nonnull @.str.14) #14
+  %79 = tail call i64 @rb_intern(ptr noundef nonnull @.str.14) #15
   store i64 %79, ptr @i_space_before, align 8
-  %80 = tail call i64 @rb_intern(ptr noundef nonnull @.str.16) #14
+  %80 = tail call i64 @rb_intern(ptr noundef nonnull @.str.16) #15
   store i64 %80, ptr @i_object_nl, align 8
-  %81 = tail call i64 @rb_intern(ptr noundef nonnull @.str.18) #14
+  %81 = tail call i64 @rb_intern(ptr noundef nonnull @.str.18) #15
   store i64 %81, ptr @i_array_nl, align 8
-  %82 = tail call i64 @rb_intern(ptr noundef nonnull @.str.20) #14
+  %82 = tail call i64 @rb_intern(ptr noundef nonnull @.str.20) #15
   store i64 %82, ptr @i_max_nesting, align 8
-  %83 = tail call i64 @rb_intern(ptr noundef nonnull @.str.22) #14
+  %83 = tail call i64 @rb_intern(ptr noundef nonnull @.str.22) #15
   store i64 %83, ptr @i_script_safe, align 8
-  %84 = tail call i64 @rb_intern(ptr noundef nonnull @.str.25) #14
+  %84 = tail call i64 @rb_intern(ptr noundef nonnull @.str.25) #15
   store i64 %84, ptr @i_escape_slash, align 8
-  %85 = tail call i64 @rb_intern(ptr noundef nonnull @.str.28) #14
+  %85 = tail call i64 @rb_intern(ptr noundef nonnull @.str.28) #15
   store i64 %85, ptr @i_strict, align 8
-  %86 = tail call i64 @rb_intern(ptr noundef nonnull @.str.63) #14
+  %86 = tail call i64 @rb_intern(ptr noundef nonnull @.str.63) #15
   store i64 %86, ptr @i_allow_nan, align 8
-  %87 = tail call i64 @rb_intern(ptr noundef nonnull @.str.64) #14
+  %87 = tail call i64 @rb_intern(ptr noundef nonnull @.str.64) #15
   store i64 %87, ptr @i_ascii_only, align 8
-  %88 = tail call i64 @rb_intern(ptr noundef nonnull @.str.34) #14
+  %88 = tail call i64 @rb_intern(ptr noundef nonnull @.str.34) #15
   store i64 %88, ptr @i_depth, align 8
-  %89 = tail call i64 @rb_intern(ptr noundef nonnull @.str.36) #14
+  %89 = tail call i64 @rb_intern(ptr noundef nonnull @.str.36) #15
   store i64 %89, ptr @i_buffer_initial_length, align 8
-  %90 = tail call i64 @rb_intern(ptr noundef nonnull @.str.65) #14
+  %90 = tail call i64 @rb_intern(ptr noundef nonnull @.str.65) #15
   store i64 %90, ptr @i_pack, align 8
-  %91 = tail call i64 @rb_intern(ptr noundef nonnull @.str.66) #14
+  %91 = tail call i64 @rb_intern(ptr noundef nonnull @.str.66) #15
   store i64 %91, ptr @i_unpack, align 8
-  %92 = tail call i64 @rb_intern(ptr noundef nonnull @.str.67) #14
+  %92 = tail call i64 @rb_intern(ptr noundef nonnull @.str.67) #15
   store i64 %92, ptr @i_create_id, align 8
-  %93 = tail call i64 @rb_intern(ptr noundef nonnull @.str.68) #14
+  %93 = tail call i64 @rb_intern(ptr noundef nonnull @.str.68) #15
   store i64 %93, ptr @i_extend, align 8
-  %94 = tail call i64 @rb_intern(ptr noundef nonnull @.str.69) #14
+  %94 = tail call i64 @rb_intern(ptr noundef nonnull @.str.69) #15
   store i64 %94, ptr @i_key_p, align 8
-  %95 = tail call i64 @rb_intern(ptr noundef nonnull @.str.42) #14
-  %96 = tail call i64 @rb_intern(ptr noundef nonnull @.str.70) #14
+  %95 = tail call i64 @rb_intern(ptr noundef nonnull @.str.42) #15
+  %96 = tail call i64 @rb_intern(ptr noundef nonnull @.str.70) #15
   store i64 %96, ptr @i_send, align 8
-  %97 = tail call i64 @rb_intern(ptr noundef nonnull @.str.71) #14
+  %97 = tail call i64 @rb_intern(ptr noundef nonnull @.str.71) #15
   store i64 %97, ptr @i_respond_to_p, align 8
-  %98 = tail call i64 @rb_intern(ptr noundef nonnull @.str.72) #14
-  %99 = tail call i64 @rb_intern(ptr noundef nonnull @.str.73) #14
-  %100 = tail call i64 @rb_intern(ptr noundef nonnull @.str.74) #14
+  %98 = tail call i64 @rb_intern(ptr noundef nonnull @.str.72) #15
+  %99 = tail call i64 @rb_intern(ptr noundef nonnull @.str.73) #15
+  %100 = tail call i64 @rb_intern(ptr noundef nonnull @.str.74) #15
   ret void
 }
 
@@ -374,7 +374,7 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_s_allocate(i64 noundef %0) #0 {
 RTYPEDDATA_GET_DATA.exit:
-  %1 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 136, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %1 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 136, ptr noundef nonnull @JSON_Generator_State_type) #15
   ret i64 %1
 }
 
@@ -382,24 +382,24 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_from_state_s(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %0) #14
+  %3 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %0) #15
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %13
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @rb_cHash, align 8
-  %6 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %5) #14
+  %6 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %5) #15
   %.not7 = icmp eq i64 %6, 0
   br i1 %.not7, label %10, label %7
 
 7:                                                ; preds = %4
   %8 = load i64, ptr @i_new, align 8
-  %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %8, i32 noundef 1, i64 noundef %1) #14
+  %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %8, i32 noundef 1, i64 noundef %1) #15
   br label %13
 
 10:                                               ; preds = %4
   %11 = load i64, ptr @cState, align 8
-  %12 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %11) #14
+  %12 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %11) #15
   br label %13
 
 13:                                               ; preds = %2, %10, %7
@@ -412,12 +412,12 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @JSON_Generator_State_type) #15
   %6 = getelementptr inbounds i8, ptr %5, i64 104
   store i64 100, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 128
   store i64 1024, ptr %7, align 8
-  %8 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %8 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %9 = load i64, ptr %4, align 8
   %10 = icmp eq i64 %9, 4
   br i1 %10, label %13, label %11
@@ -436,14 +436,14 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
   br i1 %3, label %122, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @JSON_Generator_State_type) #15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %4
   %8 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.77) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.77) #16
   unreachable
 
 9:                                                ; preds = %4
@@ -455,7 +455,7 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %6, align 8
-  %15 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %11, i64 noundef 1) #16
+  %15 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %11, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %14, i64 %11, i1 false)
   br label %fstrndup.exit
 
@@ -470,7 +470,7 @@ fstrndup.exit:                                    ; preds = %9, %13
 19:                                               ; preds = %fstrndup.exit
   %20 = getelementptr inbounds i8, ptr %6, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %17, i64 noundef 1) #16
+  %22 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %17, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %21, i64 %17, i1 false)
   br label %fstrndup.exit42
 
@@ -486,7 +486,7 @@ fstrndup.exit42:                                  ; preds = %fstrndup.exit, %19
 27:                                               ; preds = %fstrndup.exit42
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #16
+  %30 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %29, i64 %25, i1 false)
   br label %fstrndup.exit44
 
@@ -502,7 +502,7 @@ fstrndup.exit44:                                  ; preds = %fstrndup.exit42, %2
 35:                                               ; preds = %fstrndup.exit44
   %36 = getelementptr inbounds i8, ptr %6, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %33, i64 noundef 1) #16
+  %38 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %33, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr readonly align 1 %37, i64 %33, i1 false)
   br label %fstrndup.exit46
 
@@ -518,7 +518,7 @@ fstrndup.exit46:                                  ; preds = %fstrndup.exit44, %3
 43:                                               ; preds = %fstrndup.exit46
   %44 = getelementptr inbounds i8, ptr %6, i64 64
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %41, i64 noundef 1) #16
+  %46 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %41, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %45, i64 %41, i1 false)
   br label %fstrndup.exit48
 
@@ -536,7 +536,7 @@ fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %4
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   %spec.store.select.i.i = select i1 %53, i64 1024, i64 %52
-  %54 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #17
+  %54 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #18
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %55, i8 0, i64 24, i1 false)
   store i64 %spec.store.select.i.i, ptr %54, align 8
@@ -547,7 +547,7 @@ fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %4
   br i1 %.not.i.i, label %fbuffer_dup.exit, label %59
 
 59:                                               ; preds = %50
-  %60 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %spec.store.select.i.i, i64 noundef 1) #16
+  %60 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %spec.store.select.i.i, i64 noundef 1) #17
   store ptr %60, ptr %55, align 8
   %61 = getelementptr inbounds i8, ptr %54, i64 24
   store i64 %spec.store.select.i.i, ptr %61, align 8
@@ -565,7 +565,7 @@ fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %4
   br i1 %67, label %68, label %ruby_nonempty_memcpy.exit.i.i
 
 68:                                               ; preds = %65
-  %69 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %60, i64 noundef %.0.i.i.i, i64 noundef 1) #18
+  %69 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %60, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %69, ptr %55, align 8
   store i64 %.0.i.i.i, ptr %61, align 8
   br label %ruby_nonempty_memcpy.exit.i.i
@@ -592,7 +592,7 @@ fbuffer_dup.exit:                                 ; preds = %50, %ruby_nonempty_
   %77 = load i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 0
   %spec.store.select.i.i49 = select i1 %78, i64 1024, i64 %77
-  %79 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #17
+  %79 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #18
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %80, i8 0, i64 24, i1 false)
   store i64 %spec.store.select.i.i49, ptr %79, align 8
@@ -603,7 +603,7 @@ fbuffer_dup.exit:                                 ; preds = %50, %ruby_nonempty_
   br i1 %.not.i.i50, label %fbuffer_dup.exit53, label %84
 
 84:                                               ; preds = %75
-  %85 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %spec.store.select.i.i49, i64 noundef 1) #16
+  %85 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %spec.store.select.i.i49, i64 noundef 1) #17
   store ptr %85, ptr %80, align 8
   %86 = getelementptr inbounds i8, ptr %79, i64 24
   store i64 %spec.store.select.i.i49, ptr %86, align 8
@@ -621,7 +621,7 @@ fbuffer_dup.exit:                                 ; preds = %50, %ruby_nonempty_
   br i1 %92, label %93, label %ruby_nonempty_memcpy.exit.i.i52
 
 93:                                               ; preds = %90
-  %94 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %85, i64 noundef %.0.i.i.i51, i64 noundef 1) #18
+  %94 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %85, i64 noundef %.0.i.i.i51, i64 noundef 1) #19
   store ptr %94, ptr %80, align 8
   store i64 %.0.i.i.i51, ptr %86, align 8
   br label %ruby_nonempty_memcpy.exit.i.i52
@@ -648,7 +648,7 @@ fbuffer_dup.exit53:                               ; preds = %75, %ruby_nonempty_
   %102 = load i64, ptr %101, align 8
   %103 = icmp eq i64 %102, 0
   %spec.store.select.i.i54 = select i1 %103, i64 1024, i64 %102
-  %104 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #17
+  %104 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #18
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %105, i8 0, i64 24, i1 false)
   store i64 %spec.store.select.i.i54, ptr %104, align 8
@@ -659,7 +659,7 @@ fbuffer_dup.exit53:                               ; preds = %75, %ruby_nonempty_
   br i1 %.not.i.i55, label %fbuffer_dup.exit58, label %109
 
 109:                                              ; preds = %100
-  %110 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %spec.store.select.i.i54, i64 noundef 1) #16
+  %110 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %spec.store.select.i.i54, i64 noundef 1) #17
   store ptr %110, ptr %105, align 8
   %111 = getelementptr inbounds i8, ptr %104, i64 24
   store i64 %spec.store.select.i.i54, ptr %111, align 8
@@ -677,7 +677,7 @@ fbuffer_dup.exit53:                               ; preds = %75, %ruby_nonempty_
   br i1 %117, label %118, label %ruby_nonempty_memcpy.exit.i.i57
 
 118:                                              ; preds = %115
-  %119 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %110, i64 noundef %.0.i.i.i56, i64 noundef 1) #18
+  %119 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %110, i64 noundef %.0.i.i.i56, i64 noundef 1) #19
   store ptr %119, ptr %105, align 8
   store i64 %.0.i.i.i56, ptr %111, align 8
   br label %ruby_nonempty_memcpy.exit.i.i57
@@ -699,7 +699,7 @@ fbuffer_dup.exit58:                               ; preds = %100, %ruby_nonempty
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_indent(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -707,11 +707,11 @@ define internal i64 @cState_indent(i64 noundef %0) #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = tail call i64 @rb_str_new(ptr noundef nonnull %3, i64 noundef %6) #14
+  %7 = tail call i64 @rb_str_new(ptr noundef nonnull %3, i64 noundef %6) #15
   br label %10
 
 8:                                                ; preds = %1
-  %9 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #14
+  %9 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #15
   br label %10
 
 10:                                               ; preds = %8, %4
@@ -721,7 +721,7 @@ define internal i64 @cState_indent(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_indent_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0
@@ -736,7 +736,7 @@ define internal noundef i64 @cState_indent_set(i64 noundef %0, i64 noundef %1) #
   br i1 %12, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %8, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %8
@@ -751,7 +751,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not16, label %28, label %18
 
 18:                                               ; preds = %17
-  tail call void @ruby_xfree(ptr noundef nonnull %16) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %16) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br label %28
 
@@ -759,7 +759,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not16, label %21, label %20
 
 20:                                               ; preds = %19
-  tail call void @ruby_xfree(ptr noundef nonnull %16) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %16) #15
   %.pre = load i64, ptr %9, align 8, !noalias !8
   br label %21
 
@@ -776,7 +776,7 @@ Check_Type.exit:                                  ; preds = %8
 
 fstrndup.exit:                                    ; preds = %21, %25
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %25 ], [ %24, %21 ]
-  %26 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
+  %26 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %26, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 8
@@ -789,7 +789,7 @@ fstrndup.exit:                                    ; preds = %21, %25
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_space(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -798,11 +798,11 @@ define internal i64 @cState_space(i64 noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #14
+  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #15
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #14
+  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #15
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -812,7 +812,7 @@ define internal i64 @cState_space(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_space_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0
@@ -827,7 +827,7 @@ define internal noundef i64 @cState_space_set(i64 noundef %0, i64 noundef %1) #0
   br i1 %12, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %8, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %8
@@ -843,7 +843,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not16, label %29, label %19
 
 19:                                               ; preds = %18
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %29
 
@@ -851,7 +851,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not16, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   %.pre = load i64, ptr %9, align 8, !noalias !11
   br label %22
 
@@ -868,7 +868,7 @@ Check_Type.exit:                                  ; preds = %8
 
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
-  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
+  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 24
@@ -881,7 +881,7 @@ fstrndup.exit:                                    ; preds = %22, %26
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_space_before(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -890,11 +890,11 @@ define internal i64 @cState_space_before(i64 noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #14
+  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #15
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #14
+  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #15
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -904,7 +904,7 @@ define internal i64 @cState_space_before(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_space_before_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0
@@ -919,7 +919,7 @@ define internal noundef i64 @cState_space_before_set(i64 noundef %0, i64 noundef
   br i1 %12, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %8, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %8
@@ -935,7 +935,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not16, label %29, label %19
 
 19:                                               ; preds = %18
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %29
 
@@ -943,7 +943,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not16, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   %.pre = load i64, ptr %9, align 8, !noalias !14
   br label %22
 
@@ -960,7 +960,7 @@ Check_Type.exit:                                  ; preds = %8
 
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
-  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
+  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 40
@@ -973,7 +973,7 @@ fstrndup.exit:                                    ; preds = %22, %26
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_object_nl(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -982,11 +982,11 @@ define internal i64 @cState_object_nl(i64 noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 56
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #14
+  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #15
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #14
+  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #15
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -996,7 +996,7 @@ define internal i64 @cState_object_nl(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_object_nl_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0
@@ -1011,7 +1011,7 @@ define internal noundef i64 @cState_object_nl_set(i64 noundef %0, i64 noundef %1
   br i1 %12, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %8, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %8
@@ -1027,7 +1027,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not15, label %29, label %19
 
 19:                                               ; preds = %18
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   store ptr null, ptr %16, align 8
   br label %29
 
@@ -1035,7 +1035,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not15, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   %.pre = load i64, ptr %9, align 8, !noalias !17
   br label %22
 
@@ -1052,7 +1052,7 @@ Check_Type.exit:                                  ; preds = %8
 
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
-  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
+  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 56
@@ -1065,7 +1065,7 @@ fstrndup.exit:                                    ; preds = %22, %26
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_array_nl(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1074,11 +1074,11 @@ define internal i64 @cState_array_nl(i64 noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 72
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #14
+  %8 = tail call i64 @rb_str_new(ptr noundef nonnull %4, i64 noundef %7) #15
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #14
+  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.78, i64 noundef 0) #15
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -1088,7 +1088,7 @@ define internal i64 @cState_array_nl(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_array_nl_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %1, 0
@@ -1103,7 +1103,7 @@ define internal noundef i64 @cState_array_nl_set(i64 noundef %0, i64 noundef %1)
   br i1 %12, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %8, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %8
@@ -1119,7 +1119,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not15, label %29, label %19
 
 19:                                               ; preds = %18
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   store ptr null, ptr %16, align 8
   br label %29
 
@@ -1127,7 +1127,7 @@ Check_Type.exit:                                  ; preds = %8
   br i1 %.not15, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void @ruby_xfree(ptr noundef nonnull %17) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %17) #15
   %.pre = load i64, ptr %9, align 8, !noalias !20
   br label %22
 
@@ -1144,7 +1144,7 @@ Check_Type.exit:                                  ; preds = %8
 
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
-  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
+  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 72
@@ -1157,7 +1157,7 @@ fstrndup.exit:                                    ; preds = %22, %26
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 0) i64 @cState_max_nesting(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 104
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
@@ -1167,13 +1167,13 @@ define internal range(i64 1, 0) i64 @cState_max_nesting(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @cState_max_nesting_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 1
   %.not31.i = icmp eq i64 %4, 0
   br i1 %.not31.i, label %.critedge.i, label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %2
@@ -1185,7 +1185,7 @@ Check_Type.exit:                                  ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @cState_script_safe(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 114
   %4 = load i8, ptr %3, align 2
   %.not = icmp eq i8 %4, 0
@@ -1195,7 +1195,7 @@ define internal range(i64 0, 21) i64 @cState_script_safe(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_script_safe_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, -5
   %5 = icmp ne i64 %4, 0
   %6 = zext i1 %5 to i8
@@ -1208,7 +1208,7 @@ declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @cState_strict(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 115
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
@@ -1218,7 +1218,7 @@ define internal range(i64 0, 21) i64 @cState_strict(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_strict_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, -5
   %5 = icmp ne i64 %4, 0
   %6 = zext i1 %5 to i8
@@ -1229,7 +1229,7 @@ define internal noundef i64 @cState_strict_set(i64 noundef %0, i64 noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @cState_check_circular_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 104
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -1239,7 +1239,7 @@ define internal range(i64 0, 21) i64 @cState_check_circular_p(i64 noundef %0) #0
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @cState_allow_nan_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -1249,7 +1249,7 @@ define internal range(i64 0, 21) i64 @cState_allow_nan_p(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @cState_ascii_only_p(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 113
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
@@ -1259,7 +1259,7 @@ define internal range(i64 0, 21) i64 @cState_ascii_only_p(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 0) i64 @cState_depth(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 120
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
@@ -1269,13 +1269,13 @@ define internal range(i64 1, 0) i64 @cState_depth(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_depth_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 1
   %.not31.i = icmp eq i64 %4, 0
   br i1 %.not31.i, label %.critedge.i, label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %2
@@ -1287,7 +1287,7 @@ Check_Type.exit:                                  ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 0) i64 @cState_buffer_initial_length(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 128
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 1
@@ -1297,13 +1297,13 @@ define internal range(i64 1, 0) i64 @cState_buffer_initial_length(i64 noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_buffer_initial_length_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %4 = and i64 %1, 1
   %.not31.i = icmp eq i64 %4, 0
   br i1 %.not31.i, label %.critedge.i, label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 21) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %2
@@ -1322,20 +1322,20 @@ Check_Type.exit:                                  ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @cState_configure(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
-  %4 = tail call i64 @rb_check_convert_type(i64 noundef %1, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.41) #14
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
+  %4 = tail call i64 @rb_check_convert_type(i64 noundef %1, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.41) #15
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.40) #14
+  %7 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.40) #15
   br label %8
 
 8:                                                ; preds = %6, %2
   %.0 = phi i64 [ %7, %6 ], [ %4, %2 ]
   %9 = load i64, ptr @i_indent, align 8
-  %10 = tail call i64 @rb_id2sym(i64 noundef %9) #14
-  %11 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %10) #14
+  %10 = tail call i64 @rb_id2sym(i64 noundef %9) #15
+  %11 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %10) #15
   %12 = and i64 %11, -5
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %30, label %13
@@ -1353,7 +1353,7 @@ define internal noundef i64 @cState_configure(i64 noundef returned %0, i64 nound
   br i1 %19, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %15, %13
-  tail call void @rb_unexpected_type(i64 noundef %11, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %11, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %15
@@ -1375,7 +1375,7 @@ RSTRING_PTR.exit:                                 ; preds = %Check_Type.exit, %2
   br i1 %26, label %fstrndup.exit, label %27
 
 27:                                               ; preds = %RSTRING_PTR.exit
-  %28 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #16
+  %28 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %.sroa.2.0.i, i64 %25, i1 false)
   br label %fstrndup.exit
 
@@ -1388,8 +1388,8 @@ fstrndup.exit:                                    ; preds = %RSTRING_PTR.exit, %
 
 30:                                               ; preds = %fstrndup.exit, %8
   %31 = load i64, ptr @i_space, align 8
-  %32 = tail call i64 @rb_id2sym(i64 noundef %31) #14
-  %33 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %32) #14
+  %32 = tail call i64 @rb_id2sym(i64 noundef %31) #15
+  %33 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %32) #15
   %34 = and i64 %33, -5
   %.not138 = icmp eq i64 %34, 0
   br i1 %.not138, label %53, label %35
@@ -1407,7 +1407,7 @@ fstrndup.exit:                                    ; preds = %RSTRING_PTR.exit, %
   br i1 %41, label %Check_Type.exit98, label %.critedge.i97
 
 .critedge.i97:                                    ; preds = %37, %35
-  tail call void @rb_unexpected_type(i64 noundef %33, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %33, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit98:                                ; preds = %37
@@ -1429,7 +1429,7 @@ RSTRING_PTR.exit102:                              ; preds = %Check_Type.exit98, 
   br i1 %48, label %fstrndup.exit104, label %49
 
 49:                                               ; preds = %RSTRING_PTR.exit102
-  %50 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %47, i64 noundef 1) #16
+  %50 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %47, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %.sroa.2.0.i101, i64 %47, i1 false)
   br label %fstrndup.exit104
 
@@ -1443,8 +1443,8 @@ fstrndup.exit104:                                 ; preds = %RSTRING_PTR.exit102
 
 53:                                               ; preds = %fstrndup.exit104, %30
   %54 = load i64, ptr @i_space_before, align 8
-  %55 = tail call i64 @rb_id2sym(i64 noundef %54) #14
-  %56 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %55) #14
+  %55 = tail call i64 @rb_id2sym(i64 noundef %54) #15
+  %56 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %55) #15
   %57 = and i64 %56, -5
   %.not140 = icmp eq i64 %57, 0
   br i1 %.not140, label %76, label %58
@@ -1462,7 +1462,7 @@ fstrndup.exit104:                                 ; preds = %RSTRING_PTR.exit102
   br i1 %64, label %Check_Type.exit106, label %.critedge.i105
 
 .critedge.i105:                                   ; preds = %60, %58
-  tail call void @rb_unexpected_type(i64 noundef %56, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %56, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit106:                               ; preds = %60
@@ -1484,7 +1484,7 @@ RSTRING_PTR.exit110:                              ; preds = %Check_Type.exit106,
   br i1 %71, label %fstrndup.exit112, label %72
 
 72:                                               ; preds = %RSTRING_PTR.exit110
-  %73 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %70, i64 noundef 1) #16
+  %73 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %70, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr readonly align 1 %.sroa.2.0.i109, i64 %70, i1 false)
   br label %fstrndup.exit112
 
@@ -1498,8 +1498,8 @@ fstrndup.exit112:                                 ; preds = %RSTRING_PTR.exit110
 
 76:                                               ; preds = %fstrndup.exit112, %53
   %77 = load i64, ptr @i_array_nl, align 8
-  %78 = tail call i64 @rb_id2sym(i64 noundef %77) #14
-  %79 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %78) #14
+  %78 = tail call i64 @rb_id2sym(i64 noundef %77) #15
+  %79 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %78) #15
   %80 = and i64 %79, -5
   %.not142 = icmp eq i64 %80, 0
   br i1 %.not142, label %99, label %81
@@ -1517,7 +1517,7 @@ fstrndup.exit112:                                 ; preds = %RSTRING_PTR.exit110
   br i1 %87, label %Check_Type.exit114, label %.critedge.i113
 
 .critedge.i113:                                   ; preds = %83, %81
-  tail call void @rb_unexpected_type(i64 noundef %79, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %79, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit114:                               ; preds = %83
@@ -1539,7 +1539,7 @@ RSTRING_PTR.exit118:                              ; preds = %Check_Type.exit114,
   br i1 %94, label %fstrndup.exit120, label %95
 
 95:                                               ; preds = %RSTRING_PTR.exit118
-  %96 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %93, i64 noundef 1) #16
+  %96 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %93, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr readonly align 1 %.sroa.2.0.i117, i64 %93, i1 false)
   br label %fstrndup.exit120
 
@@ -1553,8 +1553,8 @@ fstrndup.exit120:                                 ; preds = %RSTRING_PTR.exit118
 
 99:                                               ; preds = %fstrndup.exit120, %76
   %100 = load i64, ptr @i_object_nl, align 8
-  %101 = tail call i64 @rb_id2sym(i64 noundef %100) #14
-  %102 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %101) #14
+  %101 = tail call i64 @rb_id2sym(i64 noundef %100) #15
+  %102 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %101) #15
   %103 = and i64 %102, -5
   %.not144 = icmp eq i64 %103, 0
   br i1 %.not144, label %122, label %104
@@ -1572,7 +1572,7 @@ fstrndup.exit120:                                 ; preds = %RSTRING_PTR.exit118
   br i1 %110, label %Check_Type.exit122, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %106, %104
-  tail call void @rb_unexpected_type(i64 noundef %102, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %102, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit122:                               ; preds = %106
@@ -1594,7 +1594,7 @@ RSTRING_PTR.exit126:                              ; preds = %Check_Type.exit122,
   br i1 %117, label %fstrndup.exit128, label %118
 
 118:                                              ; preds = %RSTRING_PTR.exit126
-  %119 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %116, i64 noundef 1) #16
+  %119 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %116, i64 noundef 1) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr readonly align 1 %.sroa.2.0.i125, i64 %116, i1 false)
   br label %fstrndup.exit128
 
@@ -1608,17 +1608,17 @@ fstrndup.exit128:                                 ; preds = %RSTRING_PTR.exit126
 
 122:                                              ; preds = %fstrndup.exit128, %99
   %123 = load i64, ptr @i_max_nesting, align 8
-  %124 = tail call i64 @rb_id2sym(i64 noundef %123) #14
+  %124 = tail call i64 @rb_id2sym(i64 noundef %123) #15
   %125 = getelementptr inbounds i8, ptr %3, i64 104
   store i64 100, ptr %125, align 8
   %126 = load i64, ptr @i_key_p, align 8
-  %127 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %126, i32 noundef 1, i64 noundef %124) #14
+  %127 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %126, i32 noundef 1, i64 noundef %124) #15
   %128 = and i64 %127, -5
   %.not146 = icmp eq i64 %128, 0
   br i1 %.not146, label %135, label %129
 
 129:                                              ; preds = %122
-  %130 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %124) #14
+  %130 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %124) #15
   %131 = and i64 %130, -5
   %.not147 = icmp eq i64 %131, 0
   br i1 %.not147, label %.sink.split, label %132
@@ -1629,7 +1629,7 @@ fstrndup.exit128:                                 ; preds = %RSTRING_PTR.exit126
   br i1 %.not31.i, label %.critedge.i129, label %Check_Type.exit130
 
 .critedge.i129:                                   ; preds = %132
-  tail call void @rb_unexpected_type(i64 noundef %130, i32 noundef 21) #19
+  tail call void @rb_unexpected_type(i64 noundef %130, i32 noundef 21) #20
   unreachable
 
 Check_Type.exit130:                               ; preds = %132
@@ -1643,17 +1643,17 @@ Check_Type.exit130:                               ; preds = %132
 
 135:                                              ; preds = %.sink.split, %122
   %136 = load i64, ptr @i_depth, align 8
-  %137 = tail call i64 @rb_id2sym(i64 noundef %136) #14
+  %137 = tail call i64 @rb_id2sym(i64 noundef %136) #15
   %138 = getelementptr inbounds i8, ptr %3, i64 120
   store i64 0, ptr %138, align 8
   %139 = load i64, ptr @i_key_p, align 8
-  %140 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %139, i32 noundef 1, i64 noundef %137) #14
+  %140 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %139, i32 noundef 1, i64 noundef %137) #15
   %141 = and i64 %140, -5
   %.not148 = icmp eq i64 %141, 0
   br i1 %.not148, label %148, label %142
 
 142:                                              ; preds = %135
-  %143 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %137) #14
+  %143 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %137) #15
   %144 = and i64 %143, -5
   %.not149 = icmp eq i64 %144, 0
   br i1 %.not149, label %.sink.split152, label %145
@@ -1664,7 +1664,7 @@ Check_Type.exit130:                               ; preds = %132
   br i1 %.not31.i131, label %.critedge.i132, label %Check_Type.exit133
 
 .critedge.i132:                                   ; preds = %145
-  tail call void @rb_unexpected_type(i64 noundef %143, i32 noundef 21) #19
+  tail call void @rb_unexpected_type(i64 noundef %143, i32 noundef 21) #20
   unreachable
 
 Check_Type.exit133:                               ; preds = %145
@@ -1678,15 +1678,15 @@ Check_Type.exit133:                               ; preds = %145
 
 148:                                              ; preds = %.sink.split152, %135
   %149 = load i64, ptr @i_buffer_initial_length, align 8
-  %150 = tail call i64 @rb_id2sym(i64 noundef %149) #14
+  %150 = tail call i64 @rb_id2sym(i64 noundef %149) #15
   %151 = load i64, ptr @i_key_p, align 8
-  %152 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %151, i32 noundef 1, i64 noundef %150) #14
+  %152 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %151, i32 noundef 1, i64 noundef %150) #15
   %153 = and i64 %152, -5
   %.not150 = icmp eq i64 %153, 0
   br i1 %.not150, label %163, label %154
 
 154:                                              ; preds = %148
-  %155 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %150) #14
+  %155 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %150) #15
   %156 = and i64 %155, -5
   %.not151 = icmp eq i64 %156, 0
   br i1 %.not151, label %163, label %157
@@ -1697,7 +1697,7 @@ Check_Type.exit133:                               ; preds = %145
   br i1 %.not31.i134, label %.critedge.i135, label %Check_Type.exit136
 
 .critedge.i135:                                   ; preds = %157
-  tail call void @rb_unexpected_type(i64 noundef %155, i32 noundef 21) #19
+  tail call void @rb_unexpected_type(i64 noundef %155, i32 noundef 21) #20
   unreachable
 
 Check_Type.exit136:                               ; preds = %157
@@ -1712,24 +1712,24 @@ Check_Type.exit136:                               ; preds = %157
 
 163:                                              ; preds = %154, %161, %Check_Type.exit136, %148
   %164 = load i64, ptr @i_allow_nan, align 8
-  %165 = tail call i64 @rb_id2sym(i64 noundef %164) #14
-  %166 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %165) #14
+  %165 = tail call i64 @rb_id2sym(i64 noundef %164) #15
+  %166 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %165) #15
   %167 = and i64 %166, -5
   %168 = icmp ne i64 %167, 0
   %169 = zext i1 %168 to i8
   %170 = getelementptr inbounds i8, ptr %3, i64 112
   store i8 %169, ptr %170, align 8
   %171 = load i64, ptr @i_ascii_only, align 8
-  %172 = tail call i64 @rb_id2sym(i64 noundef %171) #14
-  %173 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %172) #14
+  %172 = tail call i64 @rb_id2sym(i64 noundef %171) #15
+  %173 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %172) #15
   %174 = and i64 %173, -5
   %175 = icmp ne i64 %174, 0
   %176 = zext i1 %175 to i8
   %177 = getelementptr inbounds i8, ptr %3, i64 113
   store i8 %176, ptr %177, align 1
   %178 = load i64, ptr @i_script_safe, align 8
-  %179 = tail call i64 @rb_id2sym(i64 noundef %178) #14
-  %180 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %179) #14
+  %179 = tail call i64 @rb_id2sym(i64 noundef %178) #15
+  %180 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %179) #15
   %181 = and i64 %180, -5
   %182 = icmp ne i64 %181, 0
   %183 = zext i1 %182 to i8
@@ -1739,8 +1739,8 @@ Check_Type.exit136:                               ; preds = %157
 
 185:                                              ; preds = %163
   %186 = load i64, ptr @i_escape_slash, align 8
-  %187 = tail call i64 @rb_id2sym(i64 noundef %186) #14
-  %188 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %187) #14
+  %187 = tail call i64 @rb_id2sym(i64 noundef %186) #15
+  %188 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %187) #15
   %189 = and i64 %188, -5
   %190 = icmp ne i64 %189, 0
   %191 = zext i1 %190 to i8
@@ -1749,8 +1749,8 @@ Check_Type.exit136:                               ; preds = %157
 
 192:                                              ; preds = %185, %163
   %193 = load i64, ptr @i_strict, align 8
-  %194 = tail call i64 @rb_id2sym(i64 noundef %193) #14
-  %195 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %194) #14
+  %194 = tail call i64 @rb_id2sym(i64 noundef %193) #15
+  %195 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %194) #15
   %196 = and i64 %195, -5
   %197 = icmp ne i64 %196, 0
   %198 = zext i1 %197 to i8
@@ -1762,22 +1762,22 @@ Check_Type.exit136:                               ; preds = %157
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_to_h(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = tail call i64 @rb_hash_new() #14
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %3 = tail call i64 @rb_hash_new() #15
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %.pr.i.i = load i64, ptr @set_state_ivars.rbimpl_id, align 8
   %.not1.i.i = icmp eq i64 %.pr.i.i, 0
   br i1 %.not1.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  %5 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.79, i64 noundef 18) #14
+  %5 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.79, i64 noundef 18) #15
   store i64 %5, ptr @set_state_ivars.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i, !llvm.loop !23
 
 rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %1
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %1 ], [ %5, %.lr.ph.i.i ]
-  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %.lcssa.i.i, i32 noundef 0) #14
+  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %.lcssa.i.i, i32 noundef 0) #15
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   br label %9
@@ -1804,137 +1804,137 @@ rb_array_len.exit.i:                              ; preds = %15, %12
   br i1 %17, label %18, label %set_state_ivars.exit
 
 18:                                               ; preds = %rb_array_len.exit.i
-  %19 = call i64 @rb_ary_entry(i64 noundef %6, i64 noundef %indvars.iv.i) #20
+  %19 = call i64 @rb_ary_entry(i64 noundef %6, i64 noundef %indvars.iv.i) #21
   %20 = load i64, ptr @i_to_s, align 8
-  %21 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %19, i64 noundef %20, i32 noundef 0) #14
+  %21 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %19, i64 noundef %20, i32 noundef 0) #15
   store i64 %21, ptr %2, align 8
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = call ptr @rb_string_value_cstr(ptr noundef nonnull %2) #14
-  %26 = call i64 @rb_iv_get(i64 noundef %0, ptr noundef %25) #14
+  %25 = call ptr @rb_string_value_cstr(ptr noundef nonnull %2) #15
+  %26 = call i64 @rb_iv_get(i64 noundef %0, ptr noundef %25) #15
   %27 = load i64, ptr %2, align 8
   %28 = add nsw i64 %24, -1
-  %29 = call i64 @rb_str_substr(i64 noundef %27, i64 noundef 1, i64 noundef %28) #14
-  %30 = call i64 @rb_str_intern(i64 noundef %29) #14
-  %31 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %30, i64 noundef %26) #14
+  %29 = call i64 @rb_str_substr(i64 noundef %27, i64 noundef 1, i64 noundef %28) #15
+  %30 = call i64 @rb_str_intern(i64 noundef %29) #15
+  %31 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %30, i64 noundef %26) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %9, !llvm.loop !24
 
 set_state_ivars.exit:                             ; preds = %rb_array_len.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %32 = load i64, ptr @i_indent, align 8
-  %33 = call i64 @rb_id2sym(i64 noundef %32) #14
+  %33 = call i64 @rb_id2sym(i64 noundef %32) #15
   %34 = load ptr, ptr %4, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   %36 = load i64, ptr %35, align 8
-  %37 = call i64 @rb_str_new(ptr noundef %34, i64 noundef %36) #14
-  %38 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %33, i64 noundef %37) #14
+  %37 = call i64 @rb_str_new(ptr noundef %34, i64 noundef %36) #15
+  %38 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %33, i64 noundef %37) #15
   %39 = load i64, ptr @i_space, align 8
-  %40 = call i64 @rb_id2sym(i64 noundef %39) #14
+  %40 = call i64 @rb_id2sym(i64 noundef %39) #15
   %41 = getelementptr inbounds i8, ptr %4, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %4, i64 24
   %44 = load i64, ptr %43, align 8
-  %45 = call i64 @rb_str_new(ptr noundef %42, i64 noundef %44) #14
-  %46 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %40, i64 noundef %45) #14
+  %45 = call i64 @rb_str_new(ptr noundef %42, i64 noundef %44) #15
+  %46 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %40, i64 noundef %45) #15
   %47 = load i64, ptr @i_space_before, align 8
-  %48 = call i64 @rb_id2sym(i64 noundef %47) #14
+  %48 = call i64 @rb_id2sym(i64 noundef %47) #15
   %49 = getelementptr inbounds i8, ptr %4, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 40
   %52 = load i64, ptr %51, align 8
-  %53 = call i64 @rb_str_new(ptr noundef %50, i64 noundef %52) #14
-  %54 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %48, i64 noundef %53) #14
+  %53 = call i64 @rb_str_new(ptr noundef %50, i64 noundef %52) #15
+  %54 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %48, i64 noundef %53) #15
   %55 = load i64, ptr @i_object_nl, align 8
-  %56 = call i64 @rb_id2sym(i64 noundef %55) #14
+  %56 = call i64 @rb_id2sym(i64 noundef %55) #15
   %57 = getelementptr inbounds i8, ptr %4, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %4, i64 56
   %60 = load i64, ptr %59, align 8
-  %61 = call i64 @rb_str_new(ptr noundef %58, i64 noundef %60) #14
-  %62 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %56, i64 noundef %61) #14
+  %61 = call i64 @rb_str_new(ptr noundef %58, i64 noundef %60) #15
+  %62 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %56, i64 noundef %61) #15
   %63 = load i64, ptr @i_array_nl, align 8
-  %64 = call i64 @rb_id2sym(i64 noundef %63) #14
+  %64 = call i64 @rb_id2sym(i64 noundef %63) #15
   %65 = getelementptr inbounds i8, ptr %4, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %4, i64 72
   %68 = load i64, ptr %67, align 8
-  %69 = call i64 @rb_str_new(ptr noundef %66, i64 noundef %68) #14
-  %70 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %64, i64 noundef %69) #14
+  %69 = call i64 @rb_str_new(ptr noundef %66, i64 noundef %68) #15
+  %70 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %64, i64 noundef %69) #15
   %71 = load i64, ptr @i_allow_nan, align 8
-  %72 = call i64 @rb_id2sym(i64 noundef %71) #14
+  %72 = call i64 @rb_id2sym(i64 noundef %71) #15
   %73 = getelementptr inbounds i8, ptr %4, i64 112
   %74 = load i8, ptr %73, align 8
   %.not = icmp eq i8 %74, 0
   %75 = select i1 %.not, i64 0, i64 20
-  %76 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %72, i64 noundef %75) #14
+  %76 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %72, i64 noundef %75) #15
   %77 = load i64, ptr @i_ascii_only, align 8
-  %78 = call i64 @rb_id2sym(i64 noundef %77) #14
+  %78 = call i64 @rb_id2sym(i64 noundef %77) #15
   %79 = getelementptr inbounds i8, ptr %4, i64 113
   %80 = load i8, ptr %79, align 1
   %.not32 = icmp eq i8 %80, 0
   %81 = select i1 %.not32, i64 0, i64 20
-  %82 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %78, i64 noundef %81) #14
+  %82 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %78, i64 noundef %81) #15
   %83 = load i64, ptr @i_max_nesting, align 8
-  %84 = call i64 @rb_id2sym(i64 noundef %83) #14
+  %84 = call i64 @rb_id2sym(i64 noundef %83) #15
   %85 = getelementptr inbounds i8, ptr %4, i64 104
   %86 = load i64, ptr %85, align 8
   %87 = shl i64 %86, 1
   %88 = or disjoint i64 %87, 1
-  %89 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %84, i64 noundef %88) #14
+  %89 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %84, i64 noundef %88) #15
   %90 = load i64, ptr @i_script_safe, align 8
-  %91 = call i64 @rb_id2sym(i64 noundef %90) #14
+  %91 = call i64 @rb_id2sym(i64 noundef %90) #15
   %92 = getelementptr inbounds i8, ptr %4, i64 114
   %93 = load i8, ptr %92, align 2
   %.not33 = icmp eq i8 %93, 0
   %94 = select i1 %.not33, i64 0, i64 20
-  %95 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %91, i64 noundef %94) #14
+  %95 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %91, i64 noundef %94) #15
   %96 = load i64, ptr @i_strict, align 8
-  %97 = call i64 @rb_id2sym(i64 noundef %96) #14
+  %97 = call i64 @rb_id2sym(i64 noundef %96) #15
   %98 = getelementptr inbounds i8, ptr %4, i64 115
   %99 = load i8, ptr %98, align 1
   %.not34 = icmp eq i8 %99, 0
   %100 = select i1 %.not34, i64 0, i64 20
-  %101 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %97, i64 noundef %100) #14
+  %101 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %97, i64 noundef %100) #15
   %102 = load i64, ptr @i_depth, align 8
-  %103 = call i64 @rb_id2sym(i64 noundef %102) #14
+  %103 = call i64 @rb_id2sym(i64 noundef %102) #15
   %104 = getelementptr inbounds i8, ptr %4, i64 120
   %105 = load i64, ptr %104, align 8
   %106 = shl i64 %105, 1
   %107 = or disjoint i64 %106, 1
-  %108 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %103, i64 noundef %107) #14
+  %108 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %103, i64 noundef %107) #15
   %109 = load i64, ptr @i_buffer_initial_length, align 8
-  %110 = call i64 @rb_id2sym(i64 noundef %109) #14
+  %110 = call i64 @rb_id2sym(i64 noundef %109) #15
   %111 = getelementptr inbounds i8, ptr %4, i64 128
   %112 = load i64, ptr %111, align 8
   %113 = shl i64 %112, 1
   %114 = or disjoint i64 %113, 1
-  %115 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %110, i64 noundef %114) #14
+  %115 = call i64 @rb_hash_aset(i64 noundef %3, i64 noundef %110, i64 noundef %114) #15
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_aref(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @i_to_s, align 8
-  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #14
+  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #15
   %5 = load i64, ptr @i_respond_to_p, align 8
-  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %5, i32 noundef 1, i64 noundef %4) #14
+  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %5, i32 noundef 1, i64 noundef %4) #15
   %7 = and i64 %6, -5
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %2
   %9 = load i64, ptr @i_send, align 8
-  %10 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %9, i32 noundef 1, i64 noundef %4) #14
+  %10 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %9, i32 noundef 1, i64 noundef %4) #15
   br label %17
 
 11:                                               ; preds = %2
-  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.80, i64 noundef 1) #14
-  %13 = tail call i64 @rb_str_concat(i64 noundef %12, i64 noundef %4) #14
-  %14 = tail call i64 @rb_str_intern(i64 noundef %13) #14
-  %15 = tail call i64 @rb_sym2id(i64 noundef %14) #14
-  %16 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %15) #14
+  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.80, i64 noundef 1) #15
+  %13 = tail call i64 @rb_str_concat(i64 noundef %12, i64 noundef %4) #15
+  %14 = tail call i64 @rb_str_intern(i64 noundef %13) #15
+  %15 = tail call i64 @rb_sym2id(i64 noundef %14) #15
+  %16 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %15) #15
   br label %17
 
 17:                                               ; preds = %11, %8
@@ -1945,26 +1945,26 @@ define internal i64 @cState_aref(i64 noundef %0, i64 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_aset(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = load i64, ptr @i_to_s, align 8
-  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 0) #14
-  %6 = tail call i64 @rb_str_dup(i64 noundef %5) #14
-  %7 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.81, i64 noundef 1) #14
+  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 0) #15
+  %6 = tail call i64 @rb_str_dup(i64 noundef %5) #15
+  %7 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.81, i64 noundef 1) #15
   %8 = load i64, ptr @i_respond_to_p, align 8
-  %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %8, i32 noundef 1, i64 noundef %7) #14
+  %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %8, i32 noundef 1, i64 noundef %7) #15
   %10 = and i64 %9, -5
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %3
   %12 = load i64, ptr @i_send, align 8
-  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %12, i32 noundef 2, i64 noundef %7, i64 noundef %2) #14
+  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %12, i32 noundef 2, i64 noundef %7, i64 noundef %2) #15
   br label %20
 
 14:                                               ; preds = %3
-  %15 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.80, i64 noundef 1) #14
-  %16 = tail call i64 @rb_str_concat(i64 noundef %15, i64 noundef %5) #14
-  %17 = tail call i64 @rb_str_intern(i64 noundef %16) #14
-  %18 = tail call i64 @rb_sym2id(i64 noundef %17) #14
-  %19 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %18, i64 noundef %2) #14
+  %15 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.80, i64 noundef 1) #15
+  %16 = tail call i64 @rb_str_concat(i64 noundef %15, i64 noundef %5) #15
+  %17 = tail call i64 @rb_str_intern(i64 noundef %16) #15
+  %18 = tail call i64 @rb_sym2id(i64 noundef %17) #15
+  %19 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %18, i64 noundef %2) #15
   br label %20
 
 20:                                               ; preds = %14, %11
@@ -1975,7 +1975,7 @@ define internal i64 @cState_aset(i64 noundef %0, i64 noundef %1, i64 noundef %2)
 ; Function Attrs: nounwind uwtable
 define internal i64 @cState_generate(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call fastcc i64 @cState_partial_generate(i64 noundef %0, i64 noundef %1)
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   ret i64 %3
 }
 
@@ -1983,8 +1983,8 @@ define internal i64 @cState_generate(i64 noundef %0, i64 noundef %1) #0 {
 define internal i64 @mObject_to_json(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i64, ptr @i_to_s, align 8
-  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %5, i32 noundef 0) #14
-  %7 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %5, i32 noundef 0) #15
+  %7 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %8 = and i64 %6, 7
   %9 = icmp ne i64 %8, 0
   %10 = icmp eq i64 %6, 0
@@ -1999,30 +1999,30 @@ define internal i64 @mObject_to_json(i32 noundef %0, ptr noundef %1, i64 noundef
   br i1 %16, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %12, %3
-  call void @rb_unexpected_type(i64 noundef %6, i32 noundef 5) #19
+  call void @rb_unexpected_type(i64 noundef %6, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %12
   %17 = load i64, ptr @cState, align 8
   %18 = load i64, ptr %4, align 8
-  %19 = call i64 @rb_obj_is_kind_of(i64 noundef %18, i64 noundef %17) #14
+  %19 = call i64 @rb_obj_is_kind_of(i64 noundef %18, i64 noundef %17) #15
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %20, label %cState_from_state_s.exit
 
 20:                                               ; preds = %Check_Type.exit
   %21 = load i64, ptr @rb_cHash, align 8
-  %22 = call i64 @rb_obj_is_kind_of(i64 noundef %18, i64 noundef %21) #14
+  %22 = call i64 @rb_obj_is_kind_of(i64 noundef %18, i64 noundef %21) #15
   %.not7.i = icmp eq i64 %22, 0
   br i1 %.not7.i, label %26, label %23
 
 23:                                               ; preds = %20
   %24 = load i64, ptr @i_new, align 8
-  %25 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %17, i64 noundef %24, i32 noundef 1, i64 noundef %18) #14
+  %25 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %17, i64 noundef %24, i32 noundef 1, i64 noundef %18) #15
   br label %cState_from_state_s.exit
 
 26:                                               ; preds = %20
   %27 = load i64, ptr @cState, align 8
-  %28 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %27) #14
+  %28 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %27) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %Check_Type.exit, %23, %26
@@ -2035,33 +2035,33 @@ cState_from_state_s.exit:                         ; preds = %Check_Type.exit, %2
 ; Function Attrs: nounwind uwtable
 define internal i64 @mHash_to_json(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = load i64, ptr %4, align 8
@@ -2070,52 +2070,52 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = call i64 @rb_str_new(ptr noundef %23, i64 noundef %25) #14
+  %26 = call i64 @rb_str_new(ptr noundef %23, i64 noundef %25) #15
   %27 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %28
 
 28:                                               ; preds = %cState_from_state_s.exit
-  call void @ruby_xfree(ptr noundef nonnull %27) #14
+  call void @ruby_xfree(ptr noundef nonnull %27) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %cState_from_state_s.exit, %28
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %29 = call nonnull ptr @rb_utf8_encoding() #14
-  %30 = call i64 @rb_enc_associate(i64 noundef %26, ptr noundef nonnull %29) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %29 = call nonnull ptr @rb_utf8_encoding() #15
+  %30 = call i64 @rb_enc_associate(i64 noundef %26, ptr noundef nonnull %29) #15
   ret i64 %26
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mArray_to_json(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = load i64, ptr %4, align 8
@@ -2124,52 +2124,52 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = call i64 @rb_str_new(ptr noundef %23, i64 noundef %25) #14
+  %26 = call i64 @rb_str_new(ptr noundef %23, i64 noundef %25) #15
   %27 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %28
 
 28:                                               ; preds = %cState_from_state_s.exit
-  call void @ruby_xfree(ptr noundef nonnull %27) #14
+  call void @ruby_xfree(ptr noundef nonnull %27) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %cState_from_state_s.exit, %28
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %29 = call nonnull ptr @rb_utf8_encoding() #14
-  %30 = call i64 @rb_enc_associate(i64 noundef %26, ptr noundef nonnull %29) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %29 = call nonnull ptr @rb_utf8_encoding() #15
+  %30 = call i64 @rb_enc_associate(i64 noundef %26, ptr noundef nonnull %29) #15
   ret i64 %26
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mInteger_to_json(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = and i64 %2, 1
@@ -2182,7 +2182,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 23:                                               ; preds = %cState_from_state_s.exit
   %24 = load i64, ptr @i_to_s, align 8
-  %25 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %24, i32 noundef 0) #14
+  %25 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %24, i32 noundef 0) #15
   call fastcc void @fbuffer_append_str(ptr noundef nonnull %20, i64 noundef %25)
   br label %generate_json_integer.exit
 
@@ -2191,51 +2191,51 @@ generate_json_integer.exit:                       ; preds = %22, %23
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %20, i64 16
   %29 = load i64, ptr %28, align 8
-  %30 = call i64 @rb_str_new(ptr noundef %27, i64 noundef %29) #14
+  %30 = call i64 @rb_str_new(ptr noundef %27, i64 noundef %29) #15
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %31
 
 31:                                               ; preds = %generate_json_integer.exit
-  call void @ruby_xfree(ptr noundef nonnull %27) #14
+  call void @ruby_xfree(ptr noundef nonnull %27) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %generate_json_integer.exit, %31
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %32 = call nonnull ptr @rb_utf8_encoding() #14
-  %33 = call i64 @rb_enc_associate(i64 noundef %30, ptr noundef nonnull %32) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %32 = call nonnull ptr @rb_utf8_encoding() #15
+  %33 = call i64 @rb_enc_associate(i64 noundef %30, ptr noundef nonnull %32) #15
   ret i64 %30
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mFloat_to_json(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = getelementptr i8, ptr %18, i64 112
@@ -2245,19 +2245,19 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = call i64 @rb_str_new(ptr noundef %23, i64 noundef %25) #14
+  %26 = call i64 @rb_str_new(ptr noundef %23, i64 noundef %25) #15
   %27 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %28
 
 28:                                               ; preds = %cState_from_state_s.exit
-  call void @ruby_xfree(ptr noundef nonnull %27) #14
+  call void @ruby_xfree(ptr noundef nonnull %27) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %cState_from_state_s.exit, %28
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %29 = call nonnull ptr @rb_utf8_encoding() #14
-  %30 = call i64 @rb_enc_associate(i64 noundef %26, ptr noundef nonnull %29) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %29 = call nonnull ptr @rb_utf8_encoding() #15
+  %30 = call i64 @rb_enc_associate(i64 noundef %26, ptr noundef nonnull %29) #15
   ret i64 %26
 }
 
@@ -2267,41 +2267,41 @@ define internal i64 @mString_included_s(i64 %0, i64 noundef %1) #0 {
   store i64 %1, ptr %3, align 8
   %4 = load i64, ptr @i_extend, align 8
   %5 = load i64, ptr @mString_Extend, align 8
-  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 1, i64 noundef %5) #14
-  %7 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #14
+  %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 1, i64 noundef %5) #15
+  %7 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #15
   ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mString_to_json(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   call fastcc void @generate_json_string(ptr noundef nonnull %20, ptr noundef %18, i64 noundef %2)
@@ -2309,36 +2309,36 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = call i64 @rb_str_new(ptr noundef %22, i64 noundef %24) #14
+  %25 = call i64 @rb_str_new(ptr noundef %22, i64 noundef %24) #15
   %26 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %27
 
 27:                                               ; preds = %cState_from_state_s.exit
-  call void @ruby_xfree(ptr noundef nonnull %26) #14
+  call void @ruby_xfree(ptr noundef nonnull %26) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %cState_from_state_s.exit, %27
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %28 = call nonnull ptr @rb_utf8_encoding() #14
-  %29 = call i64 @rb_enc_associate(i64 noundef %25, ptr noundef nonnull %28) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %28 = call nonnull ptr @rb_utf8_encoding() #15
+  %29 = call i64 @rb_enc_associate(i64 noundef %25, ptr noundef nonnull %28) #15
   ret i64 %25
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mString_to_json_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call i64 @rb_hash_new() #14
+  %4 = tail call i64 @rb_hash_new() #15
   %5 = load i64, ptr @mJSON, align 8
   %6 = load i64, ptr @i_create_id, align 8
-  %7 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %6, i32 noundef 0) #14
-  %8 = tail call i64 @rb_obj_class(i64 noundef %2) #14
-  %9 = tail call i64 @rb_class_name(i64 noundef %8) #14
-  %10 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %7, i64 noundef %9) #14
+  %7 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %6, i32 noundef 0) #15
+  %8 = tail call i64 @rb_obj_class(i64 noundef %2) #15
+  %9 = tail call i64 @rb_class_name(i64 noundef %8) #15
+  %10 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %7, i64 noundef %9) #15
   %11 = load i64, ptr @i_unpack, align 8
-  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.101, i64 noundef 2) #14
-  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %11, i32 noundef 1, i64 noundef %12) #14
-  %14 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.102, i64 noundef 3) #14
-  %15 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %14, i64 noundef %13) #14
+  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.101, i64 noundef 2) #15
+  %13 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %11, i32 noundef 1, i64 noundef %12) #15
+  %14 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.102, i64 noundef 3) #15
+  %15 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %14, i64 noundef %13) #15
   %16 = and i64 %4, 7
   %17 = icmp ne i64 %16, 0
   %18 = icmp eq i64 %4, 0
@@ -2353,7 +2353,7 @@ define internal i64 @mString_to_json_raw(i32 noundef %0, ptr noundef %1, i64 nou
   br i1 %24, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %20, %3
-  tail call void @rb_unexpected_type(i64 noundef %4, i32 noundef 8) #19
+  tail call void @rb_unexpected_type(i64 noundef %4, i32 noundef 8) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %20
@@ -2363,18 +2363,18 @@ Check_Type.exit:                                  ; preds = %20
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mString_to_json_raw_object(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_hash_new() #14
+  %2 = tail call i64 @rb_hash_new() #15
   %3 = load i64, ptr @mJSON, align 8
   %4 = load i64, ptr @i_create_id, align 8
-  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %4, i32 noundef 0) #14
-  %6 = tail call i64 @rb_obj_class(i64 noundef %0) #14
-  %7 = tail call i64 @rb_class_name(i64 noundef %6) #14
-  %8 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %5, i64 noundef %7) #14
+  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %4, i32 noundef 0) #15
+  %6 = tail call i64 @rb_obj_class(i64 noundef %0) #15
+  %7 = tail call i64 @rb_class_name(i64 noundef %6) #15
+  %8 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %5, i64 noundef %7) #15
   %9 = load i64, ptr @i_unpack, align 8
-  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.101, i64 noundef 2) #14
-  %11 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %9, i32 noundef 1, i64 noundef %10) #14
-  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.102, i64 noundef 3) #14
-  %13 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %12, i64 noundef %11) #14
+  %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.101, i64 noundef 2) #15
+  %11 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %9, i32 noundef 1, i64 noundef %10) #15
+  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.102, i64 noundef 3) #15
+  %13 = tail call i64 @rb_hash_aset(i64 noundef %2, i64 noundef %12, i64 noundef %11) #15
   ret i64 %2
 }
 
@@ -2394,48 +2394,48 @@ define internal i64 @mString_Extend_json_create(i64 %0, i64 noundef %1) #0 {
   br i1 %11, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %7, %2
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 8) #19
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 8) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %7
-  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.102, i64 noundef 3) #14
-  %13 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %12) #14
+  %12 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.102, i64 noundef 3) #15
+  %13 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %12) #15
   %14 = load i64, ptr @i_pack, align 8
-  %15 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.101, i64 noundef 2) #14
-  %16 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef %14, i32 noundef 1, i64 noundef %15) #14
+  %15 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.101, i64 noundef 2) #15
+  %16 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef %14, i32 noundef 1, i64 noundef %15) #15
   ret i64 %16
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mTrueClass_to_json(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -2450,7 +2450,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 23:                                               ; preds = %cState_from_state_s.exit
   %24 = load i64, ptr %20, align 8
-  %25 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %24, i64 noundef 1) #16
+  %25 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %24, i64 noundef 1) #17
   store ptr %25, ptr %21, align 8
   %26 = getelementptr inbounds i8, ptr %20, i64 24
   store i64 %24, ptr %26, align 8
@@ -2476,7 +2476,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %20, i64 24
-  %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #18
+  %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %40, ptr %21, align 8
   store i64 %.0.i.i.i, ptr %39, align 8
   br label %generate_json_true.exit
@@ -2489,51 +2489,51 @@ generate_json_true.exit:                          ; preds = %36, %38
   %44 = add i64 %43, 4
   store i64 %44, ptr %30, align 8
   %45 = load ptr, ptr %21, align 8
-  %46 = call i64 @rb_str_new(ptr noundef %45, i64 noundef %44) #14
+  %46 = call i64 @rb_str_new(ptr noundef %45, i64 noundef %44) #15
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %47
 
 47:                                               ; preds = %generate_json_true.exit
-  call void @ruby_xfree(ptr noundef nonnull %45) #14
+  call void @ruby_xfree(ptr noundef nonnull %45) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %generate_json_true.exit, %47
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %48 = call nonnull ptr @rb_utf8_encoding() #14
-  %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %48 = call nonnull ptr @rb_utf8_encoding() #15
+  %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #15
   ret i64 %46
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mFalseClass_to_json(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -2548,7 +2548,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 23:                                               ; preds = %cState_from_state_s.exit
   %24 = load i64, ptr %20, align 8
-  %25 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %24, i64 noundef 1) #16
+  %25 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %24, i64 noundef 1) #17
   store ptr %25, ptr %21, align 8
   %26 = getelementptr inbounds i8, ptr %20, i64 24
   store i64 %24, ptr %26, align 8
@@ -2574,7 +2574,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %20, i64 24
-  %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #18
+  %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %40, ptr %21, align 8
   store i64 %.0.i.i.i, ptr %39, align 8
   br label %generate_json_false.exit
@@ -2587,51 +2587,51 @@ generate_json_false.exit:                         ; preds = %36, %38
   %44 = add i64 %43, 5
   store i64 %44, ptr %30, align 8
   %45 = load ptr, ptr %21, align 8
-  %46 = call i64 @rb_str_new(ptr noundef %45, i64 noundef %44) #14
+  %46 = call i64 @rb_str_new(ptr noundef %45, i64 noundef %44) #15
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %47
 
 47:                                               ; preds = %generate_json_false.exit
-  call void @ruby_xfree(ptr noundef nonnull %45) #14
+  call void @ruby_xfree(ptr noundef nonnull %45) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %generate_json_false.exit, %47
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %48 = call nonnull ptr @rb_utf8_encoding() #14
-  %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %48 = call nonnull ptr @rb_utf8_encoding() #15
+  %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #15
   ret i64 %46
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @mNilClass_to_json(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
-  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #14
+  %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %4) #15
   %6 = load i64, ptr @cState, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #14
+  %8 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %6) #15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %9, label %cState_from_state_s.exit
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @rb_cHash, align 8
-  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #14
+  %11 = call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %10) #15
   %.not7.i = icmp eq i64 %11, 0
   br i1 %.not7.i, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @i_new, align 8
-  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #14
+  %14 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %13, i32 noundef 1, i64 noundef %7) #15
   br label %cState_from_state_s.exit
 
 15:                                               ; preds = %9
   %16 = load i64, ptr @cState, align 8
-  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #14
+  %17 = call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %16) #15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %3, %12, %15
   %.0.i = phi i64 [ %14, %12 ], [ %17, %15 ], [ %7, %3 ]
   store i64 %.0.i, ptr %4, align 8
-  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %18 = call ptr @rb_check_typeddata(i64 noundef %.0.i, ptr noundef nonnull @JSON_Generator_State_type) #15
   %19 = load i64, ptr %4, align 8
   %20 = call fastcc ptr @cState_prepare_buffer(i64 noundef %19)
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -2646,7 +2646,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 23:                                               ; preds = %cState_from_state_s.exit
   %24 = load i64, ptr %20, align 8
-  %25 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %24, i64 noundef 1) #16
+  %25 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %24, i64 noundef 1) #17
   store ptr %25, ptr %21, align 8
   %26 = getelementptr inbounds i8, ptr %20, i64 24
   store i64 %24, ptr %26, align 8
@@ -2672,7 +2672,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %20, i64 24
-  %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #18
+  %40 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %28, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %40, ptr %21, align 8
   store i64 %.0.i.i.i, ptr %39, align 8
   br label %generate_json_null.exit
@@ -2685,18 +2685,18 @@ generate_json_null.exit:                          ; preds = %36, %38
   %44 = add i64 %43, 4
   store i64 %44, ptr %30, align 8
   %45 = load ptr, ptr %21, align 8
-  %46 = call i64 @rb_str_new(ptr noundef %45, i64 noundef %44) #14
+  %46 = call i64 @rb_str_new(ptr noundef %45, i64 noundef %44) #15
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %47
 
 47:                                               ; preds = %generate_json_null.exit
-  call void @ruby_xfree(ptr noundef nonnull %45) #14
+  call void @ruby_xfree(ptr noundef nonnull %45) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %generate_json_null.exit, %47
-  call void @ruby_xfree(ptr noundef nonnull %20) #14
-  %48 = call nonnull ptr @rb_utf8_encoding() #14
-  %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #14
+  call void @ruby_xfree(ptr noundef nonnull %20) #15
+  %48 = call nonnull ptr @rb_utf8_encoding() #15
+  %49 = call i64 @rb_enc_associate(i64 noundef %46, ptr noundef nonnull %48) #15
   ret i64 %46
 }
 
@@ -2711,7 +2711,7 @@ define internal void @State_free(ptr noundef %0) #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @ruby_xfree(ptr noundef nonnull %2) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %2) #15
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -2721,7 +2721,7 @@ define internal void @State_free(ptr noundef %0) #0 {
   br i1 %.not25, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void @ruby_xfree(ptr noundef nonnull %6) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %6) #15
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -2731,7 +2731,7 @@ define internal void @State_free(ptr noundef %0) #0 {
   br i1 %.not26, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @ruby_xfree(ptr noundef nonnull %10) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %10) #15
   br label %12
 
 12:                                               ; preds = %11, %8
@@ -2741,7 +2741,7 @@ define internal void @State_free(ptr noundef %0) #0 {
   br i1 %.not27, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @ruby_xfree(ptr noundef nonnull %14) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %14) #15
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -2751,7 +2751,7 @@ define internal void @State_free(ptr noundef %0) #0 {
   br i1 %.not28, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @ruby_xfree(ptr noundef nonnull %18) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %18) #15
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -2767,11 +2767,11 @@ define internal void @State_free(ptr noundef %0) #0 {
   br i1 %.not.i, label %fbuffer_free.exit, label %26
 
 26:                                               ; preds = %23
-  tail call void @ruby_xfree(ptr noundef nonnull %25) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %25) #15
   br label %fbuffer_free.exit
 
 fbuffer_free.exit:                                ; preds = %23, %26
-  tail call void @ruby_xfree(ptr noundef nonnull %22) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %22) #15
   br label %27
 
 27:                                               ; preds = %fbuffer_free.exit, %20
@@ -2787,11 +2787,11 @@ fbuffer_free.exit:                                ; preds = %23, %26
   br i1 %.not.i32, label %fbuffer_free.exit33, label %33
 
 33:                                               ; preds = %30
-  tail call void @ruby_xfree(ptr noundef nonnull %32) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %32) #15
   br label %fbuffer_free.exit33
 
 fbuffer_free.exit33:                              ; preds = %30, %33
-  tail call void @ruby_xfree(ptr noundef nonnull %29) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %29) #15
   br label %34
 
 34:                                               ; preds = %fbuffer_free.exit33, %27
@@ -2807,15 +2807,15 @@ fbuffer_free.exit33:                              ; preds = %30, %33
   br i1 %.not.i34, label %fbuffer_free.exit35, label %40
 
 40:                                               ; preds = %37
-  tail call void @ruby_xfree(ptr noundef nonnull %39) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %39) #15
   br label %fbuffer_free.exit35
 
 fbuffer_free.exit35:                              ; preds = %37, %40
-  tail call void @ruby_xfree(ptr noundef nonnull %36) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %36) #15
   br label %41
 
 41:                                               ; preds = %fbuffer_free.exit35, %34
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -2941,11 +2941,11 @@ define internal fastcc void @fbuffer_free(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @ruby_xfree(ptr noundef nonnull %3) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %3) #15
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -3044,7 +3044,7 @@ rb_type.exit.i:                                   ; preds = %switch.lookup, %17,
   ret void
 
 .critedge:                                        ; preds = %rb_type.exit.i, %23
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #19
+  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) #20
   unreachable
 }
 
@@ -3091,36 +3091,36 @@ declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @cState_partial_generate(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @cState_prepare_buffer(i64 noundef %0)
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   tail call fastcc void @generate_json(ptr noundef nonnull %3, i64 noundef %0, ptr noundef %4, i64 noundef %1)
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i64 @rb_str_new(ptr noundef %6, i64 noundef %8) #14
+  %9 = tail call i64 @rb_str_new(ptr noundef %6, i64 noundef %8) #15
   %10 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %fbuffer_to_s.exit, label %11
 
 11:                                               ; preds = %2
-  tail call void @ruby_xfree(ptr noundef nonnull %10) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %10) #15
   br label %fbuffer_to_s.exit
 
 fbuffer_to_s.exit:                                ; preds = %2, %11
-  tail call void @ruby_xfree(ptr noundef nonnull %3) #14
-  %12 = tail call nonnull ptr @rb_utf8_encoding() #14
-  %13 = tail call i64 @rb_enc_associate(i64 noundef %9, ptr noundef nonnull %12) #14
+  tail call void @ruby_xfree(ptr noundef nonnull %3) #15
+  %12 = tail call nonnull ptr @rb_utf8_encoding() #15
+  %13 = tail call i64 @rb_enc_associate(i64 noundef %9, ptr noundef nonnull %12) #15
   ret i64 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef nonnull ptr @cState_prepare_buffer(i64 noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #15
   %3 = getelementptr inbounds i8, ptr %2, i64 128
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   %spec.store.select.i = select i1 %5, i64 1024, i64 %4
-  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #17
+  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #18
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   store i64 %spec.store.select.i, ptr %6, align 8
@@ -3130,7 +3130,7 @@ define internal fastcc noalias noundef nonnull ptr @cState_prepare_buffer(i64 no
   br i1 %.not, label %.thread, label %13
 
 .thread:                                          ; preds = %1
-  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #17
+  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #18
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 24, i1 false)
   store i64 16, ptr %10, align 8
@@ -3157,7 +3157,7 @@ define internal fastcc noalias noundef nonnull ptr @cState_prepare_buffer(i64 no
   %17 = phi ptr [ %12, %.thread ], [ %15, %13 ]
   %18 = phi ptr [ %10, %.thread ], [ %.pre, %13 ]
   %19 = load i64, ptr %18, align 8
-  %20 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %19, i64 noundef 1) #16
+  %20 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %19, i64 noundef 1) #17
   store ptr %20, ptr %17, align 8
   %21 = load i64, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 24
@@ -3185,7 +3185,7 @@ define internal fastcc noalias noundef nonnull ptr @cState_prepare_buffer(i64 no
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %25, i64 24
-  %37 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %26, i64 noundef %.0.i.i, i64 noundef 1) #18
+  %37 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %26, i64 noundef %.0.i.i, i64 noundef 1) #19
   store ptr %37, ptr %24, align 8
   store i64 %.0.i.i, ptr %36, align 8
   %.pre.i = load i64, ptr %28, align 8
@@ -3211,7 +3211,7 @@ fbuffer_append_char.exit:                         ; preds = %33, %35
   br label %50
 
 47:                                               ; preds = %fbuffer_append_char.exit
-  %48 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #17
+  %48 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #18
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %49, i8 0, i64 24, i1 false)
   store i64 16, ptr %48, align 8
@@ -3244,7 +3244,7 @@ fbuffer_append_char.exit:                         ; preds = %33, %35
 
 59:                                               ; preds = %56
   %60 = load i64, ptr %.pre76, align 8
-  %61 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %60, i64 noundef 1) #16
+  %61 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %60, i64 noundef 1) #17
   store ptr %61, ptr %57, align 8
   %62 = load i64, ptr %.pre76, align 8
   %63 = getelementptr inbounds i8, ptr %.pre76, i64 24
@@ -3271,7 +3271,7 @@ fbuffer_append_char.exit:                         ; preds = %33, %35
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds i8, ptr %.pre76, i64 24
-  %77 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %65, i64 noundef %.0.i.i40, i64 noundef 1) #18
+  %77 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %65, i64 noundef %.0.i.i40, i64 noundef 1) #19
   store ptr %77, ptr %57, align 8
   store i64 %.0.i.i40, ptr %76, align 8
   %.pre.i41 = load i64, ptr %67, align 8
@@ -3302,7 +3302,7 @@ fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcp
 
 86:                                               ; preds = %fbuffer_append.exit
   %87 = load i64, ptr %83, align 8
-  %88 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %87, i64 noundef 1) #16
+  %88 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %87, i64 noundef 1) #17
   store ptr %88, ptr %84, align 8
   %89 = load i64, ptr %83, align 8
   %90 = getelementptr inbounds i8, ptr %83, i64 24
@@ -3328,7 +3328,7 @@ fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcp
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds i8, ptr %83, i64 24
-  %103 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %92, i64 noundef %.0.i.i46, i64 noundef 1) #18
+  %103 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %92, i64 noundef %.0.i.i46, i64 noundef 1) #19
   store ptr %103, ptr %84, align 8
   store i64 %.0.i.i46, ptr %102, align 8
   %.pre.i47 = load i64, ptr %94, align 8
@@ -3367,7 +3367,7 @@ fbuffer_append_char.exit48:                       ; preds = %99, %101
 
 118:                                              ; preds = %115
   %119 = load i64, ptr %112, align 8
-  %120 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %119, i64 noundef 1) #16
+  %120 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %119, i64 noundef 1) #17
   store ptr %120, ptr %116, align 8
   %121 = load i64, ptr %112, align 8
   %122 = getelementptr inbounds i8, ptr %112, i64 24
@@ -3394,7 +3394,7 @@ fbuffer_append_char.exit48:                       ; preds = %99, %101
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds i8, ptr %112, i64 24
-  %136 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %124, i64 noundef %.0.i.i54, i64 noundef 1) #18
+  %136 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %124, i64 noundef %.0.i.i54, i64 noundef 1) #19
   store ptr %136, ptr %116, align 8
   store i64 %.0.i.i54, ptr %135, align 8
   %.pre.i56 = load i64, ptr %126, align 8
@@ -3417,7 +3417,7 @@ fbuffer_append.exit57:                            ; preds = %ruby_nonempty_memcp
   br i1 %.not34, label %.thread82, label %147
 
 .thread82:                                        ; preds = %fbuffer_append.exit57
-  %144 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #17
+  %144 = tail call noalias noundef nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #18
   %145 = getelementptr inbounds i8, ptr %144, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %145, i8 0, i64 24, i1 false)
   store i64 16, ptr %144, align 8
@@ -3444,7 +3444,7 @@ fbuffer_append.exit57:                            ; preds = %ruby_nonempty_memcp
   %151 = phi ptr [ %146, %.thread82 ], [ %149, %147 ]
   %152 = phi ptr [ %144, %.thread82 ], [ %.pre77, %147 ]
   %153 = load i64, ptr %152, align 8
-  %154 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %153, i64 noundef 1) #16
+  %154 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %153, i64 noundef 1) #17
   store ptr %154, ptr %151, align 8
   %155 = load i64, ptr %152, align 8
   %156 = getelementptr inbounds i8, ptr %152, i64 24
@@ -3472,7 +3472,7 @@ fbuffer_append.exit57:                            ; preds = %ruby_nonempty_memcp
 
 169:                                              ; preds = %167
   %170 = getelementptr inbounds i8, ptr %159, i64 24
-  %171 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %160, i64 noundef %.0.i.i62, i64 noundef 1) #18
+  %171 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %160, i64 noundef %.0.i.i62, i64 noundef 1) #19
   store ptr %171, ptr %158, align 8
   store i64 %.0.i.i62, ptr %170, align 8
   %.pre.i63 = load i64, ptr %162, align 8
@@ -3511,7 +3511,7 @@ fbuffer_append_char.exit64:                       ; preds = %167, %169
 
 186:                                              ; preds = %183
   %187 = load i64, ptr %180, align 8
-  %188 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %187, i64 noundef 1) #16
+  %188 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %187, i64 noundef 1) #17
   store ptr %188, ptr %184, align 8
   %189 = load i64, ptr %180, align 8
   %190 = getelementptr inbounds i8, ptr %180, i64 24
@@ -3538,7 +3538,7 @@ fbuffer_append_char.exit64:                       ; preds = %167, %169
 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds i8, ptr %180, i64 24
-  %204 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %192, i64 noundef %.0.i.i70, i64 noundef 1) #18
+  %204 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %192, i64 noundef %.0.i.i70, i64 noundef 1) #19
   store ptr %204, ptr %184, align 8
   store i64 %.0.i.i70, ptr %203, align 8
   %.pre.i72 = load i64, ptr %194, align 8
@@ -3644,7 +3644,7 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %0, align 8
-  %37 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %36, i64 noundef 1) #16
+  %37 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %36, i64 noundef 1) #17
   store ptr %37, ptr %33, align 8
   %38 = load i64, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3671,7 +3671,7 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %0, i64 24
-  %53 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %41, i64 noundef %.0.i.i.i, i64 noundef 1) #18
+  %53 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %41, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %53, ptr %33, align 8
   store i64 %.0.i.i.i, ptr %52, align 8
   %.pre.i.i = load i64, ptr %43, align 8
@@ -3700,7 +3700,7 @@ generate_json_null.exit:                          ; preds = %49, %51
 
 62:                                               ; preds = %59
   %63 = load i64, ptr %0, align 8
-  %64 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %63, i64 noundef 1) #16
+  %64 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %63, i64 noundef 1) #17
   store ptr %64, ptr %60, align 8
   %65 = load i64, ptr %0, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3727,7 +3727,7 @@ generate_json_null.exit:                          ; preds = %49, %51
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %0, i64 24
-  %80 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %68, i64 noundef %.0.i.i.i84, i64 noundef 1) #18
+  %80 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %68, i64 noundef %.0.i.i.i84, i64 noundef 1) #19
   store ptr %80, ptr %60, align 8
   store i64 %.0.i.i.i84, ptr %79, align 8
   %.pre.i.i85 = load i64, ptr %70, align 8
@@ -3756,7 +3756,7 @@ generate_json_false.exit:                         ; preds = %76, %78
 
 89:                                               ; preds = %86
   %90 = load i64, ptr %0, align 8
-  %91 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %90, i64 noundef 1) #16
+  %91 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %90, i64 noundef 1) #17
   store ptr %91, ptr %87, align 8
   %92 = load i64, ptr %0, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3783,7 +3783,7 @@ generate_json_false.exit:                         ; preds = %76, %78
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %0, i64 24
-  %107 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %95, i64 noundef %.0.i.i.i90, i64 noundef 1) #18
+  %107 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %95, i64 noundef %.0.i.i.i90, i64 noundef 1) #19
   store ptr %107, ptr %87, align 8
   store i64 %.0.i.i.i90, ptr %106, align 8
   %.pre.i.i91 = load i64, ptr %97, align 8
@@ -3841,26 +3841,26 @@ generate_json_true.exit:                          ; preds = %103, %105
 
 130:                                              ; preds = %127
   %131 = load i64, ptr @eGeneratorError, align 8
-  %132 = tail call fastcc i64 @rb_class_of(i64 noundef %3) #20
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %131, ptr noundef nonnull @.str.82, i64 noundef %132) #15
+  %132 = tail call fastcc i64 @rb_class_of(i64 noundef %3) #21
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %131, ptr noundef nonnull @.str.82, i64 noundef %132) #16
   unreachable
 
 133:                                              ; preds = %127
   %134 = load i64, ptr @i_to_json, align 8
-  %135 = tail call i32 @rb_respond_to(i64 noundef %3, i64 noundef %134) #14
+  %135 = tail call i32 @rb_respond_to(i64 noundef %3, i64 noundef %134) #15
   %.not79 = icmp eq i32 %135, 0
   br i1 %.not79, label %139, label %136
 
 136:                                              ; preds = %133
   %137 = load i64, ptr @i_to_json, align 8
-  %138 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %137, i32 noundef 1, i64 noundef %1) #14
+  %138 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %137, i32 noundef 1, i64 noundef %1) #15
   tail call fastcc void @Check_Type(i64 noundef %138, i32 noundef 5)
   tail call fastcc void @fbuffer_append_str(ptr noundef %0, i64 noundef %138)
   br label %142
 
 139:                                              ; preds = %133
   %140 = load i64, ptr @i_to_s, align 8
-  %141 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %140, i32 noundef 0) #14
+  %141 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %140, i32 noundef 0) #15
   tail call fastcc void @Check_Type(i64 noundef %141, i32 noundef 5)
   tail call fastcc void @generate_json_string(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %141)
   br label %142
@@ -3939,7 +3939,7 @@ define internal fastcc void @generate_json_object(ptr noundef %0, i64 noundef %1
   %20 = load i64, ptr %15, align 8
   %21 = add nsw i64 %20, -1
   store i64 %21, ptr %15, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.83, i64 noundef %21) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.83, i64 noundef %21) #16
   unreachable
 
 22:                                               ; preds = %4
@@ -3955,7 +3955,7 @@ define internal fastcc void @generate_json_object(ptr noundef %0, i64 noundef %1
 
 25:                                               ; preds = %22
   %26 = load i64, ptr %0, align 8
-  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %26, i64 noundef 1) #16
+  %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %26, i64 noundef 1) #17
   store ptr %27, ptr %23, align 8
   %28 = load i64, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3981,7 +3981,7 @@ define internal fastcc void @generate_json_object(ptr noundef %0, i64 noundef %1
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 24
-  %42 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %31, i64 noundef %.0.i.i, i64 noundef 1) #18
+  %42 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %31, i64 noundef %.0.i.i, i64 noundef 1) #19
   store ptr %42, ptr %23, align 8
   store i64 %.0.i.i, ptr %41, align 8
   %.pre.i = load i64, ptr %33, align 8
@@ -4003,7 +4003,7 @@ fbuffer_append_char.exit:                         ; preds = %38, %40
   %50 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 0, ptr %50, align 8
   %51 = ptrtoint ptr %5 to i64
-  call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @json_object_i, i64 noundef %51) #14
+  call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @json_object_i, i64 noundef %51) #15
   %52 = load i64, ptr %15, align 8
   %53 = add i64 %52, -1
   store i64 %53, ptr %15, align 8
@@ -4026,7 +4026,7 @@ fbuffer_append_char.exit:                         ; preds = %38, %40
 
 57:                                               ; preds = %55
   %58 = load i64, ptr %0, align 8
-  %59 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %58, i64 noundef 1) #16
+  %59 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %58, i64 noundef 1) #17
   store ptr %59, ptr %23, align 8
   %60 = load i64, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4052,7 +4052,7 @@ fbuffer_append_char.exit:                         ; preds = %38, %40
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds i8, ptr %0, i64 24
-  %74 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %63, i64 noundef %.0.i.i38, i64 noundef 1) #18
+  %74 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %63, i64 noundef %.0.i.i38, i64 noundef 1) #19
   store ptr %74, ptr %23, align 8
   store i64 %.0.i.i38, ptr %73, align 8
   %.pre.i39 = load i64, ptr %33, align 8
@@ -4091,7 +4091,7 @@ fbuffer_append.exit:                              ; preds = %54, %ruby_nonempty_
 
 82:                                               ; preds = %.lr.ph.split
   %83 = load i64, ptr %0, align 8
-  %84 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %83, i64 noundef 1) #16
+  %84 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %83, i64 noundef 1) #17
   store ptr %84, ptr %23, align 8
   %85 = load i64, ptr %0, align 8
   store i64 %85, ptr %.phi.trans.insert.i.i43, align 8
@@ -4115,7 +4115,7 @@ fbuffer_append.exit:                              ; preds = %54, %ruby_nonempty_
   br i1 %95, label %96, label %ruby_nonempty_memcpy.exit.i46
 
 96:                                               ; preds = %94
-  %97 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %87, i64 noundef %.0.i.i45, i64 noundef 1) #18
+  %97 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %87, i64 noundef %.0.i.i45, i64 noundef 1) #19
   store ptr %97, ptr %23, align 8
   store i64 %.0.i.i45, ptr %.phi.trans.insert.i.i43, align 8
   %.pre.i47 = load i64, ptr %33, align 8
@@ -4145,7 +4145,7 @@ ruby_nonempty_memcpy.exit.i46:                    ; preds = %96, %94
 
 104:                                              ; preds = %.loopexit
   %105 = load i64, ptr %0, align 8
-  %106 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %105, i64 noundef 1) #16
+  %106 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %105, i64 noundef 1) #17
   store ptr %106, ptr %23, align 8
   %107 = load i64, ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4170,7 +4170,7 @@ ruby_nonempty_memcpy.exit.i46:                    ; preds = %96, %94
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds i8, ptr %0, i64 24
-  %120 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %110, i64 noundef %.0.i.i53, i64 noundef 1) #18
+  %120 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %110, i64 noundef %.0.i.i53, i64 noundef 1) #19
   store ptr %120, ptr %23, align 8
   store i64 %.0.i.i53, ptr %119, align 8
   %.pre.i54 = load i64, ptr %33, align 8
@@ -4219,7 +4219,7 @@ define internal fastcc void @generate_json_array(ptr noundef %0, i64 noundef %1,
   %25 = load i64, ptr %20, align 8
   %26 = add nsw i64 %25, -1
   store i64 %26, ptr %20, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.83, i64 noundef %26) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.83, i64 noundef %26) #16
   unreachable
 
 27:                                               ; preds = %4
@@ -4235,7 +4235,7 @@ define internal fastcc void @generate_json_array(ptr noundef %0, i64 noundef %1,
 
 30:                                               ; preds = %27
   %31 = load i64, ptr %0, align 8
-  %32 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %31, i64 noundef 1) #16
+  %32 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %31, i64 noundef 1) #17
   store ptr %32, ptr %28, align 8
   %33 = load i64, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4261,7 +4261,7 @@ define internal fastcc void @generate_json_array(ptr noundef %0, i64 noundef %1,
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %36, i64 noundef %.0.i.i, i64 noundef 1) #18
+  %47 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %36, i64 noundef %.0.i.i, i64 noundef 1) #19
   store ptr %47, ptr %28, align 8
   store i64 %.0.i.i, ptr %46, align 8
   %.pre.i = load i64, ptr %38, align 8
@@ -4292,7 +4292,7 @@ fbuffer_append_char.exit:                         ; preds = %43, %45
 
 55:                                               ; preds = %53
   %56 = load i64, ptr %0, align 8
-  %57 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %56, i64 noundef 1) #16
+  %57 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %56, i64 noundef 1) #17
   store ptr %57, ptr %28, align 8
   %58 = load i64, ptr %0, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4319,7 +4319,7 @@ fbuffer_append_char.exit:                         ; preds = %43, %45
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds i8, ptr %0, i64 24
-  %72 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %62, i64 noundef %.0.i.i67, i64 noundef 1) #18
+  %72 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %62, i64 noundef %.0.i.i67, i64 noundef 1) #19
   store ptr %72, ptr %28, align 8
   store i64 %.0.i.i67, ptr %71, align 8
   %.pre.i68 = load i64, ptr %38, align 8
@@ -4384,7 +4384,7 @@ rb_array_len.exit:                                ; preds = %83, %86
 
 92:                                               ; preds = %90
   %93 = load i64, ptr %0, align 8
-  %94 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %93, i64 noundef 1) #16
+  %94 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %93, i64 noundef 1) #17
   store ptr %94, ptr %28, align 8
   %95 = load i64, ptr %0, align 8
   store i64 %95, ptr %.phi.trans.insert.i.i73, align 8
@@ -4408,7 +4408,7 @@ rb_array_len.exit:                                ; preds = %83, %86
   br i1 %105, label %106, label %ruby_nonempty_memcpy.exit.i76
 
 106:                                              ; preds = %104
-  %107 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %97, i64 noundef %.0.i.i75, i64 noundef 1) #18
+  %107 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %97, i64 noundef %.0.i.i75, i64 noundef 1) #19
   store ptr %107, ptr %28, align 8
   store i64 %.0.i.i75, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i77 = load i64, ptr %38, align 8
@@ -4439,7 +4439,7 @@ fbuffer_append.exit78:                            ; preds = %ruby_nonempty_memcp
 
 114:                                              ; preds = %.lr.ph.split
   %115 = load i64, ptr %0, align 8
-  %116 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %115, i64 noundef 1) #16
+  %116 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %115, i64 noundef 1) #17
   store ptr %116, ptr %28, align 8
   %117 = load i64, ptr %0, align 8
   store i64 %117, ptr %.phi.trans.insert.i.i73, align 8
@@ -4463,7 +4463,7 @@ fbuffer_append.exit78:                            ; preds = %ruby_nonempty_memcp
   br i1 %127, label %128, label %ruby_nonempty_memcpy.exit.i85
 
 128:                                              ; preds = %126
-  %129 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %119, i64 noundef %.0.i.i84, i64 noundef 1) #18
+  %129 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %119, i64 noundef %.0.i.i84, i64 noundef 1) #19
   store ptr %129, ptr %28, align 8
   store i64 %.0.i.i84, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i86 = load i64, ptr %38, align 8
@@ -4482,7 +4482,7 @@ ruby_nonempty_memcpy.exit.i85:                    ; preds = %128, %126
   br i1 %.not62.not, label %.lr.ph.split, label %.loopexit116, !llvm.loop !26
 
 .loopexit116:                                     ; preds = %ruby_nonempty_memcpy.exit.i85, %fbuffer_append.exit78
-  %135 = tail call i64 @rb_ary_entry(i64 noundef %3, i64 noundef %indvars.iv128) #20
+  %135 = tail call i64 @rb_ary_entry(i64 noundef %3, i64 noundef %indvars.iv128) #21
   tail call fastcc void @generate_json(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %135)
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   br label %80, !llvm.loop !27
@@ -4505,7 +4505,7 @@ ruby_nonempty_memcpy.exit.i85:                    ; preds = %128, %126
 
 140:                                              ; preds = %138
   %141 = load i64, ptr %0, align 8
-  %142 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %141, i64 noundef 1) #16
+  %142 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %141, i64 noundef 1) #17
   store ptr %142, ptr %28, align 8
   %143 = load i64, ptr %0, align 8
   store i64 %143, ptr %.phi.trans.insert.i.i73, align 8
@@ -4529,7 +4529,7 @@ ruby_nonempty_memcpy.exit.i85:                    ; preds = %128, %126
   br i1 %153, label %154, label %ruby_nonempty_memcpy.exit.i94
 
 154:                                              ; preds = %152
-  %155 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %145, i64 noundef %.0.i.i93, i64 noundef 1) #18
+  %155 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %145, i64 noundef %.0.i.i93, i64 noundef 1) #19
   store ptr %155, ptr %28, align 8
   store i64 %.0.i.i93, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i95 = load i64, ptr %38, align 8
@@ -4564,7 +4564,7 @@ fbuffer_append.exit96:                            ; preds = %137, %ruby_nonempty
 
 163:                                              ; preds = %.lr.ph120.split
   %164 = load i64, ptr %0, align 8
-  %165 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %164, i64 noundef 1) #16
+  %165 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %164, i64 noundef 1) #17
   store ptr %165, ptr %28, align 8
   %166 = load i64, ptr %0, align 8
   store i64 %166, ptr %.phi.trans.insert.i.i73, align 8
@@ -4588,7 +4588,7 @@ fbuffer_append.exit96:                            ; preds = %137, %ruby_nonempty
   br i1 %176, label %177, label %ruby_nonempty_memcpy.exit.i103
 
 177:                                              ; preds = %175
-  %178 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %168, i64 noundef %.0.i.i102, i64 noundef 1) #18
+  %178 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %168, i64 noundef %.0.i.i102, i64 noundef 1) #19
   store ptr %178, ptr %28, align 8
   store i64 %.0.i.i102, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i104 = load i64, ptr %38, align 8
@@ -4617,7 +4617,7 @@ ruby_nonempty_memcpy.exit.i103:                   ; preds = %177, %175
 
 185:                                              ; preds = %.loopexit
   %186 = load i64, ptr %0, align 8
-  %187 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %186, i64 noundef 1) #16
+  %187 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %186, i64 noundef 1) #17
   store ptr %187, ptr %28, align 8
   %188 = load i64, ptr %0, align 8
   store i64 %188, ptr %.phi.trans.insert.i.i73, align 8
@@ -4640,7 +4640,7 @@ ruby_nonempty_memcpy.exit.i103:                   ; preds = %177, %175
   br i1 %197, label %198, label %fbuffer_append_char.exit112
 
 198:                                              ; preds = %196
-  %199 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %190, i64 noundef %.0.i.i110, i64 noundef 1) #18
+  %199 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %190, i64 noundef %.0.i.i110, i64 noundef 1) #19
   store ptr %199, ptr %28, align 8
   store i64 %.0.i.i110, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i111 = load i64, ptr %38, align 8
@@ -4674,7 +4674,7 @@ define internal fastcc void @generate_json_string(ptr noundef %0, ptr nocapture 
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8
-  %11 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %10, i64 noundef 1) #16
+  %11 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %10, i64 noundef 1) #17
   store ptr %11, ptr %7, align 8
   %12 = load i64, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4700,7 +4700,7 @@ define internal fastcc void @generate_json_string(ptr noundef %0, ptr nocapture 
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %15, i64 noundef %.0.i.i, i64 noundef 1) #18
+  %26 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %15, i64 noundef %.0.i.i, i64 noundef 1) #19
   store ptr %26, ptr %7, align 8
   store i64 %.0.i.i, ptr %25, align 8
   %.pre.i = load i64, ptr %17, align 8
@@ -4714,19 +4714,19 @@ fbuffer_append_char.exit:                         ; preds = %22, %24
   %30 = load i64, ptr %17, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %17, align 8
-  %32 = tail call ptr @rb_enc_get(i64 noundef %2) #14
-  %33 = tail call nonnull ptr @rb_usascii_encoding() #14
+  %32 = tail call ptr @rb_enc_get(i64 noundef %2) #15
+  %33 = tail call nonnull ptr @rb_usascii_encoding() #15
   %34 = icmp eq ptr %33, %32
   br i1 %34, label %enc_utf8_compatible_p.exit.thread, label %enc_utf8_compatible_p.exit
 
 enc_utf8_compatible_p.exit:                       ; preds = %fbuffer_append_char.exit
-  %35 = tail call nonnull ptr @rb_utf8_encoding() #14
+  %35 = tail call nonnull ptr @rb_utf8_encoding() #15
   %.not = icmp eq ptr %35, %32
   br i1 %.not, label %enc_utf8_compatible_p.exit.thread, label %36
 
 36:                                               ; preds = %enc_utf8_compatible_p.exit
-  %37 = tail call nonnull ptr @rb_utf8_encoding() #14
-  %38 = tail call i64 @rb_str_export_to_enc(i64 noundef %2, ptr noundef nonnull %37) #14
+  %37 = tail call nonnull ptr @rb_utf8_encoding() #15
+  %38 = tail call i64 @rb_str_export_to_enc(i64 noundef %2, ptr noundef nonnull %37) #15
   br label %enc_utf8_compatible_p.exit.thread
 
 enc_utf8_compatible_p.exit.thread:                ; preds = %fbuffer_append_char.exit, %36, %enc_utf8_compatible_p.exit
@@ -4779,8 +4779,8 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
   br i1 %.not.i, label %63, label %61
 
 61:                                               ; preds = %53
-  %62 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #14
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %62, ptr noundef nonnull @.str.84) #15
+  %62 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %62, ptr noundef nonnull @.str.84) #16
   unreachable
 
 63:                                               ; preds = %53
@@ -4790,8 +4790,8 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
   br i1 %.not71.i, label %66, label %68
 
 66:                                               ; preds = %63
-  %67 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #14
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %67, ptr noundef nonnull @.str.85) #15
+  %67 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %67, ptr noundef nonnull @.str.85) #16
   unreachable
 
 68:                                               ; preds = %63
@@ -4878,8 +4878,8 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
   br i1 %or.cond.i, label %98, label %100
 
 98:                                               ; preds = %96
-  %99 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #14
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %99, ptr noundef nonnull @.str.85) #15
+  %99 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %99, ptr noundef nonnull @.str.85) #16
   unreachable
 
 100:                                              ; preds = %96
@@ -4905,7 +4905,7 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
 
 105:                                              ; preds = %103
   %106 = load i64, ptr %0, align 8
-  %107 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %106, i64 noundef 1) #16
+  %107 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %106, i64 noundef 1) #17
   store ptr %107, ptr %7, align 8
   %108 = load i64, ptr %0, align 8
   store i64 %108, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -4929,7 +4929,7 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
   br i1 %118, label %119, label %fbuffer_append.exit.i
 
 119:                                              ; preds = %117
-  %120 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %110, i64 noundef %.0.i.i.i, i64 noundef 1) #18
+  %120 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %110, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %120, ptr %7, align 8
   store i64 %.0.i.i.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i.i11 = load i64, ptr %17, align 8
@@ -4953,7 +4953,7 @@ fbuffer_append.exit.i:                            ; preds = %119, %117
 
 126:                                              ; preds = %124
   %127 = load i64, ptr %0, align 8
-  %128 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %127, i64 noundef 1) #16
+  %128 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %127, i64 noundef 1) #17
   store ptr %128, ptr %7, align 8
   %129 = load i64, ptr %0, align 8
   store i64 %129, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -4977,7 +4977,7 @@ fbuffer_append.exit.i:                            ; preds = %119, %117
   br i1 %139, label %140, label %fbuffer_append.exit80.i
 
 140:                                              ; preds = %138
-  %141 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %131, i64 noundef %.0.i.i78.i, i64 noundef 1) #18
+  %141 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %131, i64 noundef %.0.i.i78.i, i64 noundef 1) #19
   store ptr %141, ptr %7, align 8
   store i64 %.0.i.i78.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i79.i = load i64, ptr %17, align 8
@@ -5004,7 +5004,7 @@ fbuffer_append.exit80.i:                          ; preds = %140, %138
 
 148:                                              ; preds = %146
   %149 = load i64, ptr %0, align 8
-  %150 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %149, i64 noundef 1) #16
+  %150 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %149, i64 noundef 1) #17
   store ptr %150, ptr %7, align 8
   %151 = load i64, ptr %0, align 8
   store i64 %151, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5028,7 +5028,7 @@ fbuffer_append.exit80.i:                          ; preds = %140, %138
   br i1 %161, label %162, label %fbuffer_append.exit87.i
 
 162:                                              ; preds = %160
-  %163 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %153, i64 noundef %.0.i.i85.i, i64 noundef 1) #18
+  %163 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %153, i64 noundef %.0.i.i85.i, i64 noundef 1) #19
   store ptr %163, ptr %7, align 8
   store i64 %.0.i.i85.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i86.i = load i64, ptr %17, align 8
@@ -5053,7 +5053,7 @@ fbuffer_append.exit87.i:                          ; preds = %162, %160
 
 170:                                              ; preds = %167
   %171 = load i64, ptr %0, align 8
-  %172 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %171, i64 noundef 1) #16
+  %172 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %171, i64 noundef 1) #17
   store ptr %172, ptr %7, align 8
   %173 = load i64, ptr %0, align 8
   store i64 %173, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5076,7 +5076,7 @@ fbuffer_append.exit87.i:                          ; preds = %162, %160
   br i1 %182, label %183, label %fbuffer_append_char.exit.i
 
 183:                                              ; preds = %181
-  %184 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %175, i64 noundef %.0.i.i92.i, i64 noundef 1) #18
+  %184 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %175, i64 noundef %.0.i.i92.i, i64 noundef 1) #19
   store ptr %184, ptr %7, align 8
   store i64 %.0.i.i92.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i93.i = load i64, ptr %17, align 8
@@ -5110,7 +5110,7 @@ fbuffer_append_char.exit.i:                       ; preds = %183, %181
 
 191:                                              ; preds = %189
   %192 = load i64, ptr %0, align 8
-  %193 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %192, i64 noundef 1) #16
+  %193 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %192, i64 noundef 1) #17
   store ptr %193, ptr %7, align 8
   %194 = load i64, ptr %0, align 8
   store i64 %194, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5134,7 +5134,7 @@ fbuffer_append_char.exit.i:                       ; preds = %183, %181
   br i1 %204, label %205, label %fbuffer_append.exit100.i
 
 205:                                              ; preds = %203
-  %206 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %196, i64 noundef %.0.i.i98.i, i64 noundef 1) #18
+  %206 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %196, i64 noundef %.0.i.i98.i, i64 noundef 1) #19
   store ptr %206, ptr %7, align 8
   store i64 %.0.i.i98.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i99.i = load i64, ptr %17, align 8
@@ -5158,7 +5158,7 @@ fbuffer_append.exit100.i:                         ; preds = %205, %203
 
 212:                                              ; preds = %210
   %213 = load i64, ptr %0, align 8
-  %214 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %213, i64 noundef 1) #16
+  %214 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %213, i64 noundef 1) #17
   store ptr %214, ptr %7, align 8
   %215 = load i64, ptr %0, align 8
   store i64 %215, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5182,7 +5182,7 @@ fbuffer_append.exit100.i:                         ; preds = %205, %203
   br i1 %225, label %226, label %fbuffer_append.exit107.i
 
 226:                                              ; preds = %224
-  %227 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %217, i64 noundef %.0.i.i105.i, i64 noundef 1) #18
+  %227 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %217, i64 noundef %.0.i.i105.i, i64 noundef 1) #19
   store ptr %227, ptr %7, align 8
   store i64 %.0.i.i105.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i106.i = load i64, ptr %17, align 8
@@ -5206,7 +5206,7 @@ fbuffer_append.exit107.i:                         ; preds = %226, %224
 
 233:                                              ; preds = %231
   %234 = load i64, ptr %0, align 8
-  %235 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %234, i64 noundef 1) #16
+  %235 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %234, i64 noundef 1) #17
   store ptr %235, ptr %7, align 8
   %236 = load i64, ptr %0, align 8
   store i64 %236, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5230,7 +5230,7 @@ fbuffer_append.exit107.i:                         ; preds = %226, %224
   br i1 %246, label %247, label %fbuffer_append.exit114.i
 
 247:                                              ; preds = %245
-  %248 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %238, i64 noundef %.0.i.i112.i, i64 noundef 1) #18
+  %248 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %238, i64 noundef %.0.i.i112.i, i64 noundef 1) #19
   store ptr %248, ptr %7, align 8
   store i64 %.0.i.i112.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i113.i = load i64, ptr %17, align 8
@@ -5254,7 +5254,7 @@ fbuffer_append.exit114.i:                         ; preds = %247, %245
 
 254:                                              ; preds = %252
   %255 = load i64, ptr %0, align 8
-  %256 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %255, i64 noundef 1) #16
+  %256 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %255, i64 noundef 1) #17
   store ptr %256, ptr %7, align 8
   %257 = load i64, ptr %0, align 8
   store i64 %257, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5278,7 +5278,7 @@ fbuffer_append.exit114.i:                         ; preds = %247, %245
   br i1 %267, label %268, label %fbuffer_append.exit121.i
 
 268:                                              ; preds = %266
-  %269 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %259, i64 noundef %.0.i.i119.i, i64 noundef 1) #18
+  %269 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %259, i64 noundef %.0.i.i119.i, i64 noundef 1) #19
   store ptr %269, ptr %7, align 8
   store i64 %.0.i.i119.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i120.i = load i64, ptr %17, align 8
@@ -5302,7 +5302,7 @@ fbuffer_append.exit121.i:                         ; preds = %268, %266
 
 275:                                              ; preds = %273
   %276 = load i64, ptr %0, align 8
-  %277 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %276, i64 noundef 1) #16
+  %277 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %276, i64 noundef 1) #17
   store ptr %277, ptr %7, align 8
   %278 = load i64, ptr %0, align 8
   store i64 %278, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5326,7 +5326,7 @@ fbuffer_append.exit121.i:                         ; preds = %268, %266
   br i1 %288, label %289, label %fbuffer_append.exit128.i
 
 289:                                              ; preds = %287
-  %290 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %280, i64 noundef %.0.i.i126.i, i64 noundef 1) #18
+  %290 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %280, i64 noundef %.0.i.i126.i, i64 noundef 1) #19
   store ptr %290, ptr %7, align 8
   store i64 %.0.i.i126.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i127.i = load i64, ptr %17, align 8
@@ -5364,7 +5364,7 @@ fbuffer_append.exit128.i:                         ; preds = %289, %287
 
 310:                                              ; preds = %294
   %311 = load i64, ptr %0, align 8
-  %312 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %311, i64 noundef 1) #16
+  %312 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %311, i64 noundef 1) #17
   store ptr %312, ptr %7, align 8
   %313 = load i64, ptr %0, align 8
   store i64 %313, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5388,7 +5388,7 @@ fbuffer_append.exit128.i:                         ; preds = %289, %287
   br i1 %323, label %324, label %unicode_escape_to_buffer.exit.i
 
 324:                                              ; preds = %322
-  %325 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %315, i64 noundef %.0.i.i.i.i, i64 noundef 1) #18
+  %325 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %315, i64 noundef %.0.i.i.i.i, i64 noundef 1) #19
   store ptr %325, ptr %7, align 8
   store i64 %.0.i.i.i.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i.i129.i = load i64, ptr %17, align 8
@@ -5414,8 +5414,8 @@ unicode_escape_to_buffer.exit.i:                  ; preds = %324, %322
   br i1 %330, label %331, label %333
 
 331:                                              ; preds = %329
-  %332 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #14
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %332, ptr noundef nonnull @.str.94) #15
+  %332 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %332, ptr noundef nonnull @.str.94) #16
   unreachable
 
 333:                                              ; preds = %329
@@ -5452,7 +5452,7 @@ unicode_escape_to_buffer.exit.i:                  ; preds = %324, %322
 
 358:                                              ; preds = %333
   %359 = load i64, ptr %0, align 8
-  %360 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %359, i64 noundef 1) #16
+  %360 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %359, i64 noundef 1) #17
   store ptr %360, ptr %7, align 8
   %361 = load i64, ptr %0, align 8
   store i64 %361, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5476,7 +5476,7 @@ unicode_escape_to_buffer.exit.i:                  ; preds = %324, %322
   br i1 %371, label %372, label %unicode_escape_to_buffer.exit136.i
 
 372:                                              ; preds = %370
-  %373 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %363, i64 noundef %.0.i.i.i134.i, i64 noundef 1) #18
+  %373 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %363, i64 noundef %.0.i.i.i134.i, i64 noundef 1) #19
   store ptr %373, ptr %7, align 8
   store i64 %.0.i.i.i134.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i.i135.i = load i64, ptr %17, align 8
@@ -5520,7 +5520,7 @@ unicode_escape_to_buffer.exit136.i:               ; preds = %372, %370
 
 392:                                              ; preds = %unicode_escape_to_buffer.exit136.i
   %393 = load i64, ptr %0, align 8
-  %394 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %393, i64 noundef 1) #16
+  %394 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %393, i64 noundef 1) #17
   store ptr %394, ptr %7, align 8
   %395 = load i64, ptr %0, align 8
   store i64 %395, ptr %.phi.trans.insert.i.i.i132.i, align 8
@@ -5545,7 +5545,7 @@ unicode_escape_to_buffer.exit136.i:               ; preds = %372, %370
   br i1 %405, label %406, label %unicode_escape_to_buffer.exit143.i
 
 406:                                              ; preds = %404
-  %407 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %398, i64 noundef %.0.i.i.i141.i, i64 noundef 1) #18
+  %407 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %398, i64 noundef %.0.i.i.i141.i, i64 noundef 1) #19
   store ptr %407, ptr %7, align 8
   store i64 %.0.i.i.i141.i, ptr %.phi.trans.insert.i.i.i132.i, align 8
   %.pre.i.i142.i = load i64, ptr %17, align 8
@@ -5576,7 +5576,7 @@ unicode_escape_to_buffer.exit143.i:               ; preds = %406, %404
 
 convert_UTF8_to_JSON_ASCII.exit:                  ; preds = %411, %RSTRING_PTR.exit.i
   store ptr %5, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #14, !srcloc !33
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #15, !srcloc !33
   %415 = load ptr, ptr %6, align 8
   %416 = load volatile i64, ptr %415, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -5601,7 +5601,7 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   %423 = getelementptr inbounds i8, ptr %418, i64 16
   %424 = load i64, ptr %423, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @__const.convert_UTF8_to_JSON.buf, i64 6, i1 false)
-  %425 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %.0) #14
+  %425 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %.0) #15
   %.not139.i = icmp eq i64 %424, 0
   br i1 %.not139.i, label %convert_UTF8_to_JSON.exit, label %.lr.ph.lr.ph.i
 
@@ -5673,8 +5673,8 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   br i1 %458, label %459, label %461
 
 459:                                              ; preds = %450
-  %460 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #14
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %460, ptr noundef nonnull @.str.84) #15
+  %460 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %460, ptr noundef nonnull @.str.84) #16
   unreachable
 
 461:                                              ; preds = %450
@@ -5713,7 +5713,7 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
 
 477:                                              ; preds = %475
   %478 = load i64, ptr %0, align 8
-  %479 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %478, i64 noundef 1) #16
+  %479 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %478, i64 noundef 1) #17
   store ptr %479, ptr %7, align 8
   %480 = load i64, ptr %0, align 8
   store i64 %480, ptr %.phi.trans.insert.i.i.i, align 8
@@ -5737,7 +5737,7 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   br i1 %490, label %491, label %ruby_nonempty_memcpy.exit.i.i
 
 491:                                              ; preds = %489
-  %492 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %482, i64 noundef %.0.i.i.i27, i64 noundef 1) #18
+  %492 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %482, i64 noundef %.0.i.i.i27, i64 noundef 1) #19
   store ptr %492, ptr %7, align 8
   store i64 %.0.i.i.i27, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i.i29 = load i64, ptr %17, align 8
@@ -5767,7 +5767,7 @@ fbuffer_append.exit.i28:                          ; preds = %ruby_nonempty_memcp
 
 500:                                              ; preds = %499
   %501 = load i64, ptr %0, align 8
-  %502 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %501, i64 noundef 1) #16
+  %502 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %501, i64 noundef 1) #17
   store ptr %502, ptr %7, align 8
   %503 = load i64, ptr %0, align 8
   store i64 %503, ptr %.phi.trans.insert.i.i.i, align 8
@@ -5791,7 +5791,7 @@ fbuffer_append.exit.i28:                          ; preds = %ruby_nonempty_memcp
   br i1 %513, label %514, label %fbuffer_append.exit75.i
 
 514:                                              ; preds = %512
-  %515 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %505, i64 noundef %.0.i.i72.i, i64 noundef 1) #18
+  %515 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %505, i64 noundef %.0.i.i72.i, i64 noundef 1) #19
   store ptr %515, ptr %7, align 8
   store i64 %.0.i.i72.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i74.i = load i64, ptr %17, align 8
@@ -5816,7 +5816,7 @@ fbuffer_append.exit75.i:                          ; preds = %514, %512
 
 522:                                              ; preds = %521
   %523 = load i64, ptr %0, align 8
-  %524 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %523, i64 noundef 1) #16
+  %524 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %523, i64 noundef 1) #17
   store ptr %524, ptr %7, align 8
   %525 = load i64, ptr %0, align 8
   store i64 %525, ptr %.phi.trans.insert.i.i.i, align 8
@@ -5840,7 +5840,7 @@ fbuffer_append.exit75.i:                          ; preds = %514, %512
   br i1 %535, label %536, label %fbuffer_append.exit83.i
 
 536:                                              ; preds = %534
-  %537 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %527, i64 noundef %.0.i.i80.i, i64 noundef 1) #18
+  %537 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %527, i64 noundef %.0.i.i80.i, i64 noundef 1) #19
   store ptr %537, ptr %7, align 8
   store i64 %.0.i.i80.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i82.i = load i64, ptr %17, align 8
@@ -5862,8 +5862,8 @@ fbuffer_append.exit83.i:                          ; preds = %536, %534
   br i1 %.not66.i, label %545, label %._crit_edge.i
 
 545:                                              ; preds = %543
-  %546 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #14
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %546, ptr noundef nonnull @.str.85) #15
+  %546 = tail call i64 @rb_path2class(ptr noundef nonnull @.str.4) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %546, ptr noundef nonnull @.str.85) #16
   unreachable
 
 ._crit_edge.i:                                    ; preds = %449, %543
@@ -5906,7 +5906,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 555:                                              ; preds = %553
   %556 = load i64, ptr %0, align 8
-  %557 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %556, i64 noundef 1) #16
+  %557 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %556, i64 noundef 1) #17
   store ptr %557, ptr %7, align 8
   %558 = load i64, ptr %0, align 8
   store i64 %558, ptr %.phi.trans.insert.i.i.i, align 8
@@ -5930,7 +5930,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %568, label %569, label %ruby_nonempty_memcpy.exit.i90.i
 
 569:                                              ; preds = %567
-  %570 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %560, i64 noundef %.0.i.i89.i, i64 noundef 1) #18
+  %570 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %560, i64 noundef %.0.i.i89.i, i64 noundef 1) #19
   store ptr %570, ptr %7, align 8
   store i64 %.0.i.i89.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i91.i = load i64, ptr %17, align 8
@@ -5957,7 +5957,7 @@ fbuffer_append.exit92.i:                          ; preds = %ruby_nonempty_memcp
 
 577:                                              ; preds = %fbuffer_append.exit92.i
   %578 = load i64, ptr %0, align 8
-  %579 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %578, i64 noundef 1) #16
+  %579 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %578, i64 noundef 1) #17
   store ptr %579, ptr %7, align 8
   %580 = load i64, ptr %0, align 8
   store i64 %580, ptr %.phi.trans.insert.i.i.i, align 8
@@ -5981,7 +5981,7 @@ fbuffer_append.exit92.i:                          ; preds = %ruby_nonempty_memcp
   br i1 %590, label %591, label %fbuffer_append.exit101.i
 
 591:                                              ; preds = %589
-  %592 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %582, i64 noundef %.0.i.i98.i22, i64 noundef 1) #18
+  %592 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %582, i64 noundef %.0.i.i98.i22, i64 noundef 1) #19
   store ptr %592, ptr %7, align 8
   store i64 %.0.i.i98.i22, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i100.i = load i64, ptr %17, align 8
@@ -6020,7 +6020,7 @@ fbuffer_append.exit101.i:                         ; preds = %591, %589
 
 604:                                              ; preds = %602
   %605 = load i64, ptr %0, align 8
-  %606 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %605, i64 noundef 1) #16
+  %606 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %605, i64 noundef 1) #17
   store ptr %606, ptr %7, align 8
   %607 = load i64, ptr %0, align 8
   store i64 %607, ptr %.phi.trans.insert.i.i.i, align 8
@@ -6044,7 +6044,7 @@ fbuffer_append.exit101.i:                         ; preds = %591, %589
   br i1 %617, label %618, label %ruby_nonempty_memcpy.exit.i108.i
 
 618:                                              ; preds = %616
-  %619 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %609, i64 noundef %.0.i.i107.i, i64 noundef 1) #18
+  %619 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %609, i64 noundef %.0.i.i107.i, i64 noundef 1) #19
   store ptr %619, ptr %7, align 8
   store i64 %.0.i.i107.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i109.i = load i64, ptr %17, align 8
@@ -6076,7 +6076,7 @@ convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, 
 
 627:                                              ; preds = %625
   %628 = load i64, ptr %0, align 8
-  %629 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %628, i64 noundef 1) #16
+  %629 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %628, i64 noundef 1) #17
   store ptr %629, ptr %7, align 8
   %630 = load i64, ptr %0, align 8
   %631 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6101,7 +6101,7 @@ convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, 
 
 641:                                              ; preds = %639
   %642 = getelementptr inbounds i8, ptr %0, i64 24
-  %643 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %633, i64 noundef %.0.i.i34, i64 noundef 1) #18
+  %643 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %633, i64 noundef %.0.i.i34, i64 noundef 1) #19
   store ptr %643, ptr %7, align 8
   store i64 %.0.i.i34, ptr %642, align 8
   %.pre.i35 = load i64, ptr %17, align 8
@@ -6185,7 +6185,7 @@ fltoa.exit.i:                                     ; preds = %.lr.ph.i.i.i, %15
 
 29:                                               ; preds = %26
   %30 = load i64, ptr %0, align 8
-  %31 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %30, i64 noundef 1) #16
+  %31 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %30, i64 noundef 1) #17
   store ptr %31, ptr %27, align 8
   %32 = load i64, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6212,7 +6212,7 @@ fltoa.exit.i:                                     ; preds = %.lr.ph.i.i.i, %15
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %35, i64 noundef %.0.i.i.i, i64 noundef 1) #18
+  %47 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %35, i64 noundef %.0.i.i.i, i64 noundef 1) #19
   store ptr %47, ptr %27, align 8
   store i64 %.0.i.i.i, ptr %46, align 8
   %.pre.i.i = load i64, ptr %37, align 8
@@ -6236,28 +6236,28 @@ fbuffer_append_long.exit:                         ; preds = %fltoa.exit.i, %ruby
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @generate_json_bignum(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @i_to_s, align 8
-  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #14
+  %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #15
   tail call fastcc void @fbuffer_append_str(ptr noundef %0, i64 noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @generate_json_float(ptr noundef %0, i8 %.112.val, i64 noundef %1) unnamed_addr #0 {
-  %3 = tail call double @rb_float_value(i64 noundef %1) #20
+  %3 = tail call double @rb_float_value(i64 noundef %1) #21
   %4 = load i64, ptr @i_to_s, align 8
-  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 0) #14
+  %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %4, i32 noundef 0) #15
   %.not = icmp eq i8 %.112.val, 0
   br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = tail call double @llvm.fabs.f64(double %3) #21
+  %7 = tail call double @llvm.fabs.f64(double %3) #22
   %8 = fcmp oeq double %7, 0x7FF0000000000000
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   tail call fastcc void @fbuffer_free(ptr noundef %0)
   %10 = load i64, ptr @eGeneratorError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.82, i64 noundef %5) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.82, i64 noundef %5) #16
   unreachable
 
 11:                                               ; preds = %6
@@ -6267,7 +6267,7 @@ define internal fastcc void @generate_json_float(ptr noundef %0, i8 %.112.val, i
 13:                                               ; preds = %11
   tail call fastcc void @fbuffer_free(ptr noundef %0)
   %14 = load i64, ptr @eGeneratorError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.82, i64 noundef %5) #15
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.82, i64 noundef %5) #16
   unreachable
 
 15:                                               ; preds = %11, %2
@@ -6282,13 +6282,13 @@ define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 no
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
-  %5 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #14
+  %5 = call ptr @rb_string_value_ptr(ptr noundef nonnull %3) #15
   %6 = load i64, ptr %3, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   store ptr %3, ptr %4, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #14, !srcloc !40
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #15, !srcloc !40
   %10 = load ptr, ptr %4, align 8
   %11 = load volatile i64, ptr %10, align 8
   %.not.i = icmp eq i64 %9, 0
@@ -6307,7 +6307,7 @@ define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 no
 
 15:                                               ; preds = %12
   %16 = load i64, ptr %0, align 8
-  %17 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %16, i64 noundef 1) #16
+  %17 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %16, i64 noundef 1) #17
   store ptr %17, ptr %13, align 8
   %18 = load i64, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6334,7 +6334,7 @@ define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 no
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %21, i64 noundef %.0.i.i, i64 noundef 1) #18
+  %33 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %21, i64 noundef %.0.i.i, i64 noundef 1) #19
   store ptr %33, ptr %13, align 8
   store i64 %.0.i.i, ptr %32, align 8
   %.pre.i = load i64, ptr %23, align 8
@@ -6407,7 +6407,7 @@ define internal noundef i32 @json_object_i(i64 noundef %0, i64 noundef %1, i64 n
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %5, align 8
-  %40 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %39, i64 noundef 1) #16
+  %40 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %39, i64 noundef 1) #17
   store ptr %40, ptr %36, align 8
   %41 = load i64, ptr %5, align 8
   %42 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6434,7 +6434,7 @@ define internal noundef i32 @json_object_i(i64 noundef %0, i64 noundef %1, i64 n
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %5, i64 24
-  %56 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %44, i64 noundef %.0.i.i, i64 noundef 1) #18
+  %56 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %44, i64 noundef %.0.i.i, i64 noundef 1) #19
   store ptr %56, ptr %36, align 8
   store i64 %.0.i.i, ptr %55, align 8
   %.pre.i = load i64, ptr %46, align 8
@@ -6469,7 +6469,7 @@ fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcp
 
 65:                                               ; preds = %62
   %66 = load i64, ptr %5, align 8
-  %67 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %66, i64 noundef 1) #16
+  %67 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %66, i64 noundef 1) #17
   store ptr %67, ptr %63, align 8
   %68 = load i64, ptr %5, align 8
   %69 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6496,7 +6496,7 @@ fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcp
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds i8, ptr %5, i64 24
-  %83 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %71, i64 noundef %.0.i.i56, i64 noundef 1) #18
+  %83 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %71, i64 noundef %.0.i.i56, i64 noundef 1) #19
   store ptr %83, ptr %63, align 8
   store i64 %.0.i.i56, ptr %82, align 8
   %.pre.i58 = load i64, ptr %73, align 8
@@ -6537,7 +6537,7 @@ fbuffer_append.exit59:                            ; preds = %ruby_nonempty_memcp
 
 93:                                               ; preds = %.lr.ph.split
   %94 = load i64, ptr %5, align 8
-  %95 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %94, i64 noundef 1) #16
+  %95 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %94, i64 noundef 1) #17
   store ptr %95, ptr %90, align 8
   %96 = load i64, ptr %5, align 8
   store i64 %96, ptr %.phi.trans.insert.i.i63, align 8
@@ -6561,7 +6561,7 @@ fbuffer_append.exit59:                            ; preds = %ruby_nonempty_memcp
   br i1 %106, label %107, label %ruby_nonempty_memcpy.exit.i66
 
 107:                                              ; preds = %105
-  %108 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %98, i64 noundef %.0.i.i65, i64 noundef 1) #18
+  %108 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %98, i64 noundef %.0.i.i65, i64 noundef 1) #19
   store ptr %108, ptr %90, align 8
   store i64 %.0.i.i65, ptr %.phi.trans.insert.i.i63, align 8
   %.pre.i67 = load i64, ptr %91, align 8
@@ -6628,12 +6628,12 @@ rb_class_of.exit:                                 ; preds = %118, %121, %122, %1
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %131
-  %135 = tail call i64 @rb_sym2str(i64 noundef %0) #14
+  %135 = tail call i64 @rb_sym2str(i64 noundef %0) #15
   br label %139
 
 136:                                              ; preds = %131
   %137 = load i64, ptr @i_to_s, align 8
-  %138 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %137, i32 noundef 0) #14
+  %138 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %137, i32 noundef 0) #15
   br label %139
 
 139:                                              ; preds = %rb_class_of.exit, %134, %136
@@ -6652,7 +6652,7 @@ rb_class_of.exit:                                 ; preds = %118, %121, %122, %1
   br i1 %148, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %144, %139
-  tail call void @rb_unexpected_type(i64 noundef %.0, i32 noundef 5) #19
+  tail call void @rb_unexpected_type(i64 noundef %.0, i32 noundef 5) #20
   unreachable
 
 Check_Type.exit:                                  ; preds = %144
@@ -6673,7 +6673,7 @@ Check_Type.exit:                                  ; preds = %144
 
 152:                                              ; preds = %149
   %153 = load i64, ptr %5, align 8
-  %154 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %153, i64 noundef 1) #16
+  %154 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %153, i64 noundef 1) #17
   store ptr %154, ptr %150, align 8
   %155 = load i64, ptr %5, align 8
   %156 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6700,7 +6700,7 @@ Check_Type.exit:                                  ; preds = %144
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds i8, ptr %5, i64 24
-  %170 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %158, i64 noundef %.0.i.i75, i64 noundef 1) #18
+  %170 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %158, i64 noundef %.0.i.i75, i64 noundef 1) #19
   store ptr %170, ptr %150, align 8
   store i64 %.0.i.i75, ptr %169, align 8
   %.pre.i77 = load i64, ptr %160, align 8
@@ -6734,8 +6734,8 @@ declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
 
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @isLegalUTF8(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc zeroext range(i8 0, 2) i8 @isLegalUTF8(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   switch i64 %1, label %30 [
     i64 4, label %4
@@ -6819,7 +6819,7 @@ declare i32 @rb_enc_str_asciionly_p(i64 noundef) local_unnamed_addr #1
 declare double @rb_float_value(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #11
+declare double @llvm.fabs.f64(double) #12
 
 declare ptr @rb_string_value_ptr(ptr noundef) local_unnamed_addr #1
 
@@ -6832,16 +6832,16 @@ declare i64 @rb_class_name(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #12
+declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #12
+declare i64 @llvm.abs.i64(i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6854,17 +6854,18 @@ attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #8 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { nounwind allocsize(0,1) }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind allocsize(1,2) }
-attributes #19 = { cold noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { memory(none) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind allocsize(0,1) }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind allocsize(1,2) }
+attributes #20 = { cold noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

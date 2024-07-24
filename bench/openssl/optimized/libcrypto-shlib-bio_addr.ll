@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noalias ptr @BIO_ADDR_new() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 112, ptr noundef nonnull @.str, i32 noundef 54) #14
+  %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 112, ptr noundef nonnull @.str, i32 noundef 54) #13
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -34,7 +34,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define void @BIO_ADDR_free(ptr noundef %ap) local_unnamed_addr #0 {
 entry:
-  tail call void @CRYPTO_free(ptr noundef %ap, ptr noundef nonnull @.str, i32 noundef 65) #14
+  tail call void @CRYPTO_free(ptr noundef %ap, ptr noundef nonnull @.str, i32 noundef 65) #13
   ret void
 }
 
@@ -119,7 +119,7 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 112, ptr noundef nonnull @.str, i32 noundef 54) #14
+  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 112, ptr noundef nonnull @.str, i32 noundef 54) #13
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.end4, label %if.end.i6
 
@@ -150,7 +150,7 @@ if.then12.i.i:                                    ; preds = %if.end.i6
   br label %if.end4
 
 if.then3:                                         ; preds = %if.end.i6
-  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 65) #14
+  tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 65) #13
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then12.i.i, %if.then6.i.i, %if.then.i.i, %if.then4.i, %if.then, %if.then3, %entry
@@ -182,7 +182,7 @@ if.end:                                           ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(110) %ap, i8 0, i64 110, i1 false)
   store i16 1, ptr %ap, align 4
   %sun_path = getelementptr inbounds i8, ptr %ap, i64 2
-  %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path, ptr noundef nonnull dereferenceable(1) %where, i64 noundef 107) #14
+  %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path, ptr noundef nonnull dereferenceable(1) %where, i64 noundef 107) #13
   br label %return
 
 if.then6:                                         ; preds = %entry
@@ -230,8 +230,8 @@ entry:
   ret i32 %conv
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr nocapture noundef readonly %ap, ptr noundef writeonly %p, ptr noundef writeonly %l) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
+define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr nocapture noundef readonly %ap, ptr noundef writeonly %p, ptr noundef writeonly %l) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %ap, align 4
   switch i16 %0, label %return [
@@ -250,7 +250,7 @@ if.then6:                                         ; preds = %entry
 
 if.then12:                                        ; preds = %entry
   %sun_path = getelementptr inbounds i8, ptr %ap, i64 2
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sun_path) #15
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sun_path) #14
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %if.then6, %if.then12
@@ -277,7 +277,7 @@ return:                                           ; preds = %entry, %if.end23, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i16 @BIO_ADDR_rawport(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
@@ -315,7 +315,7 @@ define internal fastcc range(i32 0, 2) i32 @addr_strings(ptr noundef %ap, i32 no
 entry:
   %host = alloca [1025 x i8], align 16
   %serv = alloca [32 x i8], align 16
-  %call = tail call i32 @BIO_sock_init() #14
+  %call = tail call i32 @BIO_sock_init() #13
   %cmp.not = icmp eq i32 %call, 1
   br i1 %cmp.not, label %if.end, label %return
 
@@ -342,25 +342,25 @@ if.end13.i:                                       ; preds = %if.end
 
 BIO_ADDR_sockaddr_size.exit:                      ; preds = %if.end, %if.then6.i, %if.then12.i, %if.end13.i
   %retval.0.i = phi i32 [ 28, %if.then6.i ], [ 110, %if.then12.i ], [ 112, %if.end13.i ], [ 16, %if.end ]
-  %call6 = call i32 @getnameinfo(ptr noundef nonnull %ap, i32 noundef %retval.0.i, ptr noundef nonnull %host, i32 noundef 1025, ptr noundef nonnull %serv, i32 noundef 32, i32 noundef %spec.select) #14
+  %call6 = call i32 @getnameinfo(ptr noundef nonnull %ap, i32 noundef %retval.0.i, ptr noundef nonnull %host, i32 noundef 1025, ptr noundef nonnull %serv, i32 noundef 32, i32 noundef %spec.select) #13
   switch i32 %call6, label %if.else [
     i32 0, label %if.end14
     i32 -11, label %if.then10
   ]
 
 if.then10:                                        ; preds = %BIO_ADDR_sockaddr_size.exit
-  call void @ERR_new() #14
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @__func__.addr_strings) #14
-  %call11 = tail call ptr @__errno_location() #16
+  call void @ERR_new() #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @__func__.addr_strings) #13
+  %call11 = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call11, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %1, ptr noundef nonnull @.str.6) #14
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %1, ptr noundef nonnull @.str.6) #13
   br label %return
 
 if.else:                                          ; preds = %BIO_ADDR_sockaddr_size.exit
-  call void @ERR_new() #14
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 254, ptr noundef nonnull @__func__.addr_strings) #14
-  %call12 = call ptr @gai_strerror(i32 noundef %call6) #14
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %call12) #14
+  call void @ERR_new() #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 254, ptr noundef nonnull @__func__.addr_strings) #13
+  %call12 = call ptr @gai_strerror(i32 noundef %call6) #13
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %call12) #13
   br label %return
 
 if.end14:                                         ; preds = %BIO_ADDR_sockaddr_size.exit
@@ -382,9 +382,9 @@ return.sink.split.i:                              ; preds = %if.then17, %if.then
 
 BIO_ADDR_rawport.exit:                            ; preds = %if.then17, %return.sink.split.i
   %retval.0.i17 = phi i16 [ 0, %if.then17 ], [ %4, %return.sink.split.i ]
-  %call20 = call zeroext i16 @ntohs(i16 noundef zeroext %retval.0.i17) #16
+  %call20 = call zeroext i16 @ntohs(i16 noundef zeroext %retval.0.i17) #15
   %conv21 = zext i16 %call20 to i32
-  %call22 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %serv, i64 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %conv21) #14
+  %call22 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %serv, i64 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %conv21) #13
   br label %if.end23
 
 if.end23:                                         ; preds = %BIO_ADDR_rawport.exit, %if.end14
@@ -392,7 +392,7 @@ if.end23:                                         ; preds = %BIO_ADDR_rawport.ex
   br i1 %cmp24.not, label %if.end29, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %call28 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %host, ptr noundef nonnull @.str, i32 noundef 271) #14
+  %call28 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %host, ptr noundef nonnull @.str, i32 noundef 271) #13
   store ptr %call28, ptr %hostname, align 8
   br label %if.end29
 
@@ -401,7 +401,7 @@ if.end29:                                         ; preds = %if.then26, %if.end2
   br i1 %cmp30.not, label %if.end35, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %call34 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %serv, ptr noundef nonnull @.str, i32 noundef 273) #14
+  %call34 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %serv, ptr noundef nonnull @.str, i32 noundef 273) #13
   store ptr %call34, ptr %service, align 8
   br label %if.end35
 
@@ -426,18 +426,18 @@ if.then45:                                        ; preds = %land.lhs.true42
 
 if.end49.thread18:                                ; preds = %if.then45
   %7 = load ptr, ptr %hostname, align 8
-  call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 288) #14
+  call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 288) #13
   store ptr null, ptr %hostname, align 8
   br label %if.then52
 
 if.end49:                                         ; preds = %land.lhs.true
-  call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 288) #14
+  call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 288) #13
   store ptr null, ptr %hostname, align 8
   br i1 %cmp30.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.then45, %if.end49.thread18, %if.end49
   %8 = load ptr, ptr %service, align 8
-  call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 292) #14
+  call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 292) #13
   store ptr null, ptr %service, align 8
   br label %return
 
@@ -467,7 +467,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sun_path = getelementptr inbounds i8, ptr %ap, i64 2
-  %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %sun_path, ptr noundef nonnull @.str, i32 noundef 325) #14
+  %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %sun_path, ptr noundef nonnull @.str, i32 noundef 325) #13
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -478,13 +478,13 @@ return:                                           ; preds = %entry, %if.then
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @BIO_ADDR_sockaddr(ptr noundef readnone returned %ap) local_unnamed_addr #11 {
+define noundef ptr @BIO_ADDR_sockaddr(ptr noundef readnone returned %ap) local_unnamed_addr #10 {
 entry:
   ret ptr %ap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @BIO_ADDR_sockaddr_noconst(ptr noundef readnone returned %ap) local_unnamed_addr #11 {
+define noundef ptr @BIO_ADDR_sockaddr_noconst(ptr noundef readnone returned %ap) local_unnamed_addr #10 {
 entry:
   ret ptr %ap
 }
@@ -654,7 +654,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %while.body, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void @freeaddrinfo(ptr noundef nonnull %bai) #14
+  tail call void @freeaddrinfo(ptr noundef nonnull %bai) #13
   br label %while.end
 
 while.body:                                       ; preds = %if.end, %while.body
@@ -663,8 +663,8 @@ while.body:                                       ; preds = %if.end, %while.body
   %1 = load ptr, ptr %ai_next, align 8
   %ai_addr = getelementptr inbounds i8, ptr %bai.addr.07, i64 24
   %2 = load ptr, ptr %ai_addr, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 473) #14
-  tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07, ptr noundef nonnull @.str, i32 noundef 474) #14
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 473) #13
+  tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07, ptr noundef nonnull @.str, i32 noundef 474) #13
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !4
 
@@ -673,7 +673,7 @@ while.end:                                        ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: nounwind
-declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #12
+declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BIO_parse_hostserv(ptr noundef %hostserv, ptr noundef writeonly %host, ptr noundef writeonly %service, i32 noundef %hostserv_prio) local_unnamed_addr #0 {
@@ -683,7 +683,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else18
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hostserv, i32 noundef 93) #15
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hostserv, i32 noundef 93) #14
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %spec_err, label %if.end
 
@@ -704,8 +704,8 @@ if.else13:                                        ; preds = %if.end
   br label %land.lhs.true.sink.split
 
 if.else18:                                        ; preds = %entry
-  %call19 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %hostserv, i32 noundef 58) #15
-  %call20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hostserv, i32 noundef 58) #15
+  %call19 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %hostserv, i32 noundef 58) #14
+  %call20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hostserv, i32 noundef 58) #14
   %cmp21.not = icmp eq ptr %call20, %call19
   br i1 %cmp21.not, label %if.end24, label %amb_err
 
@@ -722,14 +722,14 @@ if.then27:                                        ; preds = %if.end24
 
 if.else33:                                        ; preds = %if.end24
   %cmp34 = icmp eq i32 %hostserv_prio, 0
-  %call37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostserv) #15
+  %call37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostserv) #14
   br i1 %cmp34, label %if.end47, label %land.lhs.true
 
 land.lhs.true.sink.split:                         ; preds = %if.then27, %if.else13
   %incdec.ptr14.sink = phi ptr [ %incdec.ptr14, %if.else13 ], [ %incdec.ptr31, %if.then27 ]
   %h.0.ph.ph = phi ptr [ %add.ptr, %if.else13 ], [ %hostserv, %if.then27 ]
   %hl.0.ph.ph = phi i64 [ %sub.ptr.sub, %if.else13 ], [ %sub.ptr.sub30, %if.then27 ]
-  %call15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr14.sink) #15
+  %call15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr14.sink) #14
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.sink.split, %if.else33
@@ -737,7 +737,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.sink.
   %hl.0.ph = phi i64 [ 0, %if.else33 ], [ %hl.0.ph.ph, %land.lhs.true.sink.split ]
   %p.0.ph = phi ptr [ %hostserv, %if.else33 ], [ %incdec.ptr14.sink, %land.lhs.true.sink.split ]
   %pl.0.ph = phi i64 [ %call37, %if.else33 ], [ %call15, %land.lhs.true.sink.split ]
-  %call45 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.0.ph, i32 noundef 58) #15
+  %call45 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.0.ph, i32 noundef 58) #14
   %tobool.not = icmp eq ptr %call45, null
   br i1 %tobool.not, label %if.end47, label %spec_err
 
@@ -768,7 +768,7 @@ if.then62:                                        ; preds = %if.then53, %land.lh
   br label %if.end70
 
 if.else63:                                        ; preds = %if.then53, %land.lhs.true58
-  %call64 = tail call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %h.045, i64 noundef %hl.047, ptr noundef nonnull @.str, i32 noundef 563) #14
+  %call64 = tail call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %h.045, i64 noundef %hl.047, ptr noundef nonnull @.str, i32 noundef 563) #13
   store ptr %call64, ptr %host, align 8
   %cmp65 = icmp eq ptr %call64, null
   br i1 %cmp65, label %return, label %if.end70
@@ -794,7 +794,7 @@ if.then87:                                        ; preds = %if.then76, %land.lh
   br label %if.end95
 
 if.else88:                                        ; preds = %if.then76, %land.lhs.true82
-  %call89 = tail call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %p.050, i64 noundef %pl.051, ptr noundef nonnull @.str, i32 noundef 573) #14
+  %call89 = tail call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %p.050, i64 noundef %pl.051, ptr noundef nonnull @.str, i32 noundef 573) #13
   store ptr %call89, ptr %service, align 8
   %cmp90 = icmp eq ptr %call89, null
   br i1 %cmp90, label %return, label %if.end95
@@ -803,15 +803,15 @@ if.end95:                                         ; preds = %if.then87, %if.else
   br label %return
 
 amb_err:                                          ; preds = %if.else18
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 581, ptr noundef nonnull @__func__.BIO_parse_hostserv) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 129, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 581, ptr noundef nonnull @__func__.BIO_parse_hostserv) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 129, ptr noundef null) #13
   br label %return
 
 spec_err:                                         ; preds = %if.end, %land.lhs.true, %if.then
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 584, ptr noundef nonnull @__func__.BIO_parse_hostserv) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 130, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 584, ptr noundef nonnull @__func__.BIO_parse_hostserv) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 130, ptr noundef null) #13
   br label %return
 
 return:                                           ; preds = %if.else88, %if.else63, %spec_err, %amb_err, %if.end95
@@ -820,10 +820,10 @@ return:                                           ; preds = %if.else88, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -852,14 +852,14 @@ entry:
   ]
 
 sw.default:                                       ; preds = %entry
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 689, ptr noundef nonnull @__func__.BIO_lookup_ex) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 131, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 689, ptr noundef nonnull @__func__.BIO_lookup_ex) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 131, ptr noundef null) #13
   br label %return
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %host) #15
-  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 602) #14
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %host) #14
+  %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 602) #13
   store ptr %call.i, ptr %res, align 8
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.else, label %if.end.i
@@ -871,7 +871,7 @@ if.end.i:                                         ; preds = %if.then
   store i32 %socktype, ptr %ai_socktype.i, align 8
   %ai_protocol10.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %ai_protocol10.i, align 4
-  %call.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 112, ptr noundef nonnull @.str, i32 noundef 54) #14
+  %call.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 112, ptr noundef nonnull @.str, i32 noundef 54) #13
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.end17.i, label %if.then14.i
 
@@ -886,7 +886,7 @@ if.end.i17.i:                                     ; preds = %if.then14.i
   store i16 0, ptr %1, align 4
   store i16 1, ptr %call.i.i, align 4
   %sun_path.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2
-  %call.i18.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path.i.i, ptr noundef nonnull readonly dereferenceable(1) %host, i64 noundef 107) #14
+  %call.i18.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path.i.i, ptr noundef nonnull readonly dereferenceable(1) %host, i64 noundef 107) #13
   br label %BIO_ADDR_rawmake.exit.i
 
 BIO_ADDR_rawmake.exit.i:                          ; preds = %if.end.i17.i, %if.then14.i
@@ -912,7 +912,7 @@ if.end.i20.i:                                     ; preds = %if.end17.i
   br i1 %cmp1.not.i.i, label %while.body.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i20.i
-  tail call void @freeaddrinfo(ptr noundef nonnull %4) #14
+  tail call void @freeaddrinfo(ptr noundef nonnull %4) #13
   br label %BIO_ADDRINFO_free.exit.i
 
 while.body.i.i:                                   ; preds = %if.end.i20.i, %while.body.i.i
@@ -921,8 +921,8 @@ while.body.i.i:                                   ; preds = %if.end.i20.i, %whil
   %7 = load ptr, ptr %ai_next.i.i, align 8
   %ai_addr.i.i = getelementptr inbounds i8, ptr %bai.addr.07.i.i, i64 24
   %8 = load ptr, ptr %ai_addr.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 473) #14
-  tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07.i.i, ptr noundef nonnull @.str, i32 noundef 474) #14
+  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 473) #13
+  tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07.i.i, ptr noundef nonnull @.str, i32 noundef 474) #13
   %cmp4.not.i.i = icmp eq ptr %7, null
   br i1 %cmp4.not.i.i, label %BIO_ADDRINFO_free.exit.i, label %while.body.i.i, !llvm.loop !4
 
@@ -931,13 +931,13 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %while.body.i.i, %if
   br label %if.else
 
 if.else:                                          ; preds = %BIO_ADDRINFO_free.exit.i, %if.then
-  tail call void @ERR_new() #14
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @__func__.BIO_lookup_ex) #14
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524320, ptr noundef null) #14
+  tail call void @ERR_new() #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @__func__.BIO_lookup_ex) #13
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524320, ptr noundef null) #13
   br label %return
 
 if.end3:                                          ; preds = %entry, %entry, %entry
-  %call4 = tail call i32 @BIO_sock_init() #14
+  %call4 = tail call i32 @BIO_sock_init() #13
   %cmp5.not = icmp eq i32 %call4, 1
   br i1 %cmp5.not, label %if.then8, label %return
 
@@ -967,7 +967,7 @@ retry.preheader:                                  ; preds = %if.then8, %10
 
 retry:                                            ; preds = %retry.preheader, %if.then28
   %old_ret.0 = phi i32 [ %call18, %if.then28 ], [ 0, %retry.preheader ]
-  %call18 = call i32 @getaddrinfo(ptr noundef %host, ptr noundef %service, ptr noundef nonnull %hints, ptr noundef %res) #14
+  %call18 = call i32 @getaddrinfo(ptr noundef %host, ptr noundef %service, ptr noundef nonnull %hints, ptr noundef %res) #13
   switch i32 %call18, label %sw.default25 [
     i32 -11, label %sw.bb19
     i32 -10, label %sw.bb21
@@ -975,23 +975,23 @@ retry:                                            ; preds = %retry.preheader, %i
   ]
 
 sw.bb19:                                          ; preds = %retry
-  call void @ERR_new() #14
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 735, ptr noundef nonnull @__func__.BIO_lookup_ex) #14
-  %call20 = tail call ptr @__errno_location() #16
+  call void @ERR_new() #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 735, ptr noundef nonnull @__func__.BIO_lookup_ex) #13
+  %call20 = tail call ptr @__errno_location() #15
   %11 = load i32, ptr %call20, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %11, ptr noundef nonnull @.str.1) #14
-  call void @ERR_new() #14
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__func__.BIO_lookup_ex) #14
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef null) #14
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %11, ptr noundef nonnull @.str.1) #13
+  call void @ERR_new() #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__func__.BIO_lookup_ex) #13
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef null) #13
   br label %return
 
 sw.bb21:                                          ; preds = %retry
-  call void @ERR_new() #14
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 742, ptr noundef nonnull @__func__.BIO_lookup_ex) #14
+  call void @ERR_new() #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 742, ptr noundef nonnull @__func__.BIO_lookup_ex) #13
   %tobool22.not = icmp eq i32 %old_ret.0, 0
   %cond = select i1 %tobool22.not, i32 -10, i32 %old_ret.0
-  %call23 = call ptr @gai_strerror(i32 noundef %cond) #14
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %call23) #14
+  %call23 = call ptr @gai_strerror(i32 noundef %cond) #13
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %call23) #13
   br label %return
 
 sw.default25:                                     ; preds = %retry
@@ -1007,12 +1007,12 @@ if.then28:                                        ; preds = %sw.default25
   br label %retry
 
 if.end33:                                         ; preds = %sw.default25
-  call void @ERR_new() #14
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 758, ptr noundef nonnull @__func__.BIO_lookup_ex) #14
+  call void @ERR_new() #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 758, ptr noundef nonnull @__func__.BIO_lookup_ex) #13
   %tobool34.not = icmp eq i32 %old_ret.0, 0
   %cond38 = select i1 %tobool34.not, i32 %call18, i32 %old_ret.0
-  %call39 = call ptr @gai_strerror(i32 noundef %cond38) #14
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %call39) #14
+  %call39 = call ptr @gai_strerror(i32 noundef %cond38) #13
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %call39) #13
   br label %return
 
 return:                                           ; preds = %retry, %if.end17.i, %if.end33, %sw.bb21, %sw.bb19, %if.end3, %if.else, %sw.default
@@ -1025,17 +1025,17 @@ declare i32 @BIO_sock_init() local_unnamed_addr #1
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #13
+declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #12
+declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #11
 
 declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #13
+declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1046,14 +1046,13 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(none) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

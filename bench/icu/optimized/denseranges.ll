@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.(anonymous namespace)::LargestGaps" = type { i32, i32, [15 x i32], [15 x i64] }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @uprv_makeDenseRanges(ptr nocapture noundef readonly %values, i32 noundef %length, i32 noundef %density, ptr nocapture noundef writeonly %ranges, i32 noundef %capacity) local_unnamed_addr #0 {
 entry:
   %gaps = alloca %"class.(anonymous namespace)::LargestGaps", align 8
@@ -284,7 +284,7 @@ return:                                           ; preds = %for.inc42, %return.
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

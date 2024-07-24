@@ -223,8 +223,8 @@ _ZN5faiss7hammingEPKmS1_m.exit.loopexit.us:       ; preds = %.lr.ph.i.us
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5faiss11fvec2bitvecEPKfPhm(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN5faiss11fvec2bitvecEPKfPhm(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not32 = icmp eq i64 %2, 0
   br i1 %.not32, label %._crit_edge31, label %.lr.ph30
 
@@ -274,7 +274,7 @@ define void @_ZN5faiss11fvec2bitvecEPKfPhm(ptr noalias nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss13fvecs2bitvecsEPKfPhmm(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define void @_ZN5faiss13fvecs2bitvecsEPKfPhmm(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -299,7 +299,7 @@ define void @_ZN5faiss13fvecs2bitvecsEPKfPhmm(ptr noalias noundef %0, ptr noalia
 16:                                               ; preds = %4
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %11)
   store i32 %11, ptr %10, align 4
-  call void @_ZN5faiss13fvecs2bitvecsEPKfPhmm.omp_outlined(ptr nonnull %10, ptr nonnull poison, ptr %8, ptr %5, ptr %7, ptr %6, ptr %9) #5
+  call void @_ZN5faiss13fvecs2bitvecsEPKfPhmm.omp_outlined(ptr nonnull %10, ptr nonnull poison, ptr %8, ptr %5, ptr %7, ptr %6, ptr %9) #4
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %11)
   br label %17
 
@@ -308,7 +308,7 @@ define void @_ZN5faiss13fvecs2bitvecsEPKfPhmm(ptr noalias noundef %0, ptr noalia
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss13fvecs2bitvecsEPKfPhmm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) #4 {
+define internal void @_ZN5faiss13fvecs2bitvecsEPKfPhmm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) #3 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -426,25 +426,25 @@ _ZN5faiss11fvec2bitvecEPKfPhm.exit:               ; preds = %_ZN5faiss11fvec2bit
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_8u(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #5
+declare void @__kmpc_for_static_init_8u(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #5
+declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare !callback !18 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #5
+declare !callback !18 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #5
+declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @__kmpc_serialized_parallel(ptr, i32) local_unnamed_addr #5
+declare void @__kmpc_serialized_parallel(ptr, i32) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #5
+declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss13bitvecs2fvecsEPKhPfmm(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define void @_ZN5faiss13bitvecs2fvecsEPKhPfmm(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -469,7 +469,7 @@ define void @_ZN5faiss13bitvecs2fvecsEPKhPfmm(ptr noalias noundef %0, ptr noalia
 16:                                               ; preds = %4
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %11)
   store i32 %11, ptr %10, align 4
-  call void @_ZN5faiss13bitvecs2fvecsEPKhPfmm.omp_outlined(ptr nonnull %10, ptr nonnull poison, ptr %8, ptr %7, ptr %5, ptr %9, ptr %6) #5
+  call void @_ZN5faiss13bitvecs2fvecsEPKhPfmm.omp_outlined(ptr nonnull %10, ptr nonnull poison, ptr %8, ptr %7, ptr %5, ptr %9, ptr %6) #4
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %11)
   br label %17
 
@@ -478,7 +478,7 @@ define void @_ZN5faiss13bitvecs2fvecsEPKhPfmm(ptr noalias noundef %0, ptr noalia
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss13bitvecs2fvecsEPKhPfmm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss13bitvecs2fvecsEPKhPfmm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -533,18 +533,18 @@ define internal void @_ZN5faiss13bitvecs2fvecsEPKhPfmm.omp_outlined(ptr noalias 
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #23
+  call void @__clang_call_terminate(ptr %35) #22
   unreachable
 }
 
-declare void @_ZN5faiss14binary_to_realEmPKhPf(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @_ZN5faiss14binary_to_realEmPKhPf(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #5
-  tail call void @_ZSt9terminatev() #23
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #4
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -553,7 +553,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN5faiss12bitvec_printEPKhm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define void @_ZN5faiss12bitvec_printEPKhm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph19
 
@@ -606,10 +606,10 @@ _ZN5faissL19uint64_reverse_bitsEm.exit._crit_edge: ; preds = %_ZN5faissL19uint64
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, ptr noalias noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -644,8 +644,8 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
   br i1 %or.cond, label %17, label %24
 
 24:                                               ; preds = %.lr.ph
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #5
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #4
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #4
   %26 = add nsw i32 %25, 1
   %27 = sext i32 %26 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %27)
@@ -656,14 +656,14 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
           to label %30 unwind label %35
 
 30:                                               ; preds = %28
-  %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #5
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #5
-  %33 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #4
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #4
+  %33 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss14bitvec_shuffleEmmmPKiPKhPh, ptr noundef nonnull @.str.4, i32 noundef 425)
           to label %34 unwind label %37
 
 34:                                               ; preds = %30
-  invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %48 unwind label %35
 
 35:                                               ; preds = %34, %28, %24
@@ -674,12 +674,12 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
 37:                                               ; preds = %30
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %33) #5
+  call void @__cxa_free_exception(ptr %33) #4
   br label %39
 
 39:                                               ; preds = %37, %35
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #4
   resume { ptr, i32 } %.pn
 
 ._crit_edge:                                      ; preds = %17, %6
@@ -699,7 +699,7 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
 46:                                               ; preds = %._crit_edge
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %16)
   store i32 %16, ptr %15, align 4
-  call void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %7, ptr %10, ptr %13, ptr %11, ptr %14, ptr %8, ptr %9) #5
+  call void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr nonnull %15, ptr nonnull poison, ptr %7, ptr %10, ptr %13, ptr %11, ptr %14, ptr %8, ptr %9) #4
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %16)
   br label %47
 
@@ -711,40 +711,40 @@ define void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #6
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #6
+declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #5
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #5
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #4
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #4
   ret void
 }
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #4 {
+define internal void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #3 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -826,21 +826,21 @@ define internal void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr noa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef writeonly %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef writeonly %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = and i64 %4, 7
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %26, label %10
 
 10:                                               ; preds = %6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #4
+  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #4
   %12 = add nsw i32 %11, 1
   %13 = sext i32 %12 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %13)
@@ -851,14 +851,14 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
           to label %16 unwind label %21
 
 16:                                               ; preds = %14
-  %17 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
-  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #5
-  %19 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %17 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #4
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #4
+  %19 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss8hammingsEPKhS1_mmmPi, ptr noundef nonnull @.str.4, i32 noundef 456)
           to label %20 unwind label %23
 
 20:                                               ; preds = %16
-  invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %113 unwind label %21
 
 21:                                               ; preds = %20, %14, %10
@@ -869,12 +869,12 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %19) #5
+  call void @__cxa_free_exception(ptr %19) #4
   br label %25
 
 25:                                               ; preds = %23, %21
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #4
   resume { ptr, i32 } %.pn
 
 26:                                               ; preds = %6
@@ -1112,13 +1112,13 @@ _ZN5faiss8hammingsILm64EEEvPKmS2_mmPi.exit:       ; preds = %._crit_edge.us.i57,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss12hammings_knnEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
+define void @_ZN5faiss12hammings_knnEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
   tail call void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi17ApproxTopK_mode_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi17ApproxTopK_mode_t(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #10 {
+define void @_ZN5faiss15hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi17ApproxTopK_mode_t(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #9 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -1563,10 +1563,10 @@ _ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_hcEJmPNS
   ret void
 }
 
-declare void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7heapifyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
+declare void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7heapifyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer4EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer4EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -1641,9 +1641,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %53, label %67, label %54
 
 54:                                               ; preds = %52
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %55 = load i64, ptr %7, align 8
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %55) #5
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %55) #4
   %57 = add nsw i32 %56, 1
   %58 = sext i32 %57 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %58)
@@ -1654,16 +1654,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %61 unwind label %.loopexit.split-lp
 
 61:                                               ; preds = %59
-  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %63 = load i64, ptr %7, align 8
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %62, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %63) #5
-  %65 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %62, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %63) #4
+  %65 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer4EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 212)
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %119, %100, %81, %61
   %66 = phi ptr [ %65, %61 ], [ %85, %81 ], [ %104, %100 ], [ %123, %119 ]
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -1682,9 +1682,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %73, label %86, label %74
 
 74:                                               ; preds = %72
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %75 = load i64, ptr %7, align 8
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %75) #5
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %75) #4
   %77 = add nsw i32 %76, 1
   %78 = sext i32 %77 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %78)
@@ -1695,10 +1695,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %81 unwind label %.loopexit.split-lp
 
 81:                                               ; preds = %79
-  %82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  %82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %83 = load i64, ptr %7, align 8
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %83) #5
-  %85 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %83) #4
+  %85 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer4EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 213)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -1715,9 +1715,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %92, label %105, label %93
 
 93:                                               ; preds = %91
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %94 = load i64, ptr %7, align 8
-  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %94) #5
+  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %94) #4
   %96 = add nsw i32 %95, 1
   %97 = sext i32 %96 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %97)
@@ -1728,10 +1728,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %100 unwind label %.loopexit.split-lp
 
 100:                                              ; preds = %98
-  %101 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  %101 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %102 = load i64, ptr %7, align 8
-  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %99, i64 noundef %101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %102) #5
-  %104 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %99, i64 noundef %101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %102) #4
+  %104 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer4EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 214)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -1748,9 +1748,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %111, label %124, label %112
 
 112:                                              ; preds = %110
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %113 = load i64, ptr %7, align 8
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %113) #5
+  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %113) #4
   %115 = add nsw i32 %114, 1
   %116 = sext i32 %115 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %116)
@@ -1761,10 +1761,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %119 unwind label %.loopexit.split-lp
 
 119:                                              ; preds = %117
-  %120 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  %120 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %121 = load i64, ptr %7, align 8
-  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %118, i64 noundef %120, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %121) #5
-  %123 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %118, i64 noundef %120, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %121) #4
+  %123 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer4EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 215)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -1910,14 +1910,14 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer
 190:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %191 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %191) #23
+  call void @__clang_call_terminate(ptr %191) #22
   unreachable
 }
 
-declare void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
+declare void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7reorderEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -2386,10 +2386,10 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -2857,7 +2857,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -3389,7 +3389,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -3926,7 +3926,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer8EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer8EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -4001,9 +4001,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %53, label %67, label %54
 
 54:                                               ; preds = %52
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %55 = load i64, ptr %7, align 8
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %55) #5
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %55) #4
   %57 = add nsw i32 %56, 1
   %58 = sext i32 %57 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %58)
@@ -4014,16 +4014,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %61 unwind label %.loopexit.split-lp
 
 61:                                               ; preds = %59
-  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %63 = load i64, ptr %7, align 8
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %62, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %63) #5
-  %65 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %60, i64 noundef %62, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %63) #4
+  %65 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer8EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 212)
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %119, %100, %81, %61
   %66 = phi ptr [ %65, %61 ], [ %85, %81 ], [ %104, %100 ], [ %123, %119 ]
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -4042,9 +4042,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %73, label %86, label %74
 
 74:                                               ; preds = %72
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %75 = load i64, ptr %7, align 8
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %75) #5
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %75) #4
   %77 = add nsw i32 %76, 1
   %78 = sext i32 %77 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %78)
@@ -4055,10 +4055,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %81 unwind label %.loopexit.split-lp
 
 81:                                               ; preds = %79
-  %82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  %82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %83 = load i64, ptr %7, align 8
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %83) #5
-  %85 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %83) #4
+  %85 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer8EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 213)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -4075,9 +4075,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %92, label %105, label %93
 
 93:                                               ; preds = %91
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %94 = load i64, ptr %7, align 8
-  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %94) #5
+  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %94) #4
   %96 = add nsw i32 %95, 1
   %97 = sext i32 %96 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %97)
@@ -4088,10 +4088,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %100 unwind label %.loopexit.split-lp
 
 100:                                              ; preds = %98
-  %101 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  %101 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %102 = load i64, ptr %7, align 8
-  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %99, i64 noundef %101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %102) #5
-  %104 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %99, i64 noundef %101, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %102) #4
+  %104 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer8EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 214)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -4108,9 +4108,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   br i1 %111, label %124, label %112
 
 112:                                              ; preds = %110
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %113 = load i64, ptr %7, align 8
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %113) #5
+  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %113) #4
   %115 = add nsw i32 %114, 1
   %116 = sext i32 %115 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %116)
@@ -4121,10 +4121,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
           to label %119 unwind label %.loopexit.split-lp
 
 119:                                              ; preds = %117
-  %120 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  %120 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %121 = load i64, ptr %7, align 8
-  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %118, i64 noundef %120, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %121) #5
-  %123 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %118, i64 noundef %120, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %121) #4
+  %123 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingComputer8EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 215)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -4271,12 +4271,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer
 191:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %192 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %192) #23
+  call void @__clang_call_terminate(ptr %192) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -4747,7 +4747,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -5217,7 +5217,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -5751,7 +5751,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -6290,7 +6290,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer16EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer16EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -6372,9 +6372,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %57, label %71, label %58
 
 58:                                               ; preds = %56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %59 = load i64, ptr %7, align 8
-  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %59) #5
+  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %59) #4
   %61 = add nsw i32 %60, 1
   %62 = sext i32 %61 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %62)
@@ -6385,16 +6385,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %65 unwind label %.loopexit.split-lp
 
 65:                                               ; preds = %63
-  %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %67 = load i64, ptr %7, align 8
-  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %64, i64 noundef %66, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %67) #5
-  %69 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %64, i64 noundef %66, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %67) #4
+  %69 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer16EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 212)
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %123, %104, %85, %65
   %70 = phi ptr [ %69, %65 ], [ %89, %85 ], [ %108, %104 ], [ %127, %123 ]
-  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -6413,9 +6413,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %77, label %90, label %78
 
 78:                                               ; preds = %76
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %79 = load i64, ptr %7, align 8
-  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %79) #5
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %79) #4
   %81 = add nsw i32 %80, 1
   %82 = sext i32 %81 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %82)
@@ -6426,10 +6426,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %85 unwind label %.loopexit.split-lp
 
 85:                                               ; preds = %83
-  %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %87 = load i64, ptr %7, align 8
-  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %84, i64 noundef %86, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %87) #5
-  %89 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %84, i64 noundef %86, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %87) #4
+  %89 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer16EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 213)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -6446,9 +6446,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %96, label %109, label %97
 
 97:                                               ; preds = %95
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %98 = load i64, ptr %7, align 8
-  %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %98) #5
+  %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %98) #4
   %100 = add nsw i32 %99, 1
   %101 = sext i32 %100 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %101)
@@ -6459,10 +6459,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %104 unwind label %.loopexit.split-lp
 
 104:                                              ; preds = %102
-  %105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  %105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %106 = load i64, ptr %7, align 8
-  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %103, i64 noundef %105, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %106) #5
-  %108 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %103, i64 noundef %105, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %106) #4
+  %108 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer16EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 214)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -6479,9 +6479,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %115, label %128, label %116
 
 116:                                              ; preds = %114
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %117 = load i64, ptr %7, align 8
-  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %117) #5
+  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %117) #4
   %119 = add nsw i32 %118, 1
   %120 = sext i32 %119 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %120)
@@ -6492,10 +6492,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %123 unwind label %.loopexit.split-lp
 
 123:                                              ; preds = %121
-  %124 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  %124 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %125 = load i64, ptr %7, align 8
-  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %122, i64 noundef %124, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %125) #5
-  %127 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %122, i64 noundef %124, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %125) #4
+  %127 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer16EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 215)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -6645,12 +6645,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 197:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %198 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %198) #23
+  call void @__clang_call_terminate(ptr %198) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -7127,7 +7127,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -7603,7 +7603,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -8143,7 +8143,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -8688,7 +8688,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer20EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer20EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -8775,9 +8775,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %61, label %75, label %62
 
 62:                                               ; preds = %60
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %63 = load i64, ptr %7, align 8
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %63) #5
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %63) #4
   %65 = add nsw i32 %64, 1
   %66 = sext i32 %65 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %66)
@@ -8788,16 +8788,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %69 unwind label %.loopexit.split-lp
 
 69:                                               ; preds = %67
-  %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %71 = load i64, ptr %7, align 8
-  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %68, i64 noundef %70, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %71) #5
-  %73 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %68, i64 noundef %70, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %71) #4
+  %73 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer20EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 212)
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %127, %108, %89, %69
   %74 = phi ptr [ %73, %69 ], [ %93, %89 ], [ %112, %108 ], [ %131, %127 ]
-  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -8816,9 +8816,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %81, label %94, label %82
 
 82:                                               ; preds = %80
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %83 = load i64, ptr %7, align 8
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %83) #5
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %83) #4
   %85 = add nsw i32 %84, 1
   %86 = sext i32 %85 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %86)
@@ -8829,10 +8829,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %89 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %87
-  %90 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  %90 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %91 = load i64, ptr %7, align 8
-  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %88, i64 noundef %90, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %91) #5
-  %93 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %88, i64 noundef %90, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %91) #4
+  %93 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer20EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 213)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -8849,9 +8849,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %100, label %113, label %101
 
 101:                                              ; preds = %99
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %102 = load i64, ptr %7, align 8
-  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %102) #5
+  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %102) #4
   %104 = add nsw i32 %103, 1
   %105 = sext i32 %104 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %105)
@@ -8862,10 +8862,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %108 unwind label %.loopexit.split-lp
 
 108:                                              ; preds = %106
-  %109 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  %109 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %110 = load i64, ptr %7, align 8
-  %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %107, i64 noundef %109, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %110) #5
-  %112 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %107, i64 noundef %109, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %110) #4
+  %112 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %112, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer20EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 214)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -8882,9 +8882,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %119, label %132, label %120
 
 120:                                              ; preds = %118
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %121 = load i64, ptr %7, align 8
-  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %121) #5
+  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %121) #4
   %123 = add nsw i32 %122, 1
   %124 = sext i32 %123 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %124)
@@ -8895,10 +8895,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %127 unwind label %.loopexit.split-lp
 
 127:                                              ; preds = %125
-  %128 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  %128 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %129 = load i64, ptr %7, align 8
-  %130 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %126, i64 noundef %128, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %129) #5
-  %131 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %130 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %126, i64 noundef %128, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %129) #4
+  %131 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %131, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer20EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 215)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -9054,12 +9054,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 207:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %208 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %208) #23
+  call void @__clang_call_terminate(ptr %208) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -9548,7 +9548,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -10036,7 +10036,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -10588,7 +10588,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -11145,7 +11145,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer32EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer32EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -11235,9 +11235,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %63, label %77, label %64
 
 64:                                               ; preds = %62
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %65 = load i64, ptr %7, align 8
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %65) #5
+  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %65) #4
   %67 = add nsw i32 %66, 1
   %68 = sext i32 %67 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %68)
@@ -11248,16 +11248,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %71 unwind label %.loopexit.split-lp
 
 71:                                               ; preds = %69
-  %72 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  %72 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %73 = load i64, ptr %7, align 8
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %70, i64 noundef %72, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %73) #5
-  %75 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %70, i64 noundef %72, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %73) #4
+  %75 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer32EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 212)
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %129, %110, %91, %71
   %76 = phi ptr [ %75, %71 ], [ %95, %91 ], [ %114, %110 ], [ %133, %129 ]
-  invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -11276,9 +11276,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %83, label %96, label %84
 
 84:                                               ; preds = %82
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %85 = load i64, ptr %7, align 8
-  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %85) #5
+  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %85) #4
   %87 = add nsw i32 %86, 1
   %88 = sext i32 %87 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %88)
@@ -11289,10 +11289,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %91 unwind label %.loopexit.split-lp
 
 91:                                               ; preds = %89
-  %92 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  %92 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %93 = load i64, ptr %7, align 8
-  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %90, i64 noundef %92, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %93) #5
-  %95 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %90, i64 noundef %92, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %93) #4
+  %95 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer32EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 213)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -11309,9 +11309,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %102, label %115, label %103
 
 103:                                              ; preds = %101
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %104 = load i64, ptr %7, align 8
-  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %104) #5
+  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %104) #4
   %106 = add nsw i32 %105, 1
   %107 = sext i32 %106 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %107)
@@ -11322,10 +11322,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %110 unwind label %.loopexit.split-lp
 
 110:                                              ; preds = %108
-  %111 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  %111 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %112 = load i64, ptr %7, align 8
-  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %109, i64 noundef %111, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %112) #5
-  %114 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %109, i64 noundef %111, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %112) #4
+  %114 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %114, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer32EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 214)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -11342,9 +11342,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %121, label %134, label %122
 
 122:                                              ; preds = %120
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %123 = load i64, ptr %7, align 8
-  %124 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %123) #5
+  %124 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %123) #4
   %125 = add nsw i32 %124, 1
   %126 = sext i32 %125 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %126)
@@ -11355,10 +11355,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %129 unwind label %.loopexit.split-lp
 
 129:                                              ; preds = %127
-  %130 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  %130 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %131 = load i64, ptr %7, align 8
-  %132 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %128, i64 noundef %130, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %131) #5
-  %133 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %132 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %128, i64 noundef %130, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %131) #4
+  %133 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer32EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 215)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -11506,12 +11506,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 202:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %203 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %203) #23
+  call void @__clang_call_terminate(ptr %203) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -11984,7 +11984,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -12456,7 +12456,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -12992,7 +12992,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -13533,7 +13533,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer64EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer64EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -13639,9 +13639,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %75, label %89, label %76
 
 76:                                               ; preds = %74
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %77 = load i64, ptr %7, align 8
-  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %77) #5
+  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %77) #4
   %79 = add nsw i32 %78, 1
   %80 = sext i32 %79 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %80)
@@ -13652,16 +13652,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %83 unwind label %.loopexit.split-lp
 
 83:                                               ; preds = %81
-  %84 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  %84 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %85 = load i64, ptr %7, align 8
-  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %82, i64 noundef %84, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %85) #5
-  %87 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %82, i64 noundef %84, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %85) #4
+  %87 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer64EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 212)
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %141, %122, %103, %83
   %88 = phi ptr [ %87, %83 ], [ %107, %103 ], [ %126, %122 ], [ %145, %141 ]
-  invoke void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -13680,9 +13680,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %95, label %108, label %96
 
 96:                                               ; preds = %94
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %97 = load i64, ptr %7, align 8
-  %98 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %97) #5
+  %98 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %97) #4
   %99 = add nsw i32 %98, 1
   %100 = sext i32 %99 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %100)
@@ -13693,10 +13693,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %103 unwind label %.loopexit.split-lp
 
 103:                                              ; preds = %101
-  %104 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  %104 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %105 = load i64, ptr %7, align 8
-  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %102, i64 noundef %104, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %105) #5
-  %107 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %102, i64 noundef %104, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %105) #4
+  %107 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer64EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 213)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -13713,9 +13713,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %114, label %127, label %115
 
 115:                                              ; preds = %113
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %116 = load i64, ptr %7, align 8
-  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %116) #5
+  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %116) #4
   %118 = add nsw i32 %117, 1
   %119 = sext i32 %118 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %119)
@@ -13726,10 +13726,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %122 unwind label %.loopexit.split-lp
 
 122:                                              ; preds = %120
-  %123 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  %123 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %124 = load i64, ptr %7, align 8
-  %125 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %121, i64 noundef %123, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %124) #5
-  %126 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %125 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %121, i64 noundef %123, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %124) #4
+  %126 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %126, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer64EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 214)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -13746,9 +13746,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   br i1 %133, label %146, label %134
 
 134:                                              ; preds = %132
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %135 = load i64, ptr %7, align 8
-  %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %135) #5
+  %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %135) #4
   %137 = add nsw i32 %136, 1
   %138 = sext i32 %137 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %138)
@@ -13759,10 +13759,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
           to label %141 unwind label %.loopexit.split-lp
 
 141:                                              ; preds = %139
-  %142 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  %142 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %143 = load i64, ptr %7, align 8
-  %144 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %140, i64 noundef %142, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %143) #5
-  %145 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %144 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %140, i64 noundef %142, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %143) #4
+  %145 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingComputer64EEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 215)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -13910,12 +13910,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer
 214:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %215 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %215) #23
+  call void @__clang_call_terminate(ptr %215) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -14388,7 +14388,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -14860,7 +14860,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit137: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -15396,7 +15396,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -15937,7 +15937,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit131: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingComputerDefaultEEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingComputerDefaultEEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9) #3 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
@@ -16020,9 +16020,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   br i1 %57, label %71, label %58
 
 58:                                               ; preds = %56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %59 = load i64, ptr %7, align 8
-  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %59) #5
+  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %59) #4
   %61 = add nsw i32 %60, 1
   %62 = sext i32 %61 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %62)
@@ -16033,16 +16033,16 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
           to label %65 unwind label %.loopexit.split-lp
 
 65:                                               ; preds = %63
-  %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #5
+  %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
   %67 = load i64, ptr %7, align 8
-  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %64, i64 noundef %66, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %67) #5
-  %69 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %64, i64 noundef %66, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 2, i32 noundef 24, i64 noundef %67) #4
+  %69 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingComputerDefaultEEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 212)
           to label %.invoke unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %123, %104, %85, %65
   %70 = phi ptr [ %69, %65 ], [ %89, %85 ], [ %108, %104 ], [ %127, %123 ]
-  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -16061,9 +16061,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   br i1 %77, label %90, label %78
 
 78:                                               ; preds = %76
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %79 = load i64, ptr %7, align 8
-  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %79) #5
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %79) #4
   %81 = add nsw i32 %80, 1
   %82 = sext i32 %81 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %82)
@@ -16074,10 +16074,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
           to label %85 unwind label %.loopexit.split-lp
 
 85:                                               ; preds = %83
-  %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #5
+  %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
   %87 = load i64, ptr %7, align 8
-  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %84, i64 noundef %86, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %87) #5
-  %89 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %84, i64 noundef %86, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 16, i64 noundef %87) #4
+  %89 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingComputerDefaultEEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 213)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -16094,9 +16094,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   br i1 %96, label %109, label %97
 
 97:                                               ; preds = %95
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %98 = load i64, ptr %7, align 8
-  %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %98) #5
+  %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %98) #4
   %100 = add nsw i32 %99, 1
   %101 = sext i32 %100 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %101)
@@ -16107,10 +16107,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
           to label %104 unwind label %.loopexit.split-lp
 
 104:                                              ; preds = %102
-  %105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #5
+  %105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
   %106 = load i64, ptr %7, align 8
-  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %103, i64 noundef %105, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %106) #5
-  %108 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %103, i64 noundef %105, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 3, i32 noundef 32, i64 noundef %106) #4
+  %108 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingComputerDefaultEEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 214)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -16127,9 +16127,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   br i1 %115, label %128, label %116
 
 116:                                              ; preds = %114
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %117 = load i64, ptr %7, align 8
-  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %117) #5
+  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %117) #4
   %119 = add nsw i32 %118, 1
   %120 = sext i32 %119 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %120)
@@ -16140,10 +16140,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
           to label %123 unwind label %.loopexit.split-lp
 
 123:                                              ; preds = %121
-  %124 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #5
+  %124 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #4
   %125 = load i64, ptr %7, align 8
-  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %122, i64 noundef %124, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %125) #5
-  %127 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %122, i64 noundef %124, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 64, i64 noundef %125) #4
+  %127 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingComputerDefaultEEEviPNS_9HeapArrayINS_4CMaxIilEEEEPKhS9_mbb17ApproxTopK_mode_t.omp_outlined, ptr noundef nonnull @.str.4, i32 noundef 215)
           to label %.invoke unwind label %.loopexit.split-lp
 
@@ -16282,12 +16282,12 @@ _ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputer
 189:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %190 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %190) #23
+  call void @__clang_call_terminate(ptr %190) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -16561,7 +16561,7 @@ default.unreachable92:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -17032,7 +17032,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -17502,7 +17502,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit138: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -18036,7 +18036,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef %3, i32 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6) local_unnamed_addr #9 comdat align 2 {
   %8 = alloca %"struct.faiss::simd8uint32", align 8
   %9 = alloca %"struct.faiss::simd8uint32", align 8
   %10 = alloca %"struct.faiss::simd8uint32", align 8
@@ -18575,7 +18575,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit132: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noalias nocapture noundef writeonly %6, ptr noalias nocapture noundef writeonly %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noalias nocapture noundef writeonly %6, ptr noalias nocapture noundef writeonly %7) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
@@ -18646,7 +18646,7 @@ define void @_ZN5faiss15hammings_knn_mcEPKhS1_mmmmPiPl(ptr noalias noundef %0, p
   br i1 %54, label %.noexc.i.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %52
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24, !noalias !469
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !469
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %52
@@ -18655,7 +18655,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %52
 
 .noexc70.i.i.i:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %55 = mul i64 %2, 132
-  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #25, !noalias !469
+  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #24, !noalias !469
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %56, i8 0, i64 %55, i1 false), !noalias !469
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i
 
@@ -18665,7 +18665,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc70.i.i.i, %_Z
   %58 = icmp ugt i64 %57, 2305843009213693951
   %59 = shl nuw i64 %57, 3
   %60 = select i1 %58, i64 -1, i64 %59
-  %61 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %60) #25
+  %61 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %60) #24
           to label %62 unwind label %107, !noalias !469
 
 62:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i
@@ -18724,7 +18724,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc70.i.i.i, %_Z
   br i1 %86, label %87, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 87:                                               ; preds = %81
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
           to label %.noexc72.i.i.i unwind label %.loopexit.split-lp.i.i.i, !noalias !469
 
 .noexc72.i.i.i:                                   ; preds = %87
@@ -18742,7 +18742,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check
 
 93:                                               ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %94 = mul nuw nsw i64 %92, 40
-  %95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #25
+  %95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #24
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i.i, !noalias !469
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %93, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -18780,7 +18780,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_reloca
   br i1 %.not.i23.i.i.i.i.i.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %101
 
 101:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %82) #26, !noalias !469
+  tail call void @_ZdlPv(ptr noundef nonnull %82) #25, !noalias !469
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %101, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -18818,11 +18818,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backE
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i, label %110
 
 110:                                              ; preds = %109
-  tail call void @_ZdlPv(ptr noundef nonnull %82) #26, !noalias !469
+  tail call void @_ZdlPv(ptr noundef nonnull %82) #25, !noalias !469
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %110, %109
-  tail call void @_ZdaPv(ptr noundef nonnull %61) #26, !noalias !469
+  tail call void @_ZdaPv(ptr noundef nonnull %61) #25, !noalias !469
   br label %157
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %62
@@ -18954,16 +18954,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %110, %1
   br i1 %.not.i.i.i74.i.i.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i, label %155
 
 155:                                              ; preds = %._crit_edge131.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i.i) #26, !noalias !469
+  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i.i) #25, !noalias !469
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i: ; preds = %155, %._crit_edge131.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %61) #26, !noalias !469
+  call void @_ZdaPv(ptr noundef nonnull %61) #25, !noalias !469
   %.not.i.i.i79.i.i.i = icmp eq ptr %.sroa.0102.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %156
 
 156:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i.i) #26, !noalias !469
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i.i) #25, !noalias !469
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 157:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i, %107
@@ -18974,7 +18974,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i.i: ; preds = %155, 
 common.resume.sink.split.i:                       ; preds = %833, %714, %594, %482, %371, %263, %157
   %.sroa.0104.0.i.i.sink.i = phi ptr [ %.sroa.0100.0.i.i.i, %263 ], [ %.sroa.0102.0.i.i126.i, %371 ], [ %.sroa.0107.0.i.i.i, %482 ], [ %.sroa.0106.0.i.i.i, %594 ], [ %.sroa.0114.0.i.i.i, %714 ], [ %.sroa.0104.0.i.i.i, %833 ], [ %.sroa.0102.0.i.i.i, %157 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn.i.i67.i, %263 ], [ %.pn.i.i127.i, %371 ], [ %.pn.i.i220.i, %482 ], [ %.pn.i.i277.i, %594 ], [ %.pn.i.i343.i, %714 ], [ %.pn.i.i411.i, %833 ], [ %.pn.i.i.i, %157 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.sink.i) #26, !noalias !485
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.sink.i) #25, !noalias !485
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %833, %714, %594, %482, %371, %263, %common.resume.sink.split.i, %157
@@ -19008,7 +19008,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer4EJmPKhS5_mmm
   br i1 %160, label %.noexc.i.i121.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i
 
 .noexc.i.i121.i:                                  ; preds = %158
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24, !noalias !495
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !495
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i: ; preds = %158
@@ -19017,7 +19017,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i: ; preds = %158
 
 .noexc70.i.i65.i:                                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i
   %161 = mul i64 %2, 260
-  %162 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %161) #25, !noalias !495
+  %162 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %161) #24, !noalias !495
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %162, i8 0, i64 %161, i1 false), !noalias !495
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i
 
@@ -19027,7 +19027,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc70.i.i65.i, %
   %164 = icmp ugt i64 %163, 2305843009213693951
   %165 = shl nuw i64 %163, 3
   %166 = select i1 %164, i64 -1, i64 %165
-  %167 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %166) #25
+  %167 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %166) #24
           to label %168 unwind label %213, !noalias !495
 
 168:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i
@@ -19086,7 +19086,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc70.i.i65.i, %
   br i1 %192, label %193, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 193:                                              ; preds = %187
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
           to label %.noexc72.i.i120.i unwind label %.loopexit.split-lp.i.i118.i, !noalias !495
 
 .noexc72.i.i120.i:                                ; preds = %193
@@ -19104,7 +19104,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check
 
 199:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %200 = mul nuw nsw i64 %198, 40
-  %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #25
+  %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #24
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i100.i, !noalias !495
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %199, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -19142,7 +19142,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_reloca
   br i1 %.not.i23.i.i.i.i.i117.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %207
 
 207:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %188) #26, !noalias !495
+  tail call void @_ZdlPv(ptr noundef nonnull %188) #25, !noalias !495
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %207, %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -19180,11 +19180,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backE
   br i1 %.not.i.i.i.i.i103.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i, label %216
 
 216:                                              ; preds = %215
-  tail call void @_ZdlPv(ptr noundef nonnull %188) #26, !noalias !495
+  tail call void @_ZdlPv(ptr noundef nonnull %188) #25, !noalias !495
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i: ; preds = %216, %215
-  tail call void @_ZdaPv(ptr noundef nonnull %167) #26, !noalias !495
+  tail call void @_ZdaPv(ptr noundef nonnull %167) #25, !noalias !495
   br label %263
 
 ._crit_edge.i.i80.i:                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %168
@@ -19316,16 +19316,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i: ; preds = %216,
   br i1 %.not.i.i.i74.i.i87.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i, label %261
 
 261:                                              ; preds = %._crit_edge128.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre157.i.i.i) #26, !noalias !495
+  call void @_ZdlPv(ptr noundef nonnull %.pre157.i.i.i) #25, !noalias !495
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i: ; preds = %261, %._crit_edge128.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %167) #26, !noalias !495
+  call void @_ZdaPv(ptr noundef nonnull %167) #25, !noalias !495
   %.not.i.i.i79.i.i89.i = icmp eq ptr %.sroa.0100.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i89.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %262
 
 262:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i88.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0100.0.i.i.i) #26, !noalias !495
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0100.0.i.i.i) #25, !noalias !495
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 263:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i, %213
@@ -19360,7 +19360,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_16HammingComputer8EJmPKhS5_mmm
   br i1 %266, label %.noexc.i.i215.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i
 
 .noexc.i.i215.i:                                  ; preds = %264
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24, !noalias !520
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !520
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i: ; preds = %264
@@ -19369,7 +19369,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i: ; preds = %264
 
 .noexc70.i.i124.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i
   %267 = mul i64 %2, 516
-  %268 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %267) #25, !noalias !520
+  %268 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %267) #24, !noalias !520
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %268, i8 0, i64 %267, i1 false), !noalias !520
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i
 
@@ -19379,7 +19379,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i:   ; preds = %.noexc70.i.i124.i, 
   %270 = icmp ugt i64 %269, 2305843009213693951
   %271 = shl nuw i64 %269, 3
   %272 = select i1 %270, i64 -1, i64 %271
-  %273 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %272) #25
+  %273 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %272) #24
           to label %274 unwind label %321, !noalias !520
 
 274:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i
@@ -19442,7 +19442,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i:   ; preds = %.noexc70.i.i124.i, 
   br i1 %300, label %301, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 301:                                              ; preds = %295
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
           to label %.noexc72.i.i214.i unwind label %.loopexit.split-lp.i.i212.i, !noalias !520
 
 .noexc72.i.i214.i:                                ; preds = %301
@@ -19460,7 +19460,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_chec
 
 307:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %308 = mul nuw nsw i64 %306, 48
-  %309 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %308) #25
+  %309 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %308) #24
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i194.i, !noalias !520
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %307, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -19500,7 +19500,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i211.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %315
 
 315:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %296) #26, !noalias !520
+  tail call void @_ZdlPv(ptr noundef nonnull %296) #25, !noalias !520
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %315, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -19538,11 +19538,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i197.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i, label %324
 
 324:                                              ; preds = %323
-  tail call void @_ZdlPv(ptr noundef nonnull %296) #26, !noalias !520
+  tail call void @_ZdlPv(ptr noundef nonnull %296) #25, !noalias !520
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i: ; preds = %324, %323
-  tail call void @_ZdaPv(ptr noundef nonnull %273) #26, !noalias !520
+  tail call void @_ZdaPv(ptr noundef nonnull %273) #25, !noalias !520
   br label %371
 
 ._crit_edge.i.i141.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %274
@@ -19674,16 +19674,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i: ; preds = %324,
   br i1 %.not.i.i.i74.i.i165.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i, label %369
 
 369:                                              ; preds = %._crit_edge131.i.i164.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i150.i) #26, !noalias !520
+  call void @_ZdlPv(ptr noundef nonnull %.pre160.i.i150.i) #25, !noalias !520
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i: ; preds = %369, %._crit_edge131.i.i164.i
-  call void @_ZdaPv(ptr noundef nonnull %273) #26, !noalias !520
+  call void @_ZdaPv(ptr noundef nonnull %273) #25, !noalias !520
   %.not.i.i.i79.i.i167.i = icmp eq ptr %.sroa.0102.0.i.i126.i, null
   br i1 %.not.i.i.i79.i.i167.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %370
 
 370:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i166.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i126.i) #26, !noalias !520
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0102.0.i.i126.i) #25, !noalias !520
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 371:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i, %321
@@ -19718,7 +19718,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer16EJmPKhS5_mm
   br i1 %374, label %.noexc.i.i272.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i
 
 .noexc.i.i272.i:                                  ; preds = %372
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24, !noalias !545
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !545
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i: ; preds = %372
@@ -19727,7 +19727,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i: ; preds = %372
 
 .noexc70.i.i218.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i
   %375 = mul i64 %2, 644
-  %376 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %375) #25, !noalias !545
+  %376 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %375) #24, !noalias !545
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %376, i8 0, i64 %375, i1 false), !noalias !545
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i
 
@@ -19737,7 +19737,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i:   ; preds = %.noexc70.i.i218.i, 
   %378 = icmp ugt i64 %377, 2305843009213693951
   %379 = shl nuw i64 %377, 3
   %380 = select i1 %378, i64 -1, i64 %379
-  %381 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %380) #25
+  %381 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %380) #24
           to label %382 unwind label %432, !noalias !545
 
 382:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i
@@ -19805,7 +19805,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i:   ; preds = %.noexc70.i.i218.i, 
   br i1 %411, label %412, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 412:                                              ; preds = %406
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
           to label %.noexc72.i.i271.i unwind label %.loopexit.split-lp.i.i269.i, !noalias !545
 
 .noexc72.i.i271.i:                                ; preds = %412
@@ -19823,7 +19823,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_chec
 
 418:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %419 = mul nuw nsw i64 %417, 56
-  %420 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %419) #25
+  %420 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %419) #24
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i253.i, !noalias !545
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %418, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -19865,7 +19865,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i268.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %426
 
 426:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %407) #26, !noalias !545
+  tail call void @_ZdlPv(ptr noundef nonnull %407) #25, !noalias !545
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %426, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -19903,11 +19903,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i256.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i, label %435
 
 435:                                              ; preds = %434
-  tail call void @_ZdlPv(ptr noundef nonnull %407) #26, !noalias !545
+  tail call void @_ZdlPv(ptr noundef nonnull %407) #25, !noalias !545
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i: ; preds = %435, %434
-  tail call void @_ZdaPv(ptr noundef nonnull %381) #26, !noalias !545
+  tail call void @_ZdaPv(ptr noundef nonnull %381) #25, !noalias !545
   br label %482
 
 ._crit_edge.i.i233.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %382
@@ -20039,16 +20039,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i: ; preds = %435,
   br i1 %.not.i.i.i74.i.i240.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i, label %480
 
 480:                                              ; preds = %._crit_edge136.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre165.i.i.i) #26, !noalias !545
+  call void @_ZdlPv(ptr noundef nonnull %.pre165.i.i.i) #25, !noalias !545
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i: ; preds = %480, %._crit_edge136.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %381) #26, !noalias !545
+  call void @_ZdaPv(ptr noundef nonnull %381) #25, !noalias !545
   %.not.i.i.i79.i.i242.i = icmp eq ptr %.sroa.0107.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i242.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %481
 
 481:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i241.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0107.0.i.i.i) #26, !noalias !545
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0107.0.i.i.i) #25, !noalias !545
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 482:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i, %432
@@ -20083,7 +20083,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer20EJmPKhS5_mm
   br i1 %485, label %.noexc.i.i338.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i
 
 .noexc.i.i338.i:                                  ; preds = %483
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24, !noalias !570
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !570
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i: ; preds = %483
@@ -20092,7 +20092,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i: ; preds = %483
 
 .noexc70.i.i275.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i
   %486 = mul i64 %2, 1028
-  %487 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %486) #25, !noalias !570
+  %487 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %486) #24, !noalias !570
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %487, i8 0, i64 %486, i1 false), !noalias !570
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i
 
@@ -20102,7 +20102,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i:   ; preds = %.noexc70.i.i275.i, 
   %489 = icmp ugt i64 %488, 2305843009213693951
   %490 = shl nuw i64 %488, 3
   %491 = select i1 %489, i64 -1, i64 %490
-  %492 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %491) #25
+  %492 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %491) #24
           to label %493 unwind label %544, !noalias !570
 
 493:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i
@@ -20173,7 +20173,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i:   ; preds = %.noexc70.i.i275.i, 
   br i1 %523, label %524, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 524:                                              ; preds = %518
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
           to label %.noexc72.i.i337.i unwind label %.loopexit.split-lp.i.i335.i, !noalias !570
 
 .noexc72.i.i337.i:                                ; preds = %524
@@ -20191,7 +20191,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_chec
 
 530:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %531 = shl nuw nsw i64 %529, 6
-  %532 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %531) #25
+  %532 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %531) #24
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i316.i, !noalias !570
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %530, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -20235,7 +20235,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i334.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %538
 
 538:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %519) #26, !noalias !570
+  tail call void @_ZdlPv(ptr noundef nonnull %519) #25, !noalias !570
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %538, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -20273,11 +20273,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i319.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i, label %547
 
 547:                                              ; preds = %546
-  tail call void @_ZdlPv(ptr noundef nonnull %519) #26, !noalias !570
+  tail call void @_ZdlPv(ptr noundef nonnull %519) #25, !noalias !570
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i: ; preds = %547, %546
-  tail call void @_ZdaPv(ptr noundef nonnull %492) #26, !noalias !570
+  tail call void @_ZdaPv(ptr noundef nonnull %492) #25, !noalias !570
   br label %594
 
 ._crit_edge.i.i292.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %493
@@ -20409,16 +20409,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i: ; preds = %547,
   br i1 %.not.i.i.i74.i.i302.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i, label %592
 
 592:                                              ; preds = %._crit_edge135.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre164.i.i295.i) #26, !noalias !570
+  call void @_ZdlPv(ptr noundef nonnull %.pre164.i.i295.i) #25, !noalias !570
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i: ; preds = %592, %._crit_edge135.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %492) #26, !noalias !570
+  call void @_ZdaPv(ptr noundef nonnull %492) #25, !noalias !570
   %.not.i.i.i79.i.i304.i = icmp eq ptr %.sroa.0106.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i304.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %593
 
 593:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i303.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0106.0.i.i.i) #26, !noalias !570
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0106.0.i.i.i) #25, !noalias !570
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 594:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i, %544
@@ -20453,7 +20453,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer32EJmPKhS5_mm
   br i1 %597, label %.noexc.i.i406.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i
 
 .noexc.i.i406.i:                                  ; preds = %595
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24, !noalias !595
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !595
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i: ; preds = %595
@@ -20462,7 +20462,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i: ; preds = %595
 
 .noexc70.i.i341.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i
   %598 = mul i64 %2, 2052
-  %599 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %598) #25, !noalias !595
+  %599 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %598) #24, !noalias !595
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %599, i8 0, i64 %598, i1 false), !noalias !595
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i
 
@@ -20472,7 +20472,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i:   ; preds = %.noexc70.i.i341.i, 
   %601 = icmp ugt i64 %600, 2305843009213693951
   %602 = shl nuw i64 %600, 3
   %603 = select i1 %601, i64 -1, i64 %602
-  %604 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %603) #25
+  %604 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %603) #24
           to label %605 unwind label %664, !noalias !595
 
 605:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i
@@ -20559,7 +20559,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i:   ; preds = %.noexc70.i.i341.i, 
   br i1 %643, label %644, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 644:                                              ; preds = %638
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
           to label %.noexc72.i.i405.i unwind label %.loopexit.split-lp.i.i403.i, !noalias !595
 
 .noexc72.i.i405.i:                                ; preds = %644
@@ -20577,7 +20577,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_chec
 
 650:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %651 = mul nuw nsw i64 %649, 96
-  %652 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %651) #25
+  %652 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %651) #24
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i382.i, !noalias !595
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %650, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -20629,7 +20629,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_reloc
   br i1 %.not.i23.i.i.i.i.i402.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %658
 
 658:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %639) #26, !noalias !595
+  tail call void @_ZdlPv(ptr noundef nonnull %639) #25, !noalias !595
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %658, %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -20667,11 +20667,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE9push_back
   br i1 %.not.i.i.i.i.i385.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i, label %667
 
 667:                                              ; preds = %666
-  tail call void @_ZdlPv(ptr noundef nonnull %639) #26, !noalias !595
+  tail call void @_ZdlPv(ptr noundef nonnull %639) #25, !noalias !595
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i: ; preds = %667, %666
-  tail call void @_ZdaPv(ptr noundef nonnull %604) #26, !noalias !595
+  tail call void @_ZdaPv(ptr noundef nonnull %604) #25, !noalias !595
   br label %714
 
 ._crit_edge.i.i359.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %605
@@ -20803,16 +20803,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i: ; preds = %667,
   br i1 %.not.i.i.i74.i.i367.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i, label %712
 
 712:                                              ; preds = %._crit_edge143.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre172.i.i.i) #26, !noalias !595
+  call void @_ZdlPv(ptr noundef nonnull %.pre172.i.i.i) #25, !noalias !595
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i: ; preds = %712, %._crit_edge143.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %604) #26, !noalias !595
+  call void @_ZdaPv(ptr noundef nonnull %604) #25, !noalias !595
   %.not.i.i.i79.i.i369.i = icmp eq ptr %.sroa.0114.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i369.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %713
 
 713:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i368.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.0.i.i.i) #26, !noalias !595
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.0.i.i.i) #25, !noalias !595
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 714:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i, %664
@@ -20849,7 +20849,7 @@ _ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_17HammingComputer64EJmPKhS5_mm
   br i1 %720, label %.noexc.i.i477.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i
 
 .noexc.i.i477.i:                                  ; preds = %715
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24, !noalias !619
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #23, !noalias !619
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i: ; preds = %715
@@ -20858,7 +20858,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i: ; preds = %715
 
 .noexc70.i.i409.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i407.i
   %721 = shl nuw nsw i64 %719, 2
-  %722 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %721) #25, !noalias !619
+  %722 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %721) #24, !noalias !619
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %722, i8 0, i64 %721, i1 false), !noalias !619
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i
 
@@ -20868,7 +20868,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i:   ; preds = %.noexc70.i.i409.i, 
   %724 = icmp ugt i64 %723, 2305843009213693951
   %725 = shl i64 %723, 3
   %726 = select i1 %724, i64 -1, i64 %725
-  %727 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %726) #25
+  %727 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %726) #24
           to label %728 unwind label %774, !noalias !619
 
 728:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i
@@ -20932,7 +20932,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i410.i:   ; preds = %.noexc70.i.i409.i, 
   br i1 %753, label %754, label %_ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
 754:                                              ; preds = %748
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #24
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #23
           to label %.noexc72.i.i476.i unwind label %.loopexit.split-lp.i.i474.i, !noalias !619
 
 .noexc72.i.i476.i:                                ; preds = %754
@@ -20950,7 +20950,7 @@ _ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M
 
 760:                                              ; preds = %_ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %761 = mul nuw nsw i64 %759, 48
-  %762 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %761) #25
+  %762 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %761) #24
           to label %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i unwind label %.loopexit.i.i454.i, !noalias !619
 
 _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %760, %_ZNKSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
@@ -20992,7 +20992,7 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_
   br i1 %.not.i23.i.i.i.i.i473.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %768
 
 768:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %749) #26, !noalias !619
+  tail call void @_ZdlPv(ptr noundef nonnull %749) #25, !noalias !619
   br label %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %768, %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
@@ -21030,11 +21030,11 @@ _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE9push
   br i1 %.not.i.i.i.i.i457.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i, label %777
 
 777:                                              ; preds = %776
-  tail call void @_ZdlPv(ptr noundef nonnull %749) #26, !noalias !619
+  tail call void @_ZdlPv(ptr noundef nonnull %749) #25, !noalias !619
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i: ; preds = %777, %776
-  tail call void @_ZdaPv(ptr noundef nonnull %727) #26, !noalias !619
+  tail call void @_ZdaPv(ptr noundef nonnull %727) #25, !noalias !619
   br label %833
 
 ._crit_edge.i.i426.i:                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE9push_backEOS3_.exit.i.i.i, %728
@@ -21203,16 +21203,16 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i: ; preds = %777,
   br i1 %.not.i.i.i74.i.i436.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i, label %831
 
 831:                                              ; preds = %._crit_edge133.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre162.i.i.i) #26, !noalias !619
+  call void @_ZdlPv(ptr noundef nonnull %.pre162.i.i.i) #25, !noalias !619
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i: ; preds = %831, %._crit_edge133.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %727) #26, !noalias !619
+  call void @_ZdaPv(ptr noundef nonnull %727) #25, !noalias !619
   %.not.i.i.i79.i.i438.i = icmp eq ptr %.sroa.0104.0.i.i.i, null
   br i1 %.not.i.i.i79.i.i438.i, label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i, label %832
 
 832:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit78.i.i437.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.i) #26, !noalias !619
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.i.i.i) #25, !noalias !619
   br label %_ZN5faiss12_GLOBAL__N_119Run_hammings_knn_mc1fINS_22HammingComputerDefaultEJmPKhS5_mmmPiPlEEEvDpT0_.exit.i
 
 833:                                              ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i, %774
@@ -21234,10 +21234,10 @@ _ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_119Run_hammings_knn_mcEJmPKh
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingComputer4EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingComputer4EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -21398,19 +21398,19 @@ _ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit: ; pr
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #16
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingComputer8EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingComputer8EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -21570,7 +21570,7 @@ _ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit: ; pr
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer16EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer16EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -21735,7 +21735,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer20EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer20EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -21907,7 +21907,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer32EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer32EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -22070,7 +22070,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer64EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingComputer64EEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -22233,7 +22233,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit: ; p
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_22HammingComputerDefaultEEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_22HammingComputerDefaultEEEviPKhS4_mmmPiPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -22391,7 +22391,7 @@ _ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define void @_ZN5faiss20hamming_range_searchEPKhS1_mmimPNS_17RangeSearchResultE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
@@ -22631,7 +22631,7 @@ _ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_124Run_hamming_range_searchE
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16HammingComputer4EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16HammingComputer4EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::RangeSearchPartialResult", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -22728,11 +22728,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %53
 
 53:                                               ; preds = %50
-  call void @_ZdlPv(ptr noundef nonnull %52) #26
+  call void @_ZdlPv(ptr noundef nonnull %52) #25
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %50, %53
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %37
@@ -22753,26 +22753,26 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %50, %53
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %54 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %54) #23
+  call void @__clang_call_terminate(ptr %54) #22
   unreachable
 }
 
-declare void @_ZN5faiss24RangeSearchPartialResultC1EPNS_17RangeSearchResultE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #6
+declare void @_ZN5faiss24RangeSearchPartialResultC1EPNS_17RangeSearchResultE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPartialResult10new_resultEl(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5faiss24RangeSearchPartialResult10new_resultEl(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #5
 
-declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: convergent nounwind
-declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #17
+declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #16
 
-declare void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #6
+declare void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #11
+declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #10
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16HammingComputer8EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16HammingComputer8EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::RangeSearchPartialResult", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -22870,11 +22870,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %54
 
 54:                                               ; preds = %51
-  call void @_ZdlPv(ptr noundef nonnull %53) #26
+  call void @_ZdlPv(ptr noundef nonnull %53) #25
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %51, %54
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %38
@@ -22895,12 +22895,12 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %51, %54
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %55 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %55) #23
+  call void @__clang_call_terminate(ptr %55) #22
   unreachable
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer16EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer16EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::RangeSearchPartialResult", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -23001,11 +23001,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %56
 
 56:                                               ; preds = %53
-  call void @_ZdlPv(ptr noundef nonnull %55) #26
+  call void @_ZdlPv(ptr noundef nonnull %55) #25
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %40
@@ -23026,12 +23026,12 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %57 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %57) #23
+  call void @__clang_call_terminate(ptr %57) #22
   unreachable
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer20EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer20EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::RangeSearchPartialResult", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -23140,11 +23140,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %64
 
 64:                                               ; preds = %61
-  call void @_ZdlPv(ptr noundef nonnull %63) #26
+  call void @_ZdlPv(ptr noundef nonnull %63) #25
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %61, %64
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %48
@@ -23165,12 +23165,12 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %61, %64
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %65 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %65) #23
+  call void @__clang_call_terminate(ptr %65) #22
   unreachable
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer32EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer32EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::RangeSearchPartialResult", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -23269,11 +23269,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %55
 
 55:                                               ; preds = %52
-  call void @_ZdlPv(ptr noundef nonnull %54) #26
+  call void @_ZdlPv(ptr noundef nonnull %54) #25
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %52, %55
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %39
@@ -23294,12 +23294,12 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %52, %55
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %56 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %56) #23
+  call void @__clang_call_terminate(ptr %56) #22
   unreachable
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer64EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17HammingComputer64EEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::RangeSearchPartialResult", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -23398,11 +23398,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %55
 
 55:                                               ; preds = %52
-  call void @_ZdlPv(ptr noundef nonnull %54) #26
+  call void @_ZdlPv(ptr noundef nonnull %54) #25
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %52, %55
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %39
@@ -23423,12 +23423,12 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %52, %55
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %56 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %56) #23
+  call void @__clang_call_terminate(ptr %56) #22
   unreachable
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_22HammingComputerDefaultEEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_22HammingComputerDefaultEEEvPKhS4_mmimPNS_17RangeSearchResultE.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.faiss::RangeSearchPartialResult", align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -23529,11 +23529,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_22Hamming
   br i1 %.not.i.i.i.i, label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, label %56
 
 56:                                               ; preds = %53
-  call void @_ZdlPv(ptr noundef nonnull %55) #26
+  call void @_ZdlPv(ptr noundef nonnull %55) #25
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #4
   ret void
 
 .loopexit:                                        ; preds = %40
@@ -23554,12 +23554,12 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %53, %56
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit30, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp31, %.loopexit.split-lp.loopexit.split-lp ]
   %57 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %57) #23
+  call void @__clang_call_terminate(ptr %57) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = add i64 %5, -8
   %10 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 61)
@@ -23736,8 +23736,8 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %51
   br i1 %exitcond30.not.i, label %_ZN5faiss19hamming_count_thresILm64EEEvPKmS2_mmiPm.exit, label %.preheader19.us.i, !llvm.loop !700
 
 66:                                               ; preds = %7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %5) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #4
+  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %5) #4
   %68 = add nsw i32 %67, 1
   %69 = sext i32 %68 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %69)
@@ -23748,14 +23748,14 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %51
           to label %72 unwind label %77
 
 72:                                               ; preds = %70
-  %73 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %71, i64 noundef %73, ptr noundef nonnull @.str.13, i64 noundef %5) #5
-  %75 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %73 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #4
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %71, i64 noundef %73, ptr noundef nonnull @.str.13, i64 noundef %5) #4
+  %75 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss19hamming_count_thresEPKhS1_mmimPm, ptr noundef nonnull @.str.4, i32 noundef 553)
           to label %76 unwind label %79
 
 76:                                               ; preds = %72
-  invoke void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %82 unwind label %77
 
 77:                                               ; preds = %76, %70, %66
@@ -23766,12 +23766,12 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %51
 79:                                               ; preds = %72
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %75) #5
+  call void @__cxa_free_exception(ptr %75) #4
   br label %81
 
 81:                                               ; preds = %79, %77
   %.pn = phi { ptr, i32 } [ %78, %77 ], [ %80, %79 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #4
   resume { ptr, i32 } %.pn
 
 _ZN5faiss19hamming_count_thresILm64EEEvPKmS2_mmiPm.exit: ; preds = %._crit_edge.us.i69, %._crit_edge.us.i60, %._crit_edge.us.i44, %._crit_edge.us.i, %50, %37, %23, %11
@@ -23784,7 +23784,7 @@ _ZN5faiss19hamming_count_thresILm64EEEvPKmS2_mmiPm.exit: ; preds = %._crit_edge.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = add i64 %3, -8
   %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 61)
@@ -23968,8 +23968,8 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.i:         ; preds = %60
   br i1 %exitcond.not.i57, label %_ZN5faiss24crosshamming_count_thresILm64EEEvPKmmiPm.exit, label %.lr.ph.i51, !llvm.loop !728
 
 75:                                               ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %3) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #4
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %3) #4
   %77 = add nsw i32 %76, 1
   %78 = sext i32 %77 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %78)
@@ -23980,14 +23980,14 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.i:         ; preds = %60
           to label %81 unwind label %86
 
 81:                                               ; preds = %79
-  %82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull @.str.13, i64 noundef %3) #5
-  %84 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #4
+  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull @.str.13, i64 noundef %3) #4
+  %84 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss24crosshamming_count_thresEPKhmimPm, ptr noundef nonnull @.str.4, i32 noundef 578)
           to label %85 unwind label %88
 
 85:                                               ; preds = %81
-  invoke void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %91 unwind label %86
 
 86:                                               ; preds = %85, %79, %75
@@ -23998,12 +23998,12 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.i:         ; preds = %60
 88:                                               ; preds = %81
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %84) #5
+  call void @__cxa_free_exception(ptr %84) #4
   br label %90
 
 90:                                               ; preds = %88, %86
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %89, %88 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #4
   resume { ptr, i32 } %.pn
 
 _ZN5faiss24crosshamming_count_thresILm64EEEvPKmmiPm.exit: ; preds = %._crit_edge.i55, %._crit_edge.i41, %.loopexit.i, %._crit_edge.i, %56, %40, %24, %9
@@ -24016,7 +24016,7 @@ _ZN5faiss24crosshamming_count_thresILm64EEEvPKmmiPm.exit: ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = add i64 %5, -8
   %11 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 61)
@@ -24273,8 +24273,8 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %67
   br i1 %exitcond52.not.i, label %_ZN5faiss19match_hamming_thresILm64EEEmPKmS2_mmiPlPi.exit, label %.preheader35.us.i, !llvm.loop !788
 
 87:                                               ; preds = %8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %5) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
+  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %5) #4
   %89 = add nsw i32 %88, 1
   %90 = sext i32 %89 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %90)
@@ -24285,14 +24285,14 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %67
           to label %93 unwind label %98
 
 93:                                               ; preds = %91
-  %94 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %92, i64 noundef %94, ptr noundef nonnull @.str.13, i64 noundef %5) #5
-  %96 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %94 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
+  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %92, i64 noundef %94, ptr noundef nonnull @.str.13, i64 noundef %5) #4
+  %96 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %96, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi, ptr noundef nonnull @.str.4, i32 noundef 606)
           to label %97 unwind label %100
 
 97:                                               ; preds = %93
-  invoke void @__cxa_throw(ptr nonnull %96, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %96, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %103 unwind label %98
 
 98:                                               ; preds = %97, %91, %87
@@ -24303,12 +24303,12 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %67
 100:                                              ; preds = %93
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %96) #5
+  call void @__cxa_free_exception(ptr %96) #4
   br label %102
 
 102:                                              ; preds = %100, %98
   %.pn = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
   resume { ptr, i32 } %.pn
 
 _ZN5faiss19match_hamming_thresILm64EEEmPKmS2_mmiPlPi.exit: ; preds = %._crit_edge.us.i89, %._crit_edge.us.i78, %._crit_edge.us.i56, %._crit_edge.us.i, %66, %48, %29, %12
@@ -24320,7 +24320,7 @@ _ZN5faiss19match_hamming_thresILm64EEEmPKmS2_mmiPlPi.exit: ; preds = %._crit_edg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
+define void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -24359,7 +24359,7 @@ define void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEE
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4CMaxIilEEEEPKhS6_mmi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -25099,10 +25099,10 @@ _ZN5faissL22hamming_dis_inner_loopINS_19GenHammingComputer8EEEvPKhS3_mmiPiPl.exi
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32) local_unnamed_addr #5
+declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
@@ -25126,8 +25126,8 @@ define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1
   br i1 %.not, label %20, label %36
 
 20:                                               ; preds = %6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #4
   %22 = add nsw i32 %21, 1
   %23 = sext i32 %22 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %23)
@@ -25138,14 +25138,14 @@ define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1
           to label %26 unwind label %31
 
 26:                                               ; preds = %24
-  %27 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %25, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #5
-  %29 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %27 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %25, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #4
+  %29 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss15pack_bitstringsEmmiPKiPhm, ptr noundef nonnull @.str.4, i32 noundef 689)
           to label %30 unwind label %33
 
 30:                                               ; preds = %26
-  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %41 unwind label %31
 
 31:                                               ; preds = %30, %24, %20
@@ -25156,12 +25156,12 @@ define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #5
+  call void @__cxa_free_exception(ptr %29) #4
   br label %35
 
 35:                                               ; preds = %33, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %33 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %6
@@ -25175,7 +25175,7 @@ define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1
 39:                                               ; preds = %36
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %15)
   store i32 %15, ptr %14, align 4
-  call void @_ZN5faiss15pack_bitstringsEmmiPKiPhm.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %8, ptr %11, ptr %12, ptr %9) #5
+  call void @_ZN5faiss15pack_bitstringsEmmiPKiPhm.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %8, ptr %11, ptr %12, ptr %9) #4
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %15)
   br label %40
 
@@ -25187,7 +25187,7 @@ define void @_ZN5faiss15pack_bitstringsEmmiPKiPhm(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss15pack_bitstringsEmmiPKiPhm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss15pack_bitstringsEmmiPKiPhm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -25306,7 +25306,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %36, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -25343,8 +25343,8 @@ define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef 
   br i1 %.not, label %22, label %._crit_edge.thread
 
 22:                                               ; preds = %._crit_edge
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #4
   %24 = add nsw i32 %23, 1
   %25 = sext i32 %24 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %25)
@@ -25355,14 +25355,14 @@ define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef 
           to label %28 unwind label %33
 
 28:                                               ; preds = %26
-  %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #5
-  %31 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #4
+  %31 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss15pack_bitstringsEmmPKiS1_Phm, ptr noundef nonnull @.str.4, i32 noundef 712)
           to label %32 unwind label %35
 
 32:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %42 unwind label %33
 
 33:                                               ; preds = %32, %26, %22
@@ -25373,12 +25373,12 @@ define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #5
+  call void @__cxa_free_exception(ptr %31) #4
   br label %37
 
 37:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %36, %35 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
   resume { ptr, i32 } %.pn
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
@@ -25392,7 +25392,7 @@ define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef 
 40:                                               ; preds = %._crit_edge.thread
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %15)
   store i32 %15, ptr %14, align 4
-  call void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %8, ptr %11, ptr %12, ptr %9) #5
+  call void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %8, ptr %11, ptr %12, ptr %9) #4
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %15)
   br label %41
 
@@ -25404,7 +25404,7 @@ define void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm(i64 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -25525,7 +25525,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %.lr.ph.i, %38, %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
@@ -25549,8 +25549,8 @@ define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef 
   br i1 %.not, label %20, label %36
 
 20:                                               ; preds = %6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #4
   %22 = add nsw i32 %21, 1
   %23 = sext i32 %22 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %23)
@@ -25561,14 +25561,14 @@ define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef 
           to label %26 unwind label %31
 
 26:                                               ; preds = %24
-  %27 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %25, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #5
-  %29 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %27 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %25, i64 noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #4
+  %29 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss17unpack_bitstringsEmmiPKhmPi, ptr noundef nonnull @.str.4, i32 noundef 731)
           to label %30 unwind label %33
 
 30:                                               ; preds = %26
-  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %41 unwind label %31
 
 31:                                               ; preds = %30, %24, %20
@@ -25579,12 +25579,12 @@ define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef 
 33:                                               ; preds = %26
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %29) #5
+  call void @__cxa_free_exception(ptr %29) #4
   br label %35
 
 35:                                               ; preds = %33, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %33 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %6
@@ -25598,7 +25598,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef 
 39:                                               ; preds = %36
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %15)
   store i32 %15, ptr %14, align 4
-  call void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %11, ptr %12, ptr %8, ptr %9) #5
+  call void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %11, ptr %12, ptr %8, ptr %9) #4
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %15)
   br label %40
 
@@ -25610,7 +25610,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi(i64 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -25756,7 +25756,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %40, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -25793,8 +25793,8 @@ define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 nounde
   br i1 %.not, label %22, label %._crit_edge.thread
 
 22:                                               ; preds = %._crit_edge
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #4
   %24 = add nsw i32 %23, 1
   %25 = sext i32 %24 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %25)
@@ -25805,14 +25805,14 @@ define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 nounde
           to label %28 unwind label %33
 
 28:                                               ; preds = %26
-  %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #5
-  %31 = call ptr @__cxa_allocate_exception(i64 40) #5
+  %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
+  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15) #4
+  %31 = call ptr @__cxa_allocate_exception(i64 40) #4
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss17unpack_bitstringsEmmPKiPKhmPi, ptr noundef nonnull @.str.4, i32 noundef 754)
           to label %32 unwind label %35
 
 32:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
+  invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #23
           to label %42 unwind label %33
 
 33:                                               ; preds = %32, %26, %22
@@ -25823,12 +25823,12 @@ define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 nounde
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %31) #5
+  call void @__cxa_free_exception(ptr %31) #4
   br label %37
 
 37:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %36, %35 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #4
   resume { ptr, i32 } %.pn
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
@@ -25842,7 +25842,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 nounde
 40:                                               ; preds = %._crit_edge.thread
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %15)
   store i32 %15, ptr %14, align 4
-  call void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %11, ptr %12, ptr %8, ptr %9) #5
+  call void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr nonnull %14, ptr nonnull poison, ptr %7, ptr %10, ptr %11, ptr %12, ptr %8, ptr %9) #4
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %15)
   br label %41
 
@@ -25854,7 +25854,7 @@ define void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #4 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -26002,83 +26002,82 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %42, %._crit_edge.i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #18
+declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
+declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #18
+declare i32 @llvm.ctpop.i32(i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.ctpop.v2i64(<2 x i64>) #18
+declare <2 x i64> @llvm.ctpop.v2i64(<2 x i64>) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.ctpop.v4i64(<4 x i64>) #18
+declare <4 x i64> @llvm.ctpop.v4i64(<4 x i64>) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #18
+declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.ctpop.v8i64(<8 x i64>) #18
+declare <8 x i64> @llvm.ctpop.v8i64(<8 x i64>) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #18
+declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { convergent nounwind }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nofree nounwind }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { noreturn }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { builtin nounwind }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { convergent nounwind }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nofree nounwind }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { noreturn }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

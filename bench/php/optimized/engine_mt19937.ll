@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [41 x i8] c"Invalid serialization data for %s object\00", align 1
 @.str.5 = private unnamed_addr constant [9 x i8] c"__states\00", align 1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @php_random_mt19937_seed32(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4
   br label %3
@@ -61,7 +61,7 @@ define void @php_random_mt19937_seed32(ptr nocapture noundef %0, i32 noundef %1)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2500
   %3 = load i8, ptr %2, align 4
@@ -195,7 +195,7 @@ define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_ad
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal { i64, i64 } @generate(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2496
   %3 = load i32, ptr %2, align 4
@@ -376,7 +376,6 @@ define void @php_random_mt19937_seed_default(ptr nocapture noundef %0) local_unn
   %12 = fptosi double %11 to i64
   %13 = xor i64 %9, %12
   %14 = trunc i64 %13 to i32
-  store i32 %14, ptr %2, align 4
   br label %15
 
 15:                                               ; preds = %._crit_edge, %5
@@ -951,7 +950,7 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

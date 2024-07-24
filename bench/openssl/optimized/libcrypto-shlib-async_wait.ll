@@ -188,8 +188,8 @@ while.end:                                        ; preds = %if.end4, %if.then, 
   ret i32 1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %addfd, ptr nocapture noundef writeonly %numaddfds, ptr noundef writeonly %delfd, ptr nocapture noundef writeonly %numdelfds) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %addfd, ptr nocapture noundef writeonly %numaddfds, ptr noundef writeonly %delfd, ptr nocapture noundef writeonly %numdelfds) local_unnamed_addr #2 {
 entry:
   %numadd = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i64, ptr %numadd, align 8

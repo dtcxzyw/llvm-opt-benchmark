@@ -27,7 +27,7 @@ entry:
 if.end:                                           ; preds = %entry
   %huffWeight = getelementptr inbounds i8, ptr %workSpace, i64 1236
   %statsWksp = getelementptr inbounds i8, ptr %workSpace, i64 104
-  %call = call i64 @HUF_readStats_wksp(ptr noundef nonnull %huffWeight, i64 noundef 256, ptr noundef %workSpace, ptr noundef nonnull %nbSymbols, ptr noundef nonnull %tableLog, ptr noundef %src, i64 noundef %srcSize, ptr noundef nonnull %statsWksp, i64 noundef 876, i32 noundef %flags) #14
+  %call = call i64 @HUF_readStats_wksp(ptr noundef nonnull %huffWeight, i64 noundef 256, ptr noundef %workSpace, ptr noundef nonnull %nbSymbols, ptr noundef nonnull %tableLog, ptr noundef %src, i64 noundef %srcSize, ptr noundef nonnull %statsWksp, i64 noundef 876, i32 noundef %flags) #15
   %cmp.i = icmp ult i64 %call, -119
   br i1 %cmp.i, label %if.end5, label %return
 
@@ -439,7 +439,7 @@ if.end:                                           ; preds = %entry
 if.end10:                                         ; preds = %if.end
   %weightList = getelementptr inbounds i8, ptr %workSpace, i64 992
   %calleeWksp = getelementptr inbounds i8, ptr %workSpace, i64 1248
-  %call15 = call i64 @HUF_readStats_wksp(ptr noundef nonnull %weightList, i64 noundef 256, ptr noundef nonnull %rankStats, ptr noundef nonnull %nbSymbols, ptr noundef nonnull %tableLog, ptr noundef %src, i64 noundef %srcSize, ptr noundef nonnull %calleeWksp, i64 noundef 876, i32 noundef %flags) #14
+  %call15 = call i64 @HUF_readStats_wksp(ptr noundef nonnull %weightList, i64 noundef 256, ptr noundef nonnull %rankStats, ptr noundef nonnull %nbSymbols, ptr noundef nonnull %tableLog, ptr noundef %src, i64 noundef %srcSize, ptr noundef nonnull %calleeWksp, i64 noundef 876, i32 noundef %flags) #15
   %cmp.i = icmp ult i64 %call15, -119
   br i1 %cmp.i, label %if.end18, label %return
 
@@ -1904,7 +1904,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret i64 %cond
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable, i32 noundef %flags) unnamed_addr #6 {
 entry:
   %and = and i32 %flags, 1
@@ -6640,7 +6640,7 @@ return:                                           ; preds = %if.end3.i19, %if.en
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) unnamed_addr #7 {
 entry:
   %cmp.i228 = icmp eq i64 %cSrcSize, 0
@@ -7397,7 +7397,7 @@ return:                                           ; preds = %if.end70, %cond.end
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noundef writeonly %dst, i64 noundef %dstSize, ptr noundef readonly %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) unnamed_addr #10 {
 entry:
   %cond.idx.i = tail call i64 @llvm.smax.i64(i64 %dstSize, i64 0)
@@ -7709,7 +7709,7 @@ HUF_decompress1X1_usingDTable_internal_body.exit: ; preds = %HUF_decodeStreamX1.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HUF_decompress4X2_usingDTable_internal_fast_c_loop(ptr nocapture noundef %args) #7 {
+define internal void @HUF_decompress4X2_usingDTable_internal_fast_c_loop(ptr nocapture noundef %args) #11 {
 entry:
   %ip = alloca [4 x ptr], align 16
   %op = alloca [4 x ptr], align 16
@@ -8136,7 +8136,7 @@ _out:                                             ; preds = %for.end, %for.body2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef readonly %DTable) unnamed_addr #7 {
+define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef readonly %DTable) unnamed_addr #11 {
 entry:
   %bitD4.i = alloca %struct.BIT_DStream_t, align 8
   %cmp.i = icmp ult i64 %cSrcSize, 10
@@ -10870,7 +10870,7 @@ HUF_decompress4X2_usingDTable_internal_body.exit: ; preds = %sw.epilog.i1197, %i
 declare hidden void @HUF_decompress4X2_usingDTable_internal_fast_asm_loop(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #11 {
+define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #12 {
 entry:
   %args = alloca %struct.HUF_DecompressFastArgs, align 8
   %add.ptr = getelementptr inbounds i8, ptr %DTable, i64 4
@@ -10885,7 +10885,7 @@ do.end10:                                         ; preds = %entry
   br i1 %cmp, label %return, label %if.end12
 
 if.end12:                                         ; preds = %do.end10
-  call void %loopFn(ptr noundef nonnull %args) #14, !callees !45
+  call void %loopFn(ptr noundef nonnull %args) #15, !callees !45
   %add = add i64 %dstSize, 3
   %div243 = lshr i64 %add, 2
   %sub.ptr.lhs.cast = ptrtoint ptr %cond.i to i64
@@ -11403,7 +11403,7 @@ return:                                           ; preds = %if.end58, %if.end54
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HUF_decompress4X1_usingDTable_internal_fast_c_loop(ptr nocapture noundef %args) #7 {
+define internal void @HUF_decompress4X1_usingDTable_internal_fast_c_loop(ptr nocapture noundef %args) #11 {
 entry:
   %ip = alloca [4 x ptr], align 16
   %dt = getelementptr inbounds i8, ptr %args, i64 96
@@ -11763,7 +11763,7 @@ _out:                                             ; preds = %for.cond.loopexit, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef readonly %DTable) unnamed_addr #7 {
 entry:
   %bitD4.i = alloca %struct.BIT_DStream_t, align 8
@@ -13300,7 +13300,7 @@ HUF_decompress4X1_usingDTable_internal_body.exit: ; preds = %sw.epilog.i689, %if
 declare hidden void @HUF_decompress4X1_usingDTable_internal_fast_asm_loop(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #11 {
+define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_fast(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr noundef %DTable, ptr nocapture noundef readonly %loopFn) unnamed_addr #12 {
 entry:
   %args = alloca %struct.HUF_DecompressFastArgs, align 8
   %add.ptr = getelementptr inbounds i8, ptr %DTable, i64 4
@@ -13315,7 +13315,7 @@ do.end10:                                         ; preds = %entry
   br i1 %cmp, label %return, label %if.end12
 
 if.end12:                                         ; preds = %do.end10
-  call void %loopFn(ptr noundef nonnull %args) #14, !callees !49
+  call void %loopFn(ptr noundef nonnull %args) #15, !callees !49
   %add = add i64 %dstSize, 3
   %div131 = lshr i64 %add, 2
   %sub.ptr.lhs.cast = ptrtoint ptr %cond.i to i64
@@ -13549,22 +13549,22 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #12
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13572,15 +13572,16 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

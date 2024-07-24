@@ -10,7 +10,7 @@ define void @jinit_lossless_decompressor(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 0, i64 noundef 256) #2
+  %5 = tail call ptr %4(ptr noundef %0, i32 noundef 0, i64 noundef 256) #3
   %6 = getelementptr inbounds i8, ptr %0, i64 600
   store ptr %5, ptr %6, align 8
   store ptr @start_pass_lossless, ptr %5, align 8
@@ -76,7 +76,7 @@ define internal void @start_pass_lossless(ptr noundef %0) #0 {
   store i32 %35, ptr %37, align 4
   %38 = load ptr, ptr %0, align 8
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull %0) #2
+  tail call void %39(ptr noundef nonnull %0) #3
   br label %40
 
 40:                                               ; preds = %20, %17
@@ -109,7 +109,7 @@ define internal void @start_pass_lossless(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_undifference_first_row(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 600
   %8 = load ptr, ptr %7, align 8
@@ -164,8 +164,8 @@ switch.lookup:                                    ; preds = %._crit_edge
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @simple_upscale(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @simple_upscale(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 536
   br label %6
 
@@ -188,8 +188,8 @@ define internal void @simple_upscale(ptr nocapture noundef readonly %0, ptr noca
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @noscale(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @noscale(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -209,8 +209,8 @@ define internal void @noscale(ptr nocapture readnone %0, ptr nocapture noundef r
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_undifference1(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @jpeg_undifference1(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = load i32, ptr %2, align 4
   %8 = load i32, ptr %3, align 4
   %9 = add nsw i32 %8, %7
@@ -239,8 +239,8 @@ define internal void @jpeg_undifference1(ptr nocapture readnone %0, i32 %1, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_undifference2(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @jpeg_undifference2(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr %2, align 4
   %9 = add nsw i32 %8, %7
@@ -271,8 +271,8 @@ define internal void @jpeg_undifference2(ptr nocapture readnone %0, i32 %1, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_undifference3(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @jpeg_undifference3(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr %2, align 4
   %9 = add nsw i32 %8, %7
@@ -304,8 +304,8 @@ define internal void @jpeg_undifference3(ptr nocapture readnone %0, i32 %1, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_undifference4(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @jpeg_undifference4(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr %2, align 4
   %9 = add nsw i32 %8, %7
@@ -340,8 +340,8 @@ define internal void @jpeg_undifference4(ptr nocapture readnone %0, i32 %1, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_undifference5(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @jpeg_undifference5(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr %2, align 4
   %9 = add nsw i32 %8, %7
@@ -377,8 +377,8 @@ define internal void @jpeg_undifference5(ptr nocapture readnone %0, i32 %1, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_undifference6(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @jpeg_undifference6(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr %2, align 4
   %9 = add nsw i32 %8, %7
@@ -414,8 +414,8 @@ define internal void @jpeg_undifference6(ptr nocapture readnone %0, i32 %1, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_undifference7(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @jpeg_undifference7(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr %2, align 4
   %9 = add nsw i32 %8, %7
@@ -450,8 +450,9 @@ define internal void @jpeg_undifference7(ptr nocapture readnone %0, i32 %1, ptr 
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

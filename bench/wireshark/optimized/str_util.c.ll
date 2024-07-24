@@ -52,7 +52,7 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
   br i1 %.not, label %48, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %6 = add i64 %5, 1
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.promoted = load i32, ptr %3, align 16
@@ -90,14 +90,14 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
   br i1 %.not18, label %28, label %25
 
 25:                                               ; preds = %20
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #17
+  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #18
   %27 = add i64 %26, %.012
   br label %10, !llvm.loop !4
 
 28:                                               ; preds = %20
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %29 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.012) #18
-  %30 = call ptr @g_stpcpy(ptr noundef %29, ptr noundef nonnull %1) #18
+  %29 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.012) #19
+  %30 = call ptr @g_stpcpy(ptr noundef %29, ptr noundef nonnull %1) #19
   call void @llvm.va_start.p0(ptr nonnull %3)
   br label %31
 
@@ -128,7 +128,7 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
   br i1 %.not19, label %47, label %45
 
 45:                                               ; preds = %42
-  %46 = call ptr @g_stpcpy(ptr noundef %.0, ptr noundef nonnull %44) #18
+  %46 = call ptr @g_stpcpy(ptr noundef %.0, ptr noundef nonnull %44) #19
   br label %31, !llvm.loop !6
 
 47:                                               ; preds = %42
@@ -156,8 +156,8 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
 5:                                                ; preds = %3
   %6 = icmp eq ptr %1, null
   %spec.store.select = select i1 %6, ptr @.str, ptr %1
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #17
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %9 = add i64 %8, 1
   call void @llvm.va_start.p0(ptr nonnull %4)
   %.promoted = load i32, ptr %4, align 16
@@ -195,15 +195,15 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not23, label %32, label %28
 
 28:                                               ; preds = %23
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #18
   %30 = add i64 %.017, %7
   %31 = add i64 %30, %29
   br label %13, !llvm.loop !7
 
 32:                                               ; preds = %23
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %33 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.017) #18
-  %34 = call ptr @g_stpcpy(ptr noundef %33, ptr noundef nonnull %2) #18
+  %33 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.017) #19
+  %34 = call ptr @g_stpcpy(ptr noundef %33, ptr noundef nonnull %2) #19
   call void @llvm.va_start.p0(ptr nonnull %4)
   br label %35
 
@@ -234,8 +234,8 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not24, label %52, label %49
 
 49:                                               ; preds = %46
-  %50 = call ptr @g_stpcpy(ptr noundef %.0, ptr noundef nonnull %spec.store.select) #18
-  %51 = call ptr @g_stpcpy(ptr noundef %50, ptr noundef nonnull %48) #18
+  %50 = call ptr @g_stpcpy(ptr noundef %.0, ptr noundef nonnull %spec.store.select) #19
+  %51 = call ptr @g_stpcpy(ptr noundef %50, ptr noundef nonnull %48) #19
   br label %35, !llvm.loop !8
 
 52:                                               ; preds = %46
@@ -256,8 +256,8 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br i1 %.not, label %32, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #17
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
   %9 = add i64 %8, 1
   %10 = getelementptr i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -269,7 +269,7 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %.034 = phi i64 [ %15, %.lr.ph ], [ %9, %6 ]
   %.02633 = phi i32 [ %16, %.lr.ph ], [ 1, %6 ]
   %13 = add i64 %.034, %7
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #17
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #18
   %15 = add i64 %13, %14
   %16 = add i32 %.02633, 1
   %17 = sext i32 %16 to i64
@@ -280,9 +280,9 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr nocapture 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i64 [ %9, %6 ], [ %15, %.lr.ph ]
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.0.lcssa) #18
+  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.0.lcssa) #19
   %21 = load ptr, ptr %2, align 8
-  %22 = tail call ptr @g_stpcpy(ptr noundef %20, ptr noundef %21) #18
+  %22 = tail call ptr @g_stpcpy(ptr noundef %20, ptr noundef %21) #19
   %23 = load ptr, ptr %10, align 8
   %.not3135 = icmp eq ptr %23, null
   br i1 %.not3135, label %.loopexit, label %.lr.ph39
@@ -291,9 +291,9 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %24 = phi ptr [ %30, %.lr.ph39 ], [ %10, %._crit_edge ]
   %.02537 = phi ptr [ %27, %.lr.ph39 ], [ %22, %._crit_edge ]
   %.136 = phi i32 [ %28, %.lr.ph39 ], [ 1, %._crit_edge ]
-  %25 = tail call ptr @g_stpcpy(ptr noundef %.02537, ptr noundef nonnull %spec.store.select) #18
+  %25 = tail call ptr @g_stpcpy(ptr noundef %.02537, ptr noundef nonnull %spec.store.select) #19
   %26 = load ptr, ptr %24, align 8
-  %27 = tail call ptr @g_stpcpy(ptr noundef %25, ptr noundef %26) #18
+  %27 = tail call ptr @g_stpcpy(ptr noundef %25, ptr noundef %26) #19
   %28 = add i32 %.136, 1
   %29 = sext i32 %28 to i64
   %30 = getelementptr ptr, ptr %2, i64 %29
@@ -302,7 +302,7 @@ define noalias ptr @wmem_strjoinv(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br i1 %.not31, label %.loopexit, label %.lr.ph39, !llvm.loop !10
 
 32:                                               ; preds = %3
-  %33 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str) #18
+  %33 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph39, %._crit_edge, %32
@@ -330,12 +330,12 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not56, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef 8) #18
+  %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef 8) #19
   br label %43
 
 13:                                               ; preds = %9
-  %14 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %1) #18
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %14 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %1) #19
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %.fr = freeze i64 %15
   %16 = icmp slt i32 %3, 1
   %spec.store.select = select i1 %16, i32 2147483647, i32 %3
@@ -343,7 +343,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %17, label %.lr.ph, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %13
-  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #18
+  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #19
   store ptr %14, ptr %18, align 8
   br label %.critedge3
 
@@ -354,7 +354,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 20:                                               ; preds = %.lr.ph, %22
   %.04760 = phi i32 [ 1, %.lr.ph ], [ %24, %22 ]
   %.04859 = phi ptr [ %14, %.lr.ph ], [ %23, %22 ]
-  %21 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.04859, ptr noundef nonnull dereferenceable(1) %2) #17
+  %21 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.04859, ptr noundef nonnull dereferenceable(1) %2) #18
   %.not57 = icmp eq ptr %21, null
   br i1 %.not57, label %.critedge, label %22
 
@@ -369,7 +369,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   %25 = add i32 %.047.lcssa.ph, 1
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 3
-  %28 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %27) #18
+  %28 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %27) #19
   store ptr %14, ptr %28, align 8
   br i1 %17, label %.lr.ph67, label %.critedge3
 
@@ -391,7 +391,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 .lr.ph67.split.us:                                ; preds = %.lr.ph67.split.us.preheader, %.preheader.us.preheader
   %indvars.iv = phi i64 [ 1, %.lr.ph67.split.us.preheader ], [ %indvars.iv.next, %.preheader.us.preheader ]
   %.14965.us = phi ptr [ %14, %.lr.ph67.split.us.preheader ], [ %33, %.preheader.us.preheader ]
-  %32 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14965.us, ptr noundef nonnull dereferenceable(1) %2) #17
+  %32 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14965.us, ptr noundef nonnull dereferenceable(1) %2) #18
   %.not58.us = icmp eq ptr %32, null
   br i1 %.not58.us, label %.critedge3.loopexit85.split.loop.exit87, label %.preheader.us.preheader
 
@@ -407,7 +407,7 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 .lr.ph67.split:                                   ; preds = %.lr.ph67.split.preheader, %.preheader
   %indvars.iv79 = phi i64 [ 1, %.lr.ph67.split.preheader ], [ %indvars.iv.next80, %.preheader ]
   %.14965 = phi ptr [ %14, %.lr.ph67.split.preheader ], [ %36, %.preheader ]
-  %35 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14965, ptr noundef nonnull dereferenceable(1) %2) #17
+  %35 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14965, ptr noundef nonnull dereferenceable(1) %2) #18
   %.not58 = icmp eq ptr %35, null
   br i1 %.not58, label %.critedge3.loopexit.split.loop.exit89, label %.preheader
 
@@ -451,7 +451,7 @@ define noalias noundef ptr @wmem_ascii_strdown(ptr noundef %0, ptr noundef %1, i
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.wmem_ascii_strdown, ptr noundef nonnull @.str.1) #18
+  tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.wmem_ascii_strdown, ptr noundef nonnull @.str.1) #19
   br label %.loopexit
 
 5:                                                ; preds = %3
@@ -459,12 +459,12 @@ define noalias noundef ptr @wmem_ascii_strdown(ptr noundef %0, ptr noundef %1, i
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   br label %9
 
 9:                                                ; preds = %7, %5
   %.013 = phi i64 [ %8, %7 ], [ %2, %5 ]
-  %10 = tail call noalias ptr @wmem_strndup(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.013) #18
+  %10 = tail call noalias ptr @wmem_strndup(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.013) #19
   %11 = load i8, ptr %10, align 1
   %.not1718 = icmp eq i8 %11, 0
   br i1 %.not1718, label %.loopexit, label %.lr.ph
@@ -472,7 +472,7 @@ define noalias noundef ptr @wmem_ascii_strdown(ptr noundef %0, ptr noundef %1, i
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %12 = phi i8 [ %15, %.lr.ph ], [ %11, %9 ]
   %.019 = phi ptr [ %14, %.lr.ph ], [ %10, %9 ]
-  %13 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %12) #19
+  %13 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %12) #20
   store i8 %13, ptr %.019, align 1
   %14 = getelementptr i8, ptr %.019, i64 1
   %15 = load i8, ptr %14, align 1
@@ -508,7 +508,7 @@ switch.lookup:                                    ; preds = %1
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @ascii_strdown_inplace(ptr noundef returned %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1
   %.not10 = icmp eq i8 %2, 0
@@ -538,7 +538,7 @@ define noundef ptr @ascii_strdown_inplace(ptr noundef returned %0) local_unnamed
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @ascii_strup_inplace(ptr noundef returned %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1
   %.not10 = icmp eq i8 %2, 0
@@ -605,7 +605,7 @@ define noundef zeroext i1 @isprint_string(ptr nocapture noundef readonly %0) loc
 define noundef zeroext i1 @isprint_utf8_string(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr i8, ptr %0, i64 %3
-  %5 = tail call i32 @g_utf8_validate(ptr noundef %0, i64 noundef %3, ptr noundef null) #18
+  %5 = tail call i32 @g_utf8_validate(ptr noundef %0, i64 noundef %3, ptr noundef null) #19
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -619,8 +619,8 @@ define noundef zeroext i1 @isprint_utf8_string(ptr noundef %0, i32 noundef %1) l
 
 8:                                                ; preds = %.lr.ph, %11
   %.0911 = phi ptr [ %0, %.lr.ph ], [ %17, %11 ]
-  %9 = tail call i32 @g_utf8_get_char(ptr noundef %.0911) #17
-  %10 = tail call i32 @g_unichar_isprint(i32 noundef %9) #19
+  %9 = tail call i32 @g_utf8_get_char(ptr noundef %.0911) #18
+  %10 = tail call i32 @g_unichar_isprint(i32 noundef %9) #20
   %.not10.not = icmp ne i32 %10, 0
   br i1 %.not10.not, label %11, label %.loopexit
 
@@ -682,15 +682,15 @@ define noundef zeroext i1 @isdigit_string(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ws_ascii_strcasestr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %.not13 = icmp ult i64 %3, %4
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %6
   %.in = phi i64 [ %7, %6 ], [ %3, %2 ]
   %.01014 = phi ptr [ %8, %6 ], [ %0, %2 ]
-  %5 = tail call i32 @g_ascii_strncasecmp(ptr noundef %.01014, ptr noundef %1, i64 noundef %4) #18
+  %5 = tail call i32 @g_ascii_strncasecmp(ptr noundef %.01014, ptr noundef %1, i64 noundef %4) #19
   %.not12 = icmp eq i32 %5, 0
   br i1 %.not12, label %._crit_edge, label %6
 
@@ -709,7 +709,7 @@ declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_un
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @ws_memrchr(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #8 {
-  %4 = tail call ptr @memrchr(ptr noundef %0, i32 noundef %1, i64 noundef %2) #17
+  %4 = tail call ptr @memrchr(ptr noundef %0, i32 noundef %1, i64 noundef %2) #18
   ret ptr %4
 }
 
@@ -718,20 +718,20 @@ declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef null) #18
+  %5 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef null) #19
   %6 = load ptr, ptr @thousands_grouping_fmt, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @wmem_strbuf_new(ptr noundef null, ptr noundef null) #18
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %9, ptr noundef nonnull @.str.25, i32 noundef 22) #18
-  %10 = tail call ptr @wmem_strbuf_get_str(ptr noundef %9) #18
-  %11 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull @.str.26) #18
+  %9 = tail call noalias ptr @wmem_strbuf_new(ptr noundef null, ptr noundef null) #19
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %9, ptr noundef nonnull @.str.25, i32 noundef 22) #19
+  %10 = tail call ptr @wmem_strbuf_get_str(ptr noundef %9) #19
+  %11 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull @.str.26) #19
   %12 = icmp eq i32 %11, 0
   %.str.27..str.28.i = select i1 %12, ptr @.str.27, ptr @.str.28
   store ptr %.str.27..str.28.i, ptr @thousands_grouping_fmt, align 8
-  tail call void @wmem_strbuf_destroy(ptr noundef %9) #18
+  tail call void @wmem_strbuf_destroy(ptr noundef %9) #19
   br label %13
 
 13:                                               ; preds = %8, %4
@@ -749,11 +749,11 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %22, i64 noundef %19) #18
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %22, i64 noundef %19) #19
   %23 = zext nneg i16 %15 to i64
   %24 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 16
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %25) #18
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %25) #19
   br label %51
 
 26:                                               ; preds = %13
@@ -762,12 +762,12 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %29, i64 noundef %18) #18
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %29, i64 noundef %18) #19
   %30 = or disjoint i32 %spec.select, 1
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %33) #18
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %33) #19
   br label %51
 
 34:                                               ; preds = %26
@@ -776,12 +776,12 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %37, i64 noundef %17) #18
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %37, i64 noundef %17) #19
   %38 = or disjoint i32 %spec.select, 2
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 16
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %41) #18
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %41) #19
   br label %51
 
 42:                                               ; preds = %34
@@ -790,16 +790,16 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
   br i1 %43, label %45, label %50
 
 45:                                               ; preds = %42
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %44, i64 noundef %16) #18
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %44, i64 noundef %16) #19
   %46 = or disjoint i32 %spec.select, 3
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %49) #18
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %49) #19
   br label %51
 
 50:                                               ; preds = %42
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %44, i64 noundef %1) #18
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %44, i64 noundef %1) #19
   br label %51
 
 51:                                               ; preds = %28, %45, %50, %36, %21
@@ -839,17 +839,17 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
   br label %.sink.split
 
 64:                                               ; preds = %51
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.22, i64 noundef 452, ptr noundef nonnull @__func__.format_size_wmem, ptr noundef nonnull @.str.23) #20
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.22, i64 noundef 452, ptr noundef nonnull @__func__.format_size_wmem, ptr noundef nonnull @.str.23) #21
   unreachable
 
 .sink.split:                                      ; preds = %52, %54, %56, %58, %60, %62
   %.sink = phi ptr [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ]
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef nonnull %.sink) #18
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef nonnull %.sink) #19
   br label %65
 
 65:                                               ; preds = %.sink.split, %51
-  %66 = tail call ptr @wmem_strbuf_finalize(ptr noundef %5) #18
-  %67 = tail call ptr @g_strchomp(ptr noundef %66) #18
+  %66 = tail call ptr @wmem_strbuf_finalize(ptr noundef %5) #19
+  %67 = tail call ptr @g_strchomp(ptr noundef %66) #19
   ret ptr %67
 }
 
@@ -891,20 +891,20 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   br label %12
 
 12:                                               ; preds = %10, %7
   %.054 = phi i64 [ %11, %10 ], [ %2, %7 ]
   %13 = add i64 %.054, 2
   %spec.select = select i1 %4, i64 %13, i64 %.054
-  %14 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %spec.select) #18
+  %14 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %spec.select) #19
   %15 = icmp ne i8 %5, 0
   %or.cond = and i1 %15, %4
   br i1 %or.cond, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %5) #18
+  tail call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %5) #19
   br label %17
 
 17:                                               ; preds = %16, %12
@@ -918,17 +918,17 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   %.056.us = phi i64 [ %25, %24 ], [ 0, %.lr.ph ]
   %19 = getelementptr i8, ptr %1, i64 %.056.us
   %20 = load i8, ptr %19, align 1
-  %21 = call zeroext i1 %3(i8 noundef signext %20, ptr noundef nonnull %8) #18, !callees !20
+  %21 = call zeroext i1 %3(i8 noundef signext %20, ptr noundef nonnull %8) #19, !callees !20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.split.us
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #19
   %23 = load i8, ptr %8, align 1
   br label %24
 
 24:                                               ; preds = %.lr.ph.split.us, %22
   %.sink = phi i8 [ %23, %22 ], [ %20, %.lr.ph.split.us ]
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %.sink) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %.sink) #19
   %25 = add nuw nsw i64 %.056.us, 1
   %exitcond.not = icmp eq i64 %25, %.054
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
@@ -940,7 +940,7 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   %.056.us57 = phi i64 [ %35, %34 ], [ 0, %.lr.ph.split ]
   %26 = getelementptr i8, ptr %1, i64 %.056.us57
   %27 = load i8, ptr %26, align 1
-  %28 = call zeroext i1 %3(i8 noundef signext %27, ptr noundef nonnull %8) #18, !callees !20
+  %28 = call zeroext i1 %3(i8 noundef signext %27, ptr noundef nonnull %8) #19, !callees !20
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %.lr.ph.split.split.us
@@ -948,17 +948,17 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %5) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %5) #19
   br label %34
 
 32:                                               ; preds = %.lr.ph.split.split.us
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #19
   %33 = load i8, ptr %8, align 1
   br label %34
 
 34:                                               ; preds = %29, %32, %31
   %.sink66 = phi i8 [ %33, %32 ], [ %5, %31 ], [ %27, %29 ]
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %.sink66) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %.sink66) #19
   %35 = add nuw nsw i64 %.056.us57, 1
   %exitcond63.not = icmp eq i64 %35, %.054
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !21
@@ -967,11 +967,11 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   %.056 = phi i64 [ %47, %46 ], [ 0, %.lr.ph.split ]
   %36 = getelementptr i8, ptr %1, i64 %.056
   %37 = load i8, ptr %36, align 1
-  %38 = call zeroext i1 %3(i8 noundef signext %37, ptr noundef nonnull %8) #18, !callees !20
+  %38 = call zeroext i1 %3(i8 noundef signext %37, ptr noundef nonnull %8) #19, !callees !20
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %.lr.ph.split.split
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #19
   %40 = load i8, ptr %8, align 1
   br label %46
 
@@ -980,7 +980,7 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %41
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #19
   br label %46
 
 44:                                               ; preds = %41
@@ -988,12 +988,12 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   br i1 %.not, label %45, label %46
 
 45:                                               ; preds = %44
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext 92) #19
   br label %46
 
 46:                                               ; preds = %44, %39, %45, %43
   %.sink67 = phi i8 [ %40, %39 ], [ 92, %45 ], [ %5, %43 ], [ %37, %44 ]
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %.sink67) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %.sink67) #19
   %47 = add nuw nsw i64 %.056, 1
   %exitcond62.not = icmp eq i64 %47, %.054
   br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !21
@@ -1002,11 +1002,11 @@ define internal fastcc ptr @escape_string_len(ptr noundef %0, ptr nocapture noun
   br i1 %or.cond, label %48, label %49
 
 48:                                               ; preds = %._crit_edge
-  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %5) #18
+  call void @wmem_strbuf_append_c(ptr noundef %14, i8 noundef signext %5) #19
   br label %49
 
 49:                                               ; preds = %48, %._crit_edge
-  %50 = call ptr @wmem_strbuf_finalize(ptr noundef %14) #18
+  %50 = call ptr @wmem_strbuf_finalize(ptr noundef %14) #19
   ret ptr %50
 }
 
@@ -1093,16 +1093,16 @@ define ptr @ws_escape_csv(ptr noundef %0, ptr nocapture noundef readonly %1, i1 
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @ws_strerrorname_r(i32 noundef %0, ptr noundef returned %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @strerrorname_np(i32 noundef %0) #18
+  %4 = tail call ptr @strerrorname_np(i32 noundef %0) #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %2) #18
+  %6 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %2) #19
   br label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.24, i32 noundef %0) #18
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.24, i32 noundef %0) #19
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -1124,32 +1124,32 @@ define ptr @ws_strdup_underline(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 
 5:                                                ; preds = %3
   %6 = add i64 %2, %1
-  %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #18
+  %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %6) #19
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.01417 = phi i32 [ %8, %.lr.ph ], [ 0, %5 ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 32) #18
+  tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 32) #19
   %8 = add i32 %.01417, 1
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %9, %1
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 94) #18
+  tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 94) #19
   %11 = icmp ugt i64 %2, 1
   br i1 %11, label %.lr.ph20, label %._crit_edge21
 
 .lr.ph20:                                         ; preds = %._crit_edge, %.lr.ph20
   %.018 = phi i64 [ %12, %.lr.ph20 ], [ %2, %._crit_edge ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 126) #18
+  tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 126) #19
   %12 = add i64 %.018, -1
   %13 = icmp ugt i64 %12, 1
   br i1 %13, label %.lr.ph20, label %._crit_edge21, !llvm.loop !23
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %._crit_edge
-  %14 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7) #18
+  %14 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7) #19
   br label %15
 
 15:                                               ; preds = %3, %._crit_edge21
@@ -1169,7 +1169,7 @@ define ptr @format_text(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 128) #18
+  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 128) #19
   %6 = getelementptr i8, ptr %1, i64 %2
   %7 = icmp ugt ptr %6, %1
   br i1 %7, label %.lr.ph368, label %._crit_edge369
@@ -1201,7 +1201,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 19:                                               ; preds = %17
   %20 = shl i32 %.0277363, 1
   %21 = zext i32 %20 to i64
-  %22 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %21) #18
+  %22 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %21) #19
   br label %23
 
 23:                                               ; preds = %19, %17
@@ -1227,7 +1227,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 31:                                               ; preds = %29
   %32 = shl i32 %.0277363, 1
   %33 = zext i32 %32 to i64
-  %34 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %33) #18
+  %34 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %33) #19
   br label %35
 
 35:                                               ; preds = %31, %29
@@ -1252,7 +1252,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 44:                                               ; preds = %42
   %45 = shl i32 %.0277363, 1
   %46 = zext i32 %45 to i64
-  %47 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %46) #18
+  %47 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %46) #19
   br label %48
 
 48:                                               ; preds = %44, %42
@@ -1329,7 +1329,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 82:                                               ; preds = %80
   %83 = shl i32 %.3280, 1
   %84 = zext i32 %83 to i64
-  %85 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.3284, i64 noundef %84) #18
+  %85 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.3284, i64 noundef %84) #19
   br label %86
 
 86:                                               ; preds = %82, %80
@@ -1422,15 +1422,15 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %.1272.lcssa = phi ptr [ %10, %.thread ], [ %.1272356377, %123 ], [ %122, %121 ], [ %scevgep372, %127 ]
   %.1269 = phi i8 [ %11, %.thread ], [ %124, %127 ], [ %124, %121 ], [ %124, %123 ]
   %.1 = phi i32 [ 65533, %.thread ], [ 65533, %123 ], [ 65533, %121 ], [ %130, %127 ]
-  %132 = tail call i32 @g_unichar_validate(i32 noundef %.1) #19
+  %132 = tail call i32 @g_unichar_validate(i32 noundef %.1) #20
   %.not300 = icmp eq i32 %132, 0
   %spec.store.select = select i1 %.not300, i32 65533, i32 %.1
-  %133 = tail call i32 @g_unichar_isprint(i32 noundef %spec.store.select) #19
+  %133 = tail call i32 @g_unichar_isprint(i32 noundef %spec.store.select) #20
   %.not301 = icmp eq i32 %133, 0
   br i1 %.not301, label %168, label %135
 
 .thread322:                                       ; preds = %114
-  %134 = tail call i32 @g_unichar_isprint(i32 noundef 65533) #19
+  %134 = tail call i32 @g_unichar_isprint(i32 noundef 65533) #20
   %.not301327 = icmp eq i32 %134, 0
   br i1 %.not301327, label %168, label %.thread352
 
@@ -1469,7 +1469,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 147:                                              ; preds = %.thread352
   %148 = shl i32 %.0277363, 1
   %149 = zext i32 %148 to i64
-  %150 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %149) #18
+  %150 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %149) #19
   br label %151
 
 151:                                              ; preds = %147, %.thread352
@@ -1515,7 +1515,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %3, label %169, label %181
 
 169:                                              ; preds = %168
-  %170 = tail call i32 @g_unichar_isspace(i32 noundef %.2334) #19
+  %170 = tail call i32 @g_unichar_isspace(i32 noundef %.2334) #20
   %.not302 = icmp eq i32 %170, 0
   br i1 %.not302, label %181, label %171
 
@@ -1527,7 +1527,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 173:                                              ; preds = %171
   %174 = shl i32 %.0277363, 1
   %175 = zext i32 %174 to i64
-  %176 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %175) #18
+  %176 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %175) #19
   br label %177
 
 177:                                              ; preds = %173, %171
@@ -1551,7 +1551,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 185:                                              ; preds = %183
   %186 = shl i32 %.0277363, 1
   %187 = zext i32 %186 to i64
-  %188 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %187) #18
+  %188 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %187) #19
   br label %189
 
 189:                                              ; preds = %185, %183
@@ -1628,7 +1628,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 223:                                              ; preds = %221
   %224 = shl i32 %.7, 1
   %225 = zext i32 %224 to i64
-  %226 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.7288, i64 noundef %225) #18
+  %226 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.7288, i64 noundef %225) #19
   br label %227
 
 227:                                              ; preds = %223, %221
@@ -1666,7 +1666,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 247:                                              ; preds = %245
   %248 = shl i32 %.0277363, 1
   %249 = zext i32 %248 to i64
-  %250 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %249) #18
+  %250 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %249) #19
   br label %251
 
 251:                                              ; preds = %247, %245
@@ -1724,7 +1724,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 290:                                              ; preds = %288
   %291 = shl i32 %.0277363, 1
   %292 = zext i32 %291 to i64
-  %293 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %292) #18
+  %293 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %292) #19
   br label %294
 
 294:                                              ; preds = %290, %288
@@ -1832,7 +1832,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 
 ; Function Attrs: nounwind uwtable
 define ptr @format_text_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %4 = tail call fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef %1, i64 noundef %3, i1 noundef zeroext false)
   ret ptr %4
 }
@@ -1846,7 +1846,7 @@ define ptr @format_text_wsp(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 ; Function Attrs: nounwind uwtable
 define ptr @format_text_chr(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = add i64 %2, 1
-  %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #18
+  %6 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %5) #19
   %7 = getelementptr i8, ptr %1, i64 %2
   %8 = icmp ugt ptr %7, %1
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -1868,13 +1868,13 @@ define ptr @format_text_chr(ptr noundef %0, ptr noundef readonly %1, i64 noundef
   %.not14 = icmp eq i32 %17, 0
   %. = select i1 %.not14, i8 %3, i8 32
   %.sink = select i1 %.not, i8 %., i8 %11
-  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %.sink) #18
+  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %.sink) #19
   %18 = getelementptr i8, ptr %.015, i64 1
   %exitcond.not = icmp eq ptr %18, %7
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %10, %4
-  %19 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6) #18
+  %19 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6) #19
   ret ptr %19
 }
 
@@ -1889,7 +1889,7 @@ define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) l
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 2) #18
+  %9 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 2) #19
   store i8 %1, ptr %9, align 1
   %10 = getelementptr i8, ptr %9, i64 1
   br label %38
@@ -1933,7 +1933,7 @@ define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) l
 
 20:                                               ; preds = %11, %18, %17, %16, %15, %14, %13, %12, %19
   %.021.ph = phi i8 [ 97, %19 ], [ 48, %18 ], [ 92, %17 ], [ 118, %16 ], [ 116, %15 ], [ 114, %14 ], [ 110, %13 ], [ 102, %12 ], [ 98, %11 ]
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 3) #18
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 3) #19
   store i8 92, ptr %21, align 1
   %22 = getelementptr i8, ptr %21, i64 1
   store i8 %.021.ph, ptr %22, align 1
@@ -1941,7 +1941,7 @@ define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) l
   br label %38
 
 escape_char.exit:                                 ; preds = %11
-  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 5) #18
+  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 5) #19
   store i8 92, ptr %24, align 1
   %25 = getelementptr i8, ptr %24, i64 1
   store i8 120, ptr %25, align 1
@@ -1972,12 +1972,12 @@ escape_char.exit:                                 ; preds = %11
 define noundef ptr @ws_utf8_truncate(ptr noundef returned %0, i64 noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr i8, ptr %0, i64 %1
   store i8 0, ptr %3, align 1
-  %4 = tail call ptr @g_utf8_find_prev_char(ptr noundef %0, ptr noundef nonnull %3) #17
+  %4 = tail call ptr @g_utf8_find_prev_char(ptr noundef %0, ptr noundef nonnull %3) #18
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @g_utf8_get_char_validated(ptr noundef nonnull %4, i64 noundef -1) #17
+  %6 = tail call i32 @g_utf8_get_char_validated(ptr noundef nonnull %4, i64 noundef -1) #18
   %7 = icmp eq i32 %6, -2
   br i1 %7, label %8, label %9
 
@@ -1995,8 +1995,8 @@ declare ptr @g_utf8_find_prev_char(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @g_utf8_get_char_validated(ptr noundef, i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @EBCDIC_to_ASCII(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @EBCDIC_to_ASCII(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #15 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2143,7 +2143,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
   %62 = zext i32 %.1.us to i64
   %63 = getelementptr [79 x i8], ptr %7, i64 0, i64 %62
   store i8 0, ptr %63, align 1
-  %64 = call zeroext i1 %0(ptr noundef %1, ptr noundef nonnull %7) #18
+  %64 = call zeroext i1 %0(ptr noundef %1, ptr noundef nonnull %7) #19
   br i1 %64, label %65, label %._crit_edge
 
 65:                                               ; preds = %.thread66.us
@@ -2270,7 +2270,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
   %130 = zext i32 %.3 to i64
   %131 = getelementptr [79 x i8], ptr %7, i64 0, i64 %130
   store i8 0, ptr %131, align 1
-  %132 = call zeroext i1 %0(ptr noundef %1, ptr noundef nonnull %7) #18
+  %132 = call zeroext i1 %0(ptr noundef %1, ptr noundef nonnull %7) #19
   br i1 %132, label %133, label %._crit_edge
 
 133:                                              ; preds = %.thread66
@@ -2289,7 +2289,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2306,17 +2306,17 @@ declare i32 @g_unichar_validate(i32 noundef) local_unnamed_addr #3
 declare i32 @g_unichar_isspace(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #16
+declare void @llvm.va_start.p0(ptr) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #16
+declare void @llvm.va_end.p0(ptr) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2326,12 +2326,13 @@ attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(none) }
-attributes #20 = { noreturn nounwind }
+attributes #15 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

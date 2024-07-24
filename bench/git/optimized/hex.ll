@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_to_hex_algop.hexbuffer = internal global [4 x [65 x i8]] zeroinitializer, align 16
 @hexval_table = external local_unnamed_addr constant [256 x i8], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @get_hash_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %sha1) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
@@ -66,8 +66,8 @@ get_hash_hex_algop.exit:                          ; preds = %hex2chr.exit.i, %if
   ret i32 %retval.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @get_oid_hex_algop(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid, ptr noundef %algop) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local range(i32 -1, 1) i32 @get_oid_hex_algop(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid, ptr noundef %algop) local_unnamed_addr #1 {
 entry:
   %rawsz.i = getelementptr inbounds i8, ptr %algop, i64 16
   %0 = load i64, ptr %rawsz.i, align 8
@@ -126,8 +126,8 @@ if.end:                                           ; preds = %hex2chr.exit.i, %if
   ret i32 %retval.0.i6
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 3) i32 @get_oid_hex_any(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local range(i32 0, 3) i32 @get_oid_hex_any(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -191,7 +191,7 @@ return:                                           ; preds = %for.inc, %get_oid_h
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @get_oid_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
@@ -254,8 +254,8 @@ get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i, %
   ret i32 %retval.0.i6.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @parse_oid_hex_algop(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end, ptr noundef %algop) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local range(i32 -1, 1) i32 @parse_oid_hex_algop(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end, ptr noundef %algop) local_unnamed_addr #1 {
 entry:
   %rawsz.i.i = getelementptr inbounds i8, ptr %algop, i64 16
   %0 = load i64, ptr %rawsz.i.i, align 8
@@ -318,8 +318,8 @@ if.end:                                           ; preds = %hex2chr.exit.i.i, %
   ret i32 %retval.0.i6.i6
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 3) i32 @parse_oid_hex_any(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local range(i32 0, 3) i32 @parse_oid_hex_any(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #1 {
 entry:
   br label %for.body.i
 
@@ -396,7 +396,7 @@ if.end:                                           ; preds = %for.inc.i, %if.then
   ret i32 %retval.0.i6
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 1) i32 @parse_oid_hex(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
@@ -463,7 +463,7 @@ parse_oid_hex_algop.exit:                         ; preds = %hex2chr.exit.i.i.i,
   ret i32 %retval.0.i6.i6.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @hash_to_hex_algop_r(ptr noundef returned writeonly %buffer, ptr nocapture noundef readonly %hash, ptr noundef readonly %algop) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %algop, @hash_algos
@@ -512,7 +512,7 @@ for.end:                                          ; preds = %for.body, %if.end
   ret ptr %buffer
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @oid_to_hex_r(ptr noundef returned writeonly %buffer, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
 entry:
   %algo = getelementptr inbounds i8, ptr %oid, i64 32
@@ -565,8 +565,8 @@ hash_to_hex_algop_r.exit:                         ; preds = %for.body.i, %if.end
   ret ptr %buffer
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @hash_to_hex_algop(ptr nocapture noundef readonly %hash, ptr noundef readonly %algop) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+define dso_local nonnull ptr @hash_to_hex_algop(ptr nocapture noundef readonly %hash, ptr noundef readonly %algop) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr @hash_to_hex_algop.bufno, align 4
   %add = add nuw nsw i32 %0, 1
@@ -620,8 +620,8 @@ hash_to_hex_algop_r.exit:                         ; preds = %for.body.i, %if.end
   ret ptr %arrayidx
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @hash_to_hex(ptr nocapture noundef readonly %hash) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+define dso_local nonnull ptr @hash_to_hex(ptr nocapture noundef readonly %hash) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
@@ -667,8 +667,8 @@ hash_to_hex_algop.exit:                           ; preds = %for.body.i.i, %entr
   ret ptr %arrayidx.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @oid_to_hex(ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+define dso_local nonnull ptr @oid_to_hex(ptr nocapture noundef readonly %oid) local_unnamed_addr #2 {
 entry:
   %algo = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo, align 4
@@ -726,7 +726,9 @@ hash_to_hex_algop.exit:                           ; preds = %for.body.i.i, %if.e
   ret ptr %arrayidx.i
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

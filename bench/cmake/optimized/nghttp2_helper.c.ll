@@ -426,7 +426,7 @@ define dso_local noundef nonnull ptr @nghttp2_strerror(i32 noundef %0) local_unn
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %4
@@ -470,7 +470,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not8 = icmp eq i64 %1, 0
@@ -495,7 +495,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef rea
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %nghttp2_check_header_value.exit, label %4
@@ -535,7 +535,7 @@ nghttp2_check_header_value.exit:                  ; preds = %.lr.ph.i, %10, %4, 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.loopexit, label %.lr.ph.preheader
@@ -563,7 +563,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not8 = icmp eq i64 %1, 0
@@ -588,7 +588,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly %0
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not8 = icmp eq i64 %1, 0
@@ -657,7 +657,7 @@ attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: 
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind willreturn memory(none) }
 

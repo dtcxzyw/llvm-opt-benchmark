@@ -14850,8 +14850,8 @@ declare void @_ZNK15ClassFileParser20classfile_ucve_errorEPKcPK6SymbolttP10JavaT
 
 declare noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN15ClassFileParser23verify_unqualified_nameEPKcji(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef zeroext i1 @_ZN15ClassFileParser23verify_unqualified_nameEPKcji(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.loopexit, label %.lr.ph
 
@@ -15193,10 +15193,10 @@ switch.early.test:                                ; preds = %26
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK15ClassFileParser17static_field_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZNK15ClassFileParser17static_field_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -15205,7 +15205,7 @@ define hidden noundef i32 @_ZNK15ClassFileParser17static_field_sizeEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK15ClassFileParser19total_oop_map_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZNK15ClassFileParser19total_oop_map_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -15215,7 +15215,7 @@ define hidden noundef i32 @_ZNK15ClassFileParser19total_oop_map_countEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK15ClassFileParser11layout_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZNK15ClassFileParser11layout_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -18339,7 +18339,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 declare void @_ZN11klassVtable36compute_vtable_size_and_num_mirandasEPiS0_P13GrowableArrayIP6MethodEPK5KlassP5ArrayIS3_E11AccessFlagst6HandleP6SymbolPS9_IP13InstanceKlassE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32, i16 noundef zeroext, i64, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -18361,7 +18361,7 @@ define hidden noundef ptr @_ZNK15ClassFileParser12clone_streamEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK15ClassFileParser20super_reference_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZNK15ClassFileParser20super_reference_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -18379,7 +18379,7 @@ define hidden noundef i32 @_ZNK15ClassFileParser20super_reference_typeEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK15ClassFileParser21is_instance_ref_klassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ClassFileParser21is_instance_ref_klassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -18404,7 +18404,7 @@ _ZNK15ClassFileParser35is_java_lang_ref_Reference_subclassEv.exit: ; preds = %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK15ClassFileParser35is_java_lang_ref_Reference_subclassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ClassFileParser35is_java_lang_ref_Reference_subclassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -19865,8 +19865,8 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

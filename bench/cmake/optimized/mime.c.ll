@@ -84,7 +84,7 @@ define dso_local void @Curl_mime_cleanpart(ptr noundef %0) local_unnamed_addr #0
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  tail call void %4(ptr noundef %7) #16
+  tail call void %4(ptr noundef %7) #15
   br label %cleanup_part_content.exit
 
 cleanup_part_content.exit:                        ; preds = %2, %5
@@ -112,7 +112,7 @@ cleanup_part_content.exit:                        ; preds = %2, %5
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
-  tail call void @curl_slist_free_all(ptr noundef %21) #16
+  tail call void @curl_slist_free_all(ptr noundef %21) #15
   %22 = load i32, ptr %15, align 4
   %23 = and i32 %22, 1
   %.not12 = icmp eq i32 %23, 0
@@ -121,24 +121,24 @@ cleanup_part_content.exit:                        ; preds = %2, %5
 24:                                               ; preds = %cleanup_part_content.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
-  tail call void @curl_slist_free_all(ptr noundef %26) #16
+  tail call void @curl_slist_free_all(ptr noundef %26) #15
   br label %27
 
 27:                                               ; preds = %cleanup_part_content.exit, %24
   %28 = load ptr, ptr @Curl_cfree, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 88
   %30 = load ptr, ptr %29, align 8
-  tail call void %28(ptr noundef %30) #16
+  tail call void %28(ptr noundef %30) #15
   store ptr null, ptr %29, align 8
   %31 = load ptr, ptr @Curl_cfree, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 104
   %33 = load ptr, ptr %32, align 8
-  tail call void %31(ptr noundef %33) #16
+  tail call void %31(ptr noundef %33) #15
   store ptr null, ptr %32, align 8
   %34 = load ptr, ptr @Curl_cfree, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 96
   %36 = load ptr, ptr %35, align 8
-  tail call void %34(ptr noundef %36) #16
+  tail call void %34(ptr noundef %36) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(432) %0, i8 0, i64 432, i1 false)
   store i64 1, ptr %18, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 128
@@ -183,7 +183,7 @@ define dso_local void @curl_mime_free(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %6, i64 56
   %11 = load ptr, ptr %10, align 8
-  tail call void %8(ptr noundef %11) #16
+  tail call void %8(ptr noundef %11) #15
   br label %cleanup_part_content.exit.i
 
 cleanup_part_content.exit.i:                      ; preds = %9, %4
@@ -231,7 +231,7 @@ mime_subparts_unbind.exit:                        ; preds = %2, %cleanup_part_co
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds i8, ptr %26, i64 56
   %33 = load ptr, ptr %32, align 8
-  tail call void %30(ptr noundef %33) #16
+  tail call void %30(ptr noundef %33) #15
   br label %cleanup_part_content.exit.i13
 
 cleanup_part_content.exit.i13:                    ; preds = %31, %.lr.ph
@@ -259,7 +259,7 @@ cleanup_part_content.exit.i13:                    ; preds = %31, %.lr.ph
   store i32 0, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %26, i64 72
   %47 = load ptr, ptr %46, align 8
-  tail call void @curl_slist_free_all(ptr noundef %47) #16
+  tail call void @curl_slist_free_all(ptr noundef %47) #15
   %48 = load i32, ptr %41, align 4
   %49 = and i32 %48, 1
   %.not12.i = icmp eq i32 %49, 0
@@ -268,37 +268,37 @@ cleanup_part_content.exit.i13:                    ; preds = %31, %.lr.ph
 50:                                               ; preds = %cleanup_part_content.exit.i13
   %51 = getelementptr inbounds i8, ptr %26, i64 80
   %52 = load ptr, ptr %51, align 8
-  tail call void @curl_slist_free_all(ptr noundef %52) #16
+  tail call void @curl_slist_free_all(ptr noundef %52) #15
   br label %Curl_mime_cleanpart.exit
 
 Curl_mime_cleanpart.exit:                         ; preds = %cleanup_part_content.exit.i13, %50
   %53 = load ptr, ptr @Curl_cfree, align 8
   %54 = getelementptr inbounds i8, ptr %26, i64 88
   %55 = load ptr, ptr %54, align 8
-  tail call void %53(ptr noundef %55) #16
+  tail call void %53(ptr noundef %55) #15
   store ptr null, ptr %54, align 8
   %56 = load ptr, ptr @Curl_cfree, align 8
   %57 = getelementptr inbounds i8, ptr %26, i64 104
   %58 = load ptr, ptr %57, align 8
-  tail call void %56(ptr noundef %58) #16
+  tail call void %56(ptr noundef %58) #15
   store ptr null, ptr %57, align 8
   %59 = load ptr, ptr @Curl_cfree, align 8
   %60 = getelementptr inbounds i8, ptr %26, i64 96
   %61 = load ptr, ptr %60, align 8
-  tail call void %59(ptr noundef %61) #16
+  tail call void %59(ptr noundef %61) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(432) %26, i8 0, i64 432, i1 false)
   store i64 1, ptr %44, align 8
   %62 = getelementptr inbounds i8, ptr %26, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   %63 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %63(ptr noundef nonnull %26) #16
+  tail call void %63(ptr noundef nonnull %26) #15
   %64 = load ptr, ptr %24, align 8
   %.not10 = icmp eq ptr %64, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %Curl_mime_cleanpart.exit, %mime_subparts_unbind.exit
   %65 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %65(ptr noundef nonnull %0) #16
+  tail call void %65(ptr noundef nonnull %0) #15
   br label %66
 
 66:                                               ; preds = %._crit_edge, %1
@@ -327,7 +327,7 @@ define internal void @mime_subparts_unbind(ptr noundef %0) #0 {
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %6, i64 56
   %11 = load ptr, ptr %10, align 8
-  tail call void %8(ptr noundef %11) #16
+  tail call void %8(ptr noundef %11) #15
   br label %cleanup_part_content.exit
 
 cleanup_part_content.exit:                        ; preds = %4, %9
@@ -389,7 +389,7 @@ define dso_local i32 @Curl_mime_duppart(ptr noundef %0, ptr noundef %1, ptr noca
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8
-  tail call void %13(ptr noundef %16) #16
+  tail call void %13(ptr noundef %16) #15
   br label %cleanup_part_content.exit.i
 
 cleanup_part_content.exit.i:                      ; preds = %14, %11
@@ -423,12 +423,12 @@ cleanup_part_content.exit.i:                      ; preds = %14, %11
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
   br label %33
 
 33:                                               ; preds = %31, %29
   %.0.i = phi i64 [ %32, %31 ], [ %10, %29 ]
-  %34 = tail call ptr @Curl_memdup0(ptr noundef nonnull %8, i64 noundef %.0.i) #16
+  %34 = tail call ptr @Curl_memdup0(ptr noundef nonnull %8, i64 noundef %.0.i) #15
   store ptr %34, ptr %19, align 8
   %.not21.i = icmp eq ptr %34, null
   br i1 %.not21.i, label %curl_mime_name.exit.thread, label %35
@@ -473,7 +473,7 @@ cleanup_part_content.exit.i:                      ; preds = %14, %11
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %1, i64 56
   %58 = load ptr, ptr %57, align 8
-  tail call void %55(ptr noundef %58) #16
+  tail call void %55(ptr noundef %58) #15
   br label %cleanup_part_content.exit.i66
 
 cleanup_part_content.exit.i66:                    ; preds = %56, %53
@@ -513,7 +513,7 @@ cleanup_part_content.exit.i66:                    ; preds = %56, %53
 
 73:                                               ; preds = %3
   %74 = load ptr, ptr @Curl_cmalloc, align 8
-  %75 = tail call ptr %74(i64 noundef 96) #16
+  %75 = tail call ptr %74(i64 noundef 96) #15
   %.not.i68 = icmp eq ptr %75, null
   br i1 %.not.i68, label %curl_mime_name.exit.thread, label %76
 
@@ -522,13 +522,13 @@ cleanup_part_content.exit.i66:                    ; preds = %56, %53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 45, i64 24, i1 false)
   %78 = getelementptr inbounds i8, ptr %75, i64 48
-  %79 = tail call i32 @Curl_rand_alnum(ptr noundef %0, ptr noundef nonnull %78, i64 noundef 23) #16
+  %79 = tail call i32 @Curl_rand_alnum(ptr noundef %0, ptr noundef nonnull %78, i64 noundef 23) #15
   %.not12.i = icmp eq i32 %79, 0
   br i1 %.not12.i, label %82, label %80
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %81(ptr noundef nonnull %75) #16
+  tail call void %81(ptr noundef nonnull %75) #15
   br label %curl_mime_name.exit.thread
 
 82:                                               ; preds = %76
@@ -560,7 +560,7 @@ cleanup_part_content.exit.i66:                    ; preds = %56, %53
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %1, i64 56
   %98 = load ptr, ptr %97, align 8
-  tail call void %95(ptr noundef %98) #16
+  tail call void %95(ptr noundef %98) #15
   br label %99
 
 99:                                               ; preds = %93, %96
@@ -634,7 +634,7 @@ curl_mime_subparts.exit:                          ; preds = %118, %89
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %curl_mime_addpart.exit.thread
   %.0112 = phi ptr [ %.0, %curl_mime_addpart.exit.thread ], [ %.0110, %.lr.ph.split.preheader ]
   %123 = load ptr, ptr @Curl_cmalloc, align 8
-  %124 = tail call ptr %123(i64 noundef 440) #16
+  %124 = tail call ptr %123(i64 noundef 440) #15
   %.not17.i = icmp eq ptr %124, null
   br i1 %.not17.i, label %curl_mime_name.exit.thread, label %curl_mime_addpart.exit.thread
 
@@ -672,7 +672,7 @@ curl_mime_data.exit.thread:                       ; preds = %curl_mime_subparts.
   br i1 %.not57, label %152, label %135
 
 135:                                              ; preds = %curl_mime_data.exit.thread
-  %136 = tail call ptr @Curl_slist_duplicate(ptr noundef nonnull %134) #16
+  %136 = tail call ptr @Curl_slist_duplicate(ptr noundef nonnull %134) #15
   %.not58 = icmp eq ptr %136, null
   br i1 %.not58, label %curl_mime_name.exit.thread, label %137
 
@@ -694,7 +694,7 @@ curl_mime_data.exit.thread:                       ; preds = %curl_mime_subparts.
   br i1 %.not15.i, label %146, label %145
 
 145:                                              ; preds = %142
-  tail call void @curl_slist_free_all(ptr noundef %144) #16
+  tail call void @curl_slist_free_all(ptr noundef %144) #15
   %.pre.i = load i32, ptr %139, align 4
   br label %146
 
@@ -712,7 +712,7 @@ curl_mime_headers.exit.thread:                    ; preds = %146, %138
   br label %152
 
 curl_mime_headers.exit:                           ; preds = %137
-  tail call void @curl_slist_free_all(ptr noundef nonnull %136) #16
+  tail call void @curl_slist_free_all(ptr noundef nonnull %136) #15
   br label %curl_mime_name.exit.thread
 
 152:                                              ; preds = %curl_mime_headers.exit.thread, %curl_mime_data.exit.thread
@@ -725,14 +725,14 @@ curl_mime_headers.exit:                           ; preds = %137
   %158 = load ptr, ptr @Curl_cfree, align 8
   %159 = getelementptr inbounds i8, ptr %1, i64 88
   %160 = load ptr, ptr %159, align 8
-  tail call void %158(ptr noundef %160) #16
+  tail call void %158(ptr noundef %160) #15
   store ptr null, ptr %159, align 8
   %.not9.i = icmp eq ptr %157, null
   br i1 %.not9.i, label %164, label %161
 
 161:                                              ; preds = %152
   %162 = load ptr, ptr @Curl_cstrdup, align 8
-  %163 = tail call ptr %162(ptr noundef nonnull %157) #16
+  %163 = tail call ptr %162(ptr noundef nonnull %157) #15
   store ptr %163, ptr %159, align 8
   %.not10.i = icmp eq ptr %163, null
   br i1 %.not10.i, label %curl_mime_name.exit.thread, label %164
@@ -743,14 +743,14 @@ curl_mime_headers.exit:                           ; preds = %137
   %167 = load ptr, ptr @Curl_cfree, align 8
   %168 = getelementptr inbounds i8, ptr %1, i64 104
   %169 = load ptr, ptr %168, align 8
-  tail call void %167(ptr noundef %169) #16
+  tail call void %167(ptr noundef %169) #15
   store ptr null, ptr %168, align 8
   %.not9.i78 = icmp eq ptr %166, null
   br i1 %.not9.i78, label %173, label %170
 
 170:                                              ; preds = %164
   %171 = load ptr, ptr @Curl_cstrdup, align 8
-  %172 = tail call ptr %171(ptr noundef nonnull %166) #16
+  %172 = tail call ptr %171(ptr noundef nonnull %166) #15
   store ptr %172, ptr %168, align 8
   %.not10.i79 = icmp eq ptr %172, null
   br i1 %.not10.i79, label %curl_mime_name.exit.thread, label %173
@@ -761,14 +761,14 @@ curl_mime_headers.exit:                           ; preds = %137
   %176 = load ptr, ptr @Curl_cfree, align 8
   %177 = getelementptr inbounds i8, ptr %1, i64 96
   %178 = load ptr, ptr %177, align 8
-  tail call void %176(ptr noundef %178) #16
+  tail call void %176(ptr noundef %178) #15
   store ptr null, ptr %177, align 8
   %.not9.i82 = icmp eq ptr %175, null
   br i1 %.not9.i82, label %curl_mime_filename.exit, label %179
 
 179:                                              ; preds = %173
   %180 = load ptr, ptr @Curl_cstrdup, align 8
-  %181 = tail call ptr %180(ptr noundef nonnull %175) #16
+  %181 = tail call ptr %180(ptr noundef nonnull %175) #15
   store ptr %181, ptr %177, align 8
   %.not10.i83 = icmp eq ptr %181, null
   br i1 %.not10.i83, label %curl_mime_name.exit.thread, label %curl_mime_filename.exit
@@ -797,7 +797,7 @@ define dso_local range(i32 0, 44) i32 @curl_mime_data(ptr noundef %0, ptr nounde
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  tail call void %6(ptr noundef %9) #16
+  tail call void %6(ptr noundef %9) #15
   br label %cleanup_part_content.exit
 
 cleanup_part_content.exit:                        ; preds = %4, %7
@@ -831,12 +831,12 @@ cleanup_part_content.exit:                        ; preds = %4, %7
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   br label %26
 
 26:                                               ; preds = %24, %22
   %.0 = phi i64 [ %25, %24 ], [ %2, %22 ]
-  %27 = tail call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.0) #16
+  %27 = tail call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.0) #15
   store ptr %27, ptr %12, align 8
   %.not21 = icmp eq ptr %27, null
   br i1 %.not21, label %32, label %28
@@ -873,7 +873,7 @@ define dso_local range(i32 0, 44) i32 @curl_mime_filedata(ptr noundef %0, ptr no
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  tail call void %6(ptr noundef %9) #16
+  tail call void %6(ptr noundef %9) #15
   br label %cleanup_part_content.exit
 
 cleanup_part_content.exit:                        ; preds = %4, %7
@@ -903,12 +903,12 @@ cleanup_part_content.exit:                        ; preds = %4, %7
   br i1 %.not28, label %strippath.exit.thread, label %22
 
 22:                                               ; preds = %cleanup_part_content.exit
-  %23 = call i32 @stat64(ptr noundef nonnull %1, ptr noundef nonnull %3) #16
+  %23 = call i32 @stat64(ptr noundef nonnull %1, ptr noundef nonnull %3) #15
   %.not29 = icmp eq i32 %23, 0
   br i1 %.not29, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @access(ptr noundef nonnull %1, i32 noundef 4) #16
+  %25 = tail call i32 @access(ptr noundef nonnull %1, i32 noundef 4) #15
   %.not30 = icmp eq i32 %25, 0
   br i1 %.not30, label %27, label %26
 
@@ -918,7 +918,7 @@ cleanup_part_content.exit:                        ; preds = %4, %7
 27:                                               ; preds = %26, %24
   %.023 = phi i32 [ 26, %26 ], [ 0, %24 ]
   %28 = load ptr, ptr @Curl_cstrdup, align 8
-  %29 = tail call ptr %28(ptr noundef nonnull %1) #16
+  %29 = tail call ptr %28(ptr noundef nonnull %1) #15
   store ptr %29, ptr %12, align 8
   %.not31 = icmp eq ptr %29, null
   %spec.select = select i1 %.not31, i32 27, i32 %.023
@@ -946,16 +946,16 @@ cleanup_part_content.exit:                        ; preds = %4, %7
   store ptr @mime_file_free, ptr %5, align 8
   store i32 2, ptr %16, align 8
   %40 = load ptr, ptr @Curl_cstrdup, align 8
-  %41 = tail call ptr %40(ptr noundef nonnull %1) #16
+  %41 = tail call ptr %40(ptr noundef nonnull %1) #15
   %.not.i36 = icmp eq ptr %41, null
   br i1 %.not.i36, label %strippath.exit.thread, label %strippath.exit
 
 strippath.exit:                                   ; preds = %39
   %42 = load ptr, ptr @Curl_cstrdup, align 8
-  %43 = tail call ptr @__xpg_basename(ptr noundef nonnull %41) #16
-  %44 = tail call ptr %42(ptr noundef %43) #16
+  %43 = tail call ptr @__xpg_basename(ptr noundef nonnull %41) #15
+  %44 = tail call ptr %42(ptr noundef %43) #15
   %45 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %45(ptr noundef nonnull %41) #16
+  tail call void %45(ptr noundef nonnull %41) #15
   %.not33 = icmp eq ptr %44, null
   br i1 %.not33, label %strippath.exit.thread, label %curl_mime_filename.exit
 
@@ -963,15 +963,15 @@ curl_mime_filename.exit:                          ; preds = %strippath.exit
   %46 = load ptr, ptr @Curl_cfree, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 96
   %48 = load ptr, ptr %47, align 8
-  tail call void %46(ptr noundef %48) #16
+  tail call void %46(ptr noundef %48) #15
   store ptr null, ptr %47, align 8
   %49 = load ptr, ptr @Curl_cstrdup, align 8
-  %50 = tail call ptr %49(ptr noundef nonnull %44) #16
+  %50 = tail call ptr %49(ptr noundef nonnull %44) #15
   store ptr %50, ptr %47, align 8
   %.not10.i = icmp eq ptr %50, null
   %spec.select43 = select i1 %.not10.i, i32 27, i32 %spec.select
   %51 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %51(ptr noundef nonnull %44) #16
+  tail call void %51(ptr noundef nonnull %44) #15
   br label %strippath.exit.thread
 
 strippath.exit.thread:                            ; preds = %39, %cleanup_part_content.exit, %curl_mime_filename.exit, %strippath.exit, %2
@@ -993,7 +993,7 @@ define dso_local range(i32 0, 44) i32 @curl_mime_data_cb(ptr noundef %0, i64 nou
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  tail call void %9(ptr noundef %12) #16
+  tail call void %9(ptr noundef %12) #15
   br label %cleanup_part_content.exit
 
 cleanup_part_content.exit:                        ; preds = %7, %10
@@ -1040,7 +1040,7 @@ cleanup_part_content.exit:                        ; preds = %7, %10
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @curl_mime_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @Curl_cmalloc, align 8
-  %3 = tail call ptr %2(i64 noundef 96) #16
+  %3 = tail call ptr %2(i64 noundef 96) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
@@ -1049,13 +1049,13 @@ define dso_local ptr @curl_mime_init(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 45, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 48
-  %7 = tail call i32 @Curl_rand_alnum(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 23) #16
+  %7 = tail call i32 @Curl_rand_alnum(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 23) #15
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %10, label %8
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef nonnull %3) #16
+  tail call void %9(ptr noundef nonnull %3) #15
   br label %13
 
 10:                                               ; preds = %4
@@ -1096,7 +1096,7 @@ define dso_local range(i32 0, 44) i32 @curl_mime_subparts(ptr noundef %0, ptr no
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
-  tail call void %13(ptr noundef %16) #16
+  tail call void %13(ptr noundef %16) #15
   br label %cleanup_part_content.exit.i
 
 cleanup_part_content.exit.i:                      ; preds = %14, %11
@@ -1171,7 +1171,7 @@ define dso_local ptr @curl_mime_addpart(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @Curl_cmalloc, align 8
-  %4 = tail call ptr %3(i64 noundef 440) #16
+  %4 = tail call ptr %3(i64 noundef 440) #15
   %.not17 = icmp eq ptr %4, null
   br i1 %.not17, label %12, label %5
 
@@ -1218,7 +1218,7 @@ define dso_local range(i32 0, 44) i32 @curl_mime_headers(ptr noundef %0, ptr nou
   br i1 %.not15, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @curl_slist_free_all(ptr noundef %10) #16
+  tail call void @curl_slist_free_all(ptr noundef %10) #15
   %.pre = load i32, ptr %5, align 4
   br label %12
 
@@ -1256,14 +1256,14 @@ define dso_local range(i32 0, 44) i32 @curl_mime_type(ptr noundef %0, ptr nounde
   %4 = load ptr, ptr @Curl_cfree, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  tail call void %4(ptr noundef %6) #16
+  tail call void %4(ptr noundef %6) #15
   store ptr null, ptr %5, align 8
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @Curl_cstrdup, align 8
-  %9 = tail call ptr %8(ptr noundef nonnull %1) #16
+  %9 = tail call ptr %8(ptr noundef nonnull %1) #15
   store ptr %9, ptr %5, align 8
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %11, label %10
@@ -1285,14 +1285,14 @@ define dso_local range(i32 0, 44) i32 @curl_mime_name(ptr noundef %0, ptr nounde
   %4 = load ptr, ptr @Curl_cfree, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
-  tail call void %4(ptr noundef %6) #16
+  tail call void %4(ptr noundef %6) #15
   store ptr null, ptr %5, align 8
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @Curl_cstrdup, align 8
-  %9 = tail call ptr %8(ptr noundef nonnull %1) #16
+  %9 = tail call ptr %8(ptr noundef nonnull %1) #15
   store ptr %9, ptr %5, align 8
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %11, label %10
@@ -1314,14 +1314,14 @@ define dso_local range(i32 0, 44) i32 @curl_mime_filename(ptr noundef %0, ptr no
   %4 = load ptr, ptr @Curl_cfree, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  tail call void %4(ptr noundef %6) #16
+  tail call void %4(ptr noundef %6) #15
   store ptr null, ptr %5, align 8
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @Curl_cstrdup, align 8
-  %9 = tail call ptr %8(ptr noundef nonnull %1) #16
+  %9 = tail call ptr %8(ptr noundef nonnull %1) #15
   store ptr %9, ptr %5, align 8
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %11, label %10
@@ -1351,7 +1351,7 @@ define internal i64 @mime_mem_read(ptr nocapture noundef writeonly %0, i64 %1, i
   %7 = getelementptr inbounds i8, ptr %3, i64 136
   %8 = load i64, ptr %7, align 8
   %9 = sub nsw i64 %6, %8
-  %10 = tail call i64 @curlx_sotouz(i64 noundef %9) #16
+  %10 = tail call i64 @curlx_sotouz(i64 noundef %9) #15
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %18, label %11
 
@@ -1364,7 +1364,7 @@ define internal i64 @mime_mem_read(ptr nocapture noundef writeonly %0, i64 %1, i
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %7, align 8
-  %16 = tail call i64 @curlx_sotouz(i64 noundef %15) #16
+  %16 = tail call i64 @curlx_sotouz(i64 noundef %15) #15
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %17, i64 %spec.select, i1 false)
   br label %18
@@ -1417,7 +1417,7 @@ define internal void @mime_mem_free(ptr nocapture noundef %0) #0 {
   %2 = load ptr, ptr @Curl_cfree, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  tail call void %2(ptr noundef %4) #16
+  tail call void %2(ptr noundef %4) #15
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1510,7 +1510,7 @@ define internal void @mime_file_free(ptr nocapture noundef %0) #0 {
   %7 = load ptr, ptr @Curl_cfree, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  tail call void %7(ptr noundef %9) #16
+  tail call void %7(ptr noundef %9) #15
   store ptr null, ptr %8, align 8
   ret void
 }
@@ -1530,7 +1530,7 @@ define dso_local range(i32 0, 44) i32 @curl_mime_encoder(ptr noundef writeonly %
   %5 = phi ptr [ %10, %8 ], [ @.str.35, %3 ]
   %.020 = phi ptr [ %9, %8 ], [ @encoders, %3 ]
   %.01119 = phi i32 [ %.1, %8 ], [ 43, %3 ]
-  %6 = tail call i32 @curl_strequal(ptr noundef nonnull %1, ptr noundef nonnull %5) #16
+  %6 = tail call i32 @curl_strequal(ptr noundef nonnull %1, ptr noundef nonnull %5) #15
   %.not18 = icmp eq i32 %6, 0
   br i1 %.not18, label %8, label %7
 
@@ -1578,7 +1578,7 @@ define dso_local range(i32 0, 44) i32 @Curl_mime_set_subparts(ptr noundef %0, pt
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
-  tail call void %14(ptr noundef %17) #16
+  tail call void %14(ptr noundef %17) #15
   br label %cleanup_part_content.exit
 
 cleanup_part_content.exit:                        ; preds = %12, %15
@@ -1690,7 +1690,7 @@ define internal i32 @mime_subparts_seek(ptr nocapture noundef %0, i64 noundef %1
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.01524, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %19(ptr noundef %22, i64 noundef 0, i32 noundef 0) #16
+  %23 = tail call i32 %19(ptr noundef %22, i64 noundef 0, i32 noundef 0) #15
   switch i32 %23, label %24 [
     i32 -1, label %mime_part_rewind.exit.thread
     i32 0, label %25
@@ -1756,7 +1756,7 @@ define internal void @mime_subparts_free(ptr noundef %0) #0 {
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %6, i64 56
   %11 = load ptr, ptr %10, align 8
-  tail call void %8(ptr noundef %11) #16
+  tail call void %8(ptr noundef %11) #15
   br label %cleanup_part_content.exit
 
 cleanup_part_content.exit:                        ; preds = %4, %9
@@ -1861,7 +1861,7 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %17, align 8
-  %28 = tail call i32 @curl_strnequal(ptr noundef %27, ptr noundef nonnull @.str, i64 noundef 12) #16
+  %28 = tail call i32 @curl_strnequal(ptr noundef %27, ptr noundef nonnull @.str, i64 noundef 12) #15
   %.not.i = icmp eq i32 %28, 0
   %.pre136 = load ptr, ptr %17, align 8
   br i1 %.not.i, label %.thread, label %29
@@ -1897,9 +1897,9 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
 
 .thread:                                          ; preds = %..thread_crit_edge, %29, %26
   %38 = phi ptr [ %.pre135, %..thread_crit_edge ], [ %.pre136, %29 ], [ %.pre136, %26 ]
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #17
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #16
   %40 = load i64, ptr %12, align 8
-  %41 = tail call i64 @curlx_sotouz(i64 noundef %40) #16
+  %41 = tail call i64 @curlx_sotouz(i64 noundef %40) #15
   %42 = icmp ult i64 %41, %39
   br i1 %42, label %43, label %46
 
@@ -1938,7 +1938,7 @@ readback_bytes.exit.thread:                       ; preds = %46, %readback_bytes
 
 55:                                               ; preds = %16
   %56 = load i64, ptr %12, align 8
-  %57 = tail call i64 @curlx_sotouz(i64 noundef %56) #16
+  %57 = tail call i64 @curlx_sotouz(i64 noundef %56) #15
   %58 = icmp ult i64 %57, 2
   br i1 %58, label %readback_bytes.exit83, label %readback_bytes.exit83.thread
 
@@ -1993,7 +1993,7 @@ readback_bytes.exit83.thread:                     ; preds = %55
   %70 = load ptr, ptr %7, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i64 %72(ptr noundef %.048.i.ph, i64 noundef %.049.i.ph, i1 noundef zeroext %.pre138.mux, ptr noundef nonnull %0) #16
+  %73 = tail call i64 %72(ptr noundef %.048.i.ph, i64 noundef %.049.i.ph, i1 noundef zeroext %.pre138.mux, ptr noundef nonnull %0) #15
   switch i64 %73, label %76 [
     i64 0, label %74
     i64 -1, label %75
@@ -2145,7 +2145,7 @@ define dso_local range(i32 0, 66) i32 @Curl_mime_rewind(ptr nocapture noundef %0
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %11(ptr noundef %14, i64 noundef 0, i32 noundef 0) #16
+  %15 = tail call i32 %11(ptr noundef %14, i64 noundef 0, i32 noundef 0) #15
   %cond = icmp eq i32 %15, 0
   br i1 %cond, label %16, label %mime_part_rewind.exit.thread
 
@@ -2217,7 +2217,7 @@ multipart_size.exit:                              ; preds = %.lr.ph, %.preheader
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i64 %20(ptr noundef nonnull %0) #16
+  %21 = tail call i64 %20(ptr noundef nonnull %0) #15
   br label %22
 
 22:                                               ; preds = %18, %14
@@ -2242,7 +2242,7 @@ match_header.exit.thread.us.i:                    ; preds = %28, %match_header.e
   %.018.us.i = phi i64 [ %34, %match_header.exit.thread.us.i ], [ 0, %28 ]
   %.0916.us.i = phi ptr [ %36, %match_header.exit.thread.us.i ], [ %30, %28 ]
   %31 = load ptr, ptr %.0916.us.i, align 8
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #17
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #16
   %33 = add i64 %.018.us.i, 2
   %34 = add i64 %33, %32
   %35 = getelementptr inbounds i8, ptr %.0916.us.i, i64 8
@@ -2261,7 +2261,7 @@ slist_size.exit:                                  ; preds = %match_header.exit.t
   %.018.i = phi i64 [ %.1.i, %match_header.exit.i ], [ 0, %slist_size.exit ]
   %.0916.i = phi ptr [ %49, %match_header.exit.i ], [ %38, %slist_size.exit ]
   %39 = load ptr, ptr %.0916.i, align 8
-  %40 = tail call i32 @curl_strnequal(ptr noundef %39, ptr noundef nonnull @.str, i64 noundef 12) #16
+  %40 = tail call i32 @curl_strnequal(ptr noundef %39, ptr noundef nonnull @.str, i64 noundef 12) #15
   %.not.i.i = icmp eq i32 %40, 0
   %.pre.i = load ptr, ptr %.0916.i, align 8
   br i1 %.not.i.i, label %match_header.exit.thread.i, label %41
@@ -2273,7 +2273,7 @@ slist_size.exit:                                  ; preds = %match_header.exit.t
   br i1 %44, label %match_header.exit.i, label %match_header.exit.thread.i
 
 match_header.exit.thread.i:                       ; preds = %41, %.lr.ph.split.i
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i) #17
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i) #16
   %46 = add i64 %.018.i, 2
   %47 = add i64 %46, %45
   br label %match_header.exit.i
@@ -2301,14 +2301,14 @@ slist_size.exit20:                                ; preds = %match_header.exit.i
 define dso_local range(i32 0, 28) i32 @Curl_mime_add_header(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call ptr @curl_mvaprintf(ptr noundef %1, ptr noundef nonnull %3) #16
+  %4 = call ptr @curl_mvaprintf(ptr noundef %1, ptr noundef nonnull %3) #15
   call void @llvm.va_end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = call ptr @Curl_slist_append_nodup(ptr noundef %6, ptr noundef nonnull %4) #16
+  %7 = call ptr @Curl_slist_append_nodup(ptr noundef %6, ptr noundef nonnull %4) #15
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %9, label %8
 
@@ -2318,7 +2318,7 @@ define dso_local range(i32 0, 28) i32 @Curl_mime_add_header(ptr nocapture nounde
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @Curl_cfree, align 8
-  call void %10(ptr noundef nonnull %4) #16
+  call void %10(ptr noundef nonnull %4) #15
   br label %11
 
 11:                                               ; preds = %8, %9, %2
@@ -2336,7 +2336,7 @@ define dso_local ptr @Curl_mime_contenttype(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   br label %5
 
@@ -2344,14 +2344,14 @@ define dso_local ptr @Curl_mime_contenttype(ptr noundef %0) local_unnamed_addr #
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %16 ]
   %6 = getelementptr inbounds [10 x %struct.ContentType], ptr @Curl_mime_contenttype.ctts, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
   %.not17 = icmp ult i64 %3, %8
   br i1 %.not17, label %16, label %9
 
 9:                                                ; preds = %5
   %10 = sub i64 0, %8
   %11 = getelementptr inbounds i8, ptr %4, i64 %10
-  %12 = tail call i32 @curl_strequal(ptr noundef nonnull %11, ptr noundef %7) #16
+  %12 = tail call i32 @curl_strequal(ptr noundef nonnull %11, ptr noundef %7) #15
   %.not18 = icmp eq i32 %12, 0
   br i1 %.not18, label %16, label %13
 
@@ -2374,7 +2374,7 @@ define dso_local ptr @Curl_mime_contenttype(ptr noundef %0) local_unnamed_addr #
 define dso_local i32 @Curl_mime_prepare_headers(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8
-  tail call void @curl_slist_free_all(ptr noundef %7) #16
+  tail call void @curl_slist_free_all(ptr noundef %7) #15
   store ptr null, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 120
   %9 = load i32, ptr %8, align 8
@@ -2401,7 +2401,7 @@ define dso_local i32 @Curl_mime_prepare_headers(ptr noundef %0, ptr nocapture no
 .lr.ph.i:                                         ; preds = %16, %match_header.exit.i
   %.067.i = phi ptr [ %30, %match_header.exit.i ], [ %18, %16 ]
   %19 = load ptr, ptr %.067.i, align 8
-  %20 = tail call i32 @curl_strnequal(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef 12) #16
+  %20 = tail call i32 @curl_strnequal(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef 12) #15
   %.not.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i, label %match_header.exit.i, label %21
 
@@ -2451,7 +2451,7 @@ search_header.exit:                               ; preds = %match_header.exit.i
   br i1 %.not.i177, label %Curl_mime_contenttype.exit.thread, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #17
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
   br label %41
 
@@ -2459,14 +2459,14 @@ search_header.exit:                               ; preds = %match_header.exit.i
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %49 ]
   %42 = getelementptr inbounds [10 x %struct.ContentType], ptr @Curl_mime_contenttype.ctts, i64 0, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 16
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #17
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #16
   %.not17.i = icmp ult i64 %39, %44
   br i1 %.not17.i, label %49, label %45
 
 45:                                               ; preds = %41
   %46 = sub i64 0, %44
   %47 = getelementptr inbounds i8, ptr %40, i64 %46
-  %48 = tail call i32 @curl_strequal(ptr noundef nonnull %47, ptr noundef %43) #16
+  %48 = tail call i32 @curl_strequal(ptr noundef nonnull %47, ptr noundef %43) #15
   %.not18.i = icmp eq i32 %48, 0
   br i1 %.not18.i, label %49, label %Curl_mime_contenttype.exit
 
@@ -2488,7 +2488,7 @@ Curl_mime_contenttype.exit.thread:                ; preds = %49, %35, %Curl_mime
   br i1 %.not.i178, label %Curl_mime_contenttype.exit185.thread, label %54
 
 54:                                               ; preds = %Curl_mime_contenttype.exit.thread
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #17
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #16
   %56 = getelementptr inbounds i8, ptr %53, i64 %55
   br label %57
 
@@ -2496,14 +2496,14 @@ Curl_mime_contenttype.exit.thread:                ; preds = %49, %35, %Curl_mime
   %indvars.iv.i179 = phi i64 [ 0, %54 ], [ %indvars.iv.next.i183, %65 ]
   %58 = getelementptr inbounds [10 x %struct.ContentType], ptr @Curl_mime_contenttype.ctts, i64 0, i64 %indvars.iv.i179
   %59 = load ptr, ptr %58, align 16
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #17
+  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #16
   %.not17.i180 = icmp ult i64 %55, %60
   br i1 %.not17.i180, label %65, label %61
 
 61:                                               ; preds = %57
   %62 = sub i64 0, %60
   %63 = getelementptr inbounds i8, ptr %56, i64 %62
-  %64 = tail call i32 @curl_strequal(ptr noundef nonnull %63, ptr noundef %59) #16
+  %64 = tail call i32 @curl_strequal(ptr noundef nonnull %63, ptr noundef %59) #15
   %.not18.i181 = icmp eq i32 %64, 0
   br i1 %.not18.i181, label %65, label %Curl_mime_contenttype.exit185
 
@@ -2531,7 +2531,7 @@ Curl_mime_contenttype.exit185.thread:             ; preds = %65, %Curl_mime_cont
   br i1 %.not.i186, label %Curl_mime_contenttype.exit193, label %72
 
 72:                                               ; preds = %69
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #17
+  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #16
   %74 = getelementptr inbounds i8, ptr %71, i64 %73
   br label %75
 
@@ -2539,14 +2539,14 @@ Curl_mime_contenttype.exit185.thread:             ; preds = %65, %Curl_mime_cont
   %indvars.iv.i187 = phi i64 [ 0, %72 ], [ %indvars.iv.next.i191, %86 ]
   %76 = getelementptr inbounds [10 x %struct.ContentType], ptr @Curl_mime_contenttype.ctts, i64 0, i64 %indvars.iv.i187
   %77 = load ptr, ptr %76, align 16
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #17
+  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #16
   %.not17.i188 = icmp ult i64 %73, %78
   br i1 %.not17.i188, label %86, label %79
 
 79:                                               ; preds = %75
   %80 = sub i64 0, %78
   %81 = getelementptr inbounds i8, ptr %74, i64 %80
-  %82 = tail call i32 @curl_strequal(ptr noundef nonnull %81, ptr noundef %77) #16
+  %82 = tail call i32 @curl_strequal(ptr noundef nonnull %81, ptr noundef %77) #15
   %.not18.i189 = icmp eq i32 %82, 0
   br i1 %.not18.i189, label %86, label %83
 
@@ -2581,7 +2581,7 @@ Curl_mime_contenttype.exit193:                    ; preds = %86, %Curl_mime_cont
   br i1 %or.cond, label %content_type_match.exit, label %96
 
 96:                                               ; preds = %94
-  %97 = tail call i32 @curl_strnequal(ptr noundef nonnull %.2114, ptr noundef nonnull @.str.11, i64 noundef 10) #16
+  %97 = tail call i32 @curl_strnequal(ptr noundef nonnull %.2114, ptr noundef nonnull @.str.11, i64 noundef 10) #15
   %.not7.i = icmp eq i32 %97, 0
   br i1 %.not7.i, label %content_type_match.exit, label %98
 
@@ -2622,7 +2622,7 @@ content_type_match.exit:                          ; preds = %98, %96, %90, %94, 
 .lr.ph.i197:                                      ; preds = %content_type_match.exit, %match_header.exit.i200
   %.067.i198 = phi ptr [ %117, %match_header.exit.i200 ], [ %108, %content_type_match.exit ]
   %109 = load ptr, ptr %.067.i198, align 8
-  %110 = tail call i32 @curl_strnequal(ptr noundef %109, ptr noundef nonnull @.str.21, i64 noundef 19) #16
+  %110 = tail call i32 @curl_strnequal(ptr noundef %109, ptr noundef nonnull @.str.21, i64 noundef 19) #15
   %.not.i.i199 = icmp eq i32 %110, 0
   br i1 %.not.i.i199, label %match_header.exit.i200, label %111
 
@@ -2660,13 +2660,13 @@ match_header.exit.i200:                           ; preds = %111, %.lr.ph.i197
   br i1 %.not145, label %search_header.exit207.thread273, label %125
 
 125:                                              ; preds = %124
-  %126 = tail call i32 @curl_strnequal(ptr noundef nonnull %.3115, ptr noundef nonnull @.str.22, i64 noundef 10) #16
+  %126 = tail call i32 @curl_strnequal(ptr noundef nonnull %.3115, ptr noundef nonnull @.str.22, i64 noundef 10) #15
   %.not146 = icmp eq i32 %126, 0
   br i1 %.not146, label %127, label %search_header.exit207.thread272
 
 127:                                              ; preds = %118, %121, %125, %.loopexit276
   %.0109 = phi ptr [ %3, %.loopexit276 ], [ @.str.23, %125 ], [ @.str.23, %121 ], [ @.str.23, %118 ]
-  %128 = tail call i32 @curl_strequal(ptr noundef nonnull %.0109, ptr noundef nonnull @.str.23) #16
+  %128 = tail call i32 @curl_strequal(ptr noundef nonnull %.0109, ptr noundef nonnull @.str.23) #15
   %.not148 = icmp eq i32 %128, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 104
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -2720,9 +2720,9 @@ select.unfold249:                                 ; preds = %137, %.thread299, %
   %.0102247256 = phi ptr [ %.0102.ph, %139 ], [ null, %.thread299 ], [ %.0102.ph, %137 ]
   %.2 = phi i32 [ %146, %139 ], [ 27, %.thread299 ], [ 27, %137 ]
   %147 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %147(ptr noundef %.0102247256) #16
+  tail call void %147(ptr noundef %.0102247256) #15
   %148 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %148(ptr noundef %.0101258) #16
+  tail call void %148(ptr noundef %.0101258) #15
   %.not160 = icmp eq i32 %.2, 0
   br i1 %.not160, label %search_header.exit207, label %.loopexit
 
@@ -2747,7 +2747,7 @@ search_header.exit207.thread273:                  ; preds = %124, %search_header
 .lr.ph.i210:                                      ; preds = %search_header.exit207.thread273, %match_header.exit.i213
   %.067.i211 = phi ptr [ %162, %match_header.exit.i213 ], [ %153, %search_header.exit207.thread273 ]
   %154 = load ptr, ptr %.067.i211, align 8
-  %155 = tail call i32 @curl_strnequal(ptr noundef %154, ptr noundef nonnull @.str.29, i64 noundef 25) #16
+  %155 = tail call i32 @curl_strnequal(ptr noundef %154, ptr noundef nonnull @.str.29, i64 noundef 25) #15
   %.not.i.i212 = icmp eq i32 %155, 0
   br i1 %.not.i.i212, label %match_header.exit.i213, label %156
 
@@ -2816,7 +2816,7 @@ search_header.exit220:                            ; preds = %156, %167, %165, %1
   br i1 %.not.i221, label %content_type_match.exit224, label %183
 
 183:                                              ; preds = %182
-  %184 = tail call i32 @curl_strnequal(ptr noundef nonnull %.3115, ptr noundef nonnull @.str.32, i64 noundef 19) #16
+  %184 = tail call i32 @curl_strnequal(ptr noundef nonnull %.3115, ptr noundef nonnull @.str.32, i64 noundef 19) #15
   %.not7.i222 = icmp eq i32 %184, 0
   br i1 %.not7.i222, label %content_type_match.exit224, label %185
 
@@ -2880,8 +2880,8 @@ define internal fastcc ptr @escape_string(ptr noundef readonly %0, ptr noundef %
 
 12:                                               ; preds = %11, %7, %6
   %.015 = phi ptr [ @escape_string.mimetable, %11 ], [ @escape_string.formtable, %7 ], [ @escape_string.formtable, %6 ]
-  call void @Curl_dyn_init(ptr noundef nonnull %4, i64 noundef 8000000) #16
-  %13 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, i64 noundef 0) #16
+  call void @Curl_dyn_init(ptr noundef nonnull %4, i64 noundef 8000000) #15
+  %13 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, i64 noundef 0) #15
   %.not2230 = icmp eq i32 %13, 0
   br i1 %.not2230, label %.lr.ph33, label %.critedge
 
@@ -2911,11 +2911,11 @@ define internal fastcc ptr @escape_string(ptr noundef readonly %0, ptr noundef %
 
 .critedge2:                                       ; preds = %.lr.ph
   %21 = getelementptr inbounds i8, ptr %19, i64 1
-  %22 = call i32 @Curl_dyn_add(ptr noundef nonnull %4, ptr noundef nonnull %21) #16
+  %22 = call i32 @Curl_dyn_add(ptr noundef nonnull %4, ptr noundef nonnull %21) #15
   br label %24
 
 ._crit_edge:                                      ; preds = %16, %.preheader
-  %23 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %.01731, i64 noundef 1) #16
+  %23 = call i32 @Curl_dyn_addn(ptr noundef nonnull %4, ptr noundef nonnull %.01731, i64 noundef 1) #15
   br label %24
 
 24:                                               ; preds = %.critedge2, %._crit_edge
@@ -2925,7 +2925,7 @@ define internal fastcc ptr @escape_string(ptr noundef readonly %0, ptr noundef %
   br i1 %.not22, label %.lr.ph33, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph33, %24, %12
-  %26 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #16
+  %26 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %4) #15
   ret ptr %26
 }
 
@@ -3034,7 +3034,7 @@ define internal i64 @encoder_nop_size(ptr nocapture noundef readonly %0) #11 {
   ret i64 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i64 @encoder_7bit_read(ptr nocapture noundef writeonly %0, i64 noundef %1, i1 zeroext %2, ptr nocapture noundef %3) #12 {
   %5 = getelementptr inbounds i8, ptr %3, i64 160
   %.not = icmp eq i64 %1, 0
@@ -3083,7 +3083,7 @@ define internal i64 @encoder_7bit_read(ptr nocapture noundef writeonly %0, i64 n
   ret i64 %.018
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) #12 {
   %5 = getelementptr inbounds i8, ptr %3, i64 152
   %6 = getelementptr inbounds i8, ptr %3, i64 160
@@ -3310,8 +3310,8 @@ define internal range(i64 4, 1) i64 @encoder_base64_size(ptr nocapture noundef r
   ret i64 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @encoder_qp_read(ptr nocapture noundef writeonly %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal i64 @encoder_qp_read(ptr nocapture noundef writeonly %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) #12 {
   %5 = alloca [4 x i8], align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 152
   %7 = getelementptr inbounds i8, ptr %3, i64 160
@@ -3598,7 +3598,7 @@ define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %0, 
 
 29:                                               ; preds = %24
   %30 = load i64, ptr %21, align 8
-  %31 = tail call i64 @curlx_sotouz(i64 noundef %30) #16
+  %31 = tail call i64 @curlx_sotouz(i64 noundef %30) #15
   %32 = icmp ult i64 %31, 4
   br i1 %32, label %readback_bytes.exit49, label %readback_bytes.exit49.thread
 
@@ -3621,7 +3621,7 @@ readback_bytes.exit49.thread:                     ; preds = %29
 37:                                               ; preds = %24
   %.not55.i = icmp eq ptr %25, null
   %38 = load i64, ptr %21, align 8
-  %39 = tail call i64 @curlx_sotouz(i64 noundef %38) #16
+  %39 = tail call i64 @curlx_sotouz(i64 noundef %38) #15
   %40 = icmp ult i64 %39, 46
   br i1 %.not55.i, label %51, label %41
 
@@ -3732,7 +3732,7 @@ readback_bytes.exit43:                            ; preds = %readback_bytes.exit
   br i1 %.not32, label %78, label %76
 
 76:                                               ; preds = %73
-  %77 = tail call i32 @feof(ptr noundef nonnull %75) #16
+  %77 = tail call i32 @feof(ptr noundef nonnull %75) #15
   %.not33 = icmp eq i32 %77, 0
   br i1 %.not33, label %78, label %.sink.split
 
@@ -3763,7 +3763,7 @@ readback_bytes.exit43:                            ; preds = %readback_bytes.exit
   %90 = phi ptr [ %.pre, %88 ], [ %80, %81 ]
   %91 = getelementptr inbounds i8, ptr %0, i64 56
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call i64 %90(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %92) #16
+  %93 = tail call i64 %90(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %92) #15
   br label %mime_subparts_read.exit
 
 mime_subparts_read.exit:                          ; preds = %readback_bytes.exit43, %24, %66, %89
@@ -3808,16 +3808,16 @@ declare i32 @Curl_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #14
+declare void @llvm.va_start.p0(ptr) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #14
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3831,12 +3831,11 @@ attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

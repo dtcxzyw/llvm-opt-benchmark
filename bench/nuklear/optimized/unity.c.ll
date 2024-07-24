@@ -309,7 +309,7 @@ if.end114:                                        ; preds = %if.then46, %if.else
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @nk_strlen(ptr noundef readonly %str) local_unnamed_addr #6 {
 entry:
   %tobool.not3 = icmp eq ptr %str, null
@@ -334,7 +334,7 @@ while.end:                                        ; preds = %while.body, %land.r
   ret i32 %siz.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @nk_strtoi(ptr noundef %str, ptr noundef writeonly %endptr) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %str, null
@@ -399,7 +399,7 @@ return:                                           ; preds = %entry, %if.end23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define double @nk_strtod(ptr noundef %str, ptr noundef writeonly %endptr) local_unnamed_addr #7 {
+define double @nk_strtod(ptr noundef %str, ptr noundef writeonly %endptr) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %return, label %while.cond
@@ -539,14 +539,14 @@ return:                                           ; preds = %if.end79, %if.then8
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define float @nk_strtof(ptr noundef %str, ptr noundef %endptr) local_unnamed_addr #7 {
+define float @nk_strtof(ptr noundef %str, ptr noundef %endptr) local_unnamed_addr #8 {
 entry:
   %call = tail call double @nk_strtod(ptr noundef %str, ptr noundef %endptr)
   %conv = fptrunc double %call to float
   ret float %conv
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @nk_stricmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) local_unnamed_addr #6 {
 entry:
   br label %do.body
@@ -600,7 +600,7 @@ return:                                           ; preds = %do.cond, %if.end19
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @nk_stricmpn(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   br label %do.body
@@ -660,8 +660,8 @@ return:                                           ; preds = %do.cond, %do.body, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_strfilter(ptr noundef readonly %text, ptr noundef readonly %regexp) local_unnamed_addr #8 {
+; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
+define range(i32 0, 2) i32 @nk_strfilter(ptr noundef readonly %text, ptr noundef readonly %regexp) local_unnamed_addr #9 {
 entry:
   %0 = load i8, ptr %regexp, align 1
   %cmp = icmp eq i8 %0, 94
@@ -689,8 +689,8 @@ return:                                           ; preds = %do.cond, %do.body, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_str_match_here(ptr noundef readonly %regexp, ptr noundef readonly %text) unnamed_addr #8 {
+; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
+define internal fastcc range(i32 0, 2) i32 @nk_str_match_here(ptr noundef readonly %regexp, ptr noundef readonly %text) unnamed_addr #9 {
 entry:
   %0 = load i8, ptr %regexp, align 1
   %cmp22 = icmp eq i8 %0, 0
@@ -771,7 +771,7 @@ return:                                           ; preds = %if.then36, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly %str, i32 noundef %str_len, ptr noundef readonly %pattern, ptr noundef writeonly %out_score) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly %str, i32 noundef %str_len, ptr noundef readonly %pattern, ptr noundef writeonly %out_score) local_unnamed_addr #8 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne i32 %str_len, 0
@@ -947,7 +947,7 @@ return:                                           ; preds = %if.end113, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_strmatch_fuzzy_string(ptr noundef %str, ptr noundef %pattern, ptr noundef %out_score) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @nk_strmatch_fuzzy_string(ptr noundef %str, ptr noundef %pattern, ptr noundef %out_score) local_unnamed_addr #8 {
 entry:
   %tobool.not3.i = icmp eq ptr %str, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -972,7 +972,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   ret i32 %call1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @nk_murmur_hash(ptr noundef readonly %key, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #6 {
 entry:
   %div = sdiv i32 %len, 4
@@ -1153,7 +1153,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -16777216, 0) i32 @nk_rgb_hex(ptr nocapture noundef readonly %rgb) local_unnamed_addr #9 {
+define range(i32 -16777216, 0) i32 @nk_rgb_hex(ptr nocapture noundef readonly %rgb) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %rgb, align 1
   %cmp = icmp eq i8 %0, 35
@@ -1286,7 +1286,7 @@ nk_parse_hex.exit44:                              ; preds = %if.end36.i37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @nk_rgba_hex(ptr nocapture noundef readonly %rgb) local_unnamed_addr #9 {
+define i32 @nk_rgba_hex(ptr nocapture noundef readonly %rgb) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %rgb, align 1
   %cmp = icmp eq i8 %0, 35
@@ -4005,7 +4005,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @nk_utf_decode(ptr noundef readonly %c, ptr noundef writeonly %u, i32 noundef %clen) local_unnamed_addr #13 {
+define i32 @nk_utf_decode(ptr noundef readonly %c, ptr noundef writeonly %u, i32 noundef %clen) local_unnamed_addr #7 {
 entry:
   %tobool = icmp eq ptr %c, null
   %tobool1 = icmp eq ptr %u, null
@@ -4132,7 +4132,7 @@ return:                                           ; preds = %for.inc.i, %return.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define range(i32 -2147483648, 5) i32 @nk_utf_encode(i32 noundef %u, ptr nocapture noundef writeonly %c, i32 noundef %clen) local_unnamed_addr #14 {
+define range(i32 -2147483648, 5) i32 @nk_utf_encode(i32 noundef %u, ptr nocapture noundef writeonly %c, i32 noundef %clen) local_unnamed_addr #13 {
 entry:
   %cmp3.i = icmp ugt i32 %u, 1114110
   %0 = add i32 %u, -55296
@@ -4199,7 +4199,7 @@ return:                                           ; preds = %nk_utf_validate.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @nk_utf_len(ptr noundef readonly %str, i32 noundef %len) local_unnamed_addr #9 {
+define i32 @nk_utf_len(ptr noundef readonly %str, i32 noundef %len) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne i32 %len, 0
@@ -4400,7 +4400,7 @@ return:                                           ; preds = %while.body, %nk_utf
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @nk_utf_at(ptr noundef readonly %buffer, i32 noundef %length, i32 noundef %index, ptr noundef writeonly %unicode, ptr noundef writeonly %len) local_unnamed_addr #13 {
+define ptr @nk_utf_at(ptr noundef readonly %buffer, i32 noundef %length, i32 noundef %index, ptr noundef writeonly %unicode, ptr noundef writeonly %len) local_unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %buffer, null
   %tobool1 = icmp ne ptr %unicode, null
@@ -4698,7 +4698,7 @@ return:                                           ; preds = %while.end, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @nk_buffer_init_default(ptr noundef %buffer) local_unnamed_addr #15 {
+define void @nk_buffer_init_default(ptr noundef %buffer) local_unnamed_addr #14 {
 entry:
   %tobool.i.not = icmp eq ptr %buffer, null
   br i1 %tobool.i.not, label %nk_buffer_init.exit, label %if.end.i
@@ -4725,7 +4725,7 @@ if.end19.i.i.i:                                   ; preds = %if.end.i
 nk_zero.exit.i:                                   ; preds = %if.end19.i.i.i, %if.end19.i.i.thread.i
   %type.i = getelementptr inbounds i8, ptr %buffer, i64 56
   store i32 1, ptr %type.i, align 8
-  %call.i1 = tail call noalias noundef dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #50
+  %call.i1 = tail call noalias noundef dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #51
   %memory.i = getelementptr inbounds i8, ptr %buffer, i64 64
   store ptr %call.i1, ptr %memory.i, align 8
   %size.i = getelementptr inbounds i8, ptr %buffer, i64 72
@@ -4747,21 +4747,21 @@ nk_buffer_init.exit:                              ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @nk_malloc(ptr nocapture readnone %unused.coerce, ptr nocapture readnone %old, i64 noundef %size) #16 {
+define internal noalias noundef ptr @nk_malloc(ptr nocapture readnone %unused.coerce, ptr nocapture readnone %old, i64 noundef %size) #15 {
 entry:
-  %call = tail call noalias ptr @malloc(i64 noundef %size) #50
+  %call = tail call noalias ptr @malloc(i64 noundef %size) #51
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @nk_mfree(ptr nocapture readnone %unused.coerce, ptr nocapture noundef %ptr) #17 {
+define internal void @nk_mfree(ptr nocapture readnone %unused.coerce, ptr nocapture noundef %ptr) #16 {
 entry:
-  tail call void @free(ptr noundef %ptr) #51
+  tail call void @free(ptr noundef %ptr) #52
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_buffer_init(ptr noundef %b, ptr noundef readonly %a, i64 noundef %initial_size) local_unnamed_addr #18 {
+define void @nk_buffer_init(ptr noundef %b, ptr noundef readonly %a, i64 noundef %initial_size) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %b, null
   %tobool1 = icmp ne ptr %a, null
@@ -4795,7 +4795,7 @@ nk_zero.exit:                                     ; preds = %if.end19.i.i.thread
   %alloc = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %alloc, align 8
   %2 = load ptr, ptr %a, align 8
-  %call = tail call ptr %1(ptr %2, ptr noundef null, i64 noundef %initial_size) #51
+  %call = tail call ptr %1(ptr %2, ptr noundef null, i64 noundef %initial_size) #52
   %memory = getelementptr inbounds i8, ptr %b, i64 64
   store ptr %call, ptr %memory, align 8
   %size = getelementptr inbounds i8, ptr %b, i64 72
@@ -4857,7 +4857,7 @@ return:                                           ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_buffer_push(ptr noundef %b, i32 noundef %type, ptr noundef %memory, i64 noundef %size, i64 noundef %align) local_unnamed_addr #18 {
+define void @nk_buffer_push(ptr noundef %b, i32 noundef %type, ptr noundef %memory, i64 noundef %size, i64 noundef %align) local_unnamed_addr #17 {
 entry:
   %call = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %b, i32 noundef %type, i64 noundef %size, i64 noundef %align)
   %tobool.not = icmp eq ptr %call, null
@@ -4872,7 +4872,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @nk_buffer_alloc(ptr noundef %b, i32 noundef %type, i64 noundef %size, i64 noundef %align) unnamed_addr #18 {
+define internal fastcc ptr @nk_buffer_alloc(ptr noundef %b, i32 noundef %type, i64 noundef %size, i64 noundef %align) unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %b, null
   %tobool1 = icmp ne i64 %size, 0
@@ -5002,7 +5002,7 @@ if.end45:                                         ; preds = %lor.lhs.false41
   %spec.select = tail call i64 @llvm.umax.i64(i64 %conv49, i64 %conv54)
   %pool.i = getelementptr inbounds i8, ptr %b, i64 32
   %20 = load ptr, ptr %pool.i, align 8
-  %call.i = tail call ptr %16(ptr %20, ptr noundef %1, i64 noundef %spec.select) #51
+  %call.i = tail call ptr %16(ptr %20, ptr noundef %1, i64 noundef %spec.select) #52
   %tobool12.not.i = icmp eq ptr %call.i, null
   br i1 %tobool12.not.i, label %nk_buffer_realloc.exit.thread, label %if.end14.i
 
@@ -5021,7 +5021,7 @@ if.then17.i:                                      ; preds = %if.end14.i
   %22 = load ptr, ptr %free, align 8
   %23 = load ptr, ptr %memory46, align 8
   %24 = load ptr, ptr %pool.i, align 8
-  tail call void %22(ptr %24, ptr noundef %23) #51
+  tail call void %22(ptr %24, ptr noundef %23) #52
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then17.i, %if.end14.i
@@ -5127,8 +5127,8 @@ return:                                           ; preds = %nk_buffer_realloc.e
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @nk_memcopy(ptr noundef returned %dst0, ptr noundef %src0, i64 noundef %length) unnamed_addr #19 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc noundef ptr @nk_memcopy(ptr noundef returned %dst0, ptr noundef %src0, i64 noundef %length) unnamed_addr #7 {
 entry:
   %cmp = icmp eq i64 %length, 0
   %cmp1 = icmp eq ptr %dst0, %src0
@@ -5299,7 +5299,7 @@ done:                                             ; preds = %do.body75, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_buffer_mark(ptr noundef %buffer, i32 noundef %type) local_unnamed_addr #20 {
+define void @nk_buffer_mark(ptr noundef %buffer, i32 noundef %type) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %buffer, null
   br i1 %tobool.not, label %if.end9, label %if.end
@@ -5320,8 +5320,8 @@ if.end9:                                          ; preds = %if.end, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_buffer_reset(ptr noundef %buffer, i32 noundef %type) local_unnamed_addr #21 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @nk_buffer_reset(ptr noundef %buffer, i32 noundef %type) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %buffer, null
   br i1 %tobool.not, label %if.end47, label %if.end
@@ -5376,7 +5376,7 @@ if.end47:                                         ; preds = %if.end47.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_buffer_clear(ptr noundef %b) local_unnamed_addr #20 {
+define void @nk_buffer_clear(ptr noundef %b) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %if.end
@@ -5397,7 +5397,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_buffer_free(ptr noundef readonly %b) local_unnamed_addr #18 {
+define void @nk_buffer_free(ptr noundef readonly %b) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -5423,7 +5423,7 @@ if.end3:                                          ; preds = %if.end
 if.end6:                                          ; preds = %if.end3
   %pool = getelementptr inbounds i8, ptr %b, i64 32
   %3 = load ptr, ptr %pool, align 8
-  tail call void %2(ptr %3, ptr noundef nonnull %0) #51
+  tail call void %2(ptr %3, ptr noundef nonnull %0) #52
   br label %return
 
 return:                                           ; preds = %if.end3, %if.end, %entry, %lor.lhs.false, %if.end6
@@ -5431,7 +5431,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_buffer_info(ptr noundef writeonly %s, ptr noundef readonly %b) local_unnamed_addr #20 {
+define void @nk_buffer_info(ptr noundef writeonly %s, ptr noundef readonly %b) local_unnamed_addr #18 {
 entry:
   %tobool = icmp ne ptr %s, null
   %tobool1 = icmp ne ptr %b, null
@@ -5513,7 +5513,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @nk_str_init_default(ptr noundef %str) local_unnamed_addr #15 {
+define void @nk_str_init_default(ptr noundef %str) local_unnamed_addr #14 {
 entry:
   %tobool.i.not = icmp eq ptr %str, null
   br i1 %tobool.i.not, label %nk_buffer_init.exit, label %if.end.i
@@ -5540,7 +5540,7 @@ if.end19.i.i.i:                                   ; preds = %if.end.i
 nk_zero.exit.i:                                   ; preds = %if.end19.i.i.i, %if.end19.i.i.thread.i
   %type.i = getelementptr inbounds i8, ptr %str, i64 56
   store i32 1, ptr %type.i, align 8
-  %call.i2 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #50
+  %call.i2 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #51
   %memory.i = getelementptr inbounds i8, ptr %str, i64 64
   store ptr %call.i2, ptr %memory.i, align 8
   %size.i = getelementptr inbounds i8, ptr %str, i64 72
@@ -5564,7 +5564,7 @@ nk_buffer_init.exit:                              ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_str_init(ptr noundef %str, ptr noundef readonly %alloc, i64 noundef %size) local_unnamed_addr #18 {
+define void @nk_str_init(ptr noundef %str, ptr noundef readonly %alloc, i64 noundef %size) local_unnamed_addr #17 {
 entry:
   %tobool.i = icmp ne ptr %str, null
   %tobool1.i = icmp ne ptr %alloc, null
@@ -5598,7 +5598,7 @@ nk_zero.exit.i:                                   ; preds = %if.end19.i.i.i, %if
   %alloc.i = getelementptr inbounds i8, ptr %alloc, i64 8
   %1 = load ptr, ptr %alloc.i, align 8
   %2 = load ptr, ptr %alloc, align 8
-  %call.i = tail call ptr %1(ptr %2, ptr noundef null, i64 noundef %size) #51
+  %call.i = tail call ptr %1(ptr %2, ptr noundef null, i64 noundef %size) #52
   %memory.i = getelementptr inbounds i8, ptr %str, i64 64
   store ptr %call.i, ptr %memory.i, align 8
   %size.i = getelementptr inbounds i8, ptr %str, i64 72
@@ -5664,7 +5664,7 @@ nk_buffer_init_fixed.exit:                        ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_append_text_char(ptr noundef %s, ptr noundef %str, i32 noundef %len) local_unnamed_addr #18 {
+define noundef i32 @nk_str_append_text_char(ptr noundef %s, ptr noundef %str, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %s, null
   %tobool1 = icmp ne ptr %str, null
@@ -5694,7 +5694,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_append_str_char(ptr noundef %s, ptr noundef %str) local_unnamed_addr #18 {
+define i32 @nk_str_append_str_char(ptr noundef %s, ptr noundef %str) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %str, null
   br i1 %tobool.not3.i, label %nk_str_append_text_char.exit, label %land.rhs.i.preheader
@@ -5738,7 +5738,7 @@ nk_str_append_text_char.exit:                     ; preds = %land.rhs.i.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_append_text_utf8(ptr noundef %str, ptr noundef %text, i32 noundef %len) local_unnamed_addr #18 {
+define noundef i32 @nk_str_append_text_utf8(ptr noundef %str, ptr noundef %text, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne ptr %text, null
@@ -5870,7 +5870,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_append_str_utf8(ptr noundef %str, ptr noundef %text) local_unnamed_addr #18 {
+define i32 @nk_str_append_str_utf8(ptr noundef %str, ptr noundef %text) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne ptr %text, null
@@ -6148,7 +6148,7 @@ return:                                           ; preds = %for.end.i, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_append_text_runes(ptr noundef %str, ptr noundef readonly %text, i32 noundef %len) local_unnamed_addr #18 {
+define noundef i32 @nk_str_append_text_runes(ptr noundef %str, ptr noundef readonly %text, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %glyph = alloca [4 x i8], align 1
   %tobool = icmp ne ptr %str, null
@@ -6249,7 +6249,7 @@ return:                                           ; preds = %nk_str_append_text_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_append_str_runes(ptr noundef %str, ptr noundef readonly %runes) local_unnamed_addr #18 {
+define i32 @nk_str_append_str_runes(ptr noundef %str, ptr noundef readonly %runes) local_unnamed_addr #17 {
 entry:
   %glyph = alloca [4 x i8], align 1
   %tobool = icmp ne ptr %str, null
@@ -6353,7 +6353,7 @@ return:                                           ; preds = %return.loopexit, %w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_str_insert_at_char(ptr noundef %s, i32 noundef %pos, ptr noundef %str, i32 noundef %len) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_str_insert_at_char(ptr noundef %s, i32 noundef %pos, ptr noundef %str, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %s, null
   %tobool1 = icmp ne ptr %str, null
@@ -6458,7 +6458,7 @@ return:                                           ; preds = %if.end6.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_at_rune(ptr noundef %str, i32 noundef %pos, ptr noundef %cstr, i32 noundef %len) local_unnamed_addr #18 {
+define i32 @nk_str_insert_at_rune(ptr noundef %str, i32 noundef %pos, ptr noundef %cstr, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %glyph_len = alloca i32, align 4
   %unicode = alloca i32, align 4
@@ -6520,7 +6520,7 @@ return:                                           ; preds = %if.end6.i, %if.end.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @nk_str_at_rune(ptr noundef readonly %str, i32 noundef %pos, ptr noundef writeonly %unicode, ptr noundef writeonly %len) local_unnamed_addr #7 {
+define ptr @nk_str_at_rune(ptr noundef readonly %str, i32 noundef %pos, ptr noundef writeonly %unicode, ptr noundef writeonly %len) local_unnamed_addr #8 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne ptr %unicode, null
@@ -6859,7 +6859,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_insert_text_char(ptr noundef %str, i32 noundef %pos, ptr noundef %text, i32 noundef %len) local_unnamed_addr #18 {
+define noundef i32 @nk_str_insert_text_char(ptr noundef %str, i32 noundef %pos, ptr noundef %text, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %tobool.i = icmp ne ptr %str, null
   %tobool1.i = icmp ne ptr %text, null
@@ -6980,7 +6980,7 @@ nk_str_insert_text_utf8.exit:                     ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_insert_text_utf8(ptr noundef %str, i32 noundef %pos, ptr noundef %text, i32 noundef %len) local_unnamed_addr #18 {
+define noundef i32 @nk_str_insert_text_utf8(ptr noundef %str, i32 noundef %pos, ptr noundef %text, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne ptr %text, null
@@ -7098,7 +7098,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_str_char(ptr noundef %str, i32 noundef %pos, ptr noundef %text) local_unnamed_addr #18 {
+define i32 @nk_str_insert_str_char(ptr noundef %str, i32 noundef %pos, ptr noundef %text) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %text, null
   br i1 %tobool.not3.i, label %nk_str_insert_text_utf8.exit, label %land.rhs.i.preheader
@@ -7228,7 +7228,7 @@ nk_str_insert_text_utf8.exit:                     ; preds = %land.rhs.i.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_str_utf8(ptr noundef %str, i32 noundef %pos, ptr noundef %text) local_unnamed_addr #18 {
+define i32 @nk_str_insert_str_utf8(ptr noundef %str, i32 noundef %pos, ptr noundef %text) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne ptr %text, null
@@ -7491,7 +7491,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_insert_text_runes(ptr noundef %str, i32 noundef %pos, ptr noundef readonly %runes, i32 noundef %len) local_unnamed_addr #18 {
+define noundef i32 @nk_str_insert_text_runes(ptr noundef %str, i32 noundef %pos, ptr noundef readonly %runes, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %glyph = alloca [4 x i8], align 1
   %tobool = icmp ne ptr %str, null
@@ -7581,7 +7581,7 @@ return:                                           ; preds = %nk_utf_encode.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_str_runes(ptr noundef %str, i32 noundef %pos, ptr noundef readonly %runes) local_unnamed_addr #18 {
+define i32 @nk_str_insert_str_runes(ptr noundef %str, i32 noundef %pos, ptr noundef readonly %runes) local_unnamed_addr #17 {
 entry:
   %glyph = alloca [4 x i8], align 1
   %tobool = icmp ne ptr %str, null
@@ -7675,7 +7675,7 @@ return:                                           ; preds = %return.loopexit, %w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_str_remove_chars(ptr noundef %s, i32 noundef %len) local_unnamed_addr #7 {
+define void @nk_str_remove_chars(ptr noundef %s, i32 noundef %len) local_unnamed_addr #8 {
 entry:
   %tobool = icmp eq ptr %s, null
   %cmp = icmp slt i32 %len, 0
@@ -7705,7 +7705,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_str_remove_runes(ptr noundef %str, i32 noundef %len) local_unnamed_addr #7 {
+define void @nk_str_remove_runes(ptr noundef %str, i32 noundef %len) local_unnamed_addr #8 {
 entry:
   %len.addr = alloca i32, align 4
   %unicode = alloca i32, align 4
@@ -7988,7 +7988,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @nk_str_at_const(ptr noundef readonly %str, i32 noundef %pos, ptr noundef writeonly %unicode, ptr noundef writeonly %len) local_unnamed_addr #7 {
+define ptr @nk_str_at_const(ptr noundef readonly %str, i32 noundef %pos, ptr noundef writeonly %unicode, ptr noundef writeonly %len) local_unnamed_addr #8 {
 entry:
   %tobool = icmp ne ptr %str, null
   %tobool1 = icmp ne ptr %unicode, null
@@ -8299,7 +8299,7 @@ return:                                           ; preds = %while.end, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @nk_str_rune_at(ptr noundef %str, i32 noundef %pos) local_unnamed_addr #7 {
+define i32 @nk_str_rune_at(ptr noundef %str, i32 noundef %pos) local_unnamed_addr #8 {
 entry:
   %len = alloca i32, align 4
   %unicode = alloca i32, align 4
@@ -8385,7 +8385,7 @@ return:                                           ; preds = %lor.lhs.false2, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_str_clear(ptr noundef %str) local_unnamed_addr #20 {
+define void @nk_str_clear(ptr noundef %str) local_unnamed_addr #18 {
 entry:
   %tobool.not.i = icmp eq ptr %str, null
   br i1 %tobool.not.i, label %nk_buffer_clear.exit, label %if.end.i
@@ -8408,7 +8408,7 @@ nk_buffer_clear.exit:                             ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_str_free(ptr noundef %str) local_unnamed_addr #18 {
+define void @nk_str_free(ptr noundef %str) local_unnamed_addr #17 {
 entry:
   %tobool.not.i = icmp eq ptr %str, null
   br i1 %tobool.not.i, label %nk_buffer_free.exit, label %lor.lhs.false.i
@@ -8434,7 +8434,7 @@ if.end3.i:                                        ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.end3.i
   %pool.i = getelementptr inbounds i8, ptr %str, i64 32
   %3 = load ptr, ptr %pool.i, align 8
-  tail call void %2(ptr %3, ptr noundef nonnull %0) #51
+  tail call void %2(ptr %3, ptr noundef nonnull %0) #52
   br label %nk_buffer_free.exit
 
 nk_buffer_free.exit:                              ; preds = %entry, %lor.lhs.false.i, %if.end.i, %if.end3.i, %if.end6.i
@@ -8444,7 +8444,7 @@ nk_buffer_free.exit:                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_push_scissor(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #22 {
+define void @nk_push_scissor(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %if.end
@@ -8497,7 +8497,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_line(ptr noundef %b, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #18 {
+define void @nk_stroke_line(ptr noundef %b, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #17 {
 entry:
   %tobool = icmp eq ptr %b, null
   %cmp = fcmp ole float %line_thickness, 0.000000e+00
@@ -8555,7 +8555,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_curve(ptr noundef %b, float noundef %ax, float noundef %ay, float noundef %ctrl0x, float noundef %ctrl0y, float noundef %ctrl1x, float noundef %ctrl1y, float noundef %bx, float noundef %by, float noundef %line_thickness, i32 %col.coerce) local_unnamed_addr #18 {
+define void @nk_stroke_curve(ptr noundef %b, float noundef %ax, float noundef %ay, float noundef %ctrl0x, float noundef %ctrl0y, float noundef %ctrl1x, float noundef %ctrl1y, float noundef %bx, float noundef %by, float noundef %line_thickness, i32 %col.coerce) local_unnamed_addr #17 {
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
@@ -8624,7 +8624,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_rect(ptr noundef %b, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, float noundef %rounding, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #22 {
+define void @nk_stroke_rect(ptr noundef %b, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, float noundef %rounding, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %rect.coerce1, i64 1
   %1 = extractelement <2 x float> %rect.coerce1, i64 0
@@ -8733,7 +8733,7 @@ return:                                           ; preds = %if.end39, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_rect(ptr noundef %b, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, float noundef %rounding, i32 %c.coerce) local_unnamed_addr #22 {
+define void @nk_fill_rect(ptr noundef %b, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, float noundef %rounding, i32 %c.coerce) local_unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %rect.coerce1, i64 1
   %1 = extractelement <2 x float> %rect.coerce1, i64 0
@@ -8838,7 +8838,7 @@ return:                                           ; preds = %if.end36, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_rect_multi_color(ptr noundef %b, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %left.coerce, i32 %top.coerce, i32 %right.coerce, i32 %bottom.coerce) local_unnamed_addr #22 {
+define void @nk_fill_rect_multi_color(ptr noundef %b, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %left.coerce, i32 %top.coerce, i32 %right.coerce, i32 %bottom.coerce) local_unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %rect.coerce1, i64 1
   %1 = extractelement <2 x float> %rect.coerce1, i64 0
@@ -8939,7 +8939,7 @@ return:                                           ; preds = %if.end27, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_circle(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #22 {
+define void @nk_stroke_circle(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #20 {
 entry:
   %tobool = icmp eq ptr %b, null
   %r.sroa.7.8.vec.extract31 = extractelement <2 x float> %r.coerce1, i64 0
@@ -9043,7 +9043,7 @@ return:                                           ; preds = %if.end29, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_circle(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, i32 %c.coerce) local_unnamed_addr #22 {
+define void @nk_fill_circle(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, i32 %c.coerce) local_unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %r.coerce1, i64 1
   %1 = extractelement <2 x float> %r.coerce1, i64 0
@@ -9145,7 +9145,7 @@ return:                                           ; preds = %if.end36, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_arc(ptr noundef %b, float noundef %cx, float noundef %cy, float noundef %radius, float noundef %a_min, float noundef %a_max, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #18 {
+define void @nk_stroke_arc(ptr noundef %b, float noundef %cx, float noundef %cy, float noundef %radius, float noundef %a_min, float noundef %a_max, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #17 {
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
@@ -9211,7 +9211,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_arc(ptr noundef %b, float noundef %cx, float noundef %cy, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 %c.coerce) local_unnamed_addr #18 {
+define void @nk_fill_arc(ptr noundef %b, float noundef %cx, float noundef %cy, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 %c.coerce) local_unnamed_addr #17 {
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
@@ -9274,7 +9274,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_triangle(ptr noundef %b, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #18 {
+define void @nk_stroke_triangle(ptr noundef %b, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %line_thickness, i32 %c.coerce) local_unnamed_addr #17 {
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
@@ -9424,7 +9424,7 @@ return:                                           ; preds = %if.end63, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_triangle(ptr noundef %b, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, i32 %c.coerce) local_unnamed_addr #18 {
+define void @nk_fill_triangle(ptr noundef %b, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, i32 %c.coerce) local_unnamed_addr #17 {
 entry:
   %c.sroa.0.0.extract.trunc = trunc i32 %c.coerce to i24
   %c.sroa.2.0.extract.shift = lshr i32 %c.coerce, 24
@@ -9567,7 +9567,7 @@ return:                                           ; preds = %if.end63, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_polygon(ptr noundef %b, ptr nocapture noundef readonly %points, i32 noundef %point_count, float noundef %line_thickness, i32 %col.coerce) local_unnamed_addr #18 {
+define void @nk_stroke_polygon(ptr noundef %b, ptr nocapture noundef readonly %points, i32 noundef %point_count, float noundef %line_thickness, i32 %col.coerce) local_unnamed_addr #17 {
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
@@ -9653,7 +9653,7 @@ for.end:                                          ; preds = %for.body, %if.end8,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_polygon(ptr noundef %b, ptr nocapture noundef readonly %points, i32 noundef %point_count, i32 %col.coerce) local_unnamed_addr #18 {
+define void @nk_fill_polygon(ptr noundef %b, ptr nocapture noundef readonly %points, i32 noundef %point_count, i32 %col.coerce) local_unnamed_addr #17 {
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
@@ -9734,7 +9734,7 @@ for.end:                                          ; preds = %for.body, %if.end5,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_polyline(ptr noundef %b, ptr nocapture noundef readonly %points, i32 noundef %point_count, float noundef %line_thickness, i32 %col.coerce) local_unnamed_addr #18 {
+define void @nk_stroke_polyline(ptr noundef %b, ptr nocapture noundef readonly %points, i32 noundef %point_count, float noundef %line_thickness, i32 %col.coerce) local_unnamed_addr #17 {
 entry:
   %col.sroa.0.0.extract.trunc = trunc i32 %col.coerce to i24
   %col.sroa.2.0.extract.shift = lshr i32 %col.coerce, 24
@@ -9820,7 +9820,7 @@ for.end:                                          ; preds = %for.body, %if.end8,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_image(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr nocapture noundef readonly %img, i32 %col.coerce) local_unnamed_addr #22 {
+define void @nk_draw_image(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr nocapture noundef readonly %img, i32 %col.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %if.end
@@ -9916,7 +9916,7 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_nine_slice(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr nocapture noundef readonly %slc, i32 %col.coerce) local_unnamed_addr #22 {
+define void @nk_draw_nine_slice(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr nocapture noundef readonly %slc, i32 %col.coerce) local_unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %r.coerce1, i64 1
   %1 = extractelement <2 x float> %r.coerce1, i64 0
@@ -10108,7 +10108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_push_custom(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %cb, ptr %usr.coerce) local_unnamed_addr #22 {
+define void @nk_push_custom(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %cb, ptr %usr.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %if.end
@@ -10204,7 +10204,7 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_text(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %string, i32 noundef %length, ptr noundef %font, i32 %bg.coerce, i32 %fg.coerce) local_unnamed_addr #22 {
+define void @nk_draw_text(ptr noundef %b, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %string, i32 noundef %length, ptr noundef %font, i32 %bg.coerce, i32 %fg.coerce) local_unnamed_addr #20 {
 entry:
   %glyphs = alloca i32, align 4
   %txt_width = alloca float, align 4
@@ -10281,7 +10281,7 @@ if.end44:                                         ; preds = %if.end.if.end44_cri
   %height = getelementptr inbounds i8, ptr %font, i64 8
   %8 = load float, ptr %height, align 8
   %9 = load ptr, ptr %font, align 8
-  %call = tail call float %7(ptr %9, float noundef %8, ptr noundef nonnull %string, i32 noundef %length) #51
+  %call = tail call float %7(ptr %9, float noundef %8, ptr noundef nonnull %string, i32 noundef %length) #52
   %cmp46 = fcmp ogt float %call, %r.sroa.7.8.vec.extract49.pre-phi
   br i1 %cmp46, label %if.end51, label %if.end54
 
@@ -10356,7 +10356,7 @@ return:                                           ; preds = %if.end54, %if.end51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_text_clamp(ptr nocapture noundef readonly %font, ptr noundef %text, i32 noundef %text_len, float noundef %space, ptr nocapture noundef writeonly %glyphs, ptr nocapture noundef writeonly %text_width, ptr nocapture noundef readonly %sep_list, i32 noundef %sep_count) unnamed_addr #18 {
+define internal fastcc i32 @nk_text_clamp(ptr nocapture noundef readonly %font, ptr noundef %text, i32 noundef %text_len, float noundef %space, ptr nocapture noundef writeonly %glyphs, ptr nocapture noundef writeonly %text_width, ptr nocapture noundef readonly %sep_list, i32 noundef %sep_count) unnamed_addr #17 {
 entry:
   %tobool.i = icmp eq ptr %text, null
   %tobool2.not.i = icmp eq i32 %text_len, 0
@@ -10491,7 +10491,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph
   %15 = load ptr, ptr %width3, align 8
   %16 = load float, ptr %height, align 8
   %17 = load ptr, ptr %font, align 8
-  %call4.us = tail call float %15(ptr %17, float noundef %16, ptr noundef null, i32 noundef %retval.0.i) #51
+  %call4.us = tail call float %15(ptr %17, float noundef %16, ptr noundef null, i32 noundef %retval.0.i) #52
   br label %for.cond.us
 
 for.cond.us:                                      ; preds = %for.body.us, %while.body.us
@@ -10526,7 +10526,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %19 = load ptr, ptr %width3, align 8
   %20 = load float, ptr %height, align 8
   %21 = load ptr, ptr %font, align 8
-  %call4 = tail call float %19(ptr %21, float noundef %20, ptr noundef nonnull %text, i32 noundef %add) #51
+  %call4 = tail call float %19(ptr %21, float noundef %20, ptr noundef nonnull %text, i32 noundef %add) #52
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %while.body
@@ -10716,7 +10716,7 @@ return:                                           ; preds = %if.else, %for.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @nk_draw_list_init(ptr noundef %list) local_unnamed_addr #14 {
+define void @nk_draw_list_init(ptr noundef %list) local_unnamed_addr #13 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %for.end, label %if.end
@@ -10772,7 +10772,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_draw_list_setup(ptr noundef writeonly %canvas, ptr noundef readonly %config, ptr noundef %cmds, ptr noundef %vertices, ptr noundef %elements, i32 noundef %line_aa, i32 noundef %shape_aa) local_unnamed_addr #20 {
+define void @nk_draw_list_setup(ptr noundef writeonly %canvas, ptr noundef readonly %config, ptr noundef %cmds, ptr noundef %vertices, ptr noundef %elements, i32 noundef %line_aa, i32 noundef %shape_aa) local_unnamed_addr #18 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %canvas, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %config, i64 1
@@ -10915,7 +10915,7 @@ return:                                           ; preds = %nk__draw_list_end.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_poly_line(ptr noundef %list, ptr nocapture noundef readonly %points, i32 noundef %points_count, i32 %color.coerce, i32 noundef %closed, float noundef %thickness, i32 noundef %aliasing) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_poly_line(ptr noundef %list, ptr nocapture noundef readonly %points, i32 noundef %points_count, i32 %color.coerce, i32 noundef %closed, float noundef %thickness, i32 noundef %aliasing) local_unnamed_addr #20 {
 entry:
   %tobool = icmp eq ptr %list, null
   %cmp = icmp ult i32 %points_count, 2
@@ -11635,8 +11635,8 @@ if.end912:                                        ; preds = %if.end845, %nk_draw
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @nk_draw_vertex(ptr noundef %dst, ptr nocapture readonly %config.40.val, i64 %config.48.val, <2 x float> %pos.coerce, <2 x float> %uv.coerce, <2 x float> %color.coerce0, <2 x float> %color.coerce1) unnamed_addr #23 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc ptr @nk_draw_vertex(ptr noundef %dst, ptr nocapture readonly %config.40.val, i64 %config.48.val, <2 x float> %pos.coerce, <2 x float> %uv.coerce, <2 x float> %color.coerce0, <2 x float> %color.coerce1) unnamed_addr #21 {
 entry:
   %val.i = alloca [4 x float], align 16
   %col.i = alloca %struct.nk_color, align 4
@@ -11862,7 +11862,7 @@ while.end:                                        ; preds = %nk_draw_vertex_layo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_poly_convex(ptr noundef %list, ptr nocapture noundef readonly %points, i32 noundef %points_count, i32 %color.coerce, i32 noundef %aliasing) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_poly_convex(ptr noundef %list, ptr nocapture noundef readonly %points, i32 noundef %points_count, i32 %color.coerce, i32 noundef %aliasing) local_unnamed_addr #20 {
 entry:
   %tobool = icmp eq ptr %list, null
   %cmp = icmp ult i32 %points_count, 3
@@ -12252,7 +12252,7 @@ if.end252:                                        ; preds = %for.body238, %for.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_draw_list_path_clear(ptr noundef %list) local_unnamed_addr #24 {
+define void @nk_draw_list_path_clear(ptr noundef %list) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %return, label %if.end
@@ -12292,7 +12292,7 @@ return:                                           ; preds = %entry, %nk_buffer_r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_line_to(ptr noundef %list, <2 x float> %pos.coerce) local_unnamed_addr #22 {
+define void @nk_draw_list_path_line_to(ptr noundef %list, <2 x float> %pos.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %return, label %if.end
@@ -12386,7 +12386,7 @@ return:                                           ; preds = %if.end10, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_list_add_clip(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1) unnamed_addr #22 {
+define internal fastcc void @nk_draw_list_add_clip(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1) unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %if.end9, label %if.end
@@ -12519,7 +12519,7 @@ if.end9:                                          ; preds = %if.end9.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_list_push_image(ptr nocapture noundef %list, ptr %texture.coerce) unnamed_addr #22 {
+define internal fastcc void @nk_draw_list_push_image(ptr nocapture noundef %list, ptr %texture.coerce) unnamed_addr #20 {
 entry:
   %cmd_count = getelementptr inbounds i8, ptr %list, i64 208
   %0 = load i32, ptr %cmd_count, align 8
@@ -12663,7 +12663,7 @@ if.end15:                                         ; preds = %if.end7.i23, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_arc_to_fast(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, i32 noundef %a_min, i32 noundef %a_max) local_unnamed_addr #22 {
+define void @nk_draw_list_path_arc_to_fast(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, i32 noundef %a_min, i32 noundef %a_max) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   %cmp.not = icmp sgt i32 %a_min, %a_max
@@ -12695,7 +12695,7 @@ if.end7:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_arc_to(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 noundef %segments) local_unnamed_addr #22 {
+define void @nk_draw_list_path_arc_to(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, float noundef %a_min, float noundef %a_max, i32 noundef %segments) local_unnamed_addr #20 {
 entry:
   %tobool = icmp eq ptr %list, null
   %cmp = fcmp oeq float %radius, 0.000000e+00
@@ -12761,7 +12761,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_rect_to(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, float noundef %rounding) local_unnamed_addr #22 {
+define void @nk_draw_list_path_rect_to(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, float noundef %rounding) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %if.end93, label %if.end
@@ -12864,7 +12864,7 @@ if.end93:                                         ; preds = %for.body.i137, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_curve_to(ptr noundef %list, <2 x float> %p2.coerce, <2 x float> %p3.coerce, <2 x float> %p4.coerce, i32 noundef %num_segments) local_unnamed_addr #22 {
+define void @nk_draw_list_path_curve_to(ptr noundef %list, <2 x float> %p2.coerce, <2 x float> %p3.coerce, <2 x float> %p4.coerce, i32 noundef %num_segments) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
@@ -12929,7 +12929,7 @@ for.end:                                          ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_fill(ptr noundef %list, i32 %color.coerce) local_unnamed_addr #18 {
+define void @nk_draw_list_path_fill(ptr noundef %list, i32 %color.coerce) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %return, label %if.end
@@ -12984,7 +12984,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_stroke(ptr noundef %list, i32 %color.coerce, i32 noundef %closed, float noundef %thickness) local_unnamed_addr #18 {
+define void @nk_draw_list_path_stroke(ptr noundef %list, i32 %color.coerce, i32 noundef %closed, float noundef %thickness) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %return, label %if.end
@@ -13039,7 +13039,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_line(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, i32 %col.coerce, float noundef %thickness) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_line(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, i32 %col.coerce, float noundef %thickness) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %list, null
   %tobool2 = icmp ugt i32 %col.coerce, 16777215
@@ -13114,7 +13114,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_rect(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %col.coerce, float noundef %rounding) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_rect(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %col.coerce, float noundef %rounding) local_unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %rect.coerce0, i64 1
   %tobool = icmp ne ptr %list, null
@@ -13182,7 +13182,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_rect(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %col.coerce, float noundef %rounding, float noundef %thickness) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_rect(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %col.coerce, float noundef %rounding, float noundef %thickness) local_unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %rect.coerce0, i64 1
   %tobool = icmp ne ptr %list, null
@@ -13250,7 +13250,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_rect_multi_color(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %left.coerce, i32 %top.coerce, i32 %right.coerce, i32 %bottom.coerce) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_rect_multi_color(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %left.coerce, i32 %top.coerce, i32 %right.coerce, i32 %bottom.coerce) local_unnamed_addr #20 {
 entry:
   %in.sroa.2.0.extract.shift.i.i = lshr i32 %left.coerce, 8
   %in.sroa.3.0.extract.shift.i.i = lshr i32 %left.coerce, 16
@@ -13423,7 +13423,7 @@ return:                                           ; preds = %nk_draw_list_alloc_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_triangle(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, <2 x float> %c.coerce, i32 %col.coerce) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_triangle(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, <2 x float> %c.coerce, i32 %col.coerce) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %list, null
   %tobool2 = icmp ugt i32 %col.coerce, 16777215
@@ -13483,7 +13483,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_triangle(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, <2 x float> %c.coerce, i32 %col.coerce, float noundef %thickness) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_triangle(ptr noundef %list, <2 x float> %a.coerce, <2 x float> %b.coerce, <2 x float> %c.coerce, i32 %col.coerce, float noundef %thickness) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %list, null
   %tobool2 = icmp ugt i32 %col.coerce, 16777215
@@ -13543,7 +13543,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_circle(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, i32 %col.coerce, i32 noundef %segs) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_circle(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, i32 %col.coerce, i32 noundef %segs) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %list, null
   %tobool1 = icmp ugt i32 %col.coerce, 16777215
@@ -13649,7 +13649,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_circle(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, i32 %col.coerce, i32 noundef %segs, float noundef %thickness) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_circle(ptr noundef %list, <2 x float> %center.coerce, float noundef %radius, i32 %col.coerce, i32 noundef %segs, float noundef %thickness) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %list, null
   %tobool1 = icmp ugt i32 %col.coerce, 16777215
@@ -13755,7 +13755,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_curve(ptr noundef %list, <2 x float> %p0.coerce, <2 x float> %cp0.coerce, <2 x float> %cp1.coerce, <2 x float> %p1.coerce, i32 %col.coerce, i32 noundef %segments, float noundef %thickness) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_curve(ptr noundef %list, <2 x float> %p0.coerce, <2 x float> %cp0.coerce, <2 x float> %cp1.coerce, <2 x float> %p1.coerce, i32 %col.coerce, i32 noundef %segments, float noundef %thickness) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %list, null
   %tobool1 = icmp ugt i32 %col.coerce, 16777215
@@ -13867,7 +13867,7 @@ return:                                           ; preds = %entry, %nk_draw_lis
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_add_image(ptr noundef %list, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %texture, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %color.coerce) local_unnamed_addr #22 {
+define void @nk_draw_list_add_image(ptr noundef %list, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %texture, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, i32 %color.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %list, null
   br i1 %tobool.not, label %if.end65, label %if.end
@@ -13930,7 +13930,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_list_push_rect_uv(ptr nocapture noundef %list, <2 x float> %a.coerce, <2 x float> %c.coerce, <2 x float> %uva.coerce, <2 x float> %uvc.coerce, i32 %color.coerce) unnamed_addr #22 {
+define internal fastcc void @nk_draw_list_push_rect_uv(ptr nocapture noundef %list, <2 x float> %a.coerce, <2 x float> %c.coerce, <2 x float> %uva.coerce, <2 x float> %uvc.coerce, i32 %color.coerce) unnamed_addr #20 {
 entry:
   %in.sroa.2.0.extract.shift.i.i = lshr i32 %color.coerce, 8
   %in.sroa.3.0.extract.shift.i.i = lshr i32 %color.coerce, 16
@@ -14041,7 +14041,7 @@ return:                                           ; preds = %nk_draw_list_alloc_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_add_text(ptr noundef %list, ptr nocapture noundef readonly %font, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, ptr noundef readonly %text, i32 noundef %len, float noundef %font_height, i32 %fg.coerce) local_unnamed_addr #22 {
+define void @nk_draw_list_add_text(ptr noundef %list, ptr nocapture noundef readonly %font, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1, ptr noundef readonly %text, i32 noundef %len, float noundef %font_height, i32 %fg.coerce) local_unnamed_addr #20 {
 entry:
   %g = alloca %struct.nk_user_font_glyph, align 8
   %fg.sroa.2.0.extract.shift = lshr i32 %fg.coerce, 24
@@ -14352,7 +14352,7 @@ nk_utf_decode.exit102.thread:                     ; preds = %for.inc.i.i47, %if.
   %38 = phi i32 [ %spec.select, %nk_utf_decode.exit102 ], [ 0, %return.loopexit81.i90 ], [ 0, %return.loopexit.i86 ], [ 0, %for.end.i59 ], [ 0, %nk_utf_decode_byte.exit.i51 ], [ 0, %land.lhs.true.i.i66 ], [ 0, %if.end.i.i62 ], [ 0, %for.inc.i.i47 ]
   %39 = load ptr, ptr %.in, align 8
   %40 = load ptr, ptr %font, align 8
-  call void %39(ptr %40, float noundef %font_height, ptr noundef nonnull %g, i32 noundef %unicode.1144, i32 noundef %38) #51
+  call void %39(ptr %40, float noundef %font_height, ptr noundef nonnull %g, i32 noundef %unicode.1144, i32 noundef %38) #52
   %41 = load float, ptr %xadvance, align 8
   %42 = load <2 x float>, ptr %offset, align 8
   %43 = insertelement <2 x float> %rect.coerce0, float %x.0147, i64 0
@@ -14376,7 +14376,7 @@ while.end:                                        ; preds = %for.inc.i.i, %nk_ut
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 16) i32 @nk_convert(ptr noundef %ctx, ptr noundef %cmds, ptr noundef %vertices, ptr noundef %elements, ptr noundef readonly %config) local_unnamed_addr #22 {
+define range(i32 0, 16) i32 @nk_convert(ptr noundef %ctx, ptr noundef %cmds, ptr noundef %vertices, ptr noundef %elements, ptr noundef readonly %config) local_unnamed_addr #20 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %ctx, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %cmds, i64 1
@@ -15463,7 +15463,7 @@ sw.bb365:                                         ; preds = %for.body
   %364 = load i16, ptr %h371, align 2
   %callback_data = getelementptr inbounds i8, ptr %cmd.0536, i64 24
   %365 = load ptr, ptr %callback_data, align 8
-  tail call void %360(ptr noundef nonnull %draw_list, i16 noundef signext %361, i16 noundef signext %362, i16 noundef zeroext %363, i16 noundef zeroext %364, ptr %365) #51
+  tail call void %360(ptr noundef nonnull %draw_list, i16 noundef signext %361, i16 noundef signext %362, i16 noundef zeroext %363, i16 noundef zeroext %364, ptr %365) #52
   br label %lor.lhs.false2.i
 
 for.inc372:                                       ; preds = %if.end.i7.i.i209, %if.end.i.i.i.i213
@@ -15524,7 +15524,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk__begin(ptr noundef %ctx) local_unnamed_addr #22 {
+define ptr @nk__begin(ptr noundef %ctx) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -15913,7 +15913,7 @@ nk__draw_list_next.exit:                          ; preds = %entry, %nk__draw_li
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_heuristic(ptr nocapture noundef %context, i32 noundef %heuristic) local_unnamed_addr #20 {
+define void @stbrp_setup_heuristic(ptr nocapture noundef %context, i32 noundef %heuristic) local_unnamed_addr #18 {
 entry:
   %init_mode = getelementptr inbounds i8, ptr %context, i64 12
   %0 = load i32, ptr %init_mode, align 4
@@ -15930,7 +15930,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_allow_out_of_mem(ptr nocapture noundef %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #20 {
+define void @stbrp_setup_allow_out_of_mem(ptr nocapture noundef %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq i32 %allow_out_of_mem, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -15952,7 +15952,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @stbrp_init_target(ptr noundef %context, i32 noundef %width, i32 noundef %height, ptr noundef %nodes, i32 noundef %num_nodes) local_unnamed_addr #14 {
+define void @stbrp_init_target(ptr noundef %context, i32 noundef %width, i32 noundef %height, ptr noundef %nodes, i32 noundef %num_nodes) local_unnamed_addr #13 {
 entry:
   %sub = add i32 %num_nodes, -1
   %cmp25 = icmp sgt i32 %num_nodes, 1
@@ -16012,14 +16012,14 @@ for.end:                                          ; preds = %entry, %for.end.loo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) local_unnamed_addr #25 {
+define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %context, ptr noundef %rects, i32 noundef %num_rects) local_unnamed_addr #23 {
 entry:
   %cmp53 = icmp sgt i32 %num_rects, 0
   br i1 %cmp53, label %for.body.preheader, label %for.end.thread
 
 for.end.thread:                                   ; preds = %entry
   %conv73 = sext i32 %num_rects to i64
-  tail call void @qsort(ptr noundef %rects, i64 noundef %conv73, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #51
+  tail call void @qsort(ptr noundef %rects, i64 noundef %conv73, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #52
   br label %for.end42.thread
 
 for.body.preheader:                               ; preds = %entry
@@ -16037,7 +16037,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body
   %conv = zext nneg i32 %num_rects to i64
-  tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #51
+  tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #52
   br i1 %cmp53, label %for.body4.lr.ph, label %for.end42.thread
 
 for.body4.lr.ph:                                  ; preds = %for.end
@@ -16481,11 +16481,11 @@ for.inc40:                                        ; preds = %if.else, %lor.lhs.f
 
 for.end42.thread:                                 ; preds = %for.end.thread, %for.end
   %conv74.ph = phi i64 [ %conv, %for.end ], [ %conv73, %for.end.thread ]
-  tail call void @qsort(ptr noundef %rects, i64 noundef %conv74.ph, i64 noundef 24, ptr noundef nonnull @rect_original_order) #51
+  tail call void @qsort(ptr noundef %rects, i64 noundef %conv74.ph, i64 noundef 24, ptr noundef nonnull @rect_original_order) #52
   br label %for.end69
 
 for.end42:                                        ; preds = %for.inc40
-  tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_original_order) #51
+  tail call void @qsort(ptr noundef nonnull %rects, i64 noundef %conv, i64 noundef 24, ptr noundef nonnull @rect_original_order) #52
   br i1 %cmp53, label %for.body47.preheader, label %for.end69
 
 for.body47.preheader:                             ; preds = %for.end42
@@ -16525,7 +16525,7 @@ for.end69:                                        ; preds = %for.cond44, %for.en
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #26
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @rect_height_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
@@ -16572,7 +16572,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint) local_unnamed_addr #6 {
+define i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint) local_unnamed_addr #25 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -16953,7 +16953,7 @@ return:                                           ; preds = %if.end269, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly %vertices) local_unnamed_addr #18 {
+define i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly %vertices) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %unicode_codepoint)
   %call1 = tail call i32 @stbtt_GetGlyphShape(ptr noundef %info, i32 noundef %call, ptr noundef %vertices)
@@ -16961,7 +16961,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef writeonly %pvertices) local_unnamed_addr #18 {
+define i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef writeonly %pvertices) local_unnamed_addr #17 {
 entry:
   %count_ctx.i = alloca %struct.stbtt__csctx, align 8
   %output_ctx.i = alloca %struct.stbtt__csctx, align 8
@@ -17114,7 +17114,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %.val.i = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %24, i64 8
   %.val248.i = load ptr, ptr %25, align 8
-  %call.i134 = tail call ptr %.val248.i(ptr %.val.i, ptr noundef null, i64 noundef %mul38.i) #51
+  %call.i134 = tail call ptr %.val248.i(ptr %.val.i, ptr noundef null, i64 noundef %mul38.i) #52
   %cmp40.i = icmp eq ptr %call.i134, null
   br i1 %cmp40.i, label %stbtt__GetGlyphShapeTT.exit, label %if.end43.i
 
@@ -17834,7 +17834,7 @@ for.end461.i:                                     ; preds = %for.body398.i
   %.val249.i = load ptr, ptr %132, align 8
   %133 = getelementptr i8, ptr %132, i64 8
   %.val250.i = load ptr, ptr %133, align 8
-  %call.i11 = tail call ptr %.val250.i(ptr %.val249.i, ptr noundef null, i64 noundef %mul464.i) #51
+  %call.i11 = tail call ptr %.val250.i(ptr %.val249.i, ptr noundef null, i64 noundef %mul464.i) #52
   %tobool467.not.i = icmp eq ptr %call.i11, null
   br i1 %tobool467.not.i, label %if.then468.i, label %if.end477.i
 
@@ -17847,7 +17847,7 @@ if.then470.i:                                     ; preds = %if.then468.i
   %.val251.i = load ptr, ptr %134, align 8
   %135 = getelementptr i8, ptr %134, i64 16
   %.val252.i = load ptr, ptr %135, align 8
-  tail call void %.val252.i(ptr %.val251.i, ptr noundef nonnull %vertices.0.i169) #51
+  tail call void %.val252.i(ptr %.val251.i, ptr noundef nonnull %vertices.0.i169) #52
   br label %if.then474.i
 
 if.then474.i:                                     ; preds = %if.then468.i, %if.then470.i
@@ -17855,7 +17855,7 @@ if.then474.i:                                     ; preds = %if.then468.i, %if.t
   %.val253.i = load ptr, ptr %136, align 8
   %137 = getelementptr i8, ptr %136, i64 16
   %.val254.i = load ptr, ptr %137, align 8
-  tail call void %.val254.i(ptr %.val253.i, ptr noundef nonnull %112) #51
+  tail call void %.val254.i(ptr %.val253.i, ptr noundef nonnull %112) #52
   br label %stbtt__GetGlyphShapeTT.exit
 
 if.end477.i:                                      ; preds = %for.end461.i
@@ -17884,7 +17884,7 @@ if.then490.i:                                     ; preds = %if.end484.i.thread,
   %.val255.i = load ptr, ptr %138, align 8
   %139 = getelementptr i8, ptr %138, i64 16
   %.val256.i = load ptr, ptr %139, align 8
-  tail call void %.val256.i(ptr %.val255.i, ptr noundef nonnull %vertices.0.i169) #51
+  tail call void %.val256.i(ptr %.val255.i, ptr noundef nonnull %vertices.0.i169) #52
   br label %if.end492.i
 
 if.end492.i:                                      ; preds = %if.then490.i, %if.end484.i
@@ -17892,7 +17892,7 @@ if.end492.i:                                      ; preds = %if.then490.i, %if.e
   %.val257.i = load ptr, ptr %140, align 8
   %141 = getelementptr i8, ptr %140, i64 16
   %.val258.i = load ptr, ptr %141, align 8
-  tail call void %.val258.i(ptr %.val257.i, ptr noundef nonnull %112) #51
+  tail call void %.val258.i(ptr %.val257.i, ptr noundef nonnull %112) #52
   br label %if.end495.i
 
 if.end495.i:                                      ; preds = %if.end492.i, %if.end371.i
@@ -17932,7 +17932,7 @@ if.then.i:                                        ; preds = %if.else
   %.val.i8 = load ptr, ptr %143, align 8
   %144 = getelementptr i8, ptr %143, i64 8
   %.val6.i = load ptr, ptr %144, align 8
-  %call.i.i = tail call ptr %.val6.i(ptr %.val.i8, ptr noundef null, i64 noundef %mul.i7) #51
+  %call.i.i = tail call ptr %.val6.i(ptr %.val.i8, ptr noundef null, i64 noundef %mul.i7) #52
   store ptr %call.i.i, ptr %pvertices, align 8
   %pvertices2.i = getelementptr inbounds i8, ptr %output_ctx.i, i64 40
   store ptr %call.i.i, ptr %pvertices2.i, align 8
@@ -18353,7 +18353,7 @@ return:                                           ; preds = %if.end44.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #27 {
+define void @stbtt_GetGlyphHMetrics(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #26 {
 entry:
   %data = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -18473,7 +18473,7 @@ if.end55:                                         ; preds = %if.end55.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr nocapture noundef readonly %info) local_unnamed_addr #28 {
+define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr nocapture noundef readonly %info) local_unnamed_addr #27 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -18525,7 +18525,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_GetKerningTable(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %table, i32 noundef %table_length) local_unnamed_addr #7 {
+define i32 @stbtt_GetKerningTable(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %table, i32 noundef %table_length) local_unnamed_addr #8 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -18624,7 +18624,7 @@ return:                                           ; preds = %for.body, %if.end13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %info, i32 noundef %g1, i32 noundef %g2) local_unnamed_addr #6 {
+define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr nocapture noundef readonly %info, i32 noundef %g1, i32 noundef %g2) local_unnamed_addr #25 {
 entry:
   %gpos = getelementptr inbounds i8, ptr %info, i64 48
   %0 = load i32, ptr %gpos, align 8
@@ -19216,7 +19216,7 @@ if.end5:                                          ; preds = %for.inc175.i, %if.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr nocapture noundef readonly %info, i32 noundef %ch1, i32 noundef %ch2) local_unnamed_addr #6 {
+define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr nocapture noundef readonly %info, i32 noundef %ch1, i32 noundef %ch2) local_unnamed_addr #25 {
 entry:
   %kern = getelementptr inbounds i8, ptr %info, i64 44
   %0 = load i32, ptr %kern, align 4
@@ -19241,7 +19241,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointHMetrics(ptr nocapture noundef readonly %info, i32 noundef %codepoint, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #7 {
+define void @stbtt_GetCodepointHMetrics(ptr nocapture noundef readonly %info, i32 noundef %codepoint, ptr noundef writeonly %advanceWidth, ptr noundef writeonly %leftSideBearing) local_unnamed_addr #8 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %data.i = getelementptr inbounds i8, ptr %info, i64 8
@@ -19362,7 +19362,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %if.end.i, %if.end36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetFontVMetrics(ptr nocapture noundef readonly %info, ptr noundef writeonly %ascent, ptr noundef writeonly %descent, ptr noundef writeonly %lineGap) local_unnamed_addr #27 {
+define void @stbtt_GetFontVMetrics(ptr nocapture noundef readonly %info, ptr noundef writeonly %ascent, ptr noundef writeonly %descent, ptr noundef writeonly %lineGap) local_unnamed_addr #26 {
 entry:
   %tobool.not = icmp eq ptr %ascent, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -19437,7 +19437,7 @@ if.end21:                                         ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetFontVMetricsOS2(ptr nocapture noundef readonly %info, ptr noundef writeonly %typoAscent, ptr noundef writeonly %typoDescent, ptr noundef writeonly %typoLineGap) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbtt_GetFontVMetricsOS2(ptr nocapture noundef readonly %info, ptr noundef writeonly %typoAscent, ptr noundef writeonly %typoDescent, ptr noundef writeonly %typoLineGap) local_unnamed_addr #8 {
 entry:
   %data = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -19582,7 +19582,7 @@ return:                                           ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %x0, ptr nocapture noundef writeonly %y0, ptr nocapture noundef writeonly %x1, ptr nocapture noundef writeonly %y1) local_unnamed_addr #27 {
+define void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %x0, ptr nocapture noundef writeonly %y0, ptr nocapture noundef writeonly %x1, ptr nocapture noundef writeonly %y1) local_unnamed_addr #26 {
 entry:
   %data = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -19646,7 +19646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stbtt_ScaleForPixelHeight(ptr nocapture noundef readonly %info, float noundef %height) local_unnamed_addr #28 {
+define float @stbtt_ScaleForPixelHeight(ptr nocapture noundef readonly %info, float noundef %height) local_unnamed_addr #27 {
 entry:
   %data = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -19679,7 +19679,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stbtt_ScaleForMappingEmToPixels(ptr nocapture noundef readonly %info, float noundef %pixels) local_unnamed_addr #28 {
+define float @stbtt_ScaleForMappingEmToPixels(ptr nocapture noundef readonly %info, float noundef %pixels) local_unnamed_addr #27 {
 entry:
   %data = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -19701,18 +19701,18 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_FreeShape(ptr nocapture noundef readonly %info, ptr noundef %v) local_unnamed_addr #18 {
+define void @stbtt_FreeShape(ptr nocapture noundef readonly %info, ptr noundef %v) local_unnamed_addr #17 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %0, i64 16
   %.val1 = load ptr, ptr %1, align 8
-  tail call void %.val1(ptr %.val, ptr noundef %v) #51
+  tail call void %.val1(ptr %.val, ptr noundef %v) #52
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @stbtt_FindSVGDoc(ptr nocapture noundef %info, i32 noundef %gl) local_unnamed_addr #7 {
+define noundef ptr @stbtt_FindSVGDoc(ptr nocapture noundef %info, i32 noundef %gl) local_unnamed_addr #8 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -19883,7 +19883,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_GetGlyphSVG(ptr nocapture noundef %info, i32 noundef %gl, ptr nocapture noundef writeonly %svg) local_unnamed_addr #7 {
+define i32 @stbtt_GetGlyphSVG(ptr nocapture noundef %info, i32 noundef %gl, ptr nocapture noundef writeonly %svg) local_unnamed_addr #8 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -19947,7 +19947,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_GetCodepointSVG(ptr nocapture noundef %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly %svg) local_unnamed_addr #7 {
+define i32 @stbtt_GetCodepointSVG(ptr nocapture noundef %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly %svg) local_unnamed_addr #8 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %unicode_codepoint)
   %data1.i = getelementptr inbounds i8, ptr %info, i64 8
@@ -20342,7 +20342,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_Rasterize(ptr nocapture noundef readonly %result, float noundef %flatness_in_pixels, ptr nocapture noundef readonly %vertices, i32 noundef %num_verts, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %x_off, i32 noundef %y_off, i32 noundef %invert, ptr nocapture noundef readonly %userdata) local_unnamed_addr #18 {
+define void @stbtt_Rasterize(ptr nocapture noundef readonly %result, float noundef %flatness_in_pixels, ptr nocapture noundef readonly %vertices, i32 noundef %num_verts, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %x_off, i32 noundef %y_off, i32 noundef %invert, ptr nocapture noundef readonly %userdata) local_unnamed_addr #17 {
 entry:
   %active.i.i = alloca ptr, align 8
   %scanline_data.i.i = alloca [129 x float], align 16
@@ -20382,7 +20382,7 @@ if.end7.i:                                        ; preds = %for.end.i
   %userdata.val.i = load ptr, ptr %userdata, align 8
   %1 = getelementptr i8, ptr %userdata, i64 8
   %userdata.val78.i = load ptr, ptr %1, align 8
-  %call.i.i = tail call ptr %userdata.val78.i(ptr %userdata.val.i, ptr noundef null, i64 noundef %mul9.i) #51
+  %call.i.i = tail call ptr %userdata.val78.i(ptr %userdata.val.i, ptr noundef null, i64 noundef %mul9.i) #52
   %cmp10.i = icmp eq ptr %call.i.i, null
   br i1 %cmp10.i, label %stbtt_FlattenCurves.exit.thread, label %for.body17.us.i
 
@@ -20399,7 +20399,7 @@ if.then20.us.i:                                   ; preds = %for.body17.us.i
   %mul22.us.i = shl nsw i64 %conv21.us.i, 3
   %userdata.val79.us.i = load ptr, ptr %userdata, align 8
   %userdata.val80.us.i = load ptr, ptr %1, align 8
-  %call.i85.us.i = tail call ptr %userdata.val80.us.i(ptr %userdata.val79.us.i, ptr noundef null, i64 noundef %mul22.us.i) #51
+  %call.i85.us.i = tail call ptr %userdata.val80.us.i(ptr %userdata.val79.us.i, ptr noundef null, i64 noundef %mul22.us.i) #52
   %cmp24.us.i = icmp eq ptr %call.i85.us.i, null
   br i1 %cmp24.us.i, label %error.i, label %if.end28.us.i
 
@@ -20528,10 +20528,10 @@ error.i:                                          ; preds = %if.then20.us.i
   %userdata.val83.i = load ptr, ptr %userdata, align 8
   %30 = getelementptr i8, ptr %userdata, i64 16
   %userdata.val84.i = load ptr, ptr %30, align 8
-  tail call void %userdata.val84.i(ptr %userdata.val83.i, ptr noundef null) #51
+  tail call void %userdata.val84.i(ptr %userdata.val83.i, ptr noundef null) #52
   %userdata.val81.i = load ptr, ptr %userdata, align 8
   %userdata.val82.i = load ptr, ptr %30, align 8
-  tail call void %userdata.val82.i(ptr %userdata.val81.i, ptr noundef nonnull %call.i.i) #51
+  tail call void %userdata.val82.i(ptr %userdata.val81.i, ptr noundef nonnull %call.i.i) #52
   br label %stbtt_FlattenCurves.exit.thread
 
 stbtt_FlattenCurves.exit.thread:                  ; preds = %entry, %if.end7.i, %error.i, %for.end.i
@@ -20564,7 +20564,7 @@ for.end.i13:                                      ; preds = %for.body.i21
   %34 = mul nsw i64 %33, 20
   %userdata.val.i14 = load ptr, ptr %userdata, align 8
   %userdata.val63.i = load ptr, ptr %1, align 8
-  %call.i.i15 = tail call ptr %userdata.val63.i(ptr %userdata.val.i14, ptr noundef null, i64 noundef %34) #51
+  %call.i.i15 = tail call ptr %userdata.val63.i(ptr %userdata.val.i14, ptr noundef null, i64 noundef %34) #52
   %cmp2.i = icmp eq ptr %call.i.i15, null
   br i1 %cmp2.i, label %stbtt__rasterize.exit, label %for.body7.lr.ph.i
 
@@ -20827,7 +20827,7 @@ if.then.i.i:                                      ; preds = %stbtt__sort_edges.e
   %mul2.i.i = shl nuw nsw i64 %conv.i.i, 2
   %userdata.val.i.i = load ptr, ptr %userdata, align 8
   %userdata.val63.i.i = load ptr, ptr %1, align 8
-  %call.i.i.i = tail call ptr %userdata.val63.i.i(ptr %userdata.val.i.i, ptr noundef null, i64 noundef %mul2.i.i) #51
+  %call.i.i.i = tail call ptr %userdata.val63.i.i(ptr %userdata.val.i.i, ptr noundef null, i64 noundef %mul2.i.i) #52
   %.pre.i.i = load i32, ptr %result, align 8
   br label %if.end.i.i
 
@@ -20945,7 +20945,7 @@ if.else.if.end12_crit_edge.i.i.i.i:               ; preds = %if.else.i.i.i.i
 if.then3.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %userdata.val.i.i.i.i = load ptr, ptr %userdata, align 8
   %userdata.val17.i.i.i.i = load ptr, ptr %1, align 8
-  %call.i.i.i.i.i = tail call ptr %userdata.val17.i.i.i.i(ptr %userdata.val.i.i.i.i, ptr noundef null, i64 noundef 25608) #51
+  %call.i.i.i.i.i = tail call ptr %userdata.val17.i.i.i.i(ptr %userdata.val.i.i.i.i, ptr noundef null, i64 noundef 25608) #52
   %cmp7.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp7.i.i.i.i, label %if.end57.i.i, label %if.end.i.i.i.i
 
@@ -22787,7 +22787,7 @@ while.body.i77.i.i:                               ; preds = %while.body.i77.i.i,
   %286 = load ptr, ptr %c.02.i.i.i, align 8
   %userdata.val.i.i.i = load ptr, ptr %userdata, align 8
   %userdata.val3.i.i.i = load ptr, ptr %285, align 8
-  tail call void %userdata.val3.i.i.i(ptr %userdata.val.i.i.i, ptr noundef nonnull %c.02.i.i.i) #51
+  tail call void %userdata.val3.i.i.i(ptr %userdata.val.i.i.i, ptr noundef nonnull %c.02.i.i.i) #52
   %tobool.not.i78.i.i = icmp eq ptr %286, null
   br i1 %tobool.not.i78.i.i, label %stbtt__hheap_cleanup.exit.i.i, label %while.body.i77.i.i, !llvm.loop !116
 
@@ -22799,7 +22799,7 @@ if.then99.i.i:                                    ; preds = %stbtt__hheap_cleanu
   %userdata.val64.i.i = load ptr, ptr %userdata, align 8
   %287 = getelementptr i8, ptr %userdata, i64 16
   %userdata.val65.i.i = load ptr, ptr %287, align 8
-  call void %userdata.val65.i.i(ptr %userdata.val64.i.i, ptr noundef %scanline.0.i.i) #51
+  call void %userdata.val65.i.i(ptr %userdata.val64.i.i, ptr noundef %scanline.0.i.i) #52
   br label %stbtt__rasterize_sorted_edges.exit.i
 
 stbtt__rasterize_sorted_edges.exit.i:             ; preds = %if.then99.i.i, %stbtt__hheap_cleanup.exit.i.i
@@ -22808,17 +22808,17 @@ stbtt__rasterize_sorted_edges.exit.i:             ; preds = %if.then99.i.i, %stb
   %userdata.val64.i = load ptr, ptr %userdata, align 8
   %288 = getelementptr i8, ptr %userdata, i64 16
   %userdata.val65.i = load ptr, ptr %288, align 8
-  call void %userdata.val65.i(ptr %userdata.val64.i, ptr noundef nonnull %call.i.i15) #51
+  call void %userdata.val65.i(ptr %userdata.val64.i, ptr noundef nonnull %call.i.i15) #52
   br label %stbtt__rasterize.exit
 
 stbtt__rasterize.exit:                            ; preds = %for.end.i13, %stbtt__rasterize_sorted_edges.exit.i
   %userdata.val11 = load ptr, ptr %userdata, align 8
   %289 = getelementptr i8, ptr %userdata, i64 16
   %userdata.val12 = load ptr, ptr %289, align 8
-  call void %userdata.val12(ptr %userdata.val11, ptr noundef nonnull %call.i.i) #51
+  call void %userdata.val12(ptr %userdata.val11, ptr noundef nonnull %call.i.i) #52
   %userdata.val = load ptr, ptr %userdata, align 8
   %userdata.val10 = load ptr, ptr %289, align 8
-  call void %userdata.val10(ptr %userdata.val, ptr noundef nonnull %points.1.us.i) #51
+  call void %userdata.val10(ptr %userdata.val, ptr noundef nonnull %points.1.us.i) #52
   br label %if.end
 
 if.end:                                           ; preds = %stbtt_FlattenCurves.exit.thread, %stbtt__rasterize.exit, %stbtt_FlattenCurves.exit
@@ -22826,17 +22826,17 @@ if.end:                                           ; preds = %stbtt_FlattenCurves
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_FreeBitmap(ptr noundef %bitmap, ptr nocapture noundef readonly %userdata) local_unnamed_addr #18 {
+define void @stbtt_FreeBitmap(ptr noundef %bitmap, ptr nocapture noundef readonly %userdata) local_unnamed_addr #17 {
 entry:
   %userdata.val = load ptr, ptr %userdata, align 8
   %0 = getelementptr i8, ptr %userdata, i64 16
   %userdata.val1 = load ptr, ptr %0, align 8
-  tail call void %userdata.val1(ptr %userdata.val, ptr noundef %bitmap) #51
+  tail call void %userdata.val1(ptr %userdata.val, ptr noundef %bitmap) #52
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetGlyphBitmapSubpixel(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #18 {
+define ptr @stbtt_GetGlyphBitmapSubpixel(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #17 {
 entry:
   %x0.i = alloca i32, align 4
   %y0.i = alloca i32, align 4
@@ -22858,7 +22858,7 @@ if.then4:                                         ; preds = %entry
   %.val24 = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %1, i64 16
   %.val25 = load ptr, ptr %2, align 8
-  tail call void %.val25(ptr %.val24, ptr noundef %0) #51
+  tail call void %.val25(ptr %.val24, ptr noundef %0) #52
   br label %return
 
 if.end6:                                          ; preds = %entry
@@ -22963,7 +22963,7 @@ if.then25:                                        ; preds = %if.end20
   %.val = load ptr, ptr %36, align 8
   %37 = getelementptr i8, ptr %36, i64 8
   %.val21 = load ptr, ptr %37, align 8
-  %call.i26 = call ptr %.val21(ptr %.val, ptr noundef null, i64 noundef %conv) #51
+  %call.i26 = call ptr %.val21(ptr %.val, ptr noundef null, i64 noundef %conv) #52
   store ptr %call.i26, ptr %pixels, align 8
   %tobool32.not = icmp eq ptr %call.i26, null
   %.pre31 = load ptr, ptr %vertices, align 8
@@ -22985,7 +22985,7 @@ if.end37:                                         ; preds = %if.end20.if.end37_c
   %.val22 = load ptr, ptr %43, align 8
   %44 = getelementptr i8, ptr %43, i64 16
   %.val23 = load ptr, ptr %44, align 8
-  call void %.val23(ptr %.val22, ptr noundef %42) #51
+  call void %.val23(ptr %.val22, ptr noundef %42) #52
   br label %return
 
 return:                                           ; preds = %if.end37, %if.then4
@@ -22994,14 +22994,14 @@ return:                                           ; preds = %if.end37, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetGlyphBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #18 {
+define ptr @stbtt_GetGlyphBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #17 {
 entry:
   %call = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %glyph, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixel(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph) local_unnamed_addr #18 {
+define void @stbtt_MakeGlyphBitmapSubpixel(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %glyph) local_unnamed_addr #17 {
 entry:
   %x0.i = alloca i32, align 4
   %y0.i = alloca i32, align 4
@@ -23066,19 +23066,19 @@ if.end:                                           ; preds = %if.then, %stbtt_Get
   %.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %16, i64 16
   %.val9 = load ptr, ptr %17, align 8
-  call void %.val9(ptr %.val, ptr noundef %.pre) #51
+  call void %.val9(ptr %.val, ptr noundef %.pre) #52
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph) local_unnamed_addr #18 {
+define void @stbtt_MakeGlyphBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %glyph) local_unnamed_addr #17 {
 entry:
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %glyph)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointBitmapSubpixel(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #18 {
+define ptr @stbtt_GetCodepointBitmapSubpixel(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %call1 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %info, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
@@ -23086,7 +23086,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %oversample_x, i32 noundef %oversample_y, ptr nocapture noundef writeonly %sub_x, ptr nocapture noundef writeonly %sub_y, i32 noundef %codepoint) local_unnamed_addr #18 {
+define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %oversample_x, i32 noundef %oversample_y, ptr nocapture noundef writeonly %sub_x, ptr nocapture noundef writeonly %sub_y, i32 noundef %codepoint) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %sub.neg.i = add i32 %out_w, 1
@@ -23142,7 +23142,7 @@ stbtt_MakeGlyphBitmapSubpixelPrefilter.exit:      ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %prefilter_x, i32 noundef %prefilter_y, ptr nocapture noundef writeonly %sub_x, ptr nocapture noundef writeonly %sub_y, i32 noundef %glyph) local_unnamed_addr #18 {
+define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %prefilter_x, i32 noundef %prefilter_y, ptr nocapture noundef writeonly %sub_x, ptr nocapture noundef writeonly %sub_y, i32 noundef %glyph) local_unnamed_addr #17 {
 entry:
   %sub.neg = add i32 %out_w, 1
   %sub1 = sub i32 %sub.neg, %prefilter_x
@@ -23197,7 +23197,7 @@ stbtt__oversample_shift.exit23:                   ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixel(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint) local_unnamed_addr #18 {
+define void @stbtt_MakeCodepointBitmapSubpixel(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %codepoint) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %call)
@@ -23205,7 +23205,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #18 {
+define ptr @stbtt_GetCodepointBitmap(ptr nocapture noundef readonly %info, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #17 {
 entry:
   %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
   %call1.i = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %info, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
@@ -23213,7 +23213,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint) local_unnamed_addr #18 {
+define void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, i32 noundef %codepoint) local_unnamed_addr #17 {
 entry:
   %call.i = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %info, i32 noundef %codepoint)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %call.i)
@@ -23221,7 +23221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly %q, i32 noundef %opengl_fillrule) local_unnamed_addr #20 {
+define void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly %q, i32 noundef %opengl_fillrule) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq i32 %opengl_fillrule, 0
   %cond = select i1 %tobool.not, float -5.000000e-01, float 0.000000e+00
@@ -23300,18 +23300,18 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackBegin(ptr nocapture noundef writeonly %spc, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %stride_in_bytes, i32 noundef %padding, ptr noundef %alloc_context) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @stbtt_PackBegin(ptr nocapture noundef writeonly %spc, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %stride_in_bytes, i32 noundef %padding, ptr noundef %alloc_context) local_unnamed_addr #17 {
 entry:
   %alloc_context.val37 = load ptr, ptr %alloc_context, align 8
   %0 = getelementptr i8, ptr %alloc_context, i64 8
   %alloc_context.val38 = load ptr, ptr %0, align 8
-  %call.i = tail call ptr %alloc_context.val38(ptr %alloc_context.val37, ptr noundef null, i64 noundef 72) #51
+  %call.i = tail call ptr %alloc_context.val38(ptr %alloc_context.val37, ptr noundef null, i64 noundef 72) #52
   %sub = sub nsw i32 %pw, %padding
   %conv = sext i32 %sub to i64
   %mul = shl nsw i64 %conv, 4
   %alloc_context.val = load ptr, ptr %alloc_context, align 8
   %alloc_context.val36 = load ptr, ptr %0, align 8
-  %call.i43 = tail call ptr %alloc_context.val36(ptr %alloc_context.val, ptr noundef null, i64 noundef %mul) #51
+  %call.i43 = tail call ptr %alloc_context.val36(ptr %alloc_context.val, ptr noundef null, i64 noundef %mul) #52
   %cmp = icmp eq ptr %call.i, null
   %cmp3 = icmp eq ptr %call.i43, null
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
@@ -23324,7 +23324,7 @@ if.then7:                                         ; preds = %if.then
   %alloc_context.val41 = load ptr, ptr %alloc_context, align 8
   %1 = getelementptr i8, ptr %alloc_context, i64 16
   %alloc_context.val42 = load ptr, ptr %1, align 8
-  tail call void %alloc_context.val42(ptr %alloc_context.val41, ptr noundef nonnull %call.i) #51
+  tail call void %alloc_context.val42(ptr %alloc_context.val41, ptr noundef nonnull %call.i) #52
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
@@ -23334,7 +23334,7 @@ if.then10:                                        ; preds = %if.end
   %alloc_context.val39 = load ptr, ptr %alloc_context, align 8
   %2 = getelementptr i8, ptr %alloc_context, i64 16
   %alloc_context.val40 = load ptr, ptr %2, align 8
-  tail call void %alloc_context.val40(ptr %alloc_context.val39, ptr noundef nonnull %call.i43) #51
+  tail call void %alloc_context.val40(ptr %alloc_context.val39, ptr noundef nonnull %call.i43) #52
   br label %return
 
 if.end12:                                         ; preds = %entry
@@ -23427,7 +23427,7 @@ return:                                           ; preds = %stbrp_init_target.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_PackEnd(ptr nocapture noundef readonly %spc) local_unnamed_addr #18 {
+define void @stbtt_PackEnd(ptr nocapture noundef readonly %spc) local_unnamed_addr #17 {
 entry:
   %nodes = getelementptr inbounds i8, ptr %spc, i64 56
   %0 = load ptr, ptr %nodes, align 8
@@ -23435,14 +23435,14 @@ entry:
   %.val5 = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %1, i64 16
   %.val6 = load ptr, ptr %2, align 8
-  tail call void %.val6(ptr %.val5, ptr noundef %0) #51
+  tail call void %.val6(ptr %.val5, ptr noundef %0) #52
   %pack_info = getelementptr inbounds i8, ptr %spc, i64 8
   %3 = load ptr, ptr %pack_info, align 8
   %4 = load ptr, ptr %spc, align 8
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val4 = load ptr, ptr %5, align 8
-  tail call void %.val4(ptr %.val, ptr noundef %3) #51
+  tail call void %.val4(ptr %.val, ptr noundef %3) #52
   ret void
 }
 
@@ -23856,8 +23856,8 @@ for.end67:                                        ; preds = %for.inc65, %entry
   ret i32 %k.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__h_prefilter(ptr nocapture noundef %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) unnamed_addr #19 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbtt__h_prefilter(ptr nocapture noundef %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) unnamed_addr #7 {
 entry:
   %buffer = alloca [8 x i8], align 8
   store i64 0, ptr %buffer, align 8
@@ -24058,8 +24058,8 @@ for.end145:                                       ; preds = %for.end142, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__v_prefilter(ptr nocapture noundef %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) unnamed_addr #19 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbtt__v_prefilter(ptr nocapture noundef %pixels, i32 noundef %w, i32 noundef %h, i32 noundef %stride_in_bytes, i32 noundef %kernel_width) unnamed_addr #7 {
 entry:
   %buffer = alloca [8 x i8], align 8
   store i64 0, ptr %buffer, align 8
@@ -24267,7 +24267,7 @@ for.end160:                                       ; preds = %for.end157, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr nocapture noundef %spc, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ranges, i32 noundef %num_ranges, ptr nocapture noundef %rects) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr nocapture noundef %spc, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ranges, i32 noundef %num_ranges, ptr nocapture noundef %rects) local_unnamed_addr #17 {
 entry:
   %c.i.i232 = alloca %struct.stbtt__csctx, align 8
   %c.i.i = alloca %struct.stbtt__csctx, align 8
@@ -24838,7 +24838,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %.val.i = load ptr, ptr %142, align 8
   %143 = getelementptr i8, ptr %142, i64 16
   %.val9.i = load ptr, ptr %143, align 8
-  tail call void %.val9.i(ptr %.val.i, ptr noundef %.pre.i) #51
+  tail call void %.val9.i(ptr %.val.i, ptr noundef %.pre.i) #52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vertices.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %gbm.i)
   %144 = load i32, ptr %h_oversample, align 4
@@ -25373,7 +25373,7 @@ for.end187:                                       ; preds = %for.inc185, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @stbtt_PackFontRangesPackRects(ptr nocapture noundef readonly %spc, ptr noundef %rects, i32 noundef %num_rects) local_unnamed_addr #25 {
+define void @stbtt_PackFontRangesPackRects(ptr nocapture noundef readonly %spc, ptr noundef %rects, i32 noundef %num_rects) local_unnamed_addr #23 {
 entry:
   %pack_info = getelementptr inbounds i8, ptr %spc, i64 8
   %0 = load ptr, ptr %pack_info, align 8
@@ -25382,7 +25382,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, ptr nocapture noundef %ranges, i32 noundef %num_ranges) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, ptr nocapture noundef %ranges, i32 noundef %num_ranges) local_unnamed_addr #17 {
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
   %cmp43 = icmp sgt i32 %num_ranges, 0
@@ -25457,7 +25457,7 @@ for.end34:                                        ; preds = %entry, %for.end34.l
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %10, i64 8
   %.val37 = load ptr, ptr %11, align 8
-  %call.i = tail call ptr %.val37(ptr %.val, ptr noundef null, i64 noundef %n.0.lcssa) #51
+  %call.i = tail call ptr %.val37(ptr %.val, ptr noundef null, i64 noundef %n.0.lcssa) #52
   %cmp35 = icmp eq ptr %call.i, null
   br i1 %cmp35, label %return, label %if.end
 
@@ -25475,7 +25475,7 @@ if.end:                                           ; preds = %for.end34
   %.val38 = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %14, i64 16
   %.val39 = load ptr, ptr %15, align 8
-  tail call void %.val39(ptr %.val38, ptr noundef nonnull %call.i) #51
+  tail call void %.val39(ptr %.val38, ptr noundef nonnull %call.i) #52
   br label %return
 
 return:                                           ; preds = %for.end34, %if.end
@@ -25484,7 +25484,7 @@ return:                                           ; preds = %for.end34, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef %info, ptr noundef %data, i32 noundef %offset) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef %info, ptr noundef %data, i32 noundef %offset) local_unnamed_addr #8 {
 entry:
   %b.i = alloca %struct.stbtt__buf, align 8
   %topdict.i = alloca %struct.stbtt__buf, align 8
@@ -27017,7 +27017,7 @@ stbtt_GetFontOffsetForIndex_internal.exit:        ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr nocapture noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, float noundef %font_size, i32 noundef %first_unicode_codepoint_in_range, i32 noundef %num_chars_in_range, ptr noundef %chardata_for_range) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr nocapture noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, float noundef %font_size, i32 noundef %first_unicode_codepoint_in_range, i32 noundef %num_chars_in_range, ptr noundef %chardata_for_range) local_unnamed_addr #17 {
 entry:
   %range = alloca %struct.stbtt_pack_range, align 8
   %first_unicode_codepoint_in_range1 = getelementptr inbounds i8, ptr %range, i64 4
@@ -27034,7 +27034,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %index, float noundef %size, ptr nocapture noundef writeonly %ascent, ptr nocapture noundef writeonly %descent, ptr nocapture noundef writeonly %lineGap) local_unnamed_addr #7 {
+define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %index, float noundef %size, ptr nocapture noundef writeonly %ascent, ptr nocapture noundef writeonly %descent, ptr nocapture noundef writeonly %lineGap) local_unnamed_addr #8 {
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
   %call = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %fontdata, i32 noundef %index)
@@ -27140,7 +27140,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly %q, i32 noundef %align_to_integer) local_unnamed_addr #20 {
+define void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly %q, i32 noundef %align_to_integer) local_unnamed_addr #18 {
 entry:
   %idx.ext = sext i32 %char_index to i64
   %add.ptr = getelementptr inbounds %struct.stbtt_packedchar, ptr %chardata, i64 %idx.ext
@@ -27239,7 +27239,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetGlyphSDF(ptr nocapture noundef readonly %info, float noundef %scale, i32 noundef %glyph, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #18 {
+define ptr @stbtt_GetGlyphSDF(ptr nocapture noundef readonly %info, float noundef %scale, i32 noundef %glyph, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef writeonly %width, ptr noundef writeonly %height, ptr noundef writeonly %xoff, ptr noundef writeonly %yoff) local_unnamed_addr #17 {
 entry:
   %x0.i = alloca i32, align 4
   %y0.i = alloca i32, align 4
@@ -27349,14 +27349,14 @@ if.end19:                                         ; preds = %if.then18, %if.end1
   %.val361 = load ptr, ptr %25, align 8
   %26 = getelementptr i8, ptr %25, i64 8
   %.val362 = load ptr, ptr %26, align 8
-  %call.i367 = call ptr %.val362(ptr %.val361, ptr noundef null, i64 noundef %conv) #51
+  %call.i367 = call ptr %.val362(ptr %.val361, ptr noundef null, i64 noundef %conv) #52
   %conv21 = sext i32 %call to i64
   %mul22 = shl nsw i64 %conv21, 2
   %27 = load ptr, ptr %info, align 8
   %.val = load ptr, ptr %27, align 8
   %28 = getelementptr i8, ptr %27, i64 8
   %.val360 = load ptr, ptr %28, align 8
-  %call.i368 = call ptr %.val360(ptr %.val, ptr noundef null, i64 noundef %mul22) #51
+  %call.i368 = call ptr %.val360(ptr %.val, ptr noundef null, i64 noundef %mul22) #52
   %cmp26411 = icmp sgt i32 %call, 0
   %.pre.pre = load ptr, ptr %verts, align 8
   br i1 %cmp26411, label %for.body.lr.ph, label %for.cond137.preheader
@@ -27401,7 +27401,7 @@ for.body144.us:                                   ; preds = %for.cond141.prehead
   %conv145.us = sitofp i32 %32 to float
   %add146.us = fadd float %conv145.us, 5.000000e-01
   %div149.us = fdiv float %add146.us, %scale
-  %call.i370.us = call double @fmod(double noundef %conv.i369.us, double noundef 1.000000e+00) #51
+  %call.i370.us = call double @fmod(double noundef %conv.i369.us, double noundef 1.000000e+00) #52
   %conv1.i.us = fptrunc double %call.i370.us to float
   %cmp.i.us = fcmp olt float %conv1.i.us, 0x3F847AE140000000
   br i1 %cmp.i.us, label %if.end6.i.us, label %if.else.i371.us
@@ -27564,7 +27564,7 @@ if.then.i.i.us:                                   ; preds = %if.else261.i.us
 
 if.then30.i.i.us:                                 ; preds = %if.then.i.i.us
   %div.i.i.us = fdiv float -1.000000e+00, %add.i.i.us
-  %sqrtf.i.i.us = call float @sqrtf(float noundef %62) #29
+  %sqrtf.i.i.us = call float @sqrtf(float noundef %62) #28
   %add33.i.i.us = fadd float %sub.i.i.us, %sqrtf.i.i.us
   %mul.i.i.us = fmul float %div.i.i.us, %add33.i.i.us
   %sub34.i.i.us = fsub float %sub.i.i.us, %sqrtf.i.i.us
@@ -27849,7 +27849,7 @@ if.else438.us:                                    ; preds = %if.then369.us
   br i1 %cmp.i379.us, label %if.else.i384.us, label %if.then.i380.us
 
 if.then.i380.us:                                  ; preds = %if.else438.us
-  %sqrtf31.i.us = call float @sqrtf(float noundef %136) #29
+  %sqrtf31.i.us = call float @sqrtf(float noundef %136) #28
   %fneg13.i.us = fneg float %add.i378.us
   %add14.i.us = fsub float %sqrtf31.i.us, %add.i378.us
   %div15.i.us = fmul float %add14.i.us, 5.000000e-01
@@ -27860,14 +27860,14 @@ if.then.i380.us:                                  ; preds = %if.else438.us
 
 if.else.i.i382.us:                                ; preds = %if.then.i380.us
   %conv3.i.i.us = fpext float %div15.i.us to double
-  %call4.i.i.us = call double @pow(double noundef %conv3.i.i.us, double noundef 0x3FD5555560000000) #51
+  %call4.i.i.us = call double @pow(double noundef %conv3.i.i.us, double noundef 0x3FD5555560000000) #52
   %conv5.i.i.us = fptrunc double %call4.i.i.us to float
   br label %stbtt__cuberoot.exit.i.us
 
 if.then.i.i383.us:                                ; preds = %if.then.i380.us
   %fneg.i.i.us = fneg float %div15.i.us
   %conv.i.i.us = fpext float %fneg.i.i.us to double
-  %call.i.i.us = call double @pow(double noundef %conv.i.i.us, double noundef 0x3FD5555560000000) #51
+  %call.i.i.us = call double @pow(double noundef %conv.i.i.us, double noundef 0x3FD5555560000000) #52
   %conv1.i.i.us = fptrunc double %call.i.i.us to float
   %fneg2.i.i.us = fneg float %conv1.i.i.us
   br label %stbtt__cuberoot.exit.i.us
@@ -27879,14 +27879,14 @@ stbtt__cuberoot.exit.i.us:                        ; preds = %if.then.i.i383.us, 
 
 if.else.i33.i.us:                                 ; preds = %stbtt__cuberoot.exit.i.us
   %conv3.i34.i.us = fpext float %div18.i.us to double
-  %call4.i35.i.us = call double @pow(double noundef %conv3.i34.i.us, double noundef 0x3FD5555560000000) #51
+  %call4.i35.i.us = call double @pow(double noundef %conv3.i34.i.us, double noundef 0x3FD5555560000000) #52
   %conv5.i36.i.us = fptrunc double %call4.i35.i.us to float
   br label %stbtt__cuberoot.exit44.i.us
 
 if.then.i38.i.us:                                 ; preds = %stbtt__cuberoot.exit.i.us
   %fneg.i39.i.us = fneg float %div18.i.us
   %conv.i40.i.us = fpext float %fneg.i39.i.us to double
-  %call.i41.i.us = call double @pow(double noundef %conv.i40.i.us, double noundef 0x3FD5555560000000) #51
+  %call.i41.i.us = call double @pow(double noundef %conv.i40.i.us, double noundef 0x3FD5555560000000) #52
   %conv1.i42.i.us = fptrunc double %call.i41.i.us to float
   %fneg2.i43.i.us = fneg float %conv1.i42.i.us
   br label %stbtt__cuberoot.exit44.i.us
@@ -27899,22 +27899,22 @@ stbtt__cuberoot.exit44.i.us:                      ; preds = %if.then.i38.i.us, %
 
 if.else.i384.us:                                  ; preds = %if.else438.us
   %div25.i.us = fdiv float %sub.i377.us, -3.000000e+00
-  %sqrtf.i.us = call float @sqrtf(float noundef %div25.i.us) #29
+  %sqrtf.i.us = call float @sqrtf(float noundef %div25.i.us) #28
   %div30.i.us = fdiv float -2.700000e+01, %mul8.i.us
   %conv31.i.us = fpext float %div30.i.us to double
-  %call32.i.us = call double @sqrt(double noundef %conv31.i.us) #51
+  %call32.i.us = call double @sqrt(double noundef %conv31.i.us) #52
   %fneg33.i.us = fneg double %call32.i.us
   %conv34.i385.us = fpext float %add.i378.us to double
   %mul35.i.us = fmul double %conv34.i385.us, %fneg33.i.us
   %div36.i.us = fmul double %mul35.i.us, 5.000000e-01
-  %call37.i.us = call double @acos(double noundef %div36.i.us) #51
+  %call37.i.us = call double @acos(double noundef %div36.i.us) #52
   %conv38.i.us = fptrunc double %call37.i.us to float
   %div39.i.us = fdiv float %conv38.i.us, 3.000000e+00
   %conv40.i.us = fpext float %div39.i.us to double
-  %call41.i.us = call double @cos(double noundef %conv40.i.us) #51
+  %call41.i.us = call double @cos(double noundef %conv40.i.us) #52
   %conv42.i.us = fptrunc double %call41.i.us to float
   %sub44.i.us = fadd double %conv40.i.us, 0xBFF921FAFC8B007A
-  %call45.i.us = call double @cos(double noundef %sub44.i.us) #51
+  %call45.i.us = call double @cos(double noundef %sub44.i.us) #52
   %conv46.i.us = fptrunc double %call45.i.us to float
   %mul47.i.us = fmul float %conv46.i.us, 0x3FFBB67AE0000000
   %mul48.i.us = fmul float %sqrtf.i.us, 2.000000e+00
@@ -27945,7 +27945,7 @@ if.else414.us:                                    ; preds = %if.then389.us
   br i1 %cmp419.us, label %if.end455.us, label %if.else422.us
 
 if.else422.us:                                    ; preds = %if.else414.us
-  %sqrtf.us = call float @sqrtf(float noundef %145) #29
+  %sqrtf.us = call float @sqrtf(float noundef %145) #28
   %fneg426.us = fneg float %142
   %sub427.us = fsub float %fneg426.us, %sqrtf.us
   %mul428.us = fmul float %mul392.us, 2.000000e+00
@@ -28225,12 +28225,12 @@ for.end631:                                       ; preds = %for.cond141.for.inc
   %.val365 = load ptr, ptr %204, align 8
   %205 = getelementptr i8, ptr %204, i64 16
   %.val366 = load ptr, ptr %205, align 8
-  call void %.val366(ptr %.val365, ptr noundef %call.i368) #51
+  call void %.val366(ptr %.val365, ptr noundef %call.i368) #52
   %206 = load ptr, ptr %info, align 8
   %.val363 = load ptr, ptr %206, align 8
   %207 = getelementptr i8, ptr %206, i64 16
   %.val364 = load ptr, ptr %207, align 8
-  call void %.val364(ptr %.val363, ptr noundef %.pre.pre) #51
+  call void %.val364(ptr %.val363, ptr noundef %.pre.pre) #52
   br label %return
 
 return:                                           ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, %stbtt_GetGlyphBitmapBoxSubpixel.exit, %entry, %for.end631
@@ -28239,10 +28239,10 @@ return:                                           ; preds = %stbtt_GetGlyphBitma
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #29
+declare double @sqrt(double noundef) local_unnamed_addr #28
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointSDF(ptr nocapture noundef readonly %info, float noundef %scale, i32 noundef %codepoint, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #18 {
+define ptr @stbtt_GetCodepointSDF(ptr nocapture noundef readonly %info, float noundef %scale, i32 noundef %codepoint, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %call1 = tail call ptr @stbtt_GetGlyphSDF(ptr noundef %info, float noundef %scale, i32 noundef %call, i32 noundef %padding, i8 noundef zeroext %onedge_value, float noundef %pixel_dist_scale, ptr noundef %width, ptr noundef %height, ptr noundef %xoff, ptr noundef %yoff)
@@ -28250,17 +28250,17 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_FreeSDF(ptr noundef %bitmap, ptr nocapture noundef readonly %userdata) local_unnamed_addr #18 {
+define void @stbtt_FreeSDF(ptr noundef %bitmap, ptr nocapture noundef readonly %userdata) local_unnamed_addr #17 {
 entry:
   %userdata.val = load ptr, ptr %userdata, align 8
   %0 = getelementptr i8, ptr %userdata, i64 16
   %userdata.val1 = load ptr, ptr %0, align 8
-  tail call void %userdata.val1(ptr %userdata.val, ptr noundef %bitmap) #51
+  tail call void %userdata.val1(ptr %userdata.val, ptr noundef %bitmap) #52
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @stbtt_GetFontNameString(ptr nocapture noundef readonly %font, ptr nocapture noundef writeonly %length, i32 noundef %platformID, i32 noundef %encodingID, i32 noundef %languageID, i32 noundef %nameID) local_unnamed_addr #7 {
+define ptr @stbtt_GetFontNameString(ptr nocapture noundef readonly %font, ptr nocapture noundef writeonly %length, i32 noundef %platformID, i32 noundef %encodingID, i32 noundef %languageID, i32 noundef %nameID) local_unnamed_addr #8 {
 entry:
   %data = getelementptr inbounds i8, ptr %font, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -28455,7 +28455,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_BakeFontBitmap(ptr noundef %data, i32 noundef %offset, float noundef %pixel_height, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %first_char, i32 noundef %num_chars, ptr nocapture noundef writeonly %chardata) local_unnamed_addr #18 {
+define i32 @stbtt_BakeFontBitmap(ptr noundef %data, i32 noundef %offset, float noundef %pixel_height, ptr noundef %pixels, i32 noundef %pw, i32 noundef %ph, i32 noundef %first_char, i32 noundef %num_chars, ptr nocapture noundef writeonly %chardata) local_unnamed_addr #17 {
 entry:
   %x0.i.i.i = alloca i32, align 4
   %y0.i.i.i = alloca i32, align 4
@@ -28722,8 +28722,8 @@ stbtt_GetNumberOfFonts_internal.exit:             ; preds = %entry, %if.end.i, %
   ret i32 %retval.0.i
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %fontdata, ptr nocapture noundef readonly %name, i32 noundef %flags) local_unnamed_addr #30 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %fontdata, ptr nocapture noundef readonly %name, i32 noundef %flags) local_unnamed_addr #29 {
 entry:
   %invariant.gep.i = getelementptr i8, ptr %fontdata, i64 45
   %call10.i = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly %fontdata, i32 noundef 0)
@@ -28731,7 +28731,7 @@ entry:
   br i1 %cmp11.i, label %stbtt_FindMatchingFont_internal.exit, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %entry
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #52
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #53
   %conv.i.i = trunc i64 %call.i.i to i32
   %tobool2.not.i.i = icmp eq i32 %flags, 0
   %and10.i.i = and i32 %flags, 7
@@ -28941,7 +28941,7 @@ stbtt_FindMatchingFont_internal.exit:             ; preds = %if.then20.i.i, %if.
   ret i32 %call.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %s1, i32 noundef %len1, ptr nocapture noundef readonly %s2, i32 noundef %len2) local_unnamed_addr #6 {
 entry:
   %call.i = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly %s1, i32 noundef %len1, ptr noundef readonly %s2, i32 noundef %len2)
@@ -28975,7 +28975,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @nk_font_find_glyph(ptr noundef readonly %font, i32 noundef %unicode) local_unnamed_addr #6 {
+define ptr @nk_font_find_glyph(ptr noundef readonly %font, i32 noundef %unicode) local_unnamed_addr #25 {
 entry:
   %tobool.not = icmp eq ptr %font, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -29129,7 +29129,7 @@ return:                                           ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_font_atlas_init(ptr noundef %atlas, ptr noundef readonly %alloc) local_unnamed_addr #20 {
+define void @nk_font_atlas_init(ptr noundef %atlas, ptr noundef readonly %alloc) local_unnamed_addr #18 {
 entry:
   %tobool = icmp ne ptr %atlas, null
   %tobool1 = icmp ne ptr %alloc, null
@@ -29167,7 +29167,7 @@ return:                                           ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_font_atlas_init_custom(ptr noundef %atlas, ptr noundef readonly %permanent, ptr noundef readonly %temporary) local_unnamed_addr #20 {
+define void @nk_font_atlas_init_custom(ptr noundef %atlas, ptr noundef readonly %permanent, ptr noundef readonly %temporary) local_unnamed_addr #18 {
 entry:
   %tobool = icmp ne ptr %atlas, null
   %tobool1 = icmp ne ptr %permanent, null
@@ -29207,7 +29207,7 @@ return:                                           ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_begin(ptr noundef %atlas) local_unnamed_addr #18 {
+define void @nk_font_atlas_begin(ptr noundef %atlas) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %atlas, null
   br i1 %tobool.not, label %if.end29, label %lor.lhs.false
@@ -29245,7 +29245,7 @@ if.end:                                           ; preds = %lor.lhs.false8
 
 if.then13:                                        ; preds = %if.end
   %5 = load ptr, ptr %permanent, align 8
-  tail call void %1(ptr %5, ptr noundef nonnull %4) #51
+  tail call void %1(ptr %5, ptr noundef nonnull %4) #52
   store ptr null, ptr %glyphs, align 8
   br label %if.end19
 
@@ -29257,7 +29257,7 @@ if.end19:                                         ; preds = %if.then13, %if.end
 if.then21:                                        ; preds = %if.end19
   %7 = load ptr, ptr %free, align 8
   %8 = load ptr, ptr %permanent, align 8
-  tail call void %7(ptr %8, ptr noundef nonnull %6) #51
+  tail call void %7(ptr %8, ptr noundef nonnull %6) #52
   store ptr null, ptr %atlas, align 8
   br label %if.end29
 
@@ -29266,7 +29266,7 @@ if.end29:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add(ptr noundef %atlas, ptr noundef %config) local_unnamed_addr #18 {
+define ptr @nk_font_atlas_add(ptr noundef %atlas, ptr noundef %config) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %atlas, null
   %tobool1 = icmp ne ptr %config, null
@@ -29318,7 +29318,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false12
 
 if.end:                                           ; preds = %lor.lhs.false15
   %7 = load ptr, ptr %permanent, align 8
-  %call = tail call ptr %3(ptr %7, ptr noundef null, i64 noundef 88) #51
+  %call = tail call ptr %3(ptr %7, ptr noundef null, i64 noundef 88) #52
   %call22 = tail call fastcc ptr @nk_memcopy(ptr noundef %call, ptr noundef nonnull %config, i64 noundef 88)
   %n = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call, ptr %n, align 8
@@ -29347,7 +29347,7 @@ if.end35:                                         ; preds = %while.cond, %if.the
   store ptr null, ptr %call, align 8
   %11 = load ptr, ptr %alloc, align 8
   %12 = load ptr, ptr %permanent, align 8
-  %call41 = tail call ptr %11(ptr %12, ptr noundef null, i64 noundef 128) #51
+  %call41 = tail call ptr %11(ptr %12, ptr noundef null, i64 noundef 128) #52
   %13 = ptrtoint ptr %call41 to i64
   %and.i.i = and i64 %13, 3
   %cmp10.not.i.i = icmp eq i64 %and.i.i, 0
@@ -29418,7 +29418,7 @@ if.then76:                                        ; preds = %if.end74
   %ttf_size81 = getelementptr inbounds i8, ptr %call, i64 16
   %21 = load i64, ptr %ttf_size81, align 8
   %22 = load ptr, ptr %permanent, align 8
-  %call83 = tail call ptr %20(ptr %22, ptr noundef null, i64 noundef %21) #51
+  %call83 = tail call ptr %20(ptr %22, ptr noundef null, i64 noundef %21) #52
   %ttf_blob84 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call83, ptr %ttf_blob84, align 8
   %tobool86.not = icmp eq ptr %call83, null
@@ -29446,7 +29446,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_from_memory(ptr noundef %atlas, ptr noundef %memory, i64 noundef %size, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #22 {
+define ptr @nk_font_atlas_add_from_memory(ptr noundef %atlas, ptr noundef %memory, i64 noundef %size, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #20 {
 entry:
   %cfg = alloca %struct.nk_font_config, align 8
   %tobool.not = icmp eq ptr %atlas, null
@@ -29528,7 +29528,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_from_file(ptr noundef %atlas, ptr noundef readonly %file_path, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #22 {
+define ptr @nk_font_atlas_add_from_file(ptr noundef %atlas, ptr noundef readonly %file_path, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #20 {
 entry:
   %cfg = alloca %struct.nk_font_config, align 8
   %tobool = icmp ne ptr %atlas, null
@@ -29553,7 +29553,7 @@ if.end11.i:                                       ; preds = %if.end6.i
   %alloc13.i = getelementptr inbounds i8, ptr %atlas, i64 24
   %0 = load ptr, ptr %alloc13.i, align 8
   %1 = load ptr, ptr %permanent, align 8
-  %call14.i = tail call ptr %0(ptr %1, ptr noundef null, i64 noundef %call8.i) #51
+  %call14.i = tail call ptr %0(ptr %1, ptr noundef null, i64 noundef %call8.i) #52
   %tobool15.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool15.not.i, label %nk_file_load.exit.thread16, label %if.end4
 
@@ -29611,7 +29611,7 @@ return:                                           ; preds = %if.end, %nk_file_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_compressed(ptr noundef %atlas, ptr noundef %compressed_data, i64 noundef %compressed_size, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #22 {
+define ptr @nk_font_atlas_add_compressed(ptr noundef %atlas, ptr noundef %compressed_data, i64 noundef %compressed_size, float noundef %height, ptr noundef readonly %config) local_unnamed_addr #20 {
 entry:
   %cfg = alloca %struct.nk_font_config, align 8
   %tobool = icmp ne ptr %atlas, null
@@ -29664,7 +29664,7 @@ if.end:                                           ; preds = %lor.lhs.false10
   %conv9.i = zext i8 %7 to i64
   %add10.i = or disjoint i64 %add7.i, %conv9.i
   %8 = load ptr, ptr %permanent, align 8
-  %call17 = tail call ptr %2(ptr %8, ptr noundef null, i64 noundef %add10.i) #51
+  %call17 = tail call ptr %2(ptr %8, ptr noundef null, i64 noundef %add10.i) #52
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %return, label %if.end20
 
@@ -29735,116 +29735,105 @@ if.end29.i:                                       ; preds = %if.end.i
   store ptr %call17, ptr @nk__barrier4, align 8
   %add.ptr32.i = getelementptr inbounds i8, ptr %compressed_data, i64 16
   store ptr %call17, ptr @nk__dout, align 8
+  %add.ptr5.i171.i.i = getelementptr inbounds i8, ptr %add.ptr31.i, i64 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end70.i, %if.end29.i
-  %21 = phi ptr [ %call17, %if.end29.i ], [ %78, %if.end70.i ]
+  %add.ptr.sink.i54.i = phi ptr [ %call17, %if.end29.i ], [ %add.ptr.sink.i52.i, %if.end70.i ]
   %i.addr.0.i = phi ptr [ %add.ptr32.i, %if.end29.i ], [ %i.addr.0.i47.i, %if.end70.i ]
-  %22 = load i8, ptr %i.addr.0.i, align 1
-  %conv.i30.i = zext i8 %22 to i32
-  %cmp.i.i = icmp ugt i8 %22, 31
+  %21 = load i8, ptr %i.addr.0.i, align 1
+  %conv.i30.i = zext i8 %21 to i32
+  %cmp.i.i = icmp ugt i8 %21, 31
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else43.i.i
 
 if.then.i.i:                                      ; preds = %for.cond.i
-  %cmp3.i.i = icmp slt i8 %22, 0
+  %cmp3.i.i = icmp slt i8 %21, 0
   br i1 %cmp3.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
   %arrayidx.i32.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %23 = load i8, ptr %arrayidx.i32.i, align 1
-  %idx.ext.i.i = zext i8 %23 to i64
+  %22 = load i8, ptr %arrayidx.i32.i, align 1
+  %idx.ext.i.i = zext i8 %22 to i64
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %21, i64 %idx.neg.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %add.ptr.sink.i54.i, i64 %idx.neg.i.i
   %add.ptr7.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 -1
   %add.i33.i = add nsw i32 %conv.i30.i, -127
   %idx.ext.i.i.i = zext nneg i32 %add.i33.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i.i.i
-  %24 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %24
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i.i.i
+  %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %add.ptr31.i
   br i1 %cmp.i.i.i, label %while.end.sink.split.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then5.i.i
-  %25 = load ptr, ptr @nk__barrier4, align 8
-  %cmp3.i.i.i = icmp ugt ptr %25, %add.ptr7.i.i
-  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %while.cond.preheader.i.i.i
+  %cmp3.i.i.i = icmp ult ptr %add.ptr7.i.i, %call17
+  br i1 %cmp3.i.i.i, label %while.end.sink.split.i.i.i, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end.i.i.i
   %tobool.not5.i.i.i = icmp eq i32 %add.i33.i, 0
   br i1 %tobool.not5.i.i.i, label %nk__match.exit.i.i, label %while.body.i.i.i
 
-if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %24, i64 1
-  br label %while.end.sink.split.i.i.i
-
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
   %length.addr.08.i.i.i = phi i32 [ %dec.i.i.i, %while.body.i.i.i ], [ %add.i33.i, %while.cond.preheader.i.i.i ]
   %data.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %add.ptr7.i.i, %while.cond.preheader.i.i.i ]
-  %incdec.ptr746.i.i.i = phi ptr [ %incdec.ptr7.i.i.i, %while.body.i.i.i ], [ %21, %while.cond.preheader.i.i.i ]
+  %incdec.ptr746.i.i.i = phi ptr [ %incdec.ptr7.i.i.i, %while.body.i.i.i ], [ %add.ptr.sink.i54.i, %while.cond.preheader.i.i.i ]
   %dec.i.i.i = add nsw i32 %length.addr.08.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %data.addr.07.i.i.i, i64 1
-  %26 = load i8, ptr %data.addr.07.i.i.i, align 1
+  %23 = load i8, ptr %data.addr.07.i.i.i, align 1
   %incdec.ptr7.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i.i.i, i64 1
-  store i8 %26, ptr %incdec.ptr746.i.i.i, align 1
+  store i8 %23, ptr %incdec.ptr746.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %while.end.sink.split.i.i.i, label %while.body.i.i.i, !llvm.loop !152
 
-while.end.sink.split.i.i.i:                       ; preds = %while.body.i.i.i, %if.then4.i.i.i, %if.then5.i.i
-  %incdec.ptr7.lcssa.sink.i.i.i = phi ptr [ %add.ptr5.i.i.i, %if.then4.i.i.i ], [ %add.ptr.i.i.i, %if.then5.i.i ], [ %incdec.ptr7.i.i.i, %while.body.i.i.i ]
+while.end.sink.split.i.i.i:                       ; preds = %while.body.i.i.i, %if.end.i.i.i, %if.then5.i.i
+  %incdec.ptr7.lcssa.sink.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then5.i.i ], [ %add.ptr5.i171.i.i, %if.end.i.i.i ], [ %incdec.ptr7.i.i.i, %while.body.i.i.i ]
   store ptr %incdec.ptr7.lcssa.sink.i.i.i, ptr @nk__dout, align 8
   br label %nk__match.exit.i.i
 
 nk__match.exit.i.i:                               ; preds = %while.end.sink.split.i.i.i, %while.cond.preheader.i.i.i
-  %27 = phi ptr [ %incdec.ptr7.lcssa.sink.i.i.i, %while.end.sink.split.i.i.i ], [ %21, %while.cond.preheader.i.i.i ]
+  %add.ptr.sink.i53.i = phi ptr [ %incdec.ptr7.lcssa.sink.i.i.i, %while.end.sink.split.i.i.i ], [ %add.ptr.sink.i54.i, %while.cond.preheader.i.i.i ]
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
   br label %if.end70.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp12.i.i = icmp ugt i8 %22, 63
+  %cmp12.i.i = icmp ugt i8 %21, 63
   br i1 %cmp12.i.i, label %if.then14.i.i, label %if.else29.i.i
 
 if.then14.i.i:                                    ; preds = %if.else.i.i
   %arrayidx25.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
-  %28 = load i8, ptr %arrayidx25.i.i, align 1
-  %conv26.i.i = zext i8 %28 to i32
+  %24 = load i8, ptr %arrayidx25.i.i, align 1
+  %conv26.i.i = zext i8 %24 to i32
   %add27.i.i = add nuw nsw i32 %conv26.i.i, 1
   %idx.ext.i55.i.i = zext nneg i32 %add27.i.i to i64
-  %add.ptr.i56.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i55.i.i
-  %29 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i57.i.i = icmp ugt ptr %add.ptr.i56.i.i, %29
+  %add.ptr.i56.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i55.i.i
+  %cmp.i57.i.i = icmp ugt ptr %add.ptr.i56.i.i, %add.ptr31.i
   br i1 %cmp.i57.i.i, label %nk__match.exit74.i.i, label %if.end.i58.i.i
 
 if.end.i58.i.i:                                   ; preds = %if.then14.i.i
   %shl.i31.i = shl nuw nsw i32 %conv.i30.i, 8
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %30 = load i8, ptr %arrayidx17.i.i, align 1
-  %conv18.i.i = zext i8 %30 to i32
+  %25 = load i8, ptr %arrayidx17.i.i, align 1
+  %conv18.i.i = zext i8 %25 to i32
   %add19.i.i = or disjoint i32 %shl.i31.i, %conv18.i.i
   %add21.i.i = add nsw i32 %add19.i.i, -16383
   %idx.ext22.i.i = zext nneg i32 %add21.i.i to i64
   %idx.neg23.i.i = sub nsw i64 0, %idx.ext22.i.i
-  %add.ptr24.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.neg23.i.i
-  %31 = load ptr, ptr @nk__barrier4, align 8
-  %cmp3.i59.i.i = icmp ugt ptr %31, %add.ptr24.i.i
-  br i1 %cmp3.i59.i.i, label %if.then4.i72.i.i, label %while.body.i62.i.i
-
-if.then4.i72.i.i:                                 ; preds = %if.end.i58.i.i
-  %add.ptr5.i73.i.i = getelementptr inbounds i8, ptr %29, i64 1
-  br label %nk__match.exit74.i.i
+  %add.ptr24.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.neg23.i.i
+  %cmp3.i59.i.i = icmp ult ptr %add.ptr24.i.i, %call17
+  br i1 %cmp3.i59.i.i, label %nk__match.exit74.i.i, label %while.body.i62.i.i
 
 while.body.i62.i.i:                               ; preds = %if.end.i58.i.i, %while.body.i62.i.i
   %length.addr.08.i63.i.i = phi i32 [ %dec.i66.i.i, %while.body.i62.i.i ], [ %add27.i.i, %if.end.i58.i.i ]
   %data.addr.07.i64.i.i = phi ptr [ %incdec.ptr.i67.i.i, %while.body.i62.i.i ], [ %add.ptr24.i.i, %if.end.i58.i.i ]
-  %incdec.ptr746.i65.i.i = phi ptr [ %incdec.ptr7.i68.i.i, %while.body.i62.i.i ], [ %21, %if.end.i58.i.i ]
+  %incdec.ptr746.i65.i.i = phi ptr [ %incdec.ptr7.i68.i.i, %while.body.i62.i.i ], [ %add.ptr.sink.i54.i, %if.end.i58.i.i ]
   %dec.i66.i.i = add nsw i32 %length.addr.08.i63.i.i, -1
   %incdec.ptr.i67.i.i = getelementptr inbounds i8, ptr %data.addr.07.i64.i.i, i64 1
-  %32 = load i8, ptr %data.addr.07.i64.i.i, align 1
+  %26 = load i8, ptr %data.addr.07.i64.i.i, align 1
   %incdec.ptr7.i68.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i65.i.i, i64 1
-  store i8 %32, ptr %incdec.ptr746.i65.i.i, align 1
+  store i8 %26, ptr %incdec.ptr746.i65.i.i, align 1
   %tobool.not.i69.i.i = icmp eq i32 %dec.i66.i.i, 0
   br i1 %tobool.not.i69.i.i, label %nk__match.exit74.i.i, label %while.body.i62.i.i, !llvm.loop !152
 
-nk__match.exit74.i.i:                             ; preds = %while.body.i62.i.i, %if.then4.i72.i.i, %if.then14.i.i
-  %incdec.ptr7.lcssa.sink.i71.i.i = phi ptr [ %add.ptr5.i73.i.i, %if.then4.i72.i.i ], [ %add.ptr.i56.i.i, %if.then14.i.i ], [ %incdec.ptr7.i68.i.i, %while.body.i62.i.i ]
+nk__match.exit74.i.i:                             ; preds = %while.body.i62.i.i, %if.end.i58.i.i, %if.then14.i.i
+  %incdec.ptr7.lcssa.sink.i71.i.i = phi ptr [ %add.ptr.i56.i.i, %if.then14.i.i ], [ %add.ptr5.i171.i.i, %if.end.i58.i.i ], [ %incdec.ptr7.i68.i.i, %while.body.i62.i.i ]
   store ptr %incdec.ptr7.lcssa.sink.i71.i.i, ptr @nk__dout, align 8
   %add.ptr28.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 3
   br label %if.end70.i
@@ -29853,199 +29842,171 @@ if.else29.i.i:                                    ; preds = %if.else.i.i
   %add.ptr30.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
   %add34.i.i = add nsw i32 %conv.i30.i, -31
   %idx.ext.i75.i.i = zext nneg i32 %add34.i.i to i64
-  %add.ptr.i76.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i75.i.i
-  %33 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i77.i.i = icmp ugt ptr %add.ptr.i76.i.i, %33
+  %add.ptr.i76.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i75.i.i
+  %cmp.i77.i.i = icmp ugt ptr %add.ptr.i76.i.i, %add.ptr31.i
   br i1 %cmp.i77.i.i, label %nk__lit.exit.i.i, label %if.end.i78.i.i
 
 if.end.i78.i.i:                                   ; preds = %if.else29.i.i
-  %34 = load ptr, ptr @nk__barrier2, align 8
-  %cmp3.i79.i.i = icmp ugt ptr %34, %add.ptr30.i.i
-  br i1 %cmp3.i79.i.i, label %if.then4.i80.i.i, label %if.end6.i.i.i
-
-if.then4.i80.i.i:                                 ; preds = %if.end.i78.i.i
-  %add.ptr5.i81.i.i = getelementptr inbounds i8, ptr %33, i64 1
-  br label %nk__lit.exit.i.i
+  %cmp3.i79.i.i = icmp ult ptr %add.ptr30.i.i, %compressed_data
+  br i1 %cmp3.i79.i.i, label %nk__lit.exit.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i78.i.i
-  %call.i.i.i = tail call fastcc ptr @nk_memcopy(ptr noundef %21, ptr noundef nonnull %add.ptr30.i.i, i64 noundef %idx.ext.i75.i.i)
-  %35 = load ptr, ptr @nk__dout, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %35, i64 %idx.ext.i75.i.i
-  %.pre175.i.i = load i8, ptr %i.addr.0.i, align 1
+  %call.i.i.i = tail call fastcc ptr @nk_memcopy(ptr noundef %add.ptr.sink.i54.i, ptr noundef nonnull %add.ptr30.i.i, i64 noundef %idx.ext.i75.i.i)
+  %.pre174.i.i = load i8, ptr %i.addr.0.i, align 1
   br label %nk__lit.exit.i.i
 
-nk__lit.exit.i.i:                                 ; preds = %if.end6.i.i.i, %if.then4.i80.i.i, %if.else29.i.i
-  %36 = phi i8 [ %.pre175.i.i, %if.end6.i.i.i ], [ %22, %if.then4.i80.i.i ], [ %22, %if.else29.i.i ]
-  %add.ptr8.sink.i.i.i = phi ptr [ %add.ptr8.i.i.i, %if.end6.i.i.i ], [ %add.ptr5.i81.i.i, %if.then4.i80.i.i ], [ %add.ptr.i76.i.i, %if.else29.i.i ]
-  store ptr %add.ptr8.sink.i.i.i, ptr @nk__dout, align 8
-  %conv36.i.i = zext i8 %36 to i64
+nk__lit.exit.i.i:                                 ; preds = %if.end6.i.i.i, %if.end.i78.i.i, %if.else29.i.i
+  %27 = phi i8 [ %.pre174.i.i, %if.end6.i.i.i ], [ %21, %if.else29.i.i ], [ %21, %if.end.i78.i.i ]
+  %add.ptr.sink.i.i.i = phi ptr [ %add.ptr.i76.i.i, %if.end6.i.i.i ], [ %add.ptr.i76.i.i, %if.else29.i.i ], [ %add.ptr5.i171.i.i, %if.end.i78.i.i ]
+  store ptr %add.ptr.sink.i.i.i, ptr @nk__dout, align 8
+  %conv36.i.i = zext i8 %27 to i64
   br label %nk_decompress_token.exit.i
 
 if.else43.i.i:                                    ; preds = %for.cond.i
-  %cmp45.i.i = icmp ugt i8 %22, 23
+  %cmp45.i.i = icmp ugt i8 %21, 23
   br i1 %cmp45.i.i, label %if.then47.i.i, label %if.else67.i.i
 
 if.then47.i.i:                                    ; preds = %if.else43.i.i
   %arrayidx63.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 3
-  %37 = load i8, ptr %arrayidx63.i.i, align 1
-  %conv64.i.i = zext i8 %37 to i32
+  %28 = load i8, ptr %arrayidx63.i.i, align 1
+  %conv64.i.i = zext i8 %28 to i32
   %add65.i.i = add nuw nsw i32 %conv64.i.i, 1
   %idx.ext.i82.i.i = zext nneg i32 %add65.i.i to i64
-  %add.ptr.i83.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i82.i.i
-  %38 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i84.i.i = icmp ugt ptr %add.ptr.i83.i.i, %38
+  %add.ptr.i83.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i82.i.i
+  %cmp.i84.i.i = icmp ugt ptr %add.ptr.i83.i.i, %add.ptr31.i
   br i1 %cmp.i84.i.i, label %nk__match.exit101.i.i, label %if.end.i85.i.i
 
 if.end.i85.i.i:                                   ; preds = %if.then47.i.i
   %shl50.i.i = shl nuw nsw i32 %conv.i30.i, 16
   %arrayidx51.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %39 = load i8, ptr %arrayidx51.i.i, align 1
-  %conv52.i.i = zext i8 %39 to i32
+  %29 = load i8, ptr %arrayidx51.i.i, align 1
+  %conv52.i.i = zext i8 %29 to i32
   %shl53.i.i = shl nuw nsw i32 %conv52.i.i, 8
   %arrayidx54.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
-  %40 = load i8, ptr %arrayidx54.i.i, align 1
-  %conv55.i.i = zext i8 %40 to i32
+  %30 = load i8, ptr %arrayidx54.i.i, align 1
+  %conv55.i.i = zext i8 %30 to i32
   %add56.i.i = or disjoint i32 %shl50.i.i, %conv55.i.i
   %add57.i.i = or disjoint i32 %add56.i.i, %shl53.i.i
   %add59.i.i = add nsw i32 %add57.i.i, -1572863
   %idx.ext60.i.i = zext nneg i32 %add59.i.i to i64
   %idx.neg61.i.i = sub nsw i64 0, %idx.ext60.i.i
-  %add.ptr62.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.neg61.i.i
-  %41 = load ptr, ptr @nk__barrier4, align 8
-  %cmp3.i86.i.i = icmp ugt ptr %41, %add.ptr62.i.i
-  br i1 %cmp3.i86.i.i, label %if.then4.i99.i.i, label %while.body.i89.i.i
-
-if.then4.i99.i.i:                                 ; preds = %if.end.i85.i.i
-  %add.ptr5.i100.i.i = getelementptr inbounds i8, ptr %38, i64 1
-  br label %nk__match.exit101.i.i
+  %add.ptr62.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.neg61.i.i
+  %cmp3.i86.i.i = icmp ult ptr %add.ptr62.i.i, %call17
+  br i1 %cmp3.i86.i.i, label %nk__match.exit101.i.i, label %while.body.i89.i.i
 
 while.body.i89.i.i:                               ; preds = %if.end.i85.i.i, %while.body.i89.i.i
   %length.addr.08.i90.i.i = phi i32 [ %dec.i93.i.i, %while.body.i89.i.i ], [ %add65.i.i, %if.end.i85.i.i ]
   %data.addr.07.i91.i.i = phi ptr [ %incdec.ptr.i94.i.i, %while.body.i89.i.i ], [ %add.ptr62.i.i, %if.end.i85.i.i ]
-  %incdec.ptr746.i92.i.i = phi ptr [ %incdec.ptr7.i95.i.i, %while.body.i89.i.i ], [ %21, %if.end.i85.i.i ]
+  %incdec.ptr746.i92.i.i = phi ptr [ %incdec.ptr7.i95.i.i, %while.body.i89.i.i ], [ %add.ptr.sink.i54.i, %if.end.i85.i.i ]
   %dec.i93.i.i = add nsw i32 %length.addr.08.i90.i.i, -1
   %incdec.ptr.i94.i.i = getelementptr inbounds i8, ptr %data.addr.07.i91.i.i, i64 1
-  %42 = load i8, ptr %data.addr.07.i91.i.i, align 1
+  %31 = load i8, ptr %data.addr.07.i91.i.i, align 1
   %incdec.ptr7.i95.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i92.i.i, i64 1
-  store i8 %42, ptr %incdec.ptr746.i92.i.i, align 1
+  store i8 %31, ptr %incdec.ptr746.i92.i.i, align 1
   %tobool.not.i96.i.i = icmp eq i32 %dec.i93.i.i, 0
   br i1 %tobool.not.i96.i.i, label %nk__match.exit101.i.i, label %while.body.i89.i.i, !llvm.loop !152
 
-nk__match.exit101.i.i:                            ; preds = %while.body.i89.i.i, %if.then4.i99.i.i, %if.then47.i.i
-  %incdec.ptr7.lcssa.sink.i98.i.i = phi ptr [ %add.ptr5.i100.i.i, %if.then4.i99.i.i ], [ %add.ptr.i83.i.i, %if.then47.i.i ], [ %incdec.ptr7.i95.i.i, %while.body.i89.i.i ]
+nk__match.exit101.i.i:                            ; preds = %while.body.i89.i.i, %if.end.i85.i.i, %if.then47.i.i
+  %incdec.ptr7.lcssa.sink.i98.i.i = phi ptr [ %add.ptr.i83.i.i, %if.then47.i.i ], [ %add.ptr5.i171.i.i, %if.end.i85.i.i ], [ %incdec.ptr7.i95.i.i, %while.body.i89.i.i ]
   store ptr %incdec.ptr7.lcssa.sink.i98.i.i, ptr @nk__dout, align 8
   %add.ptr66.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 4
   br label %if.end70.i
 
 if.else67.i.i:                                    ; preds = %if.else43.i.i
-  %cmp69.i.i = icmp ugt i8 %22, 15
+  %cmp69.i.i = icmp ugt i8 %21, 15
   br i1 %cmp69.i.i, label %if.then71.i.i, label %if.else95.i.i
 
 if.then71.i.i:                                    ; preds = %if.else67.i.i
   %arrayidx87.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 3
-  %43 = load i8, ptr %arrayidx87.i.i, align 1
-  %conv88.i.i = zext i8 %43 to i32
+  %32 = load i8, ptr %arrayidx87.i.i, align 1
+  %conv88.i.i = zext i8 %32 to i32
   %shl89.i.i = shl nuw nsw i32 %conv88.i.i, 8
   %arrayidx90.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 4
-  %44 = load i8, ptr %arrayidx90.i.i, align 1
-  %conv91.i.i = zext i8 %44 to i32
+  %33 = load i8, ptr %arrayidx90.i.i, align 1
+  %conv91.i.i = zext i8 %33 to i32
   %add92.i.i = or disjoint i32 %shl89.i.i, %conv91.i.i
   %add93.i.i = add nuw nsw i32 %add92.i.i, 1
   %idx.ext.i102.i.i = zext nneg i32 %add93.i.i to i64
-  %add.ptr.i103.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i102.i.i
-  %45 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i104.i.i = icmp ugt ptr %add.ptr.i103.i.i, %45
+  %add.ptr.i103.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i102.i.i
+  %cmp.i104.i.i = icmp ugt ptr %add.ptr.i103.i.i, %add.ptr31.i
   br i1 %cmp.i104.i.i, label %nk__match.exit121.i.i, label %if.end.i105.i.i
 
 if.end.i105.i.i:                                  ; preds = %if.then71.i.i
   %shl74.i.i = shl nuw nsw i32 %conv.i30.i, 16
   %arrayidx75.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %46 = load i8, ptr %arrayidx75.i.i, align 1
-  %conv76.i.i = zext i8 %46 to i32
+  %34 = load i8, ptr %arrayidx75.i.i, align 1
+  %conv76.i.i = zext i8 %34 to i32
   %shl77.i.i = shl nuw nsw i32 %conv76.i.i, 8
   %arrayidx78.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
-  %47 = load i8, ptr %arrayidx78.i.i, align 1
-  %conv79.i.i = zext i8 %47 to i32
+  %35 = load i8, ptr %arrayidx78.i.i, align 1
+  %conv79.i.i = zext i8 %35 to i32
   %add80.i.i = or disjoint i32 %shl74.i.i, %conv79.i.i
   %add81.i.i = or disjoint i32 %add80.i.i, %shl77.i.i
   %add83.i.i = add nsw i32 %add81.i.i, -1048575
   %idx.ext84.i.i = zext nneg i32 %add83.i.i to i64
   %idx.neg85.i.i = sub nsw i64 0, %idx.ext84.i.i
-  %add.ptr86.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.neg85.i.i
-  %48 = load ptr, ptr @nk__barrier4, align 8
-  %cmp3.i106.i.i = icmp ugt ptr %48, %add.ptr86.i.i
-  br i1 %cmp3.i106.i.i, label %if.then4.i119.i.i, label %while.body.i109.i.i
-
-if.then4.i119.i.i:                                ; preds = %if.end.i105.i.i
-  %add.ptr5.i120.i.i = getelementptr inbounds i8, ptr %45, i64 1
-  br label %nk__match.exit121.i.i
+  %add.ptr86.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.neg85.i.i
+  %cmp3.i106.i.i = icmp ult ptr %add.ptr86.i.i, %call17
+  br i1 %cmp3.i106.i.i, label %nk__match.exit121.i.i, label %while.body.i109.i.i
 
 while.body.i109.i.i:                              ; preds = %if.end.i105.i.i, %while.body.i109.i.i
   %length.addr.08.i110.i.i = phi i32 [ %dec.i113.i.i, %while.body.i109.i.i ], [ %add93.i.i, %if.end.i105.i.i ]
   %data.addr.07.i111.i.i = phi ptr [ %incdec.ptr.i114.i.i, %while.body.i109.i.i ], [ %add.ptr86.i.i, %if.end.i105.i.i ]
-  %incdec.ptr746.i112.i.i = phi ptr [ %incdec.ptr7.i115.i.i, %while.body.i109.i.i ], [ %21, %if.end.i105.i.i ]
+  %incdec.ptr746.i112.i.i = phi ptr [ %incdec.ptr7.i115.i.i, %while.body.i109.i.i ], [ %add.ptr.sink.i54.i, %if.end.i105.i.i ]
   %dec.i113.i.i = add nsw i32 %length.addr.08.i110.i.i, -1
   %incdec.ptr.i114.i.i = getelementptr inbounds i8, ptr %data.addr.07.i111.i.i, i64 1
-  %49 = load i8, ptr %data.addr.07.i111.i.i, align 1
+  %36 = load i8, ptr %data.addr.07.i111.i.i, align 1
   %incdec.ptr7.i115.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i112.i.i, i64 1
-  store i8 %49, ptr %incdec.ptr746.i112.i.i, align 1
+  store i8 %36, ptr %incdec.ptr746.i112.i.i, align 1
   %tobool.not.i116.i.i = icmp eq i32 %dec.i113.i.i, 0
   br i1 %tobool.not.i116.i.i, label %nk__match.exit121.i.i, label %while.body.i109.i.i, !llvm.loop !152
 
-nk__match.exit121.i.i:                            ; preds = %while.body.i109.i.i, %if.then4.i119.i.i, %if.then71.i.i
-  %incdec.ptr7.lcssa.sink.i118.i.i = phi ptr [ %add.ptr5.i120.i.i, %if.then4.i119.i.i ], [ %add.ptr.i103.i.i, %if.then71.i.i ], [ %incdec.ptr7.i115.i.i, %while.body.i109.i.i ]
+nk__match.exit121.i.i:                            ; preds = %while.body.i109.i.i, %if.end.i105.i.i, %if.then71.i.i
+  %incdec.ptr7.lcssa.sink.i118.i.i = phi ptr [ %add.ptr.i103.i.i, %if.then71.i.i ], [ %add.ptr5.i171.i.i, %if.end.i105.i.i ], [ %incdec.ptr7.i115.i.i, %while.body.i109.i.i ]
   store ptr %incdec.ptr7.lcssa.sink.i118.i.i, ptr @nk__dout, align 8
   %add.ptr94.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 5
   br label %if.end70.i
 
 if.else95.i.i:                                    ; preds = %if.else67.i.i
-  %cmp97.i.i = icmp ugt i8 %22, 7
+  %cmp97.i.i = icmp ugt i8 %21, 7
   br i1 %cmp97.i.i, label %if.then99.i.i, label %if.else120.i.i
 
 if.then99.i.i:                                    ; preds = %if.else95.i.i
   %add.ptr100.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
   %shl103.i.i = shl nuw nsw i32 %conv.i30.i, 8
   %arrayidx104.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %50 = load i8, ptr %arrayidx104.i.i, align 1
-  %conv105.i.i = zext i8 %50 to i32
+  %37 = load i8, ptr %arrayidx104.i.i, align 1
+  %conv105.i.i = zext i8 %37 to i32
   %add106.i.i = or disjoint i32 %shl103.i.i, %conv105.i.i
   %add108.i.i = add nsw i32 %add106.i.i, -2047
   %idx.ext.i122.i.i = zext nneg i32 %add108.i.i to i64
-  %add.ptr.i123.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i122.i.i
-  %51 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i124.i.i = icmp ugt ptr %add.ptr.i123.i.i, %51
-  br i1 %cmp.i124.i.i, label %nk__lit.exit133.i.i, label %if.end.i125.i.i
+  %add.ptr.i123.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i122.i.i
+  %cmp.i124.i.i = icmp ugt ptr %add.ptr.i123.i.i, %add.ptr31.i
+  br i1 %cmp.i124.i.i, label %nk__lit.exit132.i.i, label %if.end.i125.i.i
 
 if.end.i125.i.i:                                  ; preds = %if.then99.i.i
-  %52 = load ptr, ptr @nk__barrier2, align 8
-  %cmp3.i126.i.i = icmp ugt ptr %52, %add.ptr100.i.i
-  br i1 %cmp3.i126.i.i, label %if.then4.i131.i.i, label %if.end6.i127.i.i
-
-if.then4.i131.i.i:                                ; preds = %if.end.i125.i.i
-  %add.ptr5.i132.i.i = getelementptr inbounds i8, ptr %51, i64 1
-  br label %nk__lit.exit133.i.i
+  %cmp3.i126.i.i = icmp ult ptr %add.ptr100.i.i, %compressed_data
+  br i1 %cmp3.i126.i.i, label %nk__lit.exit132.i.i, label %if.end6.i127.i.i
 
 if.end6.i127.i.i:                                 ; preds = %if.end.i125.i.i
-  %call.i128.i.i = tail call fastcc ptr @nk_memcopy(ptr noundef %21, ptr noundef nonnull %add.ptr100.i.i, i64 noundef %idx.ext.i122.i.i)
-  %53 = load ptr, ptr @nk__dout, align 8
-  %add.ptr8.i129.i.i = getelementptr inbounds i8, ptr %53, i64 %idx.ext.i122.i.i
+  %call.i128.i.i = tail call fastcc ptr @nk_memcopy(ptr noundef %add.ptr.sink.i54.i, ptr noundef nonnull %add.ptr100.i.i, i64 noundef %idx.ext.i122.i.i)
   %.pre.i.i = load i8, ptr %i.addr.0.i, align 1
-  %.pre174.i.i = load i8, ptr %arrayidx104.i.i, align 1
-  br label %nk__lit.exit133.i.i
+  %.pre173.i.i = load i8, ptr %arrayidx104.i.i, align 1
+  br label %nk__lit.exit132.i.i
 
-nk__lit.exit133.i.i:                              ; preds = %if.end6.i127.i.i, %if.then4.i131.i.i, %if.then99.i.i
-  %54 = phi i8 [ %.pre174.i.i, %if.end6.i127.i.i ], [ %50, %if.then4.i131.i.i ], [ %50, %if.then99.i.i ]
-  %55 = phi i8 [ %.pre.i.i, %if.end6.i127.i.i ], [ %22, %if.then4.i131.i.i ], [ %22, %if.then99.i.i ]
-  %add.ptr8.sink.i130.i.i = phi ptr [ %add.ptr8.i129.i.i, %if.end6.i127.i.i ], [ %add.ptr5.i132.i.i, %if.then4.i131.i.i ], [ %add.ptr.i123.i.i, %if.then99.i.i ]
-  store ptr %add.ptr8.sink.i130.i.i, ptr @nk__dout, align 8
-  %conv110.i.i = zext i8 %55 to i64
+nk__lit.exit132.i.i:                              ; preds = %if.end6.i127.i.i, %if.end.i125.i.i, %if.then99.i.i
+  %38 = phi i8 [ %.pre173.i.i, %if.end6.i127.i.i ], [ %37, %if.then99.i.i ], [ %37, %if.end.i125.i.i ]
+  %39 = phi i8 [ %.pre.i.i, %if.end6.i127.i.i ], [ %21, %if.then99.i.i ], [ %21, %if.end.i125.i.i ]
+  %add.ptr.sink.i129.i.i = phi ptr [ %add.ptr.i123.i.i, %if.end6.i127.i.i ], [ %add.ptr.i123.i.i, %if.then99.i.i ], [ %add.ptr5.i171.i.i, %if.end.i125.i.i ]
+  store ptr %add.ptr.sink.i129.i.i, ptr @nk__dout, align 8
+  %conv110.i.i = zext i8 %39 to i64
   %shl111.i.i = shl nuw nsw i64 %conv110.i.i, 8
-  %conv113.i.i = zext i8 %54 to i64
+  %conv113.i.i = zext i8 %38 to i64
   %add114.i.i = or disjoint i64 %shl111.i.i, %conv113.i.i
   br label %nk_decompress_token.exit.i
 
 if.else120.i.i:                                   ; preds = %if.else95.i.i
-  switch i8 %22, label %nk_decompress.exit [
+  switch i8 %21, label %nk_decompress.exit [
     i8 7, label %if.then124.i.i
     i8 6, label %if.then147.i.i
     i8 4, label %if.then170.i.i
@@ -30054,170 +30015,150 @@ if.else120.i.i:                                   ; preds = %if.else95.i.i
 if.then124.i.i:                                   ; preds = %if.else120.i.i
   %add.ptr125.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 3
   %arrayidx126.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %56 = load i8, ptr %arrayidx126.i.i, align 1
-  %conv127.i.i = zext i8 %56 to i64
+  %40 = load i8, ptr %arrayidx126.i.i, align 1
+  %conv127.i.i = zext i8 %40 to i64
   %shl128.i.i = shl nuw nsw i64 %conv127.i.i, 8
   %arrayidx129.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
-  %57 = load i8, ptr %arrayidx129.i.i, align 1
-  %conv130.i.i = zext i8 %57 to i64
+  %41 = load i8, ptr %arrayidx129.i.i, align 1
+  %conv130.i.i = zext i8 %41 to i64
   %add131.i.i = or disjoint i64 %shl128.i.i, %conv130.i.i
   %add132.i.i = add nuw nsw i64 %add131.i.i, 1
-  %add.ptr.i42.i = getelementptr inbounds i8, ptr %21, i64 %add132.i.i
-  %58 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i43.i = icmp ugt ptr %add.ptr.i42.i, %58
+  %add.ptr.i42.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %add132.i.i
+  %cmp.i43.i = icmp ugt ptr %add.ptr.i42.i, %add.ptr31.i
   br i1 %cmp.i43.i, label %nk__lit.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then124.i.i
-  %59 = load ptr, ptr @nk__barrier2, align 8
-  %cmp3.i44.i = icmp ugt ptr %59, %add.ptr125.i.i
-  br i1 %cmp3.i44.i, label %if.then4.i.i, label %if.end6.i.i
-
-if.then4.i.i:                                     ; preds = %if.end.i.i
-  %add.ptr5.i.i = getelementptr inbounds i8, ptr %58, i64 1
-  br label %nk__lit.exit.i
+  %cmp3.i44.i = icmp ult ptr %add.ptr125.i.i, %compressed_data
+  br i1 %cmp3.i44.i, label %nk__lit.exit.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %call.i.i = tail call fastcc ptr @nk_memcopy(ptr noundef %21, ptr noundef nonnull %add.ptr125.i.i, i64 noundef %add132.i.i)
-  %60 = load ptr, ptr @nk__dout, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %60, i64 %add132.i.i
+  %call.i.i = tail call fastcc ptr @nk_memcopy(ptr noundef %add.ptr.sink.i54.i, ptr noundef nonnull %add.ptr125.i.i, i64 noundef %add132.i.i)
   %.pre.i = load i8, ptr %arrayidx126.i.i, align 1
-  %.pre52.i = load i8, ptr %arrayidx129.i.i, align 1
-  %.pre54.i = zext i8 %.pre.i to i64
-  %.pre55.i = shl nuw nsw i64 %.pre54.i, 8
-  %.pre56.i = zext i8 %.pre52.i to i64
-  %.pre57.i = or disjoint i64 %.pre55.i, %.pre56.i
+  %.pre56.i = load i8, ptr %arrayidx129.i.i, align 1
+  %.pre58.i = zext i8 %.pre.i to i64
+  %.pre59.i = shl nuw nsw i64 %.pre58.i, 8
+  %.pre60.i = zext i8 %.pre56.i to i64
+  %.pre61.i = or disjoint i64 %.pre59.i, %.pre60.i
   br label %nk__lit.exit.i
 
-nk__lit.exit.i:                                   ; preds = %if.end6.i.i, %if.then4.i.i, %if.then124.i.i
-  %add138.i.pre-phi.i = phi i64 [ %add131.i.i, %if.then124.i.i ], [ %add131.i.i, %if.then4.i.i ], [ %.pre57.i, %if.end6.i.i ]
-  %add.ptr8.sink.i.i = phi ptr [ %add.ptr.i42.i, %if.then124.i.i ], [ %add.ptr5.i.i, %if.then4.i.i ], [ %add.ptr8.i.i, %if.end6.i.i ]
-  store ptr %add.ptr8.sink.i.i, ptr @nk__dout, align 8
+nk__lit.exit.i:                                   ; preds = %if.end6.i.i, %if.end.i.i, %if.then124.i.i
+  %add138.i.pre-phi.i = phi i64 [ %add131.i.i, %if.end.i.i ], [ %add131.i.i, %if.then124.i.i ], [ %.pre61.i, %if.end6.i.i ]
+  %add.ptr.sink.i.i = phi ptr [ %add.ptr5.i171.i.i, %if.end.i.i ], [ %add.ptr.i42.i, %if.then124.i.i ], [ %add.ptr.i42.i, %if.end6.i.i ]
+  store ptr %add.ptr.sink.i.i, ptr @nk__dout, align 8
   br label %nk_decompress_token.exit.i
 
 if.then147.i.i:                                   ; preds = %if.else120.i.i
   %arrayidx162.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 4
-  %61 = load i8, ptr %arrayidx162.i.i, align 1
-  %conv163.i.i = zext i8 %61 to i32
+  %42 = load i8, ptr %arrayidx162.i.i, align 1
+  %conv163.i.i = zext i8 %42 to i32
   %add164.i.i = add nuw nsw i32 %conv163.i.i, 1
-  %idx.ext.i134.i.i = zext nneg i32 %add164.i.i to i64
-  %add.ptr.i135.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i134.i.i
-  %62 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i136.i.i = icmp ugt ptr %add.ptr.i135.i.i, %62
-  br i1 %cmp.i136.i.i, label %nk__match.exit153.i.i, label %if.end.i137.i.i
+  %idx.ext.i133.i.i = zext nneg i32 %add164.i.i to i64
+  %add.ptr.i134.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i133.i.i
+  %cmp.i135.i.i = icmp ugt ptr %add.ptr.i134.i.i, %add.ptr31.i
+  br i1 %cmp.i135.i.i, label %nk__match.exit152.i.i, label %if.end.i136.i.i
 
-if.end.i137.i.i:                                  ; preds = %if.then147.i.i
+if.end.i136.i.i:                                  ; preds = %if.then147.i.i
   %arrayidx148.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %63 = load i8, ptr %arrayidx148.i.i, align 1
-  %conv149.i.i = zext i8 %63 to i64
+  %43 = load i8, ptr %arrayidx148.i.i, align 1
+  %conv149.i.i = zext i8 %43 to i64
   %shl150.i.i = shl nuw nsw i64 %conv149.i.i, 16
   %arrayidx151.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
-  %64 = load i8, ptr %arrayidx151.i.i, align 1
-  %conv152.i.i = zext i8 %64 to i64
+  %44 = load i8, ptr %arrayidx151.i.i, align 1
+  %conv152.i.i = zext i8 %44 to i64
   %shl153.i.i = shl nuw nsw i64 %conv152.i.i, 8
   %arrayidx154.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 3
-  %65 = load i8, ptr %arrayidx154.i.i, align 1
-  %conv155.i.i = zext i8 %65 to i64
+  %45 = load i8, ptr %arrayidx154.i.i, align 1
+  %conv155.i.i = zext i8 %45 to i64
   %add156.i.i = or disjoint i64 %shl150.i.i, %conv155.i.i
   %add157.i.i = or disjoint i64 %add156.i.i, %shl153.i.i
   %idx.neg160.i.i = xor i64 %add157.i.i, -1
-  %add.ptr161.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.neg160.i.i
-  %66 = load ptr, ptr @nk__barrier4, align 8
-  %cmp3.i138.i.i = icmp ugt ptr %66, %add.ptr161.i.i
-  br i1 %cmp3.i138.i.i, label %if.then4.i151.i.i, label %while.body.i141.i.i
+  %add.ptr161.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.neg160.i.i
+  %cmp3.i137.i.i = icmp ult ptr %add.ptr161.i.i, %call17
+  br i1 %cmp3.i137.i.i, label %nk__match.exit152.i.i, label %while.body.i140.i.i
 
-if.then4.i151.i.i:                                ; preds = %if.end.i137.i.i
-  %add.ptr5.i152.i.i = getelementptr inbounds i8, ptr %62, i64 1
-  br label %nk__match.exit153.i.i
+while.body.i140.i.i:                              ; preds = %if.end.i136.i.i, %while.body.i140.i.i
+  %length.addr.08.i141.i.i = phi i32 [ %dec.i144.i.i, %while.body.i140.i.i ], [ %add164.i.i, %if.end.i136.i.i ]
+  %data.addr.07.i142.i.i = phi ptr [ %incdec.ptr.i145.i.i, %while.body.i140.i.i ], [ %add.ptr161.i.i, %if.end.i136.i.i ]
+  %incdec.ptr746.i143.i.i = phi ptr [ %incdec.ptr7.i146.i.i, %while.body.i140.i.i ], [ %add.ptr.sink.i54.i, %if.end.i136.i.i ]
+  %dec.i144.i.i = add nsw i32 %length.addr.08.i141.i.i, -1
+  %incdec.ptr.i145.i.i = getelementptr inbounds i8, ptr %data.addr.07.i142.i.i, i64 1
+  %46 = load i8, ptr %data.addr.07.i142.i.i, align 1
+  %incdec.ptr7.i146.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i143.i.i, i64 1
+  store i8 %46, ptr %incdec.ptr746.i143.i.i, align 1
+  %tobool.not.i147.i.i = icmp eq i32 %dec.i144.i.i, 0
+  br i1 %tobool.not.i147.i.i, label %nk__match.exit152.i.i, label %while.body.i140.i.i, !llvm.loop !152
 
-while.body.i141.i.i:                              ; preds = %if.end.i137.i.i, %while.body.i141.i.i
-  %length.addr.08.i142.i.i = phi i32 [ %dec.i145.i.i, %while.body.i141.i.i ], [ %add164.i.i, %if.end.i137.i.i ]
-  %data.addr.07.i143.i.i = phi ptr [ %incdec.ptr.i146.i.i, %while.body.i141.i.i ], [ %add.ptr161.i.i, %if.end.i137.i.i ]
-  %incdec.ptr746.i144.i.i = phi ptr [ %incdec.ptr7.i147.i.i, %while.body.i141.i.i ], [ %21, %if.end.i137.i.i ]
-  %dec.i145.i.i = add nsw i32 %length.addr.08.i142.i.i, -1
-  %incdec.ptr.i146.i.i = getelementptr inbounds i8, ptr %data.addr.07.i143.i.i, i64 1
-  %67 = load i8, ptr %data.addr.07.i143.i.i, align 1
-  %incdec.ptr7.i147.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i144.i.i, i64 1
-  store i8 %67, ptr %incdec.ptr746.i144.i.i, align 1
-  %tobool.not.i148.i.i = icmp eq i32 %dec.i145.i.i, 0
-  br i1 %tobool.not.i148.i.i, label %nk__match.exit153.i.i, label %while.body.i141.i.i, !llvm.loop !152
-
-nk__match.exit153.i.i:                            ; preds = %while.body.i141.i.i, %if.then4.i151.i.i, %if.then147.i.i
-  %incdec.ptr7.lcssa.sink.i150.i.i = phi ptr [ %add.ptr5.i152.i.i, %if.then4.i151.i.i ], [ %add.ptr.i135.i.i, %if.then147.i.i ], [ %incdec.ptr7.i147.i.i, %while.body.i141.i.i ]
-  store ptr %incdec.ptr7.lcssa.sink.i150.i.i, ptr @nk__dout, align 8
+nk__match.exit152.i.i:                            ; preds = %while.body.i140.i.i, %if.end.i136.i.i, %if.then147.i.i
+  %incdec.ptr7.lcssa.sink.i149.i.i = phi ptr [ %add.ptr.i134.i.i, %if.then147.i.i ], [ %add.ptr5.i171.i.i, %if.end.i136.i.i ], [ %incdec.ptr7.i146.i.i, %while.body.i140.i.i ]
+  store ptr %incdec.ptr7.lcssa.sink.i149.i.i, ptr @nk__dout, align 8
   %add.ptr165.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 5
   br label %if.end70.i
 
 if.then170.i.i:                                   ; preds = %if.else120.i.i
   %arrayidx185.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 4
-  %68 = load i8, ptr %arrayidx185.i.i, align 1
-  %conv186.i.i = zext i8 %68 to i32
+  %47 = load i8, ptr %arrayidx185.i.i, align 1
+  %conv186.i.i = zext i8 %47 to i32
   %shl187.i.i = shl nuw nsw i32 %conv186.i.i, 8
   %arrayidx188.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 5
-  %69 = load i8, ptr %arrayidx188.i.i, align 1
-  %conv189.i.i = zext i8 %69 to i32
+  %48 = load i8, ptr %arrayidx188.i.i, align 1
+  %conv189.i.i = zext i8 %48 to i32
   %add190.i.i = or disjoint i32 %shl187.i.i, %conv189.i.i
   %add191.i.i = add nuw nsw i32 %add190.i.i, 1
-  %idx.ext.i154.i.i = zext nneg i32 %add191.i.i to i64
-  %add.ptr.i155.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i154.i.i
-  %70 = load ptr, ptr @nk__barrier, align 8
-  %cmp.i156.i.i = icmp ugt ptr %add.ptr.i155.i.i, %70
-  br i1 %cmp.i156.i.i, label %nk__match.exit173.i.i, label %if.end.i157.i.i
+  %idx.ext.i153.i.i = zext nneg i32 %add191.i.i to i64
+  %add.ptr.i154.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.ext.i153.i.i
+  %cmp.i155.i.i = icmp ugt ptr %add.ptr.i154.i.i, %add.ptr31.i
+  br i1 %cmp.i155.i.i, label %nk__match.exit172.i.i, label %if.end.i156.i.i
 
-if.end.i157.i.i:                                  ; preds = %if.then170.i.i
+if.end.i156.i.i:                                  ; preds = %if.then170.i.i
   %arrayidx171.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 1
-  %71 = load i8, ptr %arrayidx171.i.i, align 1
-  %conv172.i.i = zext i8 %71 to i64
+  %49 = load i8, ptr %arrayidx171.i.i, align 1
+  %conv172.i.i = zext i8 %49 to i64
   %shl173.i.i = shl nuw nsw i64 %conv172.i.i, 16
   %arrayidx174.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 2
-  %72 = load i8, ptr %arrayidx174.i.i, align 1
-  %conv175.i.i = zext i8 %72 to i64
+  %50 = load i8, ptr %arrayidx174.i.i, align 1
+  %conv175.i.i = zext i8 %50 to i64
   %shl176.i.i = shl nuw nsw i64 %conv175.i.i, 8
   %arrayidx177.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 3
-  %73 = load i8, ptr %arrayidx177.i.i, align 1
-  %conv178.i.i = zext i8 %73 to i64
+  %51 = load i8, ptr %arrayidx177.i.i, align 1
+  %conv178.i.i = zext i8 %51 to i64
   %add179.i.i = or disjoint i64 %shl173.i.i, %conv178.i.i
   %add180.i.i = or disjoint i64 %add179.i.i, %shl176.i.i
   %idx.neg183.i.i = xor i64 %add180.i.i, -1
-  %add.ptr184.i.i = getelementptr inbounds i8, ptr %21, i64 %idx.neg183.i.i
-  %74 = load ptr, ptr @nk__barrier4, align 8
-  %cmp3.i158.i.i = icmp ugt ptr %74, %add.ptr184.i.i
-  br i1 %cmp3.i158.i.i, label %if.then4.i171.i.i, label %while.body.i161.i.i
+  %add.ptr184.i.i = getelementptr inbounds i8, ptr %add.ptr.sink.i54.i, i64 %idx.neg183.i.i
+  %cmp3.i157.i.i = icmp ult ptr %add.ptr184.i.i, %call17
+  br i1 %cmp3.i157.i.i, label %nk__match.exit172.i.i, label %while.body.i160.i.i
 
-if.then4.i171.i.i:                                ; preds = %if.end.i157.i.i
-  %add.ptr5.i172.i.i = getelementptr inbounds i8, ptr %70, i64 1
-  br label %nk__match.exit173.i.i
+while.body.i160.i.i:                              ; preds = %if.end.i156.i.i, %while.body.i160.i.i
+  %length.addr.08.i161.i.i = phi i32 [ %dec.i164.i.i, %while.body.i160.i.i ], [ %add191.i.i, %if.end.i156.i.i ]
+  %data.addr.07.i162.i.i = phi ptr [ %incdec.ptr.i165.i.i, %while.body.i160.i.i ], [ %add.ptr184.i.i, %if.end.i156.i.i ]
+  %incdec.ptr746.i163.i.i = phi ptr [ %incdec.ptr7.i166.i.i, %while.body.i160.i.i ], [ %add.ptr.sink.i54.i, %if.end.i156.i.i ]
+  %dec.i164.i.i = add nsw i32 %length.addr.08.i161.i.i, -1
+  %incdec.ptr.i165.i.i = getelementptr inbounds i8, ptr %data.addr.07.i162.i.i, i64 1
+  %52 = load i8, ptr %data.addr.07.i162.i.i, align 1
+  %incdec.ptr7.i166.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i163.i.i, i64 1
+  store i8 %52, ptr %incdec.ptr746.i163.i.i, align 1
+  %tobool.not.i167.i.i = icmp eq i32 %dec.i164.i.i, 0
+  br i1 %tobool.not.i167.i.i, label %nk__match.exit172.i.i, label %while.body.i160.i.i, !llvm.loop !152
 
-while.body.i161.i.i:                              ; preds = %if.end.i157.i.i, %while.body.i161.i.i
-  %length.addr.08.i162.i.i = phi i32 [ %dec.i165.i.i, %while.body.i161.i.i ], [ %add191.i.i, %if.end.i157.i.i ]
-  %data.addr.07.i163.i.i = phi ptr [ %incdec.ptr.i166.i.i, %while.body.i161.i.i ], [ %add.ptr184.i.i, %if.end.i157.i.i ]
-  %incdec.ptr746.i164.i.i = phi ptr [ %incdec.ptr7.i167.i.i, %while.body.i161.i.i ], [ %21, %if.end.i157.i.i ]
-  %dec.i165.i.i = add nsw i32 %length.addr.08.i162.i.i, -1
-  %incdec.ptr.i166.i.i = getelementptr inbounds i8, ptr %data.addr.07.i163.i.i, i64 1
-  %75 = load i8, ptr %data.addr.07.i163.i.i, align 1
-  %incdec.ptr7.i167.i.i = getelementptr inbounds i8, ptr %incdec.ptr746.i164.i.i, i64 1
-  store i8 %75, ptr %incdec.ptr746.i164.i.i, align 1
-  %tobool.not.i168.i.i = icmp eq i32 %dec.i165.i.i, 0
-  br i1 %tobool.not.i168.i.i, label %nk__match.exit173.i.i, label %while.body.i161.i.i, !llvm.loop !152
-
-nk__match.exit173.i.i:                            ; preds = %while.body.i161.i.i, %if.then4.i171.i.i, %if.then170.i.i
-  %incdec.ptr7.lcssa.sink.i170.i.i = phi ptr [ %add.ptr5.i172.i.i, %if.then4.i171.i.i ], [ %add.ptr.i155.i.i, %if.then170.i.i ], [ %incdec.ptr7.i167.i.i, %while.body.i161.i.i ]
-  store ptr %incdec.ptr7.lcssa.sink.i170.i.i, ptr @nk__dout, align 8
+nk__match.exit172.i.i:                            ; preds = %while.body.i160.i.i, %if.end.i156.i.i, %if.then170.i.i
+  %incdec.ptr7.lcssa.sink.i169.i.i = phi ptr [ %add.ptr.i154.i.i, %if.then170.i.i ], [ %add.ptr5.i171.i.i, %if.end.i156.i.i ], [ %incdec.ptr7.i166.i.i, %while.body.i160.i.i ]
+  store ptr %incdec.ptr7.lcssa.sink.i169.i.i, ptr @nk__dout, align 8
   %add.ptr192.i.i = getelementptr inbounds i8, ptr %i.addr.0.i, i64 6
   br label %if.end70.i
 
-nk_decompress_token.exit.i:                       ; preds = %nk__lit.exit.i, %nk__lit.exit133.i.i, %nk__lit.exit.i.i
-  %conv36.i.sink.i = phi i64 [ %conv36.i.i, %nk__lit.exit.i.i ], [ %add114.i.i, %nk__lit.exit133.i.i ], [ %add138.i.pre-phi.i, %nk__lit.exit.i ]
-  %.sink67.i = phi i64 [ -30, %nk__lit.exit.i.i ], [ -2045, %nk__lit.exit133.i.i ], [ 4, %nk__lit.exit.i ]
-  %76 = phi ptr [ %add.ptr8.sink.i.i.i, %nk__lit.exit.i.i ], [ %add.ptr8.sink.i130.i.i, %nk__lit.exit133.i.i ], [ %add.ptr8.sink.i.i, %nk__lit.exit.i ]
-  %77 = getelementptr i8, ptr %i.addr.0.i, i64 %conv36.i.sink.i
-  %add.ptr41.i.i = getelementptr i8, ptr %77, i64 %.sink67.i
+nk_decompress_token.exit.i:                       ; preds = %nk__lit.exit.i, %nk__lit.exit132.i.i, %nk__lit.exit.i.i
+  %conv36.i.sink.i = phi i64 [ %conv36.i.i, %nk__lit.exit.i.i ], [ %add114.i.i, %nk__lit.exit132.i.i ], [ %add138.i.pre-phi.i, %nk__lit.exit.i ]
+  %.sink69.i = phi i64 [ -30, %nk__lit.exit.i.i ], [ -2045, %nk__lit.exit132.i.i ], [ 4, %nk__lit.exit.i ]
+  %add.ptr.sink.i55.i = phi ptr [ %add.ptr.sink.i.i.i, %nk__lit.exit.i.i ], [ %add.ptr.sink.i129.i.i, %nk__lit.exit132.i.i ], [ %add.ptr.sink.i.i, %nk__lit.exit.i ]
+  %53 = getelementptr i8, ptr %i.addr.0.i, i64 %conv36.i.sink.i
+  %add.ptr41.i.i = getelementptr i8, ptr %53, i64 %.sink69.i
   %cmp34.i = icmp eq ptr %add.ptr41.i.i, %i.addr.0.i
   br i1 %cmp34.i, label %nk_decompress.exit, label %if.end70.i
 
-if.end70.i:                                       ; preds = %nk_decompress_token.exit.i, %nk__match.exit173.i.i, %nk__match.exit153.i.i, %nk__match.exit121.i.i, %nk__match.exit101.i.i, %nk__match.exit74.i.i, %nk__match.exit.i.i
-  %78 = phi ptr [ %76, %nk_decompress_token.exit.i ], [ %incdec.ptr7.lcssa.sink.i170.i.i, %nk__match.exit173.i.i ], [ %incdec.ptr7.lcssa.sink.i150.i.i, %nk__match.exit153.i.i ], [ %incdec.ptr7.lcssa.sink.i118.i.i, %nk__match.exit121.i.i ], [ %incdec.ptr7.lcssa.sink.i98.i.i, %nk__match.exit101.i.i ], [ %incdec.ptr7.lcssa.sink.i71.i.i, %nk__match.exit74.i.i ], [ %27, %nk__match.exit.i.i ]
-  %i.addr.0.i47.i = phi ptr [ %add.ptr41.i.i, %nk_decompress_token.exit.i ], [ %add.ptr192.i.i, %nk__match.exit173.i.i ], [ %add.ptr165.i.i, %nk__match.exit153.i.i ], [ %add.ptr94.i.i, %nk__match.exit121.i.i ], [ %add.ptr66.i.i, %nk__match.exit101.i.i ], [ %add.ptr28.i.i, %nk__match.exit74.i.i ], [ %add.ptr10.i.i, %nk__match.exit.i.i ]
-  %cmp73.i = icmp ugt ptr %78, %add.ptr31.i
+if.end70.i:                                       ; preds = %nk_decompress_token.exit.i, %nk__match.exit172.i.i, %nk__match.exit152.i.i, %nk__match.exit121.i.i, %nk__match.exit101.i.i, %nk__match.exit74.i.i, %nk__match.exit.i.i
+  %add.ptr.sink.i52.i = phi ptr [ %add.ptr.sink.i55.i, %nk_decompress_token.exit.i ], [ %incdec.ptr7.lcssa.sink.i169.i.i, %nk__match.exit172.i.i ], [ %incdec.ptr7.lcssa.sink.i149.i.i, %nk__match.exit152.i.i ], [ %incdec.ptr7.lcssa.sink.i118.i.i, %nk__match.exit121.i.i ], [ %incdec.ptr7.lcssa.sink.i98.i.i, %nk__match.exit101.i.i ], [ %incdec.ptr7.lcssa.sink.i71.i.i, %nk__match.exit74.i.i ], [ %add.ptr.sink.i53.i, %nk__match.exit.i.i ]
+  %i.addr.0.i47.i = phi ptr [ %add.ptr41.i.i, %nk_decompress_token.exit.i ], [ %add.ptr192.i.i, %nk__match.exit172.i.i ], [ %add.ptr165.i.i, %nk__match.exit152.i.i ], [ %add.ptr94.i.i, %nk__match.exit121.i.i ], [ %add.ptr66.i.i, %nk__match.exit101.i.i ], [ %add.ptr28.i.i, %nk__match.exit74.i.i ], [ %add.ptr10.i.i, %nk__match.exit.i.i ]
+  %cmp73.i = icmp ugt ptr %add.ptr.sink.i52.i, %add.ptr31.i
   br i1 %cmp73.i, label %nk_decompress.exit, label %for.cond.i
 
 nk_decompress.exit:                               ; preds = %if.end70.i, %nk_decompress_token.exit.i, %if.else120.i.i, %if.end20, %if.end.i
@@ -30268,7 +30209,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_compressed_base85(ptr noundef %atlas, ptr noundef readonly %data_base85, float noundef %height, ptr noundef %config) local_unnamed_addr #18 {
+define ptr @nk_font_atlas_add_compressed_base85(ptr noundef %atlas, ptr noundef readonly %data_base85, float noundef %height, ptr noundef %config) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %atlas, null
   %tobool1 = icmp ne ptr %data_base85, null
@@ -30324,7 +30265,7 @@ nk_strlen.exit.loopexit:                          ; preds = %while.body.i
 nk_strlen.exit:                                   ; preds = %nk_strlen.exit.loopexit, %land.rhs.i.preheader
   %siz.05.i.lcssa = phi i64 [ 0, %land.rhs.i.preheader ], [ %9, %nk_strlen.exit.loopexit ]
   %10 = load ptr, ptr %temporary, align 8
-  %call17 = tail call ptr %0(ptr %10, ptr noundef null, i64 noundef %siz.05.i.lcssa) #51
+  %call17 = tail call ptr %0(ptr %10, ptr noundef null, i64 noundef %siz.05.i.lcssa) #52
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %return, label %if.end20
 
@@ -30397,7 +30338,7 @@ nk_decode_85.exit:                                ; preds = %while.body.i16, %if
   %call22 = tail call ptr @nk_font_atlas_add_compressed(ptr noundef nonnull %atlas, ptr noundef nonnull %call17, i64 noundef %siz.05.i.lcssa, float noundef %height, ptr noundef %config)
   %18 = load ptr, ptr %free, align 8
   %19 = load ptr, ptr %temporary, align 8
-  tail call void %18(ptr %19, ptr noundef nonnull %call17) #51
+  tail call void %18(ptr %19, ptr noundef nonnull %call17) #52
   br label %return
 
 return:                                           ; preds = %nk_strlen.exit, %entry, %lor.lhs.false2, %lor.lhs.false4, %lor.lhs.false7, %lor.lhs.false10, %nk_decode_85.exit
@@ -30406,14 +30347,14 @@ return:                                           ; preds = %nk_strlen.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_default(ptr noundef %atlas, float noundef %pixel_height, ptr noundef %config) local_unnamed_addr #18 {
+define ptr @nk_font_atlas_add_default(ptr noundef %atlas, float noundef %pixel_height, ptr noundef %config) local_unnamed_addr #17 {
 entry:
   %call = tail call ptr @nk_font_atlas_add_compressed_base85(ptr noundef %atlas, ptr noundef nonnull @nk_proggy_clean_ttf_compressed_data_base85, float noundef %pixel_height, ptr noundef %config)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_bake(ptr noundef %atlas, ptr noundef %width, ptr noundef %height, i32 noundef %fmt) local_unnamed_addr #18 {
+define ptr @nk_font_atlas_bake(ptr noundef %atlas, ptr noundef %width, ptr noundef %height, i32 noundef %fmt) local_unnamed_addr #17 {
 entry:
   %baked.i = alloca %struct.nk_baked_font, align 8
   %img_size = alloca i64, align 8
@@ -30567,7 +30508,7 @@ nk_font_baker_memory.exit:                        ; preds = %if.end22, %for.end.
   %tmp_size.0 = phi i64 [ %add22.i, %for.end.i ], [ 0, %if.end22 ]
   %17 = load ptr, ptr %alloc, align 8
   %18 = load ptr, ptr %temporary, align 8
-  %call27 = tail call ptr %17(ptr %18, ptr noundef null, i64 noundef %tmp_size.0) #51
+  %call27 = tail call ptr %17(ptr %18, ptr noundef null, i64 noundef %tmp_size.0) #52
   %tobool28.not = icmp eq ptr %call27, null
   br i1 %tobool28.not, label %if.end172, label %if.end30
 
@@ -30652,7 +30593,7 @@ nk_memset.exit:                                   ; preds = %while.cond.preheade
   %conv = sext i32 %33 to i64
   %mul = mul nsw i64 %conv, 48
   %34 = load ptr, ptr %permanent, align 8
-  %call41 = tail call ptr %32(ptr %34, ptr noundef null, i64 noundef %mul) #51
+  %call41 = tail call ptr %32(ptr %34, ptr noundef null, i64 noundef %mul) #52
   %glyphs = getelementptr inbounds i8, ptr %atlas, i64 360
   store ptr %call41, ptr %glyphs, align 8
   %tobool43.not = icmp eq ptr %call41, null
@@ -30674,7 +30615,7 @@ if.end54:                                         ; preds = %if.end45
   %37 = load ptr, ptr %alloc, align 8
   %38 = load i64, ptr %img_size, align 8
   %39 = load ptr, ptr %temporary, align 8
-  %call60 = call ptr %37(ptr %39, ptr noundef null, i64 noundef %38) #51
+  %call60 = call ptr %37(ptr %39, ptr noundef null, i64 noundef %38) #52
   store ptr %call60, ptr %atlas, align 8
   %tobool62.not = icmp eq ptr %call60, null
   br i1 %tobool62.not, label %if.then166, label %if.end64
@@ -30703,7 +30644,7 @@ if.then73:                                        ; preds = %if.end64
   %mul79 = mul i32 %mul78, %52
   %conv80 = sext i32 %mul79 to i64
   %53 = load ptr, ptr %temporary, align 8
-  %call82 = call ptr %50(ptr %53, ptr noundef null, i64 noundef %conv80) #51
+  %call82 = call ptr %50(ptr %53, ptr noundef null, i64 noundef %conv80) #52
   %tobool83.not = icmp eq ptr %call82, null
   br i1 %tobool83.not, label %if.then166, label %if.end85
 
@@ -30744,7 +30685,7 @@ nk_font_bake_convert.exit:                        ; preds = %nk_font_bake_conver
   %58 = phi ptr [ %.pre, %nk_font_bake_convert.exit.loopexit ], [ %56, %if.end85 ]
   %59 = load ptr, ptr %free, align 8
   %60 = load ptr, ptr %temporary, align 8
-  call void %59(ptr %60, ptr noundef %58) #51
+  call void %59(ptr %60, ptr noundef %58) #52
   store ptr %call82, ptr %atlas, align 8
   br label %if.end94
 
@@ -30922,14 +30863,14 @@ for.body106:                                      ; preds = %for.cond103.prehead
 for.end158:                                       ; preds = %for.body106
   %87 = load ptr, ptr %free, align 8
   %88 = load ptr, ptr %temporary, align 8
-  call void %87(ptr %88, ptr noundef nonnull %call27) #51
+  call void %87(ptr %88, ptr noundef nonnull %call27) #52
   %89 = load ptr, ptr %atlas, align 8
   br label %return
 
 if.then166:                                       ; preds = %nk_memset.exit, %if.end45, %if.end54, %if.then73
   %90 = load ptr, ptr %free, align 8
   %91 = load ptr, ptr %temporary, align 8
-  call void %90(ptr %91, ptr noundef nonnull %call27) #51
+  call void %90(ptr %91, ptr noundef nonnull %call27) #52
   br label %if.end172
 
 if.end172:                                        ; preds = %nk_font_baker_memory.exit, %if.then166
@@ -30941,7 +30882,7 @@ if.end172:                                        ; preds = %nk_font_baker_memor
 if.then175:                                       ; preds = %if.end172
   %93 = load ptr, ptr %free14, align 8
   %94 = load ptr, ptr %permanent, align 8
-  call void %93(ptr %94, ptr noundef nonnull %92) #51
+  call void %93(ptr %94, ptr noundef nonnull %92) #52
   store ptr null, ptr %glyphs173, align 8
   br label %if.end183
 
@@ -30953,7 +30894,7 @@ if.end183:                                        ; preds = %if.then175, %if.end
 if.then186:                                       ; preds = %if.end183
   %96 = load ptr, ptr %free, align 8
   %97 = load ptr, ptr %temporary, align 8
-  call void %96(ptr %97, ptr noundef nonnull %95) #51
+  call void %96(ptr %97, ptr noundef nonnull %95) #52
   store ptr null, ptr %atlas, align 8
   br label %return
 
@@ -30963,7 +30904,7 @@ return:                                           ; preds = %if.end183, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_font_bake_pack(ptr nocapture noundef %baker, ptr noundef writeonly %image_memory, ptr nocapture noundef %width, ptr nocapture noundef %height, ptr noundef %custom, ptr noundef readonly %config_list, i32 noundef %count, ptr noundef %alloc) unnamed_addr #18 {
+define internal fastcc range(i32 0, 2) i32 @nk_font_bake_pack(ptr nocapture noundef %baker, ptr noundef writeonly %image_memory, ptr nocapture noundef %width, ptr nocapture noundef %height, ptr noundef %custom, ptr noundef readonly %config_list, i32 noundef %count, ptr noundef %alloc) unnamed_addr #17 {
 entry:
   %custom_space = alloca %struct.stbrp_rect, align 4
   %tobool = icmp ne ptr %image_memory, null
@@ -31345,7 +31286,7 @@ return:                                           ; preds = %do.body15, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_font_bake(ptr nocapture noundef %baker, ptr noundef %image_memory, i32 noundef %width, i32 noundef %height, ptr noundef writeonly %glyphs, i32 noundef %glyphs_count, ptr noundef readonly %config_list, i32 noundef %font_count) unnamed_addr #18 {
+define internal fastcc void @nk_font_bake(ptr nocapture noundef %baker, ptr noundef %image_memory, i32 noundef %width, i32 noundef %height, ptr noundef writeonly %glyphs, i32 noundef %glyphs_count, ptr noundef readonly %config_list, i32 noundef %font_count) unnamed_addr #17 {
 entry:
   %tobool1 = icmp ne i32 %width, 0
   %tobool3 = icmp ne i32 %height, 0
@@ -31475,14 +31416,14 @@ for.end:                                          ; preds = %for.inc, %nk_zero.e
   %.val5.i = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %13, i64 16
   %.val6.i = load ptr, ptr %14, align 8
-  tail call void %.val6.i(ptr %.val5.i, ptr noundef %12) #51
+  tail call void %.val6.i(ptr %.val5.i, ptr noundef %12) #52
   %pack_info.i = getelementptr inbounds i8, ptr %baker, i64 32
   %15 = load ptr, ptr %pack_info.i, align 8
   %16 = load ptr, ptr %spc, align 8
   %.val.i = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %16, i64 16
   %.val4.i = load ptr, ptr %17, align 8
-  tail call void %.val4.i(ptr %.val.i, ptr noundef %15) #51
+  tail call void %.val4.i(ptr %.val.i, ptr noundef %15) #52
   br i1 %cmp128, label %do.body31.preheader.lr.ph, label %for.end140
 
 do.body31.preheader.lr.ph:                        ; preds = %for.end
@@ -31714,7 +31655,7 @@ for.end140:                                       ; preds = %for.inc138, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly %img_memory, i32 noundef %img_width, i32 noundef %img_height, i64 %img_dst.coerce) unnamed_addr #14 {
+define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly %img_memory, i32 noundef %img_width, i32 noundef %img_height, i64 %img_dst.coerce) unnamed_addr #13 {
 entry:
   %tobool = icmp ne ptr %img_memory, null
   %tobool1 = icmp ne i32 %img_width, 0
@@ -31777,7 +31718,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_end(ptr noundef %atlas, ptr %texture.coerce, ptr noundef writeonly %tex_null) local_unnamed_addr #22 {
+define void @nk_font_atlas_end(ptr noundef %atlas, ptr %texture.coerce, ptr noundef writeonly %tex_null) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %atlas, null
   %tobool1.not = icmp eq ptr %tex_null, null
@@ -31852,7 +31793,7 @@ for.end29:                                        ; preds = %for.body26
   %4 = load ptr, ptr %free, align 8
   %5 = load ptr, ptr %atlas, align 8
   %6 = load ptr, ptr %temporary, align 8
-  tail call void %4(ptr %6, ptr noundef %5) #51
+  tail call void %4(ptr %6, ptr noundef %5) #52
   %custom35 = getelementptr inbounds i8, ptr %atlas, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %atlas, i8 0, i64 16, i1 false)
   store i64 0, ptr %custom35, align 8
@@ -31863,7 +31804,7 @@ return:                                           ; preds = %if.then, %for.end29
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_cleanup(ptr noundef readonly %atlas) local_unnamed_addr #18 {
+define void @nk_font_atlas_cleanup(ptr noundef readonly %atlas) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %atlas, null
   br i1 %tobool.not, label %if.end25, label %lor.lhs.false
@@ -31900,7 +31841,7 @@ for.body10:                                       ; preds = %for.cond9.preheader
   %ttf_blob = getelementptr inbounds i8, ptr %i.020, i64 8
   %4 = load ptr, ptr %ttf_blob, align 8
   %5 = load ptr, ptr %permanent, align 8
-  tail call void %3(ptr %5, ptr noundef %4) #51
+  tail call void %3(ptr %5, ptr noundef %4) #52
   store ptr null, ptr %ttf_blob, align 8
   %i.0.in = getelementptr inbounds i8, ptr %i.020, i64 72
   %i.0 = load ptr, ptr %i.0.in, align 8
@@ -31912,7 +31853,7 @@ for.end:                                          ; preds = %for.body10, %for.co
   %ttf_blob20 = getelementptr inbounds i8, ptr %iter.021, i64 8
   %7 = load ptr, ptr %ttf_blob20, align 8
   %8 = load ptr, ptr %permanent, align 8
-  tail call void %6(ptr %8, ptr noundef %7) #51
+  tail call void %6(ptr %8, ptr noundef %7) #52
   store ptr null, ptr %ttf_blob20, align 8
   %9 = load ptr, ptr %iter.021, align 8
   %tobool8.not = icmp eq ptr %9, null
@@ -31923,7 +31864,7 @@ if.end25:                                         ; preds = %for.end, %entry, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_clear(ptr noundef %atlas) local_unnamed_addr #18 {
+define void @nk_font_atlas_clear(ptr noundef %atlas) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %atlas, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -31966,14 +31907,14 @@ for.body11:                                       ; preds = %for.body, %if.end19
 
 if.then14:                                        ; preds = %for.body11
   %6 = load ptr, ptr %permanent, align 8
-  tail call void %.pre48(ptr %6, ptr noundef nonnull %5) #51
+  tail call void %.pre48(ptr %6, ptr noundef nonnull %5) #52
   %.pre = load ptr, ptr %free, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %for.body11
   %7 = phi ptr [ %.pre, %if.then14 ], [ %.pre48, %for.body11 ]
   %8 = load ptr, ptr %permanent, align 8
-  tail call void %7(ptr %8, ptr noundef nonnull %i.045) #51
+  tail call void %7(ptr %8, ptr noundef nonnull %i.045) #52
   %cmp.not = icmp eq ptr %4, %iter.046
   br i1 %cmp.not, label %for.end, label %for.body11, !llvm.loop !181
 
@@ -31990,14 +31931,14 @@ if.then28:                                        ; preds = %for.end
   %ttf_blob33 = getelementptr inbounds i8, ptr %iter.046, i64 8
   %11 = load ptr, ptr %ttf_blob33, align 8
   %12 = load ptr, ptr %permanent, align 8
-  tail call void %.pre50(ptr %12, ptr noundef %11) #51
+  tail call void %.pre50(ptr %12, ptr noundef %11) #52
   %.pre49 = load ptr, ptr %free, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then28, %for.end
   %13 = phi ptr [ %.pre49, %if.then28 ], [ %.pre50, %for.end ]
   %14 = load ptr, ptr %permanent, align 8
-  tail call void %13(ptr %14, ptr noundef nonnull %iter.046) #51
+  tail call void %13(ptr %14, ptr noundef nonnull %iter.046) #52
   %tobool8.not = icmp eq ptr %9, null
   br i1 %tobool8.not, label %for.end42, label %for.body, !llvm.loop !182
 
@@ -32016,7 +31957,7 @@ for.body52:                                       ; preds = %if.end44, %for.body
   %16 = load ptr, ptr %iter47.047, align 8
   %17 = load ptr, ptr %free, align 8
   %18 = load ptr, ptr %permanent, align 8
-  tail call void %17(ptr %18, ptr noundef nonnull %iter47.047) #51
+  tail call void %17(ptr %18, ptr noundef nonnull %iter47.047) #52
   %tobool51.not = icmp eq ptr %16, null
   br i1 %tobool51.not, label %for.end60, label %for.body52, !llvm.loop !183
 
@@ -32033,7 +31974,7 @@ if.end62:                                         ; preds = %for.end60, %if.end4
 if.then64:                                        ; preds = %if.end62
   %20 = load ptr, ptr %free, align 8
   %21 = load ptr, ptr %permanent, align 8
-  tail call void %20(ptr %21, ptr noundef nonnull %19) #51
+  tail call void %20(ptr %21, ptr noundef nonnull %19) #52
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then64, %if.end62
@@ -32060,7 +32001,7 @@ return:                                           ; preds = %if.end19.i.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_begin(ptr noundef %ctx) local_unnamed_addr #31 {
+define void @nk_input_begin(ptr noundef %ctx) local_unnamed_addr #21 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %for.end24, label %for.cond.preheader
@@ -32103,7 +32044,7 @@ for.end24:                                        ; preds = %for.body17, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_end(ptr noundef %ctx) local_unnamed_addr #20 {
+define void @nk_input_end(ptr noundef %ctx) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end14, label %if.end
@@ -32136,7 +32077,7 @@ if.end14:                                         ; preds = %entry, %if.then8, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_motion(ptr noundef %ctx, i32 noundef %x, i32 noundef %y) local_unnamed_addr #20 {
+define void @nk_input_motion(ptr noundef %ctx, i32 noundef %x, i32 noundef %y) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -32159,7 +32100,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_key(ptr noundef %ctx, i32 noundef %key, i32 noundef %down) local_unnamed_addr #20 {
+define void @nk_input_key(ptr noundef %ctx, i32 noundef %key, i32 noundef %down) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -32179,7 +32120,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_button(ptr noundef %ctx, i32 noundef %id, i32 noundef %x, i32 noundef %y, i32 noundef %down) local_unnamed_addr #20 {
+define void @nk_input_button(ptr noundef %ctx, i32 noundef %id, i32 noundef %x, i32 noundef %y, i32 noundef %down) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -32212,7 +32153,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_scroll(ptr noundef %ctx, <2 x float> %val.coerce) local_unnamed_addr #32 {
+define void @nk_input_scroll(ptr noundef %ctx, <2 x float> %val.coerce) local_unnamed_addr #30 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -32229,7 +32170,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_glyph(ptr noundef %ctx, ptr noundef readonly %glyph) local_unnamed_addr #13 {
+define void @nk_input_glyph(ptr noundef %ctx, ptr noundef readonly %glyph) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   %tobool.i = icmp eq ptr %glyph, null
@@ -32433,7 +32374,7 @@ if.end12:                                         ; preds = %for.end.i, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_char(ptr noundef %ctx, i8 noundef signext %c) local_unnamed_addr #13 {
+define void @nk_input_char(ptr noundef %ctx, i8 noundef signext %c) local_unnamed_addr #7 {
 entry:
   %glyph = alloca [4 x i8], align 1
   %tobool.not = icmp eq ptr %ctx, null
@@ -32449,7 +32390,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_unicode(ptr noundef %ctx, i32 noundef %unicode) local_unnamed_addr #13 {
+define void @nk_input_unicode(ptr noundef %ctx, i32 noundef %unicode) local_unnamed_addr #7 {
 entry:
   %rune = alloca [4 x i8], align 1
   %tobool.not = icmp eq ptr %ctx, null
@@ -32757,7 +32698,7 @@ return:                                           ; preds = %if.end.i.i, %nk_inp
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_any_mouse_click_in_rect(ptr noundef readonly %in, <2 x float> %b.coerce0, <2 x float> %b.coerce1) local_unnamed_addr #33 {
+define range(i32 0, 2) i32 @nk_input_any_mouse_click_in_rect(ptr noundef readonly %in, <2 x float> %b.coerce0, <2 x float> %b.coerce1) local_unnamed_addr #31 {
 entry:
   %tobool.not.i = icmp eq ptr %in, null
   %mouse.i.i.i = getelementptr inbounds i8, ptr %in, i64 260
@@ -33105,14 +33046,14 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_style_default(ptr noundef %ctx) local_unnamed_addr #24 {
+define void @nk_style_default(ptr noundef %ctx) local_unnamed_addr #22 {
 entry:
   tail call void @nk_style_from_table(ptr noundef %ctx, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_style_from_table(ptr noundef %ctx, ptr noundef readonly %table) local_unnamed_addr #34 {
+define void @nk_style_from_table(ptr noundef %ctx, ptr noundef readonly %table) local_unnamed_addr #32 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -34709,7 +34650,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_style_item_image(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #20 {
+define void @nk_style_item_image(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #18 {
 entry:
   store i32 1, ptr %agg.result, align 8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -34718,7 +34659,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_style_item_nine_slice(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.nk_nine_slice) align 8 %slice) local_unnamed_addr #20 {
+define void @nk_style_item_nine_slice(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.nk_nine_slice) align 8 %slice) local_unnamed_addr #18 {
 entry:
   store i32 2, ptr %agg.result, align 8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -34736,7 +34677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_style_set_font(ptr noundef %ctx, ptr noundef %font) local_unnamed_addr #24 {
+define void @nk_style_set_font(ptr noundef %ctx, ptr noundef %font) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end5, label %if.end
@@ -34777,7 +34718,7 @@ if.end5:                                          ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_reset_min_row_height(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_layout_reset_min_row_height(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -34816,7 +34757,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_font(ptr noundef %ctx, ptr noundef %font) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_font(ptr noundef %ctx, ptr noundef %font) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -34847,7 +34788,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_font(ptr noundef %ctx) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_style_pop_font(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -34876,7 +34817,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_style_item(ptr noundef %ctx, ptr noundef %address, ptr nocapture noundef readonly byval(%struct.nk_style_item) align 8 %value) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_style_item(ptr noundef %ctx, ptr noundef %address, ptr nocapture noundef readonly byval(%struct.nk_style_item) align 8 %value) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -34905,7 +34846,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_float(ptr noundef %ctx, ptr noundef %address, float noundef %value) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_float(ptr noundef %ctx, ptr noundef %address, float noundef %value) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -34935,7 +34876,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_vec2(ptr noundef %ctx, ptr noundef %address, <2 x float> %value.coerce) local_unnamed_addr #32 {
+define range(i32 0, 2) i32 @nk_style_push_vec2(ptr noundef %ctx, ptr noundef %address, <2 x float> %value.coerce) local_unnamed_addr #30 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -34965,7 +34906,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_flags(ptr noundef %ctx, ptr noundef %address, i32 noundef %value) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_flags(ptr noundef %ctx, ptr noundef %address, i32 noundef %value) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -34995,7 +34936,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_color(ptr noundef %ctx, ptr noundef %address, i32 %value.coerce) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_color(ptr noundef %ctx, ptr noundef %address, i32 %value.coerce) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35025,7 +34966,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_style_item(ptr noundef %ctx) local_unnamed_addr #24 {
+define range(i32 0, 2) i32 @nk_style_pop_style_item(ptr noundef %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35053,7 +34994,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_float(ptr noundef %ctx) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_style_pop_float(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35082,7 +35023,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_vec2(ptr noundef %ctx) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_style_pop_vec2(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35111,7 +35052,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_flags(ptr noundef %ctx) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_style_pop_flags(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35140,7 +35081,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_color(ptr noundef %ctx) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_style_pop_color(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35169,7 +35110,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_set_cursor(ptr noundef %ctx, i32 noundef %c) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_set_cursor(ptr noundef %ctx, i32 noundef %c) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35226,7 +35167,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @nk_style_load_all_cursors(ptr noundef writeonly %ctx, ptr noundef %cursors) local_unnamed_addr #14 {
+define void @nk_style_load_all_cursors(ptr noundef writeonly %ctx, ptr noundef %cursors) local_unnamed_addr #13 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -35254,7 +35195,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_init_default(ptr noundef %ctx, ptr noundef %font) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_init_default(ptr noundef %ctx, ptr noundef %font) local_unnamed_addr #17 {
 entry:
   %alloc = alloca %struct.nk_allocator, align 8
   store ptr null, ptr %alloc, align 8
@@ -35267,7 +35208,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_init(ptr noundef %ctx, ptr noundef readonly %alloc, ptr noundef %font) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_init(ptr noundef %ctx, ptr noundef readonly %alloc, ptr noundef %font) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %alloc, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35380,7 +35321,7 @@ nk_buffer_init.exit:                              ; preds = %if.end19.i.i.thread
   %alloc.i = getelementptr inbounds i8, ptr %alloc, i64 8
   %14 = load ptr, ptr %alloc.i, align 8
   %15 = load ptr, ptr %alloc, align 8
-  %call.i = tail call ptr %14(ptr %15, ptr noundef null, i64 noundef 4096) #51
+  %call.i = tail call ptr %14(ptr %15, ptr noundef null, i64 noundef 4096) #52
   %memory.i = getelementptr inbounds i8, ptr %ctx, i64 9544
   store ptr %call.i, ptr %memory.i, align 8
   %size.i = getelementptr inbounds i8, ptr %ctx, i64 9552
@@ -35743,7 +35684,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_free(ptr noundef %ctx) local_unnamed_addr #18 {
+define void @nk_free(ptr noundef %ctx) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -35770,7 +35711,7 @@ if.end3.i:                                        ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.end3.i
   %pool.i = getelementptr inbounds i8, ptr %ctx, i64 9512
   %3 = load ptr, ptr %pool.i, align 8
-  tail call void %2(ptr %3, ptr noundef nonnull %0) #51
+  tail call void %2(ptr %3, ptr noundef nonnull %0) #52
   br label %nk_buffer_free.exit
 
 nk_buffer_free.exit:                              ; preds = %if.end, %if.end.i, %if.end3.i, %if.end6.i
@@ -35800,7 +35741,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %7 = load ptr, ptr %next4.i, align 8
   %8 = load ptr, ptr %free.i18, align 8
   %9 = load ptr, ptr %pool, align 8
-  tail call void %8(ptr %9, ptr noundef nonnull %iter.0.i) #51
+  tail call void %8(ptr %9, ptr noundef nonnull %iter.0.i) #52
   %tobool3.old.not.i = icmp eq ptr %7, null
   br i1 %tobool3.old.not.i, label %if.end3, label %while.body.i
 
@@ -35874,7 +35815,7 @@ return:                                           ; preds = %entry, %nk_zero.exi
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_clear(ptr noundef %ctx) local_unnamed_addr #35 {
+define void @nk_clear(ptr noundef %ctx) local_unnamed_addr #34 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -36271,7 +36212,7 @@ return:                                           ; preds = %entry, %while.end80
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_free_window(ptr nocapture noundef %ctx, ptr noundef %win) unnamed_addr #35 {
+define internal fastcc void @nk_free_window(ptr nocapture noundef %ctx, ptr noundef %win) unnamed_addr #34 {
 entry:
   %tables = getelementptr inbounds i8, ptr %win, i64 440
   %0 = load ptr, ptr %tables, align 8
@@ -36448,7 +36389,7 @@ nk_free_page_element.exit:                        ; preds = %nk_link_page_elemen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_remove_window(ptr nocapture noundef %ctx, ptr noundef %win) unnamed_addr #24 {
+define internal fastcc void @nk_remove_window(ptr nocapture noundef %ctx, ptr noundef %win) unnamed_addr #22 {
 entry:
   %begin = getelementptr inbounds i8, ptr %ctx, i64 18280
   %0 = load ptr, ptr %begin, align 8
@@ -36547,14 +36488,14 @@ if.end49:                                         ; preds = %if.end36, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_begin(ptr noundef %ctx, ptr noundef %title, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %flags) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_begin(ptr noundef %ctx, ptr noundef %title, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %flags) local_unnamed_addr #20 {
 entry:
   %call = tail call i32 @nk_begin_titled(ptr noundef %ctx, ptr noundef %title, ptr noundef %title, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %flags)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_begin_titled(ptr noundef %ctx, ptr noundef %name, ptr noundef %title, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %flags) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_begin_titled(ptr noundef %ctx, ptr noundef %name, ptr noundef %title, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %flags) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -37393,7 +37334,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_panel_begin(ptr noundef %ctx, ptr noundef %title, i32 noundef %panel_type) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_panel_begin(ptr noundef %ctx, ptr noundef %title, i32 noundef %panel_type) unnamed_addr #20 {
 entry:
   %ws = alloca i32, align 4
   %ws336 = alloca i32, align 4
@@ -38032,7 +37973,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %110 = load ptr, ptr %width, align 8
   %111 = load float, ptr %height180, align 8
   %112 = load ptr, ptr %10, align 8
-  %call428 = call float %110(ptr %112, float noundef %111, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #51
+  %call428 = call float %110(ptr %112, float noundef %111, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #52
   %113 = load float, ptr %padding183, align 4
   %114 = load float, ptr %label_padding188, align 4
   %115 = load float, ptr %y189, align 4
@@ -38046,7 +37987,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %mul.b.sroa.14.12.vec.extract.i = select i1 %cmp.i381, float 0.000000e+00, float %117
   %121 = load ptr, ptr %width, align 8
   %122 = load ptr, ptr %10, align 8
-  %call.i = call float %121(ptr %122, float noundef %116, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #51
+  %call.i = call float %121(ptr %122, float noundef %116, ptr noundef nonnull %title, i32 noundef %siz.05.i.lcssa) #52
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %123 = load float, ptr %height180, align 8
   %div167.i = fmul float %123, 5.000000e-01
@@ -38195,7 +38136,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_end(ptr noundef %ctx) local_unnamed_addr #22 {
+define void @nk_end(ptr noundef %ctx) local_unnamed_addr #20 {
 entry:
   %scroll.i.i = alloca %struct.nk_rect, align 8
   %cursor.i.i = alloca %struct.nk_rect, align 8
@@ -38800,7 +38741,7 @@ if.end52.i.i:                                     ; preds = %if.then19.i.i, %if.
 if.then148.i.i:                                   ; preds = %if.end52.i.i
   %userdata.i.i = getelementptr inbounds i8, ptr %ctx, i64 6480
   %117 = load ptr, ptr %userdata.i.i, align 8
-  call void %116(ptr noundef nonnull %buffer.i26, ptr %117) #51
+  call void %116(ptr noundef nonnull %buffer.i26, ptr %117) #52
   br label %if.end150.i.i
 
 if.end150.i.i:                                    ; preds = %if.then148.i.i, %if.end52.i.i
@@ -38814,7 +38755,7 @@ if.end150.i.i:                                    ; preds = %if.then148.i.i, %if
 if.then152.i.i:                                   ; preds = %if.end150.i.i
   %userdata154.i.i = getelementptr inbounds i8, ptr %ctx, i64 6480
   %120 = load ptr, ptr %userdata154.i.i, align 8
-  call void %119(ptr noundef nonnull %buffer.i26, ptr %120) #51
+  call void %119(ptr noundef nonnull %buffer.i26, ptr %120) #52
   br label %nk_do_scrollbarh.exit.i
 
 nk_do_scrollbarh.exit.i:                          ; preds = %if.then152.i.i, %if.end150.i.i, %if.end249.i
@@ -39512,7 +39453,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_window_get_bounds(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define { <2 x float>, <2 x float> } @nk_window_get_bounds(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39539,7 +39480,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_position(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define <2 x float> @nk_window_get_position(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39561,7 +39502,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_size(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define <2 x float> @nk_window_get_size(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39583,7 +39524,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @nk_window_get_width(ptr noundef readonly %ctx) local_unnamed_addr #28 {
+define float @nk_window_get_width(ptr noundef readonly %ctx) local_unnamed_addr #27 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39605,7 +39546,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @nk_window_get_height(ptr noundef readonly %ctx) local_unnamed_addr #28 {
+define float @nk_window_get_height(ptr noundef readonly %ctx) local_unnamed_addr #27 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39627,7 +39568,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_window_get_content_region(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define { <2 x float>, <2 x float> } @nk_window_get_content_region(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39656,7 +39597,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_content_region_min(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define <2 x float> @nk_window_get_content_region_min(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39680,7 +39621,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_content_region_max(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define <2 x float> @nk_window_get_content_region_max(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39707,7 +39648,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_content_region_size(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define <2 x float> @nk_window_get_content_region_size(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39750,7 +39691,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @nk_window_get_panel(ptr noundef readonly %ctx) local_unnamed_addr #28 {
+define ptr @nk_window_get_panel(ptr noundef readonly %ctx) local_unnamed_addr #27 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39772,7 +39713,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_get_scroll(ptr noundef readonly %ctx, ptr noundef writeonly %offset_x, ptr noundef writeonly %offset_y) local_unnamed_addr #27 {
+define void @nk_window_get_scroll(ptr noundef readonly %ctx, ptr noundef writeonly %offset_x, ptr noundef writeonly %offset_y) local_unnamed_addr #26 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end9, label %lor.lhs.false
@@ -39832,7 +39773,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_window_is_hovered(ptr noundef readonly %ctx) local_unnamed_addr #36 {
+define range(i32 0, 2) i32 @nk_window_is_hovered(ptr noundef readonly %ctx) local_unnamed_addr #35 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -39903,7 +39844,7 @@ return:                                           ; preds = %land.rhs11.i, %land
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_window_is_any_hovered(ptr noundef readonly %ctx) local_unnamed_addr #37 {
+define range(i32 0, 2) i32 @nk_window_is_any_hovered(ptr noundef readonly %ctx) local_unnamed_addr #36 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -40023,7 +39964,7 @@ return:                                           ; preds = %if.end32, %land.rhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_item_is_any_active(ptr noundef readonly %ctx) local_unnamed_addr #37 {
+define range(i32 0, 2) i32 @nk_item_is_any_active(ptr noundef readonly %ctx) local_unnamed_addr #36 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_window_is_any_hovered.exit, label %if.end.i
@@ -40153,7 +40094,7 @@ nk_window_is_any_hovered.exit:                    ; preds = %land.rhs.i.i, %land
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 32769) i32 @nk_window_is_collapsed(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #6 {
+define range(i32 0, 32769) i32 @nk_window_is_collapsed(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #25 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -40269,7 +40210,7 @@ return:                                           ; preds = %if.end7.i, %nk_strl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 16385) i32 @nk_window_is_closed(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #6 {
+define range(i32 0, 16385) i32 @nk_window_is_closed(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #25 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -40385,7 +40326,7 @@ return:                                           ; preds = %if.end7.i, %nk_strl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 8193) i32 @nk_window_is_hidden(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #6 {
+define range(i32 0, 8193) i32 @nk_window_is_hidden(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #25 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -40501,7 +40442,7 @@ return:                                           ; preds = %if.end7.i, %nk_strl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_window_is_active(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @nk_window_is_active(ptr noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #25 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -40618,7 +40559,7 @@ return:                                           ; preds = %if.end7.i, %nk_strl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @nk_window_find(ptr nocapture noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #6 {
+define ptr @nk_window_find(ptr nocapture noundef readonly %ctx, ptr noundef readonly %name) local_unnamed_addr #25 {
 entry:
   %tobool.not3.i = icmp eq ptr %name, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -40846,7 +40787,7 @@ return:                                           ; preds = %if.end7.i.i, %nk_st
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_bounds(ptr noundef readonly %ctx, ptr noundef readonly %name, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1) local_unnamed_addr #23 {
+define void @nk_window_set_bounds(ptr noundef readonly %ctx, ptr noundef readonly %name, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1) local_unnamed_addr #37 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -40962,7 +40903,7 @@ return:                                           ; preds = %if.end7.i.i, %nk_st
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_position(ptr nocapture noundef readonly %ctx, ptr noundef readonly %name, <2 x float> %pos.coerce) local_unnamed_addr #23 {
+define void @nk_window_set_position(ptr nocapture noundef readonly %ctx, ptr noundef readonly %name, <2 x float> %pos.coerce) local_unnamed_addr #37 {
 entry:
   %tobool.not3.i.i = icmp eq ptr %name, null
   br i1 %tobool.not3.i.i, label %nk_strlen.exit.i, label %land.rhs.i.preheader.i
@@ -41072,7 +41013,7 @@ return:                                           ; preds = %if.end7.i.i, %nk_st
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_size(ptr nocapture noundef readonly %ctx, ptr noundef readonly %name, <2 x float> %size.coerce) local_unnamed_addr #23 {
+define void @nk_window_set_size(ptr nocapture noundef readonly %ctx, ptr noundef readonly %name, <2 x float> %size.coerce) local_unnamed_addr #37 {
 entry:
   %tobool.not3.i.i = icmp eq ptr %name, null
   br i1 %tobool.not3.i.i, label %nk_strlen.exit.i, label %land.rhs.i.preheader.i
@@ -41182,7 +41123,7 @@ return:                                           ; preds = %if.end7.i.i, %nk_st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_scroll(ptr noundef readonly %ctx, i32 noundef %offset_x, i32 noundef %offset_y) local_unnamed_addr #21 {
+define void @nk_window_set_scroll(ptr noundef readonly %ctx, i32 noundef %offset_x, i32 noundef %offset_y) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -41727,7 +41668,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_rule_horizontal(ptr noundef %ctx, i32 %color.coerce, i32 noundef %rounding) local_unnamed_addr #22 {
+define void @nk_rule_horizontal(ptr noundef %ctx, i32 %color.coerce, i32 noundef %rounding) local_unnamed_addr #20 {
 entry:
   %space = alloca %struct.nk_rect, align 8
   %call = call i32 @nk_widget(ptr noundef nonnull %space, ptr noundef %ctx)
@@ -41766,7 +41707,7 @@ return:                                           ; preds = %nk_window_get_canva
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_widget(ptr nocapture noundef %bounds, ptr noundef %ctx) local_unnamed_addr #18 {
+define range(i32 0, 4) i32 @nk_widget(ptr nocapture noundef %bounds, ptr noundef %ctx) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -41876,7 +41817,7 @@ return:                                           ; preds = %land.lhs.true85, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_popup_begin(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, i32 noundef %flags, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_popup_begin(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, i32 noundef %flags, <2 x float> %rect.coerce0, <2 x float> %rect.coerce1) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -42194,7 +42135,7 @@ return:                                           ; preds = %if.then20, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_popup_close(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_popup_close(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -42217,7 +42158,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_popup_end(ptr noundef %ctx) local_unnamed_addr #22 {
+define void @nk_popup_end(ptr noundef %ctx) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -42368,7 +42309,7 @@ return:                                           ; preds = %if.end10.i26, %nk_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_popup_get_scroll(ptr noundef readonly %ctx, ptr noundef writeonly %offset_x, ptr noundef writeonly %offset_y) local_unnamed_addr #27 {
+define void @nk_popup_get_scroll(ptr noundef readonly %ctx, ptr noundef writeonly %offset_x, ptr noundef writeonly %offset_y) local_unnamed_addr #26 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end12, label %lor.lhs.false
@@ -42410,7 +42351,7 @@ if.end12:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_popup_set_scroll(ptr noundef readonly %ctx, i32 noundef %offset_x, i32 noundef %offset_y) local_unnamed_addr #24 {
+define void @nk_popup_set_scroll(ptr noundef readonly %ctx, i32 noundef %offset_x, i32 noundef %offset_y) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -42439,7 +42380,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_contextual_begin(ptr noundef %ctx, i32 noundef %flags, <2 x float> %size.coerce, <2 x float> %trigger_bounds.coerce0, <2 x float> %trigger_bounds.coerce1) local_unnamed_addr #22 {
+define noundef i32 @nk_contextual_begin(ptr noundef %ctx, i32 noundef %flags, <2 x float> %size.coerce, <2 x float> %trigger_bounds.coerce0, <2 x float> %trigger_bounds.coerce1) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -42616,7 +42557,7 @@ return:                                           ; preds = %land.end, %if.else6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef %flags, <2 x float> %body.coerce0, <2 x float> %body.coerce1, <2 x float> %header.coerce0, <2 x float> %header.coerce1, i32 noundef %panel_type) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef %flags, <2 x float> %body.coerce0, <2 x float> %body.coerce1, <2 x float> %header.coerce0, <2 x float> %header.coerce1, i32 noundef %panel_type) unnamed_addr #20 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -42888,7 +42829,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -42960,7 +42901,7 @@ return:                                           ; preds = %nk_popup_close.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_widget_fitting(ptr nocapture noundef %bounds, ptr noundef %ctx, <2 x float> %item_padding.coerce) local_unnamed_addr #22 {
+define range(i32 0, 4) i32 @nk_widget_fitting(ptr nocapture noundef %bounds, ptr noundef %ctx, <2 x float> %item_padding.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -42987,7 +42928,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr noundef %string, i32 noundef %len, i32 noundef %align, i32 noundef %behavior, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr noundef %string, i32 noundef %len, i32 noundef %align, i32 noundef %behavior, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
@@ -43040,7 +42981,7 @@ nk_do_button.exit:                                ; preds = %entry
 if.then7:                                         ; preds = %nk_do_button.exit
   %userdata = getelementptr inbounds i8, ptr %style, i64 192
   %22 = load ptr, ptr %userdata, align 8
-  tail call void %21(ptr noundef nonnull %out, ptr %22) #51
+  tail call void %21(ptr noundef nonnull %out, ptr %22) #52
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %nk_do_button.exit
@@ -43109,7 +43050,7 @@ if.end.i10.i:                                     ; preds = %if.end9, %if.end.i.
   %width.i.i = getelementptr inbounds i8, ptr %font, i64 16
   %39 = load ptr, ptr %width.i.i, align 8
   %40 = load ptr, ptr %font, align 8
-  %call.i.i = tail call float %39(ptr %40, float noundef %38, ptr noundef nonnull %string, i32 noundef %len) #51
+  %call.i.i = tail call float %39(ptr %40, float noundef %38, ptr noundef nonnull %string, i32 noundef %len) #52
   %41 = fadd float %call.i.i, 0.000000e+00
   %and.i.i = and i32 %align, 1
   %tobool30.not.i.i = icmp eq i32 %and.i.i, 0
@@ -43215,7 +43156,7 @@ nk_draw_button_text.exit:                         ; preds = %if.else119.i.i, %if
 if.then11:                                        ; preds = %nk_draw_button_text.exit
   %userdata13 = getelementptr inbounds i8, ptr %style, i64 192
   %45 = load ptr, ptr %userdata13, align 8
-  tail call void %44(ptr noundef nonnull %out, ptr %45) #51
+  tail call void %44(ptr noundef nonnull %out, ptr %45) #52
   br label %return
 
 return:                                           ; preds = %nk_draw_button_text.exit, %if.then11, %entry
@@ -43224,7 +43165,7 @@ return:                                           ; preds = %nk_draw_button_text
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_contextual_close(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_contextual_close(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -43253,7 +43194,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %label, null
@@ -43346,7 +43287,7 @@ nk_contextual_item_text.exit:                     ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -43418,7 +43359,7 @@ return:                                           ; preds = %nk_popup_close.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text_image(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %behavior, ptr noundef %style, ptr noundef %font, ptr noundef %in) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text_image(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %behavior, ptr noundef %style, ptr noundef %font, ptr noundef %in) unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %bounds.coerce0, i64 0
   %bounds = alloca %struct.nk_rect, align 8
@@ -43503,7 +43444,7 @@ if.end26:                                         ; preds = %if.else, %if.then12
 if.then41:                                        ; preds = %if.end26
   %userdata = getelementptr inbounds i8, ptr %style, i64 192
   %36 = load ptr, ptr %userdata, align 8
-  tail call void %35(ptr noundef nonnull %out, ptr %36) #51
+  tail call void %35(ptr noundef nonnull %out, ptr %36) #52
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then41, %if.end26
@@ -43567,7 +43508,7 @@ nk_draw_button_text_image.exit:                   ; preds = %if.end.i.i, %if.end
   %width.i.i = getelementptr inbounds i8, ptr %font, i64 16
   %53 = load ptr, ptr %width.i.i, align 8
   %54 = load ptr, ptr %font, align 8
-  %call.i.i = tail call float %53(ptr %54, float noundef %52, ptr noundef nonnull %str, i32 noundef %len) #51
+  %call.i.i = tail call float %53(ptr %54, float noundef %52, ptr noundef nonnull %str, i32 noundef %len) #52
   %55 = fadd float %call.i.i, 0.000000e+00
   %cmp57.i.i = fcmp ogt float %55, 1.000000e+00
   %cond64.i.i = select i1 %cmp57.i.i, float %55, float 1.000000e+00
@@ -43617,7 +43558,7 @@ nk_draw_button_text_image.exit:                   ; preds = %if.end.i.i, %if.end
 if.then45:                                        ; preds = %nk_draw_button_text_image.exit
   %userdata47 = getelementptr inbounds i8, ptr %style, i64 192
   %64 = load ptr, ptr %userdata47, align 8
-  tail call void %63(ptr noundef nonnull %out, ptr %64) #51
+  tail call void %63(ptr noundef nonnull %out, ptr %64) #52
   br label %return
 
 return:                                           ; preds = %nk_draw_button_text_image.exit, %if.then45, %entry
@@ -43626,7 +43567,7 @@ return:                                           ; preds = %nk_draw_button_text
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %label, null
@@ -43719,7 +43660,7 @@ nk_contextual_item_image_text.exit:               ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_symbol_text(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_symbol_text(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -43791,7 +43732,7 @@ return:                                           ; preds = %nk_popup_close.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text_symbol(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %symbol, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %behavior, ptr noundef %style, ptr noundef %font, ptr noundef %in) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text_symbol(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %symbol, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %behavior, ptr noundef %style, ptr noundef %font, ptr noundef %in) unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
@@ -43872,7 +43813,7 @@ if.end24:                                         ; preds = %if.else, %if.then10
 if.then26:                                        ; preds = %if.end24
   %userdata = getelementptr inbounds i8, ptr %style, i64 192
   %21 = load ptr, ptr %userdata, align 8
-  tail call void %20(ptr noundef nonnull %out, ptr %21) #51
+  tail call void %20(ptr noundef nonnull %out, ptr %21) #52
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then26, %if.end24
@@ -43961,7 +43902,7 @@ nk_draw_button_text_symbol.exit:                  ; preds = %if.end.i26.i, %nk_r
   %width.i.i = getelementptr inbounds i8, ptr %font, i64 16
   %31 = load ptr, ptr %width.i.i, align 8
   %32 = load ptr, ptr %font, align 8
-  %call.i.i = tail call float %31(ptr %32, float noundef %30, ptr noundef %str, i32 noundef %len) #51
+  %call.i.i = tail call float %31(ptr %32, float noundef %30, ptr noundef %str, i32 noundef %len) #52
   %33 = fadd float %call.i.i, 0.000000e+00
   %cmp57.i.i = fcmp ogt float %33, 1.000000e+00
   %cond64.i.i = select i1 %cmp57.i.i, float %33, float 1.000000e+00
@@ -44001,7 +43942,7 @@ nk_draw_button_text_symbol.exit:                  ; preds = %if.end.i26.i, %nk_r
 if.then30:                                        ; preds = %nk_draw_button_text_symbol.exit
   %userdata32 = getelementptr inbounds i8, ptr %style, i64 192
   %38 = load ptr, ptr %userdata32, align 8
-  tail call void %37(ptr noundef nonnull %out, ptr %38) #51
+  tail call void %37(ptr noundef nonnull %out, ptr %38) #52
   br label %return
 
 return:                                           ; preds = %nk_draw_button_text_symbol.exit, %if.then30, %entry
@@ -44010,7 +43951,7 @@ return:                                           ; preds = %nk_draw_button_text
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_symbol_label(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %text, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_symbol_label(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %text, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %text, null
@@ -44103,7 +44044,7 @@ nk_contextual_item_symbol_text.exit:              ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_contextual_end(ptr noundef %ctx) local_unnamed_addr #22 {
+define void @nk_contextual_end(ptr noundef %ctx) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -44258,7 +44199,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_menubar_begin(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_menubar_begin(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -44316,7 +44257,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_menubar_end(ptr noundef readonly %ctx) local_unnamed_addr #22 {
+define void @nk_menubar_end(ptr noundef readonly %ctx) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -44434,7 +44375,7 @@ return:                                           ; preds = %if.end10.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -44555,7 +44496,7 @@ return:                                           ; preds = %if.end38.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_label(ptr noundef %ctx, ptr noundef %text, i32 noundef %align, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_label(ptr noundef %ctx, ptr noundef %text, i32 noundef %align, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not3.i = icmp eq ptr %text, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -44581,7 +44522,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %ctx, ptr noundef %id, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %ctx, ptr noundef %id, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %img14 = alloca %struct.nk_image, align 8
@@ -44666,7 +44607,7 @@ cond.end:                                         ; preds = %lor.lhs.false11, %i
 if.then13.i:                                      ; preds = %cond.end
   %userdata.i = getelementptr inbounds i8, ptr %ctx, i64 1088
   %30 = load ptr, ptr %userdata.i, align 8
-  tail call void %29(ptr noundef nonnull %buffer, ptr %30) #51
+  tail call void %29(ptr noundef nonnull %buffer, ptr %30) #52
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then13.i, %cond.end
@@ -44690,7 +44631,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %cond.
 if.then17.i:                                      ; preds = %if.end15.i
   %userdata19.i = getelementptr inbounds i8, ptr %ctx, i64 1088
   %37 = load ptr, ptr %userdata19.i, align 8
-  tail call void %36(ptr noundef nonnull %buffer, ptr %37) #51
+  tail call void %36(ptr noundef nonnull %buffer, ptr %37) #52
   br label %nk_do_button_image.exit
 
 nk_do_button_image.exit:                          ; preds = %if.end15.i, %if.then17.i
@@ -44773,7 +44714,7 @@ return:                                           ; preds = %if.end38.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %ctx, ptr noundef %id, i32 noundef %sym, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %ctx, ptr noundef %id, i32 noundef %sym, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -44895,7 +44836,7 @@ return:                                           ; preds = %if.end38.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_symbol(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %symbol, i32 noundef %behavior, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_symbol(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %symbol, i32 noundef %behavior, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   store <2 x float> %bounds.coerce0, ptr %bounds, align 8
@@ -44942,7 +44883,7 @@ nk_do_button.exit:                                ; preds = %entry
 if.then7:                                         ; preds = %nk_do_button.exit
   %userdata = getelementptr inbounds i8, ptr %style, i64 192
   %27 = load ptr, ptr %userdata, align 8
-  tail call void %26(ptr noundef nonnull %out, ptr %27) #51
+  tail call void %26(ptr noundef nonnull %out, ptr %27) #52
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %nk_do_button.exit
@@ -45008,7 +44949,7 @@ nk_draw_button_symbol.exit:                       ; preds = %if.end9, %if.end.i.
 if.then11:                                        ; preds = %nk_draw_button_symbol.exit
   %userdata13 = getelementptr inbounds i8, ptr %style, i64 192
   %44 = load ptr, ptr %userdata13, align 8
-  tail call void %43(ptr noundef nonnull %out, ptr %44) #51
+  tail call void %43(ptr noundef nonnull %out, ptr %44) #52
   br label %return
 
 return:                                           ; preds = %nk_draw_button_symbol.exit, %if.then11, %entry
@@ -45017,7 +44958,7 @@ return:                                           ; preds = %nk_draw_button_symb
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_image_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_image_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -45139,7 +45080,7 @@ return:                                           ; preds = %if.end38.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_image_label(ptr noundef %ctx, ptr noundef %title, i32 noundef %align, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_image_label(ptr noundef %ctx, ptr noundef %title, i32 noundef %align, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not3.i = icmp eq ptr %title, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -45165,7 +45106,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_symbol_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align, i32 noundef %sym, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_symbol_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align, i32 noundef %sym, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -45287,7 +45228,7 @@ return:                                           ; preds = %if.end38.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_symbol_label(ptr noundef %ctx, ptr noundef %title, i32 noundef %align, i32 noundef %sym, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_symbol_label(ptr noundef %ctx, ptr noundef %title, i32 noundef %align, i32 noundef %sym, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not3.i = icmp eq ptr %title, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -45313,7 +45254,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_item_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
@@ -45387,21 +45328,21 @@ nk_contextual_item_text.exit:                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_menu_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_contextual_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %align) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_menu_item_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %align) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_contextual_item_image_label(ptr noundef %ctx, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %align)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_item_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
@@ -45475,7 +45416,7 @@ nk_contextual_item_image_text.exit:               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_item_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
@@ -45549,14 +45490,14 @@ nk_contextual_item_symbol_text.exit:              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %label, i32 noundef %align) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_menu_item_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %label, i32 noundef %align) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_contextual_item_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %label, i32 noundef %align)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_menu_close(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_menu_close(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_contextual_close.exit, label %lor.lhs.false.i
@@ -45585,7 +45526,7 @@ nk_contextual_close.exit:                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_menu_end(ptr noundef %ctx) local_unnamed_addr #22 {
+define void @nk_menu_end(ptr noundef %ctx) local_unnamed_addr #20 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_contextual_end.exit, label %lor.lhs.false.i
@@ -45740,7 +45681,7 @@ nk_contextual_end.exit:                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_set_min_row_height(ptr noundef readonly %ctx, float noundef %height) local_unnamed_addr #24 {
+define void @nk_layout_set_min_row_height(ptr noundef readonly %ctx, float noundef %height) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -45767,7 +45708,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @nk_layout_ratio_from_pixel(ptr noundef readonly %ctx, float noundef %pixel_width) local_unnamed_addr #28 {
+define float @nk_layout_ratio_from_pixel(ptr noundef readonly %ctx, float noundef %pixel_width) local_unnamed_addr #27 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -45805,7 +45746,7 @@ return:                                           ; preds = %if.end, %cond.true1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_dynamic(ptr noundef readonly %ctx, float noundef %height, i32 noundef %cols) local_unnamed_addr #22 {
+define void @nk_layout_row_dynamic(ptr noundef readonly %ctx, float noundef %height, i32 noundef %cols) local_unnamed_addr #20 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_row_layout.exit, label %lor.lhs.false.i
@@ -45897,7 +45838,7 @@ nk_row_layout.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_static(ptr noundef readonly %ctx, float noundef %height, i32 noundef %item_width, i32 noundef %cols) local_unnamed_addr #22 {
+define void @nk_layout_row_static(ptr noundef readonly %ctx, float noundef %height, i32 noundef %item_width, i32 noundef %cols) local_unnamed_addr #20 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_row_layout.exit, label %lor.lhs.false.i
@@ -45990,7 +45931,7 @@ nk_row_layout.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_begin(ptr noundef readonly %ctx, i32 noundef %fmt, float noundef %row_height, i32 noundef %cols) local_unnamed_addr #22 {
+define void @nk_layout_row_begin(ptr noundef readonly %ctx, i32 noundef %fmt, float noundef %row_height, i32 noundef %cols) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46077,7 +46018,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_push(ptr noundef readonly %ctx, float noundef %ratio_or_width) local_unnamed_addr #24 {
+define void @nk_layout_row_push(ptr noundef readonly %ctx, float noundef %ratio_or_width) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end43, label %lor.lhs.false
@@ -46133,7 +46074,7 @@ if.end43:                                         ; preds = %if.end43.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_end(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_layout_row_end(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46170,7 +46111,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row(ptr noundef readonly %ctx, i32 noundef %fmt, float noundef %height, i32 noundef %cols, ptr noundef %ratio) local_unnamed_addr #22 {
+define void @nk_layout_row(ptr noundef readonly %ctx, i32 noundef %fmt, float noundef %height, i32 noundef %cols, ptr noundef %ratio) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46301,7 +46242,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_template_begin(ptr noundef readonly %ctx, float noundef %height) local_unnamed_addr #22 {
+define void @nk_layout_row_template_begin(ptr noundef readonly %ctx, float noundef %height) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46383,7 +46324,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_template_push_dynamic(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_layout_row_template_push_dynamic(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46426,7 +46367,7 @@ return:                                           ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_template_push_variable(ptr noundef readonly %ctx, float noundef %min_width) local_unnamed_addr #24 {
+define void @nk_layout_row_template_push_variable(ptr noundef readonly %ctx, float noundef %min_width) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46470,7 +46411,7 @@ return:                                           ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_template_push_static(ptr noundef readonly %ctx, float noundef %width) local_unnamed_addr #24 {
+define void @nk_layout_row_template_push_static(ptr noundef readonly %ctx, float noundef %width) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46672,7 +46613,7 @@ if.end80:                                         ; preds = %for.body57.us, %con
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_space_begin(ptr noundef readonly %ctx, i32 noundef %fmt, float noundef %height, i32 noundef %widget_count) local_unnamed_addr #22 {
+define void @nk_layout_space_begin(ptr noundef readonly %ctx, i32 noundef %fmt, float noundef %height, i32 noundef %widget_count) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46758,7 +46699,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_space_end(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_layout_space_end(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -46833,7 +46774,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_space_bounds(ptr nocapture noundef readonly %ctx) local_unnamed_addr #28 {
+define { <2 x float>, <2 x float> } @nk_layout_space_bounds(ptr nocapture noundef readonly %ctx) local_unnamed_addr #27 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -46853,7 +46794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_widget_bounds(ptr nocapture noundef readonly %ctx) local_unnamed_addr #28 {
+define { <2 x float>, <2 x float> } @nk_layout_widget_bounds(ptr nocapture noundef readonly %ctx) local_unnamed_addr #27 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -46880,7 +46821,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_layout_space_to_screen(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce) local_unnamed_addr #36 {
+define <2 x float> @nk_layout_space_to_screen(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce) local_unnamed_addr #35 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -46903,7 +46844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_layout_space_to_local(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce) local_unnamed_addr #36 {
+define <2 x float> @nk_layout_space_to_local(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce) local_unnamed_addr #35 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -46926,7 +46867,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_screen(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce0, <2 x float> %ret.coerce1) local_unnamed_addr #36 {
+define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_screen(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce0, <2 x float> %ret.coerce1) local_unnamed_addr #35 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -46951,7 +46892,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_local(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce0, <2 x float> %ret.coerce1) local_unnamed_addr #36 {
+define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_local(ptr nocapture noundef readonly %ctx, <2 x float> %ret.coerce0, <2 x float> %ret.coerce1) local_unnamed_addr #35 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -46976,7 +46917,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_spacer(ptr noundef %ctx) local_unnamed_addr #18 {
+define void @nk_spacer(ptr noundef %ctx) local_unnamed_addr #17 {
 entry:
   %dummy_rect = alloca %struct.nk_rect, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dummy_rect, i8 0, i64 16, i1 false)
@@ -46985,7 +46926,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_panel_alloc_space(ptr nocapture noundef %bounds, ptr noundef readonly %ctx) unnamed_addr #22 {
+define internal fastcc void @nk_panel_alloc_space(ptr nocapture noundef %bounds, ptr noundef readonly %ctx) unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -47072,14 +47013,14 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_state_push(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, ptr nocapture noundef %state) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_tree_state_push(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, ptr nocapture noundef %state) local_unnamed_addr #17 {
 entry:
   %call = tail call fastcc i32 @nk_tree_state_base(ptr noundef %ctx, i32 noundef %type, ptr noundef null, ptr noundef %title, ptr noundef %state)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_state_base(ptr noundef %ctx, i32 noundef %type, ptr noundef readonly %img, ptr noundef %title, ptr nocapture noundef %state) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_state_base(ptr noundef %ctx, i32 noundef %type, ptr noundef readonly %img, ptr noundef %title, ptr nocapture noundef %state) unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %ws = alloca i32, align 4
@@ -47534,7 +47475,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
   %width.i = getelementptr inbounds i8, ptr %96, i64 16
   %115 = load ptr, ptr %width.i, align 8
   %116 = load ptr, ptr %96, align 8
-  %call.i = call float %115(ptr %116, float noundef %95, ptr noundef %title, i32 noundef %siz.0.lcssa.i) #51
+  %call.i = call float %115(ptr %116, float noundef %95, ptr noundef %title, i32 noundef %siz.0.lcssa.i) #52
   %add35.i = fadd float %add121, 0.000000e+00
   %117 = insertelement <2 x float> poison, float %add35.i, i64 0
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
@@ -47590,14 +47531,14 @@ return:                                           ; preds = %nk_strlen.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_state_image_push(ptr noundef %ctx, i32 noundef %type, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %title, ptr nocapture noundef %state) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_tree_state_image_push(ptr noundef %ctx, i32 noundef %type, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %title, ptr nocapture noundef %state) local_unnamed_addr #17 {
 entry:
   %call = call fastcc i32 @nk_tree_state_base(ptr noundef %ctx, i32 noundef %type, ptr noundef nonnull %img, ptr noundef %title, ptr noundef %state)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_tree_state_pop(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_tree_state_pop(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -47645,14 +47586,14 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %line) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_tree_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %line) local_unnamed_addr #17 {
 entry:
   %call = tail call fastcc i32 @nk_tree_base(ptr noundef %ctx, i32 noundef %type, ptr noundef null, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %line)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_base(ptr noundef %ctx, i32 noundef %type, ptr noundef %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %line) unnamed_addr #18 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_base(ptr noundef %ctx, i32 noundef %type, ptr noundef %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %line) unnamed_addr #17 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -47839,14 +47780,14 @@ if.end7:                                          ; preds = %nk_find_value.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_image_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_tree_image_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #17 {
 entry:
   %call = call fastcc i32 @nk_tree_base(ptr noundef %ctx, i32 noundef %type, ptr noundef nonnull %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %hash, i32 noundef %len, i32 noundef %seed)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_tree_pop(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_tree_pop(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_tree_state_pop.exit, label %lor.lhs.false.i
@@ -47894,14 +47835,14 @@ nk_tree_state_pop.exit:                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_element_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_tree_element_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #17 {
 entry:
   %call = tail call fastcc i32 @nk_tree_element_base(ptr noundef %ctx, i32 noundef %type, ptr noundef null, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %seed)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_element_base(ptr noundef %ctx, i32 noundef %type, ptr noundef %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %line) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_element_base(ptr noundef %ctx, i32 noundef %type, ptr noundef %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %line) unnamed_addr #20 {
 entry:
   %bounds.i.i = alloca %struct.nk_rect, align 8
   %header.i = alloca %struct.nk_rect, align 8
@@ -48455,7 +48396,7 @@ nk_strlen.exit.i:                                 ; preds = %while.body.i.i, %la
   %height88.i = getelementptr inbounds i8, ptr %113, i64 8
   %115 = load float, ptr %height88.i, align 8
   %116 = load ptr, ptr %113, align 8
-  %call89.i = call float %114(ptr %116, float noundef %115, ptr noundef %title, i32 noundef %siz.0.lcssa.i.i) #51
+  %call89.i = call float %114(ptr %116, float noundef %115, ptr noundef %title, i32 noundef %siz.0.lcssa.i.i) #52
   %117 = call float @llvm.fmuladd.f32(float %padding.sroa.0.0.copyload.i, float 4.000000e+00, float %call89.i)
   %w91.i = getelementptr inbounds i8, ptr %header.i, i64 8
   %118 = load float, ptr %w91.i, align 8
@@ -48526,7 +48467,7 @@ if.end27.i.i:                                     ; preds = %if.then25.i.i, %if.
 if.then29.i.i:                                    ; preds = %if.end27.i.i
   %userdata.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %134 = load ptr, ptr %userdata.i.i, align 8
-  call void %133(ptr noundef nonnull %buffer.i, ptr %134) #51
+  call void %133(ptr noundef nonnull %buffer.i, ptr %134) #52
   %.pre.i38 = load i32, ptr %selected, align 4
   br label %if.end31.i.i
 
@@ -48542,7 +48483,7 @@ if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.
 if.then33.i.i:                                    ; preds = %if.end31.i.i
   %userdata35.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %138 = load ptr, ptr %userdata35.i.i, align 8
-  call void %137(ptr noundef nonnull %buffer.i, ptr %138) #51
+  call void %137(ptr noundef nonnull %buffer.i, ptr %138) #52
   br label %nk_do_selectable.exit.i
 
 nk_do_selectable.exit.i:                          ; preds = %if.then33.i.i, %if.end31.i.i, %if.else142.i
@@ -48592,14 +48533,14 @@ nk_tree_element_image_push_hashed_base.exit:      ; preds = %nk_strlen.exit28, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_element_image_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_tree_element_image_push_hashed(ptr noundef %ctx, i32 noundef %type, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %seed) local_unnamed_addr #17 {
 entry:
   %call = call fastcc i32 @nk_tree_element_base(ptr noundef %ctx, i32 noundef %type, ptr noundef nonnull %img, ptr noundef %title, i32 noundef %initial_state, ptr noundef %selected, ptr noundef %hash, i32 noundef %len, i32 noundef %seed)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_tree_element_pop(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_tree_element_pop(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_tree_state_pop.exit, label %lor.lhs.false.i
@@ -48647,7 +48588,7 @@ nk_tree_state_pop.exit:                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_scrolled_offset_begin(ptr noundef %ctx, ptr noundef %x_offset, ptr noundef %y_offset, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #18 {
+define range(i32 0, 32769) i32 @nk_group_scrolled_offset_begin(ptr noundef %ctx, ptr noundef %x_offset, ptr noundef %y_offset, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #17 {
 entry:
   %bounds = alloca %struct.nk_rect, align 4
   %panel = alloca %struct.nk_window, align 8
@@ -48783,7 +48724,7 @@ return:                                           ; preds = %nk_create_panel.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_scrolled_end(ptr noundef %ctx) local_unnamed_addr #22 {
+define void @nk_group_scrolled_end(ptr noundef %ctx) local_unnamed_addr #20 {
 entry:
   %pan = alloca %struct.nk_window, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -49002,7 +48943,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_scrolled_begin(ptr noundef %ctx, ptr noundef %scroll, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #18 {
+define range(i32 0, 32769) i32 @nk_group_scrolled_begin(ptr noundef %ctx, ptr noundef %scroll, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #17 {
 entry:
   %y = getelementptr inbounds i8, ptr %scroll, i64 4
   %call = tail call i32 @nk_group_scrolled_offset_begin(ptr noundef %ctx, ptr noundef %scroll, ptr noundef nonnull %y, ptr noundef %title, i32 noundef %flags)
@@ -49010,7 +48951,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_begin_titled(ptr noundef %ctx, ptr noundef %id, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #18 {
+define range(i32 0, 32769) i32 @nk_group_begin_titled(ptr noundef %ctx, ptr noundef %id, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -49334,21 +49275,21 @@ return:                                           ; preds = %if.then6.i52, %nk_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_begin(ptr noundef %ctx, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #18 {
+define range(i32 0, 32769) i32 @nk_group_begin(ptr noundef %ctx, ptr noundef %title, i32 noundef %flags) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_group_begin_titled(ptr noundef %ctx, ptr noundef %title, ptr noundef %title, i32 noundef %flags)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_end(ptr noundef %ctx) local_unnamed_addr #18 {
+define void @nk_group_end(ptr noundef %ctx) local_unnamed_addr #17 {
 entry:
   tail call void @nk_group_scrolled_end(ptr noundef %ctx)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_get_scroll(ptr noundef %ctx, ptr noundef %id, ptr noundef writeonly %x_offset, ptr noundef writeonly %y_offset) local_unnamed_addr #18 {
+define void @nk_group_get_scroll(ptr noundef %ctx, ptr noundef %id, ptr noundef writeonly %x_offset, ptr noundef writeonly %y_offset) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end27, label %lor.lhs.false
@@ -49685,7 +49626,7 @@ if.end27:                                         ; preds = %if.then6.i53, %nk_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_set_scroll(ptr noundef %ctx, ptr noundef %id, i32 noundef %x_offset, i32 noundef %y_offset) local_unnamed_addr #18 {
+define void @nk_group_set_scroll(ptr noundef %ctx, ptr noundef %id, i32 noundef %x_offset, i32 noundef %y_offset) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -50006,7 +49947,7 @@ return:                                           ; preds = %if.then6.i51, %nk_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_list_view_begin(ptr noundef %ctx, ptr noundef %view, ptr noundef %title, i32 noundef %flags, i32 noundef %row_height, i32 noundef %row_count) local_unnamed_addr #18 {
+define range(i32 0, 32769) i32 @nk_list_view_begin(ptr noundef %ctx, ptr noundef %view, ptr noundef %title, i32 noundef %flags, i32 noundef %row_height, i32 noundef %row_count) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %ctx, null
   %tobool1 = icmp ne ptr %view, null
@@ -50367,7 +50308,7 @@ return:                                           ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_list_view_end(ptr noundef readonly %view) local_unnamed_addr #18 {
+define void @nk_list_view_end(ptr noundef readonly %view) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %view, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -51038,7 +50979,7 @@ return:                                           ; preds = %land.rhs.i, %nk_inp
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_spacing(ptr noundef %ctx, i32 noundef %cols) local_unnamed_addr #22 {
+define void @nk_spacing(ptr noundef %ctx, i32 noundef %cols) local_unnamed_addr #20 {
 entry:
   %none = alloca %struct.nk_rect, align 4
   %tobool.not = icmp eq ptr %ctx, null
@@ -51172,7 +51113,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_widget_disable_begin(ptr noundef %ctx) local_unnamed_addr #21 {
+define void @nk_widget_disable_begin(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -51345,7 +51286,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_widget_disable_end(ptr noundef %ctx) local_unnamed_addr #21 {
+define void @nk_widget_disable_end(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -51456,7 +51397,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_colored(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %alignment, i32 %color.coerce) local_unnamed_addr #22 {
+define void @nk_text_colored(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %alignment, i32 %color.coerce) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -51541,7 +51482,7 @@ nk_rgb_factor.exit:                               ; preds = %if.end, %if.end.i
   %width.i = getelementptr inbounds i8, ptr %16, i64 16
   %22 = load ptr, ptr %width.i, align 8
   %23 = load ptr, ptr %16, align 8
-  %call.i = tail call float %22(ptr %23, float noundef %20, ptr noundef %str, i32 noundef %len) #51
+  %call.i = tail call float %22(ptr %23, float noundef %20, ptr noundef %str, i32 noundef %len) #52
   %24 = tail call float @llvm.fmuladd.f32(float %item_padding.sroa.0.0.copyload, float 2.000000e+00, float %call.i)
   %and.i = and i32 %alignment, 1
   %tobool30.not.i = icmp eq i32 %and.i, 0
@@ -51654,7 +51595,7 @@ return:                                           ; preds = %if.end207.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_wrap_colored(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 %color.coerce) local_unnamed_addr #22 {
+define void @nk_text_wrap_colored(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 %color.coerce) local_unnamed_addr #20 {
 entry:
   %width.i = alloca float, align 4
   %glyphs.i = alloca i32, align 4
@@ -51774,7 +51715,7 @@ nk_widget_text.exit.i:                            ; preds = %lor.lhs.false50.i
   %30 = load float, ptr %height.i, align 8
   %31 = load ptr, ptr %width.i.i, align 8
   %32 = load ptr, ptr %17, align 8
-  %call.i.i = tail call float %31(ptr %32, float noundef %30, ptr noundef %arrayidx.i, i32 noundef %fitting.059.i) #51
+  %call.i.i = tail call float %31(ptr %32, float noundef %30, ptr noundef %arrayidx.i, i32 noundef %fitting.059.i) #52
   %b.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %line.sroa.0.061.i, i64 0
   %add35.i.i = fadd float %b.sroa.0.0.vec.extract.i.i, 0.000000e+00
   %33 = insertelement <2 x float> poison, float %add35.i.i, i64 0
@@ -51813,7 +51754,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #18 {
+define void @nk_text(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -51829,7 +51770,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_wrap(ptr noundef %ctx, ptr noundef %str, i32 noundef %len) local_unnamed_addr #18 {
+define void @nk_text_wrap(ptr noundef %ctx, ptr noundef %str, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -51845,7 +51786,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label(ptr noundef %ctx, ptr noundef %str, i32 noundef %alignment) local_unnamed_addr #18 {
+define void @nk_label(ptr noundef %ctx, ptr noundef %str, i32 noundef %alignment) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %str, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -51880,7 +51821,7 @@ nk_text.exit:                                     ; preds = %nk_strlen.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_colored(ptr noundef %ctx, ptr noundef %str, i32 noundef %align, i32 %color.coerce) local_unnamed_addr #18 {
+define void @nk_label_colored(ptr noundef %ctx, ptr noundef %str, i32 noundef %align, i32 %color.coerce) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %str, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -51906,7 +51847,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_wrap(ptr noundef %ctx, ptr noundef %str) local_unnamed_addr #18 {
+define void @nk_label_wrap(ptr noundef %ctx, ptr noundef %str) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %str, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -51941,7 +51882,7 @@ nk_text_wrap.exit:                                ; preds = %nk_strlen.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_colored_wrap(ptr noundef %ctx, ptr noundef %str, i32 %color.coerce) local_unnamed_addr #18 {
+define void @nk_label_colored_wrap(ptr noundef %ctx, ptr noundef %str, i32 %color.coerce) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %str, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -52057,7 +51998,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_image(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #22 {
+define void @nk_image(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -52093,7 +52034,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_image_color(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, i32 %col.coerce) local_unnamed_addr #22 {
+define void @nk_image_color(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, i32 %col.coerce) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -52294,7 +52235,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_button_push_behavior(ptr noundef %ctx, i32 noundef %behavior) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_button_push_behavior(ptr noundef %ctx, i32 noundef %behavior) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -52325,7 +52266,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_button_pop_behavior(ptr noundef %ctx) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_button_pop_behavior(ptr noundef %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -52354,7 +52295,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_text_styled(ptr noundef %ctx, ptr noundef %style, ptr noundef %title, i32 noundef %len) local_unnamed_addr #22 {
+define i32 @nk_button_text_styled(ptr noundef %ctx, ptr noundef %style, ptr noundef %title, i32 noundef %len) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool = icmp ne ptr %style, null
@@ -52411,7 +52352,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len) local_unnamed_addr #22 {
+define i32 @nk_button_text(ptr noundef %ctx, ptr noundef %title, i32 noundef %len) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -52473,7 +52414,7 @@ return:                                           ; preds = %entry, %nk_button_t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_label_styled(ptr noundef %ctx, ptr noundef %style, ptr noundef %title) local_unnamed_addr #22 {
+define i32 @nk_button_label_styled(ptr noundef %ctx, ptr noundef %style, ptr noundef %title) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %title, null
@@ -52551,7 +52492,7 @@ nk_button_text_styled.exit:                       ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_label(ptr noundef %ctx, ptr noundef %title) local_unnamed_addr #22 {
+define i32 @nk_button_label(ptr noundef %ctx, ptr noundef %title) local_unnamed_addr #20 {
 entry:
   %bounds.i.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %title, null
@@ -52632,7 +52573,7 @@ nk_button_text.exit:                              ; preds = %nk_strlen.exit, %nk
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_color(ptr noundef %ctx, i32 %color.coerce) local_unnamed_addr #22 {
+define i32 @nk_button_color(ptr noundef %ctx, i32 %color.coerce) local_unnamed_addr #20 {
 entry:
   %button = alloca %struct.nk_style_button, align 8
   %bounds = alloca %struct.nk_rect, align 8
@@ -52703,7 +52644,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @nk_draw_button(ptr noundef %out, ptr nocapture noundef readonly %bounds, i32 noundef %state, ptr noundef readonly %style) unnamed_addr #22 {
+define internal fastcc noundef ptr @nk_draw_button(ptr noundef %out, ptr nocapture noundef readonly %bounds, i32 noundef %state, ptr noundef readonly %style) unnamed_addr #20 {
 entry:
   %and = and i32 %state, 16
   %tobool.not = icmp eq i32 %and, 0
@@ -52856,7 +52797,7 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit9
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_styled(ptr noundef %ctx, ptr noundef %style, i32 noundef %symbol) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_styled(ptr noundef %ctx, ptr noundef %style, i32 noundef %symbol) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -52909,7 +52850,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol(ptr noundef %ctx, i32 noundef %symbol) local_unnamed_addr #22 {
+define i32 @nk_button_symbol(ptr noundef %ctx, i32 noundef %symbol) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -52969,7 +52910,7 @@ return:                                           ; preds = %entry, %nk_button_s
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_styled(ptr noundef %ctx, ptr noundef %style, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #22 {
+define i32 @nk_button_image_styled(ptr noundef %ctx, ptr noundef %style, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %img12 = alloca %struct.nk_image, align 8
@@ -53058,7 +52999,7 @@ nk_do_button.exit.i:                              ; preds = %cond.end
 if.then13.i:                                      ; preds = %nk_do_button.exit.i
   %userdata.i = getelementptr inbounds i8, ptr %style, i64 192
   %30 = load ptr, ptr %userdata.i, align 8
-  tail call void %29(ptr noundef nonnull %buffer, ptr %30) #51
+  tail call void %29(ptr noundef nonnull %buffer, ptr %30) #52
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then13.i, %nk_do_button.exit.i
@@ -53082,7 +53023,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %nk_do
 if.then17.i:                                      ; preds = %if.end15.i
   %userdata19.i = getelementptr inbounds i8, ptr %style, i64 192
   %37 = load ptr, ptr %userdata19.i, align 8
-  tail call void %36(ptr noundef nonnull %buffer, ptr %37) #51
+  tail call void %36(ptr noundef nonnull %buffer, ptr %37) #52
   br label %nk_do_button_image.exit
 
 nk_do_button_image.exit:                          ; preds = %cond.end, %if.end15.i, %if.then17.i
@@ -53097,7 +53038,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #18 {
+define i32 @nk_button_image(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %if.end
@@ -53113,7 +53054,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_text_styled(ptr noundef %ctx, ptr noundef %style, i32 noundef %symbol, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_text_styled(ptr noundef %ctx, ptr noundef %style, i32 noundef %symbol, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -53166,7 +53107,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_text(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_text(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -53226,7 +53167,7 @@ return:                                           ; preds = %entry, %nk_button_s
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_label(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %label, i32 noundef %align) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_label(ptr noundef %ctx, i32 noundef %symbol, ptr noundef %label, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %label, null
@@ -53305,7 +53246,7 @@ nk_button_symbol_text.exit:                       ; preds = %nk_strlen.exit, %nk
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_label_styled(ptr noundef %ctx, ptr noundef %style, i32 noundef %symbol, ptr noundef %title, i32 noundef %align) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_label_styled(ptr noundef %ctx, ptr noundef %style, i32 noundef %symbol, ptr noundef %title, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %title, null
@@ -53379,7 +53320,7 @@ nk_button_symbol_text_styled.exit:                ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_text_styled(ptr noundef %ctx, ptr noundef %style, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define i32 @nk_button_image_text_styled(ptr noundef %ctx, ptr noundef %style, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -53432,7 +53373,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define i32 @nk_button_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %button = getelementptr inbounds i8, ptr %ctx, i64 464
@@ -53488,7 +53429,7 @@ nk_button_image_text_styled.exit:                 ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %align) local_unnamed_addr #22 {
+define i32 @nk_button_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %label, null
@@ -53563,7 +53504,7 @@ nk_button_image_text.exit:                        ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_label_styled(ptr noundef %ctx, ptr noundef %style, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %text_alignment) local_unnamed_addr #22 {
+define i32 @nk_button_image_label_styled(ptr noundef %ctx, ptr noundef %style, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %label, i32 noundef %text_alignment) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not3.i = icmp eq ptr %label, null
@@ -53637,7 +53578,7 @@ nk_button_image_text_styled.exit:                 ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %active) local_unnamed_addr #22 {
+define i32 @nk_check_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %active) local_unnamed_addr #20 {
 entry:
   %active.addr = alloca i32, align 4
   %bounds = alloca %struct.nk_rect, align 8
@@ -53692,7 +53633,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_do_toggle(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %active, ptr noundef %str, i32 noundef %len, i32 noundef %type, ptr noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc void @nk_do_toggle(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef %active, ptr noundef %str, i32 noundef %len, i32 noundef %type, ptr noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %r.coerce0, i64 0
   %1 = insertelement <4 x ptr> poison, ptr %out, i64 0
@@ -53855,7 +53796,7 @@ nk_toggle_behavior.exit:                          ; preds = %if.else10.i, %if.en
 if.then104:                                       ; preds = %nk_toggle_behavior.exit
   %userdata = getelementptr inbounds i8, ptr %style, i64 264
   %49 = load ptr, ptr %userdata, align 8
-  tail call void %48(ptr noundef nonnull %out, ptr %49) #51
+  tail call void %48(ptr noundef nonnull %out, ptr %49) #52
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then104, %nk_toggle_behavior.exit
@@ -54260,7 +54201,7 @@ if.end109:                                        ; preds = %if.end26.i136, %if.
   %width.i.i151 = getelementptr inbounds i8, ptr %font, i64 16
   %158 = load ptr, ptr %width.i.i151, align 8
   %159 = load ptr, ptr %font, align 8
-  %call.i.i152 = tail call float %158(ptr %159, float noundef %157, ptr noundef %str, i32 noundef %len) #51
+  %call.i.i152 = tail call float %158(ptr %159, float noundef %157, ptr noundef %str, i32 noundef %len) #52
   %add35.i.i154 = fadd float %add81, 0.000000e+00
   %160 = insertelement <2 x float> poison, float %add35.i.i154, i64 0
   %div164.i.i158 = fmul float %mul.b.sroa.14.12.vec.extract.i.i148, 5.000000e-01
@@ -54285,7 +54226,7 @@ if.end109:                                        ; preds = %if.end26.i136, %if.
 if.then111:                                       ; preds = %if.end109
   %userdata113 = getelementptr inbounds i8, ptr %style, i64 264
   %168 = load ptr, ptr %userdata113, align 8
-  tail call void %167(ptr noundef nonnull %out, ptr %168) #51
+  tail call void %167(ptr noundef nonnull %out, ptr %168) #52
   br label %return
 
 return:                                           ; preds = %if.end109, %if.then111, %entry
@@ -54293,7 +54234,7 @@ return:                                           ; preds = %if.end109, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_flags_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %flags, i32 noundef %value) local_unnamed_addr #22 {
+define i32 @nk_check_flags_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %flags, i32 noundef %value) local_unnamed_addr #20 {
 entry:
   %active.addr.i = alloca i32, align 4
   %bounds.i = alloca %struct.nk_rect, align 8
@@ -54364,7 +54305,7 @@ return:                                           ; preds = %entry, %nk_check_te
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, ptr noundef %active) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, ptr noundef %active) local_unnamed_addr #20 {
 entry:
   %active.addr.i = alloca i32, align 4
   %bounds.i = alloca %struct.nk_rect, align 8
@@ -54435,7 +54376,7 @@ return:                                           ; preds = %entry, %nk_check_te
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_flags_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, ptr noundef %flags, i32 noundef %value) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_flags_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, ptr noundef %flags, i32 noundef %value) local_unnamed_addr #20 {
 entry:
   %active.addr.i.i = alloca i32, align 4
   %bounds.i.i = alloca %struct.nk_rect, align 8
@@ -54526,7 +54467,7 @@ return:                                           ; preds = %nk_checkbox_text.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %active) local_unnamed_addr #22 {
+define i32 @nk_check_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %active) local_unnamed_addr #20 {
 entry:
   %active.addr.i = alloca i32, align 4
   %bounds.i = alloca %struct.nk_rect, align 8
@@ -54604,7 +54545,7 @@ nk_check_text.exit:                               ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_flags_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %flags, i32 noundef %value) local_unnamed_addr #22 {
+define i32 @nk_check_flags_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %flags, i32 noundef %value) local_unnamed_addr #20 {
 entry:
   %active.addr.i.i = alloca i32, align 4
   %bounds.i.i = alloca %struct.nk_rect, align 8
@@ -54692,7 +54633,7 @@ nk_check_flags_text.exit:                         ; preds = %entry, %nk_strlen.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_label(ptr noundef %ctx, ptr noundef %label, ptr noundef %active) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_label(ptr noundef %ctx, ptr noundef %label, ptr noundef %active) local_unnamed_addr #20 {
 entry:
   %active.addr.i.i = alloca i32, align 4
   %bounds.i.i = alloca %struct.nk_rect, align 8
@@ -54780,7 +54721,7 @@ nk_checkbox_text.exit:                            ; preds = %entry, %nk_strlen.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_flags_label(ptr noundef %ctx, ptr noundef %label, ptr noundef %flags, i32 noundef %value) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_checkbox_flags_label(ptr noundef %ctx, ptr noundef %label, ptr noundef %flags, i32 noundef %value) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %label, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -54806,7 +54747,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_option_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %is_active) local_unnamed_addr #22 {
+define i32 @nk_option_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %is_active) local_unnamed_addr #20 {
 entry:
   %is_active.addr = alloca i32, align 4
   %bounds = alloca %struct.nk_rect, align 8
@@ -54861,7 +54802,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_radio_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, ptr noundef %active) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_radio_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, ptr noundef %active) local_unnamed_addr #20 {
 entry:
   %is_active.addr.i = alloca i32, align 4
   %bounds.i = alloca %struct.nk_rect, align 8
@@ -54932,7 +54873,7 @@ return:                                           ; preds = %entry, %nk_option_t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_option_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %active) local_unnamed_addr #22 {
+define i32 @nk_option_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %active) local_unnamed_addr #20 {
 entry:
   %is_active.addr.i = alloca i32, align 4
   %bounds.i = alloca %struct.nk_rect, align 8
@@ -55010,7 +54951,7 @@ nk_option_text.exit:                              ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_radio_label(ptr noundef %ctx, ptr noundef %label, ptr noundef %active) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_radio_label(ptr noundef %ctx, ptr noundef %label, ptr noundef %active) local_unnamed_addr #20 {
 entry:
   %is_active.addr.i.i = alloca i32, align 4
   %bounds.i.i = alloca %struct.nk_rect, align 8
@@ -55098,7 +55039,7 @@ nk_radio_text.exit:                               ; preds = %entry, %nk_strlen.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %bounds = alloca %struct.nk_rect, align 8
@@ -55181,7 +55122,7 @@ if.end27.i:                                       ; preds = %if.then25.i, %if.en
 if.then29.i:                                      ; preds = %if.end27.i
   %userdata.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %14 = load ptr, ptr %userdata.i, align 8
-  tail call void %13(ptr noundef nonnull %buffer, ptr %14) #51
+  tail call void %13(ptr noundef nonnull %buffer, ptr %14) #52
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then29.i, %if.end27.i
@@ -55196,7 +55137,7 @@ if.end31.i:                                       ; preds = %if.then29.i, %if.en
 if.then33.i:                                      ; preds = %if.end31.i
   %userdata35.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %18 = load ptr, ptr %userdata35.i, align 8
-  tail call void %17(ptr noundef nonnull %buffer, ptr %18) #51
+  tail call void %17(ptr noundef nonnull %buffer, ptr %18) #52
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then33.i, %if.end31.i
@@ -55216,7 +55157,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef %ctx, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef %ctx, ptr noundef byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -55270,7 +55211,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value, ptr noundef %img, ptr noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value, ptr noundef %img, ptr noundef readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %bounds.coerce0, i64 1
   %1 = extractelement <2 x float> %bounds.coerce0, i64 0
@@ -55358,7 +55299,7 @@ if.end53:                                         ; preds = %if.else, %if.then37
 if.then68:                                        ; preds = %if.end53
   %userdata = getelementptr inbounds i8, ptr %style, i64 312
   %31 = load ptr, ptr %userdata, align 8
-  tail call void %30(ptr noundef nonnull %out, ptr %31) #51
+  tail call void %30(ptr noundef nonnull %out, ptr %31) #52
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then68, %if.end53
@@ -55373,7 +55314,7 @@ if.end70:                                         ; preds = %if.then68, %if.end5
 if.then72:                                        ; preds = %if.end70
   %userdata74 = getelementptr inbounds i8, ptr %style, i64 312
   %35 = load ptr, ptr %userdata74, align 8
-  call void %34(ptr noundef nonnull %out, ptr %35) #51
+  call void %34(ptr noundef nonnull %out, ptr %35) #52
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then72, %if.end70
@@ -55388,7 +55329,7 @@ return:                                           ; preds = %entry, %if.end76
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %icon.i = alloca %struct.nk_rect, align 8
@@ -55513,7 +55454,7 @@ if.end53.i:                                       ; preds = %if.else.i, %if.then
 if.then68.i:                                      ; preds = %if.end53.i
   %userdata.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %31 = load ptr, ptr %userdata.i, align 8
-  tail call void %30(ptr noundef nonnull %buffer, ptr %31) #51
+  tail call void %30(ptr noundef nonnull %buffer, ptr %31) #52
   br label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.then68.i, %if.end53.i
@@ -55528,7 +55469,7 @@ if.end70.i:                                       ; preds = %if.then68.i, %if.en
 if.then72.i:                                      ; preds = %if.end70.i
   %userdata74.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %35 = load ptr, ptr %userdata74.i, align 8
-  call void %34(ptr noundef nonnull %buffer, ptr %35) #51
+  call void %34(ptr noundef nonnull %buffer, ptr %35) #52
   br label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.then72.i, %if.end70.i
@@ -55549,7 +55490,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %title, i32 noundef %align, ptr noundef %value) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_selectable_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %title, i32 noundef %align, ptr noundef %value) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %title, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -55575,7 +55516,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_text(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %value) local_unnamed_addr #22 {
+define i32 @nk_select_text(ptr noundef %ctx, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds.i.i = alloca %struct.nk_rect, align 8
   %bounds.i = alloca %struct.nk_rect, align 8
@@ -55649,7 +55590,7 @@ if.end.i.i:                                       ; preds = %cond.end.i
 if.then29.i.i:                                    ; preds = %if.end.i.i
   %userdata.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %12 = load ptr, ptr %userdata.i.i, align 8
-  tail call void %11(ptr noundef nonnull %buffer.i, ptr %12) #51
+  tail call void %11(ptr noundef nonnull %buffer.i, ptr %12) #52
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end.i.i
@@ -55663,7 +55604,7 @@ if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.
 if.then33.i.i:                                    ; preds = %if.end31.i.i
   %userdata35.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %15 = load ptr, ptr %userdata35.i.i, align 8
-  tail call void %14(ptr noundef nonnull %buffer.i, ptr %15) #51
+  tail call void %14(ptr noundef nonnull %buffer.i, ptr %15) #52
   br label %nk_do_selectable.exit.i
 
 nk_do_selectable.exit.i:                          ; preds = %if.end31.i.i, %if.then33.i.i, %cond.end.i
@@ -55678,7 +55619,7 @@ nk_selectable_text.exit:                          ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_label(ptr noundef %ctx, ptr noundef %str, i32 noundef %align, ptr noundef %value) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_selectable_label(ptr noundef %ctx, ptr noundef %str, i32 noundef %align, ptr noundef %value) local_unnamed_addr #17 {
 entry:
   %tobool.not3.i = icmp eq ptr %str, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -55704,7 +55645,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %align, ptr noundef %value) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %align, ptr noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %img2 = alloca %struct.nk_image, align 8
@@ -55783,7 +55724,7 @@ nk_selectable_image_text.exit:                    ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_label(ptr noundef %ctx, ptr noundef %str, i32 noundef %align, i32 noundef %value) local_unnamed_addr #22 {
+define i32 @nk_select_label(ptr noundef %ctx, ptr noundef %str, i32 noundef %align, i32 noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds.i.i = alloca %struct.nk_rect, align 8
   %bounds.i = alloca %struct.nk_rect, align 8
@@ -55876,7 +55817,7 @@ if.end.i.i:                                       ; preds = %cond.end.i
 if.then29.i.i:                                    ; preds = %if.end.i.i
   %userdata.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %14 = load ptr, ptr %userdata.i.i, align 8
-  tail call void %13(ptr noundef nonnull %buffer.i, ptr %14) #51
+  tail call void %13(ptr noundef nonnull %buffer.i, ptr %14) #52
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end.i.i
@@ -55890,7 +55831,7 @@ if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.
 if.then33.i.i:                                    ; preds = %if.end31.i.i
   %userdata35.i.i = getelementptr inbounds i8, ptr %ctx, i64 2000
   %17 = load ptr, ptr %userdata35.i.i, align 8
-  tail call void %16(ptr noundef nonnull %buffer.i, ptr %17) #51
+  tail call void %16(ptr noundef nonnull %buffer.i, ptr %17) #52
   br label %nk_do_selectable.exit.i
 
 nk_do_selectable.exit.i:                          ; preds = %if.end31.i.i, %if.then33.i.i, %cond.end.i
@@ -55905,7 +55846,7 @@ nk_selectable_text.exit:                          ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %align, i32 noundef %value) local_unnamed_addr #22 {
+define i32 @nk_select_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %align, i32 noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %img2 = alloca %struct.nk_image, align 8
@@ -55985,7 +55926,7 @@ nk_selectable_image_text.exit:                    ; preds = %nk_strlen.exit, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %value) local_unnamed_addr #22 {
+define i32 @nk_select_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %str, i32 noundef %len, i32 noundef %align, i32 noundef %value) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %img1 = alloca %struct.nk_image, align 8
@@ -56046,7 +55987,7 @@ nk_selectable_image_text.exit:                    ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %title, i32 noundef %title_len, i32 noundef %align, i32 noundef %value) local_unnamed_addr #18 {
+define i32 @nk_select_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %title, i32 noundef %title_len, i32 noundef %align, i32 noundef %value) local_unnamed_addr #17 {
 entry:
   %value.addr = alloca i32, align 4
   store i32 %value, ptr %value.addr, align 4
@@ -56056,7 +55997,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %title, i32 noundef %align, i32 noundef %value) local_unnamed_addr #18 {
+define i32 @nk_select_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %title, i32 noundef %align, i32 noundef %value) local_unnamed_addr #17 {
 entry:
   %value.addr.i = alloca i32, align 4
   %tobool.not3.i = icmp eq ptr %title, null
@@ -56087,7 +56028,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_slider_float(ptr noundef %ctx, float noundef %min_value, ptr noundef %value, float noundef %max_value, float noundef %value_step) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_slider_float(ptr noundef %ctx, float noundef %min_value, ptr noundef %value, float noundef %max_value, float noundef %value_step) local_unnamed_addr #20 {
 entry:
   %ws.i = alloca i32, align 4
   %bounds = alloca %struct.nk_rect, align 8
@@ -56367,7 +56308,7 @@ nk_slider_behavior.exit.i:                        ; preds = %if.end79.sink.split
 if.then149.i:                                     ; preds = %nk_slider_behavior.exit.i
   %userdata.i = getelementptr inbounds i8, ptr %ctx, i64 2776
   %53 = load ptr, ptr %userdata.i, align 8
-  call void %52(ptr noundef nonnull %buffer, ptr %53) #51
+  call void %52(ptr noundef nonnull %buffer, ptr %53) #52
   %.pre171.i = load i32, ptr %last_widget_state, align 4
   br label %if.end151.i
 
@@ -56680,7 +56621,7 @@ nk_draw_slider.exit.i:                            ; preds = %nk_rgb_factor.exit2
 if.then153.i:                                     ; preds = %nk_draw_slider.exit.i
   %userdata155.i = getelementptr inbounds i8, ptr %ctx, i64 2776
   %143 = load ptr, ptr %userdata155.i, align 8
-  call void %142(ptr noundef nonnull %buffer, ptr %143) #51
+  call void %142(ptr noundef nonnull %buffer, ptr %143) #52
   br label %nk_do_slider.exit
 
 nk_do_slider.exit:                                ; preds = %nk_draw_slider.exit.i, %if.then153.i
@@ -56696,7 +56637,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define float @nk_slide_float(ptr noundef %ctx, float noundef %min, float noundef %val, float noundef %max, float noundef %step) local_unnamed_addr #18 {
+define float @nk_slide_float(ptr noundef %ctx, float noundef %min, float noundef %val, float noundef %max, float noundef %step) local_unnamed_addr #17 {
 entry:
   %val.addr = alloca float, align 4
   store float %val, ptr %val.addr, align 4
@@ -56706,7 +56647,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_slide_int(ptr noundef %ctx, i32 noundef %min, i32 noundef %val, i32 noundef %max, i32 noundef %step) local_unnamed_addr #18 {
+define i32 @nk_slide_int(ptr noundef %ctx, i32 noundef %min, i32 noundef %val, i32 noundef %max, i32 noundef %step) local_unnamed_addr #17 {
 entry:
   %value = alloca float, align 4
   %conv = sitofp i32 %val to float
@@ -56721,7 +56662,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_slider_int(ptr noundef %ctx, i32 noundef %min, ptr nocapture noundef %val, i32 noundef %max, i32 noundef %step) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_slider_int(ptr noundef %ctx, i32 noundef %min, ptr nocapture noundef %val, i32 noundef %max, i32 noundef %step) local_unnamed_addr #17 {
 entry:
   %value = alloca float, align 4
   %0 = load i32, ptr %val, align 4
@@ -56738,7 +56679,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_progress(ptr noundef %ctx, ptr noundef %cur, i64 noundef %max, i32 noundef %is_modifyable) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_progress(ptr noundef %ctx, ptr noundef %cur, i64 noundef %max, i32 noundef %is_modifyable) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -56956,7 +56897,7 @@ nk_progress_behavior.exit.i:                      ; preds = %return.sink.split.i
 if.then42.i:                                      ; preds = %nk_progress_behavior.exit.i
   %userdata.i = getelementptr inbounds i8, ptr %ctx, i64 3088
   %43 = load ptr, ptr %userdata.i, align 8
-  tail call void %42(ptr noundef nonnull %buffer, ptr %43) #51
+  tail call void %42(ptr noundef nonnull %buffer, ptr %43) #52
   %.pre.i = load i32, ptr %last_widget_state, align 4
   br label %if.end44.i
 
@@ -57224,7 +57165,7 @@ nk_draw_progress.exit.i:                          ; preds = %nk_rgb_factor.exit2
 if.then46.i:                                      ; preds = %nk_draw_progress.exit.i
   %userdata48.i = getelementptr inbounds i8, ptr %ctx, i64 3088
   %126 = load ptr, ptr %userdata48.i, align 8
-  tail call void %125(ptr noundef nonnull %buffer, ptr %126) #51
+  tail call void %125(ptr noundef nonnull %buffer, ptr %126) #52
   br label %nk_do_progress.exit
 
 nk_do_progress.exit:                              ; preds = %nk_draw_progress.exit.i, %if.then46.i
@@ -57239,7 +57180,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @nk_prog(ptr noundef %ctx, i64 noundef %cur, i64 noundef %max, i32 noundef %modifyable) local_unnamed_addr #18 {
+define i64 @nk_prog(ptr noundef %ctx, i64 noundef %cur, i64 noundef %max, i32 noundef %modifyable) local_unnamed_addr #17 {
 entry:
   %cur.addr = alloca i64, align 8
   store i64 %cur, ptr %cur.addr, align 8
@@ -57440,7 +57381,7 @@ if.end17:                                         ; preds = %if.end, %nk_textedi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @nk_textedit_clamp(ptr nocapture noundef %state) unnamed_addr #20 {
+define internal fastcc void @nk_textedit_clamp(ptr nocapture noundef %state) unnamed_addr #18 {
 entry:
   %len = getelementptr inbounds i8, ptr %state, i64 144
   %0 = load i32, ptr %len, align 8
@@ -57590,7 +57531,7 @@ return:                                           ; preds = %if.end, %entry, %nk
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_textedit_paste(ptr noundef %state, ptr noundef %ctext, i32 noundef %len) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_textedit_paste(ptr noundef %state, ptr noundef %ctext, i32 noundef %len) local_unnamed_addr #17 {
 entry:
   %mode = getelementptr inbounds i8, ptr %state, i64 180
   %0 = load i8, ptr %mode, align 4
@@ -57893,7 +57834,7 @@ return:                                           ; preds = %if.end6, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_text(ptr noundef %state, ptr noundef %text, i32 noundef %total_len) local_unnamed_addr #18 {
+define void @nk_textedit_text(ptr noundef %state, ptr noundef %text, i32 noundef %total_len) local_unnamed_addr #17 {
 entry:
   %len.i.i = alloca i32, align 4
   %unicode.i.i = alloca i32, align 4
@@ -58062,7 +58003,7 @@ if.end16:                                         ; preds = %while.body, %land.l
   br i1 %tobool17.not, label %if.end23, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end16
-  %call20 = call i32 %18(ptr noundef nonnull %state, i32 noundef %unicode.1235) #51
+  %call20 = call i32 %18(ptr noundef nonnull %state, i32 noundef %unicode.1235) #52
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %next, label %if.end23
 
@@ -58573,7 +58514,7 @@ while.end:                                        ; preds = %for.end.i161, %next
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_undo(ptr noundef %state) local_unnamed_addr #18 {
+define void @nk_textedit_undo(ptr noundef %state) local_unnamed_addr #17 {
 entry:
   %glyph.i = alloca [4 x i8], align 1
   %len.i = alloca i32, align 4
@@ -58853,7 +58794,7 @@ return:                                           ; preds = %if.end49.i, %nk_tex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_redo(ptr noundef %state) local_unnamed_addr #18 {
+define void @nk_textedit_redo(ptr noundef %state) local_unnamed_addr #17 {
 entry:
   %glyph.i = alloca [4 x i8], align 1
   %len.i = alloca i32, align 4
@@ -59130,7 +59071,7 @@ return:                                           ; preds = %entry, %nk_str_init
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_init(ptr noundef %state, ptr noundef readonly %alloc, i64 noundef %size) local_unnamed_addr #22 {
+define void @nk_textedit_init(ptr noundef %state, ptr noundef readonly %alloc, i64 noundef %size) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %state, null
   %tobool1 = icmp ne ptr %alloc, null
@@ -59202,7 +59143,7 @@ nk_zero.exit.i.i:                                 ; preds = %if.end19.i.i.i.i, %
   %alloc.i.i = getelementptr inbounds i8, ptr %alloc, i64 8
   %2 = load ptr, ptr %alloc.i.i, align 8
   %3 = load ptr, ptr %alloc, align 8
-  %call.i.i = tail call ptr %2(ptr %3, ptr noundef null, i64 noundef %size) #51
+  %call.i.i = tail call ptr %2(ptr %3, ptr noundef null, i64 noundef %size) #52
   %memory.i.i = getelementptr inbounds i8, ptr %state, i64 88
   store ptr %call.i.i, ptr %memory.i.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %state, i64 96
@@ -59288,7 +59229,7 @@ if.end19.i.i.i.i:                                 ; preds = %nk_memset.exit
 nk_str_init_default.exit:                         ; preds = %if.end19.i.i.thread.i.i, %if.end19.i.i.i.i
   %type.i.i = getelementptr inbounds i8, ptr %state, i64 80
   store i32 1, ptr %type.i.i, align 8
-  %call.i2.i = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #50
+  %call.i2.i = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #51
   %memory.i.i = getelementptr inbounds i8, ptr %state, i64 88
   store ptr %call.i2.i, ptr %memory.i.i, align 8
   %size.i.i = getelementptr inbounds i8, ptr %state, i64 96
@@ -59312,7 +59253,7 @@ return:                                           ; preds = %entry, %nk_str_init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_textedit_select_all(ptr nocapture noundef %state) local_unnamed_addr #20 {
+define void @nk_textedit_select_all(ptr nocapture noundef %state) local_unnamed_addr #18 {
 entry:
   %select_start = getelementptr inbounds i8, ptr %state, i64 172
   store i32 0, ptr %select_start, align 4
@@ -59324,7 +59265,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_free(ptr noundef %state) local_unnamed_addr #18 {
+define void @nk_textedit_free(ptr noundef %state) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %state, null
   br i1 %tobool.not, label %return, label %if.end
@@ -59350,7 +59291,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.end3.i.i
   %pool.i.i = getelementptr inbounds i8, ptr %state, i64 56
   %3 = load ptr, ptr %pool.i.i, align 8
-  tail call void %2(ptr %3, ptr noundef nonnull %0) #51
+  tail call void %2(ptr %3, ptr noundef nonnull %0) #52
   br label %nk_str_free.exit
 
 nk_str_free.exit:                                 ; preds = %if.end, %if.end.i.i, %if.end3.i.i, %if.end6.i.i
@@ -59431,7 +59372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_edit_focus(ptr noundef readonly %ctx, i32 noundef %flags) local_unnamed_addr #24 {
+define void @nk_edit_focus(ptr noundef readonly %ctx, i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %if.end8, label %lor.lhs.false
@@ -59463,7 +59404,7 @@ if.end8:                                          ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_edit_unfocus(ptr noundef readonly %ctx) local_unnamed_addr #21 {
+define void @nk_edit_unfocus(ptr noundef readonly %ctx) local_unnamed_addr #33 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -59486,7 +59427,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_edit_string(ptr noundef %ctx, i32 noundef %flags, ptr noundef %memory, ptr noundef %len, i32 noundef %max, ptr noundef %filter) local_unnamed_addr #22 {
+define i32 @nk_edit_string(ptr noundef %ctx, i32 noundef %flags, ptr noundef %memory, ptr noundef %len, i32 noundef %max, ptr noundef %filter) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %ctx, null
   %tobool1 = icmp ne ptr %memory, null
@@ -59674,7 +59615,7 @@ return:                                           ; preds = %nk_str_init_fixed.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_edit_buffer(ptr noundef %ctx, i32 noundef %flags, ptr noundef %edit, ptr noundef %filter) local_unnamed_addr #22 {
+define i32 @nk_edit_buffer(ptr noundef %ctx, i32 noundef %flags, ptr noundef %edit, ptr noundef %filter) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -59829,7 +59770,7 @@ return:                                           ; preds = %if.else79, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_edit(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %flags, ptr noundef %filter, ptr noundef %edit, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_edit(ptr noundef %state, ptr noundef %out, <2 x float> %bounds.coerce0, <2 x float> %bounds.coerce1, i32 noundef %flags, ptr noundef %filter, ptr noundef %edit, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %0 = extractelement <2 x float> %bounds.coerce1, i64 1
   %1 = extractelement <2 x float> %bounds.coerce0, i64 1
@@ -60333,7 +60274,7 @@ if.then304:                                       ; preds = %if.then285
   %cond298 = call i32 @llvm.smax.i32(i32 %73, i32 %74)
   %sub308 = sub nsw i32 %cond298, %cond292
   %76 = load ptr, ptr %edit, align 8
-  call void %75(ptr %76, ptr noundef %call300, i32 noundef %sub308) #51
+  call void %75(ptr %76, ptr noundef %call300, i32 noundef %sub308) #52
   br label %if.end309
 
 if.end309:                                        ; preds = %if.then304, %if.then285
@@ -60453,7 +60394,7 @@ land.lhs.true323:                                 ; preds = %land.lhs.true5.i681
 
 if.then327:                                       ; preds = %land.lhs.true323
   %90 = load ptr, ptr %edit, align 8
-  call void %89(ptr %90, ptr noundef nonnull %edit) #51
+  call void %89(ptr %90, ptr noundef nonnull %edit) #52
   br label %if.end.i685
 
 if.end.i685:                                      ; preds = %land.lhs.true5.i681, %land.lhs.true.i677, %land.lhs.true323, %if.then327
@@ -60801,7 +60742,7 @@ nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_ut
   %height438 = getelementptr inbounds i8, ptr %font, i64 8
   %155 = load float, ptr %height438, align 8
   %156 = load ptr, ptr %font, align 8
-  %call440 = call float %154(ptr %156, float noundef %155, ptr noundef nonnull %retval.0.i7001374, i32 noundef %retval.0.i781) #51
+  %call440 = call float %154(ptr %156, float noundef %155, ptr noundef nonnull %retval.0.i7001374, i32 noundef %retval.0.i781) #52
   %cmp44114411472 = icmp sgt i32 %retval.0.i706, 0
   %tobool44414421473 = icmp ne i32 %retval.0.i781, 0
   %157 = and i1 %cmp44114411472, %tobool44414421473
@@ -61046,7 +60987,7 @@ nk_utf_decode.exit850:                            ; preds = %for.inc.i.i795, %if
   %178 = load ptr, ptr %width, align 8
   %179 = load float, ptr %height438, align 8
   %180 = load ptr, ptr %font, align 8
-  %call551 = call float %178(ptr %180, float noundef %179, ptr noundef nonnull %add.ptr542, i32 noundef %retval.0.i798) #51
+  %call551 = call float %178(ptr %180, float noundef %179, ptr noundef nonnull %add.ptr542, i32 noundef %retval.0.i798) #52
   %cmp4411441 = icmp slt i32 %inc539, %retval.0.i706
   %tobool4441442 = icmp ne i32 %retval.0.i798, 0
   %181 = and i1 %cmp4411441, %tobool4441442
@@ -61177,7 +61118,7 @@ nk_utf_decode.exit916:                            ; preds = %for.inc.i.i861, %if
   %197 = load ptr, ptr %width, align 8
   %198 = load float, ptr %height438, align 8
   %199 = load ptr, ptr %font, align 8
-  %call566 = call float %197(ptr %199, float noundef %198, ptr noundef nonnull %add.ptr557, i32 noundef %retval.0.i864) #51
+  %call566 = call float %197(ptr %199, float noundef %198, ptr noundef nonnull %add.ptr557, i32 noundef %retval.0.i864) #52
   %cmp441 = icmp slt i32 %add554, %retval.0.i706
   %tobool444 = icmp ne i32 %retval.0.i864, 0
   %200 = and i1 %cmp441, %tobool444
@@ -61826,7 +61767,7 @@ nk_widget_text.exit:                              ; preds = %for.inc.i.i1121, %i
   %height910 = getelementptr inbounds i8, ptr %font, i64 8
   %311 = load float, ptr %height910, align 8
   %312 = load ptr, ptr %font, align 8
-  %call912 = call float %310(ptr %312, float noundef %311, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #51
+  %call912 = call float %310(ptr %312, float noundef %311, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #52
   %label.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %call912, i64 0
   %label.sroa.4.12.vec.insert = insertelement <2 x float> %label.sroa.4.8.vec.insert, float %cond42, i64 1
   call void @nk_fill_rect(ptr noundef nonnull %out, <2 x float> %309, <2 x float> %label.sroa.4.12.vec.insert, float noundef 0.000000e+00, i32 %retval.sroa.0.0.insert.insert.i948)
@@ -61835,7 +61776,7 @@ nk_widget_text.exit:                              ; preds = %for.inc.i.i1121, %i
   %313 = load float, ptr %height910, align 8
   %314 = load ptr, ptr %width908, align 8
   %315 = load ptr, ptr %font, align 8
-  %call.i1183 = call float %314(ptr %315, float noundef %313, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #51
+  %call.i1183 = call float %314(ptr %315, float noundef %313, ptr noundef %cursor_ptr.2, i32 noundef %phi.call) #52
   %316 = extractelement <2 x float> %309, i64 0
   %add35.i = fadd float %316, 0.000000e+00
   %317 = insertelement <2 x float> poison, float %add35.i, i64 0
@@ -62068,7 +62009,7 @@ return:                                           ; preds = %if.end10.i1313, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_edit_string_zero_terminated(ptr noundef %ctx, i32 noundef %flags, ptr noundef %buffer, i32 noundef %max, ptr noundef %filter) local_unnamed_addr #18 {
+define i32 @nk_edit_string_zero_terminated(ptr noundef %ctx, i32 noundef %flags, ptr noundef %buffer, i32 noundef %max, ptr noundef %filter) local_unnamed_addr #17 {
 entry:
   %len = alloca i32, align 4
   %tobool.not3.i = icmp eq ptr %buffer, null
@@ -62104,7 +62045,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_property_int(ptr noundef %ctx, ptr noundef %name, i32 noundef %min, ptr noundef %val, i32 noundef %max, i32 noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #18 {
+define void @nk_property_int(ptr noundef %ctx, ptr noundef %name, i32 noundef %min, ptr noundef %val, i32 noundef %max, i32 noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #17 {
 entry:
   %variant = alloca %struct.nk_property_variant, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -62141,7 +62082,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_property(ptr noundef %ctx, ptr noundef %name, ptr noundef %variant, float noundef %inc_per_pixel, i32 noundef %filter) unnamed_addr #22 {
+define internal fastcc void @nk_property(ptr noundef %ctx, ptr noundef %name, ptr noundef %variant, float noundef %inc_per_pixel, i32 noundef %filter) unnamed_addr #20 {
 entry:
   %num_len.i = alloca i32, align 4
   %string.i = alloca [64 x i8], align 16
@@ -62319,7 +62260,7 @@ nk_strlen.exit.i:                                 ; preds = %while.body.i.i, %la
   %width.i = getelementptr inbounds i8, ptr %9, i64 16
   %20 = load ptr, ptr %width.i, align 8
   %21 = load ptr, ptr %9, align 8
-  %call14.i = tail call float %20(ptr %21, float noundef %14, ptr noundef nonnull %name.addr.0, i32 noundef %siz.0.lcssa.i.i) #51
+  %call14.i = tail call float %20(ptr %21, float noundef %14, ptr noundef nonnull %name.addr.0, i32 noundef %siz.0.lcssa.i.i) #52
   %add17.i = fadd float %div.i, %add3.i
   %22 = load float, ptr %padding.i, align 8
   %add20.i = fadd float %add17.i, %22
@@ -62347,7 +62288,7 @@ if.then.i:                                        ; preds = %nk_strlen.exit.i
   %31 = load float, ptr %height.i, align 8
   %32 = load i32, ptr %len.0, align 4
   %33 = load ptr, ptr %9, align 8
-  %call58.i = call float %30(ptr %33, float noundef %31, ptr noundef nonnull %buffer.0, i32 noundef %32) #51
+  %call58.i = call float %30(ptr %33, float noundef %31, ptr noundef nonnull %buffer.0, i32 noundef %32) #52
   %cursor_size.i = getelementptr inbounds i8, ptr %ctx, i64 4212
   %34 = load float, ptr %cursor_size.i, align 4
   %add60.i = fadd float %call58.i, %34
@@ -62561,7 +62502,7 @@ sw.epilog.i:                                      ; preds = %nk_string_float_lim
   %52 = load ptr, ptr %width.i, align 8
   %53 = load float, ptr %height.i, align 8
   %54 = load ptr, ptr %9, align 8
-  %call82.i = call float %52(ptr %54, float noundef %53, ptr noundef nonnull %string.i, i32 noundef %num_len.0.num_len.0.num_len.0..i) #51
+  %call82.i = call float %52(ptr %54, float noundef %53, ptr noundef nonnull %string.i, i32 noundef %num_len.0.num_len.0.num_len.0..i) #52
   br label %if.end.i
 
 if.end.i:                                         ; preds = %sw.epilog.i, %if.then.i
@@ -62865,7 +62806,7 @@ nk_property_behavior.exit.i:                      ; preds = %if.end23.sink.split
 if.then132.i:                                     ; preds = %nk_property_behavior.exit.i
   %userdata134.i = getelementptr inbounds i8, ptr %ctx, i64 4680
   %94 = load ptr, ptr %userdata134.i, align 8
-  call void %93(ptr noundef nonnull %buffer51, ptr %94) #51
+  call void %93(ptr noundef nonnull %buffer51, ptr %94) #52
   br label %if.end136.i
 
 if.end136.i:                                      ; preds = %if.then132.i, %nk_property_behavior.exit.i
@@ -63036,7 +62977,7 @@ sw.epilog.i.i:                                    ; preds = %nk_rgb_factor.exit1
   %146 = load float, ptr %height.i, align 8
   %147 = load ptr, ptr %width.i, align 8
   %148 = load ptr, ptr %9, align 8
-  %call.i.i.i = call float %147(ptr %148, float noundef %146, ptr noundef nonnull %name.addr.0, i32 noundef %siz.0.lcssa.i.i) #51
+  %call.i.i.i = call float %147(ptr %148, float noundef %146, ptr noundef nonnull %name.addr.0, i32 noundef %siz.0.lcssa.i.i) #52
   %149 = fadd float %call.i.i.i, 0.000000e+00
   %cmp57.i.i.i = fcmp ogt float %149, 1.000000e+00
   %cond64.i.i.i = select i1 %cmp57.i.i.i, float %149, float 1.000000e+00
@@ -63075,7 +63016,7 @@ sw.epilog.i.i:                                    ; preds = %nk_rgb_factor.exit1
 if.then138.i:                                     ; preds = %sw.epilog.i.i
   %userdata140.i = getelementptr inbounds i8, ptr %ctx, i64 4680
   %154 = load ptr, ptr %userdata140.i, align 8
-  call void %153(ptr noundef nonnull %buffer51, ptr %154) #51
+  call void %153(ptr noundef nonnull %buffer51, ptr %154) #52
   br label %if.end142.i
 
 if.end142.i:                                      ; preds = %if.then138.i, %sw.epilog.i.i
@@ -63801,7 +63742,7 @@ if.end114:                                        ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_property_float(ptr noundef %ctx, ptr noundef %name, float noundef %min, ptr noundef %val, float noundef %max, float noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #18 {
+define void @nk_property_float(ptr noundef %ctx, ptr noundef %name, float noundef %min, ptr noundef %val, float noundef %max, float noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #17 {
 entry:
   %variant = alloca %struct.nk_property_variant, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -63838,7 +63779,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_property_double(ptr noundef %ctx, ptr noundef %name, double noundef %min, ptr noundef %val, double noundef %max, double noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #18 {
+define void @nk_property_double(ptr noundef %ctx, ptr noundef %name, double noundef %min, ptr noundef %val, double noundef %max, double noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #17 {
 entry:
   %variant = alloca %struct.nk_property_variant, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -63875,7 +63816,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_propertyi(ptr noundef %ctx, ptr noundef %name, i32 noundef %min, i32 noundef %val, i32 noundef %max, i32 noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #18 {
+define i32 @nk_propertyi(ptr noundef %ctx, ptr noundef %name, i32 noundef %min, i32 noundef %val, i32 noundef %max, i32 noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #17 {
 entry:
   %variant = alloca %struct.nk_property_variant, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -63909,7 +63850,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define float @nk_propertyf(ptr noundef %ctx, ptr noundef %name, float noundef %min, float noundef %val, float noundef %max, float noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #18 {
+define float @nk_propertyf(ptr noundef %ctx, ptr noundef %name, float noundef %min, float noundef %val, float noundef %max, float noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #17 {
 entry:
   %variant = alloca %struct.nk_property_variant, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -63943,7 +63884,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define double @nk_propertyd(ptr noundef %ctx, ptr noundef %name, double noundef %min, double noundef %val, double noundef %max, double noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #18 {
+define double @nk_propertyd(ptr noundef %ctx, ptr noundef %name, double noundef %min, double noundef %val, double noundef %max, double noundef %step, float noundef %inc_per_pixel) local_unnamed_addr #17 {
 entry:
   %variant = alloca %struct.nk_property_variant, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -63977,7 +63918,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef %ctx, i32 noundef %type, i32 %color.coerce, i32 %highlight.coerce, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef %ctx, i32 noundef %type, i32 %color.coerce, i32 %highlight.coerce, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bounds, i8 0, i64 16, i1 false)
@@ -64290,7 +64231,7 @@ return:                                           ; preds = %if.end19.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef %ctx, i32 noundef %type, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef %ctx, i32 noundef %type, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #17 {
 entry:
   %color = getelementptr inbounds i8, ptr %ctx, i64 5720
   %selected_color = getelementptr inbounds i8, ptr %ctx, i64 5716
@@ -64301,7 +64242,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_chart_add_slot_colored(ptr noundef readonly %ctx, i32 noundef %type, i32 %color.coerce, i32 %highlight.coerce, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #24 {
+define void @nk_chart_add_slot_colored(ptr noundef readonly %ctx, i32 noundef %type, i32 %color.coerce, i32 %highlight.coerce, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -64391,7 +64332,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_chart_add_slot(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #24 {
+define void @nk_chart_add_slot(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %count, float noundef %min_value, float noundef %max_value) local_unnamed_addr #22 {
 lor.lhs.false.i:
   %color = getelementptr inbounds i8, ptr %ctx, i64 5720
   %selected_color = getelementptr inbounds i8, ptr %ctx, i64 5716
@@ -64481,7 +64422,7 @@ nk_chart_add_slot_colored.exit:                   ; preds = %lor.lhs.false.i, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef readonly %ctx, float noundef %value, i32 noundef %slot) local_unnamed_addr #22 {
+define range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef readonly %ctx, float noundef %value, i32 noundef %slot) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -64890,14 +64831,14 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_chart_push(ptr noundef %ctx, float noundef %value) local_unnamed_addr #18 {
+define range(i32 0, 4) i32 @nk_chart_push(ptr noundef %ctx, float noundef %value) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_chart_push_slot(ptr noundef %ctx, float noundef %value, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_chart_end(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_chart_end(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -64935,7 +64876,7 @@ return:                                           ; preds = %if.end19.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_plot(ptr noundef %ctx, i32 noundef %type, ptr noundef readonly %values, i32 noundef %count, i32 noundef %offset) local_unnamed_addr #18 {
+define void @nk_plot(ptr noundef %ctx, i32 noundef %type, ptr noundef readonly %values, i32 noundef %count, i32 noundef %offset) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %ctx, null
   %tobool1 = icmp ne ptr %values, null
@@ -65031,7 +64972,7 @@ if.end35:                                         ; preds = %if.end19.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_plot_function(ptr noundef %ctx, i32 noundef %type, ptr noundef %userdata, ptr noundef readonly %value_getter, i32 noundef %count, i32 noundef %offset) local_unnamed_addr #18 {
+define void @nk_plot_function(ptr noundef %ctx, i32 noundef %type, ptr noundef %userdata, ptr noundef readonly %value_getter, i32 noundef %count, i32 noundef %offset) local_unnamed_addr #17 {
 entry:
   %tobool = icmp ne ptr %ctx, null
   %tobool1 = icmp ne ptr %value_getter, null
@@ -65041,7 +64982,7 @@ entry:
   br i1 %or.cond1, label %if.end, label %if.end23
 
 if.end:                                           ; preds = %entry
-  %call = tail call float %value_getter(ptr noundef %userdata, i32 noundef %offset) #51
+  %call = tail call float %value_getter(ptr noundef %userdata, i32 noundef %offset) #52
   %cmp28 = icmp sgt i32 %count, 0
   br i1 %cmp28, label %for.body, label %for.end
 
@@ -65050,7 +64991,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %max_value.030 = phi float [ %cond10, %for.body ], [ %call, %if.end ]
   %min_value.029 = phi float [ %cond, %for.body ], [ %call, %if.end ]
   %add = add nsw i32 %i.031, %offset
-  %call4 = tail call float %value_getter(ptr noundef %userdata, i32 noundef %add) #51
+  %call4 = tail call float %value_getter(ptr noundef %userdata, i32 noundef %add) #52
   %cmp5 = fcmp olt float %call4, %min_value.029
   %cond = select i1 %cmp5, float %call4, float %min_value.029
   %cmp6 = fcmp olt float %call4, %max_value.030
@@ -65076,7 +65017,7 @@ for.cond14.preheader:                             ; preds = %for.end
 for.body16:                                       ; preds = %for.cond14.preheader, %for.body16
   %i.134 = phi i32 [ %inc21, %for.body16 ], [ 0, %for.cond14.preheader ]
   %add17 = add nsw i32 %i.134, %offset
-  %call18 = tail call float %value_getter(ptr noundef %userdata, i32 noundef %add17) #51
+  %call18 = tail call float %value_getter(ptr noundef %userdata, i32 noundef %add17) #52
   %call.i27 = tail call range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef nonnull %ctx, float noundef %call18, i32 noundef 0)
   %inc21 = add nuw nsw i32 %i.134, 1
   %exitcond35.not = icmp eq i32 %inc21, %count
@@ -65115,7 +65056,7 @@ if.end23:                                         ; preds = %if.end19.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_color_pick(ptr noundef %ctx, ptr noundef %color, i32 noundef %fmt) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_color_pick(ptr noundef %ctx, ptr noundef %color, i32 noundef %fmt) local_unnamed_addr #20 {
 entry:
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -65925,7 +65866,7 @@ return:                                           ; preds = %if.end3.i185.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, <2 x float> } @nk_color_picker(ptr noundef %ctx, <2 x float> %color.coerce0, <2 x float> %color.coerce1, i32 noundef %fmt) local_unnamed_addr #22 {
+define { <2 x float>, <2 x float> } @nk_color_picker(ptr noundef %ctx, <2 x float> %color.coerce0, <2 x float> %color.coerce1, i32 noundef %fmt) local_unnamed_addr #20 {
 entry:
   %color = alloca %struct.nk_colorf, align 8
   store <2 x float> %color.coerce0, ptr %color, align 8
@@ -65940,7 +65881,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_text(ptr noundef %ctx, ptr noundef %selected, i32 noundef %len, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_text(ptr noundef %ctx, ptr noundef %selected, i32 noundef %len, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %button = alloca %struct.nk_rect, align 4
@@ -66225,7 +66166,7 @@ if.end172:                                        ; preds = %if.else166, %if.the
   %width.i = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %width.i, align 8
   %79 = load ptr, ptr %76, align 8
-  %call.i = tail call float %78(ptr %79, float noundef %77, ptr noundef nonnull %selected, i32 noundef %len) #51
+  %call.i = tail call float %78(ptr %79, float noundef %77, ptr noundef nonnull %selected, i32 noundef %len) #52
   %add35.i = fadd float %add140, 0.000000e+00
   %80 = insertelement <2 x float> poison, float %add35.i, i64 0
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
@@ -66370,7 +66311,7 @@ return:                                           ; preds = %if.end41.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @nk_button_behavior(ptr nocapture noundef %state, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef readonly %i, i32 noundef %behavior) unnamed_addr #32 {
+define internal fastcc i32 @nk_button_behavior(ptr nocapture noundef %state, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr noundef readonly %i, i32 noundef %behavior) unnamed_addr #30 {
 entry:
   %0 = load i32, ptr %state, align 4
   %and = and i32 %0, 2
@@ -66496,7 +66437,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_label(ptr noundef %ctx, ptr noundef %selected, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_label(ptr noundef %ctx, ptr noundef %selected, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not3.i = icmp eq ptr %selected, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -66522,7 +66463,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_color(ptr noundef %ctx, i32 %color.coerce, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_color(ptr noundef %ctx, i32 %color.coerce, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %button = alloca %struct.nk_rect, align 4
@@ -66932,7 +66873,7 @@ return:                                           ; preds = %if.end41.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_symbol(ptr noundef %ctx, i32 noundef %symbol, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_symbol(ptr noundef %ctx, i32 noundef %symbol, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %bounds = alloca %struct.nk_rect, align 8
@@ -67327,7 +67268,7 @@ return:                                           ; preds = %if.end41.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_symbol(ptr noundef %out, i32 noundef %type, <2 x float> %content.coerce0, <2 x float> %content.coerce1, i32 %background.coerce, i32 %foreground.coerce, float noundef %border_width, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc void @nk_draw_symbol(ptr noundef %out, i32 noundef %type, <2 x float> %content.coerce0, <2 x float> %content.coerce1, i32 %background.coerce, i32 %foreground.coerce, float noundef %border_width, ptr noundef %font) unnamed_addr #20 {
 entry:
   switch i32 %type, label %sw.epilog [
     i32 12, label %cond.false
@@ -67383,7 +67324,7 @@ if.end.i:                                         ; preds = %cond.end6
   %width.i = getelementptr inbounds i8, ptr %font, i64 16
   %6 = load ptr, ptr %width.i, align 8
   %7 = load ptr, ptr %font, align 8
-  %call.i = tail call float %6(ptr %7, float noundef %5, ptr noundef %cond7, i32 noundef 1) #51
+  %call.i = tail call float %6(ptr %7, float noundef %5, ptr noundef %cond7, i32 noundef 1) #52
   %8 = fadd float %call.i, 0.000000e+00
   %cmp57.i = fcmp ogt float %8, 1.000000e+00
   %cond64.i = select i1 %cmp57.i, float %8, float 1.000000e+00
@@ -67514,7 +67455,7 @@ sw.epilog:                                        ; preds = %if.end.i, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_symbol_text(ptr noundef %ctx, ptr noundef %selected, i32 noundef %len, i32 noundef %symbol, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_symbol_text(ptr noundef %ctx, ptr noundef %selected, i32 noundef %len, i32 noundef %symbol, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %button = alloca %struct.nk_rect, align 4
@@ -67887,7 +67828,7 @@ nk_draw_button_symbol.exit:                       ; preds = %sw.epilog, %if.end.
   %width.i = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load ptr, ptr %width.i, align 8
   %110 = load ptr, ptr %107, align 8
-  %call.i211 = tail call float %109(ptr %110, float noundef %108, ptr noundef %selected, i32 noundef %len) #51
+  %call.i211 = tail call float %109(ptr %110, float noundef %108, ptr noundef %selected, i32 noundef %len) #52
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %add165.i = fadd float %add182, %div164.i
   %111 = load float, ptr %height.i, align 8
@@ -67976,7 +67917,7 @@ return:                                           ; preds = %if.end41.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_image(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_image(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %bounds = alloca %struct.nk_rect, align 8
@@ -68344,7 +68285,7 @@ return:                                           ; preds = %if.end41.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_image_text(ptr noundef %ctx, ptr noundef %selected, i32 noundef %len, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_image_text(ptr noundef %ctx, ptr noundef %selected, i32 noundef %len, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %header = alloca %struct.nk_rect, align 8
   %button = alloca %struct.nk_rect, align 4
@@ -68692,7 +68633,7 @@ if.end139:                                        ; preds = %nk_draw_button_symb
   %width.i = getelementptr inbounds i8, ptr %96, i64 16
   %98 = load ptr, ptr %width.i, align 8
   %99 = load ptr, ptr %96, align 8
-  %call.i202 = tail call float %98(ptr %99, float noundef %97, ptr noundef %selected, i32 noundef %len) #51
+  %call.i202 = tail call float %98(ptr %99, float noundef %97, ptr noundef %selected, i32 noundef %len) #52
   %div164.i = fmul float %mul.b.sroa.14.12.vec.extract.i, 5.000000e-01
   %add165.i = fadd float %add181, %div164.i
   %100 = load float, ptr %height.i, align 8
@@ -68781,7 +68722,7 @@ return:                                           ; preds = %if.end41.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_symbol_label(ptr noundef %ctx, ptr noundef %selected, i32 noundef %type, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_symbol_label(ptr noundef %ctx, ptr noundef %selected, i32 noundef %type, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not3.i = icmp eq ptr %selected, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -68807,7 +68748,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_image_label(ptr noundef %ctx, ptr noundef %selected, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_image_label(ptr noundef %ctx, ptr noundef %selected, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %tobool.not3.i = icmp eq ptr %selected, null
   br i1 %tobool.not3.i, label %nk_strlen.exit, label %land.rhs.i.preheader
@@ -68833,7 +68774,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_item_text(ptr noundef %ctx, ptr noundef %text, i32 noundef %len, i32 noundef %align) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
@@ -68907,14 +68848,14 @@ nk_contextual_item_text.exit:                     ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_combo_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_contextual_item_label(ptr noundef %ctx, ptr noundef %label, i32 noundef %align)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_item_image_text(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
@@ -68988,14 +68929,14 @@ nk_contextual_item_image_text.exit:               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %alignment) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_combo_item_image_label(ptr noundef %ctx, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %alignment) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_contextual_item_image_label(ptr noundef %ctx, ptr noundef nonnull byval(%struct.nk_image) align 8 %img, ptr noundef %text, i32 noundef %alignment)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %text, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_item_symbol_text(ptr noundef %ctx, i32 noundef %sym, ptr noundef %text, i32 noundef %len, i32 noundef %alignment) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
@@ -69069,14 +69010,14 @@ nk_contextual_item_symbol_text.exit:              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %label, i32 noundef %alignment) local_unnamed_addr #18 {
+define range(i32 0, 2) i32 @nk_combo_item_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %label, i32 noundef %alignment) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @nk_contextual_item_symbol_label(ptr noundef %ctx, i32 noundef %sym, ptr noundef %label, i32 noundef %alignment)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combo_end(ptr noundef %ctx) local_unnamed_addr #22 {
+define void @nk_combo_end(ptr noundef %ctx) local_unnamed_addr #20 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_contextual_end.exit, label %lor.lhs.false.i
@@ -69231,7 +69172,7 @@ nk_contextual_end.exit:                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_combo_close(ptr noundef readonly %ctx) local_unnamed_addr #24 {
+define void @nk_combo_close(ptr noundef readonly %ctx) local_unnamed_addr #22 {
 entry:
   %tobool.not.i = icmp eq ptr %ctx, null
   br i1 %tobool.not.i, label %nk_contextual_close.exit, label %lor.lhs.false.i
@@ -69260,7 +69201,7 @@ nk_contextual_close.exit:                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo(ptr noundef %ctx, ptr noundef readonly %items, i32 noundef %count, i32 noundef %selected, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define i32 @nk_combo(ptr noundef %ctx, ptr noundef readonly %items, i32 noundef %count, i32 noundef %selected, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %ctx, null
   %tobool1 = icmp ne ptr %items, null
@@ -69600,7 +69541,7 @@ return:                                           ; preds = %if.end36.i.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo_separator(ptr noundef %ctx, ptr noundef %items_separated_by_separator, i32 noundef %separator, i32 noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define i32 @nk_combo_separator(ptr noundef %ctx, ptr noundef %items_separated_by_separator, i32 noundef %separator, i32 noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %bounds.i.i = alloca %struct.nk_rect, align 8
   %tobool = icmp ne ptr %ctx, null
@@ -70043,14 +69984,14 @@ return:                                           ; preds = %if.end36.i.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo_string(ptr noundef %ctx, ptr noundef %items_separated_by_zeros, i32 noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define i32 @nk_combo_string(ptr noundef %ctx, ptr noundef %items_separated_by_zeros, i32 noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %call = tail call i32 @nk_combo_separator(ptr noundef %ctx, ptr noundef %items_separated_by_zeros, i32 noundef 0, i32 noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo_callback(ptr noundef %ctx, ptr noundef readonly %item_getter, ptr noundef %userdata, i32 noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define i32 @nk_combo_callback(ptr noundef %ctx, ptr noundef readonly %item_getter, ptr noundef %userdata, i32 noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %item = alloca ptr, align 8
   %tobool = icmp ne ptr %ctx, null
@@ -70111,7 +70052,7 @@ nk_panel_get_padding.exit:                        ; preds = %if.end, %sw.bb1.i, 
   %cmp = fcmp olt float %size.sroa.0.4.vec.extract, %conv13
   %cond = select i1 %cmp, float %size.sroa.0.4.vec.extract, float %conv13
   %size.sroa.0.4.vec.insert = insertelement <2 x float> %size.coerce, float %cond, i64 1
-  call void %item_getter(ptr noundef %userdata, i32 noundef %selected, ptr noundef nonnull %item) #51
+  call void %item_getter(ptr noundef %userdata, i32 noundef %selected, ptr noundef nonnull %item) #52
   %4 = load ptr, ptr %item, align 8
   %tobool.not3.i.i = icmp eq ptr %4, null
   br i1 %tobool.not3.i.i, label %nk_combo_begin_label.exit, label %land.rhs.i.preheader.i
@@ -70224,7 +70165,7 @@ nk_layout_row_dynamic.exit:                       ; preds = %lor.lhs.false.i.i, 
 for.body:                                         ; preds = %nk_layout_row_dynamic.exit, %for.body
   %selected.addr.037 = phi i32 [ %spec.select, %for.body ], [ %selected, %nk_layout_row_dynamic.exit ]
   %i.036 = phi i32 [ %inc, %for.body ], [ 0, %nk_layout_row_dynamic.exit ]
-  call void %item_getter(ptr noundef %userdata, i32 noundef %i.036, ptr noundef nonnull %item) #51
+  call void %item_getter(ptr noundef %userdata, i32 noundef %i.036, ptr noundef nonnull %item) #52
   %20 = load ptr, ptr %item, align 8
   %call.i = call range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef nonnull %ctx, ptr noundef %20, i32 noundef 17)
   %tobool25.not = icmp eq i32 %call.i, 0
@@ -70383,7 +70324,7 @@ return:                                           ; preds = %if.end36.i.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox(ptr noundef %ctx, ptr noundef %items, i32 noundef %count, ptr nocapture noundef %selected, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define void @nk_combobox(ptr noundef %ctx, ptr noundef %items, i32 noundef %count, ptr nocapture noundef %selected, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %0 = load i32, ptr %selected, align 4
   %call = tail call i32 @nk_combo(ptr noundef %ctx, ptr noundef %items, i32 noundef %count, i32 noundef %0, i32 noundef %item_height, <2 x float> %size.coerce)
@@ -70392,7 +70333,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox_string(ptr noundef %ctx, ptr noundef %items_separated_by_zeros, ptr nocapture noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define void @nk_combobox_string(ptr noundef %ctx, ptr noundef %items_separated_by_zeros, ptr nocapture noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %0 = load i32, ptr %selected, align 4
   %call.i = tail call i32 @nk_combo_separator(ptr noundef %ctx, ptr noundef %items_separated_by_zeros, i32 noundef 0, i32 noundef %0, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce)
@@ -70401,7 +70342,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox_separator(ptr noundef %ctx, ptr noundef %items_separated_by_separator, i32 noundef %separator, ptr nocapture noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define void @nk_combobox_separator(ptr noundef %ctx, ptr noundef %items_separated_by_separator, i32 noundef %separator, ptr nocapture noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %0 = load i32, ptr %selected, align 4
   %call = tail call i32 @nk_combo_separator(ptr noundef %ctx, ptr noundef %items_separated_by_separator, i32 noundef %separator, i32 noundef %0, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce)
@@ -70410,7 +70351,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox_callback(ptr noundef %ctx, ptr noundef %item_getter, ptr noundef %userdata, ptr nocapture noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #22 {
+define void @nk_combobox_callback(ptr noundef %ctx, ptr noundef %item_getter, ptr noundef %userdata, ptr nocapture noundef %selected, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %0 = load i32, ptr %selected, align 4
   %call = tail call i32 @nk_combo_callback(ptr noundef %ctx, ptr noundef %item_getter, ptr noundef %userdata, i32 noundef %0, i32 noundef %count, i32 noundef %item_height, <2 x float> %size.coerce)
@@ -70419,7 +70360,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tooltip_begin(ptr noundef %ctx, float noundef %width) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_tooltip_begin(ptr noundef %ctx, float noundef %width) local_unnamed_addr #20 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -70498,7 +70439,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_tooltip_end(ptr noundef %ctx) local_unnamed_addr #18 {
+define void @nk_tooltip_end(ptr noundef %ctx) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -70533,7 +70474,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_tooltip(ptr noundef %ctx, ptr noundef %text) local_unnamed_addr #22 {
+define void @nk_tooltip(ptr noundef %ctx, ptr noundef %text) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
@@ -70580,7 +70521,7 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %if.e
   %height = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load float, ptr %height, align 8
   %7 = load ptr, ptr %4, align 8
-  %call11 = tail call float %5(ptr %7, float noundef %6, ptr noundef nonnull %text, i32 noundef %siz.05.i.lcssa) #51
+  %call11 = tail call float %5(ptr %7, float noundef %6, ptr noundef nonnull %text, i32 noundef %siz.05.i.lcssa) #52
   %8 = tail call float @llvm.fmuladd.f32(float %padding.sroa.0.0.copyload, float 4.000000e+00, float %call11)
   %9 = load ptr, ptr %style7, align 8
   %height13 = getelementptr inbounds i8, ptr %9, i64 8
@@ -70762,7 +70703,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i24, %if.end
   %width.i.i = getelementptr inbounds i8, ptr %43, i64 16
   %48 = load ptr, ptr %width.i.i, align 8
   %49 = load ptr, ptr %43, align 8
-  %call.i.i = tail call float %48(ptr %49, float noundef %47, ptr noundef nonnull %text, i32 noundef %siz.05.i.lcssa) #51
+  %call.i.i = tail call float %48(ptr %49, float noundef %47, ptr noundef nonnull %text, i32 noundef %siz.05.i.lcssa) #52
   %b.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %44, i64 0
   %add35.i.i = fadd float %item_padding.sroa.0.0.copyload.i, %b.sroa.0.0.vec.extract.i.i
   %50 = insertelement <2 x float> poison, float %add35.i.i, i64 0
@@ -70817,8 +70758,8 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #40
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #41
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_draw_vertex_element(ptr noundef %dst, ptr noundef %values, i32 noundef %format) unnamed_addr #19 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @nk_draw_vertex_element(ptr noundef %dst, ptr noundef %values, i32 noundef %format) unnamed_addr #7 {
 entry:
   %value = alloca i8, align 1
   %value21 = alloca i16, align 2
@@ -71939,7 +71880,7 @@ return:                                           ; preds = %sw.bb8, %sw.bb16, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %b.coerce0, i64 %b.coerce1, i32 noundef %i) unnamed_addr #9 {
+define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %b.coerce0, i64 %b.coerce1, i32 noundef %i) unnamed_addr #6 {
 entry:
   %b.sroa.18.8.extract.shift = lshr i64 %b.coerce1, 32
   %b.sroa.18.8.extract.trunc = trunc nuw i64 %b.sroa.18.8.extract.shift to i32
@@ -72079,7 +72020,7 @@ stbtt__buf_range.exit:                            ; preds = %stbtt__buf_get.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rmove_to(ptr nocapture noundef %ctx, float noundef %dx, float noundef %dy) unnamed_addr #21 {
+define internal fastcc void @stbtt__csctx_rmove_to(ptr nocapture noundef %ctx, float noundef %dx, float noundef %dy) unnamed_addr #33 {
 entry:
   tail call fastcc void @stbtt__csctx_close_shape(ptr noundef %ctx)
   %x = getelementptr inbounds i8, ptr %ctx, i64 16
@@ -72202,7 +72143,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rline_to(ptr nocapture noundef %ctx, float noundef %dx, float noundef %dy) unnamed_addr #21 {
+define internal fastcc void @stbtt__csctx_rline_to(ptr nocapture noundef %ctx, float noundef %dx, float noundef %dy) unnamed_addr #33 {
 entry:
   %x = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <2 x float>, ptr %x, align 8
@@ -72322,7 +72263,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rccurve_to(ptr nocapture noundef %ctx, float noundef %dx1, float noundef %dy1, float noundef %dx2, float noundef %dy2, float noundef %dx3, float noundef %dy3) unnamed_addr #21 {
+define internal fastcc void @stbtt__csctx_rccurve_to(ptr nocapture noundef %ctx, float noundef %dx1, float noundef %dy1, float noundef %dx2, float noundef %dy2, float noundef %dx3, float noundef %dy3) unnamed_addr #33 {
 entry:
   %x = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <2 x float>, ptr %x, align 8
@@ -72526,7 +72467,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_close_shape(ptr nocapture noundef %ctx) unnamed_addr #21 {
+define internal fastcc void @stbtt__csctx_close_shape(ptr nocapture noundef %ctx) unnamed_addr #33 {
 entry:
   %first_x = getelementptr inbounds i8, ptr %ctx, i64 8
   %x = getelementptr inbounds i8, ptr %ctx, i64 16
@@ -72659,7 +72600,7 @@ if.end:                                           ; preds = %stbtt__csctx_v.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @stbtt__cff_int(ptr nocapture noundef %b) unnamed_addr #7 {
+define internal fastcc i32 @stbtt__cff_int(ptr nocapture noundef %b) unnamed_addr #8 {
 entry:
   %cursor.i = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor.i, align 8
@@ -72796,7 +72737,7 @@ return:                                           ; preds = %stbtt__buf_get8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %cff.coerce0, i64 %cff.coerce1, ptr %fontdict.coerce0, i64 %fontdict.coerce1) unnamed_addr #6 {
+define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %cff.coerce0, i64 %cff.coerce1, ptr %fontdict.coerce0, i64 %fontdict.coerce1) unnamed_addr #25 {
 entry:
   %fontdict = alloca %struct.stbtt__buf, align 8
   %subrsoff = alloca i32, align 4
@@ -72966,7 +72907,7 @@ return:                                           ; preds = %stbtt__buf_range.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__dict_get_ints(ptr nocapture noundef %b, i32 noundef %key, i32 noundef %outcount, ptr nocapture noundef writeonly %out) unnamed_addr #7 {
+define internal fastcc void @stbtt__dict_get_ints(ptr nocapture noundef %b, i32 noundef %key, i32 noundef %outcount, ptr nocapture noundef writeonly %out) unnamed_addr #8 {
 entry:
   %operands = alloca %struct.stbtt__buf, align 8
   %size.i.i = getelementptr inbounds i8, ptr %b, i64 12
@@ -73179,7 +73120,7 @@ for.end:                                          ; preds = %while.cond.i, %for.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr nocapture noundef %b) unnamed_addr #7 {
+define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr nocapture noundef %b) unnamed_addr #8 {
 entry:
   %cursor = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i32, ptr %cursor, align 8
@@ -73311,7 +73252,7 @@ stbtt__buf_range.exit:                            ; preds = %if.end, %lor.lhs.fa
   ret { ptr, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr nocapture noundef readonly %classDefTable, i32 noundef %glyph) unnamed_addr #6 {
 entry:
   %classDefTable.val = load i8, ptr %classDefTable, align 1
@@ -73634,8 +73575,8 @@ if.end52:                                         ; preds = %if.then25, %entry, 
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %p, i32 noundef %n) unnamed_addr #35 {
+; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %p, i32 noundef %n) unnamed_addr #42 {
 entry:
   %t = alloca %struct.stbtt__edge, align 4
   %cmp58 = icmp sgt i32 %n, 12
@@ -73744,16 +73685,16 @@ while.end:                                        ; preds = %if.end85, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #29
+declare double @fmod(double noundef, double noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @acos(double noundef) local_unnamed_addr #29
+declare double @acos(double noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #29
+declare double @cos(double noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #29
+declare double @pow(double noundef, double noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 2) i32 @stbtt__isfont(ptr nocapture noundef readonly %font) unnamed_addr #11 {
@@ -73863,7 +73804,7 @@ return:                                           ; preds = %land.lhs.true104, %
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #43
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture noundef readonly %fc, i32 noundef %nm, ptr nocapture noundef readonly %name, i32 noundef %nlen, i32 noundef %target_id, i32 noundef %next_id) unnamed_addr #6 {
 entry:
   %idx.ext = zext i32 %nm to i64
@@ -74083,7 +74024,7 @@ return:                                           ; preds = %if.then116, %if.the
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr nocapture noundef readonly %s1, i32 noundef %len1, ptr nocapture noundef readonly %s2, i32 noundef %len2) unnamed_addr #6 {
 entry:
   %tobool.not51 = icmp eq i32 %len2, 0
@@ -74278,7 +74219,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #44
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #44
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal float @nk_font_text_width(ptr readonly %handle.coerce, float noundef %height, ptr noundef readonly %text, i32 noundef %len) #6 {
+define internal float @nk_font_text_width(ptr readonly %handle.coerce, float noundef %height, ptr noundef readonly %text, i32 noundef %len) #25 {
 entry:
   %tobool = icmp ne ptr %handle.coerce, null
   %tobool1 = icmp ne ptr %text, null
@@ -74742,7 +74683,7 @@ return:                                           ; preds = %entry, %nk_font_fin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @nk_create_page_element(ptr noundef %ctx) unnamed_addr #18 {
+define internal fastcc ptr @nk_create_page_element(ptr noundef %ctx) unnamed_addr #17 {
 entry:
   %freelist = getelementptr inbounds i8, ptr %ctx, i64 18312
   %0 = load ptr, ptr %freelist, align 8
@@ -74791,7 +74732,7 @@ if.else.i:                                        ; preds = %if.then.i
   %alloc9.i = getelementptr inbounds i8, ptr %ctx, i64 18216
   %8 = load ptr, ptr %alloc9.i, align 8
   %9 = load ptr, ptr %pool, align 8
-  %call.i = tail call ptr %8(ptr %9, ptr noundef null, i64 noundef %add.i) #51
+  %call.i = tail call ptr %8(ptr %9, ptr noundef null, i64 noundef %add.i) #52
   %10 = load ptr, ptr %pages.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %10, ptr %next.i, align 8
@@ -74848,7 +74789,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @nk_do_scrollbarv(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %scroll.coerce0, <2 x float> %scroll.coerce1, i32 noundef %has_scrolling, float noundef %offset, float noundef %target, float noundef %step, float noundef %button_pixel_inc, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc float @nk_do_scrollbarv(ptr nocapture noundef %state, ptr noundef %out, <2 x float> %scroll.coerce0, <2 x float> %scroll.coerce1, i32 noundef %has_scrolling, float noundef %offset, float noundef %target, float noundef %step, float noundef %button_pixel_inc, ptr noundef %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %scroll = alloca %struct.nk_rect, align 16
   %empty_north = alloca %struct.nk_rect, align 4
@@ -74993,7 +74934,7 @@ if.end55:                                         ; preds = %if.then16, %if.end1
 if.then183:                                       ; preds = %if.end55
   %userdata = getelementptr inbounds i8, ptr %style, i64 728
   %27 = load ptr, ptr %userdata, align 8
-  call void %26(ptr noundef nonnull %out, ptr %27) #51
+  call void %26(ptr noundef nonnull %out, ptr %27) #52
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then183, %if.end55
@@ -75007,7 +74948,7 @@ if.end185:                                        ; preds = %if.then183, %if.end
 if.then187:                                       ; preds = %if.end185
   %userdata189 = getelementptr inbounds i8, ptr %style, i64 728
   %30 = load ptr, ptr %userdata189, align 8
-  call void %29(ptr noundef nonnull %out, ptr %30) #51
+  call void %29(ptr noundef nonnull %out, ptr %30) #52
   br label %return
 
 return:                                           ; preds = %if.end185, %if.then187, %if.end, %entry
@@ -75016,7 +74957,7 @@ return:                                           ; preds = %if.end185, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc float @nk_scrollbar_behavior(ptr nocapture noundef %state, ptr noundef %in, i32 noundef %has_scrolling, ptr nocapture noundef readonly %scroll, ptr nocapture noundef readonly %cursor, ptr nocapture noundef readonly %empty0, ptr nocapture noundef readonly %empty1, float noundef %scroll_offset, float noundef %target, float noundef %scroll_step, i32 noundef %o) unnamed_addr #32 {
+define internal fastcc float @nk_scrollbar_behavior(ptr nocapture noundef %state, ptr noundef %in, i32 noundef %has_scrolling, ptr nocapture noundef readonly %scroll, ptr nocapture noundef readonly %cursor, ptr nocapture noundef readonly %empty0, ptr nocapture noundef readonly %empty1, float noundef %scroll_offset, float noundef %target, float noundef %scroll_step, i32 noundef %o) unnamed_addr #30 {
 entry:
   %ws = alloca i32, align 4
   store i32 0, ptr %ws, align 4
@@ -75405,7 +75346,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_scrollbar(ptr noundef %out, i32 noundef %state, ptr nocapture noundef readonly %style, ptr nocapture noundef readonly %bounds, ptr nocapture noundef readonly %scroll) unnamed_addr #22 {
+define internal fastcc void @nk_draw_scrollbar(ptr noundef %out, i32 noundef %state, ptr nocapture noundef readonly %style, ptr nocapture noundef readonly %bounds, ptr nocapture noundef readonly %scroll) unnamed_addr #20 {
 entry:
   %and = and i32 %state, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -75507,7 +75448,7 @@ sw.epilog19:                                      ; preds = %sw.bb16, %sw.bb14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_layout_widget_space(ptr nocapture noundef %bounds, ptr nocapture noundef readonly %ctx, i32 noundef %modify) unnamed_addr #24 {
+define internal fastcc void @nk_layout_widget_space(ptr nocapture noundef %bounds, ptr nocapture noundef readonly %ctx, i32 noundef %modify) unnamed_addr #22 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -75854,7 +75795,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_selectable(ptr noundef %out, i32 noundef %state, ptr nocapture noundef readonly %style, i32 noundef %active, ptr nocapture noundef readonly %bounds, ptr noundef readonly %icon, ptr noundef readonly %img, i32 noundef %sym, ptr noundef %string, i32 noundef %len, i32 noundef %align, ptr noundef %font) unnamed_addr #22 {
+define internal fastcc void @nk_draw_selectable(ptr noundef %out, i32 noundef %state, ptr nocapture noundef readonly %style, i32 noundef %active, ptr nocapture noundef readonly %bounds, ptr noundef readonly %icon, ptr noundef readonly %img, i32 noundef %sym, ptr noundef %string, i32 noundef %len, i32 noundef %align, ptr noundef %font) unnamed_addr #20 {
 entry:
   %padding1 = getelementptr inbounds i8, ptr %style, i64 276
   %0 = load float, ptr %padding1, align 4
@@ -76038,7 +75979,7 @@ if.end.i97:                                       ; preds = %if.end57
   %width.i = getelementptr inbounds i8, ptr %font, i64 16
   %42 = load ptr, ptr %width.i, align 8
   %43 = load ptr, ptr %font, align 8
-  %call.i = tail call float %42(ptr %43, float noundef %40, ptr noundef %string, i32 noundef %len) #51
+  %call.i = tail call float %42(ptr %43, float noundef %40, ptr noundef %string, i32 noundef %len) #52
   %44 = tail call float @llvm.fmuladd.f32(float %0, float 2.000000e+00, float %call.i)
   %and.i = and i32 %align, 1
   %tobool30.not.i = icmp eq i32 %and.i, 0
@@ -76150,8 +76091,8 @@ nk_widget_text.exit:                              ; preds = %if.end57, %if.else1
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_textedit_discard_undo(ptr noundef %state) unnamed_addr #19 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @nk_textedit_discard_undo(ptr noundef %state) unnamed_addr #7 {
 entry:
   %undo_point = getelementptr inbounds i8, ptr %state, i64 5184
   %0 = load i16, ptr %undo_point, align 4
@@ -76281,7 +76222,7 @@ if.end49:                                         ; preds = %do.body28.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_key(ptr noundef %state, i32 noundef %key, i32 noundef %shift_mod, ptr noundef %font, float noundef %row_height) unnamed_addr #22 {
+define internal fastcc void @nk_textedit_key(ptr noundef %state, i32 noundef %key, i32 noundef %shift_mod, ptr noundef %font, float noundef %row_height) unnamed_addr #20 {
 entry:
   %len.i584 = alloca i32, align 4
   %unicode.i585 = alloca i32, align 4
@@ -76970,7 +76911,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %69 = load float, ptr %height.i, align 8
   %70 = load i32, ptr %len.i373, align 4
   %71 = load ptr, ptr %font, align 8
-  %call1.i = call float %68(ptr %71, float noundef %69, ptr noundef %call.i, i32 noundef %70) #51
+  %call1.i = call float %68(ptr %71, float noundef %69, ptr noundef %call.i, i32 noundef %70) #52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i373)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i374)
   %add150 = fadd float %x.0591, %call1.i
@@ -77216,7 +77157,7 @@ for.body216:                                      ; preds = %for.body216.lr.ph, 
   %104 = load float, ptr %height.i468, align 8
   %105 = load i32, ptr %len.i462, align 4
   %106 = load ptr, ptr %font, align 8
-  %call1.i469 = call float %103(ptr %106, float noundef %104, ptr noundef %call.i466, i32 noundef %105) #51
+  %call1.i469 = call float %103(ptr %106, float noundef %104, ptr noundef %call.i466, i32 noundef %105) #52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i462)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i463)
   %add220 = fadd float %x192.0596, %call1.i469
@@ -77760,7 +77701,7 @@ sw.epilog:                                        ; preds = %retry, %if.then19.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef readonly %font, ptr noundef %begin, i32 noundef %byte_len, float noundef %row_height, ptr noundef writeonly %remaining, ptr noundef writeonly %out_offset, ptr nocapture noundef %glyphs) unnamed_addr #22 {
+define internal fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef readonly %font, ptr noundef %begin, i32 noundef %byte_len, float noundef %row_height, ptr noundef writeonly %remaining, ptr noundef writeonly %out_offset, ptr nocapture noundef %glyphs) unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %begin, null
   %cmp = icmp sgt i32 %byte_len, 0
@@ -77896,7 +77837,7 @@ while.body.lr.ph.preheader:                       ; preds = %for.inc.i.i, %nk_ut
   %height = getelementptr inbounds i8, ptr %font, i64 8
   %16 = load float, ptr %height, align 8
   %17 = load ptr, ptr %font, align 8
-  %call8 = tail call float %15(ptr %17, float noundef %16, ptr noundef nonnull %begin, i32 noundef %retval.0.i206) #51
+  %call8 = tail call float %15(ptr %17, float noundef %16, ptr noundef nonnull %begin, i32 noundef %retval.0.i206) #52
   store i32 0, ptr %glyphs, align 4
   %18 = zext nneg i32 %byte_len to i64
   br label %while.body.lr.ph
@@ -78186,7 +78127,7 @@ nk_utf_decode.exit200:                            ; preds = %for.inc.i.i145, %if
   %57 = load ptr, ptr %width, align 8
   %58 = load float, ptr %height, align 8
   %59 = load ptr, ptr %font, align 8
-  %call44 = tail call float %57(ptr %59, float noundef %58, ptr noundef nonnull %add.ptr35, i32 noundef %retval.0.i148) #51
+  %call44 = tail call float %57(ptr %59, float noundef %58, ptr noundef nonnull %add.ptr35, i32 noundef %retval.0.i148) #52
   %cmp9242 = icmp slt i32 %add32, %byte_len
   %tobool10243 = icmp ne i32 %retval.0.i148, 0
   %60 = and i1 %tobool10243, %cmp9242
@@ -78232,7 +78173,7 @@ return:                                           ; preds = %for.end.i, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_edit_draw_text(ptr noundef %out, ptr nocapture noundef readonly %style, float noundef %pos_x, float noundef %pos_y, float noundef %x_offset, ptr noundef %text, i32 noundef %byte_len, float noundef %row_height, ptr noundef %font, i32 %background.coerce, i32 %foreground.coerce, i32 noundef %is_selected) unnamed_addr #22 {
+define internal fastcc void @nk_edit_draw_text(ptr noundef %out, ptr nocapture noundef readonly %style, float noundef %pos_x, float noundef %pos_y, float noundef %x_offset, ptr noundef %text, i32 noundef %byte_len, float noundef %row_height, ptr noundef %font, i32 %background.coerce, i32 %foreground.coerce, i32 noundef %is_selected) unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %text, null
   %tobool1 = icmp ne i32 %byte_len, 0
@@ -78466,7 +78407,7 @@ if.end.i107:                                      ; preds = %if.end27
   %33 = load float, ptr %height, align 8
   %34 = load ptr, ptr %width, align 8
   %35 = load ptr, ptr %font, align 8
-  %call.i = tail call float %34(ptr %35, float noundef %33, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv) #51
+  %call.i = tail call float %34(ptr %35, float noundef %33, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv) #52
   %36 = fadd float %call.i, 0.000000e+00
   %cmp57.i = fcmp ogt float %36, 1.000000e+00
   %cond64.i = select i1 %cmp57.i, float %36, float 1.000000e+00
@@ -78759,7 +78700,7 @@ if.end47:                                         ; preds = %while.body
   %idx.ext48 = ashr exact i64 %sext479, 32
   %add.ptr49 = getelementptr inbounds i8, ptr %text, i64 %idx.ext48
   %76 = load ptr, ptr %font, align 8
-  %call50 = tail call float %74(ptr %76, float noundef %75, ptr noundef nonnull %add.ptr49, i32 noundef %glyph_len.0389) #51
+  %call50 = tail call float %74(ptr %76, float noundef %75, ptr noundef nonnull %add.ptr49, i32 noundef %glyph_len.0389) #52
   %add51 = fadd float %line_width.0.ph402, %call50
   %add52 = add nsw i32 %glyph_len.0389, %73
   %idx.ext53 = sext i32 %add52 to i64
@@ -78927,7 +78868,7 @@ if.end.i309:                                      ; preds = %if.end73
   %width.i321 = getelementptr inbounds i8, ptr %font, i64 16
   %96 = load ptr, ptr %width.i321, align 8
   %97 = load ptr, ptr %font, align 8
-  %call.i322 = tail call float %96(ptr %97, float noundef %95, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv79) #51
+  %call.i322 = tail call float %96(ptr %97, float noundef %95, ptr noundef nonnull %line.0.ph.ph418, i32 noundef %conv79) #52
   %b.sroa.0.0.vec.extract.i = extractelement <2 x float> %label60.sroa.0.0, i64 0
   %add35.i = fadd float %b.sroa.0.0.vec.extract.i, 0.000000e+00
   %98 = insertelement <2 x float> poison, float %add35.i, i64 0
@@ -78951,7 +78892,7 @@ if.end80:                                         ; preds = %for.end.i132, %nk_w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef %edit, float noundef %x, float noundef %y, ptr noundef %font, float noundef %row_height) unnamed_addr #22 {
+define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef %edit, float noundef %x, float noundef %y, ptr noundef %font, float noundef %row_height) unnamed_addr #20 {
 entry:
   %len.i37 = alloca i32, align 4
   %unicode.i38 = alloca i32, align 4
@@ -79057,7 +78998,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %8 = load float, ptr %height.i, align 8
   %9 = load i32, ptr %len.i, align 4
   %10 = load ptr, ptr %font, align 8
-  %call1.i = call float %7(ptr %10, float noundef %8, ptr noundef %call.i, i32 noundef %9) #51
+  %call1.i = call float %7(ptr %10, float noundef %8, ptr noundef %call.i, i32 noundef %9) #52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i35)
   %add29 = fadd float %prev_x.058, %call1.i
@@ -79100,7 +79041,7 @@ return:                                           ; preds = %nk_textedit_layout_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @nk_textedit_move_to_last(ptr nocapture noundef %state) unnamed_addr #20 {
+define internal fastcc void @nk_textedit_move_to_last(ptr nocapture noundef %state) unnamed_addr #18 {
 entry:
   %select_start = getelementptr inbounds i8, ptr %state, i64 172
   %0 = load i32, ptr %select_start, align 4
@@ -79158,7 +79099,7 @@ if.end:                                           ; preds = %if.end16.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @nk_textedit_move_to_word_previous(ptr noundef %state) unnamed_addr #7 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @nk_textedit_move_to_word_previous(ptr noundef %state) unnamed_addr #8 {
 entry:
   %len.i = alloca i32, align 4
   %c.i = alloca i32, align 4
@@ -79217,7 +79158,7 @@ while.end:                                        ; preds = %while.cond, %nk_is_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @nk_textedit_move_to_word_next(ptr noundef %state) unnamed_addr #7 {
+define internal fastcc i32 @nk_textedit_move_to_word_next(ptr noundef %state) unnamed_addr #8 {
 entry:
   %len.i = alloca i32, align 4
   %c.i = alloca i32, align 4
@@ -79279,7 +79220,7 @@ while.end:                                        ; preds = %while.cond, %nk_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_find_charpos(ptr nocapture noundef %find, ptr noundef %state, i32 noundef %n, i32 noundef %single_line, ptr noundef %font, float noundef %row_height) unnamed_addr #22 {
+define internal fastcc void @nk_textedit_find_charpos(ptr nocapture noundef %find, ptr noundef %state, i32 noundef %n, i32 noundef %single_line, ptr noundef %font, float noundef %row_height) unnamed_addr #20 {
 entry:
   %len.i = alloca i32, align 4
   %unicode.i101 = alloca i32, align 4
@@ -79500,7 +79441,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %25 = load float, ptr %height.i, align 8
   %26 = load i32, ptr %len.i, align 4
   %27 = load ptr, ptr %font, align 8
-  %call1.i = call float %24(ptr %27, float noundef %25, ptr noundef %call.i, i32 noundef %26) #51
+  %call1.i = call float %24(ptr %27, float noundef %25, ptr noundef %call.i, i32 noundef %26) #52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i101)
   %28 = load float, ptr %find, align 4
@@ -79514,8 +79455,8 @@ for.end32:                                        ; preds = %for.body, %for.end,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @nk_dtoa(ptr noundef returned %s, double noundef %n) unnamed_addr #19 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @nk_dtoa(ptr noundef returned %s, double noundef %n) unnamed_addr #46 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %return, label %if.end
@@ -79753,96 +79694,96 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #46
+declare i32 @llvm.smax.i32(i32, i32) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #46
+declare i32 @llvm.fshl.i32(i32, i32, i32) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #46
+declare i32 @llvm.smin.i32(i32, i32) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #46
+declare i32 @llvm.umax.i32(i32, i32) #47
 
 declare float @sqrtf(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #46
+declare float @llvm.floor.f32(float) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #46
+declare float @llvm.ceil.f32(float) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #46
+declare float @llvm.fabs.f32(float) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #46
+declare i16 @llvm.smin.i16(i16, i16) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #46
+declare i16 @llvm.smax.i16(i16, i16) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #46
+declare i64 @llvm.umin.i64(i64, i64) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #46
+declare i32 @llvm.umin.i32(i32, i32) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #46
+declare i32 @llvm.abs.i32(i32, i1 immarg) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #46
+declare i64 @llvm.usub.sat.i64(i64, i64) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #46
+declare i64 @llvm.umax.i64(i64, i64) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #47
+declare void @llvm.assume(i1 noundef) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #48
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #48
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #46
+declare float @llvm.sqrt.f32(float) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #46
+declare double @llvm.sqrt.f64(double) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.copysign.f32(float, float) #46
+declare float @llvm.copysign.f32(float, float) #47
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #49
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #50
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #46
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.or.v4i32(<4 x i32>) #46
+declare i32 @llvm.vector.reduce.or.v4i32(<4 x i32>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #46
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #46
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.ceil.v2f32(<2 x float>) #46
+declare <2 x float> @llvm.ceil.v2f32(<2 x float>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #46
+declare <2 x float> @llvm.floor.v2f32(<2 x float>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.copysign.v2f32(<2 x float>, <2 x float>) #46
+declare <2 x float> @llvm.copysign.v2f32(<2 x float>, <2 x float>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #46
+declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #46
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #47
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -79850,38 +79791,38 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #38 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #39 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #40 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -79890,13 +79831,14 @@ attributes #42 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "fra
 attributes #43 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #44 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #45 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #46 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #47 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #48 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #49 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #50 = { nounwind allocsize(0) }
-attributes #51 = { nounwind }
-attributes #52 = { nounwind willreturn memory(read) }
+attributes #46 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #47 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #48 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #49 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #50 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #51 = { nounwind allocsize(0) }
+attributes #52 = { nounwind }
+attributes #53 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

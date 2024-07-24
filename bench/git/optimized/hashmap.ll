@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @memintern.map = internal global %struct.hashmap zeroinitializer, align 8
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu + %lu\00", align 1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @strhash(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %str, align 1
@@ -34,7 +34,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i32 %hash.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @strihash(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %str, align 1
@@ -62,7 +62,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i32 %hash.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @memhash(ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not2 = icmp eq i64 %len, 0
@@ -86,7 +86,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i32 %hash.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @memihash(ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not5 = icmp eq i64 %len, 0
@@ -114,7 +114,7 @@ while.end:                                        ; preds = %while.body, %entry
   ret i32 %hash.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @memihash_cont(i32 noundef %hash_seed, ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not5 = icmp eq i64 %len, 0
@@ -933,7 +933,7 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

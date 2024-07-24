@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @resmap = internal unnamed_addr constant [10 x i8] c"\00\03\03\03\03\05\07\07\07\07", align 1
 @switch.table.decNumberClassToString = private unnamed_addr constant [10 x ptr] [ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.5, ptr @.str.9, ptr @.str.7, ptr @.str.6, ptr @.str.8, ptr @.str.4, ptr @.str.10], align 8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef ptr @decNumberFromInt32(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 4
@@ -121,7 +121,7 @@ decNumberFromUInt32.exit.thread:                  ; preds = %2, %30, %decNumberF
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef ptr @decNumberFromUInt32(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 4
@@ -212,7 +212,7 @@ define noundef ptr @decNumberZero(ptr noundef returned writeonly %0) local_unnam
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i32 @decGetDigits(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
   %3 = add nsw i32 %1, -1
   %4 = mul nsw i32 %3, 3
@@ -429,13 +429,13 @@ define i32 @decNumberToUInt32(ptr nocapture noundef readonly %0, ptr noundef %1)
   ret i32 %.029
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @decNumberToString(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #5 {
   tail call fastcc void @decToString(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 0)
   ret ptr %1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @decToString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1108,7 +1108,7 @@ thread-pre-split:                                 ; preds = %36, %.thread-pre-sp
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @decNumberToEngString(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #5 {
   tail call fastcc void @decToString(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 1)
   ret ptr %1
@@ -1667,8 +1667,8 @@ decStatus.exit:                                   ; preds = %.thread.thread, %21
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %1, align 4
   %8 = sub nsw i32 %3, %7
   %9 = icmp slt i32 %8, 1
@@ -3974,8 +3974,8 @@ decStatus.exit:                                   ; preds = %121, %125, %.thread
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @decNumberCopy(ptr noundef returned writeonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @decNumberCopy(ptr noundef returned writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.loopexit, label %4
 
@@ -4918,7 +4918,7 @@ thread-pre-split:                                 ; preds = %93, %98
   %414 = load i32, ptr %5, align 4
   %415 = or i32 %414, 4
   store i32 %415, ptr %5, align 4
-  br label %533
+  br label %530
 
 416:                                              ; preds = %410
   br i1 %.not546, label %._crit_edge649.thread, label %417
@@ -4944,7 +4944,7 @@ thread-pre-split:                                 ; preds = %93, %98
   %428 = and i8 %418, -128
   store i8 %428, ptr %425, align 4
   call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %5)
-  br label %533
+  br label %530
 
 429:                                              ; preds = %417
   %430 = load i16, ptr %.3, align 2
@@ -4975,182 +4975,179 @@ thread-pre-split:                                 ; preds = %93, %98
 
 448:                                              ; preds = %445, %440
   %449 = phi i32 [ %444, %440 ], [ %447, %445 ]
-  %450 = load i32, ptr %126, align 4
-  %451 = load i32, ptr %128, align 4
-  %spec.select580 = call i32 @llvm.smin.i32(i32 %451, i32 %450)
-  %452 = and i32 %134, 16
-  %.not550 = icmp eq i32 %452, 0
-  br i1 %.not550, label %._crit_edge649.thread, label %453
+  %spec.select580 = call i32 @llvm.smin.i32(i32 %435, i32 %433)
+  %450 = and i32 %134, 16
+  %.not550 = icmp eq i32 %450, 0
+  br i1 %.not550, label %._crit_edge649.thread, label %451
 
-453:                                              ; preds = %448
-  %454 = call fastcc i32 @decUnitAddSub(ptr noundef nonnull %.0437, i32 noundef %449, ptr noundef nonnull %.0437, i32 noundef %449, i32 noundef 0, ptr noundef nonnull %.0437, i32 noundef 1)
-  %455 = load i32, ptr %2, align 4
-  %456 = icmp slt i32 %455, 50
-  br i1 %456, label %457, label %462
+451:                                              ; preds = %448
+  %452 = call fastcc i32 @decUnitAddSub(ptr noundef nonnull %.0437, i32 noundef %449, ptr noundef nonnull %.0437, i32 noundef %449, i32 noundef 0, ptr noundef nonnull %.0437, i32 noundef 1)
+  %453 = load i32, ptr %2, align 4
+  %454 = icmp slt i32 %453, 50
+  br i1 %454, label %455, label %460
 
-457:                                              ; preds = %453
-  %458 = sext i32 %455 to i64
-  %459 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %458
-  %460 = load i8, ptr %459, align 1
-  %461 = zext i8 %460 to i32
-  br label %465
+455:                                              ; preds = %451
+  %456 = sext i32 %453 to i64
+  %457 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %456
+  %458 = load i8, ptr %457, align 1
+  %459 = zext i8 %458 to i32
+  br label %463
 
-462:                                              ; preds = %453
-  %463 = add nuw nsw i32 %455, 2
-  %464 = udiv i32 %463, 3
-  br label %465
+460:                                              ; preds = %451
+  %461 = add nuw nsw i32 %453, 2
+  %462 = udiv i32 %461, 3
+  br label %463
 
-465:                                              ; preds = %462, %457
-  %466 = phi i32 [ %461, %457 ], [ %464, %462 ]
-  %467 = load i32, ptr %128, align 4
-  %468 = sub nsw i32 %467, %spec.select580
-  %469 = call fastcc i32 @decUnitCompare(ptr noundef nonnull %.0437, i32 noundef %454, ptr noundef nonnull %.ptr541, i32 noundef %466, i32 noundef %468)
-  %470 = icmp eq i32 %469, -2147483648
-  br i1 %470, label %474, label %.preheader597
+463:                                              ; preds = %460, %455
+  %464 = phi i32 [ %459, %455 ], [ %462, %460 ]
+  %465 = sub nsw i32 %435, %spec.select580
+  %466 = call fastcc i32 @decUnitCompare(ptr noundef nonnull %.0437, i32 noundef %452, ptr noundef nonnull %.ptr541, i32 noundef %464, i32 noundef %465)
+  %467 = icmp eq i32 %466, -2147483648
+  br i1 %467, label %471, label %.preheader597
 
-.preheader597:                                    ; preds = %465
-  %471 = sext i32 %454 to i64
-  %472 = getelementptr inbounds i16, ptr %.0437, i64 %471
-  %473 = icmp sgt i32 %454, 0
-  br i1 %473, label %.lr.ph656, label %._crit_edge657
+.preheader597:                                    ; preds = %463
+  %468 = sext i32 %452 to i64
+  %469 = getelementptr inbounds i16, ptr %.0437, i64 %468
+  %470 = icmp sgt i32 %452, 0
+  br i1 %470, label %.lr.ph656, label %._crit_edge657
 
-474:                                              ; preds = %465
-  %475 = load i32, ptr %5, align 4
-  %476 = or i32 %475, 16
-  store i32 %476, ptr %5, align 4
-  br label %533
+471:                                              ; preds = %463
+  %472 = load i32, ptr %5, align 4
+  %473 = or i32 %472, 16
+  store i32 %473, ptr %5, align 4
+  br label %530
 
-.lr.ph656:                                        ; preds = %.preheader597, %484
-  %.0430655 = phi ptr [ %485, %484 ], [ %.0437, %.preheader597 ]
-  %477 = load i16, ptr %.0430655, align 2
-  %478 = and i16 %477, 1
-  %479 = lshr i16 %477, 1
-  store i16 %479, ptr %.0430655, align 2
-  %.not553 = icmp eq i16 %478, 0
-  br i1 %.not553, label %484, label %480
+.lr.ph656:                                        ; preds = %.preheader597, %481
+  %.0430655 = phi ptr [ %482, %481 ], [ %.0437, %.preheader597 ]
+  %474 = load i16, ptr %.0430655, align 2
+  %475 = and i16 %474, 1
+  %476 = lshr i16 %474, 1
+  store i16 %476, ptr %.0430655, align 2
+  %.not553 = icmp eq i16 %475, 0
+  br i1 %.not553, label %481, label %477
 
-480:                                              ; preds = %.lr.ph656
-  %481 = getelementptr inbounds i8, ptr %.0430655, i64 -2
-  %482 = load i16, ptr %481, align 2
-  %483 = add i16 %482, 500
-  store i16 %483, ptr %481, align 2
-  br label %484
+477:                                              ; preds = %.lr.ph656
+  %478 = getelementptr inbounds i8, ptr %.0430655, i64 -2
+  %479 = load i16, ptr %478, align 2
+  %480 = add i16 %479, 500
+  store i16 %480, ptr %478, align 2
+  br label %481
 
-484:                                              ; preds = %.lr.ph656, %480
-  %485 = getelementptr inbounds i8, ptr %.0430655, i64 2
-  %486 = icmp ult ptr %485, %472
-  br i1 %486, label %.lr.ph656, label %._crit_edge657, !llvm.loop !28
+481:                                              ; preds = %.lr.ph656, %477
+  %482 = getelementptr inbounds i8, ptr %.0430655, i64 2
+  %483 = icmp ult ptr %482, %469
+  br i1 %483, label %.lr.ph656, label %._crit_edge657, !llvm.loop !28
 
-._crit_edge657:                                   ; preds = %484, %.preheader597
-  %487 = icmp sgt i32 %469, 0
-  %488 = icmp eq i32 %469, 0
-  %or.cond19 = and i1 %.not549, %488
-  %or.cond581 = select i1 %487, i1 true, i1 %or.cond19
-  br i1 %or.cond581, label %489, label %._crit_edge649.thread
+._crit_edge657:                                   ; preds = %481, %.preheader597
+  %484 = icmp sgt i32 %466, 0
+  %485 = icmp eq i32 %466, 0
+  %or.cond19 = and i1 %.not549, %485
+  %or.cond581 = select i1 %484, i1 true, i1 %or.cond19
+  br i1 %or.cond581, label %486, label %._crit_edge649.thread
 
-489:                                              ; preds = %._crit_edge657
-  %490 = icmp eq i32 %.5, %10
-  br i1 %490, label %.preheader, label %.critedge
+486:                                              ; preds = %._crit_edge657
+  %487 = icmp eq i32 %.5, %10
+  br i1 %487, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %489
-  %491 = icmp sgt i32 %10, 3
-  br i1 %491, label %.lr.ph660, label %._crit_edge661
+.preheader:                                       ; preds = %486
+  %488 = icmp sgt i32 %10, 3
+  br i1 %488, label %.lr.ph660, label %._crit_edge661
 
-.lr.ph660:                                        ; preds = %.preheader, %499
-  %.1431659 = phi ptr [ %501, %499 ], [ %.3, %.preheader ]
-  %.0439658 = phi i32 [ %500, %499 ], [ %10, %.preheader ]
-  %492 = load i16, ptr %.1431659, align 2
-  %.not551 = icmp eq i16 %492, 999
-  br i1 %.not551, label %499, label %.critedge
+.lr.ph660:                                        ; preds = %.preheader, %496
+  %.1431659 = phi ptr [ %498, %496 ], [ %.3, %.preheader ]
+  %.0439658 = phi i32 [ %497, %496 ], [ %10, %.preheader ]
+  %489 = load i16, ptr %.1431659, align 2
+  %.not551 = icmp eq i16 %489, 999
+  br i1 %.not551, label %496, label %.critedge
 
-._crit_edge661:                                   ; preds = %499, %.preheader
-  %.0439.lcssa = phi i32 [ %10, %.preheader ], [ %500, %499 ]
-  %.1431.lcssa = phi ptr [ %.3, %.preheader ], [ %501, %499 ]
-  %493 = load i16, ptr %.1431.lcssa, align 2
-  %494 = zext i16 %493 to i32
-  %495 = sext i32 %.0439.lcssa to i64
-  %496 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %495
-  %497 = load i32, ptr %496, align 4
-  %498 = add i32 %497, -1
-  %.not591 = icmp eq i32 %498, %494
-  br i1 %.not591, label %503, label %.critedge
+._crit_edge661:                                   ; preds = %496, %.preheader
+  %.0439.lcssa = phi i32 [ %10, %.preheader ], [ %497, %496 ]
+  %.1431.lcssa = phi ptr [ %.3, %.preheader ], [ %498, %496 ]
+  %490 = load i16, ptr %.1431.lcssa, align 2
+  %491 = zext i16 %490 to i32
+  %492 = sext i32 %.0439.lcssa to i64
+  %493 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %492
+  %494 = load i32, ptr %493, align 4
+  %495 = add i32 %494, -1
+  %.not591 = icmp eq i32 %495, %491
+  br i1 %.not591, label %500, label %.critedge
 
-499:                                              ; preds = %.lr.ph660
-  %500 = add nsw i32 %.0439658, -3
-  %501 = getelementptr inbounds i8, ptr %.1431659, i64 2
-  %502 = icmp sgt i32 %.0439658, 6
-  br i1 %502, label %.lr.ph660, label %._crit_edge661
+496:                                              ; preds = %.lr.ph660
+  %497 = add nsw i32 %.0439658, -3
+  %498 = getelementptr inbounds i8, ptr %.1431659, i64 2
+  %499 = icmp sgt i32 %.0439658, 6
+  br i1 %499, label %.lr.ph660, label %._crit_edge661
 
-503:                                              ; preds = %._crit_edge661
-  %504 = load i32, ptr %5, align 4
-  %505 = or i32 %504, 4
-  store i32 %505, ptr %5, align 4
-  br label %533
+500:                                              ; preds = %._crit_edge661
+  %501 = load i32, ptr %5, align 4
+  %502 = or i32 %501, 4
+  store i32 %502, ptr %5, align 4
+  br label %530
 
-.critedge:                                        ; preds = %.lr.ph660, %489, %._crit_edge661
-  %506 = load i32, ptr %128, align 4
-  %507 = sub nsw i32 %506, %spec.select580
-  %508 = sdiv i32 %507, 3
-  %509 = srem i32 %507, 3
-  %510 = load i32, ptr %2, align 4
-  %511 = icmp slt i32 %510, 50
-  br i1 %511, label %512, label %517
+.critedge:                                        ; preds = %.lr.ph660, %486, %._crit_edge661
+  %503 = load i32, ptr %128, align 4
+  %504 = sub nsw i32 %503, %spec.select580
+  %505 = sdiv i32 %504, 3
+  %506 = srem i32 %504, 3
+  %507 = load i32, ptr %2, align 4
+  %508 = icmp slt i32 %507, 50
+  br i1 %508, label %509, label %514
 
-512:                                              ; preds = %.critedge
-  %513 = sext i32 %510 to i64
-  %514 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %513
-  %515 = load i8, ptr %514, align 1
-  %516 = zext i8 %515 to i32
-  br label %520
+509:                                              ; preds = %.critedge
+  %510 = sext i32 %507 to i64
+  %511 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %510
+  %512 = load i8, ptr %511, align 1
+  %513 = zext i8 %512 to i32
+  br label %517
 
-517:                                              ; preds = %.critedge
-  %518 = add nuw nsw i32 %510, 2
-  %519 = udiv i32 %518, 3
-  br label %520
+514:                                              ; preds = %.critedge
+  %515 = add nuw nsw i32 %507, 2
+  %516 = udiv i32 %515, 3
+  br label %517
 
-520:                                              ; preds = %517, %512
-  %521 = phi i32 [ %516, %512 ], [ %519, %517 ]
-  %522 = sext i32 %509 to i64
-  %523 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %522
-  %524 = load i32, ptr %523, align 4
-  %525 = sub nsw i32 0, %524
-  %526 = call fastcc i32 @decUnitAddSub(ptr noundef nonnull %.0437, i32 noundef %449, ptr noundef nonnull %.ptr541, i32 noundef %521, i32 noundef %508, ptr noundef nonnull %.0437, i32 noundef %525)
-  %527 = sub nsw i32 0, %526
-  %528 = call fastcc i32 @decGetDigits(ptr noundef nonnull %.0437, i32 noundef %527)
-  %529 = xor i8 %418, -128
+517:                                              ; preds = %514, %509
+  %518 = phi i32 [ %513, %509 ], [ %516, %514 ]
+  %519 = sext i32 %506 to i64
+  %520 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %519
+  %521 = load i32, ptr %520, align 4
+  %522 = sub nsw i32 0, %521
+  %523 = call fastcc i32 @decUnitAddSub(ptr noundef nonnull %.0437, i32 noundef %449, ptr noundef nonnull %.ptr541, i32 noundef %518, i32 noundef %505, ptr noundef nonnull %.0437, i32 noundef %522)
+  %524 = sub nsw i32 0, %523
+  %525 = call fastcc i32 @decGetDigits(ptr noundef nonnull %.0437, i32 noundef %524)
+  %526 = xor i8 %418, -128
   br label %._crit_edge649.thread
 
-._crit_edge649.thread:                            ; preds = %._crit_edge657, %416, %520, %448, %389, %._crit_edge649, %407, %390
-  %.6469 = phi i32 [ %.3466.lcssa, %389 ], [ %.4467.lcssa, %407 ], [ %.4467.lcssa, %._crit_edge649 ], [ %.3466.lcssa, %390 ], [ %spec.select580, %520 ], [ %spec.select580, %448 ], [ %.3466.lcssa, %416 ], [ %spec.select580, %._crit_edge657 ]
-  %.0461 = phi i8 [ %18, %389 ], [ %18, %407 ], [ %18, %._crit_edge649 ], [ %18, %390 ], [ %529, %520 ], [ %418, %448 ], [ %18, %416 ], [ %418, %._crit_edge657 ]
-  %.6 = phi i32 [ %.5, %389 ], [ %409, %407 ], [ %.5, %._crit_edge649 ], [ %.5, %390 ], [ %528, %520 ], [ %438, %448 ], [ %.5, %416 ], [ %438, %._crit_edge657 ]
-  %.4 = phi ptr [ %.3, %389 ], [ %.3, %407 ], [ %.3, %._crit_edge649 ], [ %.3, %390 ], [ %.0437, %520 ], [ %.0437, %448 ], [ %.3, %416 ], [ %.0437, %._crit_edge657 ]
-  %530 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.6469, ptr %530, align 4
-  %531 = and i8 %.0461, -128
-  %532 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %531, ptr %532, align 4
+._crit_edge649.thread:                            ; preds = %._crit_edge657, %416, %517, %448, %389, %._crit_edge649, %407, %390
+  %.6469 = phi i32 [ %.3466.lcssa, %389 ], [ %.4467.lcssa, %407 ], [ %.4467.lcssa, %._crit_edge649 ], [ %.3466.lcssa, %390 ], [ %spec.select580, %517 ], [ %spec.select580, %448 ], [ %.3466.lcssa, %416 ], [ %spec.select580, %._crit_edge657 ]
+  %.0461 = phi i8 [ %18, %389 ], [ %18, %407 ], [ %18, %._crit_edge649 ], [ %18, %390 ], [ %526, %517 ], [ %418, %448 ], [ %18, %416 ], [ %418, %._crit_edge657 ]
+  %.6 = phi i32 [ %.5, %389 ], [ %409, %407 ], [ %.5, %._crit_edge649 ], [ %.5, %390 ], [ %525, %517 ], [ %438, %448 ], [ %.5, %416 ], [ %438, %._crit_edge657 ]
+  %.4 = phi ptr [ %.3, %389 ], [ %.3, %407 ], [ %.3, %._crit_edge649 ], [ %.3, %390 ], [ %.0437, %517 ], [ %.0437, %448 ], [ %.3, %416 ], [ %.0437, %._crit_edge657 ]
+  %527 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.6469, ptr %527, align 4
+  %528 = and i8 %.0461, -128
+  %529 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %528, ptr %529, align 4
   call fastcc void @decSetCoeff(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %.4, i32 noundef %.6, ptr noundef nonnull %9, ptr noundef %5)
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %5)
-  br label %533
+  br label %530
 
-533:                                              ; preds = %._crit_edge649.thread, %503, %474, %422, %413
+530:                                              ; preds = %._crit_edge649.thread, %500, %471, %422, %413
   %.not566 = icmp eq ptr %.0440, null
-  br i1 %.not566, label %.thread, label %534
+  br i1 %.not566, label %.thread, label %531
 
-534:                                              ; preds = %533
+531:                                              ; preds = %530
   call void @free(ptr noundef nonnull %.0440) #18
   br label %.thread
 
-.thread:                                          ; preds = %197, %534, %533
+.thread:                                          ; preds = %197, %531, %530
   %.not567 = icmp eq ptr %.0423, null
-  br i1 %.not567, label %.thread.thread, label %535
+  br i1 %.not567, label %.thread.thread, label %532
 
-535:                                              ; preds = %.thread
+532:                                              ; preds = %.thread
   call void @free(ptr noundef nonnull %.0423) #18
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %23, %30, %33, %58, %76, %88, %90, %102, %113, %124, %117, %171, %138, %147, %535, %.thread
+.thread.thread:                                   ; preds = %23, %30, %33, %58, %76, %88, %90, %102, %113, %124, %117, %171, %138, %147, %532, %.thread
   ret ptr %0
 }
 
@@ -8073,8 +8070,8 @@ decNumberFromInt32.exit.thread:                   ; preds = %decNumberPlus.exit,
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @decNaNs(ptr noundef returned %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @decNaNs(ptr noundef returned %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #9 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 4
   %8 = zext i8 %7 to i32
@@ -8356,8 +8353,8 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.i, %29, %27,
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @decNumberCopyAbs(ptr noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @decNumberCopyAbs(ptr noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %decNumberCopy.exit, label %4
 
@@ -8537,16 +8534,16 @@ define noundef ptr @decNumberLog10(ptr noundef returned %0, ptr noundef %1, ptr 
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %43 = load i8, ptr %42, align 4
   %.not80 = icmp ult i8 %43, 16
-  %.pre108 = load i32, ptr %1, align 4
+  %.pre107 = load i32, ptr %1, align 4
   br i1 %.not80, label %44, label %91
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %1, i64 10
   %46 = load i16, ptr %45, align 2
   %47 = icmp eq i16 %46, 0
-  %48 = icmp eq i32 %.pre108, 1
-  %or.cond116 = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond116, label %91, label %49
+  %48 = icmp eq i32 %.pre107, 1
+  %or.cond115 = select i1 %47, i1 %48, i1 false
+  br i1 %or.cond115, label %91, label %49
 
 49:                                               ; preds = %44
   store i32 0, ptr %10, align 4
@@ -8557,7 +8554,7 @@ define noundef ptr @decNumberLog10(ptr noundef returned %0, ptr noundef %1, ptr 
   %51 = load i32, ptr %26, align 4
   %52 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %51, ptr %52, align 4
-  call fastcc void @decSetCoeff(ptr noundef nonnull %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %45, i32 noundef %.pre108, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %8, ptr noundef nonnull readonly %9, ptr noundef nonnull %45, i32 noundef %.pre107, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %53 = load i32, ptr %11, align 4
   %54 = and i32 %53, 32
   %.not81 = icmp eq i32 %54, 0
@@ -8565,11 +8562,7 @@ define noundef ptr @decNumberLog10(ptr noundef returned %0, ptr noundef %1, ptr 
   %56 = load i16, ptr %55, align 2
   %57 = icmp eq i16 %56, 1
   %or.cond = select i1 %.not81, i1 %57, i1 false
-  br i1 %or.cond, label %58, label %._crit_edge
-
-._crit_edge:                                      ; preds = %49
-  %.pre107 = load i32, ptr %1, align 4
-  br label %91
+  br i1 %or.cond, label %58, label %91
 
 58:                                               ; preds = %49
   %59 = load i32, ptr %52, align 4
@@ -8669,231 +8662,230 @@ decNumberFromInt32.exit:                          ; preds = %decNumberFromUInt32
   call fastcc void @decFinalize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %10, ptr noundef nonnull %4)
   br label %.thread
 
-91:                                               ; preds = %44, %._crit_edge, %40
-  %92 = phi i32 [ %.pre107, %._crit_edge ], [ %.pre108, %40 ], [ 1, %44 ]
-  %93 = add nsw i32 %92, 6
-  %94 = load i32, ptr %2, align 4
-  %. = call i32 @llvm.smax.i32(i32 %93, i32 %94)
-  %95 = add nsw i32 %., 3
-  %96 = icmp slt i32 %., 47
-  br i1 %96, label %99, label %.thread109
+91:                                               ; preds = %44, %49, %40
+  %92 = add nsw i32 %.pre107, 6
+  %93 = load i32, ptr %2, align 4
+  %. = call i32 @llvm.smax.i32(i32 %92, i32 %93)
+  %94 = add nsw i32 %., 3
+  %95 = icmp slt i32 %., 47
+  br i1 %95, label %98, label %.thread108
 
-.thread109:                                       ; preds = %91
-  %97 = add nuw nsw i32 %., 5
-  %98 = udiv i32 %97, 3
-  br label %106
+.thread108:                                       ; preds = %91
+  %96 = add nuw nsw i32 %., 5
+  %97 = udiv i32 %96, 3
+  br label %105
 
-99:                                               ; preds = %91
-  %100 = sext i32 %95 to i64
-  %101 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i32
-  %104 = add nsw i64 %100, -40
-  %105 = icmp ult i64 %104, 10
-  br i1 %105, label %106, label %113
+98:                                               ; preds = %91
+  %99 = sext i32 %94 to i64
+  %100 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %99
+  %101 = load i8, ptr %100, align 1
+  %102 = zext i8 %101 to i32
+  %103 = add nsw i64 %99, -40
+  %104 = icmp ult i64 %103, 10
+  br i1 %104, label %105, label %112
 
-106:                                              ; preds = %.thread109, %99
-  %107 = phi i32 [ %98, %.thread109 ], [ %103, %99 ]
-  %108 = shl nuw nsw i32 %107, 1
-  %109 = add nuw nsw i32 %108, 10
-  %110 = zext nneg i32 %109 to i64
-  %111 = call noalias ptr @malloc(i64 noundef %110) #19
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %.thread112, label %113
+105:                                              ; preds = %.thread108, %98
+  %106 = phi i32 [ %97, %.thread108 ], [ %102, %98 ]
+  %107 = shl nuw nsw i32 %106, 1
+  %108 = add nuw nsw i32 %107, 10
+  %109 = zext nneg i32 %108 to i64
+  %110 = call noalias ptr @malloc(i64 noundef %109) #19
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %.thread111, label %112
 
-113:                                              ; preds = %106, %99
-  %.064 = phi ptr [ null, %99 ], [ %111, %106 ]
-  %.063 = phi ptr [ %6, %99 ], [ %111, %106 ]
+112:                                              ; preds = %105, %98
+  %.064 = phi ptr [ null, %98 ], [ %110, %105 ]
+  %.063 = phi ptr [ %6, %98 ], [ %110, %105 ]
   %.063105 = ptrtoint ptr %.063 to i64
-  store i32 %95, ptr %9, align 4
-  %114 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 999999, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 -999999, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %9, i64 24
-  store i8 0, ptr %116, align 4
-  %117 = call fastcc ptr @decLnOp(ptr noundef nonnull %.063, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %4)
-  %118 = load i32, ptr %4, align 4
-  %119 = and i32 %118, 221
-  %.not82 = icmp ne i32 %119, 0
-  %120 = and i32 %118, 1073741824
-  %.not83 = icmp eq i32 %120, 0
+  store i32 %94, ptr %9, align 4
+  %113 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 999999, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 -999999, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %9, i64 24
+  store i8 0, ptr %115, align 4
+  %116 = call fastcc ptr @decLnOp(ptr noundef nonnull %.063, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %4)
+  %117 = load i32, ptr %4, align 4
+  %118 = and i32 %117, 221
+  %.not82 = icmp ne i32 %118, 0
+  %119 = and i32 %117, 1073741824
+  %.not83 = icmp eq i32 %119, 0
   %or.cond90 = and i1 %.not82, %.not83
-  br i1 %or.cond90, label %decNumberCopy.exit, label %121
+  br i1 %or.cond90, label %decNumberCopy.exit, label %120
 
-121:                                              ; preds = %113
-  %122 = getelementptr inbounds i8, ptr %.063, i64 8
-  %123 = load i8, ptr %122, align 4
-  %124 = and i8 %123, 112
-  %.not84 = icmp eq i8 %124, 0
-  br i1 %.not84, label %125, label %132
+120:                                              ; preds = %112
+  %121 = getelementptr inbounds i8, ptr %.063, i64 8
+  %122 = load i8, ptr %121, align 4
+  %123 = and i8 %122, 112
+  %.not84 = icmp eq i8 %123, 0
+  br i1 %.not84, label %124, label %131
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %.063, i64 10
-  %127 = load i16, ptr %126, align 2
-  %128 = icmp eq i16 %127, 0
-  br i1 %128, label %129, label %159
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds i8, ptr %.063, i64 10
+  %126 = load i16, ptr %125, align 2
+  %127 = icmp eq i16 %126, 0
+  br i1 %127, label %128, label %158
 
-129:                                              ; preds = %125
-  %130 = load i32, ptr %.063, align 4
-  %131 = icmp eq i32 %130, 1
-  br i1 %131, label %132, label %159
+128:                                              ; preds = %124
+  %129 = load i32, ptr %.063, align 4
+  %130 = icmp eq i32 %129, 1
+  br i1 %130, label %131, label %158
 
-132:                                              ; preds = %129, %121
-  %133 = icmp eq ptr %.063, %0
-  br i1 %133, label %decNumberCopy.exit, label %134
+131:                                              ; preds = %128, %120
+  %132 = icmp eq ptr %.063, %0
+  br i1 %132, label %decNumberCopy.exit, label %133
 
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %123, ptr %135, align 4
-  %136 = load <2 x i32>, ptr %.063, align 4
-  store <2 x i32> %136, ptr %0, align 4
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %122, ptr %134, align 4
+  %135 = load <2 x i32>, ptr %.063, align 4
+  store <2 x i32> %135, ptr %0, align 4
   %.ptr.i = getelementptr inbounds i8, ptr %.063, i64 10
-  %137 = load i16, ptr %.ptr.i, align 2
-  %138 = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 %137, ptr %138, align 2
-  %139 = extractelement <2 x i32> %136, i64 0
-  %140 = icmp sgt i32 %139, 3
-  br i1 %140, label %141, label %decNumberCopy.exit
+  %136 = load i16, ptr %.ptr.i, align 2
+  %137 = getelementptr inbounds i8, ptr %0, i64 10
+  store i16 %136, ptr %137, align 2
+  %138 = extractelement <2 x i32> %135, i64 0
+  %139 = icmp sgt i32 %138, 3
+  br i1 %139, label %140, label %decNumberCopy.exit
 
-141:                                              ; preds = %134
-  %142 = getelementptr i8, ptr %0, i64 12
-  %143 = icmp ult i32 %139, 50
-  br i1 %143, label %146, label %.thread.i
+140:                                              ; preds = %133
+  %141 = getelementptr i8, ptr %0, i64 12
+  %142 = icmp ult i32 %138, 50
+  br i1 %142, label %145, label %.thread.i
 
-.thread.i:                                        ; preds = %141
-  %144 = add nuw nsw i32 %139, 2
-  %145 = udiv i32 %144, 3
+.thread.i:                                        ; preds = %140
+  %143 = add nuw nsw i32 %138, 2
+  %144 = udiv i32 %143, 3
   br label %.lr.ph.preheader.i
 
-146:                                              ; preds = %141
-  %147 = zext nneg i32 %139 to i64
-  %148 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %147
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i32
+145:                                              ; preds = %140
+  %146 = zext nneg i32 %138 to i64
+  %147 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %146
+  %148 = load i8, ptr %147, align 1
+  %149 = zext i8 %148 to i32
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %146, %.thread.i
-  %.idx34.pn.in.in.i = phi i32 [ %145, %.thread.i ], [ %150, %146 ]
+.lr.ph.preheader.i:                               ; preds = %145, %.thread.i
+  %.idx34.pn.in.in.i = phi i32 [ %144, %.thread.i ], [ %149, %145 ]
   %.idx34.pn.in.i = shl nuw nsw i32 %.idx34.pn.in.in.i, 1
   %.idx34.pn.i = zext nneg i32 %.idx34.pn.in.i to i64
-  %151 = getelementptr i8, ptr %.063, i64 12
-  %152 = add nuw i64 %.063105, %.idx34.pn.i
-  %153 = add nuw i64 %152, 10
-  %154 = add i64 %.063105, 14
-  %umax = call i64 @llvm.umax.i64(i64 %153, i64 %154)
-  %155 = add i64 %umax, -13
-  %156 = sub i64 %155, %.063105
-  %157 = and i64 %156, -2
-  %158 = add i64 %157, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %142, ptr align 2 %151, i64 %158, i1 false)
+  %150 = getelementptr i8, ptr %.063, i64 12
+  %151 = add nuw i64 %.063105, %.idx34.pn.i
+  %152 = add nuw i64 %151, 10
+  %153 = add i64 %.063105, 14
+  %umax = call i64 @llvm.umax.i64(i64 %152, i64 %153)
+  %154 = add i64 %umax, -13
+  %155 = sub i64 %154, %.063105
+  %156 = and i64 %155, -2
+  %157 = add i64 %156, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %141, ptr align 2 %150, i64 %157, i1 false)
   br label %decNumberCopy.exit
 
-159:                                              ; preds = %129, %125
-  %160 = load i32, ptr %2, align 4
-  %161 = add nsw i32 %160, 3
-  %162 = icmp slt i32 %160, 47
-  br i1 %162, label %165, label %.thread110
+158:                                              ; preds = %128, %124
+  %159 = load i32, ptr %2, align 4
+  %160 = add nsw i32 %159, 3
+  %161 = icmp slt i32 %159, 47
+  br i1 %161, label %164, label %.thread109
 
-.thread110:                                       ; preds = %159
-  %163 = add nuw nsw i32 %160, 5
-  %164 = udiv i32 %163, 3
-  br label %172
+.thread109:                                       ; preds = %158
+  %162 = add nuw nsw i32 %159, 5
+  %163 = udiv i32 %162, 3
+  br label %171
 
-165:                                              ; preds = %159
-  %166 = sext i32 %161 to i64
-  %167 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %166
-  %168 = load i8, ptr %167, align 1
-  %169 = zext i8 %168 to i32
-  %170 = add nsw i64 %166, -40
-  %171 = icmp ult i64 %170, 10
-  br i1 %171, label %172, label %181
+164:                                              ; preds = %158
+  %165 = sext i32 %160 to i64
+  %166 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %165
+  %167 = load i8, ptr %166, align 1
+  %168 = zext i8 %167 to i32
+  %169 = add nsw i64 %165, -40
+  %170 = icmp ult i64 %169, 10
+  br i1 %170, label %171, label %180
 
-172:                                              ; preds = %.thread110, %165
-  %173 = phi i32 [ %164, %.thread110 ], [ %169, %165 ]
-  %174 = shl nuw nsw i32 %173, 1
-  %175 = add nuw nsw i32 %174, 10
-  %176 = zext nneg i32 %175 to i64
-  %177 = call noalias ptr @malloc(i64 noundef %176) #19
-  %178 = icmp eq ptr %177, null
-  br i1 %178, label %179, label %181
+171:                                              ; preds = %.thread109, %164
+  %172 = phi i32 [ %163, %.thread109 ], [ %168, %164 ]
+  %173 = shl nuw nsw i32 %172, 1
+  %174 = add nuw nsw i32 %173, 10
+  %175 = zext nneg i32 %174 to i64
+  %176 = call noalias ptr @malloc(i64 noundef %175) #19
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %178, label %180
 
-179:                                              ; preds = %172
-  %180 = or i32 %118, 16
-  store i32 %180, ptr %4, align 4
+178:                                              ; preds = %171
+  %179 = or i32 %117, 16
+  store i32 %179, ptr %4, align 4
   br label %decNumberCopy.exit
 
-181:                                              ; preds = %172, %165
-  %.062 = phi ptr [ null, %165 ], [ %177, %172 ]
-  %.0 = phi ptr [ %7, %165 ], [ %177, %172 ]
-  %182 = getelementptr inbounds i8, ptr %8, i64 8
-  store i8 0, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 0, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %8, i64 10
-  store i16 10, ptr %184, align 2
+180:                                              ; preds = %171, %164
+  %.062 = phi ptr [ null, %164 ], [ %176, %171 ]
+  %.0 = phi ptr [ %7, %164 ], [ %176, %171 ]
+  %181 = getelementptr inbounds i8, ptr %8, i64 8
+  store i8 0, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 0, ptr %182, align 4
+  %183 = getelementptr inbounds i8, ptr %8, i64 10
+  store i16 10, ptr %183, align 2
   store i32 2, ptr %8, align 16
-  store i32 %161, ptr %9, align 4
-  %185 = call fastcc ptr @decLnOp(ptr noundef nonnull %.0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5)
-  %186 = load i32, ptr %2, align 4
-  store i32 %186, ptr %9, align 4
-  %187 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef nonnull %.063, ptr noundef nonnull %.0, ptr noundef nonnull %9, i8 noundef zeroext -128, ptr noundef nonnull %4)
+  store i32 %160, ptr %9, align 4
+  %184 = call fastcc ptr @decLnOp(ptr noundef nonnull %.0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5)
+  %185 = load i32, ptr %2, align 4
+  store i32 %185, ptr %9, align 4
+  %186 = call fastcc ptr @decDivideOp(ptr noundef %0, ptr noundef nonnull %.063, ptr noundef nonnull %.0, ptr noundef nonnull %9, i8 noundef zeroext -128, ptr noundef nonnull %4)
   br label %decNumberCopy.exit
 
-decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i, %134, %132, %113, %179, %181
-  %.1 = phi ptr [ null, %179 ], [ %.062, %181 ], [ null, %113 ], [ null, %132 ], [ null, %134 ], [ null, %.lr.ph.preheader.i ]
+decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i, %133, %131, %112, %178, %180
+  %.1 = phi ptr [ null, %178 ], [ %.062, %180 ], [ null, %112 ], [ null, %131 ], [ null, %133 ], [ null, %.lr.ph.preheader.i ]
   %.not85 = icmp eq ptr %.064, null
-  br i1 %.not85, label %189, label %188
+  br i1 %.not85, label %188, label %187
 
-188:                                              ; preds = %decNumberCopy.exit
+187:                                              ; preds = %decNumberCopy.exit
   call void @free(ptr noundef nonnull %.064) #18
-  br label %189
+  br label %188
 
-189:                                              ; preds = %188, %decNumberCopy.exit
+188:                                              ; preds = %187, %decNumberCopy.exit
   %.not86 = icmp eq ptr %.1, null
-  br i1 %.not86, label %.thread, label %190
+  br i1 %.not86, label %.thread, label %189
 
-190:                                              ; preds = %189
+189:                                              ; preds = %188
   call void @free(ptr noundef nonnull %.1) #18
   br label %.thread
 
-.thread:                                          ; preds = %decNumberFromInt32.exit, %190, %189
+.thread:                                          ; preds = %decNumberFromInt32.exit, %189, %188
   %.pr = load i32, ptr %4, align 4
   %.not87 = icmp eq i32 %.pr, 0
-  br i1 %.not87, label %202, label %.thread.thread
+  br i1 %.not87, label %201, label %.thread.thread
 
 .thread.thread:                                   ; preds = %35, %30, %22, %18, %14, %3, %.thread
-  %191 = phi i32 [ %.pr, %.thread ], [ 64, %18 ], [ 64, %14 ], [ 64, %3 ], [ 128, %22 ], [ 128, %35 ], [ 128, %30 ]
-  %192 = and i32 %191, 221
-  %.not.i = icmp eq i32 %192, 0
-  br i1 %.not.i, label %decStatus.exit, label %193
+  %190 = phi i32 [ %.pr, %.thread ], [ 64, %18 ], [ 64, %14 ], [ 64, %3 ], [ 128, %22 ], [ 128, %35 ], [ 128, %30 ]
+  %191 = and i32 %190, 221
+  %.not.i = icmp eq i32 %191, 0
+  br i1 %.not.i, label %decStatus.exit, label %192
 
-193:                                              ; preds = %.thread.thread
-  %194 = and i32 %191, 1073741824
-  %.not6.i = icmp eq i32 %194, 0
-  br i1 %.not6.i, label %.thread112, label %195
+192:                                              ; preds = %.thread.thread
+  %193 = and i32 %190, 1073741824
+  %.not6.i = icmp eq i32 %193, 0
+  br i1 %.not6.i, label %.thread111, label %194
 
-195:                                              ; preds = %193
-  %196 = and i32 %191, -1073741825
+194:                                              ; preds = %192
+  %195 = and i32 %190, -1073741825
   br label %decStatus.exit
 
-.thread112:                                       ; preds = %106, %193
-  %197 = phi i32 [ %191, %193 ], [ 16, %106 ]
-  %198 = getelementptr inbounds i8, ptr %0, i64 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %199, align 4
+.thread111:                                       ; preds = %105, %192
+  %196 = phi i32 [ %190, %192 ], [ 16, %105 ]
+  %197 = getelementptr inbounds i8, ptr %0, i64 8
+  %198 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %198, align 4
   store i32 1, ptr %0, align 4
-  %200 = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 0, ptr %200, align 2
-  store i8 32, ptr %198, align 4
+  %199 = getelementptr inbounds i8, ptr %0, i64 10
+  store i16 0, ptr %199, align 2
+  store i8 32, ptr %197, align 4
   br label %decStatus.exit
 
-decStatus.exit:                                   ; preds = %.thread.thread, %195, %.thread112
-  %.0.i92 = phi i32 [ %196, %195 ], [ %197, %.thread112 ], [ %191, %.thread.thread ]
-  %201 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i92) #18
-  br label %202
+decStatus.exit:                                   ; preds = %.thread.thread, %194, %.thread111
+  %.0.i92 = phi i32 [ %195, %194 ], [ %196, %.thread111 ], [ %190, %.thread.thread ]
+  %200 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i92) #18
+  br label %201
 
-202:                                              ; preds = %decStatus.exit, %.thread
+201:                                              ; preds = %decStatus.exit, %.thread
   ret ptr %0
 }
 
@@ -9213,7 +9205,7 @@ decStatus.exit:                                   ; preds = %40, %38, %42
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @decSetMaxValue(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr %0, align 4
@@ -9735,8 +9727,8 @@ define internal fastcc i32 @decCompare(ptr noundef %0, ptr noundef %1, i8 nounde
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @decNumberCopySign(ptr noundef returned %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @decNumberCopySign(ptr noundef returned %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq ptr %0, %1
@@ -9808,7 +9800,7 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.i, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @decNumberIsNormal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @decNumberIsNormal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 112
@@ -10695,8 +10687,8 @@ decStatus.exit:                                   ; preds = %.thread236.thread.t
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @decShiftToMost(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc i32 @decShiftToMost(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -10863,7 +10855,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef %0, i32 noundef %1, i32 n
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i32 @decGetInt(ptr nocapture noundef readonly %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -11400,8 +11392,8 @@ decStatus.exit:                                   ; preds = %22, %26, %28
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 4
@@ -12052,10 +12044,10 @@ decStatus.exit:                                   ; preds = %179, %183, %.thread
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %103, label %5
 
@@ -12216,7 +12208,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @decNumberSameQuantum(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #11 {
+define noundef ptr @decNumberSameQuantum(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i32
@@ -12561,7 +12553,7 @@ decStatus.exit:                                   ; preds = %76, %80, %.thread69
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @decDecap(ptr noundef returned %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc noundef ptr @decDecap(ptr noundef returned %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %.not = icmp sgt i32 %3, %1
   %.ptr36 = getelementptr inbounds i8, ptr %0, i64 10
@@ -14200,7 +14192,7 @@ define noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 10) i32 @decNumberClass(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 10) i32 @decNumberClass(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 4
   %5 = zext i8 %4 to i32
@@ -14292,8 +14284,8 @@ switch.lookup:                                    ; preds = %1
   ret ptr %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @decNumberCopyNegate(ptr noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @decNumberCopyNegate(ptr noundef returned %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %decNumberCopy.exit, label %4
 
@@ -14360,8 +14352,8 @@ decNumberCopy.exit:                               ; preds = %.lr.ph.i, %2, %4
   ret ptr %0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @decNumberGetBCD(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @decNumberGetBCD(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
@@ -14406,8 +14398,8 @@ define noundef ptr @decNumberGetBCD(ptr nocapture noundef readonly %0, ptr nound
   ret ptr %1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @decNumberSetBCD(ptr noundef returned %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #14 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @decNumberSetBCD(ptr noundef returned %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp slt i32 %4, 50
   br i1 %5, label %6, label %11
@@ -14490,7 +14482,7 @@ define noundef ptr @decNumberSetBCD(ptr noundef returned %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @decNumberIsSubnormal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @decNumberIsSubnormal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 112
@@ -14535,8 +14527,8 @@ define noundef nonnull ptr @decNumberVersion() local_unnamed_addr #13 {
   ret ptr @.str.15
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc i32 @decUnitAddSub(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds i16, ptr %5, i64 %8
   %10 = zext nneg i32 %3 to i64
@@ -14958,7 +14950,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #5 {
+define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #14 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.thread, label %6
 
@@ -15261,7 +15253,7 @@ define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @decSetOverflow(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 4
@@ -15381,7 +15373,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #5 {
+define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #14 {
   %5 = alloca %struct.decContext, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
@@ -15533,21 +15525,21 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
-attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

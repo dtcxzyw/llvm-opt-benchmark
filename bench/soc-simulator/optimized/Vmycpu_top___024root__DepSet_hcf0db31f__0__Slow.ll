@@ -45,7 +45,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6VlWideILm3EEcvPjEv(ptr noundef no
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_Z35Vmycpu_top___024root___eval_initialP20Vmycpu_top___024root(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  tail call void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top___024root(ptr noundef %0) #13
+  tail call void @_Z40Vmycpu_top___024root___eval_initial__TOPP20Vmycpu_top___024root(ptr noundef %0) #12
   %2 = getelementptr inbounds i8, ptr %0, i64 162
   %3 = load i8, ptr %2, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 217
@@ -194,7 +194,7 @@ define dso_local void @_Z34Vmycpu_top___024root___eval_settleP20Vmycpu_top___024
 
 select.unfold:                                    ; preds = %5, %3
   %6 = add i32 %.067, 1
-  %7 = tail call noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #13
+  %7 = tail call noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #12
   store i8 0, ptr %2, align 1
   br i1 %7, label %3, label %8
 
@@ -206,7 +206,7 @@ declare void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef, i32 noundef, ptr noundef, p
 
 ; Function Attrs: cold mustprogress uwtable
 define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #6 {
-  tail call void @_Z41Vmycpu_top___024root___eval_triggers__stlP20Vmycpu_top___024root(ptr noundef %0) #13
+  tail call void @_Z41Vmycpu_top___024root___eval_triggers__stlP20Vmycpu_top___024root(ptr noundef %0) #12
   %2 = getelementptr inbounds i8, ptr %0, i64 19200
   br label %3
 
@@ -222,15 +222,15 @@ define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP
   br i1 %.not.i, label %3, label %8, !llvm.loop !10
 
 8:                                                ; preds = %5
-  tail call void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #13
+  tail call void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #12
   br label %_ZNK12VlTriggerVecILm2EE3anyEv.exit
 
 _ZNK12VlTriggerVecILm2EE3anyEv.exit:              ; preds = %3, %8
   ret i1 %4
 }
 
-; Function Attrs: cold mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #8 {
+; Function Attrs: cold mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 19200
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -238,7 +238,7 @@ define dso_local void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024roo
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_top___024root(ptr noundef nonnull %0) #13
+  tail call void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_top___024root(ptr noundef nonnull %0) #12
   %.pre = load i64, ptr %2, align 8
   br label %6
 
@@ -249,15 +249,15 @@ define dso_local void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024roo
   br i1 %.not5, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top___024root(ptr noundef nonnull %0) #13
+  tail call void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top___024root(ptr noundef nonnull %0) #12
   br label %10
 
 10:                                               ; preds = %9, %6
   ret void
 }
 
-; Function Attrs: cold mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #9 {
+; Function Attrs: cold mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 54
   store i8 0, ptr %3, align 2
@@ -6917,7 +6917,7 @@ define internal noundef i32 @_ZL14VL_SHIFTRS_IIIiiijj(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: cold
-declare void @_Z41Vmycpu_top___024root___eval_triggers__stlP20Vmycpu_top___024root(ptr noundef) local_unnamed_addr #10
+declare void @_Z41Vmycpu_top___024root___eval_triggers__stlP20Vmycpu_top___024root(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold mustprogress uwtable
 define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #6 {
@@ -8625,10 +8625,10 @@ define internal noundef i64 @_ZL15VL_EXTENDSIGN_Qim(i32 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #12
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8638,12 +8638,11 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { cold mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { cold }
+attributes #8 = { cold mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { cold }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

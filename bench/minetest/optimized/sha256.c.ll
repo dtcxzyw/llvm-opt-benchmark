@@ -24,7 +24,7 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @SHA256_Update(ptr noundef %c, ptr noundef %data_, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %len, 0
@@ -112,8 +112,8 @@ return:                                           ; preds = %if.end38, %if.then4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sha256_block_data_order(ptr nocapture noundef %ctx, ptr noundef %_in, i64 noundef %num) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @sha256_block_data_order(ptr nocapture noundef %ctx, ptr noundef %_in, i64 noundef %num) unnamed_addr #2 {
 entry:
   %tobool.not1594 = icmp eq i64 %num, 0
   br i1 %tobool.not1594, label %while.end, label %while.body.lr.ph
@@ -1364,14 +1364,14 @@ while.end:                                        ; preds = %for.end, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SHA256_Transform(ptr nocapture noundef %c, ptr noundef %data) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @SHA256_Transform(ptr nocapture noundef %c, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   tail call fastcc void @sha256_block_data_order(ptr noundef %c, ptr noundef %data, i64 noundef 1)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 2) i32 @SHA256_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %c, i64 40
@@ -1453,8 +1453,8 @@ return:                                           ; preds = %for.body24, %for.bo
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @SHA256(ptr noundef %d, i64 noundef %n, ptr noundef writeonly %md) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef nonnull ptr @SHA256(ptr noundef %d, i64 noundef %n, ptr noundef writeonly %md) local_unnamed_addr #4 {
 entry:
   %c = alloca %struct.SHA256state_st, align 16
   %cmp = icmp eq ptr %md, null
@@ -1583,9 +1583,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

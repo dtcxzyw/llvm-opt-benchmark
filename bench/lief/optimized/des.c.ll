@@ -45,7 +45,7 @@ define hidden void @mbedtls_des_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 128) #15
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 128) #12
   br label %4
 
 4:                                                ; preds = %1, %3
@@ -66,7 +66,7 @@ define hidden void @mbedtls_des3_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 384) #15
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 384) #12
   br label %4
 
 4:                                                ; preds = %1, %3
@@ -140,8 +140,8 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_weak(ptr nocapture noun
   ret i32 %.04
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_des_setkey(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @mbedtls_des_setkey(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
@@ -458,14 +458,14 @@ define hidden void @mbedtls_des_setkey(ptr nocapture noundef writeonly %0, ptr n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_des_setkey_enc(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden noundef i32 @mbedtls_des_setkey_enc(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef %1)
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_des_setkey_dec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden noundef i32 @mbedtls_des_setkey_dec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef %1)
   br label %3
 
@@ -537,7 +537,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr nocapture noundef %0, pt
   br i1 %28, label %6, label %des3_set2key.exit, !llvm.loop !10
 
 des3_set2key.exit:                                ; preds = %6
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #12
   ret i32 0
 }
 
@@ -584,7 +584,7 @@ define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr nocapture noundef %0, pt
   br i1 %28, label %6, label %des3_set2key.exit, !llvm.loop !10
 
 des3_set2key.exit:                                ; preds = %6
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #12
   ret i32 0
 }
 
@@ -624,7 +624,7 @@ define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr nocapture noundef %0, pt
   br i1 %23, label %8, label %des3_set3key.exit, !llvm.loop !11
 
 des3_set3key.exit:                                ; preds = %8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #12
   ret i32 0
 }
 
@@ -664,12 +664,12 @@ define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr nocapture noundef %0, pt
   br i1 %23, label %8, label %des3_set3key.exit, !llvm.loop !11
 
 des3_set3key.exit:                                ; preds = %8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #12
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -915,8 +915,8 @@ define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr nocapture noundef readonly 
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
   %7 = and i64 %2, 7
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %.loopexit
@@ -994,8 +994,8 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -1479,8 +1479,8 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr nocapture noundef readonly
   ret i32 0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
   %7 = and i64 %2, 7
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %.loopexit
@@ -1671,7 +1671,7 @@ mbedtls_des_setkey_dec.exit.thread138:            ; preds = %22
   br i1 %60, label %38, label %mbedtls_des3_set2key_dec.exit, !llvm.loop !10
 
 mbedtls_des3_set2key_dec.exit:                    ; preds = %38
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5)
   br label %mbedtls_des_setkey_dec.exit
 
@@ -1715,7 +1715,7 @@ mbedtls_des3_set2key_dec.exit:                    ; preds = %38
   br i1 %84, label %62, label %mbedtls_des3_set2key_enc.exit, !llvm.loop !10
 
 mbedtls_des3_set2key_enc.exit:                    ; preds = %62
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4)
   br label %mbedtls_des_setkey_dec.exit
 
@@ -1899,7 +1899,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   br i1 %156, label %134, label %mbedtls_des3_set2key_dec.exit90, !llvm.loop !10
 
 mbedtls_des3_set2key_dec.exit90:                  ; preds = %134
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3)
   br label %mbedtls_des_setkey_dec.exit87
 
@@ -1943,7 +1943,7 @@ mbedtls_des3_set2key_dec.exit90:                  ; preds = %134
   br i1 %180, label %158, label %mbedtls_des3_set2key_enc.exit93, !llvm.loop !10
 
 mbedtls_des3_set2key_enc.exit93:                  ; preds = %158
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
   br label %mbedtls_des_setkey_dec.exit87
 
@@ -2118,8 +2118,8 @@ mbedtls_des_crypt_cbc.exit105.loopexit117:        ; preds = %212
 
 .loopexit148:                                     ; preds = %227, %225, %226, %99, %100, %230
   %not..11 = phi i32 [ 0, %230 ], [ 1, %100 ], [ 1, %99 ], [ 1, %226 ], [ 1, %225 ], [ 0, %227 ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 128) #15
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 384) #15
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 128) #12
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 384) #12
   ret i32 %not..11
 
 default.unreachable:                              ; preds = %22
@@ -2130,25 +2130,25 @@ default.unreachable115:                           ; preds = %117
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #12
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -2157,15 +2157,12 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

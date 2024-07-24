@@ -5424,7 +5424,7 @@ declare zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef, ptr noundef, i
 
 declare void @g_free(ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
@@ -5542,7 +5542,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line2d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
@@ -5676,7 +5676,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line4(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
@@ -5794,7 +5794,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line4d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
@@ -5928,7 +5928,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line8d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
@@ -6009,7 +6009,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line8(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
@@ -6130,7 +6130,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line15_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6168,7 +6168,7 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line16_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6206,7 +6206,7 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line24_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6251,7 +6251,7 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line32_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6296,7 +6296,7 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line15_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6335,7 +6335,7 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line16_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6374,7 +6374,7 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line24_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6419,7 +6419,7 @@ do.end:                                           ; preds = %do.body
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line32_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
@@ -6526,7 +6526,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

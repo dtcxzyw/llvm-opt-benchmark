@@ -1543,8 +1543,8 @@ define void @Dau_DecPrintSets(ptr nocapture noundef readonly %0, i32 noundef %1)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Dau_DecMoveFreeToLSB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @Dau_DecMoveFreeToLSB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1571,8 +1571,8 @@ define void @Dau_DecMoveFreeToLSB(ptr noundef %0, i32 noundef %1, ptr nocapture 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Abc_TtMoveVar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @Abc_TtMoveVar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = sext i32 %4 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
@@ -1803,7 +1803,7 @@ Abc_TtSwapVars.exit:                              ; preds = %._crit_edge124.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Dau_DecFindSets_int(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
+define noalias noundef ptr @Dau_DecFindSets_int(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
 .preheader191:
   %3 = alloca [2 x [64 x i64]], align 16
   %4 = alloca [16 x i32], align 16
@@ -1813,11 +1813,11 @@ define noalias noundef ptr @Dau_DecFindSets_int(ptr nocapture noundef readonly %
   %8 = alloca [16 x i32], align 16
   %9 = alloca [16 x i32], align 16
   %10 = alloca [1024 x i64], align 16
-  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   store i32 32, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #18
+  %13 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   %15 = icmp slt i32 %1, 7
@@ -2047,11 +2047,11 @@ Dau_DecCreateSet.exit.us:                         ; preds = %.lr.ph.i71.us
   br i1 %.not9.i9.i.us, label %121, label %119
 
 119:                                              ; preds = %114
-  %120 = call ptr @realloc(ptr noundef nonnull %116, i64 noundef %118) #19
+  %120 = call ptr @realloc(ptr noundef nonnull %116, i64 noundef %118) #18
   br label %123
 
 121:                                              ; preds = %114
-  %122 = call noalias ptr @malloc(i64 noundef %118) #18
+  %122 = call noalias ptr @malloc(i64 noundef %118) #17
   br label %123
 
 123:                                              ; preds = %121, %119
@@ -2066,11 +2066,11 @@ Dau_DecCreateSet.exit.us:                         ; preds = %.lr.ph.i71.us
   br i1 %.not9.i.i.us, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %126, i64 noundef 64) #19
+  %128 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %126, i64 noundef 64) #18
   br label %Vec_IntGrow.exit.i.us
 
 129:                                              ; preds = %125
-  %130 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
+  %130 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
   br label %Vec_IntGrow.exit.i.us
 
 Vec_IntGrow.exit.i.us:                            ; preds = %129, %127
@@ -2389,11 +2389,11 @@ Dau_DecCheckSetTop.exit92.us:                     ; preds = %Dau_DecCheckSetTop5
   br i1 %.not9.i9.i96.us, label %257, label %255
 
 255:                                              ; preds = %250
-  %256 = call ptr @realloc(ptr noundef nonnull %252, i64 noundef %254) #19
+  %256 = call ptr @realloc(ptr noundef nonnull %252, i64 noundef %254) #18
   br label %259
 
 257:                                              ; preds = %250
-  %258 = call noalias ptr @malloc(i64 noundef %254) #18
+  %258 = call noalias ptr @malloc(i64 noundef %254) #17
   br label %259
 
 259:                                              ; preds = %257, %255
@@ -2408,11 +2408,11 @@ Dau_DecCheckSetTop.exit92.us:                     ; preds = %Dau_DecCheckSetTop5
   br i1 %.not9.i.i97.us, label %265, label %263
 
 263:                                              ; preds = %261
-  %264 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %262, i64 noundef 64) #19
+  %264 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %262, i64 noundef 64) #18
   br label %Vec_IntGrow.exit.i98.us
 
 265:                                              ; preds = %261
-  %266 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
+  %266 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
   br label %Vec_IntGrow.exit.i98.us
 
 Vec_IntGrow.exit.i98.us:                          ; preds = %265, %263
@@ -2468,7 +2468,7 @@ Dau_DecSetIsContained.exit.us:                    ; preds = %166, %Vec_IntPush.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Dau_DecFindSets(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define noalias noundef ptr @Dau_DecFindSets(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca [16 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %4 = icmp sgt i32 %1, 2
@@ -2485,7 +2485,7 @@ define noalias noundef ptr @Dau_DecFindSets(ptr nocapture noundef readonly %0, i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  %7 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %6) #20
+  %7 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %6) #19
   %8 = getelementptr inbounds [16 x ptr], ptr %3, i64 0, i64 %indvars.iv
   store ptr %7, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2508,7 +2508,7 @@ define noalias noundef ptr @Dau_DecFindSets(ptr nocapture noundef readonly %0, i
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %.lr.ph18
-  tail call void @free(ptr noundef nonnull %11) #20
+  tail call void @free(ptr noundef nonnull %11) #19
   store ptr null, ptr %10, align 8
   br label %13
 
@@ -2523,15 +2523,15 @@ define noalias noundef ptr @Dau_DecFindSets(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
-declare ptr @Extra_GreyCodeSchedule(i32 noundef) local_unnamed_addr #10
+declare ptr @Extra_GreyCodeSchedule(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Dau_DecFindSetsTest2() local_unnamed_addr #8 {
+define void @Dau_DecFindSetsTest2() local_unnamed_addr #7 {
   %1 = alloca [16 x ptr], align 16
   %2 = alloca i64, align 8
   store i64 -91518295031524336, ptr %2, align 8
@@ -2542,7 +2542,7 @@ define void @Dau_DecFindSetsTest2() local_unnamed_addr #8 {
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 2, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %3 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %4 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %3) #20
+  %4 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %3) #19
   %5 = getelementptr inbounds [16 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
   store ptr %4, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2561,7 +2561,7 @@ define void @Dau_DecFindSetsTest2() local_unnamed_addr #8 {
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %.lr.ph18.i
-  tail call void @free(ptr noundef nonnull %8) #20
+  tail call void @free(ptr noundef nonnull %8) #19
   store ptr null, ptr %7, align 8
   br label %10
 
@@ -2601,11 +2601,11 @@ Dau_DecPrintSets.exit:                            ; preds = %16, %Dau_DecFindSet
   br i1 %.not.i8, label %Vec_IntFree.exit, label %21
 
 21:                                               ; preds = %Dau_DecPrintSets.exit
-  tail call void @free(ptr noundef nonnull %20) #20
+  tail call void @free(ptr noundef nonnull %20) #19
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Dau_DecPrintSets.exit, %21
-  tail call void @free(ptr noundef nonnull %6) #20
+  tail call void @free(ptr noundef nonnull %6) #19
   ret void
 }
 
@@ -3074,7 +3074,7 @@ default.unreachable:                              ; preds = %.lr.ph188
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Dau_DecVerify(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 {
+define noundef i32 @Dau_DecVerify(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 {
   %5 = alloca [8192 x i64], align 16
   %6 = alloca [8192 x i64], align 16
   %7 = alloca [8192 x i64], align 16
@@ -3087,11 +3087,11 @@ define noundef i32 @Dau_DecVerify(ptr nocapture noundef readonly %0, i32 noundef
   %14 = add nsw i32 %1, -6
   %15 = shl nuw i32 1, %14
   %16 = select i1 %13, i32 1, i32 %15
-  %17 = tail call ptr @Dau_DsdToTruth(ptr noundef %2, i32 noundef %8) #20
+  %17 = tail call ptr @Dau_DsdToTruth(ptr noundef %2, i32 noundef %8) #19
   %18 = sext i32 %12 to i64
   %19 = shl nsw i64 %18, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %17, i64 %19, i1 false)
-  %20 = tail call ptr @Dau_DsdToTruth(ptr noundef %3, i32 noundef %1) #20
+  %20 = tail call ptr @Dau_DsdToTruth(ptr noundef %3, i32 noundef %1) #19
   %21 = sext i32 %16 to i64
   %22 = shl nsw i64 %21, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %20, i64 %22, i1 false)
@@ -3215,10 +3215,10 @@ Abc_TtEqual.exit.thread:                          ; preds = %79, %24, %Abc_TtMux
   ret i32 1
 }
 
-declare ptr @Dau_DsdToTruth(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @Dau_DsdToTruth(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Dau_DecPerform6(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Dau_DecPerform6(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3385,9 +3385,9 @@ define range(i32 0, 2) i32 @Dau_DecPerform6(ptr nocapture noundef readonly %0, i
   %91 = xor i64 %39, %.053.lcssa
   store i64 %91, ptr %5, align 8
   %92 = load i32, ptr %11, align 4
-  %93 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %4, i32 noundef %92, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %7) #20
+  %93 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %4, i32 noundef %92, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %7) #19
   %94 = load i32, ptr %12, align 4
-  %95 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %5, i32 noundef %94, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %8) #20
+  %95 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %5, i32 noundef %94, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %8) #19
   %96 = load i8, ptr %8, align 16
   %.not13.i = icmp eq i8 %96, 0
   br i1 %.not13.i, label %Dau_DecVarReplace.exit, label %.lr.ph.i
@@ -3464,10 +3464,10 @@ Dau_DecVarReplace.exit69:                         ; preds = %117, %Dau_DecVarRep
   ret i32 %.050
 }
 
-declare i32 @Dau_DsdDecompose(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @Dau_DsdDecompose(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Dau_DecPerform(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Dau_DecPerform(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca [1024 x i64], align 16
   %5 = alloca [1024 x i64], align 16
   %6 = alloca [1024 x i64], align 16
@@ -3669,7 +3669,7 @@ Dau_DecSortSet.exit:                              ; preds = %29
 ._crit_edge120:                                   ; preds = %.lr.ph119.preheader, %.preheader
   %.263.lcssa = phi i32 [ %.061.lcssa, %.preheader ], [ %68, %.lr.ph119.preheader ]
   %80 = add nsw i32 %.017.lcssa.i140146154162, %.019.lcssa.i139147153163
-  %81 = call ptr @Extra_GreyCodeSchedule(i32 noundef %80) #20
+  %81 = call ptr @Extra_GreyCodeSchedule(i32 noundef %80) #19
   %82 = icmp slt i32 %.263.lcssa, 7
   %83 = add nsw i32 %.263.lcssa, -6
   %84 = shl nuw i32 1, %83
@@ -3719,7 +3719,7 @@ Dau_DecCheckSetTop.exit:                          ; preds = %104, %102, %97, %95
   br i1 %.not78, label %107, label %106
 
 106:                                              ; preds = %Dau_DecCheckSetTop.exit
-  call void @free(ptr noundef nonnull %81) #20
+  call void @free(ptr noundef nonnull %81) #19
   br label %107
 
 107:                                              ; preds = %Dau_DecCheckSetTop.exit, %106
@@ -3731,8 +3731,8 @@ Dau_DecCheckSetTop.exit:                          ; preds = %104, %102, %97, %95
   br label %141
 
 109:                                              ; preds = %107
-  %110 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %6, i32 noundef %60, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %7) #20
-  %111 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %5, i32 noundef %.263.lcssa, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %8) #20
+  %110 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %6, i32 noundef %60, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %7) #19
+  %111 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %5, i32 noundef %.263.lcssa, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %8) #19
   %invariant.gep.i = getelementptr i8, ptr %12, i64 -388
   %112 = load i8, ptr %8, align 16
   %.not13.i = icmp eq i8 %112, 0
@@ -3806,7 +3806,7 @@ Dau_DecVarReplace.exit91:                         ; preds = %133, %Dau_DecVarRep
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dau_DecTrySets(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @Dau_DecTrySets(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca [16 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
@@ -3824,7 +3824,7 @@ define void @Dau_DecTrySets(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %8 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %7) #20
+  %8 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %7) #19
   %9 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
   store ptr %8, ptr %9, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3843,7 +3843,7 @@ define void @Dau_DecTrySets(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br i1 %.not.i, label %14, label %13
 
 13:                                               ; preds = %.lr.ph18.i
-  tail call void @free(ptr noundef nonnull %12) #20
+  tail call void @free(ptr noundef nonnull %12) #19
   store ptr null, ptr %11, align 8
   br label %14
 
@@ -3865,7 +3865,7 @@ Dau_DecFindSets.exit:                             ; preds = %14, %._crit_edge.th
   br i1 %.not.i29, label %Vec_IntFree.exit, label %Vec_IntFree.exit.sink.split
 
 19:                                               ; preds = %Dau_DecFindSets.exit
-  tail call void @Dau_DsdPrintFromTruth(ptr noundef %0, i32 noundef %1) #20
+  tail call void @Dau_DsdPrintFromTruth(ptr noundef %0, i32 noundef %1) #19
   %20 = getelementptr i8, ptr %15, i64 4
   %.val27 = load i32, ptr %20, align 4
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %1, i32 noundef %.val27)
@@ -3916,18 +3916,18 @@ Dau_DecFindSets.exit:                             ; preds = %14, %._crit_edge.th
 
 Vec_IntFree.exit.sink.split:                      ; preds = %.critedge, %16
   %.sink = phi ptr [ %18, %16 ], [ %40, %.critedge ]
-  tail call void @free(ptr noundef nonnull %.sink) #20
+  tail call void @free(ptr noundef nonnull %.sink) #19
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Vec_IntFree.exit.sink.split, %.critedge, %16
-  tail call void @free(ptr noundef nonnull %15) #20
+  tail call void @free(ptr noundef nonnull %15) #19
   ret void
 }
 
-declare void @Dau_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare void @Dau_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @Dau_DecFindSetsTest3() local_unnamed_addr #8 {
+define void @Dau_DecFindSetsTest3() local_unnamed_addr #7 {
   %1 = alloca i64, align 8
   store i64 -91518295031524336, ptr %1, align 8
   br label %.lr.ph.i
@@ -3967,7 +3967,7 @@ Dau_DecReadSet.exit:                              ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dau_DecFindSetsTest() local_unnamed_addr #8 {
+define void @Dau_DecFindSetsTest() local_unnamed_addr #7 {
   %1 = alloca i64, align 8
   store i64 53807569256447, ptr %1, align 8
   call void @Dau_DecTrySets(ptr noundef nonnull %1, i32 noundef 6, i32 noundef 1)
@@ -3975,34 +3975,34 @@ define void @Dau_DecFindSetsTest() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4011,20 +4011,19 @@ attributes #3 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind allocsize(0) }
-attributes #19 = { nounwind allocsize(1) }
-attributes #20 = { nounwind }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind allocsize(1) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

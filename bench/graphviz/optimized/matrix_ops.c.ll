@@ -39,7 +39,7 @@ define zeroext i1 @power_iteration(ptr nocapture noundef readonly %0, i32 nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %12
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.be, %.lr.ph.backedge ]
-  %15 = tail call i32 @rand() #18
+  %15 = tail call i32 @rand() #17
   %16 = srem i32 %15, 100
   %17 = sitofp i32 %16 to double
   %18 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
@@ -107,7 +107,7 @@ scadd.exit.loopexit:                              ; preds = %.lr.ph.i170
   br i1 %exitcond.not.i.i, label %norm.exit.loopexit, label %.lr.ph.i.i
 
 norm.exit.loopexit:                               ; preds = %.lr.ph.i.i
-  %36 = tail call double @sqrt(double noundef %35) #18
+  %36 = tail call double @sqrt(double noundef %35) #17
   %37 = fcmp olt double %36, 1.000000e-10
   br i1 %37, label %.lr.ph.backedge, label %.lr.ph.preheader.i172
 
@@ -215,7 +215,7 @@ scadd.exit210:                                    ; preds = %.lr.ph.i205, %vecto
   br i1 %exitcond.not.i.i218, label %norm.exit219.loopexit, label %.lr.ph.i.i214
 
 norm.exit219.loopexit:                            ; preds = %.lr.ph.i.i214
-  %69 = tail call double @sqrt(double noundef %68) #18
+  %69 = tail call double @sqrt(double noundef %68) #17
   %70 = fcmp uge double %69, 1.000000e-10
   %.not168 = icmp slt i32 %.1154, %9
   %or.cond = select i1 %70, i1 %.not168, i1 false
@@ -373,7 +373,7 @@ copy_vector.exit281.us:                           ; preds = %.lr.ph.i277.us
 
 .lr.ph319:                                        ; preds = %114, %.lr.ph319
   %indvars.iv372 = phi i64 [ %indvars.iv.next373, %.lr.ph319 ], [ 0, %114 ]
-  %117 = tail call i32 @rand() #18
+  %117 = tail call i32 @rand() #17
   %118 = srem i32 %117, 100
   %119 = sitofp i32 %118 to double
   %120 = getelementptr inbounds double, ptr %116, i64 %indvars.iv372
@@ -438,7 +438,7 @@ scadd.exit251:                                    ; preds = %.lr.ph.i246, %vecto
   br i1 %exitcond.not.i.i259, label %norm.exit260, label %.lr.ph.i.i255
 
 norm.exit260:                                     ; preds = %.lr.ph.i.i255
-  %138 = tail call double @sqrt(double noundef %137) #18
+  %138 = tail call double @sqrt(double noundef %137) #17
   %139 = fdiv double 1.000000e+00, %138
   br label %.lr.ph.i263
 
@@ -485,8 +485,8 @@ copy_vector.exit274.thread:                       ; preds = %._crit_edge331
   br label %._crit_edge336
 
 ._crit_edge336:                                   ; preds = %109, %._crit_edge331, %copy_vector.exit274.thread, %.preheader
-  tail call void @free(ptr noundef %7) #18
-  tail call void @free(ptr noundef %8) #18
+  tail call void @free(ptr noundef %7) #17
+  tail call void @free(ptr noundef %8) #17
   %150 = icmp sle i32 %.2155413, %9
   ret i1 %150
 }
@@ -497,7 +497,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #19
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #18
   br label %15
 
 4:                                                ; preds = %2
@@ -507,20 +507,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #20
-  tail call fastcc void @graphviz_exit() #21
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #19
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #19
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #18
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #20
-  tail call fastcc void @graphviz_exit() #21
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #19
+  tail call fastcc void @graphviz_exit() #20
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -557,7 +557,7 @@ define double @vectors_inner_product(i32 noundef %0, ptr nocapture noundef reado
   ret double %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @scadd(ptr nocapture noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
   %5 = add nsw i32 %1, 1
   %.not7 = icmp eq i32 %5, 0
@@ -603,12 +603,12 @@ define double @norm(ptr nocapture noundef readonly %0, i32 noundef %1) local_unn
 
 vectors_inner_product.exit:                       ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %7, %.lr.ph.i ]
-  %8 = tail call double @sqrt(double noundef %.0.lcssa.i) #18
+  %8 = tail call double @sqrt(double noundef %.0.lcssa.i) #17
   ret double %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_scalar_mult(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define void @vectors_scalar_mult(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -632,7 +632,7 @@ define void @vectors_scalar_mult(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @copy_vector(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define void @copy_vector(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -655,7 +655,7 @@ define void @copy_vector(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector_d(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #6 {
+define void @right_mult_with_vector_d(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge19
 
@@ -703,10 +703,10 @@ define void @right_mult_with_vector_d(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #7
+declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
@@ -813,7 +813,7 @@ define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
 define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
@@ -1017,9 +1017,9 @@ define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #9
+declare double @sqrt(double noundef) local_unnamed_addr #8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @orthog1(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %._crit_edge26, label %.lr.ph
@@ -1066,7 +1066,7 @@ define void @init_vec_orth1(i32 noundef %0, ptr nocapture noundef %1) local_unna
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = tail call i32 @rand() #18
+  %4 = tail call i32 @rand() #17
   %5 = srem i32 %4, 500
   %6 = sitofp i32 %5 to double
   %7 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
@@ -1111,7 +1111,7 @@ orthog1.exit:                                     ; preds = %.lr.ph25.i, %._crit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define void @right_mult_with_vector(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.preheader.preheader, label %._crit_edge23
 
@@ -1162,7 +1162,7 @@ define void @right_mult_with_vector(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector_f(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define void @right_mult_with_vector_f(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.preheader.us.preheader, label %._crit_edge20
 
@@ -1201,7 +1201,7 @@ define void @right_mult_with_vector_f(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_subtraction(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define void @vectors_subtraction(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1227,7 +1227,7 @@ define void @vectors_subtraction(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_addition(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define void @vectors_addition(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1278,10 +1278,10 @@ define double @max_abs(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #7
+declare double @llvm.maxnum.f64(double, double) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @right_mult_with_vector_transpose(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #6 {
+define void @right_mult_with_vector_transpose(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge19
 
@@ -1328,7 +1328,7 @@ define void @right_mult_with_vector_transpose(ptr nocapture noundef readonly %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @orthog1f(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %._crit_edge26, label %.lr.ph
@@ -1365,7 +1365,7 @@ define void @orthog1f(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
+define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph45.preheader, label %._crit_edge46
 
@@ -1434,10 +1434,10 @@ define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_subtractionf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define void @vectors_subtractionf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1463,7 +1463,7 @@ define void @vectors_subtractionf(i32 noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_additionf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define void @vectors_additionf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1489,7 +1489,7 @@ define void @vectors_additionf(i32 noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @vectors_mult_additionf(i32 noundef %0, ptr nocapture noundef %1, float noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
+define void @vectors_mult_additionf(i32 noundef %0, ptr nocapture noundef %1, float noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1514,7 +1514,7 @@ define void @vectors_mult_additionf(i32 noundef %0, ptr nocapture noundef %1, fl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @copy_vectorf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define void @copy_vectorf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1565,7 +1565,7 @@ define double @vectors_inner_productf(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @set_vector_val(i32 noundef %0, double noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define void @set_vector_val(i32 noundef %0, double noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1586,7 +1586,7 @@ define void @set_vector_val(i32 noundef %0, double noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @set_vector_valf(i32 noundef %0, float noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define void @set_vector_valf(i32 noundef %0, float noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1636,13 +1636,13 @@ define double @max_absf(i32 noundef %0, ptr nocapture noundef readonly %1) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #7
+declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.maxnum.f32(float, float) #7
+declare float @llvm.maxnum.f32(float, float) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @square_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define void @square_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1665,7 +1665,7 @@ define void @square_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @invert_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define void @invert_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1711,7 +1711,7 @@ define void @sqrt_vecf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr no
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call float @sqrtf(float noundef %6) #18
+  %9 = tail call float @sqrtf(float noundef %6) #17
   %10 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
   store float %9, ptr %10, align 4
   br label %11
@@ -1726,7 +1726,7 @@ define void @sqrt_vecf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #9
+declare float @sqrtf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
 define void @invert_sqrt_vec(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
@@ -1745,7 +1745,7 @@ define void @invert_sqrt_vec(i32 noundef %0, ptr nocapture noundef %1) local_unn
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call float @sqrtf(float noundef %5) #18
+  %8 = tail call float @sqrtf(float noundef %5) #17
   %9 = fdiv float 1.000000e+00, %8
   store float %9, ptr %4, align 4
   br label %10
@@ -1760,55 +1760,54 @@ define void @invert_sqrt_vec(i32 noundef %0, ptr nocapture noundef %1) local_unn
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #12 {
-  tail call void @exit(i32 noundef 1) #22
+define internal fastcc void @graphviz_exit() unnamed_addr #11 {
+  tail call void @exit(i32 noundef 1) #21
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #14
+declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #15
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(0,1) }
-attributes #20 = { cold nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { noreturn nounwind }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { cold nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

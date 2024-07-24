@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8DspInit() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8DspInit.VP8DspInit_body_lock) #13
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8DspInit.VP8DspInit_body_lock) #11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %15
 
@@ -50,7 +50,7 @@ define hidden void @VP8DspInit() local_unnamed_addr #0 {
   br i1 %.not1, label %VP8DspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @VP8InitClipTables() #13
+  tail call void @VP8InitClipTables() #11
   store ptr @TransformWHT_C, ptr @VP8TransformWHT, align 8
   store ptr @TransformTwo_C, ptr @VP8Transform, align 8
   store ptr @TransformDC_C, ptr @VP8TransformDC, align 8
@@ -99,25 +99,25 @@ define hidden void @VP8DspInit() local_unnamed_addr #0 {
   br i1 %.not.i, label %VP8DspInit_body.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 %6(i32 noundef 0) #13
+  %8 = tail call i32 %6(i32 noundef 0) #11
   %.not1.i = icmp eq i32 %8, 0
   br i1 %.not1.i, label %VP8DspInit_body.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @VP8DspInitSSE2() #13
+  tail call void @VP8DspInitSSE2() #11
   %10 = load ptr, ptr @VP8GetCPUInfo, align 8
-  %11 = tail call i32 %10(i32 noundef 3) #13
+  %11 = tail call i32 %10(i32 noundef 3) #11
   %.not2.i = icmp eq i32 %11, 0
   br i1 %.not2.i, label %VP8DspInit_body.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @VP8DspInitSSE41() #13
+  tail call void @VP8DspInitSSE41() #11
   br label %VP8DspInit_body.exit
 
 VP8DspInit_body.exit:                             ; preds = %12, %9, %7, %5, %2
   %13 = load ptr, ptr @VP8GetCPUInfo, align 8
   store volatile ptr %13, ptr @VP8DspInit.VP8DspInit_body_last_cpuinfo_used, align 8
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8DspInit.VP8DspInit_body_lock) #13
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8DspInit.VP8DspInit_body_lock) #11
   br label %15
 
 15:                                               ; preds = %0, %VP8DspInit_body.exit
@@ -132,7 +132,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 declare void @VP8InitClipTables() local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @TransformWHT_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 {
   %3 = alloca [16 x i32], align 16
   br label %4
@@ -222,8 +222,8 @@ define internal void @TransformWHT_C(ptr nocapture noundef readonly %0, ptr noca
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TransformTwo_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @TransformTwo_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #3 {
   tail call fastcc void @TransformOne_C(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %4
@@ -239,7 +239,7 @@ define internal void @TransformTwo_C(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @TransformDC_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
+define internal void @TransformDC_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
   %3 = load i16, ptr %0, align 2
   %4 = sext i16 %3 to i32
   %5 = add nsw i32 %4, 4
@@ -276,7 +276,7 @@ define internal void @TransformDC_C(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #6 {
+define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 {
   %3 = load i16, ptr %0, align 2
   %4 = sext i16 %3 to i32
   %5 = add nsw i32 %4, 4
@@ -465,11 +465,11 @@ define internal void @TransformAC3_C(ptr nocapture noundef readonly %0, ptr noca
 ; Function Attrs: nounwind uwtable
 define internal void @TransformUV_C(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr @VP8Transform, align 8
-  tail call void %3(ptr noundef %0, ptr noundef %1, i32 noundef 1) #13
+  tail call void %3(ptr noundef %0, ptr noundef %1, i32 noundef 1) #11
   %4 = load ptr, ptr @VP8Transform, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = getelementptr inbounds i8, ptr %1, i64 128
-  tail call void %4(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #13
+  tail call void %4(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #11
   ret void
 }
 
@@ -481,7 +481,7 @@ define internal void @TransformDCUV_C(ptr noundef %0, ptr noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @VP8TransformDC, align 8
-  tail call void %5(ptr noundef nonnull %0, ptr noundef %1) #13
+  tail call void %5(ptr noundef nonnull %0, ptr noundef %1) #11
   br label %6
 
 6:                                                ; preds = %4, %2
@@ -493,7 +493,7 @@ define internal void @TransformDCUV_C(ptr noundef %0, ptr noundef %1) #0 {
 9:                                                ; preds = %6
   %10 = load ptr, ptr @VP8TransformDC, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 4
-  tail call void %10(ptr noundef nonnull %7, ptr noundef nonnull %11) #13
+  tail call void %10(ptr noundef nonnull %7, ptr noundef nonnull %11) #11
   br label %12
 
 12:                                               ; preds = %9, %6
@@ -505,7 +505,7 @@ define internal void @TransformDCUV_C(ptr noundef %0, ptr noundef %1) #0 {
 15:                                               ; preds = %12
   %16 = load ptr, ptr @VP8TransformDC, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 128
-  tail call void %16(ptr noundef nonnull %13, ptr noundef nonnull %17) #13
+  tail call void %16(ptr noundef nonnull %13, ptr noundef nonnull %17) #11
   br label %18
 
 18:                                               ; preds = %15, %12
@@ -517,21 +517,21 @@ define internal void @TransformDCUV_C(ptr noundef %0, ptr noundef %1) #0 {
 21:                                               ; preds = %18
   %22 = load ptr, ptr @VP8TransformDC, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 132
-  tail call void %22(ptr noundef nonnull %19, ptr noundef nonnull %23) #13
+  tail call void %22(ptr noundef nonnull %19, ptr noundef nonnull %23) #11
   br label %24
 
 24:                                               ; preds = %21, %18
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @VFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @VFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 16, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @VFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @VFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   %6 = shl nsw i32 %1, 2
   %7 = sext i32 %6 to i64
   br label %8
@@ -549,21 +549,21 @@ define internal void @VFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @HFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef 1, i32 noundef %1, i32 noundef 16, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @VFilter8_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @VFilter8_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   tail call fastcc void @FilterLoop26_C(ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @VFilter8i_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @VFilter8i_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   %7 = shl nsw i32 %2, 2
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
@@ -574,7 +574,7 @@ define internal void @VFilter8i_C(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @SimpleVFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+define internal void @SimpleVFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %2, 1
   %5 = or disjoint i32 %4, 1
   %6 = mul nsw i32 %1, -2
@@ -658,7 +658,7 @@ define internal void @SimpleVFilter16_C(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @SimpleHFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #7 {
+define internal void @SimpleHFilter16_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %2, 1
   %5 = or disjoint i32 %4, 1
   %6 = load ptr, ptr @VP8kabs0, align 8
@@ -738,8 +738,8 @@ define internal void @SimpleHFilter16_C(ptr nocapture noundef %0, i32 noundef %1
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SimpleVFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @SimpleVFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = shl nsw i32 %2, 1
@@ -835,8 +835,8 @@ SimpleVFilter16_C.exit:                           ; preds = %71
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SimpleHFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @SimpleHFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = shl nsw i32 %2, 1
   %5 = or disjoint i32 %4, 1
   %6 = load ptr, ptr @VP8kabs0, align 8
@@ -927,8 +927,8 @@ SimpleHFilter16_C.exit:                           ; preds = %66
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @HFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   br label %6
 
 6:                                                ; preds = %5, %6
@@ -944,15 +944,15 @@ define internal void @HFilter16i_C(ptr nocapture noundef %0, i32 noundef %1, i32
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HFilter8_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @HFilter8_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   tail call fastcc void @FilterLoop26_C(ptr noundef %0, i32 noundef 1, i32 noundef %2, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   tail call fastcc void @FilterLoop26_C(ptr noundef %1, i32 noundef 1, i32 noundef %2, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HFilter8i_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @HFilter8i_C(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5 {
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   tail call fastcc void @FilterLoop24_C(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %2, i32 noundef 8, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %8 = getelementptr inbounds i8, ptr %1, i64 4
@@ -961,7 +961,7 @@ define internal void @HFilter8i_C(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC4_C(ptr nocapture noundef %0) #5 {
+define internal void @DC4_C(ptr nocapture noundef %0) #3 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
@@ -1000,8 +1000,8 @@ define internal void @DC4_C(ptr nocapture noundef %0) #5 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TM4_C(ptr nocapture noundef %0) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @TM4_C(ptr nocapture noundef %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load ptr, ptr @VP8kclip1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -33
@@ -1044,7 +1044,7 @@ TrueMotion.exit:                                  ; preds = %._crit_edge.us.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VE4_C(ptr nocapture noundef %0) #5 {
+define internal void @VE4_C(ptr nocapture noundef %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = getelementptr inbounds i8, ptr %0, i64 -33
   %4 = load i8, ptr %3, align 1
@@ -1107,7 +1107,7 @@ define internal void @VE4_C(ptr nocapture noundef %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @RD4_C(ptr nocapture noundef %0) #6 {
+define internal void @RD4_C(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1210,7 +1210,7 @@ define internal void @RD4_C(ptr nocapture noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @LD4_C(ptr nocapture noundef %0) #6 {
+define internal void @LD4_C(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1310,7 +1310,7 @@ define internal void @LD4_C(ptr nocapture noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @HE4_C(ptr nocapture noundef %0) #6 {
+define internal void @HE4_C(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -33
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1359,7 +1359,7 @@ define internal void @HE4_C(ptr nocapture noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @VR4_C(ptr nocapture noundef %0) #6 {
+define internal void @VR4_C(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1468,7 +1468,7 @@ define internal void @VR4_C(ptr nocapture noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @VL4_C(ptr nocapture noundef %0) #6 {
+define internal void @VL4_C(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1577,7 +1577,7 @@ define internal void @VL4_C(ptr nocapture noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @HD4_C(ptr nocapture noundef %0) #6 {
+define internal void @HD4_C(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1686,7 +1686,7 @@ define internal void @HD4_C(ptr nocapture noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @HU4_C(ptr nocapture noundef %0) #6 {
+define internal void @HU4_C(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1758,7 +1758,7 @@ define internal void @HU4_C(ptr nocapture noundef %0) #6 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC16_C(ptr nocapture noundef %0) #5 {
+define internal void @DC16_C(ptr nocapture noundef %0) #3 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
@@ -1797,8 +1797,8 @@ Put16.exit:                                       ; preds = %15
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TM16_C(ptr nocapture noundef %0) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @TM16_C(ptr nocapture noundef %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load ptr, ptr @VP8kclip1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -33
@@ -1841,7 +1841,7 @@ TrueMotion.exit:                                  ; preds = %._crit_edge.us.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VE16_C(ptr nocapture noundef %0) #5 {
+define internal void @VE16_C(ptr nocapture noundef %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   br label %3
 
@@ -1858,8 +1858,8 @@ define internal void @VE16_C(ptr nocapture noundef %0) #5 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HE16_C(ptr nocapture noundef %0) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @HE16_C(ptr nocapture noundef %0) #3 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -1878,7 +1878,7 @@ define internal void @HE16_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC16NoTop_C(ptr nocapture noundef %0) #5 {
+define internal void @DC16NoTop_C(ptr nocapture noundef %0) #3 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
@@ -1913,7 +1913,7 @@ Put16.exit:                                       ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC16NoLeft_C(ptr nocapture noundef %0) #5 {
+define internal void @DC16NoLeft_C(ptr nocapture noundef %0) #3 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -1947,7 +1947,7 @@ Put16.exit:                                       ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @DC16NoTopLeft_C(ptr nocapture noundef writeonly %0) #8 {
+define internal void @DC16NoTopLeft_C(ptr nocapture noundef writeonly %0) #6 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1964,7 +1964,7 @@ Put16.exit:                                       ; preds = %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC8uv_C(ptr nocapture noundef %0) #5 {
+define internal void @DC8uv_C(ptr nocapture noundef %0) #3 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
@@ -2003,8 +2003,8 @@ Put8x8uv.exit:                                    ; preds = %15
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TM8uv_C(ptr nocapture noundef %0) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @TM8uv_C(ptr nocapture noundef %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load ptr, ptr @VP8kclip1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -33
@@ -2047,7 +2047,7 @@ TrueMotion.exit:                                  ; preds = %._crit_edge.us.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VE8uv_C(ptr nocapture noundef %0) #5 {
+define internal void @VE8uv_C(ptr nocapture noundef %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1
   br label %4
@@ -2065,8 +2065,8 @@ define internal void @VE8uv_C(ptr nocapture noundef %0) #5 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HE8uv_C(ptr nocapture noundef %0) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @HE8uv_C(ptr nocapture noundef %0) #3 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -2085,7 +2085,7 @@ define internal void @HE8uv_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC8uvNoTop_C(ptr nocapture noundef %0) #5 {
+define internal void @DC8uvNoTop_C(ptr nocapture noundef %0) #3 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
@@ -2120,7 +2120,7 @@ Put8x8uv.exit:                                    ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DC8uvNoLeft_C(ptr nocapture noundef %0) #5 {
+define internal void @DC8uvNoLeft_C(ptr nocapture noundef %0) #3 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -2154,7 +2154,7 @@ Put8x8uv.exit:                                    ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @DC8uvNoTopLeft_C(ptr nocapture noundef writeonly %0) #8 {
+define internal void @DC8uvNoTopLeft_C(ptr nocapture noundef writeonly %0) #6 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -2170,8 +2170,8 @@ Put8x8uv.exit:                                    ; preds = %2
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @DitherCombine8x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @DitherCombine8x8_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #3 {
   %4 = sext i32 %2 to i64
   br label %.preheader
 
@@ -2215,8 +2215,8 @@ declare void @VP8DspInitSSE2() local_unnamed_addr #2
 
 declare void @VP8DspInitSSE41() local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @TransformOne_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @TransformOne_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #3 {
   %3 = alloca [16 x i32], align 16
   br label %4
 
@@ -2341,8 +2341,8 @@ define internal fastcc void @TransformOne_C(ptr nocapture noundef readonly %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @FilterLoop26_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @FilterLoop26_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #5 {
   %8 = shl nsw i32 %4, 1
   %9 = or disjoint i32 %8, 1
   %10 = icmp sgt i32 %3, 0
@@ -2509,7 +2509,7 @@ Hev.exit.thread:                                  ; preds = %28, %Hev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #7 {
   %5 = mul nsw i32 %1, -3
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
@@ -2622,8 +2622,8 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @FilterLoop24_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @FilterLoop24_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #5 {
   %8 = shl nsw i32 %4, 1
   %9 = or disjoint i32 %8, 1
   %10 = icmp sgt i32 %3, 0
@@ -2765,31 +2765,29 @@ Hev.exit.thread:                                  ; preds = %24, %Hev.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

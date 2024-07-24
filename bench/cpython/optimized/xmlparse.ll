@@ -388,7 +388,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %memsuite, align 8
-  %call = tail call ptr %0(i64 noundef 976) #23
+  %call = tail call ptr %0(i64 noundef 976) #24
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %return, label %if.then1
 
@@ -405,7 +405,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end18
 
 if.else:                                          ; preds = %entry
-  %call7 = tail call noalias dereferenceable_or_null(976) ptr @malloc(i64 noundef 976) #24
+  %call7 = tail call noalias dereferenceable_or_null(976) ptr @malloc(i64 noundef 976) #25
   %cmp8.not = icmp eq ptr %call7, null
   br i1 %cmp8.not, label %return, label %if.then9
 
@@ -429,7 +429,7 @@ if.end18:                                         ; preds = %if.then1, %if.then9
   %m_attsSize = getelementptr inbounds i8, ptr %call.sink, i64 720
   store i32 16, ptr %m_attsSize, align 8
   %m_mem19 = getelementptr inbounds i8, ptr %call.sink, i64 24
-  %call22 = tail call ptr %4(i64 noundef 512) #23
+  %call22 = tail call ptr %4(i64 noundef 512) #24
   %m_atts = getelementptr inbounds i8, ptr %call.sink, i64 736
   store ptr %call22, ptr %m_atts, align 8
   %cmp24 = icmp eq ptr %call22, null
@@ -438,12 +438,12 @@ if.end18:                                         ; preds = %if.then1, %if.then9
 if.then26:                                        ; preds = %if.end18
   %free_fcn28 = getelementptr inbounds i8, ptr %call.sink, i64 40
   %5 = load ptr, ptr %free_fcn28, align 8
-  tail call void %5(ptr noundef nonnull %call.sink) #23
+  tail call void %5(ptr noundef nonnull %call.sink) #24
   br label %return
 
 if.end29:                                         ; preds = %if.end18
   %6 = load ptr, ptr %m_mem19, align 8
-  %call32 = tail call ptr %6(i64 noundef 1024) #23
+  %call32 = tail call ptr %6(i64 noundef 1024) #24
   %m_dataBuf = getelementptr inbounds i8, ptr %call.sink, i64 88
   store ptr %call32, ptr %m_dataBuf, align 8
   %cmp34 = icmp eq ptr %call32, null
@@ -453,9 +453,9 @@ if.then36:                                        ; preds = %if.end29
   %free_fcn38 = getelementptr inbounds i8, ptr %call.sink, i64 40
   %7 = load ptr, ptr %free_fcn38, align 8
   %8 = load ptr, ptr %m_atts, align 8
-  tail call void %7(ptr noundef %8) #23
+  tail call void %7(ptr noundef %8) #24
   %9 = load ptr, ptr %free_fcn38, align 8
-  tail call void %9(ptr noundef nonnull %call.sink) #23
+  tail call void %9(ptr noundef nonnull %call.sink) #24
   br label %return
 
 if.end42:                                         ; preds = %if.end29
@@ -467,7 +467,7 @@ if.end42:                                         ; preds = %if.end29
 
 if.else46:                                        ; preds = %if.end42
   %10 = load ptr, ptr %m_mem19, align 8
-  %call.i = tail call ptr %10(i64 noundef 360) #23
+  %call.i = tail call ptr %10(i64 noundef 360) #24
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then53, label %dtdCreate.exit
 
@@ -533,12 +533,12 @@ if.then53:                                        ; preds = %if.else46
   %free_fcn55 = getelementptr inbounds i8, ptr %call.sink, i64 40
   %11 = load ptr, ptr %free_fcn55, align 8
   %12 = load ptr, ptr %m_dataBuf, align 8
-  tail call void %11(ptr noundef %12) #23
+  tail call void %11(ptr noundef %12) #24
   %13 = load ptr, ptr %free_fcn55, align 8
   %14 = load ptr, ptr %m_atts, align 8
-  tail call void %13(ptr noundef %14) #23
+  tail call void %13(ptr noundef %14) #24
   %15 = load ptr, ptr %free_fcn55, align 8
-  tail call void %15(ptr noundef nonnull %call.sink) #23
+  tail call void %15(ptr noundef nonnull %call.sink) #24
   br label %return
 
 if.end63:                                         ; preds = %if.end42, %dtdCreate.exit
@@ -604,7 +604,7 @@ if.end74:                                         ; preds = %land.lhs.true, %if.
 
 if.then76:                                        ; preds = %if.end74
   store i8 1, ptr %m_ns, align 8
-  %call78 = tail call ptr @PyExpat_XmlGetUtf8InternalEncodingNS() #23
+  %call78 = tail call ptr @PyExpat_XmlGetUtf8InternalEncodingNS() #24
   %m_internalEncoding = getelementptr inbounds i8, ptr %call.sink, i64 440
   store ptr %call78, ptr %m_internalEncoding, align 8
   %17 = load i8, ptr %nameSep, align 1
@@ -612,7 +612,7 @@ if.then76:                                        ; preds = %if.end74
   br label %return
 
 if.else80:                                        ; preds = %if.end74
-  %call81 = tail call ptr @PyExpat_XmlGetUtf8InternalEncoding() #23
+  %call81 = tail call ptr @PyExpat_XmlGetUtf8InternalEncoding() #24
   %m_internalEncoding82 = getelementptr inbounds i8, ptr %call.sink, i64 440
   store ptr %call81, ptr %m_internalEncoding82, align 8
   br label %return
@@ -723,7 +723,7 @@ moveToFreeBindingList.exit40:                     ; preds = %while.body.i36, %wh
   %13 = load ptr, ptr %free_fcn, align 8
   %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
   %14 = load ptr, ptr %m_unknownEncodingMem, align 8
-  tail call void %13(ptr noundef %14) #23
+  tail call void %13(ptr noundef %14) #24
   %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
   %15 = load ptr, ptr %m_unknownEncodingRelease, align 8
   %tobool13.not = icmp eq ptr %15, null
@@ -732,7 +732,7 @@ moveToFreeBindingList.exit40:                     ; preds = %while.body.i36, %wh
 if.then14:                                        ; preds = %moveToFreeBindingList.exit40
   %m_unknownEncodingData = getelementptr inbounds i8, ptr %parser, i64 472
   %16 = load ptr, ptr %m_unknownEncodingData, align 8
-  tail call void %15(ptr noundef %16) #23
+  tail call void %15(ptr noundef %16) #24
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %moveToFreeBindingList.exit40
@@ -795,7 +795,7 @@ poolClear.exit52:                                 ; preds = %while.body.i47, %if
   %25 = load ptr, ptr %free_fcn, align 8
   %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %26 = load ptr, ptr %m_protocolEncodingName, align 8
-  tail call void %25(ptr noundef %26) #23
+  tail call void %25(ptr noundef %26) #24
   store ptr null, ptr %m_protocolEncodingName, align 8
   tail call fastcc void @parserInit(ptr noundef nonnull %parser, ptr noundef %encodingName)
   %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
@@ -839,7 +839,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %32 = load ptr, ptr %free_fcn, align 8
   %defaultAtts.i = getelementptr inbounds i8, ptr %30, i64 32
   %33 = load ptr, ptr %defaultAtts.i, align 8
-  tail call void %32(ptr noundef %33) #23
+  tail call void %32(ptr noundef %33) #24
   br label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
@@ -860,7 +860,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %37 = load ptr, ptr %27, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %37, i64 %i.09.i.i
   %38 = load ptr, ptr %arrayidx.i.i, align 8
-  tail call void %36(ptr noundef %38) #23
+  tail call void %36(ptr noundef %38) #24
   %39 = load ptr, ptr %27, align 8
   %arrayidx2.i.i = getelementptr ptr, ptr %39, i64 %i.09.i.i
   store ptr null, ptr %arrayidx2.i.i, align 8
@@ -892,7 +892,7 @@ for.body.i34.i:                                   ; preds = %for.body.i34.i, %fo
   %44 = load ptr, ptr %paramEntities.i, align 8
   %arrayidx.i37.i = getelementptr ptr, ptr %44, i64 %i.09.i35.i
   %45 = load ptr, ptr %arrayidx.i37.i, align 8
-  tail call void %43(ptr noundef %45) #23
+  tail call void %43(ptr noundef %45) #24
   %46 = load ptr, ptr %paramEntities.i, align 8
   %arrayidx2.i38.i = getelementptr ptr, ptr %46, i64 %i.09.i35.i
   store ptr null, ptr %arrayidx2.i38.i, align 8
@@ -921,7 +921,7 @@ for.body.i47.i:                                   ; preds = %for.body.i47.i, %fo
   %51 = load ptr, ptr %elementTypes.i, align 8
   %arrayidx.i50.i = getelementptr ptr, ptr %51, i64 %i.09.i48.i
   %52 = load ptr, ptr %arrayidx.i50.i, align 8
-  tail call void %50(ptr noundef %52) #23
+  tail call void %50(ptr noundef %52) #24
   %53 = load ptr, ptr %elementTypes.i, align 8
   %arrayidx2.i51.i = getelementptr ptr, ptr %53, i64 %i.09.i48.i
   store ptr null, ptr %arrayidx2.i51.i, align 8
@@ -951,7 +951,7 @@ for.body.i60.i:                                   ; preds = %for.body.i60.i, %fo
   %58 = load ptr, ptr %attributeIds.i, align 8
   %arrayidx.i63.i = getelementptr ptr, ptr %58, i64 %i.09.i61.i
   %59 = load ptr, ptr %arrayidx.i63.i, align 8
-  tail call void %57(ptr noundef %59) #23
+  tail call void %57(ptr noundef %59) #24
   %60 = load ptr, ptr %attributeIds.i, align 8
   %arrayidx2.i64.i = getelementptr ptr, ptr %60, i64 %i.09.i61.i
   store ptr null, ptr %arrayidx2.i64.i, align 8
@@ -981,7 +981,7 @@ for.body.i73.i:                                   ; preds = %for.body.i73.i, %fo
   %65 = load ptr, ptr %prefixes.i, align 8
   %arrayidx.i76.i = getelementptr ptr, ptr %65, i64 %i.09.i74.i
   %66 = load ptr, ptr %arrayidx.i76.i, align 8
-  tail call void %64(ptr noundef %66) #23
+  tail call void %64(ptr noundef %66) #24
   %67 = load ptr, ptr %prefixes.i, align 8
   %arrayidx2.i77.i = getelementptr ptr, ptr %67, i64 %i.09.i74.i
   store ptr null, ptr %arrayidx2.i77.i, align 8
@@ -1054,12 +1054,12 @@ dtdReset.exit:                                    ; preds = %while.body.i89.i, %
   %77 = load ptr, ptr %free_fcn, align 8
   %scaffIndex.i = getelementptr inbounds i8, ptr %27, i64 352
   %78 = load ptr, ptr %scaffIndex.i, align 8
-  tail call void %77(ptr noundef %78) #23
+  tail call void %77(ptr noundef %78) #24
   store ptr null, ptr %scaffIndex.i, align 8
   %79 = load ptr, ptr %free_fcn, align 8
   %scaffold.i = getelementptr inbounds i8, ptr %27, i64 328
   %80 = load ptr, ptr %scaffold.i, align 8
-  tail call void %79(ptr noundef %80) #23
+  tail call void %79(ptr noundef %80) #24
   %keepProcessing.i = getelementptr inbounds i8, ptr %27, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scaffold.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %keepProcessing.i, align 8
@@ -1082,7 +1082,7 @@ entry:
   %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   store ptr @prologInitProcessor, ptr %m_processor, align 8
   %m_prologState = getelementptr inbounds i8, ptr %parser, i64 496
-  tail call void @PyExpat_XmlPrologStateInit(ptr noundef nonnull %m_prologState) #23
+  tail call void @PyExpat_XmlPrologStateInit(ptr noundef nonnull %m_prologState) #24
   %cmp.not = icmp eq ptr %encodingName, null
   br i1 %cmp.not, label %if.end, label %while.cond.i
 
@@ -1097,7 +1097,7 @@ while.cond.i:                                     ; preds = %entry, %while.cond.
 while.end.i:                                      ; preds = %while.cond.i
   %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %1 = load ptr, ptr %m_mem, align 8
-  %call.i = tail call ptr %1(i64 noundef %inc.i) #23
+  %call.i = tail call ptr %1(i64 noundef %inc.i) #24
   %cmp3.i = icmp eq ptr %call.i, null
   br i1 %cmp3.i, label %copyString.exit, label %if.end.i
 
@@ -1115,7 +1115,7 @@ if.end:                                           ; preds = %copyString.exit, %e
   store ptr null, ptr %m_curBase, align 8
   %m_initEncoding = getelementptr inbounds i8, ptr %parser, i64 296
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
-  %call1 = tail call i32 @PyExpat_XmlInitEncoding(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef null) #23
+  %call1 = tail call i32 @PyExpat_XmlInitEncoding(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef null) #24
   %m_startElementHandler = getelementptr inbounds i8, ptr %parser, i64 104
   %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %parser, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parser, i8 0, i64 16, i1 false)
@@ -1166,15 +1166,15 @@ if.end:                                           ; preds = %copyString.exit, %e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_unknownEncodingMem, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %m_paramEntityParsing, i8 0, i64 44, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i)
-  %call.i76 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.308) #23
+  %call.i76 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.308) #24
   %cmp.i = icmp eq ptr %call.i76, null
   br i1 %cmp.i, label %getDebugLevel.exit, label %if.end.i77
 
 if.end.i77:                                       ; preds = %if.end
-  %call1.i = tail call ptr @__errno_location() #25
+  %call1.i = tail call ptr @__errno_location() #26
   store i32 0, ptr %call1.i, align 4
   store ptr %call.i76, ptr %afterValue.i, align 8
-  %call2.i = call i64 @strtoul(ptr noundef nonnull %call.i76, ptr noundef nonnull %afterValue.i, i32 noundef 10) #23
+  %call2.i = call i64 @strtoul(ptr noundef nonnull %call.i76, ptr noundef nonnull %afterValue.i, i32 noundef 10) #24
   %3 = load i32, ptr %call1.i, align 4
   %cmp4.not.i = icmp eq i32 %3, 0
   br i1 %cmp4.not.i, label %lor.lhs.false.i, label %if.then7.i
@@ -1202,15 +1202,15 @@ getDebugLevel.exit:                               ; preds = %if.end, %lor.lhs.fa
   %m_entity_stats = getelementptr inbounds i8, ptr %parser, i64 960
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entity_stats, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i78)
-  %call.i79 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.309) #23
+  %call.i79 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.309) #24
   %cmp.i80 = icmp eq ptr %call.i79, null
   br i1 %cmp.i80, label %getDebugLevel.exit89, label %if.end.i81
 
 if.end.i81:                                       ; preds = %getDebugLevel.exit
-  %call1.i82 = tail call ptr @__errno_location() #25
+  %call1.i82 = tail call ptr @__errno_location() #26
   store i32 0, ptr %call1.i82, align 4
   store ptr %call.i79, ptr %afterValue.i78, align 8
-  %call2.i83 = call i64 @strtoul(ptr noundef nonnull %call.i79, ptr noundef nonnull %afterValue.i78, i32 noundef 10) #23
+  %call2.i83 = call i64 @strtoul(ptr noundef nonnull %call.i79, ptr noundef nonnull %afterValue.i78, i32 noundef 10) #24
   %6 = load i32, ptr %call1.i82, align 4
   %cmp4.not.i84 = icmp eq i32 %6, 0
   br i1 %cmp4.not.i84, label %lor.lhs.false.i87, label %if.then7.i85
@@ -1253,7 +1253,7 @@ if.end6:                                          ; preds = %if.end
   %1 = load ptr, ptr %free_fcn, align 8
   %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %2 = load ptr, ptr %m_protocolEncodingName, align 8
-  tail call void %1(ptr noundef %2) #23
+  tail call void %1(ptr noundef %2) #24
   %cmp7 = icmp eq ptr %encodingName, null
   br i1 %cmp7, label %return.sink.split, label %while.cond.i
 
@@ -1268,7 +1268,7 @@ while.cond.i:                                     ; preds = %if.end6, %while.con
 while.end.i:                                      ; preds = %while.cond.i
   %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %4 = load ptr, ptr %m_mem, align 8
-  %call.i = tail call ptr %4(i64 noundef %inc.i) #23
+  %call.i = tail call ptr %4(i64 noundef %inc.i) #24
   %cmp3.i = icmp eq ptr %call.i, null
   br i1 %cmp3.i, label %return.sink.split, label %copyString.exit
 
@@ -1564,7 +1564,7 @@ if.end86.i.i:                                     ; preds = %if.end82.i.i
   %45 = load ptr, ptr %mem140.i.i, align 8
   %realloc_fcn.i.i = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %realloc_fcn.i.i, align 8
-  %call90.i.i = call ptr %46(ptr noundef nonnull %44, i64 noundef %retval.0.i.i.i) #23
+  %call90.i.i = call ptr %46(ptr noundef nonnull %44, i64 noundef %retval.0.i.i.i) #24
   %cmp91.i.i = icmp eq ptr %call90.i.i, null
   br i1 %cmp91.i.i, label %if.then58, label %if.end94.i.i
 
@@ -1606,7 +1606,7 @@ if.end139.i.i:                                    ; preds = %48
   %retval.0.i96.i.i = zext nneg i32 %narrow4.i93.i.i to i64
   %49 = load ptr, ptr %mem140.i.i, align 8
   %50 = load ptr, ptr %49, align 8
-  %call141.i.i = call ptr %50(i64 noundef %retval.0.i96.i.i) #23
+  %call141.i.i = call ptr %50(i64 noundef %retval.0.i96.i.i) #24
   %tobool142.not.i.i = icmp eq ptr %call141.i.i, null
   br i1 %tobool142.not.i.i, label %if.then58, label %if.end144.i.i
 
@@ -1953,7 +1953,7 @@ if.then73.i:                                      ; preds = %if.end71.i
   %106 = load ptr, ptr %m_mem53, align 8
   %conv.i = sext i32 %105 to i64
   %mul.i = mul nsw i64 %conv.i, 24
-  %call75.i = call ptr %106(i64 noundef %mul.i) #23
+  %call75.i = call ptr %106(i64 noundef %mul.i) #24
   %defaultAtts.i = getelementptr inbounds i8, ptr %call68.i, i64 32
   store ptr %call75.i, ptr %defaultAtts.i, align 8
   %tobool77.not.i = icmp eq ptr %call75.i, null
@@ -2372,7 +2372,7 @@ if.else60:                                        ; preds = %if.end43
   %m_prologState48 = getelementptr inbounds i8, ptr %parser.0, i64 496
   %m_isParamEntity = getelementptr inbounds i8, ptr %parser.0, i64 912
   store i8 1, ptr %m_isParamEntity, align 8
-  call void @PyExpat_XmlPrologStateInitExternalEntity(ptr noundef nonnull %m_prologState48) #23
+  call void @PyExpat_XmlPrologStateInitExternalEntity(ptr noundef nonnull %m_prologState48) #24
   %m_processor62 = getelementptr inbounds i8, ptr %parser.0, i64 528
   store ptr @externalParEntInitProcessor, ptr %m_processor62, align 8
   br label %return
@@ -2750,7 +2750,7 @@ if.end8:                                          ; preds = %if.end5, %for.cond
   %3 = load ptr, ptr %free_fcn, align 8
   %buf = getelementptr inbounds i8, ptr %tagList.1, i64 64
   %4 = load ptr, ptr %buf, align 8
-  tail call void %3(ptr noundef %4) #23
+  tail call void %3(ptr noundef %4) #24
   %bindings = getelementptr inbounds i8, ptr %tagList.1, i64 80
   %5 = load ptr, ptr %bindings, align 8
   %tobool.not5.i = icmp eq ptr %5, null
@@ -2763,15 +2763,15 @@ if.end.i:                                         ; preds = %if.end8, %if.end.i
   %7 = load ptr, ptr %free_fcn, align 8
   %uri.i = getelementptr inbounds i8, ptr %bindings.addr.06.i, i64 32
   %8 = load ptr, ptr %uri.i, align 8
-  tail call void %7(ptr noundef %8) #23
+  tail call void %7(ptr noundef %8) #24
   %9 = load ptr, ptr %free_fcn, align 8
-  tail call void %9(ptr noundef nonnull %bindings.addr.06.i) #23
+  tail call void %9(ptr noundef nonnull %bindings.addr.06.i) #24
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %destroyBindings.exit, label %if.end.i
 
 destroyBindings.exit:                             ; preds = %if.end.i, %if.end8
   %10 = load ptr, ptr %free_fcn, align 8
-  tail call void %10(ptr noundef nonnull %tagList.1) #23
+  tail call void %10(ptr noundef nonnull %tagList.1) #24
   br label %for.cond
 
 for.end:                                          ; preds = %if.then2
@@ -2799,7 +2799,7 @@ if.end19:                                         ; preds = %if.end16, %for.cond
   %next = getelementptr inbounds i8, ptr %entityList.1, i64 16
   %13 = load ptr, ptr %next, align 8
   %14 = load ptr, ptr %free_fcn, align 8
-  tail call void %14(ptr noundef nonnull %entityList.1) #23
+  tail call void %14(ptr noundef nonnull %entityList.1) #24
   br label %for.cond11
 
 for.end22:                                        ; preds = %if.then13
@@ -2815,9 +2815,9 @@ if.end.i55:                                       ; preds = %for.end22, %if.end.
   %17 = load ptr, ptr %free_fcn, align 8
   %uri.i58 = getelementptr inbounds i8, ptr %bindings.addr.06.i56, i64 32
   %18 = load ptr, ptr %uri.i58, align 8
-  tail call void %17(ptr noundef %18) #23
+  tail call void %17(ptr noundef %18) #24
   %19 = load ptr, ptr %free_fcn, align 8
-  tail call void %19(ptr noundef nonnull %bindings.addr.06.i56) #23
+  tail call void %19(ptr noundef nonnull %bindings.addr.06.i56) #24
   %tobool.not.i59 = icmp eq ptr %16, null
   br i1 %tobool.not.i59, label %destroyBindings.exit60, label %if.end.i55
 
@@ -2834,9 +2834,9 @@ if.end.i64:                                       ; preds = %destroyBindings.exi
   %22 = load ptr, ptr %free_fcn, align 8
   %uri.i67 = getelementptr inbounds i8, ptr %bindings.addr.06.i65, i64 32
   %23 = load ptr, ptr %uri.i67, align 8
-  tail call void %22(ptr noundef %23) #23
+  tail call void %22(ptr noundef %23) #24
   %24 = load ptr, ptr %free_fcn, align 8
-  tail call void %24(ptr noundef nonnull %bindings.addr.06.i65) #23
+  tail call void %24(ptr noundef nonnull %bindings.addr.06.i65) #24
   %tobool.not.i68 = icmp eq ptr %21, null
   br i1 %tobool.not.i68, label %destroyBindings.exit69, label %if.end.i64
 
@@ -2856,7 +2856,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %27 = load ptr, ptr %mem.i, align 8
   %free_fcn.i70 = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %free_fcn.i70, align 8
-  tail call void %28(ptr noundef nonnull %p.010.i) #23
+  tail call void %28(ptr noundef nonnull %p.010.i) #24
   %tobool.not.i71 = icmp eq ptr %26, null
   br i1 %tobool.not.i71, label %while.end.i, label %while.body.i, !llvm.loop !18
 
@@ -2876,7 +2876,7 @@ while.body3.i:                                    ; preds = %while.body3.i, %whi
   %31 = load ptr, ptr %mem6.i, align 8
   %free_fcn7.i = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %free_fcn7.i, align 8
-  tail call void %32(ptr noundef nonnull %p.112.i) #23
+  tail call void %32(ptr noundef nonnull %p.112.i) #24
   %tobool2.not.i = icmp eq ptr %30, null
   br i1 %tobool2.not.i, label %poolDestroy.exit, label %while.body3.i, !llvm.loop !19
 
@@ -2896,7 +2896,7 @@ while.body.i75:                                   ; preds = %while.body.i75, %wh
   %35 = load ptr, ptr %mem.i74, align 8
   %free_fcn.i77 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %free_fcn.i77, align 8
-  tail call void %36(ptr noundef nonnull %p.010.i76) #23
+  tail call void %36(ptr noundef nonnull %p.010.i76) #24
   %tobool.not.i78 = icmp eq ptr %34, null
   br i1 %tobool.not.i78, label %while.end.i79, label %while.body.i75, !llvm.loop !18
 
@@ -2916,7 +2916,7 @@ while.body3.i84:                                  ; preds = %while.body3.i84, %w
   %39 = load ptr, ptr %mem6.i83, align 8
   %free_fcn7.i86 = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load ptr, ptr %free_fcn7.i86, align 8
-  tail call void %40(ptr noundef nonnull %p.112.i85) #23
+  tail call void %40(ptr noundef nonnull %p.112.i85) #24
   %tobool2.not.i87 = icmp eq ptr %38, null
   br i1 %tobool2.not.i87, label %poolDestroy.exit88, label %while.body3.i84, !llvm.loop !19
 
@@ -2924,7 +2924,7 @@ poolDestroy.exit88:                               ; preds = %while.body3.i84, %w
   %41 = load ptr, ptr %free_fcn, align 8
   %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
   %42 = load ptr, ptr %m_protocolEncodingName, align 8
-  tail call void %41(ptr noundef %42) #23
+  tail call void %41(ptr noundef %42) #24
   %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
   %43 = load i8, ptr %m_isParamEntity, align 8
   %tobool.not = icmp eq i8 %43, 0
@@ -2979,7 +2979,7 @@ if.then1.i:                                       ; preds = %if.end.i90
   %50 = load ptr, ptr %free_fcn, align 8
   %defaultAtts.i = getelementptr inbounds i8, ptr %48, i64 32
   %51 = load ptr, ptr %defaultAtts.i, align 8
-  tail call void %50(ptr noundef %51) #23
+  tail call void %50(ptr noundef %51) #24
   br label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
@@ -3000,7 +3000,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %55 = load ptr, ptr %44, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %55, i64 %i.08.i.i
   %56 = load ptr, ptr %arrayidx.i.i, align 8
-  tail call void %54(ptr noundef %56) #23
+  tail call void %54(ptr noundef %56) #24
   %inc.i.i = add nuw i64 %i.08.i.i, 1
   %57 = load i64, ptr %size.i18.i, align 8
   %cmp.i.i = icmp ult i64 %inc.i.i, %57
@@ -3012,7 +3012,7 @@ hashTableDestroy.exit.i:                          ; preds = %for.body.i.i, %for.
   %free_fcn2.i.i = getelementptr inbounds i8, ptr %58, i64 16
   %59 = load ptr, ptr %free_fcn2.i.i, align 8
   %60 = load ptr, ptr %44, align 8
-  tail call void %59(ptr noundef %60) #23
+  tail call void %59(ptr noundef %60) #24
   %paramEntities.i = getelementptr inbounds i8, ptr %44, i64 264
   %size.i19.i = getelementptr inbounds i8, ptr %44, i64 280
   %61 = load i64, ptr %size.i19.i, align 8
@@ -3031,7 +3031,7 @@ for.body.i23.i:                                   ; preds = %for.body.i23.i, %fo
   %64 = load ptr, ptr %paramEntities.i, align 8
   %arrayidx.i26.i = getelementptr ptr, ptr %64, i64 %i.08.i24.i
   %65 = load ptr, ptr %arrayidx.i26.i, align 8
-  tail call void %63(ptr noundef %65) #23
+  tail call void %63(ptr noundef %65) #24
   %inc.i27.i = add nuw i64 %i.08.i24.i, 1
   %66 = load i64, ptr %size.i19.i, align 8
   %cmp.i28.i = icmp ult i64 %inc.i27.i, %66
@@ -3043,7 +3043,7 @@ hashTableDestroy.exit31.i:                        ; preds = %for.body.i23.i, %ha
   %free_fcn2.i30.i = getelementptr inbounds i8, ptr %67, i64 16
   %68 = load ptr, ptr %free_fcn2.i30.i, align 8
   %69 = load ptr, ptr %paramEntities.i, align 8
-  tail call void %68(ptr noundef %69) #23
+  tail call void %68(ptr noundef %69) #24
   %size.i32.i = getelementptr inbounds i8, ptr %44, i64 56
   %70 = load i64, ptr %size.i32.i, align 8
   %cmp7.not.i33.i = icmp eq i64 %70, 0
@@ -3061,7 +3061,7 @@ for.body.i36.i:                                   ; preds = %for.body.i36.i, %fo
   %73 = load ptr, ptr %elementTypes.i, align 8
   %arrayidx.i39.i = getelementptr ptr, ptr %73, i64 %i.08.i37.i
   %74 = load ptr, ptr %arrayidx.i39.i, align 8
-  tail call void %72(ptr noundef %74) #23
+  tail call void %72(ptr noundef %74) #24
   %inc.i40.i = add nuw i64 %i.08.i37.i, 1
   %75 = load i64, ptr %size.i32.i, align 8
   %cmp.i41.i = icmp ult i64 %inc.i40.i, %75
@@ -3073,7 +3073,7 @@ hashTableDestroy.exit44.i:                        ; preds = %for.body.i36.i, %ha
   %free_fcn2.i43.i = getelementptr inbounds i8, ptr %76, i64 16
   %77 = load ptr, ptr %free_fcn2.i43.i, align 8
   %78 = load ptr, ptr %elementTypes.i, align 8
-  tail call void %77(ptr noundef %78) #23
+  tail call void %77(ptr noundef %78) #24
   %attributeIds.i = getelementptr inbounds i8, ptr %44, i64 80
   %size.i45.i = getelementptr inbounds i8, ptr %44, i64 96
   %79 = load i64, ptr %size.i45.i, align 8
@@ -3092,7 +3092,7 @@ for.body.i49.i:                                   ; preds = %for.body.i49.i, %fo
   %82 = load ptr, ptr %attributeIds.i, align 8
   %arrayidx.i52.i = getelementptr ptr, ptr %82, i64 %i.08.i50.i
   %83 = load ptr, ptr %arrayidx.i52.i, align 8
-  tail call void %81(ptr noundef %83) #23
+  tail call void %81(ptr noundef %83) #24
   %inc.i53.i = add nuw i64 %i.08.i50.i, 1
   %84 = load i64, ptr %size.i45.i, align 8
   %cmp.i54.i = icmp ult i64 %inc.i53.i, %84
@@ -3104,7 +3104,7 @@ hashTableDestroy.exit57.i:                        ; preds = %for.body.i49.i, %ha
   %free_fcn2.i56.i = getelementptr inbounds i8, ptr %85, i64 16
   %86 = load ptr, ptr %free_fcn2.i56.i, align 8
   %87 = load ptr, ptr %attributeIds.i, align 8
-  tail call void %86(ptr noundef %87) #23
+  tail call void %86(ptr noundef %87) #24
   %prefixes.i = getelementptr inbounds i8, ptr %44, i64 120
   %size.i58.i = getelementptr inbounds i8, ptr %44, i64 136
   %88 = load i64, ptr %size.i58.i, align 8
@@ -3123,7 +3123,7 @@ for.body.i62.i:                                   ; preds = %for.body.i62.i, %fo
   %91 = load ptr, ptr %prefixes.i, align 8
   %arrayidx.i65.i = getelementptr ptr, ptr %91, i64 %i.08.i63.i
   %92 = load ptr, ptr %arrayidx.i65.i, align 8
-  tail call void %90(ptr noundef %92) #23
+  tail call void %90(ptr noundef %92) #24
   %inc.i66.i = add nuw i64 %i.08.i63.i, 1
   %93 = load i64, ptr %size.i58.i, align 8
   %cmp.i67.i = icmp ult i64 %inc.i66.i, %93
@@ -3135,7 +3135,7 @@ hashTableDestroy.exit70.i:                        ; preds = %for.body.i62.i, %ha
   %free_fcn2.i69.i = getelementptr inbounds i8, ptr %94, i64 16
   %95 = load ptr, ptr %free_fcn2.i69.i, align 8
   %96 = load ptr, ptr %prefixes.i, align 8
-  tail call void %95(ptr noundef %96) #23
+  tail call void %95(ptr noundef %96) #24
   %pool.i = getelementptr inbounds i8, ptr %44, i64 160
   %97 = load ptr, ptr %pool.i, align 8
   %tobool.not9.i.i = icmp eq ptr %97, null
@@ -3151,7 +3151,7 @@ while.body.i72.i:                                 ; preds = %while.body.i72.i, %
   %99 = load ptr, ptr %mem.i71.i, align 8
   %free_fcn.i73.i = getelementptr inbounds i8, ptr %99, i64 16
   %100 = load ptr, ptr %free_fcn.i73.i, align 8
-  tail call void %100(ptr noundef nonnull %p.010.i.i) #23
+  tail call void %100(ptr noundef nonnull %p.010.i.i) #24
   %tobool.not.i74.i = icmp eq ptr %98, null
   br i1 %tobool.not.i74.i, label %while.end.i.i, label %while.body.i72.i, !llvm.loop !18
 
@@ -3171,7 +3171,7 @@ while.body3.i.i:                                  ; preds = %while.body3.i.i, %w
   %103 = load ptr, ptr %mem6.i.i, align 8
   %free_fcn7.i.i = getelementptr inbounds i8, ptr %103, i64 16
   %104 = load ptr, ptr %free_fcn7.i.i, align 8
-  tail call void %104(ptr noundef nonnull %p.112.i.i) #23
+  tail call void %104(ptr noundef nonnull %p.112.i.i) #24
   %tobool2.not.i.i = icmp eq ptr %102, null
   br i1 %tobool2.not.i.i, label %poolDestroy.exit.i, label %while.body3.i.i, !llvm.loop !19
 
@@ -3191,7 +3191,7 @@ while.body.i78.i:                                 ; preds = %while.body.i78.i, %
   %107 = load ptr, ptr %mem.i77.i, align 8
   %free_fcn.i80.i = getelementptr inbounds i8, ptr %107, i64 16
   %108 = load ptr, ptr %free_fcn.i80.i, align 8
-  tail call void %108(ptr noundef nonnull %p.010.i79.i) #23
+  tail call void %108(ptr noundef nonnull %p.010.i79.i) #24
   %tobool.not.i81.i = icmp eq ptr %106, null
   br i1 %tobool.not.i81.i, label %while.end.i82.i, label %while.body.i78.i, !llvm.loop !18
 
@@ -3211,7 +3211,7 @@ while.body3.i87.i:                                ; preds = %while.body3.i87.i, 
   %111 = load ptr, ptr %mem6.i86.i, align 8
   %free_fcn7.i89.i = getelementptr inbounds i8, ptr %111, i64 16
   %112 = load ptr, ptr %free_fcn7.i89.i, align 8
-  tail call void %112(ptr noundef nonnull %p.112.i88.i) #23
+  tail call void %112(ptr noundef nonnull %p.112.i88.i) #24
   %tobool2.not.i90.i = icmp eq ptr %110, null
   br i1 %tobool2.not.i90.i, label %poolDestroy.exit91.i, label %while.body3.i87.i, !llvm.loop !19
 
@@ -3222,43 +3222,43 @@ if.then5.i:                                       ; preds = %poolDestroy.exit91.
   %113 = load ptr, ptr %free_fcn, align 8
   %scaffIndex.i = getelementptr inbounds i8, ptr %44, i64 352
   %114 = load ptr, ptr %scaffIndex.i, align 8
-  tail call void %113(ptr noundef %114) #23
+  tail call void %113(ptr noundef %114) #24
   %115 = load ptr, ptr %free_fcn, align 8
   %scaffold.i = getelementptr inbounds i8, ptr %44, i64 328
   %116 = load ptr, ptr %scaffold.i, align 8
-  tail call void %115(ptr noundef %116) #23
+  tail call void %115(ptr noundef %116) #24
   br label %dtdDestroy.exit
 
 dtdDestroy.exit:                                  ; preds = %poolDestroy.exit91.i, %if.then5.i
   %117 = load ptr, ptr %free_fcn, align 8
-  tail call void %117(ptr noundef nonnull %44) #23
+  tail call void %117(ptr noundef nonnull %44) #24
   br label %if.end30
 
 if.end30:                                         ; preds = %dtdDestroy.exit, %land.lhs.true, %poolDestroy.exit88
   %118 = load ptr, ptr %free_fcn, align 8
   %m_atts = getelementptr inbounds i8, ptr %parser, i64 736
   %119 = load ptr, ptr %m_atts, align 8
-  tail call void %118(ptr noundef %119) #23
+  tail call void %118(ptr noundef %119) #24
   %120 = load ptr, ptr %free_fcn, align 8
   %m_groupConnector = getelementptr inbounds i8, ptr %parser, i64 880
   %121 = load ptr, ptr %m_groupConnector, align 8
-  tail call void %120(ptr noundef %121) #23
+  tail call void %120(ptr noundef %121) #24
   %122 = load ptr, ptr %free_fcn, align 8
   %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
   %123 = load ptr, ptr %m_buffer, align 8
-  tail call void %122(ptr noundef %123) #23
+  tail call void %122(ptr noundef %123) #24
   %124 = load ptr, ptr %free_fcn, align 8
   %m_dataBuf = getelementptr inbounds i8, ptr %parser, i64 88
   %125 = load ptr, ptr %m_dataBuf, align 8
-  tail call void %124(ptr noundef %125) #23
+  tail call void %124(ptr noundef %125) #24
   %126 = load ptr, ptr %free_fcn, align 8
   %m_nsAtts = getelementptr inbounds i8, ptr %parser, i64 744
   %127 = load ptr, ptr %m_nsAtts, align 8
-  tail call void %126(ptr noundef %127) #23
+  tail call void %126(ptr noundef %127) #24
   %128 = load ptr, ptr %free_fcn, align 8
   %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
   %129 = load ptr, ptr %m_unknownEncodingMem, align 8
-  tail call void %128(ptr noundef %129) #23
+  tail call void %128(ptr noundef %129) #24
   %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
   %130 = load ptr, ptr %m_unknownEncodingRelease, align 8
   %tobool43.not = icmp eq ptr %130, null
@@ -3267,12 +3267,12 @@ if.end30:                                         ; preds = %dtdDestroy.exit, %l
 if.then44:                                        ; preds = %if.end30
   %m_unknownEncodingData = getelementptr inbounds i8, ptr %parser, i64 472
   %131 = load ptr, ptr %m_unknownEncodingData, align 8
-  tail call void %130(ptr noundef %131) #23
+  tail call void %130(ptr noundef %131) #24
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %if.end30
   %132 = load ptr, ptr %free_fcn, align 8
-  tail call void %132(ptr noundef nonnull %parser) #23
+  tail call void %132(ptr noundef nonnull %parser) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end46
@@ -4104,7 +4104,7 @@ if.end24:                                         ; preds = %if.then20
   store ptr %3, ptr %m_parseEndPtr, align 8
   %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   %4 = load ptr, ptr %m_processor, align 8
-  %call28 = tail call i32 %4(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #23
+  %call28 = tail call i32 %4(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #24
   %m_errorCode29 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 %call28, ptr %m_errorCode29, align 8
   %cmp31 = icmp eq i32 %call28, 0
@@ -4126,7 +4126,7 @@ sw.bb36:                                          ; preds = %if.then33
   %8 = load ptr, ptr %m_positionPtr, align 8
   %9 = load ptr, ptr %m_bufferPtr, align 8
   %m_position = getelementptr inbounds i8, ptr %parser, i64 768
-  tail call void %7(ptr noundef %6, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %m_position) #23
+  tail call void %7(ptr noundef %6, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %m_position) #24
   %10 = load ptr, ptr %m_bufferPtr, align 8
   store ptr %10, ptr %m_positionPtr, align 8
   br label %return
@@ -4179,7 +4179,7 @@ do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.t
   %bytesWrittenTotal.0.i.i = phi i64 [ 0, %if.then ], [ %bytesWrittenTotal.111.i.i, %land.rhs.i.i ]
   %add.ptr.i.i = getelementptr i8, ptr %entropy.i, i64 %bytesWrittenTotal.0.i.i
   %sub.i.i = sub i64 8, %bytesWrittenTotal.0.i.i
-  %call.i.i = call i64 @getrandom(ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, i32 noundef 1) #23
+  %call.i.i = call i64 @getrandom(ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, i32 noundef 1) #24
   %conv.i.i = trunc i64 %call.i.i to i32
   %cmp.i.i = icmp sgt i32 %conv.i.i, 0
   br i1 %cmp.i.i, label %do.cond.i.i, label %land.rhs.i.i
@@ -4192,7 +4192,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
 
 land.rhs.i.i:                                     ; preds = %do.cond.i.i, %do.body.i.i
   %bytesWrittenTotal.111.i.i = phi i64 [ %add.i.i, %do.cond.i.i ], [ %bytesWrittenTotal.0.i.i, %do.body.i.i ]
-  %call7.i.i = tail call ptr @__errno_location() #25
+  %call7.i.i = tail call ptr @__errno_location() #26
   %1 = load i32, ptr %call7.i.i, align 4
   %cmp8.i.i = icmp eq i32 %1, 4
   br i1 %cmp8.i.i, label %do.body.i.i, label %if.end.i, !llvm.loop !21
@@ -4200,15 +4200,15 @@ land.rhs.i.i:                                     ; preds = %do.cond.i.i, %do.bo
 if.then.i:                                        ; preds = %do.cond.i.i
   %2 = load i64, ptr %entropy.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i.i.i)
-  %call.i.i.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #23
+  %call.i.i.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #24
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %getDebugLevel.exit.thread.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
-  %call1.i.i.i = tail call ptr @__errno_location() #25
+  %call1.i.i.i = tail call ptr @__errno_location() #26
   store i32 0, ptr %call1.i.i.i, align 4
   store ptr %call.i.i.i, ptr %afterValue.i.i.i, align 8
-  %call2.i.i.i = call i64 @strtoul(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %afterValue.i.i.i, i32 noundef 10) #23
+  %call2.i.i.i = call i64 @strtoul(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %afterValue.i.i.i, i32 noundef 10) #24
   %3 = load i32, ptr %call1.i.i.i, align 4
   %cmp4.not.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp4.not.i.i.i, label %lor.lhs.false.i.i.i, label %if.then7.i.i.i
@@ -4234,29 +4234,29 @@ getDebugLevel.exit.i.i:                           ; preds = %lor.lhs.false.i.i.i
 
 if.then.i.i:                                      ; preds = %getDebugLevel.exit.i.i
   %6 = load ptr, ptr @stderr, align 8
-  %call1.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.322, i32 noundef 16, i64 noundef %2, i64 noundef 8) #26
+  %call1.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.322, i32 noundef 16, i64 noundef %2, i64 noundef 8) #27
   br label %generate_hash_secret_salt.exit
 
 if.end.i:                                         ; preds = %land.rhs.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
-  %call.i1.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #23
+  %call.i1.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #24
   %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
-  %call3.i = call i32 @getpid() #23
+  %call3.i = call i32 @getpid() #24
   %conv.i = sext i32 %call3.i to i64
   %xor.i = xor i64 %7, %conv.i
   store i64 %xor.i, ptr %entropy.i, align 8
   %mul.i = mul i64 %xor.i, 2305843009213693951
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i.i2.i)
-  %call.i.i3.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #23
+  %call.i.i3.i = call ptr @getenv(ptr noundef nonnull readonly @.str.324) #24
   %cmp.i.i4.i = icmp eq ptr %call.i.i3.i, null
   br i1 %cmp.i.i4.i, label %getDebugLevel.exit.thread.i10.i, label %if.end.i.i5.i
 
 if.end.i.i5.i:                                    ; preds = %if.end.i
   store i32 0, ptr %call7.i.i, align 4
   store ptr %call.i.i3.i, ptr %afterValue.i.i2.i, align 8
-  %call2.i.i7.i = call i64 @strtoul(ptr noundef nonnull %call.i.i3.i, ptr noundef nonnull %afterValue.i.i2.i, i32 noundef 10) #23
+  %call2.i.i7.i = call i64 @strtoul(ptr noundef nonnull %call.i.i3.i, ptr noundef nonnull %afterValue.i.i2.i, i32 noundef 10) #24
   %8 = load i32, ptr %call7.i.i, align 4
   %cmp4.not.i.i8.i = icmp eq i32 %8, 0
   br i1 %cmp4.not.i.i8.i, label %lor.lhs.false.i.i11.i, label %if.then7.i.i9.i
@@ -4282,7 +4282,7 @@ getDebugLevel.exit.i13.i:                         ; preds = %lor.lhs.false.i.i11
 
 if.then.i15.i:                                    ; preds = %getDebugLevel.exit.i13.i
   %11 = load ptr, ptr @stderr, align 8
-  %call1.i16.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.323, i32 noundef 16, i64 noundef %mul.i, i64 noundef 8) #26
+  %call1.i16.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.323, i32 noundef 16, i64 noundef %mul.i, i64 noundef 8) #27
   br label %generate_hash_secret_salt.exit
 
 generate_hash_secret_salt.exit:                   ; preds = %getDebugLevel.exit.thread.i.i, %getDebugLevel.exit.i.i, %if.then.i.i, %getDebugLevel.exit.thread.i10.i, %getDebugLevel.exit.i13.i, %if.then.i15.i
@@ -4537,7 +4537,7 @@ if.end150:                                        ; preds = %do.end
   %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %16 = load ptr, ptr %m_mem, align 8
   %conv151 = zext nneg i32 %mul to i64
-  %call = tail call ptr %16(i64 noundef %conv151) #23
+  %call = tail call ptr %16(i64 noundef %conv151) #24
   %cmp152 = icmp eq ptr %call, null
   br i1 %cmp152, label %if.then154, label %if.end156
 
@@ -4570,7 +4570,7 @@ if.then162:                                       ; preds = %if.end156
   %19 = load ptr, ptr %free_fcn, align 8
   %m_buffer184 = getelementptr inbounds i8, ptr %parser, i64 16
   %20 = load ptr, ptr %m_buffer184, align 8
-  tail call void %19(ptr noundef %20) #23
+  tail call void %19(ptr noundef %20) #24
   store ptr %call, ptr %m_buffer184, align 8
   %21 = load ptr, ptr %m_bufferEnd13, align 8
   %tobool188.not = icmp eq ptr %21, null
@@ -4695,7 +4695,7 @@ sw.default:                                       ; preds = %if.end6, %land.lhs.
   store i8 %conv16, ptr %finalBuffer, align 4
   %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
   %6 = load ptr, ptr %m_processor, align 8
-  %call20 = tail call i32 %6(ptr noundef nonnull %parser, ptr noundef %3, ptr noundef %add.ptr, ptr noundef nonnull %m_bufferPtr14) #23
+  %call20 = tail call i32 %6(ptr noundef nonnull %parser, ptr noundef %3, ptr noundef %add.ptr, ptr noundef nonnull %m_bufferPtr14) #24
   %m_errorCode21 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 %call20, ptr %m_errorCode21, align 8
   %cmp23.not = icmp eq i32 %call20, 0
@@ -4737,7 +4737,7 @@ if.end38:                                         ; preds = %sw.bb29, %sw.bb30, 
   %11 = load ptr, ptr %m_positionPtr, align 8
   %12 = load ptr, ptr %m_bufferPtr14, align 8
   %m_position = getelementptr inbounds i8, ptr %parser, i64 768
-  tail call void %10(ptr noundef %9, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %m_position) #23
+  tail call void %10(ptr noundef %9, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %m_position) #24
   %13 = load ptr, ptr %m_bufferPtr14, align 8
   store ptr %13, ptr %m_positionPtr, align 8
   br label %return
@@ -4835,7 +4835,7 @@ if.end3:                                          ; preds = %if.end
   %2 = load ptr, ptr %m_bufferPtr, align 8
   %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
   %3 = load ptr, ptr %m_parseEndPtr, align 8
-  %call = tail call i32 %1(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #23
+  %call = tail call i32 %1(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #24
   %m_errorCode7 = getelementptr inbounds i8, ptr %parser, i64 536
   store i32 %call, ptr %m_errorCode7, align 8
   %cmp9.not = icmp eq i32 %call, 0
@@ -4880,7 +4880,7 @@ if.end20:                                         ; preds = %sw.bb, %sw.bb14, %i
   %9 = load ptr, ptr %m_positionPtr, align 8
   %10 = load ptr, ptr %m_bufferPtr, align 8
   %m_position = getelementptr inbounds i8, ptr %parser, i64 768
-  tail call void %8(ptr noundef %7, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %m_position) #23
+  tail call void %8(ptr noundef %7, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %m_position) #24
   %11 = load ptr, ptr %m_bufferPtr, align 8
   store ptr %11, ptr %m_positionPtr, align 8
   br label %return
@@ -5056,7 +5056,7 @@ if.then3:                                         ; preds = %land.lhs.true
   %updatePosition = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %updatePosition, align 8
   %m_position = getelementptr inbounds i8, ptr %parser, i64 768
-  tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #23
+  tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #24
   %4 = load ptr, ptr %m_eventPtr, align 8
   store ptr %4, ptr %m_positionPtr, align 8
   br label %if.end9
@@ -5096,7 +5096,7 @@ if.then3:                                         ; preds = %land.lhs.true
   %updatePosition = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %updatePosition, align 8
   %m_position = getelementptr inbounds i8, ptr %parser, i64 768
-  tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #23
+  tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #24
   %4 = load ptr, ptr %m_eventPtr, align 8
   store ptr %4, ptr %m_positionPtr, align 8
   br label %if.end9
@@ -5120,7 +5120,7 @@ entry:
 if.then:                                          ; preds = %entry
   %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %0 = load ptr, ptr %free_fcn, align 8
-  tail call void %0(ptr noundef %model) #23
+  tail call void %0(ptr noundef %model) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5136,7 +5136,7 @@ entry:
 if.end:                                           ; preds = %entry
   %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %0 = load ptr, ptr %m_mem, align 8
-  %call = tail call ptr %0(i64 noundef %size) #23
+  %call = tail call ptr %0(i64 noundef %size) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5153,7 +5153,7 @@ entry:
 if.end:                                           ; preds = %entry
   %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
   %0 = load ptr, ptr %realloc_fcn, align 8
-  %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #23
+  %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5170,7 +5170,7 @@ entry:
 if.then:                                          ; preds = %entry
   %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %0 = load ptr, ptr %free_fcn, align 8
-  tail call void %0(ptr noundef %ptr) #23
+  tail call void %0(ptr noundef %ptr) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5232,7 +5232,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   store ptr %7, ptr %dataPtr.i, align 8
   %8 = load ptr, ptr %utf8Convert.i, align 8
   %9 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i = call i32 %8(ptr noundef nonnull %2, ptr noundef nonnull %s.addr.i, ptr noundef %4, ptr noundef nonnull %dataPtr.i, ptr noundef %9) #23
+  %call.i = call i32 %8(ptr noundef nonnull %2, ptr noundef nonnull %s.addr.i, ptr noundef %4, ptr noundef nonnull %dataPtr.i, ptr noundef %9) #24
   %10 = load ptr, ptr %s.addr.i, align 8
   store ptr %10, ptr %eventEndPP.0.i, align 8
   %11 = load ptr, ptr %m_defaultHandler, align 8
@@ -5243,7 +5243,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %11(ptr noundef %12, ptr noundef %13, i32 noundef %conv.i) #23
+  call void %11(ptr noundef %12, ptr noundef %13, i32 noundef %conv.i) #24
   %15 = load ptr, ptr %s.addr.i, align 8
   store ptr %15, ptr %eventPP.0.i, align 8
   %16 = icmp ugt i32 %call.i, 1
@@ -5256,7 +5256,7 @@ if.else9.i:                                       ; preds = %if.then3
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  tail call void %0(ptr noundef %17, ptr noundef %3, i32 noundef %conv15.i) #23
+  tail call void %0(ptr noundef %17, ptr noundef %3, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -5291,7 +5291,7 @@ do.body.i36:                                      ; preds = %do.body.i36, %if.en
   store ptr %22, ptr %dataPtr.i12, align 8
   %23 = load ptr, ptr %utf8Convert.i32, align 8
   %24 = load ptr, ptr %m_dataBufEnd.i33, align 8
-  %call.i37 = call i32 %23(ptr noundef nonnull %18, ptr noundef nonnull %s.addr.i11, ptr noundef %20, ptr noundef nonnull %dataPtr.i12, ptr noundef %24) #23
+  %call.i37 = call i32 %23(ptr noundef nonnull %18, ptr noundef nonnull %s.addr.i11, ptr noundef %20, ptr noundef nonnull %dataPtr.i12, ptr noundef %24) #24
   %25 = load ptr, ptr %s.addr.i11, align 8
   store ptr %25, ptr %m_eventEndPtr, align 8
   %26 = load ptr, ptr %m_defaultHandler, align 8
@@ -5302,7 +5302,7 @@ do.body.i36:                                      ; preds = %do.body.i36, %if.en
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38, %sub.ptr.rhs.cast.i39
   %conv.i41 = trunc i64 %sub.ptr.sub.i40 to i32
-  call void %26(ptr noundef %27, ptr noundef %28, i32 noundef %conv.i41) #23
+  call void %26(ptr noundef %27, ptr noundef %28, i32 noundef %conv.i41) #24
   %30 = load ptr, ptr %s.addr.i11, align 8
   store ptr %30, ptr %m_eventPtr, align 8
   %31 = icmp ugt i32 %call.i37, 1
@@ -5315,7 +5315,7 @@ if.else9.i15:                                     ; preds = %if.else
   %sub.ptr.rhs.cast13.i19 = ptrtoint ptr %19 to i64
   %sub.ptr.sub14.i20 = sub i64 %sub.ptr.lhs.cast12.i18, %sub.ptr.rhs.cast13.i19
   %conv15.i21 = trunc i64 %sub.ptr.sub14.i20 to i32
-  tail call void %0(ptr noundef %32, ptr noundef %19, i32 noundef %conv15.i21) #23
+  tail call void %0(ptr noundef %32, ptr noundef %19, i32 noundef %conv15.i21) #24
   br label %reportDefault.exit45
 
 reportDefault.exit45:                             ; preds = %do.body.i36, %if.else9.i15
@@ -5370,7 +5370,7 @@ do.body:                                          ; preds = %do.body, %if.end
   store ptr %3, ptr %dataPtr, align 8
   %4 = load ptr, ptr %utf8Convert, align 8
   %5 = load ptr, ptr %m_dataBufEnd, align 8
-  %call = call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr, ptr noundef %end, ptr noundef nonnull %dataPtr, ptr noundef %5) #23
+  %call = call i32 %4(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr, ptr noundef %end, ptr noundef nonnull %dataPtr, ptr noundef %5) #24
   %6 = load ptr, ptr %s.addr, align 8
   store ptr %6, ptr %eventEndPP.0, align 8
   %7 = load ptr, ptr %m_defaultHandler, align 8
@@ -5381,7 +5381,7 @@ do.body:                                          ; preds = %do.body, %if.end
   %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  call void %7(ptr noundef %8, ptr noundef %9, i32 noundef %conv) #23
+  call void %7(ptr noundef %8, ptr noundef %9, i32 noundef %conv) #24
   %11 = load ptr, ptr %s.addr, align 8
   store ptr %11, ptr %eventPP.0, align 8
   %12 = icmp ugt i32 %call, 1
@@ -5396,7 +5396,7 @@ if.else9:                                         ; preds = %entry
   %sub.ptr.rhs.cast13 = ptrtoint ptr %s to i64
   %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast12, %sub.ptr.rhs.cast13
   %conv15 = trunc i64 %sub.ptr.sub14 to i32
-  tail call void %13(ptr noundef %14, ptr noundef %s, i32 noundef %conv15) #23
+  tail call void %13(ptr noundef %14, ptr noundef %s, i32 noundef %conv15) #24
   br label %if.end16
 
 if.end16:                                         ; preds = %do.body, %if.else9
@@ -5560,7 +5560,7 @@ if.end:                                           ; preds = %entry
   %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %call.i = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next.i) #23
+  %call.i = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next.i) #24
   %2 = load ptr, ptr %m_encoding.i, align 8
   %3 = load ptr, ptr %next.i, align 8
   %finalBuffer.i = getelementptr inbounds i8, ptr %parser, i64 908
@@ -5595,7 +5595,7 @@ entry:
   %cond = select i1 %tobool.not, ptr @PyExpat_XmlInitEncoding, ptr @PyExpat_XmlInitEncodingNS
   %m_initEncoding = getelementptr inbounds i8, ptr %parser, i64 296
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
-  %call = tail call i32 %cond(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef %0) #23, !callees !24
+  %call = tail call i32 %cond(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef %0) #24, !callees !24
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end, label %return
 
@@ -5615,16 +5615,16 @@ for.body.preheader.i:                             ; preds = %if.end
   %m_unknownEncodingHandlerData.i = getelementptr inbounds i8, ptr %parser, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data.i, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %m_unknownEncodingHandlerData.i, align 8
-  %call.i = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %info.i) #23
+  %call.i = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %info.i) #24
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end27.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.preheader.i
   %m_mem.i = getelementptr inbounds i8, ptr %parser, i64 24
   %5 = load ptr, ptr %m_mem.i, align 8
-  %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #23
+  %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #24
   %conv.i = sext i32 %call4.i to i64
-  %call5.i = call ptr %5(i64 noundef %conv.i) #23
+  %call5.i = call ptr %5(i64 noundef %conv.i) #24
   %m_unknownEncodingMem.i = getelementptr inbounds i8, ptr %parser, i64 464
   store ptr %call5.i, ptr %m_unknownEncodingMem.i, align 8
   %tobool7.not.i = icmp eq ptr %call5.i, null
@@ -5637,7 +5637,7 @@ if.then8.i:                                       ; preds = %if.then3.i
 
 if.then11.i:                                      ; preds = %if.then8.i
   %7 = load ptr, ptr %data.i, align 8
-  call void %6(ptr noundef %7) #23
+  call void %6(ptr noundef %7) #24
   br label %handleUnknownEncoding.exit
 
 if.end14.i:                                       ; preds = %if.then3.i
@@ -5646,7 +5646,7 @@ if.end14.i:                                       ; preds = %if.then3.i
   %cond.i = select i1 %tobool16.not.i, ptr @PyExpat_XmlInitUnknownEncoding, ptr @PyExpat_XmlInitUnknownEncodingNS
   %9 = load ptr, ptr %convert.i, align 8
   %10 = load ptr, ptr %data.i, align 8
-  %call21.i = call ptr %cond.i(ptr noundef nonnull %call5.i, ptr noundef nonnull %info.i, ptr noundef %9, ptr noundef %10) #23, !callees !25
+  %call21.i = call ptr %cond.i(ptr noundef nonnull %call5.i, ptr noundef nonnull %info.i, ptr noundef %9, ptr noundef %10) #24, !callees !25
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %if.end27.i, label %if.then23.i
 
@@ -5667,7 +5667,7 @@ if.end27.i:                                       ; preds = %if.end14.i, %for.bo
 
 if.then31.i:                                      ; preds = %if.end27.i
   %14 = load ptr, ptr %data.i, align 8
-  call void %13(ptr noundef %14) #23
+  call void %13(ptr noundef %14) #24
   br label %handleUnknownEncoding.exit
 
 handleUnknownEncoding.exit:                       ; preds = %if.end, %if.then8.i, %if.then11.i, %if.then23.i, %if.end27.i, %if.then31.i
@@ -5688,7 +5688,7 @@ entry:
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
-  %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #24
   %2 = load ptr, ptr %m_encoding, align 8
   %3 = load ptr, ptr %next, align 8
   %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
@@ -5875,7 +5875,7 @@ if.end19:                                         ; preds = %sw.bb11
 
 if.then25:                                        ; preds = %land.lhs.true15, %if.end19
   %9 = load ptr, ptr %m_prologState34, align 8
-  %call = call i32 %9(ptr noundef nonnull %m_prologState34, i32 noundef -4, ptr noundef %end, ptr noundef %end, ptr noundef %enc.addr.0) #23
+  %call = call i32 %9(ptr noundef nonnull %m_prologState34, i32 noundef -4, ptr noundef %end, ptr noundef %end, ptr noundef %enc.addr.0) #24
   %cmp27 = icmp eq i32 %call, -1
   br i1 %cmp27, label %return, label %if.end30
 
@@ -5892,7 +5892,7 @@ if.end33:                                         ; preds = %if.end7, %sw.defaul
   %10 = phi ptr [ %end, %sw.default ], [ %4, %for.cond ], [ %4, %if.end7 ]
   %tok.addr.1 = phi i32 [ %sub32, %sw.default ], [ %tok.addr.0, %for.cond ], [ 15, %if.end7 ]
   %11 = load ptr, ptr %m_prologState34, align 8
-  %call37 = call i32 %11(ptr noundef nonnull %m_prologState34, i32 noundef %tok.addr.1, ptr noundef %s.addr.0, ptr noundef %10, ptr noundef %enc.addr.0) #23
+  %call37 = call i32 %11(ptr noundef nonnull %m_prologState34, i32 noundef %tok.addr.1, ptr noundef %s.addr.0, ptr noundef %10, ptr noundef %enc.addr.0) #24
   switch i32 %call37, label %sw.default39 [
     i32 2, label %sw.epilog44
     i32 1, label %sw.epilog44
@@ -5937,7 +5937,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %16, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %17 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %15, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %15, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 sw.epilog44:                                      ; preds = %sw.default39, %if.end33, %if.end33, %if.end33
@@ -6041,7 +6041,7 @@ if.end.i.i735:                                    ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i735
   %23 = load ptr, ptr %utf8Convert.i.i, align 8
   %24 = load ptr, ptr %end.i1226, align 8
-  %call5.i.i = call i32 %23(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %21, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %24) #23
+  %call5.i.i = call i32 %23(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %21, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %24) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -6110,7 +6110,7 @@ if.then66:                                        ; preds = %sw.bb63
   %33 = load ptr, ptr %m_doctypeName150, align 8
   %34 = load ptr, ptr %m_doctypeSysid592, align 8
   %35 = load ptr, ptr %m_doctypePubid157, align 8
-  call void %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef 1) #23
+  call void %31(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef 1) #24
   store ptr null, ptr %m_doctypeName150, align 8
   %36 = load ptr, ptr %freeBlocks.i1218, align 8
   %tobool.not.i736 = icmp eq ptr %36, null
@@ -6166,7 +6166,7 @@ if.then90:                                        ; preds = %if.end87
   %isPublicId = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
   %43 = load ptr, ptr %isPublicId, align 8
   %44 = load ptr, ptr %next.addr, align 8
-  %call91 = call i32 %43(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %44, ptr noundef nonnull %eventPP.0) #23
+  %call91 = call i32 %43(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %44, ptr noundef nonnull %eventPP.0) #24
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %return, label %if.end94
 
@@ -6196,7 +6196,7 @@ if.end.i.i741:                                    ; preds = %land.lhs.true.i.i76
 for.cond.i.i744:                                  ; preds = %if.end8.i.i747, %if.end.i.i741
   %48 = load ptr, ptr %utf8Convert.i.i742, align 8
   %49 = load ptr, ptr %end.i1226, align 8
-  %call5.i.i745 = call i32 %48(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i738, ptr noundef %add.ptr98, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %49) #23
+  %call5.i.i745 = call i32 %48(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i738, ptr noundef %add.ptr98, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %49) #24
   %or.cond.i.i746 = icmp ult i32 %call5.i.i745, 2
   br i1 %or.cond.i.i746, label %poolAppend.exit.i752, label %if.end8.i.i747
 
@@ -6294,7 +6294,7 @@ sw.bb109:                                         ; preds = %if.end87, %sw.epilo
   %isPublicId110 = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
   %59 = load ptr, ptr %isPublicId110, align 8
   %60 = load ptr, ptr %next.addr, align 8
-  %call111 = call i32 %59(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %60, ptr noundef nonnull %eventPP.0) #23
+  %call111 = call i32 %59(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %60, ptr noundef nonnull %eventPP.0) #24
   %tobool112.not = icmp eq i32 %call111, 0
   br i1 %tobool112.not, label %return, label %alreadyChecked
 
@@ -6335,7 +6335,7 @@ if.end.i.i772:                                    ; preds = %land.lhs.true.i.i79
 for.cond.i.i775:                                  ; preds = %if.end8.i.i778, %if.end.i.i772
   %66 = load ptr, ptr %utf8Convert.i.i773, align 8
   %67 = load ptr, ptr %end4.i.i1241, align 8
-  %call5.i.i776 = call i32 %66(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i769, ptr noundef %add.ptr127, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %67) #23
+  %call5.i.i776 = call i32 %66(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i769, ptr noundef %add.ptr127, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %67) #24
   %or.cond.i.i777 = icmp ult i32 %call5.i.i776, 2
   br i1 %or.cond.i.i777, label %poolAppend.exit.i783, label %if.end8.i.i778
 
@@ -6448,7 +6448,7 @@ if.then152:                                       ; preds = %if.end149
   %81 = load ptr, ptr %m_handlerArg1382, align 8
   %82 = load ptr, ptr %m_doctypeSysid592, align 8
   %83 = load ptr, ptr %m_doctypePubid157, align 8
-  call void %80(ptr noundef %81, ptr noundef nonnull %79, ptr noundef %82, ptr noundef %83, i32 noundef 0) #23
+  call void %80(ptr noundef %81, ptr noundef nonnull %79, ptr noundef %82, ptr noundef %83, i32 noundef 0) #24
   %84 = load ptr, ptr %freeBlocks.i1218, align 8
   %tobool.not.i822 = icmp eq ptr %84, null
   %85 = load ptr, ptr %m_tempPool949, align 8
@@ -6525,7 +6525,7 @@ if.end181:                                        ; preds = %if.then180, %if.end
   %98 = load ptr, ptr %systemId, align 8
   %publicId184 = getelementptr inbounds i8, ptr %call174, i64 40
   %99 = load ptr, ptr %publicId184, align 8
-  %call185 = call i32 %95(ptr noundef %96, ptr noundef null, ptr noundef %97, ptr noundef %98, ptr noundef %99) #23
+  %call185 = call i32 %95(ptr noundef %96, ptr noundef null, ptr noundef %97, ptr noundef %98, ptr noundef %99) #24
   %tobool186.not = icmp eq i32 %call185, 0
   br i1 %tobool186.not, label %return, label %if.end188
 
@@ -6546,7 +6546,7 @@ land.lhs.true193:                                 ; preds = %if.then191
 
 land.lhs.true195:                                 ; preds = %land.lhs.true193
   %103 = load ptr, ptr %m_handlerArg1382, align 8
-  %call198 = call i32 %102(ptr noundef %103) #23
+  %call198 = call i32 %102(ptr noundef %103) #24
   %tobool199.not = icmp eq i32 %call198, 0
   br i1 %tobool199.not, label %return, label %if.end209
 
@@ -6570,7 +6570,7 @@ if.end211:                                        ; preds = %if.end209, %lor.lhs
 
 if.then213:                                       ; preds = %if.end211
   %106 = load ptr, ptr %m_handlerArg1382, align 8
-  call void %105(ptr noundef %106) #23
+  call void %105(ptr noundef %106) #24
   br label %if.end1443
 
 sw.bb217:                                         ; preds = %sw.epilog44
@@ -6607,7 +6607,7 @@ if.end235:                                        ; preds = %if.then229
   %115 = load ptr, ptr %systemId242, align 8
   %publicId243 = getelementptr inbounds i8, ptr %call232, i64 40
   %116 = load ptr, ptr %publicId243, align 8
-  %call244 = call i32 %112(ptr noundef %113, ptr noundef null, ptr noundef %114, ptr noundef %115, ptr noundef %116) #23
+  %call244 = call i32 %112(ptr noundef %113, ptr noundef null, ptr noundef %114, ptr noundef %115, ptr noundef %116) #24
   %tobool245.not = icmp eq i32 %call244, 0
   br i1 %tobool245.not, label %return, label %if.end247
 
@@ -6628,7 +6628,7 @@ land.lhs.true253:                                 ; preds = %if.then250
 
 land.lhs.true256:                                 ; preds = %land.lhs.true253
   %120 = load ptr, ptr %m_handlerArg1382, align 8
-  %call259 = call i32 %119(ptr noundef %120) #23
+  %call259 = call i32 %119(ptr noundef %120) #24
   %tobool260.not = icmp eq i32 %call259, 0
   br i1 %tobool260.not, label %return, label %if.end267
 
@@ -6778,7 +6778,7 @@ if.end.i841:                                      ; preds = %land.lhs.true.i846,
 for.cond.i842:                                    ; preds = %if.end8.i, %if.end.i841
   %136 = load ptr, ptr %utf8Convert.i, align 8
   %137 = load ptr, ptr %end.i1226, align 8
-  %call5.i = call i32 %136(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i, ptr noundef %134, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %137) #23
+  %call5.i = call i32 %136(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i, ptr noundef %134, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %137) #24
   %or.cond.i = icmp ult i32 %call5.i, 2
   br i1 %or.cond.i, label %poolAppend.exit, label %if.end8.i
 
@@ -6872,7 +6872,7 @@ if.then18.i:                                      ; preds = %if.end14.i
 if.then22.i:                                      ; preds = %if.then18.i
   store i32 8, ptr %allocDefaultAtts.i, align 4
   %150 = load ptr, ptr %3, align 8
-  %call.i851 = call ptr %150(i64 noundef 192) #23
+  %call.i851 = call ptr %150(i64 noundef 192) #24
   %defaultAtts26.i = getelementptr inbounds i8, ptr %140, i64 32
   store ptr %call.i851, ptr %defaultAtts26.i, align 8
   %tobool28.not.i = icmp eq ptr %call.i851, null
@@ -6893,7 +6893,7 @@ if.end36.i:                                       ; preds = %if.else.i850
   %152 = load ptr, ptr %defaultAtts40.i, align 8
   %conv41.i = sext i32 %mul38.i to i64
   %mul42.i = mul nsw i64 %conv41.i, 24
-  %call43.i = call ptr %151(ptr noundef %152, i64 noundef %mul42.i) #23
+  %call43.i = call ptr %151(ptr noundef %152, i64 noundef %mul42.i) #24
   %cmp44.i = icmp eq ptr %call43.i, null
   br i1 %cmp44.i, label %return, label %if.end47.i
 
@@ -7005,7 +7005,7 @@ if.end405:                                        ; preds = %if.then352, %cond.f
   %174 = load ptr, ptr %m_declAttributeType451, align 8
   %cmp412 = icmp eq i32 %call37, 36
   %conv413 = zext i1 %cmp412 to i32
-  call void %168(ptr noundef %169, ptr noundef %171, ptr noundef %173, ptr noundef %174, ptr noundef null, i32 noundef %conv413) #23
+  call void %168(ptr noundef %169, ptr noundef %171, ptr noundef %173, ptr noundef %174, ptr noundef null, i32 noundef %conv413) #24
   br label %if.end415
 
 if.end415:                                        ; preds = %if.end346, %land.lhs.true349, %if.end405, %sw.bb335
@@ -7144,7 +7144,7 @@ if.then18.i901:                                   ; preds = %if.end14.i883
 if.then22.i914:                                   ; preds = %if.then18.i901
   store i32 8, ptr %allocDefaultAtts.i885, align 4
   %198 = load ptr, ptr %3, align 8
-  %call.i916 = call ptr %198(i64 noundef 192) #23
+  %call.i916 = call ptr %198(i64 noundef 192) #24
   %defaultAtts26.i917 = getelementptr inbounds i8, ptr %191, i64 32
   store ptr %call.i916, ptr %defaultAtts26.i917, align 8
   %tobool28.not.i918 = icmp eq ptr %call.i916, null
@@ -7165,7 +7165,7 @@ if.end36.i905:                                    ; preds = %if.else.i903
   %200 = load ptr, ptr %defaultAtts40.i908, align 8
   %conv41.i909 = sext i32 %mul38.i906 to i64
   %mul42.i910 = mul nsw i64 %conv41.i909, 24
-  %call43.i911 = call ptr %199(ptr noundef %200, i64 noundef %mul42.i910) #23
+  %call43.i911 = call ptr %199(ptr noundef %200, i64 noundef %mul42.i910) #24
   %cmp44.i912 = icmp eq ptr %call43.i911, null
   br i1 %cmp44.i912, label %return, label %if.end47.i913
 
@@ -7277,7 +7277,7 @@ if.end510:                                        ; preds = %if.then453, %cond.f
   %222 = load ptr, ptr %m_declAttributeType451, align 8
   %cmp518 = icmp eq i32 %call37, 38
   %conv519 = zext i1 %cmp518 to i32
-  call void %216(ptr noundef %217, ptr noundef %219, ptr noundef %221, ptr noundef %222, ptr noundef %189, i32 noundef %conv519) #23
+  call void %216(ptr noundef %217, ptr noundef %219, ptr noundef %221, ptr noundef %222, ptr noundef %189, i32 noundef %conv519) #24
   %223 = load ptr, ptr %freeBlocks.i1218, align 8
   %tobool.not.i935 = icmp eq ptr %223, null
   %224 = load ptr, ptr %m_tempPool949, align 8
@@ -7355,7 +7355,7 @@ if.then553:                                       ; preds = %if.then538
   %textLen563 = getelementptr inbounds i8, ptr %238, i64 16
   %242 = load i32, ptr %textLen563, align 8
   %243 = load ptr, ptr %m_curBase946, align 8
-  call void %236(ptr noundef %237, ptr noundef %239, i32 noundef %conv559, ptr noundef %241, i32 noundef %242, ptr noundef %243, ptr noundef null, ptr noundef null, ptr noundef null) #23
+  call void %236(ptr noundef %237, ptr noundef %239, i32 noundef %conv559, ptr noundef %241, i32 noundef %242, ptr noundef %243, ptr noundef null, ptr noundef null, ptr noundef null) #24
   br label %if.end571
 
 if.else566:                                       ; preds = %if.then526
@@ -7400,7 +7400,7 @@ if.end.i.i948:                                    ; preds = %land.lhs.true.i.i97
 for.cond.i.i951:                                  ; preds = %if.end8.i.i954, %if.end.i.i948
   %248 = load ptr, ptr %utf8Convert.i.i949, align 8
   %249 = load ptr, ptr %end.i1226, align 8
-  %call5.i.i952 = call i32 %248(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i945, ptr noundef %add.ptr590, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %249) #23
+  %call5.i.i952 = call i32 %248(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i945, ptr noundef %add.ptr590, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %249) #24
   %or.cond.i.i953 = icmp ult i32 %call5.i.i952, 2
   br i1 %or.cond.i.i953, label %poolAppend.exit.i959, label %if.end8.i.i954
 
@@ -7475,7 +7475,7 @@ land.lhs.true610:                                 ; preds = %land.lhs.true607
 
 land.lhs.true613:                                 ; preds = %land.lhs.true610
   %259 = load ptr, ptr %m_handlerArg1382, align 8
-  %call616 = call i32 %258(ptr noundef %259) #23
+  %call616 = call i32 %258(ptr noundef %259) #24
   %tobool617.not = icmp eq i32 %call616, 0
   br i1 %tobool617.not, label %return, label %if.end619
 
@@ -7532,7 +7532,7 @@ if.end.i.i978:                                    ; preds = %land.lhs.true.i.i10
 for.cond.i.i981:                                  ; preds = %if.end8.i.i984, %if.end.i.i978
   %266 = load ptr, ptr %utf8Convert.i.i979, align 8
   %267 = load ptr, ptr %end4.i.i1241, align 8
-  %call5.i.i982 = call i32 %266(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i975, ptr noundef %add.ptr648, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %267) #23
+  %call5.i.i982 = call i32 %266(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i975, ptr noundef %add.ptr648, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %267) #24
   %or.cond.i.i983 = icmp ult i32 %call5.i.i982, 2
   br i1 %or.cond.i.i983, label %poolAppend.exit.i989, label %if.end8.i.i984
 
@@ -7627,7 +7627,7 @@ if.then682:                                       ; preds = %land.lhs.true679
   %288 = load ptr, ptr %systemId693, align 8
   %publicId695 = getelementptr inbounds i8, ptr %284, i64 40
   %289 = load ptr, ptr %publicId695, align 8
-  call void %282(ptr noundef %283, ptr noundef %285, i32 noundef %conv689, ptr noundef null, i32 noundef 0, ptr noundef %287, ptr noundef %288, ptr noundef %289, ptr noundef null) #23
+  call void %282(ptr noundef %283, ptr noundef %285, i32 noundef %conv689, ptr noundef null, i32 noundef 0, ptr noundef %287, ptr noundef %288, ptr noundef %289, ptr noundef null) #24
   br label %if.end1443
 
 sw.bb697:                                         ; preds = %sw.epilog44
@@ -7660,7 +7660,7 @@ if.end.i.i1008:                                   ; preds = %land.lhs.true.i.i10
 for.cond.i.i1011:                                 ; preds = %if.end8.i.i1014, %if.end.i.i1008
   %294 = load ptr, ptr %utf8Convert.i.i1009, align 8
   %295 = load ptr, ptr %end4.i.i1241, align 8
-  %call5.i.i1012 = call i32 %294(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1005, ptr noundef %292, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %295) #23
+  %call5.i.i1012 = call i32 %294(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1005, ptr noundef %292, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %295) #24
   %or.cond.i.i1013 = icmp ult i32 %call5.i.i1012, 2
   br i1 %or.cond.i.i1013, label %poolAppend.exit.i1019, label %if.end8.i.i1014
 
@@ -7734,7 +7734,7 @@ if.then718:                                       ; preds = %if.end712
   %312 = load ptr, ptr %publicId728, align 8
   %notation730 = getelementptr inbounds i8, ptr %308, i64 48
   %313 = load ptr, ptr %notation730, align 8
-  call void %306(ptr noundef %307, ptr noundef %309, ptr noundef %310, ptr noundef %311, ptr noundef %312, ptr noundef %313) #23
+  call void %306(ptr noundef %307, ptr noundef %309, ptr noundef %310, ptr noundef %311, ptr noundef %312, ptr noundef %313) #24
   br label %if.end1443
 
 if.else731:                                       ; preds = %if.end712
@@ -7756,14 +7756,14 @@ if.then734:                                       ; preds = %if.else731
   %321 = load ptr, ptr %publicId744, align 8
   %notation746 = getelementptr inbounds i8, ptr %317, i64 48
   %322 = load ptr, ptr %notation746, align 8
-  call void %315(ptr noundef %316, ptr noundef %318, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322) #23
+  call void %315(ptr noundef %316, ptr noundef %318, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322) #24
   br label %if.end1443
 
 sw.bb750:                                         ; preds = %sw.epilog44
   %predefinedEntityName = getelementptr inbounds i8, ptr %enc.addr.0, i64 88
   %323 = load ptr, ptr %predefinedEntityName, align 8
   %324 = load ptr, ptr %next.addr, align 8
-  %call751 = call i32 %323(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %324) #23
+  %call751 = call i32 %323(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %324) #24
   %tobool752.not = icmp eq i32 %call751, 0
   br i1 %tobool752.not, label %if.end755, label %if.then753
 
@@ -7796,7 +7796,7 @@ if.end.i.i1038:                                   ; preds = %land.lhs.true.i.i10
 for.cond.i.i1041:                                 ; preds = %if.end8.i.i1044, %if.end.i.i1038
   %328 = load ptr, ptr %utf8Convert.i.i1039, align 8
   %329 = load ptr, ptr %end4.i.i1241, align 8
-  %call5.i.i1042 = call i32 %328(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1035, ptr noundef %326, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %329) #23
+  %call5.i.i1042 = call i32 %328(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1035, ptr noundef %326, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %329) #24
   %or.cond.i.i1043 = icmp ult i32 %call5.i.i1042, 2
   br i1 %or.cond.i.i1043, label %poolAppend.exit.i1049, label %if.end8.i.i1044
 
@@ -7916,7 +7916,7 @@ if.end.i.i1068:                                   ; preds = %land.lhs.true.i.i10
 for.cond.i.i1071:                                 ; preds = %if.end8.i.i1074, %if.end.i.i1068
   %349 = load ptr, ptr %utf8Convert.i.i1069, align 8
   %350 = load ptr, ptr %end4.i.i1241, align 8
-  %call5.i.i1072 = call i32 %349(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1065, ptr noundef %347, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %350) #23
+  %call5.i.i1072 = call i32 %349(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1065, ptr noundef %347, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %350) #24
   %or.cond.i.i1073 = icmp ult i32 %call5.i.i1072, 2
   br i1 %or.cond.i.i1073, label %poolAppend.exit.i1079, label %if.end8.i.i1074
 
@@ -8037,7 +8037,7 @@ if.end.i.i1098:                                   ; preds = %land.lhs.true.i.i11
 for.cond.i.i1101:                                 ; preds = %if.end8.i.i1104, %if.end.i.i1098
   %370 = load ptr, ptr %utf8Convert.i.i1099, align 8
   %371 = load ptr, ptr %end.i1226, align 8
-  %call5.i.i1102 = call i32 %370(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1095, ptr noundef %368, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %371) #23
+  %call5.i.i1102 = call i32 %370(ptr noundef %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1095, ptr noundef %368, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %371) #24
   %or.cond.i.i1103 = icmp ult i32 %call5.i.i1102, 2
   br i1 %or.cond.i.i1103, label %poolAppend.exit.i1109, label %if.end8.i.i1104
 
@@ -8094,7 +8094,7 @@ sw.bb881:                                         ; preds = %sw.epilog44
   %isPublicId882 = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
   %378 = load ptr, ptr %isPublicId882, align 8
   %379 = load ptr, ptr %next.addr, align 8
-  %call883 = call i32 %378(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %379, ptr noundef nonnull %eventPP.0) #23
+  %call883 = call i32 %378(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %379, ptr noundef nonnull %eventPP.0) #24
   %tobool884.not = icmp eq i32 %call883, 0
   br i1 %tobool884.not, label %return, label %if.end886
 
@@ -8129,7 +8129,7 @@ if.end.i.i1128:                                   ; preds = %land.lhs.true.i.i11
 for.cond.i.i1131:                                 ; preds = %if.end8.i.i1134, %if.end.i.i1128
   %384 = load ptr, ptr %utf8Convert.i.i1129, align 8
   %385 = load ptr, ptr %end.i1226, align 8
-  %call5.i.i1132 = call i32 %384(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1125, ptr noundef %add.ptr898, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %385) #23
+  %call5.i.i1132 = call i32 %384(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1125, ptr noundef %add.ptr898, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %385) #24
   %or.cond.i.i1133 = icmp ult i32 %call5.i.i1132, 2
   br i1 %or.cond.i.i1133, label %poolAppend.exit.i1139, label %if.end8.i.i1134
 
@@ -8259,7 +8259,7 @@ if.end.i.i1180:                                   ; preds = %land.lhs.true.i.i12
 for.cond.i.i1183:                                 ; preds = %if.end8.i.i1186, %if.end.i.i1180
   %400 = load ptr, ptr %utf8Convert.i.i1181, align 8
   %401 = load ptr, ptr %end.i1226, align 8
-  %call5.i.i1184 = call i32 %400(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1177, ptr noundef %add.ptr924, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %401) #23
+  %call5.i.i1184 = call i32 %400(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1177, ptr noundef %add.ptr924, ptr noundef nonnull %ptr1.i.i1178, ptr noundef %401) #24
   %or.cond.i.i1185 = icmp ult i32 %call5.i.i1184, 2
   br i1 %or.cond.i.i1185, label %poolAppend.exit.i1191, label %if.end8.i.i1186
 
@@ -8309,7 +8309,7 @@ if.end928:                                        ; preds = %poolStoreString.exi
   %409 = load ptr, ptr %m_declNotationName945, align 8
   %410 = load ptr, ptr %m_curBase946, align 8
   %411 = load ptr, ptr %m_declNotationPublicId937, align 8
-  call void %407(ptr noundef %408, ptr noundef %409, ptr noundef %410, ptr noundef nonnull %406, ptr noundef %411) #23
+  call void %407(ptr noundef %408, ptr noundef %409, ptr noundef %410, ptr noundef nonnull %406, ptr noundef %411) #24
   br label %if.end934
 
 if.end934:                                        ; preds = %if.end928, %land.lhs.true912, %sw.bb909
@@ -8358,7 +8358,7 @@ if.then942:                                       ; preds = %land.lhs.true939
   %420 = load ptr, ptr %m_declNotationName945, align 8
   %421 = load ptr, ptr %m_curBase946, align 8
   %422 = load ptr, ptr %m_declNotationPublicId937, align 8
-  call void %418(ptr noundef %419, ptr noundef %420, ptr noundef %421, ptr noundef null, ptr noundef %422) #23
+  call void %418(ptr noundef %419, ptr noundef %420, ptr noundef %421, ptr noundef null, ptr noundef %422) #24
   br label %if.end948
 
 if.end948:                                        ; preds = %if.then942, %land.lhs.true939, %sw.bb936
@@ -8433,7 +8433,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %432, ptr %dataPtr.i, align 8
   %433 = load ptr, ptr %utf8Convert.i1234, align 8
   %434 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i1235 = call i32 %433(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i, ptr noundef %428, ptr noundef nonnull %dataPtr.i, ptr noundef %434) #23
+  %call.i1235 = call i32 %433(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i, ptr noundef %428, ptr noundef nonnull %dataPtr.i, ptr noundef %434) #24
   %435 = load ptr, ptr %s.addr.i, align 8
   store ptr %435, ptr %eventEndPP.0.i, align 8
   %436 = load ptr, ptr %m_defaultHandler, align 8
@@ -8444,7 +8444,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %438 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %436(ptr noundef %437, ptr noundef %438, i32 noundef %conv.i) #23
+  call void %436(ptr noundef %437, ptr noundef %438, i32 noundef %conv.i) #24
   %440 = load ptr, ptr %s.addr.i, align 8
   store ptr %440, ptr %eventPP.0.i, align 8
   %441 = icmp ugt i32 %call.i1235, 1
@@ -8456,7 +8456,7 @@ if.else9.i:                                       ; preds = %if.then957
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %s.addr.0 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  call void %427(ptr noundef %442, ptr noundef %s.addr.0, i32 noundef %conv15.i) #23
+  call void %427(ptr noundef %442, ptr noundef %s.addr.0, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -8499,7 +8499,7 @@ if.end981:                                        ; preds = %if.then976
   %mul = shl nuw i32 %445, 1
   store i32 %mul, ptr %m_groupSize, align 8
   %conv983 = zext i32 %mul to i64
-  %call984 = call ptr %446(ptr noundef %447, i64 noundef %conv983) #23
+  %call984 = call ptr %446(ptr noundef %447, i64 noundef %conv983) #24
   %cmp985 = icmp eq ptr %call984, null
   br i1 %cmp985, label %if.then987, label %if.end989
 
@@ -8520,7 +8520,7 @@ if.then992:                                       ; preds = %if.end989
   %451 = load i32, ptr %m_groupSize, align 8
   %conv997 = zext i32 %451 to i64
   %mul998 = shl nuw nsw i64 %conv997, 2
-  %call999 = call ptr %450(ptr noundef nonnull %449, i64 noundef %mul998) #23
+  %call999 = call ptr %450(ptr noundef nonnull %449, i64 noundef %mul998) #24
   %cmp1000 = icmp eq ptr %call999, null
   br i1 %cmp1000, label %return, label %if.end1003
 
@@ -8531,7 +8531,7 @@ if.end1003:                                       ; preds = %if.then992
 if.else1006:                                      ; preds = %if.then973
   %452 = load ptr, ptr %3, align 8
   store i32 32, ptr %m_groupSize, align 8
-  %call1009 = call ptr %452(i64 noundef 32) #23
+  %call1009 = call ptr %452(i64 noundef 32) #24
   store ptr %call1009, ptr %m_groupConnector1064, align 8
   %tobool1012.not = icmp eq ptr %call1009, null
   br i1 %tobool1012.not, label %if.then1013, label %if.end1017
@@ -8677,7 +8677,7 @@ if.end.i.i1239:                                   ; preds = %land.lhs.true.i.i12
 for.cond.i.i1242:                                 ; preds = %if.end8.i.i1245, %if.end.i.i1239
   %482 = load ptr, ptr %utf8Convert.i.i1240, align 8
   %483 = load ptr, ptr %end4.i.i1241, align 8
-  %call5.i.i1243 = call i32 %482(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1236, ptr noundef %add.ptr1133, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %483) #23
+  %call5.i.i1243 = call i32 %482(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %ptr.addr.i.i1236, ptr noundef %add.ptr1133, ptr noundef nonnull %ptr1.i.i1237, ptr noundef %483) #24
   %or.cond.i.i1244 = icmp ult i32 %call5.i.i1243, 2
   br i1 %or.cond.i.i1244, label %poolAppend.exit.i1250, label %if.end8.i.i1245
 
@@ -8844,7 +8844,7 @@ land.lhs.true1172:                                ; preds = %if.then1167
 
 if.then1174:                                      ; preds = %land.lhs.true1172
   %511 = load ptr, ptr %m_handlerArg1382, align 8
-  call void %510(ptr noundef %511, ptr noundef nonnull %488, i32 noundef 1) #23
+  call void %510(ptr noundef %511, ptr noundef nonnull %488, i32 noundef 1) #24
   br label %if.end1443
 
 if.end1179:                                       ; preds = %if.else1165, %if.else1159
@@ -8920,7 +8920,7 @@ if.end.i.i1281:                                   ; preds = %if.end.i1278
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i = getelementptr inbounds i8, ptr %retval.0.i1272, i64 16
   %524 = load i32, ptr %textLen.i.i, align 8
-  %call.i.i1282 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %522, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %519, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %521, ptr noundef nonnull @.str.319, i32 noundef %524, i32 noundef 5439) #26
+  %call.i.i1282 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %522, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %519, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %521, ptr noundef nonnull @.str.319, i32 noundef %524, i32 noundef 5439) #27
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i1278, %if.end.i.i1281
@@ -8932,7 +8932,7 @@ entityTrackingOnOpen.exit:                        ; preds = %if.end.i1278, %if.e
   %528 = load ptr, ptr %systemId1206, align 8
   %publicId1207 = getelementptr inbounds i8, ptr %retval.0.i1272, i64 40
   %529 = load ptr, ptr %publicId1207, align 8
-  %call1208 = call i32 %525(ptr noundef %526, ptr noundef null, ptr noundef %527, ptr noundef %528, ptr noundef %529) #23
+  %call1208 = call i32 %525(ptr noundef %526, ptr noundef null, ptr noundef %527, ptr noundef %528, ptr noundef %529) #24
   %tobool1209.not = icmp eq i32 %call1208, 0
   br i1 %tobool1209.not, label %if.then1210, label %while.cond.i.i1284
 
@@ -8971,7 +8971,7 @@ if.end.i.i1291:                                   ; preds = %getRootParserOf.exi
   %cond.i.i1295 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i1296 = getelementptr inbounds i8, ptr %retval.0.i1272, i64 16
   %538 = load i32, ptr %textLen.i.i1296, align 8
-  %call.i.i1297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %533, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1285, i32 noundef %534, i32 noundef %535, i32 noundef %536, i32 noundef %mul.i.i1293, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1295, ptr noundef %532, ptr noundef nonnull @.str.321, i32 noundef %538, i32 noundef 5447) #26
+  %call.i.i1297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %533, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1285, i32 noundef %534, i32 noundef %535, i32 noundef %536, i32 noundef %mul.i.i1293, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1295, ptr noundef %532, ptr noundef nonnull @.str.321, i32 noundef %538, i32 noundef 5447) #27
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i1288, %if.end.i.i1291
@@ -9007,7 +9007,7 @@ land.lhs.true1227:                                ; preds = %if.end1224
 
 land.lhs.true1230:                                ; preds = %land.lhs.true1227
   %544 = load ptr, ptr %m_handlerArg1382, align 8
-  %call1233 = call i32 %543(ptr noundef %544) #23
+  %call1233 = call i32 %543(ptr noundef %544) #24
   %tobool1234.not = icmp eq i32 %call1233, 0
   br i1 %tobool1234.not, label %return, label %sw.epilog1436
 
@@ -9041,7 +9041,7 @@ if.then1253:                                      ; preds = %sw.bb1250
 
 if.then1256:                                      ; preds = %if.then1253
   %549 = load ptr, ptr %3, align 8
-  %call1259 = call ptr %549(i64 noundef 32) #23
+  %call1259 = call ptr %549(i64 noundef 32) #24
   %tobool1260.not = icmp eq ptr %call1259, null
   br i1 %tobool1260.not, label %return, label %if.end1262
 
@@ -9058,7 +9058,7 @@ if.end1262:                                       ; preds = %if.then1256
   %551 = load ptr, ptr %m_handlerArg1382, align 8
   %552 = load ptr, ptr %m_declElementType1383, align 8
   %553 = load ptr, ptr %552, align 8
-  call void %550(ptr noundef %551, ptr noundef %553, ptr noundef nonnull %call1259) #23
+  call void %550(ptr noundef %551, ptr noundef %553, ptr noundef nonnull %call1259) #24
   br label %if.end1273
 
 if.end1273:                                       ; preds = %if.end1262, %if.then1253
@@ -9213,7 +9213,7 @@ if.then1376:                                      ; preds = %if.then1374
   %conv.i1299 = zext i32 %580 to i64
   %mul.i = shl nuw nsw i64 %conv.i1299, 5
   %add.i1300 = add nuw nsw i64 %mul.i, %conv1.i
-  %call.i1301 = call ptr %parser.val(i64 noundef %add.i1300) #23
+  %call.i1301 = call ptr %parser.val(i64 noundef %add.i1300) #24
   %tobool.not.i1302 = icmp eq ptr %call.i1301, null
   br i1 %tobool.not.i1302, label %return, label %if.end11.i
 
@@ -9319,7 +9319,7 @@ if.end1380:                                       ; preds = %for.inc62.i, %if.en
   %596 = load ptr, ptr %m_handlerArg1382, align 8
   %597 = load ptr, ptr %m_declElementType1383, align 8
   %598 = load ptr, ptr %597, align 8
-  call void %595(ptr noundef %596, ptr noundef %598, ptr noundef nonnull %call.i1301) #23
+  call void %595(ptr noundef %596, ptr noundef %598, ptr noundef nonnull %call.i1301) #24
   br label %if.end1385
 
 if.end1385:                                       ; preds = %if.end1380, %if.then1374
@@ -9419,7 +9419,7 @@ do.body.i1337:                                    ; preds = %do.body.i1337, %if.
   store ptr %613, ptr %dataPtr.i1313, align 8
   %614 = load ptr, ptr %utf8Convert.i1333, align 8
   %615 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i1338 = call i32 %614(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i1312, ptr noundef %609, ptr noundef nonnull %dataPtr.i1313, ptr noundef %615) #23
+  %call.i1338 = call i32 %614(ptr noundef nonnull %enc.addr.0, ptr noundef nonnull %s.addr.i1312, ptr noundef %609, ptr noundef nonnull %dataPtr.i1313, ptr noundef %615) #24
   %616 = load ptr, ptr %s.addr.i1312, align 8
   store ptr %616, ptr %eventEndPP.0.i1331, align 8
   %617 = load ptr, ptr %m_defaultHandler, align 8
@@ -9430,7 +9430,7 @@ do.body.i1337:                                    ; preds = %do.body.i1337, %if.
   %sub.ptr.rhs.cast.i1340 = ptrtoint ptr %619 to i64
   %sub.ptr.sub.i1341 = sub i64 %sub.ptr.lhs.cast.i1339, %sub.ptr.rhs.cast.i1340
   %conv.i1342 = trunc i64 %sub.ptr.sub.i1341 to i32
-  call void %617(ptr noundef %618, ptr noundef %619, i32 noundef %conv.i1342) #23
+  call void %617(ptr noundef %618, ptr noundef %619, i32 noundef %conv.i1342) #24
   %621 = load ptr, ptr %s.addr.i1312, align 8
   store ptr %621, ptr %eventPP.0.i1330, align 8
   %622 = icmp ugt i32 %call.i1338, 1
@@ -9442,7 +9442,7 @@ if.else9.i1316:                                   ; preds = %if.then1442
   %sub.ptr.rhs.cast13.i1320 = ptrtoint ptr %s.addr.0 to i64
   %sub.ptr.sub14.i1321 = sub i64 %sub.ptr.lhs.cast12.i1319, %sub.ptr.rhs.cast13.i1320
   %conv15.i1322 = trunc i64 %sub.ptr.sub14.i1321 to i32
-  call void %608(ptr noundef %623, ptr noundef %s.addr.0, i32 noundef %conv15.i1322) #23
+  call void %608(ptr noundef %623, ptr noundef %s.addr.0, i32 noundef %conv15.i1322) #24
   br label %reportDefault.exit1346
 
 reportDefault.exit1346:                           ; preds = %do.body.i1337, %if.else9.i1316
@@ -9466,7 +9466,7 @@ sw.bb1444:                                        ; preds = %if.end1443
 sw.default1446:                                   ; preds = %if.end1443
   %626 = load ptr, ptr %next.addr, align 8
   %627 = load ptr, ptr %enc.addr.11410, align 8
-  %call1448 = call i32 %627(ptr noundef nonnull %enc.addr.11410, ptr noundef %626, ptr noundef %end, ptr noundef nonnull %next.addr) #23
+  %call1448 = call i32 %627(ptr noundef nonnull %enc.addr.11410, ptr noundef %626, ptr noundef %end, ptr noundef nonnull %next.addr) #24
   br label %for.cond
 
 return.loopexit2110:                              ; preds = %if.end7
@@ -9577,13 +9577,13 @@ cond.true.i.i:                                    ; preds = %if.end.i
 accountingGetCurrentAmplification.exit.i:         ; preds = %cond.true.i.i, %if.end.i
   %cond.i.i = phi double [ %13, %cond.true.i.i ], [ 1.000000e+00, %if.end.i ]
   %14 = load ptr, ptr @stderr, align 8
-  %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i, i64 noundef %12, i64 noundef %.pre.i, double noundef %cond.i.i, ptr noundef nonnull @.str.310) #26
+  %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i, i64 noundef %12, i64 noundef %.pre.i, double noundef %cond.i.i, ptr noundef nonnull @.str.310) #27
   br label %accountingReportStats.exit
 
 accountingReportStats.exit:                       ; preds = %getRootParserOf.exit.i, %accountingGetCurrentAmplification.exit.i
   %15 = load ptr, ptr @stderr, align 8
   %cond.i22 = select i1 %cmp1, ptr @.str.313, ptr @.str.314
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.312, i64 noundef %sub.ptr.sub, ptr noundef nonnull %cond.i22, i32 noundef %stepsTakenUpwards.0.i, i32 noundef %source_line, i32 noundef 10, ptr noundef nonnull @.str.310) #26
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.312, i64 noundef %sub.ptr.sub, ptr noundef nonnull %cond.i22, i32 noundef %stepsTakenUpwards.0.i, i32 noundef %source_line, i32 noundef 10, ptr noundef nonnull @.str.310) #27
   %16 = load i32, ptr %debugLevel, align 8
   %cmp1.i = icmp sgt i32 %16, 2
   %cmp2.i = icmp slt i64 %sub.ptr.sub, 25
@@ -9604,7 +9604,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %17 = load ptr, ptr @stderr, align 8
   %18 = load i8, ptr %walker.022.i, align 1
   %call4.i25 = tail call ptr @PyExpat_unsignedCharToPrintable(i8 noundef zeroext %18)
-  %fputs15.i = tail call i32 @fputs(ptr nonnull %call4.i25, ptr %17) #26
+  %fputs15.i = tail call i32 @fputs(ptr nonnull %call4.i25, ptr %17) #27
   %incdec.ptr.i = getelementptr i8, ptr %walker.022.i, i64 1
   %exitcond25.not.i = icmp eq ptr %incdec.ptr.i, %after
   br i1 %exitcond25.not.i, label %accountingReportDiff.exit, label %for.body.i, !llvm.loop !33
@@ -9614,14 +9614,14 @@ for.body8.i:                                      ; preds = %for.cond6.preheader
   %19 = load ptr, ptr @stderr, align 8
   %20 = load i8, ptr %walker.118.i, align 1
   %call10.i = tail call ptr @PyExpat_unsignedCharToPrintable(i8 noundef zeroext %20)
-  %fputs14.i = tail call i32 @fputs(ptr nonnull %call10.i, ptr %19) #26
+  %fputs14.i = tail call i32 @fputs(ptr nonnull %call10.i, ptr %19) #27
   %incdec.ptr13.i = getelementptr i8, ptr %walker.118.i, i64 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr13.i, %add.ptr.i
   br i1 %exitcond.not.i, label %for.end14.i, label %for.body8.i, !llvm.loop !34
 
 for.end14.i:                                      ; preds = %for.body8.i, %for.cond6.preheader.i
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i64 @fwrite(ptr nonnull @__const.accountingReportDiff.ellipis, i64 4, i64 1, ptr %21) #26
+  %22 = tail call i64 @fwrite(ptr nonnull @__const.accountingReportDiff.ellipis, i64 4, i64 1, ptr %21) #27
   %add.ptr16.i = getelementptr i8, ptr %after, i64 -10
   %cmp1819.i = icmp ult ptr %add.ptr16.i, %after
   br i1 %cmp1819.i, label %for.body19.i, label %accountingReportDiff.exit
@@ -9631,14 +9631,14 @@ for.body19.i:                                     ; preds = %for.end14.i, %for.b
   %23 = load ptr, ptr @stderr, align 8
   %24 = load i8, ptr %walker.220.i, align 1
   %call21.i = tail call ptr @PyExpat_unsignedCharToPrintable(i8 noundef zeroext %24)
-  %fputs.i = tail call i32 @fputs(ptr nonnull %call21.i, ptr %23) #26
+  %fputs.i = tail call i32 @fputs(ptr nonnull %call21.i, ptr %23) #27
   %incdec.ptr24.i = getelementptr i8, ptr %walker.220.i, i64 1
   %exitcond24.not.i = icmp eq ptr %incdec.ptr24.i, %after
   br i1 %exitcond24.not.i, label %accountingReportDiff.exit, label %for.body19.i, !llvm.loop !35
 
 accountingReportDiff.exit:                        ; preds = %for.body19.i, %for.body.i, %for.cond.preheader.i, %for.end14.i
   %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.316, i64 2, i64 1, ptr %25) #26
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.316, i64 2, i64 1, ptr %25) #27
   br label %return
 
 switch.hole_check:                                ; preds = %entry
@@ -9708,7 +9708,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %3, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %4 = load ptr, ptr @stderr, align 8
-  %call4.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %2, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %2, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -9719,7 +9719,7 @@ if.end:                                           ; preds = %entry
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %6 = load ptr, ptr %m_encoding, align 8
   %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
-  %call2 = call i32 %cond(i32 noundef %isGeneralTextEntity, ptr noundef %6, ptr noundef %s, ptr noundef %next, ptr noundef nonnull %m_eventPtr, ptr noundef nonnull %version, ptr noundef nonnull %versionend, ptr noundef nonnull %encodingName, ptr noundef nonnull %newEncoding, ptr noundef nonnull %standalone) #23, !callees !36
+  %call2 = call i32 %cond(i32 noundef %isGeneralTextEntity, ptr noundef %6, ptr noundef %s, ptr noundef %next, ptr noundef nonnull %m_eventPtr, ptr noundef nonnull %version, ptr noundef nonnull %versionend, ptr noundef nonnull %encodingName, ptr noundef nonnull %newEncoding, ptr noundef nonnull %standalone) #24, !callees !36
   %tobool3.not = icmp eq i32 %call2, 0
   %tobool5.not = icmp eq i32 %isGeneralTextEntity, 0
   br i1 %tobool3.not, label %if.then4, label %if.end7
@@ -9764,7 +9764,7 @@ if.then22:                                        ; preds = %if.then19
   %12 = load ptr, ptr %m_encoding, align 8
   %nameLength = getelementptr inbounds i8, ptr %12, i64 56
   %13 = load ptr, ptr %nameLength, align 8
-  %call26 = call i32 %13(ptr noundef %12, ptr noundef nonnull %11) #23
+  %call26 = call i32 %13(ptr noundef %12, ptr noundef nonnull %11) #24
   %idx.ext = sext i32 %call26 to i64
   %add.ptr = getelementptr i8, ptr %11, i64 %idx.ext
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
@@ -9787,7 +9787,7 @@ if.end.i.i56:                                     ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i56
   %15 = load ptr, ptr %utf8Convert.i.i, align 8
   %16 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %15(ptr noundef nonnull %12, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr, ptr noundef nonnull %ptr1.i.i, ptr noundef %16) #23
+  %call5.i.i = call i32 %15(ptr noundef nonnull %12, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr, ptr noundef nonnull %ptr1.i.i, ptr noundef %16) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -9871,7 +9871,7 @@ if.end.i.i60:                                     ; preds = %land.lhs.true.i.i83
 for.cond.i.i63:                                   ; preds = %if.end8.i.i66, %if.end.i.i60
   %28 = load ptr, ptr %utf8Convert.i.i61, align 8
   %29 = load ptr, ptr %end4.i.i62, align 8
-  %call5.i.i64 = call i32 %28(ptr noundef nonnull %24, ptr noundef nonnull %ptr.addr.i.i57, ptr noundef %add.ptr40, ptr noundef nonnull %ptr1.i.i58, ptr noundef %29) #23
+  %call5.i.i64 = call i32 %28(ptr noundef nonnull %24, ptr noundef nonnull %ptr.addr.i.i57, ptr noundef %add.ptr40, ptr noundef nonnull %ptr1.i.i58, ptr noundef %29) #24
   %or.cond.i.i65 = icmp ult i32 %call5.i.i64, 2
   br i1 %or.cond.i.i65, label %poolAppend.exit.i71, label %if.end8.i.i66
 
@@ -9921,7 +9921,7 @@ if.end45:                                         ; preds = %poolStoreString.exi
   %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %36 = load ptr, ptr %m_handlerArg, align 8
   %37 = load i32, ptr %standalone, align 4
-  call void %35(ptr noundef %36, ptr noundef %storedversion.0, ptr noundef %storedEncName.0, i32 noundef %37) #23
+  call void %35(ptr noundef %36, ptr noundef %storedversion.0, ptr noundef %storedEncName.0, i32 noundef %37) #24
   %38 = icmp ne ptr %storedversion.0, null
   br label %if.end52
 
@@ -9954,7 +9954,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %42, ptr %dataPtr.i, align 8
   %43 = load ptr, ptr %utf8Convert.i, align 8
   %44 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i = call i32 %43(ptr noundef nonnull %40, ptr noundef nonnull %s.addr.i, ptr noundef %next, ptr noundef nonnull %dataPtr.i, ptr noundef %44) #23
+  %call.i = call i32 %43(ptr noundef nonnull %40, ptr noundef nonnull %s.addr.i, ptr noundef %next, ptr noundef nonnull %dataPtr.i, ptr noundef %44) #24
   %45 = load ptr, ptr %s.addr.i, align 8
   store ptr %45, ptr %m_eventEndPtr.i, align 8
   %46 = load ptr, ptr %m_defaultHandler, align 8
@@ -9965,7 +9965,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %46(ptr noundef %47, ptr noundef %48, i32 noundef %conv.i) #23
+  call void %46(ptr noundef %47, ptr noundef %48, i32 noundef %conv.i) #24
   %50 = load ptr, ptr %s.addr.i, align 8
   store ptr %50, ptr %m_eventPtr, align 8
   %51 = icmp ugt i32 %call.i, 1
@@ -9978,7 +9978,7 @@ if.else9.i:                                       ; preds = %if.then49
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %s to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  call void %39(ptr noundef %52, ptr noundef %s, i32 noundef %conv15.i) #23
+  call void %39(ptr noundef %52, ptr noundef %s, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -10037,7 +10037,7 @@ if.then78:                                        ; preds = %if.then76
   %60 = load ptr, ptr %m_encoding, align 8
   %nameLength82 = getelementptr inbounds i8, ptr %60, i64 56
   %61 = load ptr, ptr %nameLength82, align 8
-  %call84 = call i32 %61(ptr noundef %60, ptr noundef nonnull %59) #23
+  %call84 = call i32 %61(ptr noundef %60, ptr noundef nonnull %59) #24
   %idx.ext85 = sext i32 %call84 to i64
   %add.ptr86 = getelementptr i8, ptr %59, i64 %idx.ext85
   %call87 = call fastcc ptr @poolStoreString(ptr noundef nonnull %m_temp2Pool79, ptr noundef %60, ptr noundef nonnull %59, ptr noundef %add.ptr86)
@@ -10060,16 +10060,16 @@ for.body.preheader.i:                             ; preds = %if.end91
   %m_unknownEncodingHandlerData.i = getelementptr inbounds i8, ptr %parser, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data.i, i8 0, i64 24, i1 false)
   %63 = load ptr, ptr %m_unknownEncodingHandlerData.i, align 8
-  %call.i91 = call i32 %62(ptr noundef %63, ptr noundef nonnull %storedEncName.2, ptr noundef nonnull %info.i) #23
+  %call.i91 = call i32 %62(ptr noundef %63, ptr noundef nonnull %storedEncName.2, ptr noundef nonnull %info.i) #24
   %tobool2.not.i = icmp eq i32 %call.i91, 0
   br i1 %tobool2.not.i, label %if.end27.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.preheader.i
   %m_mem.i = getelementptr inbounds i8, ptr %parser, i64 24
   %64 = load ptr, ptr %m_mem.i, align 8
-  %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #23
+  %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #24
   %conv.i92 = sext i32 %call4.i to i64
-  %call5.i = call ptr %64(i64 noundef %conv.i92) #23
+  %call5.i = call ptr %64(i64 noundef %conv.i92) #24
   %m_unknownEncodingMem.i = getelementptr inbounds i8, ptr %parser, i64 464
   store ptr %call5.i, ptr %m_unknownEncodingMem.i, align 8
   %tobool7.not.i = icmp eq ptr %call5.i, null
@@ -10082,7 +10082,7 @@ if.then8.i:                                       ; preds = %if.then3.i
 
 if.then11.i:                                      ; preds = %if.then8.i
   %66 = load ptr, ptr %data.i, align 8
-  call void %65(ptr noundef %66) #23
+  call void %65(ptr noundef %66) #24
   br label %handleUnknownEncoding.exit
 
 if.end14.i:                                       ; preds = %if.then3.i
@@ -10091,7 +10091,7 @@ if.end14.i:                                       ; preds = %if.then3.i
   %cond.i = select i1 %tobool16.not.i, ptr @PyExpat_XmlInitUnknownEncoding, ptr @PyExpat_XmlInitUnknownEncodingNS
   %68 = load ptr, ptr %convert.i, align 8
   %69 = load ptr, ptr %data.i, align 8
-  %call21.i = call ptr %cond.i(ptr noundef nonnull %call5.i, ptr noundef nonnull %info.i, ptr noundef %68, ptr noundef %69) #23, !callees !25
+  %call21.i = call ptr %cond.i(ptr noundef nonnull %call5.i, ptr noundef nonnull %info.i, ptr noundef %68, ptr noundef %69) #24, !callees !25
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %if.end27.i, label %if.then23.i
 
@@ -10112,7 +10112,7 @@ if.end27.i:                                       ; preds = %if.end14.i, %for.bo
 
 if.then31.i:                                      ; preds = %if.end27.i
   %73 = load ptr, ptr %data.i, align 8
-  call void %72(ptr noundef %73) #23
+  call void %72(ptr noundef %73) #24
   br label %handleUnknownEncoding.exit
 
 handleUnknownEncoding.exit:                       ; preds = %if.end91, %if.then8.i, %if.then11.i, %if.then23.i, %if.end27.i, %if.then31.i
@@ -10219,7 +10219,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
 for.cond.i:                                       ; preds = %if.end8.i, %if.end.i
   %1 = load ptr, ptr %utf8Convert.i, align 8
   %2 = load ptr, ptr %end4.i, align 8
-  %call5.i = call i32 %1(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %end, ptr noundef nonnull %ptr1.i, ptr noundef %2) #23
+  %call5.i = call i32 %1(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %end, ptr noundef nonnull %ptr1.i, ptr noundef %2) #24
   %or.cond.i = icmp ult i32 %call5.i, 2
   br i1 %or.cond.i, label %poolAppend.exit, label %if.end8.i
 
@@ -10286,7 +10286,7 @@ if.end:                                           ; preds = %if.then
   %mem = getelementptr inbounds i8, ptr %table, i64 32
   %1 = load ptr, ptr %mem, align 8
   %2 = load ptr, ptr %1, align 8
-  %call = tail call ptr %2(i64 noundef 512) #23
+  %call = tail call ptr %2(i64 noundef 512) #24
   store ptr %call, ptr %table, align 8
   %tobool5.not = icmp eq ptr %call, null
   br i1 %tobool5.not, label %if.then6, label %if.end8
@@ -10408,7 +10408,7 @@ if.end69:                                         ; preds = %if.end62
   %mem72 = getelementptr inbounds i8, ptr %table, i64 32
   %19 = load ptr, ptr %mem72, align 8
   %20 = load ptr, ptr %19, align 8
-  %call74 = tail call ptr %20(i64 noundef %mul71) #23
+  %call74 = tail call ptr %20(i64 noundef %mul71) #24
   %tobool75.not = icmp eq ptr %call74, null
   br i1 %tobool75.not, label %return, label %if.end77
 
@@ -10487,7 +10487,7 @@ for.end:                                          ; preds = %for.inc, %if.end77
   %free_fcn = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %free_fcn, align 8
   %34 = load ptr, ptr %table, align 8
-  tail call void %33(ptr noundef %34) #23
+  tail call void %33(ptr noundef %34) #24
   store ptr %call74, ptr %table, align 8
   store i8 %add56, ptr %power47, align 8
   store i64 %shl, ptr %size, align 8
@@ -10529,7 +10529,7 @@ if.end162:                                        ; preds = %while.body134, %for
   %mem163 = getelementptr inbounds i8, ptr %table, i64 32
   %38 = load ptr, ptr %mem163, align 8
   %39 = load ptr, ptr %38, align 8
-  %call165 = tail call ptr %39(i64 noundef %createSize) #23
+  %call165 = tail call ptr %39(i64 noundef %createSize) #24
   %40 = load ptr, ptr %table, align 8
   %arrayidx167 = getelementptr ptr, ptr %40, i64 %i.5
   store ptr %call165, ptr %arrayidx167, align 8
@@ -10615,7 +10615,7 @@ if.end9.i:                                        ; preds = %if.end.i
 
 if.then16.i:                                      ; preds = %if.end9.i
   %7 = load ptr, ptr %realloc_fcn.i, align 8
-  %call.i = tail call ptr %7(ptr noundef %3, i64 noundef %conv12.i) #23
+  %call.i = tail call ptr %7(ptr noundef %3, i64 noundef %conv12.i) #24
   %cmp19.i = icmp eq ptr %call.i, null
   br i1 %cmp19.i, label %return, label %if.end22.i
 
@@ -10695,7 +10695,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
   %2 = load ptr, ptr %utf8Convert.i.i, align 8
   %3 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %2(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %end, ptr noundef nonnull %ptr1.i.i, ptr noundef %3) #23
+  %call5.i.i = call i32 %2(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %end, ptr noundef nonnull %ptr1.i.i, ptr noundef %3) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -10816,7 +10816,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
   %5 = load ptr, ptr %utf8Convert.i.i, align 8
   %6 = load ptr, ptr %end2, align 8
-  %call5.i.i = call i32 %5(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %end, ptr noundef nonnull %ptr, ptr noundef %6) #23
+  %call5.i.i = call i32 %5(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %end, ptr noundef nonnull %ptr, ptr noundef %6) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -11160,7 +11160,7 @@ if.end86:                                         ; preds = %if.end82
   %19 = load ptr, ptr %mem, align 8
   %realloc_fcn = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %realloc_fcn, align 8
-  %call90 = tail call ptr %20(ptr noundef nonnull %16, i64 noundef %retval.0.i) #23
+  %call90 = tail call ptr %20(ptr noundef nonnull %16, i64 noundef %retval.0.i) #24
   %cmp91 = icmp eq ptr %call90, null
   br i1 %cmp91, label %return, label %if.end94
 
@@ -11208,7 +11208,7 @@ if.end139:                                        ; preds = %22
   %mem140 = getelementptr inbounds i8, ptr %pool, i64 40
   %23 = load ptr, ptr %mem140, align 8
   %24 = load ptr, ptr %23, align 8
-  %call141 = tail call ptr %24(i64 noundef %retval.0.i96) #23
+  %call141 = tail call ptr %24(i64 noundef %retval.0.i96) #24
   %tobool142.not = icmp eq ptr %call141, null
   br i1 %tobool142.not, label %return, label %if.end144
 
@@ -11305,7 +11305,7 @@ for.cond:                                         ; preds = %sw.epilog, %if.end5
   %entityTextPtr.addr.0 = phi ptr [ %entityTextPtr, %if.end5 ], [ %113, %sw.epilog ]
   store ptr %entityTextPtr.addr.0, ptr %next, align 8
   %3 = load ptr, ptr %arrayidx, align 8
-  %call6 = call i32 %3(ptr noundef %enc, ptr noundef %entityTextPtr.addr.0, ptr noundef %entityTextEnd, ptr noundef nonnull %next) #23
+  %call6 = call i32 %3(ptr noundef %enc, ptr noundef %entityTextPtr.addr.0, ptr noundef %entityTextEnd, ptr noundef nonnull %next) #24
   %4 = load ptr, ptr %next, align 8
   %call7 = call fastcc zeroext i8 @accountingDiffTolerated(ptr noundef %parser, i32 noundef %call6, ptr noundef %entityTextPtr.addr.0, ptr noundef %4, i32 noundef 6109, i32 noundef %account)
   %tobool8.not = icmp eq i8 %call7, 0
@@ -11343,7 +11343,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %8, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %9 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %7, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %7, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %endEntityValue
 
 if.end10:                                         ; preds = %for.cond
@@ -11393,7 +11393,7 @@ for.cond.i.i.preheader:                           ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end8.i.i
   %15 = load ptr, ptr %utf8Convert.i, align 8
   %16 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr16, ptr noundef nonnull %ptr1.i.i, ptr noundef %16) #23
+  %call5.i.i = call i32 %15(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr16, ptr noundef nonnull %ptr1.i.i, ptr noundef %16) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -11595,7 +11595,7 @@ if.end.i.i111:                                    ; preds = %if.end.i108
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i = getelementptr inbounds i8, ptr %27, i64 16
   %52 = load i32, ptr %textLen.i.i, align 8
-  %call.i.i112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %47, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %49, ptr noundef nonnull @.str.319, i32 noundef %52, i32 noundef 6152) #26
+  %call.i.i112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %47, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %49, ptr noundef nonnull @.str.319, i32 noundef %52, i32 noundef 6152) #27
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i108, %if.end.i.i111
@@ -11606,7 +11606,7 @@ entityTrackingOnOpen.exit:                        ; preds = %if.end.i108, %if.en
   %56 = load ptr, ptr %systemId, align 8
   %publicId = getelementptr inbounds i8, ptr %27, i64 40
   %57 = load ptr, ptr %publicId, align 8
-  %call42 = call i32 %53(ptr noundef %54, ptr noundef null, ptr noundef %55, ptr noundef %56, ptr noundef %57) #23
+  %call42 = call i32 %53(ptr noundef %54, ptr noundef null, ptr noundef %55, ptr noundef %56, ptr noundef %57) #24
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %while.cond.i.i114
 
@@ -11645,7 +11645,7 @@ if.end.i.i121:                                    ; preds = %getRootParserOf.exi
   %cond.i.i125 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i126 = getelementptr inbounds i8, ptr %27, i64 16
   %66 = load i32, ptr %textLen.i.i126, align 8
-  %call.i.i127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i115, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %mul.i.i123, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i125, ptr noundef %60, ptr noundef nonnull @.str.321, i32 noundef %66, i32 noundef 6161) #26
+  %call.i.i127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i115, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %mul.i.i123, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i125, ptr noundef %60, ptr noundef nonnull @.str.321, i32 noundef %66, i32 noundef 6161) #27
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i118, %if.end.i.i121
@@ -11716,7 +11716,7 @@ if.end.i.i143:                                    ; preds = %if.end.i140
   %cond.i.i148 = select i1 %tobool.not.i6.i147, ptr @.str.89, ptr @.str.88
   %textLen.i.i149 = getelementptr inbounds i8, ptr %27, i64 16
   %80 = load i32, ptr %textLen.i.i149, align 8
-  %call.i.i150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i130, i32 noundef %inc.i135, i32 noundef %inc2.i137, i32 noundef %75, i32 noundef %mul.i.i145, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i148, ptr noundef %77, ptr noundef nonnull @.str.319, i32 noundef %80, i32 noundef 6169) #26
+  %call.i.i150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i130, i32 noundef %inc.i135, i32 noundef %inc2.i137, i32 noundef %75, i32 noundef %mul.i.i145, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i148, ptr noundef %77, ptr noundef nonnull @.str.319, i32 noundef %80, i32 noundef 6169) #27
   br label %entityTrackingOnOpen.exit153
 
 entityTrackingOnOpen.exit153:                     ; preds = %if.end.i140, %if.end.i.i143
@@ -11759,7 +11759,7 @@ if.end.i.i161:                                    ; preds = %getRootParserOf.exi
   %tobool.not.i2.i168 = icmp eq i8 %91, 0
   %cond.i.i169 = select i1 %tobool.not.i2.i168, ptr @.str.89, ptr @.str.88
   %92 = load i32, ptr %textLen, align 8
-  %call.i.i171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i155, i32 noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef %mul.i.i166, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i169, ptr noundef %86, ptr noundef nonnull @.str.321, i32 noundef %92, i32 noundef 6174) #26
+  %call.i.i171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i155, i32 noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef %mul.i.i166, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i169, ptr noundef %86, ptr noundef nonnull @.str.321, i32 noundef %92, i32 noundef 6174) #27
   br label %entityTrackingOnClose.exit174
 
 entityTrackingOnClose.exit174:                    ; preds = %getRootParserOf.exit.i158, %if.end.i.i161
@@ -11795,7 +11795,7 @@ for.cond.i.preheader:                             ; preds = %land.lhs.true.i178,
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %if.end8.i
   %96 = load ptr, ptr %utf8Convert.i, align 8
   %97 = load ptr, ptr %end105, align 8
-  %call5.i = call i32 %96(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %94, ptr noundef nonnull %ptr106, ptr noundef %97) #23
+  %call5.i = call i32 %96(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %94, ptr noundef nonnull %ptr106, ptr noundef %97) #24
   %or.cond.i = icmp ult i32 %call5.i, 2
   br i1 %or.cond.i, label %poolAppend.exit, label %if.end8.i
 
@@ -11845,7 +11845,7 @@ if.end87:                                         ; preds = %land.lhs.true.if.en
 
 sw.bb89:                                          ; preds = %if.end10
   %103 = load ptr, ptr %charRefNumber, align 8
-  %call90 = call i32 %103(ptr noundef nonnull %enc, ptr noundef %entityTextPtr.addr.0) #23
+  %call90 = call i32 %103(ptr noundef nonnull %enc, ptr noundef %entityTextPtr.addr.0) #24
   %cmp91 = icmp slt i32 %call90, 0
   br i1 %cmp91, label %if.then93, label %if.end100
 
@@ -11860,7 +11860,7 @@ if.then97:                                        ; preds = %if.then93
   br label %endEntityValue
 
 if.end100:                                        ; preds = %sw.bb89
-  %call101 = call i32 @PyExpat_XmlUtf8Encode(i32 noundef %call90, ptr noundef nonnull %buf) #23
+  %call101 = call i32 @PyExpat_XmlUtf8Encode(i32 noundef %call90, ptr noundef nonnull %buf) #24
   %cmp103209 = icmp sgt i32 %call101, 0
   br i1 %cmp103209, label %for.body.preheader, label %sw.epilog
 
@@ -11972,7 +11972,7 @@ if.end:                                           ; preds = %if.else, %if.then
   store ptr null, ptr %startPtr, align 8
   %arrayidx = getelementptr i8, ptr %enc, i64 24
   %3 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 %3(ptr noundef %enc, ptr noundef %0, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %3(ptr noundef %enc, ptr noundef %0, ptr noundef %end, ptr noundef nonnull %next) #24
   %4 = load ptr, ptr %next, align 8
   %call2 = call fastcc zeroext i8 @accountingDiffTolerated(ptr noundef nonnull %parser, i32 noundef %call, ptr noundef %0, ptr noundef %4, i32 noundef 4196, i32 noundef 0)
   %tobool.not = icmp eq i8 %call2, 0
@@ -12010,7 +12010,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %8, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %9 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %7, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %7, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -12069,7 +12069,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %15, ptr %dataPtr.i, align 8
   %16 = load ptr, ptr %utf8Convert.i, align 8
   %17 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i = call i32 %16(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %10, ptr noundef nonnull %dataPtr.i, ptr noundef %17) #23
+  %call.i = call i32 %16(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %10, ptr noundef nonnull %dataPtr.i, ptr noundef %17) #24
   %18 = load ptr, ptr %s.addr.i, align 8
   store ptr %18, ptr %eventEndPP.0.i, align 8
   %19 = load ptr, ptr %m_defaultHandler, align 8
@@ -12080,7 +12080,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %19(ptr noundef %20, ptr noundef %21, i32 noundef %conv.i) #23
+  call void %19(ptr noundef %20, ptr noundef %21, i32 noundef %conv.i) #24
   %23 = load ptr, ptr %s.addr.i, align 8
   store ptr %23, ptr %eventPP.0.i, align 8
   %24 = icmp ugt i32 %call.i, 1
@@ -12093,7 +12093,7 @@ if.else9.i:                                       ; preds = %if.then6
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  call void %11(ptr noundef %25, ptr noundef %0, i32 noundef %conv15.i) #23
+  call void %11(ptr noundef %25, ptr noundef %0, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -12169,7 +12169,7 @@ if.then3:                                         ; preds = %if.end
   store ptr %2, ptr %next.i, align 8
   %3 = load ptr, ptr %m_encoding, align 8
   %4 = load ptr, ptr %3, align 8
-  %call.i = call i32 %4(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %end, ptr noundef nonnull %next.i) #23
+  %call.i = call i32 %4(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %end, ptr noundef nonnull %next.i) #24
   %5 = load ptr, ptr %m_encoding, align 8
   %6 = load ptr, ptr %next.i, align 8
   %7 = load i8, ptr %finalBuffer, align 4
@@ -12201,7 +12201,7 @@ if.then:                                          ; preds = %entry
   %3 = load i32, ptr %m_groupSize, align 8
   %conv = zext i32 %3 to i64
   %mul = shl nuw nsw i64 %conv, 2
-  %call = tail call ptr %2(i64 noundef %mul) #23
+  %call = tail call ptr %2(i64 noundef %mul) #24
   store ptr %call, ptr %scaffIndex, align 8
   %tobool3.not = icmp eq ptr %call, null
   br i1 %tobool3.not, label %return, label %if.end
@@ -12234,7 +12234,7 @@ if.end15:                                         ; preds = %if.then10
   %mul19 = shl nuw i32 %5, 1
   %conv20 = zext i32 %mul19 to i64
   %mul21 = shl nuw nsw i64 %conv20, 5
-  %call22 = tail call ptr %6(ptr noundef nonnull %.pre41, i64 noundef %mul21) #23
+  %call22 = tail call ptr %6(ptr noundef nonnull %.pre41, i64 noundef %mul21) #24
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %return, label %if.end26
 
@@ -12246,7 +12246,7 @@ if.end26:                                         ; preds = %if.end15
 if.else:                                          ; preds = %if.then8
   %m_mem29 = getelementptr inbounds i8, ptr %parser, i64 24
   %8 = load ptr, ptr %m_mem29, align 8
-  %call31 = tail call ptr %8(i64 noundef 1024) #23
+  %call31 = tail call ptr %8(i64 noundef 1024) #24
   %cmp32 = icmp eq ptr %call31, null
   br i1 %cmp32, label %return, label %if.end37
 
@@ -12333,7 +12333,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
   %2 = load ptr, ptr %m_mem, align 8
-  %call = tail call ptr %2(i64 noundef 40) #23
+  %call = tail call ptr %2(i64 noundef 40) #24
   %tobool4.not = icmp eq ptr %call, null
   br i1 %tobool4.not, label %return, label %if.end6
 
@@ -12387,7 +12387,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %textLen.i.i = getelementptr inbounds i8, ptr %entity, i64 16
   %12 = load i32, ptr %textLen.i.i, align 8
-  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %7, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %9, ptr noundef nonnull @.str.319, i32 noundef %12, i32 noundef 5732) #26
+  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %7, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %9, ptr noundef nonnull @.str.319, i32 noundef %12, i32 noundef 5732) #27
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i, %if.end.i.i
@@ -12423,7 +12423,7 @@ if.then13:                                        ; preds = %entityTrackingOnOpe
   %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
   %18 = load ptr, ptr %m_internalEncoding, align 8
   %19 = load ptr, ptr %18, align 8
-  %call15 = call i32 %19(ptr noundef nonnull %18, ptr noundef %15, ptr noundef %add.ptr, ptr noundef nonnull %next) #23
+  %call15 = call i32 %19(ptr noundef nonnull %18, ptr noundef %15, ptr noundef %add.ptr, ptr noundef nonnull %next) #24
   %20 = load ptr, ptr %m_internalEncoding, align 8
   %21 = load ptr, ptr %next, align 8
   %call17 = call fastcc i32 @doProlog(ptr noundef nonnull %parser, ptr noundef %20, ptr noundef %15, ptr noundef %add.ptr, i32 noundef %call15, ptr noundef %21, ptr noundef nonnull %next, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef 1)
@@ -12493,7 +12493,7 @@ if.end.i.i58:                                     ; preds = %getRootParserOf.exi
   %tobool.not.i2.i = icmp eq i8 %33, 0
   %cond.i.i62 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %34 = load i32, ptr %textLen, align 8
-  %call.i.i64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i52, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %mul.i.i60, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i62, ptr noundef %28, ptr noundef nonnull @.str.321, i32 noundef %34, i32 noundef 5766) #26
+  %call.i.i64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i52, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %mul.i.i60, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i62, ptr noundef %28, ptr noundef nonnull @.str.321, i32 noundef %34, i32 noundef 5766) #27
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i55, %if.end.i.i58
@@ -12549,7 +12549,7 @@ if.end.i:                                         ; preds = %getRootParserOf.exi
   %cond.i = select i1 %tobool.not.i2, ptr @.str.89, ptr @.str.88
   %textLen.i = getelementptr inbounds i8, ptr %entity, i64 16
   %8 = load i32, ptr %textLen.i, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %mul.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i, ptr noundef %2, ptr noundef nonnull @.str.321, i32 noundef %8, i32 noundef %sourceLine) #26
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %mul.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i, ptr noundef %2, ptr noundef nonnull @.str.321, i32 noundef %8, i32 noundef %sourceLine) #27
   br label %entityTrackingReportStats.exit
 
 entityTrackingReportStats.exit:                   ; preds = %getRootParserOf.exit, %if.end.i
@@ -12618,7 +12618,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %5, ptr %dataPtr.i, align 8
   %6 = load ptr, ptr %utf8Convert.i, align 8
   %7 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i = call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %end, ptr noundef nonnull %dataPtr.i, ptr noundef %7) #23
+  %call.i = call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %end, ptr noundef nonnull %dataPtr.i, ptr noundef %7) #24
   %8 = load ptr, ptr %s.addr.i, align 8
   store ptr %8, ptr %eventEndPP.0.i, align 8
   %9 = load ptr, ptr %m_defaultHandler, align 8
@@ -12629,7 +12629,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %9(ptr noundef %10, ptr noundef %11, i32 noundef %conv.i) #23
+  call void %9(ptr noundef %10, ptr noundef %11, i32 noundef %conv.i) #24
   %13 = load ptr, ptr %s.addr.i, align 8
   store ptr %13, ptr %eventPP.0.i, align 8
   %14 = icmp ugt i32 %call.i, 1
@@ -12642,7 +12642,7 @@ if.else9.i:                                       ; preds = %if.then2
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %start to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  tail call void %1(ptr noundef %15, ptr noundef %start, i32 noundef %conv15.i) #23
+  tail call void %1(ptr noundef %15, ptr noundef %start, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -12658,7 +12658,7 @@ if.end3:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %start, i64 %idx.ext
   %nameLength = getelementptr inbounds i8, ptr %enc, i64 56
   %17 = load ptr, ptr %nameLength, align 8
-  %call = tail call i32 %17(ptr noundef %enc, ptr noundef %add.ptr) #23
+  %call = tail call i32 %17(ptr noundef %enc, ptr noundef %add.ptr) #24
   %idx.ext4 = sext i32 %call to i64
   %add.ptr5 = getelementptr i8, ptr %add.ptr, i64 %idx.ext4
   %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
@@ -12682,7 +12682,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
   %19 = load ptr, ptr %utf8Convert.i.i, align 8
   %20 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr5, ptr noundef nonnull %ptr1.i.i, ptr noundef %20) #23
+  %call5.i.i = call i32 %19(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr5, ptr noundef nonnull %ptr1.i.i, ptr noundef %20) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -12731,7 +12731,7 @@ if.end9:                                          ; preds = %poolStoreString.exi
   store ptr %26, ptr %start.i.i, align 8
   %skipS = getelementptr inbounds i8, ptr %enc, i64 64
   %27 = load ptr, ptr %skipS, align 8
-  %call14 = call ptr %27(ptr noundef nonnull %enc, ptr noundef %add.ptr5) #23
+  %call14 = call ptr %27(ptr noundef nonnull %enc, ptr noundef %add.ptr5) #24
   %28 = load i32, ptr %minBytesPerChar, align 8
   %mul16 = shl i32 %28, 1
   %idx.ext17 = sext i32 %mul16 to i64
@@ -12754,7 +12754,7 @@ for.cond.i.i36.preheader:                         ; preds = %land.lhs.true.i.i56
 for.cond.i.i36:                                   ; preds = %for.cond.i.i36.preheader, %if.end8.i.i39
   %30 = load ptr, ptr %utf8Convert.i.i, align 8
   %31 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i37 = call i32 %30(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i30, ptr noundef %add.ptr18, ptr noundef nonnull %ptr1.i.i, ptr noundef %31) #23
+  %call5.i.i37 = call i32 %30(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i30, ptr noundef %add.ptr18, ptr noundef nonnull %ptr1.i.i, ptr noundef %31) #24
   %or.cond.i.i38 = icmp ult i32 %call5.i.i37, 2
   br i1 %or.cond.i.i38, label %poolAppend.exit.i44, label %if.end8.i.i39
 
@@ -12845,7 +12845,7 @@ normalizeLines.exit:                              ; preds = %for.cond.i, %do.end
   %41 = load ptr, ptr %m_processingInstructionHandler, align 8
   %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %42 = load ptr, ptr %m_handlerArg, align 8
-  call void %41(ptr noundef %42, ptr noundef nonnull %25, ptr noundef nonnull %36) #23
+  call void %41(ptr noundef %42, ptr noundef nonnull %25, ptr noundef nonnull %36) #24
   %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
   %43 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i64 = icmp eq ptr %43, null
@@ -12936,7 +12936,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %5, ptr %dataPtr.i, align 8
   %6 = load ptr, ptr %utf8Convert.i, align 8
   %7 = load ptr, ptr %m_dataBufEnd.i, align 8
-  %call.i = call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %end, ptr noundef nonnull %dataPtr.i, ptr noundef %7) #23
+  %call.i = call i32 %6(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %end, ptr noundef nonnull %dataPtr.i, ptr noundef %7) #24
   %8 = load ptr, ptr %s.addr.i, align 8
   store ptr %8, ptr %eventEndPP.0.i, align 8
   %9 = load ptr, ptr %m_defaultHandler, align 8
@@ -12947,7 +12947,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %9(ptr noundef %10, ptr noundef %11, i32 noundef %conv.i) #23
+  call void %9(ptr noundef %10, ptr noundef %11, i32 noundef %conv.i) #24
   %13 = load ptr, ptr %s.addr.i, align 8
   store ptr %13, ptr %eventPP.0.i, align 8
   %14 = icmp ugt i32 %call.i, 1
@@ -12960,7 +12960,7 @@ if.else9.i:                                       ; preds = %if.then2
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %start to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  tail call void %1(ptr noundef %15, ptr noundef %start, i32 noundef %conv15.i) #23
+  tail call void %1(ptr noundef %15, ptr noundef %start, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -12999,7 +12999,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
   %18 = load ptr, ptr %utf8Convert.i.i, align 8
   %19 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %18(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr7, ptr noundef nonnull %ptr1.i.i, ptr noundef %19) #23
+  %call5.i.i = call i32 %18(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr7, ptr noundef nonnull %ptr1.i.i, ptr noundef %19) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -13091,7 +13091,7 @@ normalizeLines.exit:                              ; preds = %for.cond.i, %do.end
   %29 = load ptr, ptr %m_commentHandler, align 8
   %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
   %30 = load ptr, ptr %m_handlerArg, align 8
-  call void %29(ptr noundef %30, ptr noundef nonnull %24) #23
+  call void %29(ptr noundef %30, ptr noundef nonnull %24) #24
   %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
   %31 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i21 = icmp eq ptr %31, null
@@ -13281,8 +13281,8 @@ sip24_update.exit:                                ; preds = %do.body.i, %while.e
   ret i64 %call3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @sip24_update(ptr noundef returned %H, ptr noundef readonly %src, i64 noundef %len) unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @sip24_update(ptr noundef returned %H, ptr noundef readonly %src, i64 noundef %len) unnamed_addr #14 {
 entry:
   %add.ptr = getelementptr i8, ptr %src, i64 %len
   %p1 = getelementptr inbounds i8, ptr %H, i64 40
@@ -13391,7 +13391,7 @@ do.end:                                           ; preds = %while.end, %sip_rou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @sip24_final(ptr noundef %H) unnamed_addr #14 {
+define internal fastcc i64 @sip24_final(ptr noundef %H) unnamed_addr #15 {
 entry:
   %p = getelementptr inbounds i8, ptr %H, i64 40
   %0 = load ptr, ptr %p, align 8
@@ -13666,7 +13666,7 @@ for.cond:                                         ; preds = %sw.epilog, %if.end
   %3 = load ptr, ptr %s.addr, align 8
   store ptr %3, ptr %next, align 8
   %4 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 %4(ptr noundef %enc, ptr noundef %3, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %4(ptr noundef %enc, ptr noundef %3, ptr noundef %end, ptr noundef nonnull %next) #24
   switch i32 %call, label %cond.false5 [
     i32 -3, label %cond.true
     i32 -5, label %cond.true
@@ -13721,7 +13721,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %11, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %12 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %10, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %10, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end11:                                         ; preds = %cond.end6
@@ -13766,7 +13766,7 @@ if.end14:                                         ; preds = %sw.bb
 if.then16:                                        ; preds = %if.end14
   store i8 10, ptr %c, align 1
   %16 = load ptr, ptr %m_handlerArg577, align 8
-  call void %15(ptr noundef %16, ptr noundef nonnull %c, i32 noundef 1) #23
+  call void %15(ptr noundef %16, ptr noundef nonnull %c, i32 noundef 1) #24
   br label %if.end22
 
 if.else18:                                        ; preds = %if.end14
@@ -13842,7 +13842,7 @@ sw.bb53:                                          ; preds = %if.end11
   %add.ptr = getelementptr i8, ptr %26, i64 %idx.ext
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr56 = getelementptr i8, ptr %13, i64 %idx.neg
-  %call57 = call i32 %25(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %add.ptr56) #23
+  %call57 = call i32 %25(ptr noundef nonnull %enc, ptr noundef %add.ptr, ptr noundef %add.ptr56) #24
   %conv58 = trunc i32 %call57 to i8
   store i8 %conv58, ptr %ch, align 1
   %tobool59.not = icmp eq i8 %conv58, 0
@@ -13856,7 +13856,7 @@ if.then60:                                        ; preds = %sw.bb53
 
 if.then65:                                        ; preds = %if.then60
   %29 = load ptr, ptr %m_handlerArg577, align 8
-  call void %28(ptr noundef %29, ptr noundef nonnull %ch, i32 noundef 1) #23
+  call void %28(ptr noundef %29, ptr noundef nonnull %ch, i32 noundef 1) #24
   br label %sw.epilog
 
 if.else68:                                        ; preds = %if.then60
@@ -13894,7 +13894,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %36, ptr %dataPtr.i, align 8
   %37 = load ptr, ptr %utf8Convert558, align 8
   %38 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i = call i32 %37(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %32, ptr noundef nonnull %dataPtr.i, ptr noundef %38) #23
+  %call.i = call i32 %37(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %32, ptr noundef nonnull %dataPtr.i, ptr noundef %38) #24
   %39 = load ptr, ptr %s.addr.i, align 8
   store ptr %39, ptr %eventEndPP.0.i, align 8
   %40 = load ptr, ptr %m_defaultHandler584, align 8
@@ -13905,7 +13905,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %40(ptr noundef %41, ptr noundef %42, i32 noundef %conv.i) #23
+  call void %40(ptr noundef %41, ptr noundef %42, i32 noundef %conv.i) #24
   %44 = load ptr, ptr %s.addr.i, align 8
   store ptr %44, ptr %eventPP.0.i, align 8
   %45 = icmp ugt i32 %call.i, 1
@@ -13917,7 +13917,7 @@ if.else9.i:                                       ; preds = %if.then71
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  call void %30(ptr noundef %46, ptr noundef %31, i32 noundef %conv15.i) #23
+  call void %30(ptr noundef %46, ptr noundef %31, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -13950,7 +13950,7 @@ for.cond.i.i.preheader:                           ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end8.i.i
   %51 = load ptr, ptr %utf8Convert558, align 8
   %52 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %51(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr81, ptr noundef nonnull %ptr1.i.i, ptr noundef %52) #23
+  %call5.i.i = call i32 %51(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr81, ptr noundef nonnull %ptr1.i.i, ptr noundef %52) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -14101,7 +14101,7 @@ if.then103:                                       ; preds = %if.else101
 
 if.then105:                                       ; preds = %if.then103
   %77 = load ptr, ptr %m_handlerArg577, align 8
-  call void %76(ptr noundef %77, ptr noundef nonnull %57, i32 noundef 0) #23
+  call void %76(ptr noundef %77, ptr noundef nonnull %57, i32 noundef 0) #24
   br label %sw.epilog
 
 if.else108:                                       ; preds = %if.then103
@@ -14146,7 +14146,7 @@ if.then125:                                       ; preds = %if.then123
 if.then128:                                       ; preds = %if.then125
   %86 = load ptr, ptr %m_handlerArg577, align 8
   %87 = load ptr, ptr %retval.0.i373, align 8
-  call void %85(ptr noundef %86, ptr noundef %87, i32 noundef 0) #23
+  call void %85(ptr noundef %86, ptr noundef %87, i32 noundef 0) #24
   br label %sw.epilog
 
 if.else132:                                       ; preds = %if.then125
@@ -14552,7 +14552,7 @@ if.end152:                                        ; preds = %getContext.exit
   %155 = load ptr, ptr %systemId, align 8
   %publicId = getelementptr inbounds i8, ptr %retval.0.i373, i64 40
   %156 = load ptr, ptr %publicId, align 8
-  %call154 = call i32 %152(ptr noundef %153, ptr noundef nonnull %151, ptr noundef %154, ptr noundef %155, ptr noundef %156) #23
+  %call154 = call i32 %152(ptr noundef %153, ptr noundef nonnull %151, ptr noundef %154, ptr noundef %155, ptr noundef %156) #24
   %tobool155.not = icmp eq i32 %call154, 0
   br i1 %tobool155.not, label %return, label %if.end157
 
@@ -14584,13 +14584,13 @@ if.then171:                                       ; preds = %sw.bb168
 
 if.else175:                                       ; preds = %sw.bb168
   %163 = load ptr, ptr %m_mem, align 8
-  %call176 = call ptr %163(i64 noundef 88) #23
+  %call176 = call ptr %163(i64 noundef 88) #24
   %tobool177.not = icmp eq ptr %call176, null
   br i1 %tobool177.not, label %return, label %if.end179
 
 if.end179:                                        ; preds = %if.else175
   %164 = load ptr, ptr %m_mem, align 8
-  %call182 = call ptr %164(i64 noundef 32) #23
+  %call182 = call ptr %164(i64 noundef 32) #24
   %buf = getelementptr inbounds i8, ptr %call176, i64 64
   store ptr %call182, ptr %buf, align 8
   %tobool184.not = icmp eq ptr %call182, null
@@ -14599,7 +14599,7 @@ if.end179:                                        ; preds = %if.else175
 if.then185:                                       ; preds = %if.end179
   %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %165 = load ptr, ptr %free_fcn, align 8
-  call void %165(ptr noundef nonnull %call176) #23
+  call void %165(ptr noundef nonnull %call176) #24
   br label %return
 
 if.end187:                                        ; preds = %if.end179
@@ -14625,7 +14625,7 @@ if.end190:                                        ; preds = %if.end187, %if.then
   %rawName = getelementptr inbounds i8, ptr %tag.0, i64 8
   store ptr %add.ptr197, ptr %rawName, align 8
   %169 = load ptr, ptr %nameLength347, align 8
-  %call199 = call i32 %169(ptr noundef nonnull %enc, ptr noundef %add.ptr197) #23
+  %call199 = call i32 %169(ptr noundef nonnull %enc, ptr noundef %add.ptr197) #24
   %rawNameLength = getelementptr inbounds i8, ptr %tag.0, i64 16
   store i32 %call199, ptr %rawNameLength, align 8
   %170 = load i32, ptr %m_tagLevel336, align 4
@@ -14643,7 +14643,7 @@ if.end190:                                        ; preds = %if.end187, %if.then
   store ptr %173, ptr %toPtr, align 8
   %174 = load ptr, ptr %utf8Convert558, align 8
   %add.ptr2091002 = getelementptr i8, ptr %.pre880, i64 -1
-  %call2101003 = call i32 %174(ptr noundef nonnull %enc, ptr noundef nonnull %fromPtr, ptr noundef %add.ptr204, ptr noundef nonnull %toPtr, ptr noundef %add.ptr2091002) #23
+  %call2101003 = call i32 %174(ptr noundef nonnull %enc, ptr noundef nonnull %fromPtr, ptr noundef %add.ptr204, ptr noundef nonnull %toPtr, ptr noundef %add.ptr2091002) #24
   %175 = load ptr, ptr %toPtr, align 8
   %176 = load ptr, ptr %buf206, align 8
   %sub.ptr.lhs.cast1004 = ptrtoint ptr %175 to i64
@@ -14680,7 +14680,7 @@ if.end220:                                        ; preds = %if.end190, %if.end2
   %shl = shl i32 %conv226, 1
   %181 = load ptr, ptr %realloc_fcn, align 8
   %conv229 = sext i32 %shl to i64
-  %call230 = call ptr %181(ptr noundef %179, i64 noundef %conv229) #23
+  %call230 = call ptr %181(ptr noundef %179, i64 noundef %conv229) #24
   %cmp231 = icmp eq ptr %call230, null
   br i1 %cmp231, label %return, label %if.end234
 
@@ -14694,7 +14694,7 @@ if.end234:                                        ; preds = %if.end220
   store ptr %add.ptr240, ptr %toPtr, align 8
   %182 = load ptr, ptr %utf8Convert558, align 8
   %add.ptr209 = getelementptr i8, ptr %add.ptr237, i64 -1
-  %call210 = call i32 %182(ptr noundef nonnull %enc, ptr noundef nonnull %fromPtr, ptr noundef %add.ptr204, ptr noundef nonnull %toPtr, ptr noundef %add.ptr209) #23
+  %call210 = call i32 %182(ptr noundef nonnull %enc, ptr noundef nonnull %fromPtr, ptr noundef %add.ptr204, ptr noundef nonnull %toPtr, ptr noundef %add.ptr209) #24
   %183 = load ptr, ptr %toPtr, align 8
   %184 = load ptr, ptr %buf206, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %183 to i64
@@ -14715,7 +14715,7 @@ if.then250:                                       ; preds = %if.end248
   %187 = load ptr, ptr %m_handlerArg577, align 8
   %188 = load ptr, ptr %name193, align 8
   %189 = load ptr, ptr %m_atts300, align 8
-  call void %186(ptr noundef %187, ptr noundef %188, ptr noundef %189) #23
+  call void %186(ptr noundef %187, ptr noundef %188, ptr noundef %189) #24
   br label %if.end260
 
 if.else255:                                       ; preds = %if.end248
@@ -14753,7 +14753,7 @@ do.body.i413:                                     ; preds = %do.body.i413, %if.e
   store ptr %196, ptr %dataPtr.i389, align 8
   %197 = load ptr, ptr %utf8Convert558, align 8
   %198 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i414 = call i32 %197(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i388, ptr noundef %192, ptr noundef nonnull %dataPtr.i389, ptr noundef %198) #23
+  %call.i414 = call i32 %197(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i388, ptr noundef %192, ptr noundef nonnull %dataPtr.i389, ptr noundef %198) #24
   %199 = load ptr, ptr %s.addr.i388, align 8
   store ptr %199, ptr %eventEndPP.0.i407, align 8
   %200 = load ptr, ptr %m_defaultHandler584, align 8
@@ -14764,7 +14764,7 @@ do.body.i413:                                     ; preds = %do.body.i413, %if.e
   %sub.ptr.rhs.cast.i416 = ptrtoint ptr %202 to i64
   %sub.ptr.sub.i417 = sub i64 %sub.ptr.lhs.cast.i415, %sub.ptr.rhs.cast.i416
   %conv.i418 = trunc i64 %sub.ptr.sub.i417 to i32
-  call void %200(ptr noundef %201, ptr noundef %202, i32 noundef %conv.i418) #23
+  call void %200(ptr noundef %201, ptr noundef %202, i32 noundef %conv.i418) #24
   %204 = load ptr, ptr %s.addr.i388, align 8
   store ptr %204, ptr %eventPP.0.i406, align 8
   %205 = icmp ugt i32 %call.i414, 1
@@ -14776,7 +14776,7 @@ if.else9.i392:                                    ; preds = %if.then258
   %sub.ptr.rhs.cast13.i396 = ptrtoint ptr %191 to i64
   %sub.ptr.sub14.i397 = sub i64 %sub.ptr.lhs.cast12.i395, %sub.ptr.rhs.cast13.i396
   %conv15.i398 = trunc i64 %sub.ptr.sub14.i397 to i32
-  call void %190(ptr noundef %206, ptr noundef %191, i32 noundef %conv15.i398) #23
+  call void %190(ptr noundef %206, ptr noundef %191, i32 noundef %conv15.i398) #24
   br label %reportDefault.exit422
 
 reportDefault.exit422:                            ; preds = %do.body.i413, %if.else9.i392
@@ -14819,7 +14819,7 @@ sw.bb262:                                         ; preds = %if.end11, %if.end11
   %add.ptr266 = getelementptr i8, ptr %211, i64 %idx.ext265
   store ptr null, ptr %bindings268, align 8
   %213 = load ptr, ptr %nameLength347, align 8
-  %call272 = call i32 %213(ptr noundef nonnull %enc, ptr noundef %add.ptr266) #23
+  %call272 = call i32 %213(ptr noundef nonnull %enc, ptr noundef %add.ptr266) #24
   %idx.ext273 = sext i32 %call272 to i64
   %add.ptr274 = getelementptr i8, ptr %add.ptr266, i64 %idx.ext273
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i430)
@@ -14839,7 +14839,7 @@ for.cond.i.i436.preheader:                        ; preds = %land.lhs.true.i.i45
 for.cond.i.i436:                                  ; preds = %for.cond.i.i436.preheader, %if.end8.i.i439
   %215 = load ptr, ptr %utf8Convert558, align 8
   %216 = load ptr, ptr %end4.i.i435, align 8
-  %call5.i.i437 = call i32 %215(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i430, ptr noundef %add.ptr274, ptr noundef nonnull %ptr1.i.i431, ptr noundef %216) #23
+  %call5.i.i437 = call i32 %215(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i430, ptr noundef %add.ptr274, ptr noundef nonnull %ptr1.i.i431, ptr noundef %216) #24
   %or.cond.i.i438 = icmp ult i32 %call5.i.i437, 2
   br i1 %or.cond.i.i438, label %poolAppend.exit.i444, label %if.end8.i.i439
 
@@ -14906,7 +14906,7 @@ if.then.i463:                                     ; preds = %while.body.i462
   %226 = load ptr, ptr %m_handlerArg577, align 8
   %227 = load ptr, ptr %bindings.addr.012.i, align 8
   %228 = load ptr, ptr %227, align 8
-  call void %225(ptr noundef %226, ptr noundef %228) #23
+  call void %225(ptr noundef %226, ptr noundef %228) #24
   br label %if.end.i464
 
 if.end.i464:                                      ; preds = %if.then.i463, %while.body.i462
@@ -14939,7 +14939,7 @@ if.end301.thread:                                 ; preds = %if.end289
   %236 = load ptr, ptr %m_handlerArg577, align 8
   %237 = load ptr, ptr %name269, align 8
   %238 = load ptr, ptr %m_atts300, align 8
-  call void %234(ptr noundef %236, ptr noundef %237, ptr noundef %238) #23
+  call void %234(ptr noundef %236, ptr noundef %237, ptr noundef %238) #24
   %239 = load ptr, ptr %m_endElementHandler366, align 8
   %tobool302.not881 = icmp eq ptr %239, null
   br i1 %tobool302.not881, label %if.end317, label %if.then303
@@ -14959,7 +14959,7 @@ if.end311.thread:                                 ; preds = %if.end301, %if.then
   %241 = phi ptr [ %239, %if.then303 ], [ %.pre879, %if.then306 ], [ %235, %if.end301 ]
   %242 = load ptr, ptr %m_handlerArg577, align 8
   %243 = load ptr, ptr %name269, align 8
-  call void %241(ptr noundef %242, ptr noundef %243) #23
+  call void %241(ptr noundef %242, ptr noundef %243) #24
   br label %if.end317
 
 land.lhs.true:                                    ; preds = %if.end301
@@ -14997,7 +14997,7 @@ do.body.i493:                                     ; preds = %do.body.i493, %if.e
   store ptr %250, ptr %dataPtr.i469, align 8
   %251 = load ptr, ptr %utf8Convert558, align 8
   %252 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i494 = call i32 %251(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i468, ptr noundef %246, ptr noundef nonnull %dataPtr.i469, ptr noundef %252) #23
+  %call.i494 = call i32 %251(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i468, ptr noundef %246, ptr noundef nonnull %dataPtr.i469, ptr noundef %252) #24
   %253 = load ptr, ptr %s.addr.i468, align 8
   store ptr %253, ptr %eventEndPP.0.i487, align 8
   %254 = load ptr, ptr %m_defaultHandler584, align 8
@@ -15008,7 +15008,7 @@ do.body.i493:                                     ; preds = %do.body.i493, %if.e
   %sub.ptr.rhs.cast.i496 = ptrtoint ptr %256 to i64
   %sub.ptr.sub.i497 = sub i64 %sub.ptr.lhs.cast.i495, %sub.ptr.rhs.cast.i496
   %conv.i498 = trunc i64 %sub.ptr.sub.i497 to i32
-  call void %254(ptr noundef %255, ptr noundef %256, i32 noundef %conv.i498) #23
+  call void %254(ptr noundef %255, ptr noundef %256, i32 noundef %conv.i498) #24
   %258 = load ptr, ptr %s.addr.i468, align 8
   store ptr %258, ptr %eventPP.0.i486, align 8
   %259 = icmp ugt i32 %call.i494, 1
@@ -15020,7 +15020,7 @@ if.else9.i472:                                    ; preds = %if.then316
   %sub.ptr.rhs.cast13.i476 = ptrtoint ptr %245 to i64
   %sub.ptr.sub14.i477 = sub i64 %sub.ptr.lhs.cast12.i475, %sub.ptr.rhs.cast13.i476
   %conv15.i478 = trunc i64 %sub.ptr.sub14.i477 to i32
-  call void %244(ptr noundef %260, ptr noundef %245, i32 noundef %conv15.i478) #23
+  call void %244(ptr noundef %260, ptr noundef %245, i32 noundef %conv15.i478) #24
   br label %reportDefault.exit502
 
 reportDefault.exit502:                            ; preds = %do.body.i493, %if.else9.i472
@@ -15068,7 +15068,7 @@ if.then.i522:                                     ; preds = %while.body.i519
   %267 = load ptr, ptr %m_handlerArg577, align 8
   %268 = load ptr, ptr %bindings.addr.012.i520, align 8
   %269 = load ptr, ptr %268, align 8
-  call void %266(ptr noundef %267, ptr noundef %269) #23
+  call void %266(ptr noundef %267, ptr noundef %269) #24
   br label %if.end.i523
 
 if.end.i523:                                      ; preds = %if.then.i522, %while.body.i519
@@ -15119,7 +15119,7 @@ if.else340:                                       ; preds = %sw.bb335
   %idx.ext345 = sext i32 %mul to i64
   %add.ptr346 = getelementptr i8, ptr %279, i64 %idx.ext345
   %281 = load ptr, ptr %nameLength347, align 8
-  %call348 = call i32 %281(ptr noundef nonnull %enc, ptr noundef %add.ptr346) #23
+  %call348 = call i32 %281(ptr noundef nonnull %enc, ptr noundef %add.ptr346) #24
   %rawNameLength349 = getelementptr inbounds i8, ptr %278, i64 16
   %282 = load i32, ptr %rawNameLength349, align 8
   %cmp350.not = icmp eq i32 %call348, %282
@@ -15220,7 +15220,7 @@ if.end400:                                        ; preds = %if.end399, %if.then
   %301 = phi ptr [ %.pre877, %if.end399 ], [ %287, %if.then368 ]
   %302 = load ptr, ptr %m_handlerArg577, align 8
   %303 = load ptr, ptr %name371, align 8
-  call void %301(ptr noundef %302, ptr noundef %303) #23
+  call void %301(ptr noundef %302, ptr noundef %303) #24
   br label %if.end410
 
 if.else405:                                       ; preds = %if.end359
@@ -15258,7 +15258,7 @@ do.body.i555:                                     ; preds = %do.body.i555, %if.e
   store ptr %310, ptr %dataPtr.i531, align 8
   %311 = load ptr, ptr %utf8Convert558, align 8
   %312 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i556 = call i32 %311(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i530, ptr noundef %306, ptr noundef nonnull %dataPtr.i531, ptr noundef %312) #23
+  %call.i556 = call i32 %311(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i530, ptr noundef %306, ptr noundef nonnull %dataPtr.i531, ptr noundef %312) #24
   %313 = load ptr, ptr %s.addr.i530, align 8
   store ptr %313, ptr %eventEndPP.0.i549, align 8
   %314 = load ptr, ptr %m_defaultHandler584, align 8
@@ -15269,7 +15269,7 @@ do.body.i555:                                     ; preds = %do.body.i555, %if.e
   %sub.ptr.rhs.cast.i558 = ptrtoint ptr %316 to i64
   %sub.ptr.sub.i559 = sub i64 %sub.ptr.lhs.cast.i557, %sub.ptr.rhs.cast.i558
   %conv.i560 = trunc i64 %sub.ptr.sub.i559 to i32
-  call void %314(ptr noundef %315, ptr noundef %316, i32 noundef %conv.i560) #23
+  call void %314(ptr noundef %315, ptr noundef %316, i32 noundef %conv.i560) #24
   %318 = load ptr, ptr %s.addr.i530, align 8
   store ptr %318, ptr %eventPP.0.i548, align 8
   %319 = icmp ugt i32 %call.i556, 1
@@ -15281,7 +15281,7 @@ if.else9.i534:                                    ; preds = %if.then408
   %sub.ptr.rhs.cast13.i538 = ptrtoint ptr %305 to i64
   %sub.ptr.sub14.i539 = sub i64 %sub.ptr.lhs.cast12.i537, %sub.ptr.rhs.cast13.i538
   %conv15.i540 = trunc i64 %sub.ptr.sub14.i539 to i32
-  call void %304(ptr noundef %320, ptr noundef %305, i32 noundef %conv15.i540) #23
+  call void %304(ptr noundef %320, ptr noundef %305, i32 noundef %conv15.i540) #24
   br label %reportDefault.exit564
 
 reportDefault.exit564:                            ; preds = %do.body.i555, %if.else9.i534
@@ -15305,7 +15305,7 @@ if.then417:                                       ; preds = %while.body414
   %324 = load ptr, ptr %m_handlerArg577, align 8
   %325 = load ptr, ptr %322, align 8
   %326 = load ptr, ptr %325, align 8
-  call void %323(ptr noundef %324, ptr noundef %326) #23
+  call void %323(ptr noundef %324, ptr noundef %326) #24
   %.pre878 = load ptr, ptr %bindings412, align 8
   br label %if.end422
 
@@ -15351,7 +15351,7 @@ if.else444:                                       ; preds = %land.lhs.true432
 sw.bb449:                                         ; preds = %if.end11
   %336 = load ptr, ptr %charRefNumber, align 8
   %337 = load ptr, ptr %s.addr, align 8
-  %call450 = call i32 %336(ptr noundef nonnull %enc, ptr noundef %337) #23
+  %call450 = call i32 %336(ptr noundef nonnull %enc, ptr noundef %337) #24
   %cmp451 = icmp slt i32 %call450, 0
   br i1 %cmp451, label %return, label %if.end454
 
@@ -15362,8 +15362,8 @@ if.end454:                                        ; preds = %sw.bb449
 
 if.then457:                                       ; preds = %if.end454
   %339 = load ptr, ptr %m_handlerArg577, align 8
-  %call462 = call i32 @PyExpat_XmlUtf8Encode(i32 noundef %call450, ptr noundef nonnull %buf458) #23
-  call void %338(ptr noundef %339, ptr noundef nonnull %buf458, i32 noundef %call462) #23
+  %call462 = call i32 @PyExpat_XmlUtf8Encode(i32 noundef %call450, ptr noundef nonnull %buf458) #24
+  call void %338(ptr noundef %339, ptr noundef nonnull %buf458, i32 noundef %call462) #24
   br label %sw.epilog
 
 if.else463:                                       ; preds = %if.end454
@@ -15401,7 +15401,7 @@ do.body.i590:                                     ; preds = %do.body.i590, %if.e
   store ptr %346, ptr %dataPtr.i566, align 8
   %347 = load ptr, ptr %utf8Convert558, align 8
   %348 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i591 = call i32 %347(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i565, ptr noundef %342, ptr noundef nonnull %dataPtr.i566, ptr noundef %348) #23
+  %call.i591 = call i32 %347(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i565, ptr noundef %342, ptr noundef nonnull %dataPtr.i566, ptr noundef %348) #24
   %349 = load ptr, ptr %s.addr.i565, align 8
   store ptr %349, ptr %eventEndPP.0.i584, align 8
   %350 = load ptr, ptr %m_defaultHandler584, align 8
@@ -15412,7 +15412,7 @@ do.body.i590:                                     ; preds = %do.body.i590, %if.e
   %sub.ptr.rhs.cast.i593 = ptrtoint ptr %352 to i64
   %sub.ptr.sub.i594 = sub i64 %sub.ptr.lhs.cast.i592, %sub.ptr.rhs.cast.i593
   %conv.i595 = trunc i64 %sub.ptr.sub.i594 to i32
-  call void %350(ptr noundef %351, ptr noundef %352, i32 noundef %conv.i595) #23
+  call void %350(ptr noundef %351, ptr noundef %352, i32 noundef %conv.i595) #24
   %354 = load ptr, ptr %s.addr.i565, align 8
   store ptr %354, ptr %eventPP.0.i583, align 8
   %355 = icmp ugt i32 %call.i591, 1
@@ -15424,7 +15424,7 @@ if.else9.i569:                                    ; preds = %if.then466
   %sub.ptr.rhs.cast13.i573 = ptrtoint ptr %341 to i64
   %sub.ptr.sub14.i574 = sub i64 %sub.ptr.lhs.cast12.i572, %sub.ptr.rhs.cast13.i573
   %conv15.i575 = trunc i64 %sub.ptr.sub14.i574 to i32
-  call void %340(ptr noundef %356, ptr noundef %341, i32 noundef %conv15.i575) #23
+  call void %340(ptr noundef %356, ptr noundef %341, i32 noundef %conv15.i575) #24
   br label %reportDefault.exit599
 
 reportDefault.exit599:                            ; preds = %do.body.i590, %if.else9.i569
@@ -15440,7 +15440,7 @@ sw.bb470:                                         ; preds = %if.end11
 if.then473:                                       ; preds = %sw.bb470
   store i8 10, ptr %c474, align 1
   %358 = load ptr, ptr %m_handlerArg577, align 8
-  call void %357(ptr noundef %358, ptr noundef nonnull %c474, i32 noundef 1) #23
+  call void %357(ptr noundef %358, ptr noundef nonnull %c474, i32 noundef 1) #24
   br label %sw.epilog
 
 if.else477:                                       ; preds = %sw.bb470
@@ -15477,7 +15477,7 @@ do.body.i625:                                     ; preds = %do.body.i625, %if.e
   store ptr %364, ptr %dataPtr.i601, align 8
   %365 = load ptr, ptr %utf8Convert558, align 8
   %366 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i626 = call i32 %365(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i600, ptr noundef %13, ptr noundef nonnull %dataPtr.i601, ptr noundef %366) #23
+  %call.i626 = call i32 %365(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i600, ptr noundef %13, ptr noundef nonnull %dataPtr.i601, ptr noundef %366) #24
   %367 = load ptr, ptr %s.addr.i600, align 8
   store ptr %367, ptr %eventEndPP.0.i619, align 8
   %368 = load ptr, ptr %m_defaultHandler584, align 8
@@ -15488,7 +15488,7 @@ do.body.i625:                                     ; preds = %do.body.i625, %if.e
   %sub.ptr.rhs.cast.i628 = ptrtoint ptr %370 to i64
   %sub.ptr.sub.i629 = sub i64 %sub.ptr.lhs.cast.i627, %sub.ptr.rhs.cast.i628
   %conv.i630 = trunc i64 %sub.ptr.sub.i629 to i32
-  call void %368(ptr noundef %369, ptr noundef %370, i32 noundef %conv.i630) #23
+  call void %368(ptr noundef %369, ptr noundef %370, i32 noundef %conv.i630) #24
   %372 = load ptr, ptr %s.addr.i600, align 8
   store ptr %372, ptr %eventPP.0.i618, align 8
   %373 = icmp ugt i32 %call.i626, 1
@@ -15500,7 +15500,7 @@ if.else9.i604:                                    ; preds = %if.then480
   %sub.ptr.rhs.cast13.i608 = ptrtoint ptr %360 to i64
   %sub.ptr.sub14.i609 = sub i64 %sub.ptr.lhs.cast12.i607, %sub.ptr.rhs.cast13.i608
   %conv15.i610 = trunc i64 %sub.ptr.sub14.i609 to i32
-  call void %359(ptr noundef %374, ptr noundef %360, i32 noundef %conv15.i610) #23
+  call void %359(ptr noundef %374, ptr noundef %360, i32 noundef %conv15.i610) #24
   br label %reportDefault.exit634
 
 reportDefault.exit634:                            ; preds = %do.body.i625, %if.else9.i604
@@ -15515,7 +15515,7 @@ sw.bb483:                                         ; preds = %if.end11
 
 if.then486:                                       ; preds = %sw.bb483
   %376 = load ptr, ptr %m_handlerArg577, align 8
-  call void %375(ptr noundef %376) #23
+  call void %375(ptr noundef %376) #24
   br label %if.end494
 
 if.else489:                                       ; preds = %sw.bb483
@@ -15552,7 +15552,7 @@ do.body.i660:                                     ; preds = %do.body.i660, %if.e
   store ptr %382, ptr %dataPtr.i636, align 8
   %383 = load ptr, ptr %utf8Convert558, align 8
   %384 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i661 = call i32 %383(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i635, ptr noundef %13, ptr noundef nonnull %dataPtr.i636, ptr noundef %384) #23
+  %call.i661 = call i32 %383(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i635, ptr noundef %13, ptr noundef nonnull %dataPtr.i636, ptr noundef %384) #24
   %385 = load ptr, ptr %s.addr.i635, align 8
   store ptr %385, ptr %eventEndPP.0.i654, align 8
   %386 = load ptr, ptr %m_defaultHandler584, align 8
@@ -15563,7 +15563,7 @@ do.body.i660:                                     ; preds = %do.body.i660, %if.e
   %sub.ptr.rhs.cast.i663 = ptrtoint ptr %388 to i64
   %sub.ptr.sub.i664 = sub i64 %sub.ptr.lhs.cast.i662, %sub.ptr.rhs.cast.i663
   %conv.i665 = trunc i64 %sub.ptr.sub.i664 to i32
-  call void %386(ptr noundef %387, ptr noundef %388, i32 noundef %conv.i665) #23
+  call void %386(ptr noundef %387, ptr noundef %388, i32 noundef %conv.i665) #24
   %390 = load ptr, ptr %s.addr.i635, align 8
   store ptr %390, ptr %eventPP.0.i653, align 8
   %391 = icmp ugt i32 %call.i661, 1
@@ -15575,7 +15575,7 @@ if.else9.i639:                                    ; preds = %if.then492
   %sub.ptr.rhs.cast13.i643 = ptrtoint ptr %378 to i64
   %sub.ptr.sub14.i644 = sub i64 %sub.ptr.lhs.cast12.i642, %sub.ptr.rhs.cast13.i643
   %conv15.i645 = trunc i64 %sub.ptr.sub14.i644 to i32
-  call void %377(ptr noundef %392, ptr noundef %378, i32 noundef %conv15.i645) #23
+  call void %377(ptr noundef %392, ptr noundef %378, i32 noundef %conv15.i645) #24
   br label %reportDefault.exit669
 
 reportDefault.exit669:                            ; preds = %do.body.i660, %if.else9.i639
@@ -15620,7 +15620,7 @@ if.then513:                                       ; preds = %if.then511
   store ptr %397, ptr %dataPtr, align 8
   %398 = load ptr, ptr %utf8Convert558, align 8
   %399 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call515 = call i32 %398(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr, ptr noundef %end, ptr noundef nonnull %dataPtr, ptr noundef %399) #23
+  %call515 = call i32 %398(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr, ptr noundef %end, ptr noundef nonnull %dataPtr, ptr noundef %399) #24
   %400 = load ptr, ptr %m_characterDataHandler548, align 8
   %401 = load ptr, ptr %m_handlerArg577, align 8
   %402 = load ptr, ptr %m_dataBuf556, align 8
@@ -15629,7 +15629,7 @@ if.then513:                                       ; preds = %if.then511
   %sub.ptr.rhs.cast521 = ptrtoint ptr %402 to i64
   %sub.ptr.sub522 = sub i64 %sub.ptr.lhs.cast520, %sub.ptr.rhs.cast521
   %conv523 = trunc i64 %sub.ptr.sub522 to i32
-  call void %400(ptr noundef %401, ptr noundef %402, i32 noundef %conv523) #23
+  call void %400(ptr noundef %401, ptr noundef %402, i32 noundef %conv523) #24
   br label %if.end537
 
 if.else524:                                       ; preds = %if.then511
@@ -15639,7 +15639,7 @@ if.else524:                                       ; preds = %if.then511
   %sub.ptr.rhs.cast528 = ptrtoint ptr %405 to i64
   %sub.ptr.sub529 = sub i64 %sub.ptr.lhs.cast527, %sub.ptr.rhs.cast528
   %conv530 = trunc i64 %sub.ptr.sub529 to i32
-  call void %395(ptr noundef %404, ptr noundef %405, i32 noundef %conv530) #23
+  call void %395(ptr noundef %404, ptr noundef %405, i32 noundef %conv530) #24
   br label %if.end537
 
 if.else532:                                       ; preds = %if.end508
@@ -15689,7 +15689,7 @@ for.cond554:                                      ; preds = %if.then550, %if.end
   store ptr %412, ptr %dataPtr555, align 8
   %413 = load ptr, ptr %utf8Convert558, align 8
   %414 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call560 = call i32 %413(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr, ptr noundef %411, ptr noundef nonnull %dataPtr555, ptr noundef %414) #23
+  %call560 = call i32 %413(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr, ptr noundef %411, ptr noundef nonnull %dataPtr555, ptr noundef %414) #24
   %415 = load ptr, ptr %s.addr, align 8
   store ptr %415, ptr %eventEndPP.0, align 8
   %416 = load ptr, ptr %m_handlerArg577, align 8
@@ -15699,7 +15699,7 @@ for.cond554:                                      ; preds = %if.then550, %if.end
   %sub.ptr.rhs.cast565 = ptrtoint ptr %417 to i64
   %sub.ptr.sub566 = sub i64 %sub.ptr.lhs.cast564, %sub.ptr.rhs.cast565
   %conv567 = trunc i64 %sub.ptr.sub566 to i32
-  call void %409(ptr noundef %416, ptr noundef %417, i32 noundef %conv567) #23
+  call void %409(ptr noundef %416, ptr noundef %417, i32 noundef %conv567) #24
   %or.cond4 = icmp ult i32 %call560, 2
   br i1 %or.cond4, label %sw.epilog, label %if.end574
 
@@ -15716,7 +15716,7 @@ if.else576:                                       ; preds = %if.then550
   %sub.ptr.rhs.cast579 = ptrtoint ptr %421 to i64
   %sub.ptr.sub580 = sub i64 %sub.ptr.lhs.cast578, %sub.ptr.rhs.cast579
   %conv581 = trunc i64 %sub.ptr.sub580 to i32
-  call void %409(ptr noundef %420, ptr noundef %421, i32 noundef %conv581) #23
+  call void %409(ptr noundef %420, ptr noundef %421, i32 noundef %conv581) #24
   br label %sw.epilog
 
 if.else583:                                       ; preds = %sw.bb547
@@ -15753,7 +15753,7 @@ do.body.i695:                                     ; preds = %do.body.i695, %if.e
   store ptr %427, ptr %dataPtr.i671, align 8
   %428 = load ptr, ptr %utf8Convert558, align 8
   %429 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i696 = call i32 %428(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i670, ptr noundef %13, ptr noundef nonnull %dataPtr.i671, ptr noundef %429) #23
+  %call.i696 = call i32 %428(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i670, ptr noundef %13, ptr noundef nonnull %dataPtr.i671, ptr noundef %429) #24
   %430 = load ptr, ptr %s.addr.i670, align 8
   store ptr %430, ptr %eventEndPP.0.i689, align 8
   %431 = load ptr, ptr %m_defaultHandler584, align 8
@@ -15764,7 +15764,7 @@ do.body.i695:                                     ; preds = %do.body.i695, %if.e
   %sub.ptr.rhs.cast.i698 = ptrtoint ptr %433 to i64
   %sub.ptr.sub.i699 = sub i64 %sub.ptr.lhs.cast.i697, %sub.ptr.rhs.cast.i698
   %conv.i700 = trunc i64 %sub.ptr.sub.i699 to i32
-  call void %431(ptr noundef %432, ptr noundef %433, i32 noundef %conv.i700) #23
+  call void %431(ptr noundef %432, ptr noundef %433, i32 noundef %conv.i700) #24
   %435 = load ptr, ptr %s.addr.i670, align 8
   store ptr %435, ptr %eventPP.0.i688, align 8
   %436 = icmp ugt i32 %call.i696, 1
@@ -15776,7 +15776,7 @@ if.else9.i674:                                    ; preds = %if.then586
   %sub.ptr.rhs.cast13.i678 = ptrtoint ptr %423 to i64
   %sub.ptr.sub14.i679 = sub i64 %sub.ptr.lhs.cast12.i677, %sub.ptr.rhs.cast13.i678
   %conv15.i680 = trunc i64 %sub.ptr.sub14.i679 to i32
-  call void %422(ptr noundef %437, ptr noundef %423, i32 noundef %conv15.i680) #23
+  call void %422(ptr noundef %437, ptr noundef %423, i32 noundef %conv15.i680) #24
   br label %reportDefault.exit704
 
 reportDefault.exit704:                            ; preds = %do.body.i695, %if.else9.i674
@@ -15830,7 +15830,7 @@ do.body.i730:                                     ; preds = %do.body.i730, %if.e
   store ptr %445, ptr %dataPtr.i706, align 8
   %446 = load ptr, ptr %utf8Convert558, align 8
   %447 = load ptr, ptr %m_dataBufEnd559, align 8
-  %call.i731 = call i32 %446(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i705, ptr noundef %13, ptr noundef nonnull %dataPtr.i706, ptr noundef %447) #23
+  %call.i731 = call i32 %446(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i705, ptr noundef %13, ptr noundef nonnull %dataPtr.i706, ptr noundef %447) #24
   %448 = load ptr, ptr %s.addr.i705, align 8
   store ptr %448, ptr %eventEndPP.0.i724, align 8
   %449 = load ptr, ptr %m_defaultHandler584, align 8
@@ -15841,7 +15841,7 @@ do.body.i730:                                     ; preds = %do.body.i730, %if.e
   %sub.ptr.rhs.cast.i733 = ptrtoint ptr %451 to i64
   %sub.ptr.sub.i734 = sub i64 %sub.ptr.lhs.cast.i732, %sub.ptr.rhs.cast.i733
   %conv.i735 = trunc i64 %sub.ptr.sub.i734 to i32
-  call void %449(ptr noundef %450, ptr noundef %451, i32 noundef %conv.i735) #23
+  call void %449(ptr noundef %450, ptr noundef %451, i32 noundef %conv.i735) #24
   %453 = load ptr, ptr %s.addr.i705, align 8
   store ptr %453, ptr %eventPP.0.i723, align 8
   %454 = icmp ugt i32 %call.i731, 1
@@ -15853,7 +15853,7 @@ if.else9.i709:                                    ; preds = %if.then601
   %sub.ptr.rhs.cast13.i713 = ptrtoint ptr %441 to i64
   %sub.ptr.sub14.i714 = sub i64 %sub.ptr.lhs.cast12.i712, %sub.ptr.rhs.cast13.i713
   %conv15.i715 = trunc i64 %sub.ptr.sub14.i714 to i32
-  call void %440(ptr noundef %455, ptr noundef %441, i32 noundef %conv15.i715) #23
+  call void %440(ptr noundef %455, ptr noundef %441, i32 noundef %conv15.i715) #24
   br label %reportDefault.exit739
 
 reportDefault.exit739:                            ; preds = %do.body.i730, %if.else9.i709
@@ -15925,7 +15925,7 @@ if.end9:                                          ; preds = %if.end
 
 if.then16:                                        ; preds = %if.end9
   %5 = load ptr, ptr %realloc_fcn, align 8
-  %call = tail call ptr %5(ptr noundef %1, i64 noundef %conv12) #23
+  %call = tail call ptr %5(ptr noundef %1, i64 noundef %conv12) #24
   %cmp19 = icmp eq ptr %call, null
   br i1 %cmp19, label %return, label %if.end22
 
@@ -16130,7 +16130,7 @@ if.end15:                                         ; preds = %for.body.i.i, %if.e
   %27 = load i32, ptr %m_attsSize, align 8
   %m_atts = getelementptr inbounds i8, ptr %parser, i64 736
   %28 = load ptr, ptr %m_atts, align 8
-  %call17 = tail call i32 %26(ptr noundef %enc, ptr noundef %attStr, i32 noundef %27, ptr noundef %28) #23
+  %call17 = tail call i32 %26(ptr noundef %enc, ptr noundef %attStr, i32 noundef %27, ptr noundef %28) #24
   %sub = sub i32 2147483647, %25
   %cmp = icmp sgt i32 %call17, %sub
   br i1 %cmp, label %return, label %if.end20
@@ -16156,7 +16156,7 @@ if.end33:                                         ; preds = %if.then24
   %31 = load ptr, ptr %m_atts, align 8
   %conv39 = sext i32 %add35 to i64
   %mul = shl nsw i64 %conv39, 5
-  %call40 = tail call ptr %30(ptr noundef %31, i64 noundef %mul) #23
+  %call40 = tail call ptr %30(ptr noundef %31, i64 noundef %mul) #24
   %cmp41 = icmp eq ptr %call40, null
   br i1 %cmp41, label %if.then43, label %if.end45
 
@@ -16171,7 +16171,7 @@ if.end45:                                         ; preds = %if.end33
 
 if.then49:                                        ; preds = %if.end45
   %32 = load ptr, ptr %getAtts, align 8
-  %call52 = tail call i32 %32(ptr noundef nonnull %enc, ptr noundef %attStr, i32 noundef %call17, ptr noundef nonnull %call40) #23
+  %call52 = tail call i32 %32(ptr noundef nonnull %enc, ptr noundef %attStr, i32 noundef %call17, ptr noundef nonnull %call40) #24
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end45, %if.then49, %if.end20
@@ -16200,7 +16200,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr %struct.ATTRIBUTE, ptr %34, i64 %indvars.iv501
   %35 = load ptr, ptr %arrayidx, align 8
   %36 = load ptr, ptr %nameLength, align 8
-  %call62 = call i32 %36(ptr noundef %enc, ptr noundef %35) #23
+  %call62 = call i32 %36(ptr noundef %enc, ptr noundef %35) #24
   %idx.ext = sext i32 %call62 to i64
   %add.ptr = getelementptr i8, ptr %35, i64 %idx.ext
   %call63 = call fastcc ptr @getAttributeId(ptr noundef nonnull %parser, ptr noundef %enc, ptr noundef %35, ptr noundef %add.ptr)
@@ -16348,7 +16348,7 @@ for.cond.i.i.preheader:                           ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end8.i.i
   %61 = load ptr, ptr %utf8Convert.i.i, align 8
   %62 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %61(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %59, ptr noundef nonnull %ptr1.i.i, ptr noundef %62) #23
+  %call5.i.i = call i32 %61(ptr noundef %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %59, ptr noundef nonnull %ptr1.i.i, ptr noundef %62) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -16613,7 +16613,7 @@ if.end298:                                        ; preds = %if.end291.thread, %
   %89 = load ptr, ptr %m_nsAtts, align 8
   %90 = zext nneg i8 %87 to i64
   %mul305 = shl nuw nsw i64 24, %90
-  %call306 = call ptr %88(ptr noundef %89, i64 noundef %mul305) #23
+  %call306 = call ptr %88(ptr noundef %89, i64 noundef %mul305) #24
   %tobool307.not = icmp eq ptr %call306, null
   br i1 %tobool307.not, label %if.then308, label %if.end312.thread
 
@@ -17134,7 +17134,7 @@ if.end638:                                        ; preds = %if.then634
   %165 = load ptr, ptr %m_mem639, align 8
   %add640 = add nsw i32 %add631, 24
   %conv641 = sext i32 %add640 to i64
-  %call643 = call ptr %165(i64 noundef %conv641) #23
+  %call643 = call ptr %165(i64 noundef %conv641) #24
   %tobool644.not = icmp eq ptr %call643, null
   br i1 %tobool644.not, label %return, label %if.end646
 
@@ -17171,7 +17171,7 @@ for.end666:                                       ; preds = %for.inc665, %if.end
   %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %170 = load ptr, ptr %free_fcn, align 8
   %171 = load ptr, ptr %uri649, align 8
-  call void %170(ptr noundef %171) #23
+  call void %170(ptr noundef %171) #24
   store ptr %call643, ptr %uri649, align 8
   %.pre517 = load i32, ptr %uriLen604, align 8
   br label %if.end670
@@ -17235,7 +17235,7 @@ for.cond:                                         ; preds = %sw.epilog, %entry
   store ptr null, ptr %next, align 8
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
-  %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s.addr.0, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s.addr.0, ptr noundef %end, ptr noundef nonnull %next) #24
   %2 = load ptr, ptr %next, align 8
   %call2 = call fastcc zeroext i8 @accountingDiffTolerated(ptr noundef nonnull %parser, i32 noundef %call, ptr noundef %s.addr.0, ptr noundef %2, i32 noundef 5652, i32 noundef 0)
   %tobool.not = icmp eq i8 %call2, 0
@@ -17273,7 +17273,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %6, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %7 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %5, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %5, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end:                                           ; preds = %for.cond
@@ -17314,7 +17314,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %12, ptr %dataPtr.i, align 8
   %13 = load ptr, ptr %utf8Convert.i, align 8
   %14 = load ptr, ptr %m_dataBufEnd.i59, align 8
-  %call.i = call i32 %13(ptr noundef nonnull %10, ptr noundef nonnull %s.addr.i, ptr noundef %8, ptr noundef nonnull %dataPtr.i, ptr noundef %14) #23
+  %call.i = call i32 %13(ptr noundef nonnull %10, ptr noundef nonnull %s.addr.i, ptr noundef %8, ptr noundef nonnull %dataPtr.i, ptr noundef %14) #24
   %15 = load ptr, ptr %s.addr.i, align 8
   store ptr %15, ptr %m_eventEndPtr, align 8
   %16 = load ptr, ptr %m_defaultHandler11, align 8
@@ -17325,7 +17325,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %16(ptr noundef %17, ptr noundef %18, i32 noundef %conv.i) #23
+  call void %16(ptr noundef %17, ptr noundef %18, i32 noundef %conv.i) #24
   %20 = load ptr, ptr %s.addr.i, align 8
   store ptr %20, ptr %m_eventPtr, align 8
   %21 = icmp ugt i32 %call.i, 1
@@ -17337,7 +17337,7 @@ if.else9.i:                                       ; preds = %if.then4
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %s.addr.0 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  call void %9(ptr noundef %22, ptr noundef %s.addr.0, i32 noundef %conv15.i) #23
+  call void %9(ptr noundef %22, ptr noundef %s.addr.0, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -17384,7 +17384,7 @@ do.body.i62:                                      ; preds = %do.body.i62, %if.en
   store ptr %28, ptr %dataPtr.i38, align 8
   %29 = load ptr, ptr %utf8Convert.i58, align 8
   %30 = load ptr, ptr %m_dataBufEnd.i59, align 8
-  %call.i63 = call i32 %29(ptr noundef nonnull %26, ptr noundef nonnull %s.addr.i37, ptr noundef %8, ptr noundef nonnull %dataPtr.i38, ptr noundef %30) #23
+  %call.i63 = call i32 %29(ptr noundef nonnull %26, ptr noundef nonnull %s.addr.i37, ptr noundef %8, ptr noundef nonnull %dataPtr.i38, ptr noundef %30) #24
   %31 = load ptr, ptr %s.addr.i37, align 8
   store ptr %31, ptr %m_eventEndPtr, align 8
   %32 = load ptr, ptr %m_defaultHandler11, align 8
@@ -17395,7 +17395,7 @@ do.body.i62:                                      ; preds = %do.body.i62, %if.en
   %sub.ptr.rhs.cast.i65 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i66 = sub i64 %sub.ptr.lhs.cast.i64, %sub.ptr.rhs.cast.i65
   %conv.i67 = trunc i64 %sub.ptr.sub.i66 to i32
-  call void %32(ptr noundef %33, ptr noundef %34, i32 noundef %conv.i67) #23
+  call void %32(ptr noundef %33, ptr noundef %34, i32 noundef %conv.i67) #24
   %36 = load ptr, ptr %s.addr.i37, align 8
   store ptr %36, ptr %m_eventPtr, align 8
   %37 = icmp ugt i32 %call.i63, 1
@@ -17407,7 +17407,7 @@ if.else9.i41:                                     ; preds = %if.then13
   %sub.ptr.rhs.cast13.i45 = ptrtoint ptr %s.addr.0 to i64
   %sub.ptr.sub14.i46 = sub i64 %sub.ptr.lhs.cast12.i44, %sub.ptr.rhs.cast13.i45
   %conv15.i47 = trunc i64 %sub.ptr.sub14.i46 to i32
-  call void %25(ptr noundef %38, ptr noundef %s.addr.0, i32 noundef %conv15.i47) #23
+  call void %25(ptr noundef %38, ptr noundef %s.addr.0, i32 noundef %conv15.i47) #24
   br label %reportDefault.exit71
 
 reportDefault.exit71:                             ; preds = %do.body.i62, %if.else9.i41
@@ -17524,7 +17524,7 @@ for.cond:                                         ; preds = %sw.epilog, %if.end
   %3 = load ptr, ptr %s, align 8
   store ptr %3, ptr %next, align 8
   %4 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 %4(ptr noundef %enc, ptr noundef %3, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %4(ptr noundef %enc, ptr noundef %3, ptr noundef %end, ptr noundef nonnull %next) #24
   %5 = load ptr, ptr %s, align 8
   %6 = load ptr, ptr %next, align 8
   %call2 = call fastcc zeroext i8 @accountingDiffTolerated(ptr noundef nonnull %parser, i32 noundef %call, ptr noundef %5, ptr noundef %6, i32 noundef 4044, i32 noundef %account)
@@ -17563,7 +17563,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %10, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %11 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %9, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %9, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end4:                                          ; preds = %for.cond
@@ -17587,7 +17587,7 @@ sw.bb:                                            ; preds = %if.end4
 
 if.then6:                                         ; preds = %sw.bb
   %14 = load ptr, ptr %m_handlerArg45, align 8
-  call void %13(ptr noundef %14) #23
+  call void %13(ptr noundef %14) #24
   br label %if.end12
 
 if.else8:                                         ; preds = %sw.bb
@@ -17617,7 +17617,7 @@ sw.bb16:                                          ; preds = %if.end4
 if.then18:                                        ; preds = %sw.bb16
   store i8 10, ptr %c, align 1
   %20 = load ptr, ptr %m_handlerArg45, align 8
-  call void %19(ptr noundef %20, ptr noundef nonnull %c, i32 noundef 1) #23
+  call void %19(ptr noundef %20, ptr noundef nonnull %c, i32 noundef 1) #24
   br label %sw.epilog
 
 if.else21:                                        ; preds = %sw.bb16
@@ -17654,7 +17654,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   store ptr %26, ptr %dataPtr.i, align 8
   %27 = load ptr, ptr %utf8Convert, align 8
   %28 = load ptr, ptr %m_dataBufEnd, align 8
-  %call.i = call i32 %27(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %12, ptr noundef nonnull %dataPtr.i, ptr noundef %28) #23
+  %call.i = call i32 %27(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i, ptr noundef %12, ptr noundef nonnull %dataPtr.i, ptr noundef %28) #24
   %29 = load ptr, ptr %s.addr.i, align 8
   store ptr %29, ptr %eventEndPP.0.i, align 8
   %30 = load ptr, ptr %m_defaultHandler52, align 8
@@ -17665,7 +17665,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %sub.ptr.rhs.cast.i = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  call void %30(ptr noundef %31, ptr noundef %32, i32 noundef %conv.i) #23
+  call void %30(ptr noundef %31, ptr noundef %32, i32 noundef %conv.i) #24
   %34 = load ptr, ptr %s.addr.i, align 8
   store ptr %34, ptr %eventPP.0.i, align 8
   %35 = icmp ugt i32 %call.i, 1
@@ -17677,7 +17677,7 @@ if.else9.i:                                       ; preds = %if.then24
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub14.i = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i
   %conv15.i = trunc i64 %sub.ptr.sub14.i to i32
-  call void %21(ptr noundef %36, ptr noundef %22, i32 noundef %conv15.i) #23
+  call void %21(ptr noundef %36, ptr noundef %22, i32 noundef %conv15.i) #24
   br label %reportDefault.exit
 
 reportDefault.exit:                               ; preds = %do.body.i, %if.else9.i
@@ -17701,7 +17701,7 @@ for.cond33:                                       ; preds = %if.then30, %if.end4
   store ptr %40, ptr %dataPtr, align 8
   %41 = load ptr, ptr %utf8Convert, align 8
   %42 = load ptr, ptr %m_dataBufEnd, align 8
-  %call34 = call i32 %41(ptr noundef %enc, ptr noundef nonnull %s, ptr noundef %39, ptr noundef nonnull %dataPtr, ptr noundef %42) #23
+  %call34 = call i32 %41(ptr noundef %enc, ptr noundef nonnull %s, ptr noundef %39, ptr noundef nonnull %dataPtr, ptr noundef %42) #24
   %43 = load ptr, ptr %next, align 8
   store ptr %43, ptr %eventEndPP.0, align 8
   %44 = load ptr, ptr %m_handlerArg45, align 8
@@ -17711,7 +17711,7 @@ for.cond33:                                       ; preds = %if.then30, %if.end4
   %sub.ptr.rhs.cast = ptrtoint ptr %45 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  call void %37(ptr noundef %44, ptr noundef %45, i32 noundef %conv) #23
+  call void %37(ptr noundef %44, ptr noundef %45, i32 noundef %conv) #24
   %or.cond = icmp ult i32 %call34, 2
   br i1 %or.cond, label %sw.epilog, label %if.end43
 
@@ -17728,7 +17728,7 @@ if.else44:                                        ; preds = %if.then30
   %sub.ptr.rhs.cast47 = ptrtoint ptr %49 to i64
   %sub.ptr.sub48 = sub i64 %sub.ptr.lhs.cast46, %sub.ptr.rhs.cast47
   %conv49 = trunc i64 %sub.ptr.sub48 to i32
-  call void %37(ptr noundef %48, ptr noundef %49, i32 noundef %conv49) #23
+  call void %37(ptr noundef %48, ptr noundef %49, i32 noundef %conv49) #24
   br label %sw.epilog
 
 if.else51:                                        ; preds = %sw.bb27
@@ -17765,7 +17765,7 @@ do.body.i78:                                      ; preds = %do.body.i78, %if.en
   store ptr %55, ptr %dataPtr.i54, align 8
   %56 = load ptr, ptr %utf8Convert, align 8
   %57 = load ptr, ptr %m_dataBufEnd, align 8
-  %call.i79 = call i32 %56(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i53, ptr noundef %12, ptr noundef nonnull %dataPtr.i54, ptr noundef %57) #23
+  %call.i79 = call i32 %56(ptr noundef nonnull %enc, ptr noundef nonnull %s.addr.i53, ptr noundef %12, ptr noundef nonnull %dataPtr.i54, ptr noundef %57) #24
   %58 = load ptr, ptr %s.addr.i53, align 8
   store ptr %58, ptr %eventEndPP.0.i72, align 8
   %59 = load ptr, ptr %m_defaultHandler52, align 8
@@ -17776,7 +17776,7 @@ do.body.i78:                                      ; preds = %do.body.i78, %if.en
   %sub.ptr.rhs.cast.i81 = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i82 = sub i64 %sub.ptr.lhs.cast.i80, %sub.ptr.rhs.cast.i81
   %conv.i83 = trunc i64 %sub.ptr.sub.i82 to i32
-  call void %59(ptr noundef %60, ptr noundef %61, i32 noundef %conv.i83) #23
+  call void %59(ptr noundef %60, ptr noundef %61, i32 noundef %conv.i83) #24
   %63 = load ptr, ptr %s.addr.i53, align 8
   store ptr %63, ptr %eventPP.0.i71, align 8
   %64 = icmp ugt i32 %call.i79, 1
@@ -17788,7 +17788,7 @@ if.else9.i57:                                     ; preds = %if.then54
   %sub.ptr.rhs.cast13.i61 = ptrtoint ptr %51 to i64
   %sub.ptr.sub14.i62 = sub i64 %sub.ptr.lhs.cast12.i60, %sub.ptr.rhs.cast13.i61
   %conv15.i63 = trunc i64 %sub.ptr.sub14.i62 to i32
-  call void %50(ptr noundef %65, ptr noundef %51, i32 noundef %conv15.i63) #23
+  call void %50(ptr noundef %65, ptr noundef %51, i32 noundef %conv15.i63) #24
   br label %reportDefault.exit87
 
 reportDefault.exit87:                             ; preds = %do.body.i78, %if.else9.i57
@@ -18459,7 +18459,7 @@ if.end137:                                        ; preds = %if.then133
   %33 = load ptr, ptr %uri138, align 8
   %add = add nsw i32 %spec.select, 24
   %conv139 = sext i32 %add to i64
-  %call140 = tail call ptr %32(ptr noundef %33, i64 noundef %conv139) #23
+  %call140 = tail call ptr %32(ptr noundef %33, i64 noundef %conv139) #24
   %cmp141 = icmp eq ptr %call140, null
   br i1 %cmp141, label %return, label %if.end144
 
@@ -18479,7 +18479,7 @@ if.end148:                                        ; preds = %if.end144, %if.then
 if.else:                                          ; preds = %if.end122
   %m_mem150 = getelementptr inbounds i8, ptr %parser, i64 24
   %35 = load ptr, ptr %m_mem150, align 8
-  %call151 = tail call ptr %35(i64 noundef 48) #23
+  %call151 = tail call ptr %35(i64 noundef 48) #24
   %tobool152.not = icmp eq ptr %call151, null
   %cmp155 = icmp sgt i32 %spec.select, 2147483623
   %or.cond92 = select i1 %tobool152.not, i1 true, i1 %cmp155
@@ -18489,7 +18489,7 @@ if.end158:                                        ; preds = %if.else
   %36 = load ptr, ptr %m_mem150, align 8
   %add161 = add nsw i32 %spec.select, 24
   %conv162 = sext i32 %add161 to i64
-  %call164 = tail call ptr %36(i64 noundef %conv162) #23
+  %call164 = tail call ptr %36(i64 noundef %conv162) #24
   %uri165 = getelementptr inbounds i8, ptr %call151, i64 32
   store ptr %call164, ptr %uri165, align 8
   %tobool167.not = icmp eq ptr %call164, null
@@ -18498,7 +18498,7 @@ if.end158:                                        ; preds = %if.else
 if.then168:                                       ; preds = %if.end158
   %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
   %37 = load ptr, ptr %free_fcn, align 8
-  tail call void %37(ptr noundef nonnull %call151) #23
+  tail call void %37(ptr noundef nonnull %call151) #24
   br label %return
 
 if.end170:                                        ; preds = %if.end158
@@ -18571,7 +18571,7 @@ if.then202:                                       ; preds = %land.lhs.true200
   %48 = load ptr, ptr %binding, align 8
   %tobool206.not = icmp eq ptr %48, null
   %cond207 = select i1 %tobool206.not, ptr null, ptr %uri
-  tail call void %45(ptr noundef %46, ptr noundef %47, ptr noundef %cond207) #23
+  tail call void %45(ptr noundef %46, ptr noundef %47, ptr noundef %cond207) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true93.us, %land.lhs.true93, %if.end197, %land.lhs.true200, %if.then202, %if.else, %if.end137, %if.then133, %if.end119, %for.end, %land.lhs.true33, %land.lhs.true, %if.then168
@@ -18635,7 +18635,7 @@ if.end9.i:                                        ; preds = %if.end.i
 
 if.then16.i:                                      ; preds = %if.end9.i
   %7 = load ptr, ptr %realloc_fcn.i, align 8
-  %call.i = tail call ptr %7(ptr noundef %3, i64 noundef %conv12.i) #23
+  %call.i = tail call ptr %7(ptr noundef %3, i64 noundef %conv12.i) #24
   %cmp19.i = icmp eq ptr %call.i, null
   br i1 %cmp19.i, label %return, label %if.end22.i
 
@@ -18727,7 +18727,7 @@ for.cond:                                         ; preds = %sw.epilog, %entry
   %ptr.addr.0 = phi ptr [ %ptr, %entry ], [ %99, %sw.epilog ]
   store ptr %ptr.addr.0, ptr %next, align 8
   %1 = load ptr, ptr %literalScanners, align 8
-  %call = call i32 %1(ptr noundef %enc, ptr noundef %ptr.addr.0, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %1(ptr noundef %enc, ptr noundef %ptr.addr.0, ptr noundef %end, ptr noundef nonnull %next) #24
   %2 = load ptr, ptr %next, align 8
   %call1 = call fastcc zeroext i8 @accountingDiffTolerated(ptr noundef %parser, i32 noundef %call, ptr noundef %ptr.addr.0, ptr noundef %2, i32 noundef 5896, i32 noundef %account)
   %tobool.not = icmp eq i8 %call1, 0
@@ -18765,7 +18765,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %6, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %7 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %5, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %5, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end:                                           ; preds = %for.cond
@@ -18806,7 +18806,7 @@ if.then8:                                         ; preds = %sw.bb5
 
 sw.bb11:                                          ; preds = %if.end
   %11 = load ptr, ptr %charRefNumber, align 8
-  %call12 = call i32 %11(ptr noundef nonnull %enc, ptr noundef %ptr.addr.0) #23
+  %call12 = call i32 %11(ptr noundef nonnull %enc, ptr noundef %ptr.addr.0) #24
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end20
 
@@ -18839,7 +18839,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true23
   br i1 %cmp28, label %sw.epilog, label %if.end31
 
 if.end31:                                         ; preds = %lor.lhs.false, %if.end20
-  %call32 = call i32 @PyExpat_XmlUtf8Encode(i32 noundef %call12, ptr noundef nonnull %buf) #23
+  %call32 = call i32 @PyExpat_XmlUtf8Encode(i32 noundef %call12, ptr noundef nonnull %buf) #24
   %cmp34161 = icmp sgt i32 %call32, 0
   br i1 %cmp34161, label %for.body.preheader, label %sw.epilog
 
@@ -18893,7 +18893,7 @@ for.cond.i.preheader:                             ; preds = %land.lhs.true.i, %s
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %if.end8.i
   %22 = load ptr, ptr %utf8Convert.i.i, align 8
   %23 = load ptr, ptr %end98, align 8
-  %call5.i = call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %20, ptr noundef nonnull %ptr97, ptr noundef %23) #23
+  %call5.i = call i32 %22(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i, ptr noundef %20, ptr noundef nonnull %ptr97, ptr noundef %23) #24
   %or.cond.i = icmp ult i32 %call5.i, 2
   br i1 %or.cond.i, label %poolAppend.exit, label %if.end8.i
 
@@ -18963,7 +18963,7 @@ sw.bb84:                                          ; preds = %if.end
   %32 = load ptr, ptr %next, align 8
   %idx.neg = sub nsw i64 0, %idx.ext86
   %add.ptr90 = getelementptr i8, ptr %32, i64 %idx.neg
-  %call91 = call i32 %30(ptr noundef nonnull %enc, ptr noundef %add.ptr87, ptr noundef %add.ptr90) #23
+  %call91 = call i32 %30(ptr noundef nonnull %enc, ptr noundef %add.ptr87, ptr noundef %add.ptr90) #24
   %conv92 = trunc i32 %call91 to i8
   store i8 %conv92, ptr %ch, align 1
   %tobool93.not = icmp eq i8 %conv92, 0
@@ -19017,7 +19017,7 @@ for.cond.i.i.preheader:                           ; preds = %land.lhs.true.i.i, 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end8.i.i
   %40 = load ptr, ptr %utf8Convert.i.i, align 8
   %41 = load ptr, ptr %end4.i.i, align 8
-  %call5.i.i = call i32 %40(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr117, ptr noundef nonnull %ptr1.i.i, ptr noundef %41) #23
+  %call5.i.i = call i32 %40(ptr noundef nonnull %enc, ptr noundef nonnull %ptr.addr.i.i, ptr noundef %add.ptr117, ptr noundef nonnull %ptr1.i.i, ptr noundef %41) #24
   %or.cond.i.i = icmp ult i32 %call5.i.i, 2
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %if.end8.i.i
 
@@ -19286,7 +19286,7 @@ if.end.i.i121:                                    ; preds = %if.end.i118
   %tobool.not.i6.i = icmp eq i8 %84, 0
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
   %85 = load i32, ptr %textLen, align 8
-  %call.i.i122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %80, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %82, ptr noundef nonnull @.str.319, i32 noundef %85, i32 noundef 6046) #26
+  %call.i.i122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %80, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %82, ptr noundef nonnull @.str.319, i32 noundef %85, i32 noundef 6046) #27
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i118, %if.end.i.i121
@@ -19324,7 +19324,7 @@ if.end.i.i131:                                    ; preds = %getRootParserOf.exi
   %tobool.not.i2.i = icmp eq i8 %95, 0
   %cond.i.i135 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %96 = load i32, ptr %textLen, align 8
-  %call.i.i137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i125, i32 noundef %92, i32 noundef %93, i32 noundef %94, i32 noundef %mul.i.i133, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i135, ptr noundef %90, ptr noundef nonnull @.str.321, i32 noundef %96, i32 noundef 6053) #26
+  %call.i.i137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i125, i32 noundef %92, i32 noundef %93, i32 noundef %94, i32 noundef %mul.i.i133, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i135, ptr noundef %90, ptr noundef nonnull @.str.321, i32 noundef %96, i32 noundef 6053) #27
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i128, %if.end.i.i131
@@ -19388,7 +19388,7 @@ if.then6:                                         ; preds = %if.end
   %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
   %6 = load ptr, ptr %m_internalEncoding, align 8
   %7 = load ptr, ptr %6, align 8
-  %call = call i32 %7(ptr noundef nonnull %6, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %next) #23
+  %call = call i32 %7(ptr noundef nonnull %6, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %next) #24
   %8 = load ptr, ptr %m_internalEncoding, align 8
   %9 = load ptr, ptr %next, align 8
   %call9 = call fastcc i32 @doProlog(ptr noundef nonnull %parser, ptr noundef %8, ptr noundef %add.ptr, ptr noundef %add.ptr4, i32 noundef %call, ptr noundef %9, ptr noundef nonnull %next, i8 noundef zeroext 0, i8 noundef zeroext 1, i32 noundef 1)
@@ -19458,7 +19458,7 @@ if.end.i.i:                                       ; preds = %getRootParserOf.exi
   %tobool.not.i2.i = icmp eq i8 %22, 0
   %cond.i.i = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
   %23 = load i32, ptr %textLen, align 8
-  %call.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %17, ptr noundef nonnull @.str.321, i32 noundef %23, i32 noundef 5817) #26
+  %call.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %17, ptr noundef nonnull @.str.321, i32 noundef %23, i32 noundef 5817) #27
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i, %if.end.i.i
@@ -19497,7 +19497,7 @@ if.then37:                                        ; preds = %if.end34
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %30 = load ptr, ptr %m_encoding, align 8
   %31 = load ptr, ptr %30, align 8
-  %call42 = call i32 %31(ptr noundef nonnull %30, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call42 = call i32 %31(ptr noundef nonnull %30, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #24
   %32 = load ptr, ptr %m_encoding, align 8
   %33 = load ptr, ptr %next, align 8
   %34 = load i8, ptr %finalBuffer53, align 4
@@ -19535,16 +19535,16 @@ return:                                           ; preds = %if.then61, %land.lh
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #16
+declare ptr @__errno_location() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #17
+declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #18
+declare i32 @getpid() local_unnamed_addr #19
 
 declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -19560,7 +19560,7 @@ entry:
   %0 = load ptr, ptr %m_encoding, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 %1(ptr noundef %0, ptr noundef %start, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %1(ptr noundef %0, ptr noundef %start, ptr noundef %end, ptr noundef nonnull %next) #24
   switch i32 %call, label %sw.epilog [
     i32 14, label %sw.bb
     i32 -1, label %sw.bb6
@@ -19605,7 +19605,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %6, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %7 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %5, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %5, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end:                                           ; preds = %sw.bb
@@ -19676,7 +19676,7 @@ entry:
   %0 = load ptr, ptr %m_encoding, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 %1(ptr noundef %0, ptr noundef %start, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %1(ptr noundef %0, ptr noundef %start, ptr noundef %end, ptr noundef nonnull %next) #24
   %2 = load ptr, ptr %next, align 8
   %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   store ptr %2, ptr %m_eventEndPtr, align 8
@@ -19753,7 +19753,7 @@ entry:
   store ptr %s, ptr %m_eventPtr, align 8
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
-  %call49 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call49 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #24
   %2 = load ptr, ptr %next, align 8
   %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
   store ptr %2, ptr %m_eventEndPtr, align 8
@@ -19817,7 +19817,7 @@ if.end18:                                         ; preds = %if.end14
   store ptr %8, ptr %next.i, align 8
   %9 = load ptr, ptr %m_encoding, align 8
   %10 = load ptr, ptr %9, align 8
-  %call11.i = call i32 %10(ptr noundef nonnull %9, ptr noundef %8, ptr noundef %end, ptr noundef nonnull %next.i) #23
+  %call11.i = call i32 %10(ptr noundef nonnull %9, ptr noundef %8, ptr noundef %end, ptr noundef nonnull %next.i) #24
   %cmp12.i = icmp slt i32 %call11.i, 1
   br i1 %cmp12.i, label %if.then.i, label %if.end7.i
 
@@ -19845,7 +19845,7 @@ sw.epilog.i:                                      ; preds = %if.end.i
 if.end7.i:                                        ; preds = %if.end18, %if.end7.i
   %13 = load ptr, ptr %next.i, align 8
   %14 = load ptr, ptr %9, align 8
-  %call.i = call i32 %14(ptr noundef nonnull %9, ptr noundef %13, ptr noundef %end, ptr noundef nonnull %next.i) #23
+  %call.i = call i32 %14(ptr noundef nonnull %9, ptr noundef %13, ptr noundef %end, ptr noundef nonnull %next.i) #24
   %cmp.i = icmp slt i32 %call.i, 1
   br i1 %cmp.i, label %if.then.i, label %if.end7.i
 
@@ -19904,7 +19904,7 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %19, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %20 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %18, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %18, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end32:                                         ; preds = %if.then28
@@ -19920,7 +19920,7 @@ if.end39:                                         ; preds = %land.lhs.true22, %l
   store ptr %6, ptr %m_eventPtr, align 8
   %22 = load ptr, ptr %m_encoding, align 8
   %23 = load ptr, ptr %22, align 8
-  %call = call i32 %23(ptr noundef nonnull %22, ptr noundef %6, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %23(ptr noundef nonnull %22, ptr noundef %6, ptr noundef %end, ptr noundef nonnull %next) #24
   %24 = load ptr, ptr %next, align 8
   store ptr %24, ptr %m_eventEndPtr, align 8
   %cmp = icmp slt i32 %call, 1
@@ -19943,7 +19943,7 @@ entry:
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
-  %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #24
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.else
 
@@ -20006,14 +20006,14 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
 accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %if.end.i.i
   %cond.i.i.i = phi double [ %8, %cond.true.i.i.i ], [ 1.000000e+00, %if.end.i.i ]
   %9 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %7, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #26
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.311, ptr noundef nonnull %rootParser.0.i.i.i, i64 noundef %7, i64 noundef %.pre.i.i, double noundef %cond.i.i.i, ptr noundef nonnull @.str.317) #27
   br label %return
 
 if.end12:                                         ; preds = %if.then8
   %10 = load ptr, ptr %next, align 8
   %11 = load ptr, ptr %m_encoding, align 8
   %12 = load ptr, ptr %11, align 8
-  %call17 = call i32 %12(ptr noundef nonnull %11, ptr noundef %10, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call17 = call i32 %12(ptr noundef nonnull %11, ptr noundef %10, ptr noundef %end, ptr noundef nonnull %next) #24
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end, %if.else, %if.end12
@@ -20047,7 +20047,7 @@ entry:
   %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
-  %call11 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call11 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #24
   %cmp12 = icmp slt i32 %call11, 1
   br i1 %cmp12, label %if.then, label %if.end7
 
@@ -20076,7 +20076,7 @@ sw.epilog:                                        ; preds = %if.end
 if.end7:                                          ; preds = %entry, %if.end7
   %4 = load ptr, ptr %next, align 8
   %5 = load ptr, ptr %0, align 8
-  %call = call i32 %5(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %end, ptr noundef nonnull %next) #23
+  %call = call i32 %5(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %end, ptr noundef nonnull %next) #24
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end7
 
@@ -20434,28 +20434,28 @@ return:                                           ; preds = %land.lhs.true.i111,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #20
+declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #19
+declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -20471,19 +20471,20 @@ attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind }
-attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { cold }
+attributes #14 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nofree nounwind }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind allocsize(0) }
+attributes #26 = { nounwind willreturn memory(none) }
+attributes #27 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

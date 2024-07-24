@@ -243,7 +243,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.not.i, label %PyBlake2_blake2s_update.exit, label %while.body.i, !llvm.loop !6
 
 PyBlake2_blake2s_update.exit:                     ; preds = %if.end.i, %if.end.thread.i
-  call void @explicit_bzero(ptr noundef nonnull %block, i64 noundef 64) #9
+  call void @explicit_bzero(ptr noundef nonnull %block, i64 noundef 64) #8
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %PyBlake2_blake2s_update.exit
@@ -254,8 +254,8 @@ return:                                           ; preds = %if.end, %entry, %Py
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @PyBlake2_blake2s_update(ptr nocapture noundef %S, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden noundef i32 @PyBlake2_blake2s_update(ptr nocapture noundef %S, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %cmp.not27 = icmp eq i64 %inlen, 0
   br i1 %cmp.not27, label %while.end, label %while.body.lr.ph
@@ -1875,18 +1875,18 @@ return:                                           ; preds = %if.then17, %if.end4
 }
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @py_blake2s_dealloc(ptr noundef %self) #2 {
 entry:
   %param = getelementptr inbounds i8, ptr %self, i64 16
-  tail call void @explicit_bzero(ptr noundef nonnull %param, i64 noundef 32) #9
+  tail call void @explicit_bzero(ptr noundef nonnull %param, i64 noundef 32) #8
   %state = getelementptr inbounds i8, ptr %self, i64 48
-  tail call void @explicit_bzero(ptr noundef nonnull %state, i64 noundef 182) #9
+  tail call void @explicit_bzero(ptr noundef nonnull %state, i64 noundef 182) #8
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  tail call void @PyObject_Free(ptr noundef %self) #9
+  tail call void @PyObject_Free(ptr noundef %self) #8
   %1 = load i64, ptr %self.val, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i2.not = icmp eq i64 %2, 0
@@ -1899,7 +1899,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %self.val) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %self.val) #8
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i, %if.end.i
@@ -1941,7 +1941,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @py_blake2s_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #9
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @py_blake2s_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %argsbuf) #8
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
@@ -1968,12 +1968,12 @@ if.end23:                                         ; preds = %skip_optional_poson
   br i1 %tobool25.not, label %if.end39, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %call28 = call i32 @PyLong_AsInt(ptr noundef nonnull %4) #9
+  %call28 = call i32 @PyLong_AsInt(ptr noundef nonnull %4) #8
   %cmp29 = icmp eq i32 %call28, -1
   br i1 %cmp29, label %land.lhs.true30, label %if.end34
 
 land.lhs.true30:                                  ; preds = %if.then26
-  %call31 = call ptr @PyErr_Occurred() #9
+  %call31 = call ptr @PyErr_Occurred() #8
   %tobool32.not = icmp eq ptr %call31, null
   br i1 %tobool32.not, label %if.end34, label %exit
 
@@ -1991,7 +1991,7 @@ if.end39:                                         ; preds = %if.end34, %if.end23
   br i1 %tobool41.not, label %if.end52, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
-  %call44 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %5, ptr noundef nonnull %key, i32 noundef 0) #9
+  %call44 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %5, ptr noundef nonnull %key, i32 noundef 0) #8
   %cmp45.not = icmp eq i32 %call44, 0
   br i1 %cmp45.not, label %if.end47, label %exit
 
@@ -2008,7 +2008,7 @@ if.end52:                                         ; preds = %if.end47, %if.end39
   br i1 %tobool54.not, label %if.end65, label %if.then55
 
 if.then55:                                        ; preds = %if.end52
-  %call57 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %6, ptr noundef nonnull %salt, i32 noundef 0) #9
+  %call57 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %6, ptr noundef nonnull %salt, i32 noundef 0) #8
   %cmp58.not = icmp eq i32 %call57, 0
   br i1 %cmp58.not, label %if.end60, label %exit
 
@@ -2025,7 +2025,7 @@ if.end65:                                         ; preds = %if.end60, %if.end52
   br i1 %tobool67.not, label %if.end78, label %if.then68
 
 if.then68:                                        ; preds = %if.end65
-  %call70 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %7, ptr noundef nonnull %person, i32 noundef 0) #9
+  %call70 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %7, ptr noundef nonnull %person, i32 noundef 0) #8
   %cmp71.not = icmp eq i32 %call70, 0
   br i1 %cmp71.not, label %if.end73, label %exit
 
@@ -2042,12 +2042,12 @@ if.end78:                                         ; preds = %if.end73, %if.end65
   br i1 %tobool80.not, label %if.end94, label %if.then81
 
 if.then81:                                        ; preds = %if.end78
-  %call83 = call i32 @PyLong_AsInt(ptr noundef nonnull %8) #9
+  %call83 = call i32 @PyLong_AsInt(ptr noundef nonnull %8) #8
   %cmp84 = icmp eq i32 %call83, -1
   br i1 %cmp84, label %land.lhs.true85, label %if.end89
 
 land.lhs.true85:                                  ; preds = %if.then81
-  %call86 = call ptr @PyErr_Occurred() #9
+  %call86 = call ptr @PyErr_Occurred() #8
   %tobool87.not = icmp eq ptr %call86, null
   br i1 %tobool87.not, label %if.end89, label %exit
 
@@ -2065,12 +2065,12 @@ if.end94:                                         ; preds = %if.end89, %if.end78
   br i1 %tobool96.not, label %if.end110, label %if.then97
 
 if.then97:                                        ; preds = %if.end94
-  %call99 = call i32 @PyLong_AsInt(ptr noundef nonnull %9) #9
+  %call99 = call i32 @PyLong_AsInt(ptr noundef nonnull %9) #8
   %cmp100 = icmp eq i32 %call99, -1
   br i1 %cmp100, label %land.lhs.true101, label %if.end105
 
 land.lhs.true101:                                 ; preds = %if.then97
-  %call102 = call ptr @PyErr_Occurred() #9
+  %call102 = call ptr @PyErr_Occurred() #8
   %tobool103.not = icmp eq ptr %call102, null
   br i1 %tobool103.not, label %if.end105, label %exit
 
@@ -2088,7 +2088,7 @@ if.end110:                                        ; preds = %if.end105, %if.end9
   br i1 %tobool112.not, label %if.end123, label %if.then113
 
 if.then113:                                       ; preds = %if.end110
-  %call115 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %10, ptr noundef nonnull %leaf_size) #9
+  %call115 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %10, ptr noundef nonnull %leaf_size) #8
   %tobool116.not = icmp eq i32 %call115, 0
   br i1 %tobool116.not, label %exit, label %if.end118
 
@@ -2105,7 +2105,7 @@ if.end123:                                        ; preds = %if.end118, %if.end1
   br i1 %tobool125.not, label %if.end136, label %if.then126
 
 if.then126:                                       ; preds = %if.end123
-  %call128 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %11, ptr noundef nonnull %node_offset) #9
+  %call128 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %11, ptr noundef nonnull %node_offset) #8
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %exit, label %if.end131
 
@@ -2122,12 +2122,12 @@ if.end136:                                        ; preds = %if.end131, %if.end1
   br i1 %tobool138.not, label %if.end152, label %if.then139
 
 if.then139:                                       ; preds = %if.end136
-  %call141 = call i32 @PyLong_AsInt(ptr noundef nonnull %12) #9
+  %call141 = call i32 @PyLong_AsInt(ptr noundef nonnull %12) #8
   %cmp142 = icmp eq i32 %call141, -1
   br i1 %cmp142, label %land.lhs.true143, label %if.end147
 
 land.lhs.true143:                                 ; preds = %if.then139
-  %call144 = call ptr @PyErr_Occurred() #9
+  %call144 = call ptr @PyErr_Occurred() #8
   %tobool145.not = icmp eq ptr %call144, null
   br i1 %tobool145.not, label %if.end147, label %exit
 
@@ -2145,12 +2145,12 @@ if.end152:                                        ; preds = %if.end147, %if.end1
   br i1 %tobool154.not, label %if.end168, label %if.then155
 
 if.then155:                                       ; preds = %if.end152
-  %call157 = call i32 @PyLong_AsInt(ptr noundef nonnull %13) #9
+  %call157 = call i32 @PyLong_AsInt(ptr noundef nonnull %13) #8
   %cmp158 = icmp eq i32 %call157, -1
   br i1 %cmp158, label %land.lhs.true159, label %if.end163
 
 land.lhs.true159:                                 ; preds = %if.then155
-  %call160 = call ptr @PyErr_Occurred() #9
+  %call160 = call ptr @PyErr_Occurred() #8
   %tobool161.not = icmp eq ptr %call160, null
   br i1 %tobool161.not, label %if.end163, label %exit
 
@@ -2168,7 +2168,7 @@ if.end168:                                        ; preds = %if.end163, %if.end1
   br i1 %tobool170.not, label %if.end181, label %if.then171
 
 if.then171:                                       ; preds = %if.end168
-  %call173 = call i32 @PyObject_IsTrue(ptr noundef nonnull %14) #9
+  %call173 = call i32 @PyObject_IsTrue(ptr noundef nonnull %14) #8
   %cmp174 = icmp slt i32 %call173, 0
   br i1 %cmp174, label %exit, label %if.end176
 
@@ -2180,7 +2180,7 @@ if.end181:                                        ; preds = %if.end176, %if.end1
   %last_node.0 = phi i32 [ %call173, %if.end176 ], [ 0, %if.end168 ]
   %arrayidx182 = getelementptr i8, ptr %cond1668, i64 96
   %15 = load ptr, ptr %arrayidx182, align 8
-  %call183 = call i32 @PyObject_IsTrue(ptr noundef %15) #9
+  %call183 = call i32 @PyObject_IsTrue(ptr noundef %15) #8
   %cmp184 = icmp slt i32 %call183, 0
   br i1 %cmp184, label %exit, label %skip_optional_kwonly
 
@@ -2197,7 +2197,7 @@ skip_optional_kwonly:                             ; preds = %if.end181, %if.end1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i)
   %tp_alloc.i.i = getelementptr inbounds i8, ptr %type, i64 304
   %18 = load ptr, ptr %tp_alloc.i.i, align 8
-  %call.i.i = call ptr %18(ptr noundef %type, i64 noundef 0) #9
+  %call.i.i = call ptr %18(ptr noundef %type, i64 noundef 0) #8
   %cond74.i = icmp eq ptr %call.i.i, null
   br i1 %cond74.i, label %py_blake2s_new_impl.exit, label %do.body.i.i
 
@@ -2214,7 +2214,7 @@ do.body.i.i:                                      ; preds = %skip_optional_kwonl
 
 if.then3.i:                                       ; preds = %do.body.i.i
   %20 = load ptr, ptr @PyExc_ValueError, align 8
-  %call4.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.24, i32 noundef 32) #9
+  %call4.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.24, i32 noundef 32) #8
   br label %if.then168.i
 
 if.end5.i:                                        ; preds = %do.body.i.i
@@ -2237,7 +2237,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 
 if.then13.i:                                      ; preds = %if.then9.i
   %23 = load ptr, ptr @PyExc_ValueError, align 8
-  %call14.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.25, i32 noundef 8) #9
+  %call14.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.25, i32 noundef 8) #8
   br label %if.then168.i
 
 if.end15.i:                                       ; preds = %if.then9.i
@@ -2264,7 +2264,7 @@ if.then27.i:                                      ; preds = %land.lhs.true24.i
 
 if.then31.i:                                      ; preds = %if.then27.i
   %27 = load ptr, ptr @PyExc_ValueError, align 8
-  %call32.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.26, i32 noundef 8) #9
+  %call32.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.26, i32 noundef 8) #8
   br label %if.then168.i
 
 if.end33.i:                                       ; preds = %if.then27.i
@@ -2279,7 +2279,7 @@ if.end38.i:                                       ; preds = %if.end33.i, %land.l
 
 if.then44.i:                                      ; preds = %if.end38.i
   %29 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull @.str.27) #9
+  call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull @.str.27) #8
   br label %if.then168.i
 
 if.end45.i:                                       ; preds = %if.end38.i
@@ -2292,7 +2292,7 @@ if.end45.i:                                       ; preds = %if.end38.i
 
 if.then54.i:                                      ; preds = %if.end45.i
   %31 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.28) #9
+  call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.28) #8
   br label %if.then168.i
 
 if.end55.i:                                       ; preds = %if.end45.i
@@ -2304,7 +2304,7 @@ if.end55.i:                                       ; preds = %if.end45.i
 
 if.then61.i:                                      ; preds = %if.end55.i
   %32 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.29) #9
+  call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.29) #8
   br label %if.then168.i
 
 if.end62.i:                                       ; preds = %if.end55.i
@@ -2328,7 +2328,7 @@ if.end62.i:                                       ; preds = %if.end55.i
 
 if.then67.i:                                      ; preds = %if.end62.i
   %33 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.30) #9
+  call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.30) #8
   br label %if.then168.i
 
 if.end68.i:                                       ; preds = %if.end62.i
@@ -2360,7 +2360,7 @@ if.end68.i:                                       ; preds = %if.end62.i
 
 if.then76.i:                                      ; preds = %if.end68.i
   %34 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.31) #9
+  call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.31) #8
   br label %if.then168.i
 
 if.end77.i:                                       ; preds = %if.end68.i
@@ -2372,7 +2372,7 @@ if.end77.i:                                       ; preds = %if.end68.i
 
 if.then86.i:                                      ; preds = %if.end77.i
   %35 = load ptr, ptr @PyExc_ValueError, align 8
-  %call87.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %35, ptr noundef nonnull @.str.32, i32 noundef 32) #9
+  %call87.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %35, ptr noundef nonnull @.str.32, i32 noundef 32) #8
   br label %if.then168.i
 
 if.end88.i:                                       ; preds = %if.end77.i
@@ -2396,7 +2396,7 @@ if.then97.i:                                      ; preds = %land.lhs.true94.i
 
 if.then101.i:                                     ; preds = %if.then97.i
   %38 = load ptr, ptr @PyExc_ValueError, align 8
-  %call102.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %38, ptr noundef nonnull @.str.33, i32 noundef 32) #9
+  %call102.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %38, ptr noundef nonnull @.str.33, i32 noundef 32) #8
   br label %if.then168.i
 
 if.end103.i:                                      ; preds = %if.then97.i
@@ -2443,7 +2443,7 @@ if.then120.i:                                     ; preds = %PyBlake2_blake2s_in
   %45 = load i64, ptr %len124.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %44, i64 %45, i1 false)
   %call127.i = call i32 @PyBlake2_blake2s_update(ptr noundef nonnull %state.i, ptr noundef nonnull %block.i, i64 noundef 64)
-  call void @explicit_bzero(ptr noundef nonnull %block.i, i64 noundef 64) #9
+  call void @explicit_bzero(ptr noundef nonnull %block.i, i64 noundef 64) #8
   br label %if.end129.i
 
 if.end129.i:                                      ; preds = %if.then120.i, %PyBlake2_blake2s_init_param.exit.i
@@ -2461,21 +2461,21 @@ do.body.i:                                        ; preds = %if.end129.i
 
 if.then136.i:                                     ; preds = %do.body.i
   %49 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %49, ptr noundef nonnull @.str.5) #9
+  call void @PyErr_SetString(ptr noundef %49, ptr noundef nonnull @.str.5) #8
   br label %if.then168.i
 
 if.end137.i:                                      ; preds = %do.body.i
-  %call138.i = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %data.0) #9
+  %call138.i = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %data.0) #8
   %tobool139.not.i = icmp eq i32 %call138.i, 0
   br i1 %tobool139.not.i, label %if.then140.i, label %if.end141.i
 
 if.then140.i:                                     ; preds = %if.end137.i
   %50 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.6) #9
+  call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.6) #8
   br label %if.then168.i
 
 if.end141.i:                                      ; preds = %if.end137.i
-  %call142.i = call i32 @PyObject_GetBuffer(ptr noundef nonnull %data.0, ptr noundef nonnull %buf.i, i32 noundef 0) #9
+  %call142.i = call i32 @PyObject_GetBuffer(ptr noundef nonnull %data.0, ptr noundef nonnull %buf.i, i32 noundef 0) #8
   %cmp143.i = icmp eq i32 %call142.i, -1
   br i1 %cmp143.i, label %if.then168.i, label %if.end146.i
 
@@ -2487,8 +2487,8 @@ if.end146.i:                                      ; preds = %if.end141.i
 
 if.then149.i:                                     ; preds = %if.end146.i
   %52 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %52, ptr noundef nonnull @.str.7) #9
-  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #9
+  call void @PyErr_SetString(ptr noundef %52, ptr noundef nonnull @.str.7) #8
+  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #8
   br label %if.then168.i
 
 do.end.i:                                         ; preds = %if.end146.i
@@ -2498,11 +2498,11 @@ do.end.i:                                         ; preds = %if.end146.i
   br i1 %cmp152.i, label %if.then154.i, label %if.else.i
 
 if.then154.i:                                     ; preds = %do.end.i
-  %call155.i = call ptr @PyEval_SaveThread() #9
+  %call155.i = call ptr @PyEval_SaveThread() #8
   %54 = load ptr, ptr %buf.i, align 8
   %55 = load i64, ptr %len151.i, align 8
   %call159.i = call i32 @PyBlake2_blake2s_update(ptr noundef nonnull %state.i, ptr noundef %54, i64 noundef %55)
-  call void @PyEval_RestoreThread(ptr noundef %call155.i) #9
+  call void @PyEval_RestoreThread(ptr noundef %call155.i) #8
   br label %if.end164.i
 
 if.else.i:                                        ; preds = %do.end.i
@@ -2511,7 +2511,7 @@ if.else.i:                                        ; preds = %do.end.i
   br label %if.end164.i
 
 if.end164.i:                                      ; preds = %if.else.i, %if.then154.i
-  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #8
   br label %py_blake2s_new_impl.exit
 
 if.then168.i:                                     ; preds = %if.then149.i, %if.end141.i, %if.then140.i, %if.then136.i, %if.then101.i, %if.then86.i, %if.then76.i, %if.then67.i, %if.then61.i, %if.then54.i, %if.then44.i, %if.then31.i, %if.then13.i, %if.then3.i
@@ -2527,7 +2527,7 @@ if.end.i.i:                                       ; preds = %if.then168.i
   br i1 %cmp.i.i, label %if.then1.i.i, label %py_blake2s_new_impl.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call.i.i) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %call.i.i) #8
   br label %py_blake2s_new_impl.exit
 
 py_blake2s_new_impl.exit:                         ; preds = %skip_optional_kwonly, %if.end129.i, %if.end164.i, %if.then168.i, %if.end.i.i, %if.then1.i.i
@@ -2544,7 +2544,7 @@ exit:                                             ; preds = %if.end181, %if.then
   br i1 %tobool188.not, label %if.end190, label %if.then189
 
 if.then189:                                       ; preds = %exit
-  call void @PyBuffer_Release(ptr noundef nonnull %key) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %key) #8
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then189, %exit
@@ -2554,7 +2554,7 @@ if.end190:                                        ; preds = %if.then189, %exit
   br i1 %tobool192.not, label %if.end194, label %if.then193
 
 if.then193:                                       ; preds = %if.end190
-  call void @PyBuffer_Release(ptr noundef nonnull %salt) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %salt) #8
   br label %if.end194
 
 if.end194:                                        ; preds = %if.then193, %if.end190
@@ -2564,16 +2564,16 @@ if.end194:                                        ; preds = %if.then193, %if.end
   br i1 %tobool196.not, label %if.end198, label %if.then197
 
 if.then197:                                       ; preds = %if.end194
-  call void @PyBuffer_Release(ptr noundef nonnull %person) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %person) #8
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then197, %if.end194
   ret ptr %return_value.0
 }
 
-declare void @PyObject_Free(ptr noundef) local_unnamed_addr #6
+declare void @PyObject_Free(ptr noundef) local_unnamed_addr #5
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #6
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_blake2_blake2s_copy(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #2 {
@@ -2582,7 +2582,7 @@ entry:
   %self.val.i = load ptr, ptr %0, align 8
   %tp_alloc.i.i = getelementptr inbounds i8, ptr %self.val.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i, align 8
-  %call.i.i = tail call ptr %1(ptr noundef %self.val.i, i64 noundef 0) #9
+  %call.i.i = tail call ptr %1(ptr noundef %self.val.i, i64 noundef 0) #8
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %_blake2_blake2s_copy_impl.exit, label %if.end.i
 
@@ -2603,7 +2603,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %4, label %if.end3.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2.i
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i.i, %if.then2.i, %if.end.i
@@ -2624,7 +2624,7 @@ if.then8.i:                                       ; preds = %if.end3.i
   br i1 %7, label %_blake2_blake2s_copy_impl.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then8.i
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex9.i) #9
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex9.i) #8
   br label %_blake2_blake2s_copy_impl.exit
 
 _blake2_blake2s_copy_impl.exit:                   ; preds = %entry, %if.end3.i, %if.then8.i, %if.then.i9.i
@@ -2650,7 +2650,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
@@ -2671,13 +2671,13 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %6, label %_blake2_blake2s_digest_impl.exit, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %if.then3.i
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #9
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #8
   br label %_blake2_blake2s_digest_impl.exit
 
 _blake2_blake2s_digest_impl.exit:                 ; preds = %if.end.i, %if.then3.i, %if.then.i7.i
   %7 = load i8, ptr %param.i, align 8
   %conv9.i = zext i8 %7 to i64
-  %call10.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv9.i) #9
+  %call10.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv9.i) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 182, ptr nonnull %state_cpy.i)
   ret ptr %call10.i
@@ -2702,7 +2702,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %2, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #9
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex.i) #8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
@@ -2723,13 +2723,13 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %6, label %_blake2_blake2s_hexdigest_impl.exit, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %if.then3.i
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #9
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex4.i) #8
   br label %_blake2_blake2s_hexdigest_impl.exit
 
 _blake2_blake2s_hexdigest_impl.exit:              ; preds = %if.end.i, %if.then3.i, %if.then.i7.i
   %7 = load i8, ptr %param.i, align 8
   %conv9.i = zext i8 %7 to i64
-  %call10.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv9.i) #9
+  %call10.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv9.i) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 182, ptr nonnull %state_cpy.i)
   ret ptr %call10.i
@@ -2749,21 +2749,21 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.5) #9
+  tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.5) #8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @PyObject_CheckBuffer(ptr noundef nonnull %data) #9
+  %call2 = tail call i32 @PyObject_CheckBuffer(ptr noundef nonnull %data) #8
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   %4 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.6) #9
+  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.6) #8
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call6 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %data, ptr noundef nonnull %buf, i32 noundef 0) #9
+  %call6 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %data, ptr noundef nonnull %buf, i32 noundef 0) #8
   %cmp = icmp eq i32 %call6, -1
   br i1 %cmp, label %return, label %if.end8
 
@@ -2775,8 +2775,8 @@ if.end8:                                          ; preds = %if.end5
 
 if.then10:                                        ; preds = %if.end8
   %6 = load ptr, ptr @PyExc_BufferError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.7) #9
-  call void @PyBuffer_Release(ptr noundef nonnull %buf) #9
+  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.7) #8
+  call void @PyBuffer_Release(ptr noundef nonnull %buf) #8
   br label %return
 
 do.end:                                           ; preds = %if.end8
@@ -2798,14 +2798,14 @@ if.end16:                                         ; preds = %do.end
   br i1 %tobool18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
-  %call20 = call ptr @PyEval_SaveThread() #9
+  %call20 = call ptr @PyEval_SaveThread() #8
   %mutex = getelementptr inbounds i8, ptr %self, i64 231
   %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %10 = extractvalue { i8, i1 } %9, 1
   br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then19
-  call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #9
+  call void @_PyMutex_LockSlow(ptr noundef nonnull %mutex) #8
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
@@ -2872,11 +2872,11 @@ PyBlake2_blake2s_update.exit:                     ; preds = %if.end.i, %PyMutex_
   br i1 %20, label %PyMutex_Unlock.exit, label %if.then.i10
 
 if.then.i10:                                      ; preds = %PyBlake2_blake2s_update.exit
-  call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #9
+  call void @_PyMutex_UnlockSlow(ptr noundef nonnull %mutex) #8
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %PyBlake2_blake2s_update.exit, %if.then.i10
-  call void @PyEval_RestoreThread(ptr noundef %call20) #9
+  call void @PyEval_RestoreThread(ptr noundef %call20) #8
   br label %if.end29
 
 if.else:                                          ; preds = %if.end16
@@ -2937,7 +2937,7 @@ if.end.i31:                                       ; preds = %while.body.i20
   br i1 %cmp.not.i43, label %if.end29, label %while.body.i20, !llvm.loop !6
 
 if.end29:                                         ; preds = %if.end.i31, %if.end.thread.i26, %if.else, %PyMutex_Unlock.exit
-  call void @PyBuffer_Release(ptr noundef nonnull %buf) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %buf) #8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.end29, %if.then10, %if.then4, %if.then
@@ -2945,37 +2945,37 @@ return:                                           ; preds = %if.end5, %if.end29,
   ret ptr %retval.0
 }
 
-declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #6
+declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #5
 
-declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #6
+declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @_Py_strhex(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @_Py_strhex(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #6
+declare i32 @PyObject_CheckBuffer(ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #6
+declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyEval_SaveThread() local_unnamed_addr #6
+declare ptr @PyEval_SaveThread() local_unnamed_addr #5
 
-declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #6
+declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @py_blake2s_get_name(ptr nocapture readnone %self, ptr nocapture readnone %closure) #2 {
 entry:
-  %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.11) #9
+  %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.11) #8
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @py_blake2s_get_block_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #2 {
 entry:
-  %call = tail call ptr @PyLong_FromLong(i64 noundef 64) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef 64) #8
   ret ptr %call
 }
 
@@ -2985,47 +2985,46 @@ entry:
   %param = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i8, ptr %param, align 8
   %conv = zext i8 %0 to i64
-  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #9
+  %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #8
   ret ptr %call
 }
 
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #6
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #6
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #5
 
-declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #6
+declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #6
+declare ptr @PyErr_Occurred() local_unnamed_addr #5
 
-declare i32 @_PyLong_UnsignedLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @_PyLong_UnsignedLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #6
+declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #5
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

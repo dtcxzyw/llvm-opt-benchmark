@@ -15,7 +15,7 @@ CheckSizeArgumentsOverflow.exit:                  ; preds = %2
 
 CheckSizeArgumentsOverflow.exit.thread:           ; preds = %2, %CheckSizeArgumentsOverflow.exit
   %5 = mul i64 %1, %0
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #9
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #10
   br label %7
 
 7:                                                ; preds = %CheckSizeArgumentsOverflow.exit, %CheckSizeArgumentsOverflow.exit.thread
@@ -37,7 +37,7 @@ CheckSizeArgumentsOverflow.exit:                  ; preds = %2
   br i1 %.not7, label %6, label %CheckSizeArgumentsOverflow.exit.thread
 
 CheckSizeArgumentsOverflow.exit.thread:           ; preds = %2, %CheckSizeArgumentsOverflow.exit
-  %5 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #10
+  %5 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #11
   br label %6
 
 6:                                                ; preds = %CheckSizeArgumentsOverflow.exit, %CheckSizeArgumentsOverflow.exit.thread
@@ -50,7 +50,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @WebPSafeFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  tail call void @free(ptr noundef %0) #11
+  tail call void @free(ptr noundef %0) #12
   ret void
 }
 
@@ -63,7 +63,7 @@ define noalias noundef ptr @WebPMalloc(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not7.i, label %WebPSafeMalloc.exit, label %CheckSizeArgumentsOverflow.exit.thread.i
 
 CheckSizeArgumentsOverflow.exit.thread.i:         ; preds = %1
-  %2 = tail call noalias ptr @malloc(i64 noundef %0) #9
+  %2 = tail call noalias ptr @malloc(i64 noundef %0) #10
   br label %WebPSafeMalloc.exit
 
 WebPSafeMalloc.exit:                              ; preds = %1, %CheckSizeArgumentsOverflow.exit.thread.i
@@ -73,11 +73,11 @@ WebPSafeMalloc.exit:                              ; preds = %1, %CheckSizeArgume
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @WebPFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  tail call void @free(ptr noundef %0) #11
+  tail call void @free(ptr noundef %0) #12
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @WebPCopyPlane(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -107,7 +107,7 @@ define void @WebPCopyPlane(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @WebPCopyPixels(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define void @WebPCopyPixels(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -148,25 +148,26 @@ WebPCopyPlane.exit:                               ; preds = %22, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPGetColorPalette(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = tail call i32 @GetColorPalette(ptr noundef %0, ptr noundef %1) #11
+define i32 @WebPGetColorPalette(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+  %3 = tail call i32 @GetColorPalette(ptr noundef %0, ptr noundef %1) #12
   ret i32 %3
 }
 
-declare i32 @GetColorPalette(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @GetColorPalette(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind allocsize(0,1) }
-attributes #11 = { nounwind }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind allocsize(0,1) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

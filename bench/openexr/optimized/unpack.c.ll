@@ -401,7 +401,7 @@ for.body126.us.us:                                ; preds = %for.cond123.prehead
   br i1 %or.cond5.i.i.us.us, label %float_to_uint_int.exit.us.us, label %if.end.i.i.us.us
 
 if.end.i.i.us.us:                                 ; preds = %for.body126.us.us
-  %27 = tail call float @llvm.fabs.f32(float %src121.0.val152.us.us) #5
+  %27 = tail call float @llvm.fabs.f32(float %src121.0.val152.us.us) #6
   %isinf.i.i.us.us = fcmp oeq float %27, 0x7FF0000000000000
   %cmp2.i.i.us.us = fcmp ogt float %src121.0.val152.us.us, 0x41F0000000000000
   %or.cond.i.i.us.us = or i1 %cmp2.i.i.us.us, %isinf.i.i.us.us
@@ -979,7 +979,7 @@ for.body130.us.us:                                ; preds = %for.cond127.prehead
   br i1 %or.cond5.i.i.us.us, label %float_to_uint_int.exit.us.us, label %if.end.i.i.us.us
 
 if.end.i.i.us.us:                                 ; preds = %for.body130.us.us
-  %25 = tail call float @llvm.fabs.f32(float %src125.0.val153.us.us) #5
+  %25 = tail call float @llvm.fabs.f32(float %src125.0.val153.us.us) #6
   %isinf.i.i.us.us = fcmp oeq float %25, 0x7FF0000000000000
   %cmp2.i.i.us.us = fcmp ogt float %src125.0.val153.us.us, 0x41F0000000000000
   %or.cond.i.i.us.us = or i1 %cmp2.i.i.us.us, %isinf.i.i.us.us
@@ -2650,7 +2650,7 @@ for.body114:                                      ; preds = %for.body114.lr.ph, 
   br i1 %or.cond5.i.i, label %float_to_uint_int.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body114
-  %31 = tail call float @llvm.fabs.f32(float %src109.0.val142) #5
+  %31 = tail call float @llvm.fabs.f32(float %src109.0.val142) #6
   %isinf.i.i = fcmp oeq float %31, 0x7FF0000000000000
   %cmp2.i.i = fcmp ogt float %src109.0.val142, 0x41F0000000000000
   %or.cond.i.i = or i1 %cmp2.i.i, %isinf.i.i
@@ -3664,8 +3664,8 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @half_to_float_buffer(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %w) unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @half_to_float_buffer(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %w) unnamed_addr #4 {
 entry:
   %cmp290 = icmp sgt i32 %w, 7
   br i1 %cmp290, label %while.body, label %while.end
@@ -4214,7 +4214,7 @@ sw.epilog:                                        ; preds = %half_to_float.exit2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %src) unnamed_addr #4 {
+define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %src) unnamed_addr #5 {
 entry:
   %0 = load i16, ptr %src, align 2
   %conv.i.i = zext i16 %0 to i32
@@ -4385,8 +4385,9 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { memory(none) }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

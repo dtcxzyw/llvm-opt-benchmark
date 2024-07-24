@@ -2353,8 +2353,8 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @cm_zlib__tr_tally(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local range(i32 0, 2) i32 @cm_zlib__tr_tally(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = trunc i32 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 5888
   %6 = load ptr, ptr %5, align 8

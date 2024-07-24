@@ -1124,18 +1124,18 @@ RSTRING_PTR.exit:                                 ; preds = %2, %7
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %7 ], [ %6, %2 ]
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @rb_enc_get(i64 noundef %1) #32
+  %10 = tail call ptr @rb_enc_get(i64 noundef %1) #33
   %11 = icmp slt i64 %9, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %RSTRING_PTR.exit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %9) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %9) #34
   unreachable
 
 13:                                               ; preds = %RSTRING_PTR.exit
-  %14 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %14 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %15 = add nuw i64 %9, 1
-  %16 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %15, i64 noundef 1) #34
+  %16 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %15, i64 noundef 1) #35
   %17 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %16, ptr %17, align 8
   %.not.i.i3 = icmp eq ptr %.sroa.2.0.i, null
@@ -1164,13 +1164,13 @@ define internal fastcc noalias noundef nonnull ptr @rb_parser_encoding_string_ne
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %1) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %1) #34
   unreachable
 
 6:                                                ; preds = %3
-  %7 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %7 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %8 = add nuw i64 %1, 1
-  %9 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %8, i64 noundef 1) #34
+  %9 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %8, i64 noundef 1) #35
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %9, ptr %10, align 8
   %.not.i = icmp eq ptr %0, null
@@ -1390,8 +1390,8 @@ yy_stack_print.exit:                              ; preds = %.lr.ph.i, %104
   %121 = add i64 %120, 30
   %122 = lshr i64 %121, 3
   %123 = load ptr, ptr %0, align 8
-  %124 = call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %123, i64 noundef 0) #32
-  %125 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %121) #35
+  %124 = call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %123, i64 noundef 0) #33
+  %125 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %121) #36
   store ptr %124, ptr %0, align 8
   %126 = getelementptr inbounds i8, ptr %124, i64 16
   store ptr %125, ptr %126, align 8
@@ -2780,7 +2780,7 @@ parser_set_lex_state.exit2974:                    ; preds = %483, %486
   store i8 %503, ptr %88, align 1
   %504 = getelementptr i8, ptr %.22687, i64 -8
   %505 = load i64, ptr %504, align 8
-  %506 = call i64 @rb_intern2(ptr noundef nonnull %11, i64 noundef 2) #32
+  %506 = call i64 @rb_intern2(ptr noundef nonnull %11, i64 noundef 2) #33
   %507 = call fastcc ptr @rb_node_valias_new(ptr noundef %0, i64 noundef %505, i64 noundef %506, ptr noundef nonnull %8)
   store ptr %507, ptr %7, align 8
   br label %fixpos.exit
@@ -3073,7 +3073,7 @@ remove_begin.exit3006:                            ; preds = %630, %631, %634
 641:                                              ; preds = %638
   %642 = load ptr, ptr %76, align 8
   %643 = load i32, ptr %29, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %642, i32 noundef %643, ptr noundef nonnull @.str.11) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %642, i32 noundef %643, ptr noundef nonnull @.str.11) #33
   br label %644
 
 644:                                              ; preds = %641, %638
@@ -3486,7 +3486,7 @@ method_cond.exit3027:                             ; preds = %879, %882
   br i1 %.not.i3028, label %pop_pktbl.exit, label %893
 
 893:                                              ; preds = %889
-  call void @rb_st_free_table(ptr noundef nonnull %892) #32
+  call void @rb_st_free_table(ptr noundef nonnull %892) #33
   br label %pop_pktbl.exit
 
 pop_pktbl.exit:                                   ; preds = %889, %893
@@ -3494,7 +3494,7 @@ pop_pktbl.exit:                                   ; preds = %889, %893
   %894 = getelementptr i8, ptr %.22687, i64 -16
   %895 = load ptr, ptr %894, align 8
   %896 = load ptr, ptr %69, align 8
-  call void @rb_st_free_table(ptr noundef %896) #32
+  call void @rb_st_free_table(ptr noundef %896) #33
   store ptr %895, ptr %69, align 8
   %897 = getelementptr i8, ptr %.22687, i64 -24
   %898 = load i16, ptr %897, align 8
@@ -3525,7 +3525,7 @@ pop_pktbl.exit:                                   ; preds = %889, %893
   br i1 %.not.i3029, label %pop_pktbl.exit3030, label %915
 
 915:                                              ; preds = %911
-  call void @rb_st_free_table(ptr noundef nonnull %914) #32
+  call void @rb_st_free_table(ptr noundef nonnull %914) #33
   br label %pop_pktbl.exit3030
 
 pop_pktbl.exit3030:                               ; preds = %911, %915
@@ -3533,7 +3533,7 @@ pop_pktbl.exit3030:                               ; preds = %911, %915
   %916 = getelementptr i8, ptr %.22687, i64 -16
   %917 = load ptr, ptr %916, align 8
   %918 = load ptr, ptr %69, align 8
-  call void @rb_st_free_table(ptr noundef %918) #32
+  call void @rb_st_free_table(ptr noundef %918) #33
   store ptr %917, ptr %69, align 8
   %919 = getelementptr i8, ptr %.22687, i64 -24
   %920 = load i16, ptr %919, align 8
@@ -4296,7 +4296,7 @@ parser_set_lex_state.exit3051:                    ; preds = %1366, %1369
 
 1373:                                             ; preds = %yy_reduce_print.exit
   %1374 = load i64, ptr %.22687, align 8
-  %1375 = call i64 @rb_id2str(i64 noundef %1374) #32
+  %1375 = call i64 @rb_id2str(i64 noundef %1374) #33
   %1376 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %1375, ptr noundef nonnull %8)
   store ptr %1376, ptr %7, align 8
   br label %fixpos.exit
@@ -5029,8 +5029,8 @@ method_cond.exit3063:                             ; preds = %1768, %1771
   %1789 = load i32, ptr %29, align 4
   %1790 = getelementptr i8, ptr %.22687, i64 -8
   %1791 = load i64, ptr %1790, align 8
-  %1792 = call ptr @rb_id2name(i64 noundef %1791) #32
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1788, i32 noundef %1789, ptr noundef nonnull @.str.15, ptr noundef %1792) #32
+  %1792 = call ptr @rb_id2name(i64 noundef %1791) #33
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1788, i32 noundef %1789, ptr noundef nonnull @.str.15, ptr noundef %1792) #33
   %1793 = getelementptr i8, ptr %.22687, i64 -16
   %1794 = load ptr, ptr %1793, align 8
   %1795 = load i64, ptr %1790, align 8
@@ -5960,7 +5960,7 @@ cond.exit3093:                                    ; preds = %2243, %2249
   br i1 %.not3374, label %2273, label %2271
 
 2271:                                             ; preds = %2268
-  %2272 = call i64 @rb_hash_clear(i64 noundef %2269) #32
+  %2272 = call i64 @rb_hash_clear(i64 noundef %2269) #33
   br label %2273
 
 2273:                                             ; preds = %2271, %2268
@@ -6003,7 +6003,7 @@ cond.exit3093:                                    ; preds = %2243, %2249
   br i1 %.not3373, label %2299, label %2297
 
 2297:                                             ; preds = %2294
-  %2298 = call i64 @rb_hash_clear(i64 noundef %2295) #32
+  %2298 = call i64 @rb_hash_clear(i64 noundef %2295) #33
   br label %2299
 
 2299:                                             ; preds = %2297, %2294
@@ -6034,7 +6034,7 @@ cond.exit3093:                                    ; preds = %2243, %2249
   %2316 = getelementptr i8, ptr %.22697, i64 -64
   %2317 = call fastcc ptr @rb_node_dvar_new(ptr noundef %0, i64 noundef %2314, ptr noundef %2316)
   %2318 = load ptr, ptr %57, align 8
-  %2319 = call ptr @rb_ast_new_local_table(ptr noundef %2318, i32 noundef 1) #32
+  %2319 = call ptr @rb_ast_new_local_table(ptr noundef %2318, i32 noundef 1) #33
   %2320 = getelementptr inbounds i8, ptr %2319, i64 8
   store i64 %2314, ptr %2320, align 8
   %2321 = getelementptr i8, ptr %.22687, i64 -32
@@ -6499,7 +6499,7 @@ default.unreachable3518:                          ; preds = %2570
 2583:                                             ; preds = %2581
   %2584 = load ptr, ptr %76, align 8
   %2585 = load i32, ptr %29, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2584, i32 noundef %2585, ptr noundef nonnull @.str.30) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2584, i32 noundef %2585, ptr noundef nonnull @.str.30) #33
   br label %2586
 
 2586:                                             ; preds = %2581, %2583
@@ -6522,7 +6522,7 @@ default.unreachable3518:                          ; preds = %2570
 
 2594:                                             ; preds = %2591
   %2595 = load ptr, ptr %2593, align 8
-  %2596 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2595, ptr noundef nonnull dereferenceable(5) @.str.32) #36
+  %2596 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2595, ptr noundef nonnull dereferenceable(5) @.str.32) #37
   %.not2828 = icmp eq i32 %2596, 0
   br i1 %.not2828, label %2597, label %2617
 
@@ -6669,7 +6669,7 @@ default.unreachable3518:                          ; preds = %2570
 
 2656:                                             ; preds = %2654
   %2657 = load ptr, ptr %2655, align 8
-  %2658 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2657, ptr noundef nonnull dereferenceable(5) @.str.36) #36
+  %2658 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2657, ptr noundef nonnull dereferenceable(5) @.str.36) #37
   %2659 = icmp ne i32 %2658, 0
   %2660 = zext i1 %2659 to i32
   call fastcc void @token_info_warn(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef nonnull %2655, i32 noundef %2660, ptr noundef nonnull %8)
@@ -6738,7 +6738,7 @@ token_info_setup.exit.thread:                     ; preds = %2661, %token_info_s
 2680:                                             ; preds = %2678
   %2681 = load ptr, ptr %76, align 8
   %2682 = load i32, ptr %29, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2681, i32 noundef %2682, ptr noundef nonnull @.str.43) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2681, i32 noundef %2682, ptr noundef nonnull @.str.43) #33
   br label %2683
 
 2683:                                             ; preds = %2678, %2680
@@ -7914,7 +7914,7 @@ numparam_pop.exit3152:                            ; preds = %3316, %3319
 3362:                                             ; preds = %yy_reduce_print.exit
   %3363 = load ptr, ptr %69, align 8
   store ptr %3363, ptr %7, align 8
-  %3364 = call ptr @rb_st_init_numtable() #32
+  %3364 = call ptr @rb_st_init_numtable() #33
   store ptr %3364, ptr %69, align 8
   br label %fixpos.exit
 
@@ -7958,7 +7958,7 @@ parser_set_lex_state.exit3156:                    ; preds = %3367, %3372
   br i1 %.not.i3157, label %pop_pktbl.exit3158, label %3383
 
 3383:                                             ; preds = %3379
-  call void @rb_st_free_table(ptr noundef nonnull %3382) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3382) #33
   br label %pop_pktbl.exit3158
 
 pop_pktbl.exit3158:                               ; preds = %3379, %3383
@@ -7966,7 +7966,7 @@ pop_pktbl.exit3158:                               ; preds = %3379, %3383
   %3384 = getelementptr i8, ptr %.22687, i64 -24
   %3385 = load ptr, ptr %3384, align 8
   %3386 = load ptr, ptr %69, align 8
-  call void @rb_st_free_table(ptr noundef %3386) #32
+  call void @rb_st_free_table(ptr noundef %3386) #33
   store ptr %3385, ptr %69, align 8
   %3387 = getelementptr i8, ptr %.22687, i64 -32
   %3388 = load i16, ptr %3387, align 8
@@ -8111,7 +8111,7 @@ pop_pktbl.exit3158:                               ; preds = %3379, %3383
   br i1 %.not.i3163, label %pop_pktbl.exit3164, label %3474
 
 3474:                                             ; preds = %3470
-  call void @rb_st_free_table(ptr noundef nonnull %3473) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3473) #33
   br label %pop_pktbl.exit3164
 
 pop_pktbl.exit3164:                               ; preds = %3470, %3474
@@ -8137,7 +8137,7 @@ pop_pktbl.exit3164:                               ; preds = %3470, %3474
   br i1 %.not.i3165, label %pop_pktbl.exit3166, label %3487
 
 3487:                                             ; preds = %3483
-  call void @rb_st_free_table(ptr noundef nonnull %3486) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3486) #33
   br label %pop_pktbl.exit3166
 
 pop_pktbl.exit3166:                               ; preds = %3483, %3487
@@ -8163,7 +8163,7 @@ pop_pktbl.exit3166:                               ; preds = %3483, %3487
   br i1 %.not.i3167, label %pop_pktbl.exit3168, label %3500
 
 3500:                                             ; preds = %3496
-  call void @rb_st_free_table(ptr noundef nonnull %3499) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3499) #33
   br label %pop_pktbl.exit3168
 
 pop_pktbl.exit3168:                               ; preds = %3496, %3500
@@ -8199,7 +8199,7 @@ pop_pktbl.exit3168:                               ; preds = %3496, %3500
   br i1 %.not.i3169, label %pop_pktbl.exit3170, label %3518
 
 3518:                                             ; preds = %3514
-  call void @rb_st_free_table(ptr noundef nonnull %3517) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3517) #33
   br label %pop_pktbl.exit3170
 
 pop_pktbl.exit3170:                               ; preds = %3514, %3518
@@ -8225,7 +8225,7 @@ pop_pktbl.exit3170:                               ; preds = %3514, %3518
   br i1 %.not.i3171, label %pop_pktbl.exit3172, label %3531
 
 3531:                                             ; preds = %3527
-  call void @rb_st_free_table(ptr noundef nonnull %3530) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3530) #33
   br label %pop_pktbl.exit3172
 
 pop_pktbl.exit3172:                               ; preds = %3527, %3531
@@ -8251,7 +8251,7 @@ pop_pktbl.exit3172:                               ; preds = %3527, %3531
   br i1 %.not.i3173, label %pop_pktbl.exit3174, label %3544
 
 3544:                                             ; preds = %3540
-  call void @rb_st_free_table(ptr noundef nonnull %3543) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3543) #33
   br label %pop_pktbl.exit3174
 
 pop_pktbl.exit3174:                               ; preds = %3540, %3544
@@ -8316,7 +8316,7 @@ pop_pktbl.exit3174:                               ; preds = %3540, %3544
   br i1 %.not.i3175, label %pop_pktbl.exit3176, label %3576
 
 3576:                                             ; preds = %3572
-  call void @rb_st_free_table(ptr noundef nonnull %3575) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3575) #33
   br label %pop_pktbl.exit3176
 
 pop_pktbl.exit3176:                               ; preds = %3572, %3576
@@ -8350,7 +8350,7 @@ pop_pktbl.exit3176:                               ; preds = %3572, %3576
   br i1 %.not.i3177, label %pop_pktbl.exit3178, label %3593
 
 3593:                                             ; preds = %3589
-  call void @rb_st_free_table(ptr noundef nonnull %3592) #32
+  call void @rb_st_free_table(ptr noundef nonnull %3592) #33
   br label %pop_pktbl.exit3178
 
 pop_pktbl.exit3178:                               ; preds = %3589, %3593
@@ -8510,7 +8510,7 @@ pop_pktbl.exit3178:                               ; preds = %3589, %3593
   %3685 = getelementptr i8, ptr %.22697, i64 -16
   call fastcc void @error_duplicate_pattern_key(ptr noundef %0, i64 noundef %3684, ptr noundef %3685)
   %3686 = load i64, ptr %3683, align 8
-  %3687 = call i64 @rb_id2str(i64 noundef %3686) #32
+  %3687 = call i64 @rb_id2str(i64 noundef %3686) #33
   %3688 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %3687, ptr noundef %3685)
   %3689 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3688, ptr noundef nonnull %8)
   %3690 = load ptr, ptr %.22687, align 8
@@ -8541,7 +8541,7 @@ pop_pktbl.exit3178:                               ; preds = %3589, %3593
   %3702 = phi i64 [ %.pre3483, %3700 ], [ %3694, %3695 ], [ 0, %3692 ]
   call fastcc void @error_duplicate_pattern_variable(ptr noundef %0, i64 noundef %3702, ptr noundef nonnull %.22697)
   %3703 = load i64, ptr %.22687, align 8
-  %3704 = call i64 @rb_id2str(i64 noundef %3703) #32
+  %3704 = call i64 @rb_id2str(i64 noundef %3703) #33
   %3705 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %3704, ptr noundef nonnull %8)
   %3706 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3705, ptr noundef nonnull %8)
   %3707 = load i64, ptr %.22687, align 8
@@ -8570,16 +8570,16 @@ pop_pktbl.exit3178:                               ; preds = %3589, %3593
 
 3718:                                             ; preds = %3715, %3710
   %3719 = call fastcc ptr @dsym_node(ptr noundef %0, ptr noundef %3714, ptr noundef nonnull %21)
-  %3720 = call i64 @rb_node_sym_string_val(ptr noundef %3719) #32
-  %3721 = call i64 @rb_sym2id(i64 noundef %3720) #32
+  %3720 = call i64 @rb_node_sym_string_val(ptr noundef %3719) #33
+  %3721 = call i64 @rb_sym2id(i64 noundef %3720) #33
   store i64 %3721, ptr %7, align 8
   br label %fixpos.exit
 
 3722:                                             ; preds = %3715
   call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %21, ptr noundef @.str.53)
   %3723 = load ptr, ptr %60, align 8
-  %3724 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %3723) #32
-  %3725 = call i64 @rb_intern_str(i64 noundef %3724) #32
+  %3724 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %3723) #33
+  %3725 = call i64 @rb_intern_str(i64 noundef %3724) #33
   store i64 %3725, ptr %7, align 8
   br label %fixpos.exit
 
@@ -8708,7 +8708,7 @@ pop_pktbl.exit3178:                               ; preds = %3589, %3593
 
 3787:                                             ; preds = %3785
   %3788 = load i64, ptr %.22687, align 8
-  %3789 = call i64 @rb_id2str(i64 noundef %3788) #32
+  %3789 = call i64 @rb_id2str(i64 noundef %3788) #33
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.54, i64 noundef %3789)
   br label %3790
 
@@ -9399,13 +9399,13 @@ parser_set_lex_state.exit3196:                    ; preds = %.thread3525, %4105,
 parser_set_lex_state.exit3198:                    ; preds = %4131, %4134
   store i32 2, ptr %53, align 8
   %4137 = load i64, ptr %.22687, align 8
-  %4138 = call i64 @rb_id2str(i64 noundef %4137) #32
+  %4138 = call i64 @rb_id2str(i64 noundef %4137) #33
   %.not2787 = icmp eq i64 %4138, 0
   br i1 %.not2787, label %4139, label %4142
 
 4139:                                             ; preds = %parser_set_lex_state.exit3198
   %4140 = load ptr, ptr %60, align 8
-  %4141 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %4140) #32
+  %4141 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %4140) #33
   br label %4142
 
 4142:                                             ; preds = %4139, %parser_set_lex_state.exit3198
@@ -10022,7 +10022,7 @@ dyna_in_block.exit3228.thread:                    ; preds = %4436, %dyna_in_bloc
   store ptr %4466, ptr %4468, align 8
   %4469 = load ptr, ptr %.22687, align 8
   %.val2934 = load ptr, ptr %57, align 8
-  call void @rb_ast_delete_node(ptr noundef %.val2934, ptr noundef %4469) #32
+  call void @rb_ast_delete_node(ptr noundef %.val2934, ptr noundef %4469) #33
   br label %fixpos.exit
 
 4470:                                             ; preds = %yy_reduce_print.exit
@@ -10447,7 +10447,7 @@ parser_set_lex_state.exit3246:                    ; preds = %4608, %4611
 4662:                                             ; preds = %yy_reduce_print.exit
   %4663 = getelementptr i8, ptr %.22687, i64 -8
   %4664 = load i64, ptr %4663, align 8
-  %4665 = call i64 @rb_id2str(i64 noundef %4664) #32
+  %4665 = call i64 @rb_id2str(i64 noundef %4664) #33
   %4666 = getelementptr i8, ptr %.22697, i64 -16
   %4667 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %4665, ptr noundef %4666)
   %4668 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %4667, ptr noundef nonnull %8)
@@ -10469,7 +10469,7 @@ parser_set_lex_state.exit3246:                    ; preds = %4608, %4611
 4676:                                             ; preds = %4674, %4671
   %.02653 = phi ptr [ %4673, %4671 ], [ %4675, %4674 ]
   %4677 = load i64, ptr %.22687, align 8
-  %4678 = call i64 @rb_id2str(i64 noundef %4677) #32
+  %4678 = call i64 @rb_id2str(i64 noundef %4677) #33
   %4679 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %4678, ptr noundef nonnull %.22697)
   %4680 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %4679, ptr noundef nonnull %8)
   %4681 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4680, ptr noundef %.02653)
@@ -10688,8 +10688,8 @@ fixpos.exit._crit_edge:                           ; preds = %fixpos.exit
   %4774 = phi ptr [ %.pre3507, %4760 ], [ null, %4761 ], [ %.pre3506, %.lr.ph.i3250._crit_edge ], [ %.pre3507, %.lr.ph3419 ]
   %4775 = load i64, ptr %10, align 8
   %4776 = lshr i64 %4775, 3
-  %4777 = call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %4774, i64 noundef 0) #32
-  %4778 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %4775) #35
+  %4777 = call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %4774, i64 noundef 0) #33
+  %4778 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %4775) #36
   store ptr %4777, ptr %0, align 8
   %4779 = getelementptr inbounds i8, ptr %4777, i64 16
   store ptr %4778, ptr %4779, align 8
@@ -11057,14 +11057,14 @@ define dso_local void @rb_parser_printf(ptr nocapture noundef %0, ptr noundef %1
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #32
+  %8 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #33
   store i64 %8, ptr %4, align 8
   br label %9
 
 9:                                                ; preds = %7, %2
   %.0 = phi i64 [ %8, %7 ], [ %5, %2 ]
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %10 = call i64 @rb_str_vcatf(i64 noundef %.0, ptr noundef %1, ptr noundef nonnull %3) #32
+  %10 = call i64 @rb_str_vcatf(i64 noundef %.0, ptr noundef %1, ptr noundef nonnull %3) #33
   call void @llvm.va_end.p0(ptr nonnull %3)
   %11 = inttoptr i64 %.0 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 16
@@ -11094,7 +11094,7 @@ end_with_newline_p.exit:                          ; preds = %15, %19
 24:                                               ; preds = %end_with_newline_p.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 272
   %26 = load i64, ptr %25, align 8
-  %27 = call i64 @rb_io_write(i64 noundef %26, i64 noundef %.0) #32
+  %27 = call i64 @rb_io_write(i64 noundef %26, i64 noundef %.0) #33
   store i64 4, ptr %4, align 8
   br label %end_with_newline_p.exit.thread
 
@@ -11128,8 +11128,8 @@ define dso_local noundef ptr @rb_parser_set_location_of_none(ptr nocapture nound
 define dso_local nonnull ptr @rb_parser_malloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = lshr i64 %1, 3
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %4, i64 noundef 0) #32
-  %6 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %1) #35
+  %5 = tail call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %4, i64 noundef 0) #33
+  %6 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %1) #36
   store ptr %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %6, ptr %7, align 8
@@ -11193,21 +11193,21 @@ define internal fastcc void @local_push(ptr nocapture noundef %0, i32 noundef %1
 
 7:                                                ; preds = %3, %2
   %8 = phi ptr [ null, %2 ], [ %6, %3 ]
-  %9 = tail call ptr @rb_ruby_verbose_ptr() #32
+  %9 = tail call ptr @rb_ruby_verbose_ptr() #33
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, -5
   %12 = icmp ne i64 %11, 0
-  %13 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc(i64 noundef 64) #35
+  %13 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc(i64 noundef 64) #36
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %15, ptr %16, align 8
-  %17 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #35
+  %17 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #36
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 8, ptr %19, align 4
-  %20 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #34
+  %20 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #35
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr null, ptr %21, align 8
@@ -11223,12 +11223,12 @@ define internal fastcc void @local_push(ptr nocapture noundef %0, i32 noundef %1
 
 vtable_alloc_gen.exit:                            ; preds = %7, %25
   store ptr %17, ptr %13, align 8
-  %26 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #35
+  %26 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #36
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 8, ptr %28, align 4
-  %29 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #34
+  %29 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #35
   store ptr %29, ptr %26, align 8
   %30 = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %8, ptr %30, align 8
@@ -11283,12 +11283,12 @@ e_option_supplied.exit:                           ; preds = %35, %sub_1.i
   br i1 %12, label %50, label %vtable_alloc_gen.exit41
 
 50:                                               ; preds = %sub_2.i, %e_option_supplied.exit, %48
-  %51 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #35
+  %51 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #36
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 12
   store i32 8, ptr %53, align 4
-  %54 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #34
+  %54 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #35
   store ptr %54, ptr %51, align 8
   %55 = getelementptr inbounds i8, ptr %51, i64 16
   store ptr null, ptr %55, align 8
@@ -11347,8 +11347,8 @@ define internal fastcc ptr @init_block_exit(ptr nocapture noundef %0) unnamed_ad
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 312
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val, i32 noundef 115, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 115) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val, i32 noundef 115, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 115) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
@@ -11359,7 +11359,7 @@ define internal fastcc ptr @init_block_exit(ptr nocapture noundef %0) unnamed_ad
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @void_expr(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
-  %3 = tail call ptr @rb_ruby_verbose_ptr() #32
+  %3 = tail call ptr @rb_ruby_verbose_ptr() #33
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -5
   %6 = icmp ne i64 %5, 0
@@ -11478,7 +11478,7 @@ define internal fastcc void @void_expr(ptr nocapture noundef readonly %0, ptr no
   br label %.thread16
 
 32:                                               ; preds = %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19
-  %33 = tail call ptr @rb_id2name(i64 noundef %21) #32
+  %33 = tail call ptr @rb_id2name(i64 noundef %21) #33
   %.not14 = icmp eq ptr %33, null
   br i1 %.not14, label %.thread21, label %..thread16_crit_edge
 
@@ -11493,7 +11493,7 @@ define internal fastcc void @void_expr(ptr nocapture noundef readonly %0, ptr no
   %36 = load ptr, ptr %35, align 8
   %37 = lshr i64 %34, 15
   %38 = trunc i64 %37 to i32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %36, i32 noundef %38, ptr noundef nonnull @.str.1028, ptr noundef nonnull %.019) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %36, i32 noundef %38, ptr noundef nonnull @.str.1028, ptr noundef nonnull %.019) #33
   br label %.thread21
 
 .thread21:                                        ; preds = %19, %.thread, %11, %2, %.thread16, %32
@@ -11534,7 +11534,7 @@ vtable_size.exit32.i:                             ; preds = %13, %vtable_size.ex
 18:                                               ; preds = %vtable_size.exit32.i
   %19 = getelementptr inbounds i8, ptr %0, i64 312
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @rb_ast_new_local_table(ptr noundef %20, i32 noundef %16) #32
+  %21 = tail call ptr @rb_ast_new_local_table(ptr noundef %20, i32 noundef %16) #33
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %23, align 8
@@ -11544,7 +11544,7 @@ vtable_size.exit32.i:                             ; preds = %13, %vtable_size.ex
   br i1 %27, label %28, label %rbimpl_size_mul_or_raise.exit.i
 
 28:                                               ; preds = %18
-  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %26) #37
+  tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %26) #38
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %18
@@ -11620,15 +11620,15 @@ vtable_included.exit.i:                           ; preds = %44, %vtable_include
 
 53:                                               ; preds = %._crit_edge.i
   %54 = load ptr, ptr %19, align 8
-  %55 = tail call ptr @rb_ast_resize_latest_local_table(ptr noundef %54, i32 noundef %.027.lcssa.i) #32
+  %55 = tail call ptr @rb_ast_resize_latest_local_table(ptr noundef %54, i32 noundef %.027.lcssa.i) #33
   br label %local_tbl.exit
 
 local_tbl.exit:                                   ; preds = %vtable_size.exit32.i, %._crit_edge.i, %53
   %.0.i = phi ptr [ null, %vtable_size.exit32.i ], [ %55, %53 ], [ %21, %._crit_edge.i ]
   %56 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %56, align 8
-  %57 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 0, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %57, i32 noundef 0) #32
+  %57 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 0, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %57, i32 noundef 0) #33
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %59 = load i64, ptr %57, align 8
@@ -11672,8 +11672,8 @@ define internal fastcc noundef ptr @block_append(ptr nocapture noundef %0, ptr n
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %12, align 8
-  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 1, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %13, i32 noundef 1) #32
+  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 1, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %13, i32 noundef 1) #33
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(16) %11, i64 16, i1 false)
   %15 = load i64, ptr %13, align 8
@@ -11726,7 +11726,7 @@ define internal fastcc noundef ptr @block_append(ptr nocapture noundef %0, ptr n
   %40 = load i64, ptr %2, align 8
   %41 = lshr i64 %40, 15
   %42 = trunc i64 %41 to i32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %39, i32 noundef %42, ptr noundef nonnull @.str.979) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %39, i32 noundef %42, ptr noundef nonnull @.str.979) #33
   br label %43
 
 43:                                               ; preds = %31, %37
@@ -11739,8 +11739,8 @@ define internal fastcc noundef ptr @block_append(ptr nocapture noundef %0, ptr n
   %47 = getelementptr inbounds i8, ptr %2, i64 8
   %48 = getelementptr i8, ptr %0, i64 312
   %.val.i.i33 = load ptr, ptr %48, align 8
-  %49 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i33, i32 noundef 1, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %49, i32 noundef 1) #32
+  %49 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i33, i32 noundef 1, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %49, i32 noundef 1) #33
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull readonly align 4 dereferenceable(16) %47, i64 16, i1 false)
   %51 = load i64, ptr %49, align 8
@@ -11841,7 +11841,7 @@ define internal fastcc void @local_pop(ptr nocapture noundef %0) unnamed_addr #0
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef ptr @void_stmts(ptr nocapture noundef readonly %0, ptr noundef readonly returned %1) unnamed_addr #0 {
-  %3 = tail call ptr @rb_ruby_verbose_ptr() #32
+  %3 = tail call ptr @rb_ruby_verbose_ptr() #33
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -5
   %.not15 = icmp eq i64 %5, 0
@@ -11881,8 +11881,8 @@ define internal fastcc noundef ptr @void_stmts(ptr nocapture noundef readonly %0
 define internal fastcc noundef ptr @rb_node_begin_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 18, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 18) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 18, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 18) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -12037,8 +12037,8 @@ define internal fastcc noundef ptr @new_bodystmt(ptr nocapture noundef %0, ptr n
   %.val32 = load i64, ptr %10, align 4
   %11 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %11, align 8
-  %12 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 19, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %12, i32 noundef 19) #32
+  %12 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 19, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %12, i32 noundef 19) #33
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %.val, ptr %13, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
@@ -12086,8 +12086,8 @@ define internal fastcc noundef ptr @new_bodystmt(ptr nocapture noundef %0, ptr n
 36:                                               ; preds = %35
   %37 = getelementptr i8, ptr %0, i64 312
   %.val.i.i33 = load ptr, ptr %37, align 8
-  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i33, i32 noundef 21, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %38, i32 noundef 21) #32
+  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i33, i32 noundef 21, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %38, i32 noundef 21) #33
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %40 = load i64, ptr %38, align 8
@@ -12135,8 +12135,8 @@ fixpos.exit:                                      ; preds = %52, %55
 define internal fastcc noundef ptr @rb_node_alias_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 83, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 83) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 83, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 83) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -12163,8 +12163,8 @@ define internal fastcc noundef ptr @rb_node_alias_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_valias_new(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 84, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 84) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 84, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 84) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -12193,8 +12193,8 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal fastcc noundef ptr @rb_node_error_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 109, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 109) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 109, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 109) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -12222,8 +12222,8 @@ define internal fastcc noundef ptr @new_if(ptr noundef %0, ptr noundef %1, ptr n
   %7 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %4, i1 noundef zeroext true)
   %8 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %8, align 8
-  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 2, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %9, i32 noundef 2) #32
+  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 2, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %9, i32 noundef 2) #33
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
@@ -12279,8 +12279,8 @@ define internal fastcc noundef ptr @new_unless(ptr noundef %0, ptr noundef %1, p
   %7 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %4, i1 noundef zeroext true)
   %8 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %8, align 8
-  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 3, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %9, i32 noundef 3) #32
+  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 3, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %9, i32 noundef 3) #33
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
@@ -12331,8 +12331,8 @@ newline_node.exit:                                ; preds = %.preheader.i, %26
 define internal fastcc noundef ptr @rb_node_while_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 9, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 9) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 9, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 9) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -12361,8 +12361,8 @@ define internal fastcc noundef ptr @rb_node_while_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_until_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 10, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 10) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 10, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 10) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -12391,8 +12391,8 @@ define internal fastcc noundef ptr @rb_node_until_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_resbody_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 20, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 20) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 20, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 20) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -12421,8 +12421,8 @@ define internal fastcc noundef ptr @rb_node_resbody_new(ptr nocapture noundef %0
 define internal fastcc noundef ptr @rb_node_rescue_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 19, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 19) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 19, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 19) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -12453,8 +12453,8 @@ declare void @rb_compile_warn(ptr noundef, i32 noundef, ptr noundef, ...) local_
 define internal fastcc noundef ptr @rb_node_scope_new2(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 0, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 0) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 0, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 0) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -12483,8 +12483,8 @@ define internal fastcc noundef ptr @rb_node_scope_new2(ptr nocapture noundef %0,
 define internal fastcc noundef ptr @rb_node_postexe_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 101, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 101) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 101, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 101) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -12653,7 +12653,7 @@ shareable_constant_value.exit:                    ; preds = %12, %15, %16, %18, 
   br label %parser_node_name.exit.i
 
 41:                                               ; preds = %23
-  %42 = call ptr @ruby_node_name(i32 noundef %25) #32
+  %42 = call ptr @ruby_node_name(i32 noundef %25) #33
   br label %parser_node_name.exit.i
 
 parser_node_name.exit.i:                          ; preds = %41, %40, %23
@@ -12751,7 +12751,7 @@ define internal fastcc noundef ptr @new_op_assign(ptr noundef %0, ptr noundef %1
   br label %parser_node_name.exit.i
 
 35:                                               ; preds = %11
-  %36 = tail call ptr @ruby_node_name(i32 noundef %15) #32
+  %36 = tail call ptr @ruby_node_name(i32 noundef %15) #33
   br label %parser_node_name.exit.i
 
 parser_node_name.exit.i:                          ; preds = %35, %34, %11
@@ -12881,7 +12881,7 @@ shareable_constant_value.exit:                    ; preds = %47, %49, %50, %52, 
   br label %parser_node_name.exit.i71
 
 76:                                               ; preds = %shareable_constant_value.exit
-  %77 = call ptr @ruby_node_name(i32 noundef %60) #32
+  %77 = call ptr @ruby_node_name(i32 noundef %60) #33
   br label %parser_node_name.exit.i71
 
 parser_node_name.exit.i71:                        ; preds = %76, %75, %shareable_constant_value.exit
@@ -12902,8 +12902,8 @@ set_nd_value.exit:                                ; preds = %61, %63, %65, %67, 
   %84 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %.0.i, ptr noundef nonnull %10)
   %85 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %85, align 8
-  %86 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 34, i64 noundef 48, i64 noundef 8) #32
-  call void @rb_node_init(ptr noundef %86, i32 noundef 34) #32
+  %86 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 34, i64 noundef 48, i64 noundef 8) #33
+  call void @rb_node_init(ptr noundef %86, i32 noundef 34) #33
   %87 = getelementptr inbounds i8, ptr %86, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %88 = load i64, ptr %86, align 8
@@ -13018,7 +13018,7 @@ shareable_constant_value.exit79:                  ; preds = %101, %104, %106, %1
   br label %parser_node_name.exit.i80
 
 131:                                              ; preds = %111
-  %132 = call ptr @ruby_node_name(i32 noundef %115) #32
+  %132 = call ptr @ruby_node_name(i32 noundef %115) #33
   br label %parser_node_name.exit.i80
 
 parser_node_name.exit.i80:                        ; preds = %131, %130, %111
@@ -13039,8 +13039,8 @@ set_nd_value.exit82:                              ; preds = %116, %118, %120, %1
   %139 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %.0.i, ptr noundef nonnull %10)
   %140 = getelementptr i8, ptr %0, i64 312
   %.val.i.i83 = load ptr, ptr %140, align 8
-  %141 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i83, i32 noundef 33, i64 noundef 48, i64 noundef 8) #32
-  call void @rb_node_init(ptr noundef %141, i32 noundef 33) #32
+  %141 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i83, i32 noundef 33, i64 noundef 48, i64 noundef 8) #33
+  call void @rb_node_init(ptr noundef %141, i32 noundef 33) #33
   %142 = getelementptr inbounds i8, ptr %141, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %143 = load i64, ptr %141, align 8
@@ -13067,8 +13067,8 @@ set_nd_value.exit82:                              ; preds = %116, %118, %120, %1
   %157 = getelementptr inbounds i8, ptr %3, i64 8
   %158 = getelementptr i8, ptr %0, i64 312
   %.val.i.i84 = load ptr, ptr %158, align 8
-  %159 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i84, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %159, i32 noundef 43) #32
+  %159 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i84, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %159, i32 noundef 43) #33
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull readonly align 4 dereferenceable(16) %157, i64 16, i1 false)
   %161 = load i64, ptr %159, align 8
@@ -13091,8 +13091,8 @@ set_nd_value.exit82:                              ; preds = %116, %118, %120, %1
   %173 = getelementptr inbounds i8, ptr %159, i64 48
   store ptr null, ptr %173, align 8
   %.val.i.i85 = load ptr, ptr %158, align 8
-  %174 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i85, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %174, i32 noundef 36) #32
+  %174 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i85, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %174, i32 noundef 36) #33
   %175 = getelementptr inbounds i8, ptr %174, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %176 = load i64, ptr %174, align 8
@@ -13200,7 +13200,7 @@ shareable_constant_value.exit92:                  ; preds = %189, %191, %193
   br label %parser_node_name.exit.i93
 
 216:                                              ; preds = %196
-  %217 = call ptr @ruby_node_name(i32 noundef %200) #32
+  %217 = call ptr @ruby_node_name(i32 noundef %200) #33
   br label %parser_node_name.exit.i93
 
 parser_node_name.exit.i93:                        ; preds = %216, %215, %196
@@ -13223,8 +13223,8 @@ set_nd_value.exit95:                              ; preds = %201, %203, %205, %2
 224:                                              ; preds = %6
   %225 = getelementptr i8, ptr %0, i64 312
   %.val.i.i96 = load ptr, ptr %225, align 8
-  %226 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i96, i32 noundef 109, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %226, i32 noundef 109) #32
+  %226 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i96, i32 noundef 109, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %226, i32 noundef 109) #33
   %227 = getelementptr inbounds i8, ptr %226, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %228 = load i64, ptr %226, align 8
@@ -13267,8 +13267,8 @@ define internal fastcc noundef ptr @new_ary_op_assign(ptr nocapture noundef %0, 
 16:                                               ; preds = %7
   %17 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %17, align 8
-  %18 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 44, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %18, i32 noundef 44) #32
+  %18 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 44, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %18, i32 noundef 44) #33
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %20 = load i64, ptr %18, align 8
@@ -13290,8 +13290,8 @@ define internal fastcc noundef ptr @new_ary_op_assign(ptr nocapture noundef %0, 
   %31 = phi ptr [ %2, %8 ], [ %18, %16 ]
   %32 = getelementptr i8, ptr %0, i64 312
   %.val.i.i14 = load ptr, ptr %32, align 8
-  %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i14, i32 noundef 31, i64 noundef 64, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %33, i32 noundef 31) #32
+  %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i14, i32 noundef 31, i64 noundef 64, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %33, i32 noundef 31) #33
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %35 = load i64, ptr %33, align 8
@@ -13339,8 +13339,8 @@ define internal fastcc noundef ptr @new_attr_op_assign(ptr nocapture noundef %0,
   %9 = zext i1 %8 to i8
   %10 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %10, align 8
-  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 32, i64 noundef 72, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %11, i32 noundef 32) #32
+  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 32, i64 noundef 72, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %11, i32 noundef 32) #33
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %13 = load i64, ptr %11, align 8
@@ -13430,8 +13430,8 @@ fixpos.exit:                                      ; preds = %.split, %10, %11, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %18 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %18, align 8
-  %19 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 35, i64 noundef 56, i64 noundef 8) #32
-  call void @rb_node_init(ptr noundef %19, i32 noundef 35) #32
+  %19 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 35, i64 noundef 56, i64 noundef 8) #33
+  call void @rb_node_init(ptr noundef %19, i32 noundef 35) #33
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %21 = load i64, ptr %19, align 8
@@ -13466,8 +13466,8 @@ fixpos.exit:                                      ; preds = %.split, %10, %11, %
 .split15:                                         ; preds = %6
   %41 = getelementptr i8, ptr %0, i64 312
   %.val.i.i17 = load ptr, ptr %41, align 8
-  %42 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i17, i32 noundef 109, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %42, i32 noundef 109) #32
+  %42 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i17, i32 noundef 109, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %42, i32 noundef 109) #33
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %44 = load i64, ptr %42, align 8
@@ -13494,8 +13494,8 @@ fixpos.exit:                                      ; preds = %.split, %10, %11, %
 define internal fastcc noundef ptr @rb_node_colon2_new(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 89, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 89) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 89, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 89) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -13577,7 +13577,7 @@ parser_yyerror.exit:                              ; preds = %15, %10, %5
   br i1 %.not17.i, label %31, label %33
 
 31:                                               ; preds = %30
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre2.i, ptr noundef nonnull dereferenceable(4) @.str.38) #36
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre2.i, ptr noundef nonnull dereferenceable(4) @.str.38) #37
   %.not18.i = icmp eq i32 %32, 0
   br i1 %.not18.i, label %36, label %33
 
@@ -13588,7 +13588,7 @@ parser_yyerror.exit:                              ; preds = %15, %10, %5
   br label %36
 
 36:                                               ; preds = %33, %31
-  tail call void @ruby_xfree(ptr noundef nonnull %22) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %22) #33
   br label %token_info_drop.exit
 
 token_info_drop.exit:                             ; preds = %parser_yyerror.exit, %36
@@ -13767,8 +13767,8 @@ define internal fastcc noundef ptr @rescued_expr(ptr nocapture noundef %0, ptr n
 remove_begin.exit:                                ; preds = %5, %6, %9
   %12 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %12, align 8
-  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 20, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %13, i32 noundef 20) #32
+  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 20, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %13, i32 noundef 20) #33
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %.0.val, ptr %14, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
@@ -13793,8 +13793,8 @@ remove_begin.exit:                                ; preds = %5, %6, %9
   store ptr null, ptr %25, align 8
   %26 = load i64, ptr %3, align 4
   %.val.i.i9 = load ptr, ptr %12, align 8
-  %27 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i9, i32 noundef 19, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %27, i32 noundef 19) #32
+  %27 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i9, i32 noundef 19, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %27, i32 noundef 19) #33
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store i64 %26, ptr %28, align 8
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds i8, ptr %27, i64 16
@@ -13845,8 +13845,8 @@ define internal fastcc noundef ptr @call_uni_op(ptr noundef %0, ptr noundef %1, 
 value_expr_gen.exit:                              ; preds = %5, %7, %13
   %18 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %18, align 8
-  %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 37, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %19, i32 noundef 37) #32
+  %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 37, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %19, i32 noundef 37) #33
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %21 = load i64, ptr %19, align 8
@@ -13940,8 +13940,8 @@ value_expr_gen.exit:                              ; preds = %6, %12, %18
   %36 = select i1 %switch.selectcmp, i32 22, i32 23
   %37 = getelementptr i8, ptr %0, i64 312
   %.val.i.i46 = load ptr, ptr %37, align 8
-  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i46, i32 noundef %36, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %38, i32 noundef %36) #32
+  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i46, i32 noundef %36, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %38, i32 noundef %36) #33
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %40 = load i64, ptr %38, align 8
@@ -13982,8 +13982,8 @@ value_expr_gen.exit:                              ; preds = %6, %12, %18
   %62 = select i1 %switch.selectcmp85, i32 22, i32 23
   %63 = getelementptr i8, ptr %0, i64 312
   %.val.i.i48 = load ptr, ptr %63, align 8
-  %64 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef %62, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %64, i32 noundef %62) #32
+  %64 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef %62, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %64, i32 noundef %62) #33
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %66 = load i64, ptr %64, align 8
@@ -14021,8 +14021,8 @@ value_expr_gen.exit:                              ; preds = %6, %12, %18
 define internal fastcc noundef ptr @rb_node_case3_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 6, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 6) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 6, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 6) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -14049,8 +14049,8 @@ define internal fastcc noundef ptr @rb_node_case3_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_in_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 8, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 8) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 8, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 8) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -14079,8 +14079,8 @@ define internal fastcc noundef ptr @rb_node_in_new(ptr nocapture noundef %0, ptr
 define internal fastcc noundef ptr @rb_node_true_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 97, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 97) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 97, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 97) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -14103,8 +14103,8 @@ define internal fastcc noundef ptr @rb_node_true_new(ptr nocapture noundef %0, p
 define internal fastcc noundef ptr @rb_node_false_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 98, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 98) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 98, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 98) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -14149,8 +14149,8 @@ define internal fastcc void @numparam_name(ptr nocapture noundef %0, i64 noundef
 define internal fastcc noundef ptr @rb_node_defn_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 81, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 81) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 81, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 81) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -14177,8 +14177,8 @@ define internal fastcc noundef ptr @rb_node_defn_new(ptr nocapture noundef %0, i
 define internal fastcc noundef ptr @rb_node_defs_new(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 82, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 82) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 82, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 82) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -14206,12 +14206,12 @@ define internal fastcc noundef ptr @rb_node_defs_new(ptr nocapture noundef %0, p
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_parser_show_bitstack(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  %6 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.74, ptr noundef %2) #32
+  %6 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.74, ptr noundef %2) #33
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %8, label %.preheader.i
 
 8:                                                ; preds = %4
-  %9 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.995, i64 noundef 1) #32
+  %9 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.995, i64 noundef 1) #33
   br label %append_bitstack_value.exit
 
 .preheader.i:                                     ; preds = %4, %.preheader.i
@@ -14232,13 +14232,13 @@ define dso_local void @rb_parser_show_bitstack(ptr nocapture noundef %0, i64 nou
   %12 = and i64 %.12.i, %1
   %.not14.i = icmp eq i64 %12, 0
   %13 = select i1 %.not14.i, ptr @.str.995, ptr @.str.996
-  %14 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull %13, i64 noundef 1) #32
+  %14 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull %13, i64 noundef 1) #33
   %15 = lshr i64 %.12.i, 1
   %.not13.i = icmp ult i64 %.12.i, 2
   br i1 %.not13.i, label %append_bitstack_value.exit, label %.critedge.i, !llvm.loop !29
 
 append_bitstack_value.exit:                       ; preds = %.critedge.i, %8, %.critedge.preheader.i
-  %16 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6, ptr noundef nonnull @.str.73, i32 noundef %3) #32
+  %16 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6, ptr noundef nonnull @.str.73, i32 noundef %3) #33
   %17 = getelementptr inbounds i8, ptr %0, i64 272
   %18 = load i64, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -14257,7 +14257,7 @@ append_bitstack_value.exit:                       ; preds = %.critedge.i, %8, %.
 
 26:                                               ; preds = %22
   store i64 4, ptr %19, align 8
-  %27 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %18) #32
+  %27 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %18) #33
   br label %28
 
 28:                                               ; preds = %26, %22, %append_bitstack_value.exit
@@ -14273,7 +14273,7 @@ append_bitstack_value.exit:                       ; preds = %.critedge.i, %8, %.
 
 34:                                               ; preds = %30
   %35 = load i64, ptr %17, align 8
-  %36 = call i64 @rb_io_write(i64 noundef %35, i64 noundef %6) #32
+  %36 = call i64 @rb_io_write(i64 noundef %35, i64 noundef %6) #33
   br label %flush_debug_buffer.exit
 
 flush_debug_buffer.exit:                          ; preds = %28, %30, %34
@@ -14288,8 +14288,8 @@ define internal fastcc noundef ptr @new_qcall(ptr nocapture noundef %0, i64 noun
   %.val.i.i = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 320
   %. = select i1 %8, i32 40, i32 36
-  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef %., i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %11, i32 noundef %.) #32
+  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef %., i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %11, i32 noundef %.) #33
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %13 = load i64, ptr %11, align 8
@@ -14324,8 +14324,8 @@ define internal fastcc noundef ptr @new_qcall(ptr nocapture noundef %0, i64 noun
 define internal fastcc noundef ptr @rb_node_fcall_new(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 38, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 38) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 38, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 38) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -14371,8 +14371,8 @@ block_dup_check.exit:                             ; preds = %13, %10, %8
   %.val.i.i.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 320
   %..i = select i1 %14, i32 40, i32 36
-  %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef %..i, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %17, i32 noundef %..i) #32
+  %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef %..i, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %17, i32 noundef %..i) #33
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull readonly align 4 dereferenceable(16) %7, i64 16, i1 false)
   %19 = load i64, ptr %17, align 8
@@ -14433,8 +14433,8 @@ fixpos.exit:                                      ; preds = %40, %41
 define internal fastcc noundef ptr @rb_node_super_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 41, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 41) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 41, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 41) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -14474,8 +14474,8 @@ define internal fastcc noundef ptr @new_yield(ptr nocapture noundef %0, ptr noun
   %.sink = phi ptr [ null, %3 ], [ %1, %.split7 ], [ %1, %6 ]
   %7 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %7, align 8
-  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 47, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %8, i32 noundef 47) #32
+  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 47, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %8, i32 noundef 47) #33
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
@@ -14500,8 +14500,8 @@ define internal fastcc noundef ptr @new_yield(ptr nocapture noundef %0, ptr noun
 define internal fastcc noundef ptr @rb_node_return_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 46, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 46) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 46, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 46) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -14588,7 +14588,7 @@ define internal fastcc noundef ptr @add_block_exit(ptr nocapture noundef %0, ptr
   br label %parser_node_name.exit
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @ruby_node_name(i32 noundef %8) #32
+  %12 = tail call ptr @ruby_node_name(i32 noundef %8) #33
   br label %parser_node_name.exit
 
 parser_node_name.exit:                            ; preds = %9, %10, %11
@@ -14625,8 +14625,8 @@ parser_node_name.exit:                            ; preds = %9, %10, %11
 define internal fastcc noundef ptr @rb_node_break_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 14, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 14) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 14, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 14) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -14653,8 +14653,8 @@ define internal fastcc noundef ptr @rb_node_break_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_next_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 15, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 15) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 15, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 15) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -14681,8 +14681,8 @@ define internal fastcc noundef ptr @rb_node_next_new(ptr nocapture noundef %0, p
 define internal fastcc noundef ptr @rb_node_masgn_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 24, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 24) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 24, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 24) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -14711,8 +14711,8 @@ define internal fastcc noundef ptr @rb_node_masgn_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_list_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 43) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 43) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -14746,8 +14746,8 @@ define internal fastcc noundef ptr @list_append(ptr nocapture noundef %0, ptr no
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %7, align 8
-  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %8, i32 noundef 43) #32
+  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %8, i32 noundef 43) #33
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
@@ -14791,8 +14791,8 @@ define internal fastcc noundef ptr @list_append(ptr nocapture noundef %0, ptr no
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = getelementptr i8, ptr %0, i64 312
   %.val.i.i21 = load ptr, ptr %34, align 8
-  %35 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %35, i32 noundef 43) #32
+  %35 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %35, i32 noundef 43) #33
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull readonly align 4 dereferenceable(16) %33, i64 16, i1 false)
   %37 = load i64, ptr %35, align 8
@@ -14834,8 +14834,8 @@ define internal fastcc noundef ptr @list_append(ptr nocapture noundef %0, ptr no
 define internal fastcc noundef ptr @rb_node_postarg_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 76, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 76) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 76, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 76) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -14976,15 +14976,15 @@ dyna_in_block.exit.thread.i:                      ; preds = %dyna_in_block.exit.
   br i1 %.not33.i, label %114, label %146
 
 48:                                               ; preds = %11
-  %49 = tail call i64 @rb_id2str(i64 noundef %1) #32
+  %49 = tail call i64 @rb_id2str(i64 noundef %1) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.1006, i64 noundef %49)
   br label %parser_yyerror.exit
 
 50:                                               ; preds = %41, %35, %37
   %51 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %51, align 8
-  %52 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 26, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %52, i32 noundef 26) #32
+  %52 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 26, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %52, i32 noundef 26) #33
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %54 = load i64, ptr %52, align 8
@@ -15009,8 +15009,8 @@ dyna_in_block.exit.thread.i:                      ; preds = %dyna_in_block.exit.
 66:                                               ; preds = %39, %43, %dyna_in_block.exit.thread.i
   %67 = getelementptr i8, ptr %0, i64 312
   %.val.i.i32 = load ptr, ptr %67, align 8
-  %68 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i32, i32 noundef 25, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %68, i32 noundef 25) #32
+  %68 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i32, i32 noundef 25, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %68, i32 noundef 25) #33
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %70 = load i64, ptr %68, align 8
@@ -15035,8 +15035,8 @@ dyna_in_block.exit.thread.i:                      ; preds = %dyna_in_block.exit.
 82:                                               ; preds = %11
   %83 = getelementptr i8, ptr %0, i64 312
   %.val.i.i33 = load ptr, ptr %83, align 8
-  %84 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i33, i32 noundef 27, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %84, i32 noundef 27) #32
+  %84 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i33, i32 noundef 27, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %84, i32 noundef 27) #33
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %86 = load i64, ptr %84, align 8
@@ -15061,8 +15061,8 @@ dyna_in_block.exit.thread.i:                      ; preds = %dyna_in_block.exit.
 98:                                               ; preds = %11
   %99 = getelementptr i8, ptr %0, i64 312
   %.val.i.i34 = load ptr, ptr %99, align 8
-  %100 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 28, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %100, i32 noundef 28) #32
+  %100 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i34, i32 noundef 28, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %100, i32 noundef 28) #33
   %101 = getelementptr inbounds i8, ptr %100, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %102 = load i64, ptr %100, align 8
@@ -15087,8 +15087,8 @@ dyna_in_block.exit.thread.i:                      ; preds = %dyna_in_block.exit.
 114:                                              ; preds = %44
   %115 = getelementptr i8, ptr %0, i64 312
   %.val.i.i35 = load ptr, ptr %115, align 8
-  %116 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i35, i32 noundef 29, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %116, i32 noundef 29) #32
+  %116 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i35, i32 noundef 29, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %116, i32 noundef 29) #33
   %117 = getelementptr inbounds i8, ptr %116, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %118 = load i64, ptr %116, align 8
@@ -15115,8 +15115,8 @@ dyna_in_block.exit.thread.i:                      ; preds = %dyna_in_block.exit.
 assignable0.exit:                                 ; preds = %11
   %131 = getelementptr i8, ptr %0, i64 312
   %.val.i.i36 = load ptr, ptr %131, align 8
-  %132 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i36, i32 noundef 30, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %132, i32 noundef 30) #32
+  %132 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i36, i32 noundef 30, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %132, i32 noundef 30) #33
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %134 = load i64, ptr %132, align 8
@@ -15158,8 +15158,8 @@ assignable0.exit:                                 ; preds = %11
 parser_yyerror.exit:                              ; preds = %151, %146, %4, %33, %48
   %156 = getelementptr i8, ptr %0, i64 312
   %.val.i.i37 = load ptr, ptr %156, align 8
-  %157 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i37, i32 noundef 109, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %157, i32 noundef 109) #32
+  %157 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i37, i32 noundef 109, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %157, i32 noundef 109) #33
   %158 = getelementptr inbounds i8, ptr %157, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %159 = load i64, ptr %157, align 8
@@ -15186,8 +15186,8 @@ parser_yyerror.exit:                              ; preds = %151, %146, %4, %33,
 define internal fastcc noundef ptr @aryset(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 104, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 104) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 104, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 104) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -15243,15 +15243,15 @@ define internal fastcc noundef ptr @attrset(ptr nocapture noundef %0, ptr nounde
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @rb_id_attrset(i64 noundef %3) #32
+  %8 = tail call i64 @rb_id_attrset(i64 noundef %3) #33
   br label %9
 
 9:                                                ; preds = %7, %5
   %.0 = phi i64 [ %3, %5 ], [ %8, %7 ]
   %10 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %10, align 8
-  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 104, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %11, i32 noundef 104) #32
+  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 104, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %11, i32 noundef 104) #33
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %13 = load i64, ptr %11, align 8
@@ -15303,8 +15303,8 @@ define internal fastcc noundef ptr @const_decl(ptr nocapture noundef %0, ptr nou
 parser_yyerror.exit:                              ; preds = %12, %7, %3
   %17 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %17, align 8
-  %18 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 29, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %18, i32 noundef 29) #32
+  %18 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 29, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %18, i32 noundef 29) #33
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %20 = load i64, ptr %18, align 8
@@ -15331,8 +15331,8 @@ parser_yyerror.exit:                              ; preds = %12, %7, %3
 define internal fastcc noundef ptr @rb_node_colon3_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 90, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 90) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 90, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 90) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -15357,8 +15357,8 @@ define internal fastcc noundef ptr @rb_node_colon3_new(ptr nocapture noundef %0,
 define internal fastcc noundef ptr @rb_node_sym_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 102, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 102) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 102, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 102) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -15389,18 +15389,18 @@ RSTRING_PTR.exit.i:                               ; preds = %21, %3
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %21 ], [ %20, %3 ]
   %22 = getelementptr inbounds i8, ptr %17, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = tail call ptr @rb_enc_get(i64 noundef %1) #32
+  %24 = tail call ptr @rb_enc_get(i64 noundef %1) #33
   %25 = icmp slt i64 %23, 0
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %RSTRING_PTR.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %23) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %23) #34
   unreachable
 
 27:                                               ; preds = %RSTRING_PTR.exit.i
-  %28 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %28 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %29 = add nuw i64 %23, 1
-  %30 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %29, i64 noundef 1) #34
+  %30 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %29, i64 noundef 1) #35
   %31 = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %30, ptr %31, align 8
   %.not.i.i3.i = icmp eq ptr %.sroa.2.0.i.i, null
@@ -15431,8 +15431,8 @@ declare i64 @rb_id2str(i64 noundef) local_unnamed_addr #1
 define internal fastcc noundef ptr @rb_node_undef_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 85, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 85) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 85, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 85) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -15457,8 +15457,8 @@ define internal fastcc noundef ptr @rb_node_undef_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_dot2_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 91, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 91) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 91, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 91) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -15485,8 +15485,8 @@ define internal fastcc noundef ptr @rb_node_dot2_new(ptr nocapture noundef %0, p
 define internal fastcc noundef ptr @rb_node_dot3_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 92, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 92) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 92, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 92) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -15513,8 +15513,8 @@ define internal fastcc noundef ptr @rb_node_dot3_new(ptr nocapture noundef %0, p
 define internal fastcc noundef ptr @new_nil_at(ptr nocapture noundef %0, i64 %.0.val) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %2, align 8
-  %3 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %3, i32 noundef 96) #32
+  %3 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %3, i32 noundef 96) #33
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.0.val, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
@@ -15583,8 +15583,8 @@ value_expr_gen.exit16:                            ; preds = %value_expr_gen.exit
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   %32 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %32, align 8
-  %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %33, i32 noundef 43) #32
+  %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %33, i32 noundef 43) #33
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull readonly align 4 dereferenceable(16) %31, i64 16, i1 false)
   %35 = load i64, ptr %33, align 8
@@ -15607,8 +15607,8 @@ value_expr_gen.exit16:                            ; preds = %value_expr_gen.exit
   %47 = getelementptr inbounds i8, ptr %33, i64 48
   store ptr null, ptr %47, align 8
   %.val.i.i17 = load ptr, ptr %32, align 8
-  %48 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i17, i32 noundef 37, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %48, i32 noundef 37) #32
+  %48 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i17, i32 noundef 37, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %48, i32 noundef 37) #33
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %50 = load i64, ptr %48, align 8
@@ -15719,8 +15719,8 @@ last_expr_once_body.exit.thread3:                 ; preds = %last_expr_once_body
 39:                                               ; preds = %last_expr_once_body.exit.thread3
   %40 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %40, align 8
-  %41 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 57, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %41, i32 noundef 57) #32
+  %41 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 57, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %41, i32 noundef 57) #33
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %43 = load i64, ptr %41, align 8
@@ -15751,15 +15751,15 @@ last_expr_once_body.exit.thread3:                 ; preds = %last_expr_once_body
   br label %157
 
 61:                                               ; preds = %last_expr_once_body.exit.thread3
-  %62 = tail call i64 @rb_node_regx_string_val(ptr noundef nonnull %.0.i536) #32
+  %62 = tail call i64 @rb_node_regx_string_val(ptr noundef nonnull %.0.i536) #33
   %63 = icmp eq i64 %62, 4
   br i1 %63, label %last_expr_once_body.exit.thread, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr i8, ptr %0, i64 312
   %.val.i.i54 = load ptr, ptr %65, align 8
-  %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i54, i32 noundef 57, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %66, i32 noundef 57) #32
+  %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i54, i32 noundef 57, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %66, i32 noundef 57) #33
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %68 = load i64, ptr %66, align 8
@@ -15783,7 +15783,7 @@ last_expr_once_body.exit.thread3:                 ; preds = %last_expr_once_body
   store ptr null, ptr %80, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  %81 = tail call ptr @rb_enc_get(i64 noundef %62) #32
+  %81 = tail call ptr @rb_enc_get(i64 noundef %62) #33
   %82 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %5, i64 16
@@ -15793,7 +15793,7 @@ last_expr_once_body.exit.thread3:                 ; preds = %last_expr_once_body
   %85 = inttoptr i64 %62 to ptr
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  %88 = call i32 @onig_foreach_name(ptr noundef %87, ptr noundef nonnull @reg_named_capture_assign_iter, ptr noundef nonnull %5) #32
+  %88 = call i32 @onig_foreach_name(ptr noundef %87, ptr noundef nonnull @reg_named_capture_assign_iter, ptr noundef nonnull %5) #33
   %89 = load ptr, ptr %83, align 8
   %.not.i55 = icmp eq ptr %89, null
   br i1 %.not.i55, label %reg_named_capture_assign.exit, label %90
@@ -15844,8 +15844,8 @@ last_expr_once_body.exit60.thread9:               ; preds = %last_expr_once_body
 105:                                              ; preds = %last_expr_once_body.exit60.thread9
   %106 = getelementptr i8, ptr %0, i64 312
   %.val.i.i61 = load ptr, ptr %106, align 8
-  %107 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i61, i32 noundef 58, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %107, i32 noundef 58) #32
+  %107 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i61, i32 noundef 58, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %107, i32 noundef 58) #33
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %109 = load i64, ptr %107, align 8
@@ -15871,8 +15871,8 @@ last_expr_once_body.exit60.thread:                ; preds = %last_expr_once_body
   %121 = getelementptr inbounds i8, ptr %2, i64 8
   %122 = getelementptr i8, ptr %0, i64 312
   %.val.i.i62 = load ptr, ptr %122, align 8
-  %123 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i62, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %123, i32 noundef 43) #32
+  %123 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i62, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %123, i32 noundef 43) #33
   %124 = getelementptr inbounds i8, ptr %123, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull readonly align 4 dereferenceable(16) %121, i64 16, i1 false)
   %125 = load i64, ptr %123, align 8
@@ -15895,8 +15895,8 @@ last_expr_once_body.exit60.thread:                ; preds = %last_expr_once_body
   %137 = getelementptr inbounds i8, ptr %123, i64 48
   store ptr null, ptr %137, align 8
   %.val.i.i63 = load ptr, ptr %122, align 8
-  %138 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i63, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %138, i32 noundef 36) #32
+  %138 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i63, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %138, i32 noundef 36) #33
   %139 = getelementptr inbounds i8, ptr %138, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %140 = load i64, ptr %138, align 8
@@ -15962,8 +15962,8 @@ define internal fastcc noundef ptr @new_defined(ptr nocapture noundef %0, ptr no
   %.0.lcssa = phi ptr [ null, %3 ], [ %.013, %.lr.ph ], [ %.013, %7 ], [ null, %11 ]
   %12 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %12, align 8
-  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 100, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %13, i32 noundef 100) #32
+  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 100, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %13, i32 noundef 100) #33
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %15 = load i64, ptr %13, align 8
@@ -15997,8 +15997,8 @@ define internal fastcc noundef ptr @arg_append(ptr nocapture noundef %0, ptr nou
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %7, align 8
-  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %8, i32 noundef 43) #32
+  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %8, i32 noundef 43) #33
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %6, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
@@ -16054,8 +16054,8 @@ list_append.exit:                                 ; preds = %28, %31
   %37 = getelementptr inbounds i8, ptr %2, i64 8
   %38 = getelementptr i8, ptr %0, i64 312
   %.val.i.i21.i = load ptr, ptr %38, align 8
-  %39 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %39, i32 noundef 43) #32
+  %39 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %39, i32 noundef 43) #33
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull readonly align 4 dereferenceable(16) %37, i64 16, i1 false)
   %41 = load i64, ptr %39, align 8
@@ -16109,8 +16109,8 @@ common.ret42:                                     ; preds = %102, %97, %67, %lis
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = getelementptr i8, ptr %0, i64 312
   %.val.i.i40 = load ptr, ptr %71, align 8
-  %72 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i40, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %72, i32 noundef 43) #32
+  %72 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i40, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %72, i32 noundef 43) #33
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull readonly align 4 dereferenceable(16) %70, i64 16, i1 false)
   %74 = load i64, ptr %72, align 8
@@ -16138,7 +16138,7 @@ common.ret42:                                     ; preds = %102, %97, %67, %lis
   %89 = getelementptr inbounds i8, ptr %87, i64 16
   %90 = load i64, ptr %89, align 8
   store i64 %90, ptr %88, align 8
-  %91 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 77) #32
+  %91 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 77) #33
   br label %common.ret42
 
 92:                                               ; preds = %23
@@ -16161,8 +16161,8 @@ common.ret42:                                     ; preds = %102, %97, %67, %lis
 102:                                              ; preds = %92, %23
   %103 = getelementptr i8, ptr %0, i64 312
   %.val.i.i41 = load ptr, ptr %103, align 8
-  %104 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i41, i32 noundef 78, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %104, i32 noundef 78) #32
+  %104 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i41, i32 noundef 78, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %104, i32 noundef 78) #33
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %106 = load i64, ptr %104, align 8
@@ -16193,8 +16193,8 @@ define internal fastcc noundef ptr @new_hash(ptr nocapture noundef %0, ptr nound
 .split:                                           ; preds = %3
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 45) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 45) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -16218,8 +16218,8 @@ define internal fastcc noundef ptr @new_hash(ptr nocapture noundef %0, ptr nound
   tail call void @rb_parser_warn_duplicate_keys(ptr noundef %0, ptr noundef nonnull %1)
   %18 = getelementptr i8, ptr %0, i64 312
   %.val.i.i8 = load ptr, ptr %18, align 8
-  %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i8, i32 noundef 45, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %19, i32 noundef 45) #32
+  %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i8, i32 noundef 45, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %19, i32 noundef 45) #33
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %21 = load i64, ptr %19, align 8
@@ -16333,7 +16333,7 @@ vtable_included.exit.thread.i.i:                  ; preds = %22, %.preheader.i.i
 local_id.exit:                                    ; preds = %.critedge.i.i
   %33 = getelementptr inbounds i8, ptr %0, i64 360
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @rb_local_defined(i64 noundef 129, ptr noundef %34) #32
+  %35 = tail call i32 @rb_local_defined(i64 noundef 129, ptr noundef %34) #33
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %local_id.exit.thread, label %local_id.exit.thread5
 
@@ -16350,8 +16350,8 @@ local_id.exit.thread5:                            ; preds = %18, %28, %local_id.
 define internal fastcc noundef ptr @new_args_forward_call(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 48, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 48) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 48, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 48) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -16370,8 +16370,8 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr nocapture noundef 
   %18 = getelementptr inbounds i8, ptr %6, i64 32
   store i64 42, ptr %18, align 8
   %.val.i.i27 = load ptr, ptr %5, align 8
-  %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i27, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %19, i32 noundef 43) #32
+  %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i27, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %19, i32 noundef 43) #33
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %21 = load i64, ptr %19, align 8
@@ -16393,8 +16393,8 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr nocapture noundef 
   %32 = getelementptr inbounds i8, ptr %19, i64 48
   store ptr null, ptr %32, align 8
   %.val.i.i28 = load ptr, ptr %5, align 8
-  %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i28, i32 noundef 48, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %33, i32 noundef 48) #32
+  %33 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i28, i32 noundef 48, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %33, i32 noundef 48) #33
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %35 = load i64, ptr %33, align 8
@@ -16413,8 +16413,8 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr nocapture noundef 
   store i64 134, ptr %44, align 8
   %45 = tail call fastcc ptr @list_append(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %33)
   %.val.i.i29 = load ptr, ptr %5, align 8
-  %46 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i29, i32 noundef 48, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %46, i32 noundef 48) #32
+  %46 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i29, i32 noundef 48, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %46, i32 noundef 48) #33
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %48 = load i64, ptr %46, align 8
@@ -16432,8 +16432,8 @@ define internal fastcc noundef ptr @new_args_forward_call(ptr nocapture noundef 
   %57 = getelementptr inbounds i8, ptr %46, i64 32
   store i64 38, ptr %57, align 8
   %.val.i.i30 = load ptr, ptr %5, align 8
-  %58 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i30, i32 noundef 80, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %58, i32 noundef 80) #32
+  %58 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i30, i32 noundef 80, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %58, i32 noundef 80) #33
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %60 = load i64, ptr %58, align 8
@@ -16528,8 +16528,8 @@ list_concat.exit.i:                               ; preds = %95, %86
 
 105:                                              ; preds = %4
   %.val.i.i32 = load ptr, ptr %5, align 8
-  %106 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i32, i32 noundef 79, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %106, i32 noundef 79) #32
+  %106 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i32, i32 noundef 79, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %106, i32 noundef 79) #33
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %108 = load i64, ptr %106, align 8
@@ -16574,8 +16574,8 @@ arg_blk_pass.exit:                                ; preds = %118, %122
 define internal fastcc noundef ptr @rb_node_block_pass_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 80, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 80) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 80, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 80) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -16718,7 +16718,7 @@ vtable_included.exit.thread:                      ; preds = %35, %.lr.ph.i52, %.
 42:                                               ; preds = %.critedge
   %43 = getelementptr inbounds i8, ptr %0, i64 360
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %44) #32
+  %45 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %44) #33
   %.not40 = icmp eq i32 %45, 0
   br i1 %.not40, label %.sink.split, label %46
 
@@ -16727,7 +16727,7 @@ vtable_included.exit.thread:                      ; preds = %35, %.lr.ph.i52, %.
 
 47:                                               ; preds = %46
   %48 = load ptr, ptr %43, align 8
-  %49 = tail call i32 @rb_local_defined(i64 noundef %2, ptr noundef %48) #32
+  %49 = tail call i32 @rb_local_defined(i64 noundef %2, ptr noundef %48) #33
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.critedge48, label %.sink.split
 
@@ -16793,8 +16793,8 @@ vtable_included.exit62:                           ; preds = %56
 define internal fastcc noundef ptr @rb_node_lvar_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 48, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 48) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 48, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 48) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -16819,8 +16819,8 @@ define internal fastcc noundef ptr @rb_node_lvar_new(ptr nocapture noundef %0, i
 define internal fastcc noundef ptr @rb_node_splat_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 79, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 79) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 79, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 79) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -16881,8 +16881,8 @@ list_append.exit:                                 ; preds = %10, %13
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = getelementptr i8, ptr %0, i64 312
   %.val.i.i21.i = load ptr, ptr %20, align 8
-  %21 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %21, i32 noundef 43) #32
+  %21 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %21, i32 noundef 43) #33
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull readonly align 4 dereferenceable(16) %19, i64 16, i1 false)
   %23 = load i64, ptr %21, align 8
@@ -17005,8 +17005,8 @@ list_concat.exit:                                 ; preds = %19, %28
 define internal fastcc noundef ptr @rb_node_block_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 1, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 1) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 1, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 1) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -17035,8 +17035,8 @@ define internal fastcc noundef ptr @rb_node_block_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_zlist_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 44, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 44) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 44, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 44) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -17059,8 +17059,8 @@ define internal fastcc noundef ptr @rb_node_zlist_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_yield_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 47, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 47) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 47, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 47) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -17085,8 +17085,8 @@ define internal fastcc noundef ptr @rb_node_yield_new(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_nil_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 96) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 96) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -17151,7 +17151,7 @@ define internal fastcc ptr @get_nd_args(ptr nocapture noundef %0, ptr nocapture 
   br label %parser_node_name.exit
 
 20:                                               ; preds = %2
-  %21 = tail call ptr @ruby_node_name(i32 noundef %6) #32
+  %21 = tail call ptr @ruby_node_name(i32 noundef %6) #33
   br label %parser_node_name.exit
 
 parser_node_name.exit:                            ; preds = %2, %19, %20
@@ -17170,8 +17170,8 @@ declare i64 @rb_hash_clear(i64 noundef) local_unnamed_addr #1
 define internal fastcc noundef ptr @rb_node_case_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 4, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 4) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 4, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 4) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -17198,8 +17198,8 @@ define internal fastcc noundef ptr @rb_node_case_new(ptr nocapture noundef %0, p
 define internal fastcc noundef ptr @rb_node_case2_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 5, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 5) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 5, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 5) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -17251,7 +17251,7 @@ vtable_size.exit4:                                ; preds = %vtable_size.exit, %
   %.0.i3 = phi i32 [ %12, %10 ], [ 0, %vtable_size.exit ]
   %13 = add i32 %.0.i3, %.0.i
   %14 = sext i32 %13 to i64
-  %15 = tail call i64 @rb_make_temporary_id(i64 noundef %14) #32
+  %15 = tail call i64 @rb_make_temporary_id(i64 noundef %14) #33
   ret i64 %15
 }
 
@@ -17259,8 +17259,8 @@ vtable_size.exit4:                                ; preds = %vtable_size.exit, %
 define internal fastcc noundef ptr @rb_node_args_aux_new(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 73, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 73) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 73, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 73) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -17285,8 +17285,8 @@ define internal fastcc noundef ptr @rb_node_args_aux_new(ptr nocapture noundef %
 define internal fastcc noundef ptr @rb_node_dvar_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 49, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 49) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 49, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 49) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -17366,7 +17366,7 @@ define internal fastcc void @set_nd_value(ptr nocapture noundef %0, ptr nocaptur
   br label %parser_node_name.exit
 
 23:                                               ; preds = %3
-  %24 = tail call ptr @ruby_node_name(i32 noundef %7) #32
+  %24 = tail call ptr @ruby_node_name(i32 noundef %7) #33
   br label %parser_node_name.exit
 
 parser_node_name.exit:                            ; preds = %3, %22, %23
@@ -17382,8 +17382,8 @@ parser_node_name.exit:                            ; preds = %3, %22, %23
 define internal fastcc noundef ptr @rb_node_for_masgn_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 13, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 13) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 13, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 13) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -17447,7 +17447,7 @@ define internal fastcc noundef ptr @new_args(ptr nocapture noundef %0, ptr nound
   br i1 %.not.i, label %rb_long2int_inline.exit, label %29
 
 29:                                               ; preds = %25
-  tail call void @rb_out_of_int(i64 noundef %27) #33
+  tail call void @rb_out_of_int(i64 noundef %27) #34
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %25
@@ -17477,7 +17477,7 @@ rb_long2int_inline.exit:                          ; preds = %25
   br i1 %.not.i39, label %44, label %41
 
 41:                                               ; preds = %37
-  tail call void @rb_out_of_int(i64 noundef %39) #33
+  tail call void @rb_out_of_int(i64 noundef %39) #34
   unreachable
 
 .thread:                                          ; preds = %35
@@ -17528,8 +17528,8 @@ parser_yyerror.exit:                              ; preds = %19, %13, %52
 define internal fastcc noundef ptr @new_args_tail(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 72, i64 noundef 112, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 72) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 72, i64 noundef 112, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 72) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -17585,7 +17585,7 @@ rb_parser_internal_id.exit:                       ; preds = %vtable_size.exit.i,
   %.0.i3.i = phi i32 [ %33, %31 ], [ 0, %vtable_size.exit.i ]
   %34 = add i32 %.0.i3.i, %.0.i.i
   %35 = sext i32 %34 to i64
-  %36 = tail call i64 @rb_make_temporary_id(i64 noundef %35) #32
+  %36 = tail call i64 @rb_make_temporary_id(i64 noundef %35) #33
   %37 = load ptr, ptr %23, align 8
   %38 = load ptr, ptr %37, align 8
   %.not70 = icmp eq i64 %3, 0
@@ -17701,7 +17701,7 @@ vtable_pop_gen.exit:                              ; preds = %60, %61
   br label %parser_node_name.exit.i
 
 96:                                               ; preds = %67
-  %97 = tail call ptr @ruby_node_name(i32 noundef %73) #32
+  %97 = tail call ptr @ruby_node_name(i32 noundef %73) #33
   br label %parser_node_name.exit.i
 
 parser_node_name.exit.i:                          ; preds = %96, %95, %67
@@ -17775,7 +17775,7 @@ get_nd_value.exit:                                ; preds = %74, %77, %80, %83, 
   br label %parser_node_name.exit.i74
 
 127:                                              ; preds = %.preheader
-  %128 = tail call ptr @ruby_node_name(i32 noundef %107) #32
+  %128 = tail call ptr @ruby_node_name(i32 noundef %107) #33
   br label %parser_node_name.exit.i74
 
 parser_node_name.exit.i74:                        ; preds = %127, %126, %.preheader
@@ -17808,7 +17808,7 @@ get_nd_vid.exit:                                  ; preds = %108, %111, %114, %1
   br label %get_nd_value.exit80.thread
 
 132:                                              ; preds = %get_nd_vid.exit
-  %133 = tail call ptr @ruby_node_name(i32 noundef %130) #32
+  %133 = tail call ptr @ruby_node_name(i32 noundef %130) #33
   br label %get_nd_value.exit80.thread
 
 get_nd_value.exit80.thread:                       ; preds = %get_nd_vid.exit, %131, %132
@@ -17857,8 +17857,8 @@ get_nd_value.exit80:                              ; preds = %get_nd_vid.exit, %g
 
 146:                                              ; preds = %145, %144
   %.val.i.i81 = load ptr, ptr %6, align 8
-  %147 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i81, i32 noundef 49, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %147, i32 noundef 49) #32
+  %147 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i81, i32 noundef 49, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %147, i32 noundef 49) #33
   %148 = getelementptr inbounds i8, ptr %147, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %149 = load i64, ptr %147, align 8
@@ -17892,8 +17892,8 @@ get_nd_value.exit80:                              ; preds = %get_nd_vid.exit, %g
 
 163:                                              ; preds = %160
   %.val.i.i82 = load ptr, ptr %6, align 8
-  %164 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i82, i32 noundef 49, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %164, i32 noundef 49) #32
+  %164 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i82, i32 noundef 49, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %164, i32 noundef 49) #33
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %166 = load i64, ptr %164, align 8
@@ -17922,8 +17922,8 @@ get_nd_value.exit80:                              ; preds = %get_nd_vid.exit, %g
 define internal fastcc noundef ptr @rb_node_for_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 12, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 12) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 12, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 12) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -17951,8 +17951,8 @@ define internal fastcc noundef ptr @rb_node_class_new(ptr nocapture noundef %0, 
   %6 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %4)
   %7 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %7, align 8
-  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 86, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %8, i32 noundef 86) #32
+  %8 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 86, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %8, i32 noundef 86) #33
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %10 = load i64, ptr %8, align 8
@@ -17982,8 +17982,8 @@ define internal fastcc noundef ptr @rb_node_sclass_new(ptr nocapture noundef %0,
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 88, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 88) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 88, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 88) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -18011,8 +18011,8 @@ define internal fastcc noundef ptr @rb_node_module_new(ptr nocapture noundef %0,
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 87, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 87) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 87, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 87) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -18044,7 +18044,7 @@ define internal fastcc void @push_end_expect_token_locations(ptr nocapture nound
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #35
+  %7 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #36
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 392
   %9 = load ptr, ptr %8, align 8
@@ -18062,8 +18062,8 @@ define internal fastcc void @push_end_expect_token_locations(ptr nocapture nound
 define internal fastcc noundef ptr @rb_node_redo_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 16, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 16) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 16, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 16) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -18088,8 +18088,8 @@ define internal fastcc noundef ptr @rb_node_redo_new(ptr nocapture noundef %0, p
 define internal fastcc noundef ptr @rb_node_retry_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 17, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 17) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 17, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 17) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -18117,7 +18117,7 @@ define internal fastcc void @token_info_push(ptr nocapture noundef %0, ptr nound
   br i1 %.not, label %33, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #35
+  %8 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xmalloc(i64 noundef 32) #36
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8
@@ -18232,8 +18232,8 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal fastcc noundef ptr @rb_node_def_temp_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 114, i64 noundef 80, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 114) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 114, i64 noundef 80, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 114) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -18354,7 +18354,7 @@ token_info_setup.exit:                            ; preds = %token_info_setup.ex
   %44 = getelementptr inbounds i8, ptr %0, i64 216
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %2, align 8
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %45, i32 noundef %.sroa.0.8.extract.trunc, ptr noundef nonnull @.str.560, ptr noundef %1, ptr noundef %46, i32 noundef %32) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %45, i32 noundef %.sroa.0.8.extract.trunc, ptr noundef nonnull @.str.560, ptr noundef %1, ptr noundef %46, i32 noundef %32) #33
   br label %47
 
 47:                                               ; preds = %41, %37, %34, %token_info_setup.exit, %5, %43
@@ -18450,11 +18450,11 @@ token_info_setup.exit.i:                          ; preds = %token_info_setup.ex
   %43 = getelementptr inbounds i8, ptr %0, i64 216
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %44, i32 noundef %.sroa.0.8.extract.trunc.i, ptr noundef nonnull @.str.560, ptr noundef %1, ptr noundef %45, i32 noundef %33) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %44, i32 noundef %.sroa.0.8.extract.trunc.i, ptr noundef nonnull @.str.560, ptr noundef %1, ptr noundef %45, i32 noundef %33) #33
   br label %token_info_warn.exit
 
 token_info_warn.exit:                             ; preds = %6, %token_info_setup.exit.i, %35, %38, %42
-  tail call void @ruby_xfree(ptr noundef nonnull %5) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %5) #33
   br label %46
 
 46:                                               ; preds = %3, %token_info_warn.exit
@@ -18471,7 +18471,7 @@ define internal fastcc void @pop_end_expect_token_locations(ptr nocapture nounde
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @ruby_xfree(ptr noundef nonnull %3) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %3) #33
   store ptr %6, ptr %2, align 8
   tail call fastcc void @debug_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull @.str.553)
   br label %7
@@ -18505,7 +18505,7 @@ define internal void @parser_compile_error(ptr nocapture noundef %0, ptr noundef
   br i1 %.not.i, label %rb_long2int_inline.exit, label %18
 
 18:                                               ; preds = %9
-  tail call void @rb_out_of_int(i64 noundef %16) #33
+  tail call void @rb_out_of_int(i64 noundef %16) #34
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %9
@@ -18519,7 +18519,7 @@ rb_long2int_inline.exit:                          ; preds = %9
   %.014 = load i32, ptr %.014.in, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 272
   %23 = load i64, ptr %22, align 8
-  %24 = tail call i64 @rb_io_flush(i64 noundef %23) #32
+  %24 = tail call i64 @rb_io_flush(i64 noundef %23) #33
   %25 = getelementptr inbounds i8, ptr %0, i64 368
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, 512
@@ -18531,7 +18531,7 @@ rb_long2int_inline.exit:                          ; preds = %9
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 232
   %33 = load ptr, ptr %32, align 8
-  %34 = call i64 @rb_syntax_error_append(i64 noundef %29, i64 noundef %31, i32 noundef %.014, i32 noundef %.0, ptr noundef %33, ptr noundef %2, ptr noundef nonnull %4) #32
+  %34 = call i64 @rb_syntax_error_append(i64 noundef %29, i64 noundef %31, i32 noundef %.014, i32 noundef %.0, ptr noundef %33, ptr noundef %2, ptr noundef nonnull %4) #33
   store i64 %34, ptr %28, align 8
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
@@ -18599,7 +18599,7 @@ define internal fastcc void @mark_lvar_used(ptr nocapture noundef readonly %0, p
 29:                                               ; preds = %.critedge.i
   %30 = getelementptr inbounds i8, ptr %0, i64 360
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @rb_local_defined(i64 noundef %11, ptr noundef %31) #32
+  %32 = tail call i32 @rb_local_defined(i64 noundef %11, ptr noundef %31) #33
   br label %local_id_ref.exit.thread
 
 .critedge37.i:                                    ; preds = %27, %.critedge.i, %9
@@ -18709,7 +18709,7 @@ define internal fastcc void @new_bv(ptr nocapture noundef %0, i64 noundef %1) un
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @rb_id2str(i64 noundef %1) #32
+  %9 = tail call i64 @rb_id2str(i64 noundef %1) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.1010, i64 noundef %9)
   br label %13
 
@@ -18731,12 +18731,12 @@ define internal fastcc ptr @dyna_push(ptr nocapture noundef %0) unnamed_addr #0 
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #35
+  %5 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #36
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 8, ptr %7, align 4
-  %8 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #34
+  %8 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #35
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %4, ptr %9, align 8
@@ -18756,12 +18756,12 @@ vtable_alloc_gen.exit:                            ; preds = %1, %13
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #35
+  %18 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #36
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %18, i64 12
   store i32 8, ptr %20, align 4
-  %21 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #34
+  %21 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #35
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %17, ptr %22, align 8
@@ -18785,12 +18785,12 @@ vtable_alloc_gen.exit12:                          ; preds = %vtable_alloc_gen.ex
   br i1 %.not, label %42, label %31
 
 31:                                               ; preds = %vtable_alloc_gen.exit12
-  %32 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #35
+  %32 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #36
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 12
   store i32 8, ptr %34, align 4
-  %35 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #34
+  %35 = tail call noalias nonnull dereferenceable(64) ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef 8) #35
   store ptr %35, ptr %32, align 8
   %36 = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %30, ptr %36, align 8
@@ -18845,8 +18845,8 @@ define internal fastcc noundef ptr @args_with_numbered(ptr nocapture noundef %0,
   %23 = trunc i64 %22 to i32
   %24 = getelementptr i8, ptr %0, i64 312
   %.val.i.i.i = load ptr, ptr %24, align 8
-  %25 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 72, i64 noundef 112, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %25, i32 noundef 72) #32
+  %25 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 72, i64 noundef 112, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %25, i32 noundef 72) #33
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %27 = load i64, ptr %25, align 8
@@ -18904,8 +18904,8 @@ define internal fastcc noundef ptr @rb_node_lambda_new(ptr nocapture noundef %0,
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 105, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 105) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 105, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 105) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -18944,7 +18944,7 @@ define internal fastcc void @dyna_pop(ptr nocapture noundef %0, ptr noundef read
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  tail call void @ruby_xfree(ptr noundef nonnull %6) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %6) #33
   store ptr %10, ptr %3, align 8
   %.pre = load ptr, ptr %10, align 8
   br label %11
@@ -19011,8 +19011,8 @@ define internal fastcc zeroext i1 @args_info_empty_p(ptr nocapture noundef reado
 define internal fastcc noundef ptr @rb_node_zsuper_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 42, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 42) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 42, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 42) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -19035,8 +19035,8 @@ define internal fastcc noundef ptr @rb_node_zsuper_new(ptr nocapture noundef %0,
 define internal fastcc noundef ptr @rb_node_call_new(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 36) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 36) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -19066,8 +19066,8 @@ define internal fastcc noundef ptr @rb_node_iter_new(ptr nocapture noundef %0, p
   %5 = tail call fastcc ptr @rb_node_scope_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 11, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 11) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 11, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 11) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -19102,7 +19102,7 @@ define internal fastcc void @check_literal_when(ptr nocapture noundef %0, ptr no
   br i1 %.not15, label %37, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @rb_node_case_when_optimizable_literal(ptr noundef nonnull %1) #32
+  %7 = tail call i64 @rb_node_case_when_optimizable_literal(ptr noundef nonnull %1) #33
   %8 = icmp eq i64 %7, 36
   br i1 %8, label %37, label %9
 
@@ -19112,13 +19112,13 @@ define internal fastcc void @check_literal_when(ptr nocapture noundef %0, ptr no
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = tail call i64 @rb_hash_new() #32
-  %14 = tail call i64 @rb_obj_hide(i64 noundef %13) #32
+  %13 = tail call i64 @rb_hash_new() #33
+  %14 = tail call i64 @rb_obj_hide(i64 noundef %13) #33
   store i64 %14, ptr %4, align 8
   br label %29
 
 15:                                               ; preds = %9
-  %16 = tail call i64 @rb_hash_lookup(i64 noundef %10, i64 noundef %7) #32
+  %16 = tail call i64 @rb_hash_lookup(i64 noundef %10, i64 noundef %7) #33
   %17 = icmp eq i64 %16, 4
   br i1 %17, label %._crit_edge, label %18
 
@@ -19136,17 +19136,17 @@ define internal fastcc void @check_literal_when(ptr nocapture noundef %0, ptr no
   br i1 %.not.i, label %26, label %24
 
 24:                                               ; preds = %18
-  %25 = tail call i64 @rb_fix2int(i64 noundef %16) #32
+  %25 = tail call i64 @rb_fix2int(i64 noundef %16) #33
   br label %rb_num2int_inline.exit
 
 26:                                               ; preds = %18
-  %27 = tail call i64 @rb_num2int(i64 noundef %16) #32
+  %27 = tail call i64 @rb_num2int(i64 noundef %16) #33
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %24, %26
   %.0.i = phi i64 [ %25, %24 ], [ %27, %26 ]
   %28 = trunc i64 %.0.i to i32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %20, i32 noundef %22, ptr noundef nonnull @.str.994, i32 noundef %28) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %20, i32 noundef %22, ptr noundef nonnull @.str.994, i32 noundef %28) #33
   br label %37
 
 29:                                               ; preds = %._crit_edge, %12
@@ -19156,7 +19156,7 @@ rb_num2int_inline.exit:                           ; preds = %24, %26
   %33 = sext i32 %32 to i64
   %34 = shl nsw i64 %33, 1
   %35 = or disjoint i64 %34, 1
-  %36 = tail call i64 @rb_hash_aset(i64 noundef %30, i64 noundef %7, i64 noundef %35) #32
+  %36 = tail call i64 @rb_hash_aset(i64 noundef %30, i64 noundef %7, i64 noundef %35) #33
   br label %37
 
 37:                                               ; preds = %6, %2, %3, %29, %rb_num2int_inline.exit
@@ -19167,8 +19167,8 @@ rb_num2int_inline.exit:                           ; preds = %24, %26
 define internal fastcc noundef ptr @rb_node_when_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 7, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 7) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 7, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 7) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -19203,8 +19203,8 @@ define internal fastcc noundef ptr @new_array_pattern_tail(ptr nocapture noundef
   %.0 = select i1 %.not, ptr null, ptr %7
   %8 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %8, align 8
-  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 106, i64 noundef 64, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %9, i32 noundef 106) #32
+  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 106, i64 noundef 64, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %9, i32 noundef 106) #33
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
@@ -19241,8 +19241,8 @@ define internal fastcc noundef ptr @new_array_pattern(ptr nocapture noundef %0, 
 7:                                                ; preds = %5
   %8 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %8, align 8
-  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %9, i32 noundef 43) #32
+  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %9, i32 noundef 43) #33
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
@@ -19306,8 +19306,8 @@ list_concat.exit:                                 ; preds = %26, %32
 define internal fastcc noundef ptr @rb_node_or_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 23, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 23) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 23, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 23) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -19348,8 +19348,8 @@ define internal fastcc noundef ptr @new_hash_pattern_tail(ptr nocapture noundef 
   %.0 = phi ptr [ %6, %5 ], [ null, %7 ], [ inttoptr (i64 -1 to ptr), %4 ]
   %9 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %9, align 8
-  %10 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 107, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %10, i32 noundef 107) #32
+  %10 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 107, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %10, i32 noundef 107) #33
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %12 = load i64, ptr %10, align 8
@@ -19426,8 +19426,8 @@ define internal fastcc noundef ptr @new_find_pattern_tail(ptr nocapture noundef 
   %7 = select i1 %.not10, ptr inttoptr (i64 -1 to ptr), ptr %3
   %8 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %8, align 8
-  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 108, i64 noundef 64, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %9, i32 noundef 108) #32
+  %9 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 108, i64 noundef 64, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %9, i32 noundef 108) #33
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i64, ptr %9, align 8
@@ -19467,7 +19467,7 @@ define internal fastcc void @error_duplicate_pattern_variable(ptr nocapture noun
   br i1 %9, label %10, label %is_private_local_id.exit.thread
 
 10:                                               ; preds = %5
-  %11 = tail call i64 @rb_id2str(i64 noundef %1) #32
+  %11 = tail call i64 @rb_id2str(i64 noundef %1) #33
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %is_private_local_id.exit.thread, label %12
 
@@ -19492,7 +19492,7 @@ is_private_local_id.exit:                         ; preds = %12, %17
 is_private_local_id.exit.thread:                  ; preds = %10, %5, %is_private_local_id.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 192
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @rb_st_lookup(ptr noundef %20, i64 noundef %1, ptr noundef null) #32
+  %21 = tail call i32 @rb_st_lookup(ptr noundef %20, i64 noundef %1, ptr noundef null) #33
   %.not7 = icmp eq i32 %21, 0
   br i1 %.not7, label %32, label %22
 
@@ -19514,7 +19514,7 @@ is_private_local_id.exit.thread:                  ; preds = %10, %5, %is_private
 
 32:                                               ; preds = %is_private_local_id.exit.thread
   %33 = load ptr, ptr %19, align 8
-  %34 = tail call i32 @rb_st_insert(ptr noundef %33, i64 noundef %1, i64 noundef 0) #32
+  %34 = tail call i32 @rb_st_insert(ptr noundef %33, i64 noundef %1, i64 noundef 0) #33
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %3, %27, %22, %is_private_local_id.exit, %32
@@ -19525,8 +19525,8 @@ parser_yyerror.exit:                              ; preds = %3, %27, %22, %is_pr
 define internal fastcc noundef ptr @new_unique_key_hash(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 45) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 45) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -19557,12 +19557,12 @@ define internal fastcc void @error_duplicate_pattern_key(ptr nocapture noundef %
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @rb_st_init_numtable() #32
+  %7 = tail call ptr @rb_st_init_numtable() #33
   store ptr %7, ptr %4, align 8
   br label %20
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @rb_st_lookup(ptr noundef nonnull %5, i64 noundef %1, ptr noundef null) #32
+  %9 = tail call i32 @rb_st_lookup(ptr noundef nonnull %5, i64 noundef %1, ptr noundef null) #33
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %._crit_edge, label %10
 
@@ -19588,7 +19588,7 @@ define internal fastcc void @error_duplicate_pattern_key(ptr nocapture noundef %
 
 20:                                               ; preds = %._crit_edge, %6
   %21 = phi ptr [ %.pre, %._crit_edge ], [ %7, %6 ]
-  %22 = tail call i32 @rb_st_insert(ptr noundef %21, i64 noundef %1, i64 noundef 0) #32
+  %22 = tail call i32 @rb_st_insert(ptr noundef %21, i64 noundef %1, i64 noundef 0) #33
   br label %parser_yyerror.exit
 
 parser_yyerror.exit:                              ; preds = %15, %10, %20
@@ -19603,7 +19603,7 @@ define internal fastcc noundef ptr @dsym_node(ptr nocapture noundef %0, ptr noun
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %6) #32
+  %7 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %6) #33
   %8 = tail call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %7, ptr noundef %2)
   br label %57
 
@@ -19618,7 +19618,7 @@ define internal fastcc noundef ptr @dsym_node(ptr nocapture noundef %0, ptr noun
   ]
 
 14:                                               ; preds = %9
-  %15 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 103) #32
+  %15 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 103) #33
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %17 = load i64, ptr %1, align 8
@@ -19639,8 +19639,8 @@ define internal fastcc noundef ptr @dsym_node(ptr nocapture noundef %0, ptr noun
 26:                                               ; preds = %9
   %27 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %27, align 8
-  %28 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %28, i32 noundef 43) #32
+  %28 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %28, i32 noundef 43) #33
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %30 = load i64, ptr %28, align 8
@@ -19663,8 +19663,8 @@ define internal fastcc noundef ptr @dsym_node(ptr nocapture noundef %0, ptr noun
   %42 = getelementptr inbounds i8, ptr %28, i64 48
   store ptr null, ptr %42, align 8
   %.val.i.i20 = load ptr, ptr %27, align 8
-  %43 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i20, i32 noundef 103, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %43, i32 noundef 103) #32
+  %43 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i20, i32 noundef 103, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %43, i32 noundef 103) #33
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %45 = load i64, ptr %43, align 8
@@ -19717,8 +19717,8 @@ define internal fastcc noundef ptr @gettable(ptr nocapture noundef %0, i64 nound
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 95, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 95) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 95, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 95) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -19741,8 +19741,8 @@ define internal fastcc noundef ptr @gettable(ptr nocapture noundef %0, i64 nound
 20:                                               ; preds = %3
   %21 = getelementptr i8, ptr %0, i64 312
   %.val.i.i126 = load ptr, ptr %21, align 8
-  %22 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i126, i32 noundef 96, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %22, i32 noundef 96) #32
+  %22 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i126, i32 noundef 96, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %22, i32 noundef 96) #33
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %24 = load i64, ptr %22, align 8
@@ -19763,8 +19763,8 @@ define internal fastcc noundef ptr @gettable(ptr nocapture noundef %0, i64 nound
 34:                                               ; preds = %3
   %35 = getelementptr i8, ptr %0, i64 312
   %.val.i.i127 = load ptr, ptr %35, align 8
-  %36 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i127, i32 noundef 97, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %36, i32 noundef 97) #32
+  %36 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i127, i32 noundef 97, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %36, i32 noundef 97) #33
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %38 = load i64, ptr %36, align 8
@@ -19785,8 +19785,8 @@ define internal fastcc noundef ptr @gettable(ptr nocapture noundef %0, i64 nound
 48:                                               ; preds = %3
   %49 = getelementptr i8, ptr %0, i64 312
   %.val.i.i128 = load ptr, ptr %49, align 8
-  %50 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i128, i32 noundef 98, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %50, i32 noundef 98) #32
+  %50 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i128, i32 noundef 98, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %50, i32 noundef 98) #33
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %52 = load i64, ptr %50, align 8
@@ -19811,15 +19811,15 @@ define internal fastcc noundef ptr @gettable(ptr nocapture noundef %0, i64 nound
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %62
-  %67 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #32
+  %67 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #33
   br label %68
 
 68:                                               ; preds = %66, %62
   %.0100 = phi i64 [ %67, %66 ], [ %64, %62 ]
   %69 = getelementptr i8, ptr %0, i64 312
   %.val.i.i129 = load ptr, ptr %69, align 8
-  %70 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i129, i32 noundef 111, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %70, i32 noundef 111) #32
+  %70 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i129, i32 noundef 111, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %70, i32 noundef 111) #33
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %72 = load i64, ptr %70, align 8
@@ -19850,18 +19850,18 @@ RSTRING_PTR.exit.i.i:                             ; preds = %86, %68
   %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i, %86 ], [ %85, %68 ]
   %87 = getelementptr inbounds i8, ptr %82, i64 16
   %88 = load i64, ptr %87, align 8
-  %89 = tail call ptr @rb_enc_get(i64 noundef %.0100) #32
+  %89 = tail call ptr @rb_enc_get(i64 noundef %.0100) #33
   %90 = icmp slt i64 %88, 0
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %RSTRING_PTR.exit.i.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %88) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %88) #34
   unreachable
 
 92:                                               ; preds = %RSTRING_PTR.exit.i.i
-  %93 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %93 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %94 = add nuw i64 %88, 1
-  %95 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %94, i64 noundef 1) #34
+  %95 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %94, i64 noundef 1) #35
   %96 = getelementptr inbounds i8, ptr %93, i64 24
   store ptr %95, ptr %96, align 8
   %.not.i.i3.i.i = icmp eq ptr %.sroa.2.0.i.i.i, null
@@ -19888,8 +19888,8 @@ rb_node_file_new.exit:                            ; preds = %92, %97
 102:                                              ; preds = %3
   %103 = getelementptr i8, ptr %0, i64 312
   %.val.i.i130 = load ptr, ptr %103, align 8
-  %104 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i130, i32 noundef 110, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %104, i32 noundef 110) #32
+  %104 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i130, i32 noundef 110, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %104, i32 noundef 110) #33
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %106 = load i64, ptr %104, align 8
@@ -19910,8 +19910,8 @@ rb_node_file_new.exit:                            ; preds = %92, %97
 116:                                              ; preds = %3
   %117 = getelementptr i8, ptr %0, i64 312
   %.val.i.i131 = load ptr, ptr %117, align 8
-  %118 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i131, i32 noundef 112, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %118, i32 noundef 112) #32
+  %118 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i131, i32 noundef 112, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %118, i32 noundef 112) #33
   %119 = getelementptr inbounds i8, ptr %118, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %120 = load i64, ptr %118, align 8
@@ -19995,7 +19995,7 @@ dyna_in_block.exit:                               ; preds = %138
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %157
-  %162 = call i64 @rb_id2str(i64 noundef %1) #32
+  %162 = call i64 @rb_id2str(i64 noundef %1) #33
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.980, i64 noundef %162)
   br label %304
 
@@ -20026,7 +20026,7 @@ dyna_in_block.exit.thread:                        ; preds = %138, %143, %dyna_in
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %171
-  %176 = call i64 @rb_id2str(i64 noundef %1) #32
+  %176 = call i64 @rb_id2str(i64 noundef %1) #33
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.980, i64 noundef %176)
   br label %304
 
@@ -20115,7 +20115,7 @@ dyna_in_block.exit138:                            ; preds = %dyna_in_block.exit1
   br i1 %.not155, label %dyna_in_block.exit138.thread, label %211
 
 211:                                              ; preds = %dyna_in_block.exit138
-  %212 = call fastcc i64 @rbimpl_intern_const(ptr noundef @gettable.rbimpl_id, ptr noundef @.str.981) #38
+  %212 = call fastcc i64 @rbimpl_intern_const(ptr noundef @gettable.rbimpl_id, ptr noundef @.str.981) #39
   %213 = icmp eq i64 %212, %1
   br i1 %213, label %214, label %dyna_in_block.exit138.thread
 
@@ -20181,8 +20181,8 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
 242:                                              ; preds = %133
   %243 = getelementptr i8, ptr %0, i64 312
   %.val.i.i139 = load ptr, ptr %243, align 8
-  %244 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i139, i32 noundef 50, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %244, i32 noundef 50) #32
+  %244 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i139, i32 noundef 50, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %244, i32 noundef 50) #33
   %245 = getelementptr inbounds i8, ptr %244, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %246 = load i64, ptr %244, align 8
@@ -20205,8 +20205,8 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
 257:                                              ; preds = %133
   %258 = getelementptr i8, ptr %0, i64 312
   %.val.i.i140 = load ptr, ptr %258, align 8
-  %259 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i140, i32 noundef 51, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %259, i32 noundef 51) #32
+  %259 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i140, i32 noundef 51, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %259, i32 noundef 51) #33
   %260 = getelementptr inbounds i8, ptr %259, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %261 = load i64, ptr %259, align 8
@@ -20229,8 +20229,8 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
 272:                                              ; preds = %133
   %273 = getelementptr i8, ptr %0, i64 312
   %.val.i.i141 = load ptr, ptr %273, align 8
-  %274 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i141, i32 noundef 52, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %274, i32 noundef 52) #32
+  %274 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i141, i32 noundef 52, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %274, i32 noundef 52) #33
   %275 = getelementptr inbounds i8, ptr %274, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %275, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %276 = load i64, ptr %274, align 8
@@ -20253,8 +20253,8 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
 287:                                              ; preds = %133
   %288 = getelementptr i8, ptr %0, i64 312
   %.val.i.i142 = load ptr, ptr %288, align 8
-  %289 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i142, i32 noundef 53, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %289, i32 noundef 53) #32
+  %289 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i142, i32 noundef 53, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %289, i32 noundef 53) #33
   %290 = getelementptr inbounds i8, ptr %289, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %291 = load i64, ptr %289, align 8
@@ -20275,7 +20275,7 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
   br label %304
 
 302:                                              ; preds = %133
-  %303 = tail call i64 @rb_id2str(i64 noundef %1) #32
+  %303 = tail call i64 @rb_id2str(i64 noundef %1) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.984, i64 noundef %303)
   br label %304
 
@@ -20288,8 +20288,8 @@ dyna_in_block.exit138.thread:                     ; preds = %dyna_in_block.exit1
 define internal fastcc noundef ptr @rb_node_errinfo_new(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %3, align 8
-  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 99, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %4, i32 noundef 99) #32
+  %4 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 99, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %4, i32 noundef 99) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %1, i64 16, i1 false)
   %6 = load i64, ptr %4, align 8
@@ -20312,8 +20312,8 @@ define internal fastcc noundef ptr @rb_node_errinfo_new(ptr nocapture noundef %0
 define internal fastcc noundef ptr @rb_node_str_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 64) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 64) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -20345,8 +20345,8 @@ list_append.exit:                                 ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
-  %9 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #34
+  %8 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
+  %9 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #35
   %10 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 16
@@ -20357,8 +20357,8 @@ list_append.exit:                                 ; preds = %2
   store ptr %7, ptr %12, align 8
   %13 = getelementptr i8, ptr %0, i64 312
   %.val.i.i.i.i = load ptr, ptr %13, align 8
-  %14 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %14, i32 noundef 65) #32
+  %14 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %14, i32 noundef 65) #33
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %16 = load i64, ptr %14, align 8
@@ -20381,8 +20381,8 @@ list_append.exit:                                 ; preds = %2
   store ptr null, ptr %28, align 8
   store i64 2, ptr %27, align 8
   %.val.i.i21.i = load ptr, ptr %13, align 8
-  %29 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %29, i32 noundef 43) #32
+  %29 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %29, i32 noundef 43) #33
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %31 = load i64, ptr %29, align 8
@@ -20435,8 +20435,8 @@ define internal fastcc noundef ptr @literal_concat(ptr nocapture noundef %0, ptr
 list_append.exit:                                 ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 232
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
-  %15 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #34
+  %14 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
+  %15 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #35
   %16 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 16
@@ -20447,8 +20447,8 @@ list_append.exit:                                 ; preds = %6
   store ptr %13, ptr %18, align 8
   %19 = getelementptr i8, ptr %0, i64 312
   %.val.i.i.i.i = load ptr, ptr %19, align 8
-  %20 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %20, i32 noundef 65) #32
+  %20 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %20, i32 noundef 65) #33
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %22 = load i64, ptr %20, align 8
@@ -20472,8 +20472,8 @@ list_append.exit:                                 ; preds = %6
   store i64 2, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i.i21.i = load ptr, ptr %19, align 8
-  %36 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %36, i32 noundef 43) #32
+  %36 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %36, i32 noundef 43) #33
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 4 dereferenceable(16) %35, i64 16, i1 false)
   %38 = load i64, ptr %36, align 8
@@ -20518,8 +20518,8 @@ list_append.exit:                                 ; preds = %6
 58:                                               ; preds = %57
   %59 = getelementptr i8, ptr %0, i64 312
   %.val = load ptr, ptr %59, align 8
-  %60 = tail call ptr @rb_ast_newnode(ptr noundef %.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %60, i32 noundef 65) #32
+  %60 = tail call ptr @rb_ast_newnode(ptr noundef %.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %60, i32 noundef 65) #33
   %61 = load i64, ptr %.087, align 8
   %62 = and i64 %61, 128
   %.not.i.i = icmp eq i64 %62, 0
@@ -20612,15 +20612,15 @@ str2dstr.exit:                                    ; preds = %58, %63
 103:                                              ; preds = %159, %110, %.thread
   %104 = getelementptr i8, ptr %0, i64 312
   %.val106 = load ptr, ptr %104, align 8
-  tail call void @rb_ast_delete_node(ptr noundef %.val106, ptr noundef nonnull %.087) #32
+  tail call void @rb_ast_delete_node(ptr noundef %.val106, ptr noundef nonnull %.087) #33
   %.val107 = load ptr, ptr %104, align 8
-  tail call void @rb_ast_delete_node(ptr noundef %.val107, ptr noundef nonnull %2) #32
+  tail call void @rb_ast_delete_node(ptr noundef %.val107, ptr noundef nonnull %2) #33
   br label %201
 
 105:                                              ; preds = %.thread
   %106 = getelementptr i8, ptr %0, i64 312
   %.val108 = load ptr, ptr %106, align 8
-  tail call void @rb_ast_delete_node(ptr noundef %.val108, ptr noundef nonnull %2) #32
+  tail call void @rb_ast_delete_node(ptr noundef %.val108, ptr noundef nonnull %2) #33
   br label %201
 
 .thread129:                                       ; preds = %88, %97, %92
@@ -20648,7 +20648,7 @@ str2dstr.exit:                                    ; preds = %58, %63
   store ptr null, ptr %111, align 8
   %119 = getelementptr i8, ptr %0, i64 312
   %.val109 = load ptr, ptr %119, align 8
-  tail call void @rb_ast_delete_node(ptr noundef %.val109, ptr noundef nonnull %.087) #32
+  tail call void @rb_ast_delete_node(ptr noundef %.val109, ptr noundef nonnull %.087) #33
   br label %201
 
 120:                                              ; preds = %108
@@ -20696,7 +20696,7 @@ str2dstr.exit:                                    ; preds = %58, %63
 145:                                              ; preds = %135, %136, %134
   %146 = getelementptr i8, ptr %0, i64 312
   %.val110 = load ptr, ptr %146, align 8
-  tail call void @rb_ast_delete_node(ptr noundef %.val110, ptr noundef nonnull %2) #32
+  tail call void @rb_ast_delete_node(ptr noundef %.val110, ptr noundef nonnull %2) #33
   br label %201
 
 147:                                              ; preds = %120
@@ -20755,8 +20755,8 @@ str2dstr.exit:                                    ; preds = %58, %63
 175:                                              ; preds = %173
   %176 = getelementptr i8, ptr %0, i64 312
   %.val105 = load ptr, ptr %176, align 8
-  %177 = tail call ptr @rb_ast_newnode(ptr noundef %.val105, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %177, i32 noundef 65) #32
+  %177 = tail call ptr @rb_ast_newnode(ptr noundef %.val105, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %177, i32 noundef 65) #33
   %178 = load i64, ptr %.087, align 8
   %179 = and i64 %178, 128
   %.not.i.i118 = icmp eq i64 %179, 0
@@ -20903,7 +20903,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %dedent_string_colum
   br i1 %or.cond.i.i, label %44, label %45
 
 44:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.872, i64 noundef %40, i64 noundef %.val22.i.i) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.872, i64 noundef %40, i64 noundef %.val22.i.i) #34
   unreachable
 
 45:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i
@@ -20958,7 +20958,7 @@ dedent_string.exit._crit_edge:                    ; preds = %dedent_string.exit
   br i1 %63, label %64, label %.loopexit
 
 64:                                               ; preds = %61
-  %65 = tail call i64 @rb_node_set_type(ptr noundef nonnull %.04770, i32 noundef 64) #32
+  %65 = tail call i64 @rb_node_set_type(ptr noundef nonnull %.04770, i32 noundef 64) #33
   br label %.loopexit
 
 66:                                               ; preds = %55
@@ -21024,8 +21024,8 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
-  %8 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #34
+  %7 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
+  %8 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #35
   %9 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -21036,8 +21036,8 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
   store ptr %6, ptr %11, align 8
   %12 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %12, align 8
-  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 66, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %13, i32 noundef 66) #32
+  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 66, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %13, i32 noundef 66) #33
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %15 = load i64, ptr %13, align 8
@@ -21068,7 +21068,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
   ]
 
 31:                                               ; preds = %26
-  %32 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 66) #32
+  %32 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 66) #33
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %34 = load i64, ptr %1, align 8
@@ -21081,7 +21081,7 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
   br label %80
 
 40:                                               ; preds = %26
-  %41 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 67) #32
+  %41 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 67) #33
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %43 = load i64, ptr %1, align 8
@@ -21096,8 +21096,8 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
 49:                                               ; preds = %26
   %50 = getelementptr i8, ptr %0, i64 312
   %.val.i.i22 = load ptr, ptr %50, align 8
-  %51 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i22, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %51, i32 noundef 43) #32
+  %51 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i22, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %51, i32 noundef 43) #33
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %53 = load i64, ptr %51, align 8
@@ -21120,8 +21120,8 @@ define internal fastcc noundef ptr @new_xstring(ptr nocapture noundef %0, ptr no
   %65 = getelementptr inbounds i8, ptr %51, i64 48
   store ptr null, ptr %65, align 8
   %.val.i.i23 = load ptr, ptr %50, align 8
-  %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i23, i32 noundef 67, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %66, i32 noundef 67) #32
+  %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i23, i32 noundef 67, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %66, i32 noundef 67) #33
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %68 = load i64, ptr %66, align 8
@@ -21157,8 +21157,8 @@ define internal fastcc noundef ptr @new_regexp(ptr nocapture noundef %0, ptr nou
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
-  %9 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #34
+  %8 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
+  %9 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #35
   %10 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 16
@@ -21170,8 +21170,8 @@ define internal fastcc noundef ptr @new_regexp(ptr nocapture noundef %0, ptr nou
   tail call fastcc void @reg_compile(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %2)
   %13 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %13, align 8
-  %14 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 69, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %14, i32 noundef 69) #32
+  %14 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 69, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %14, i32 noundef 69) #33
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %16 = load i64, ptr %14, align 8
@@ -21210,8 +21210,8 @@ define internal fastcc noundef ptr @new_regexp(ptr nocapture noundef %0, ptr nou
   tail call fastcc void @reg_compile(ptr noundef %0, ptr noundef %36, i32 noundef %2)
   %37 = getelementptr i8, ptr %0, i64 312
   %.val94 = load ptr, ptr %37, align 8
-  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val94, i32 noundef 69, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %38, i32 noundef 69) #32
+  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val94, i32 noundef 69, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %38, i32 noundef 69) #33
   %39 = load i64, ptr %1, align 8
   %40 = and i64 %39, 128
   %.not.i.i = icmp eq i64 %40, 0
@@ -21251,8 +21251,8 @@ str2regx.exit:                                    ; preds = %34, %41
 58:                                               ; preds = %29
   %59 = getelementptr inbounds i8, ptr %0, i64 232
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
-  %62 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #34
+  %61 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
+  %62 = tail call noalias nonnull dereferenceable(1) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 1) #35
   %63 = getelementptr inbounds i8, ptr %61, i64 24
   store ptr %62, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %61, i64 16
@@ -21263,8 +21263,8 @@ str2regx.exit:                                    ; preds = %34, %41
   store ptr %60, ptr %65, align 8
   %66 = getelementptr i8, ptr %0, i64 312
   %.val.i.i95 = load ptr, ptr %66, align 8
-  %67 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i95, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %67, i32 noundef 43) #32
+  %67 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i95, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %67, i32 noundef 43) #33
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %69 = load i64, ptr %67, align 8
@@ -21287,8 +21287,8 @@ str2regx.exit:                                    ; preds = %34, %41
   %81 = getelementptr inbounds i8, ptr %67, i64 48
   store ptr null, ptr %81, align 8
   %.val.i.i96 = load ptr, ptr %66, align 8
-  %82 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i96, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %82, i32 noundef 65) #32
+  %82 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i96, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %82, i32 noundef 65) #33
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %84 = load i64, ptr %82, align 8
@@ -21313,7 +21313,7 @@ str2regx.exit:                                    ; preds = %34, %41
 
 96:                                               ; preds = %58, %29
   %.077 = phi ptr [ %82, %58 ], [ %1, %29 ]
-  %97 = tail call i64 @rb_node_set_type(ptr noundef nonnull %.077, i32 noundef 70) #32
+  %97 = tail call i64 @rb_node_set_type(ptr noundef nonnull %.077, i32 noundef 70) #33
   %98 = getelementptr inbounds i8, ptr %.077, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %99 = load i64, ptr %.077, align 8
@@ -21346,13 +21346,13 @@ str2regx.exit:                                    ; preds = %34, %41
   br label %reg_fragment_setenc.exit.i
 
 reg_fragment_setenc.exit.i:                       ; preds = %112, %110
-  %115 = tail call i64 @rb_str_new_parser_string(ptr noundef nonnull %109) #32
-  %116 = tail call i64 @rb_reg_check_preprocess(i64 noundef %115) #32
+  %115 = tail call i64 @rb_str_new_parser_string(ptr noundef nonnull %109) #33
+  %116 = tail call i64 @rb_reg_check_preprocess(i64 noundef %115) #33
   %.not.i = icmp eq i64 %116, 4
   br i1 %.not.i, label %rb_parser_reg_fragment_check.exit, label %117
 
 117:                                              ; preds = %reg_fragment_setenc.exit.i
-  %118 = tail call i64 @rb_obj_as_string(i64 noundef %116) #32
+  %118 = tail call i64 @rb_obj_as_string(i64 noundef %116) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.80, i64 noundef %118)
   br label %rb_parser_reg_fragment_check.exit
 
@@ -21402,13 +21402,13 @@ rb_parser_reg_fragment_check.exit:                ; preds = %117, %reg_fragment_
   br label %reg_fragment_setenc.exit.i102
 
 reg_fragment_setenc.exit.i102:                    ; preds = %135, %131
-  %138 = tail call i64 @rb_str_new_parser_string(ptr noundef %133) #32
-  %139 = tail call i64 @rb_reg_check_preprocess(i64 noundef %138) #32
+  %138 = tail call i64 @rb_str_new_parser_string(ptr noundef %133) #33
+  %139 = tail call i64 @rb_reg_check_preprocess(i64 noundef %138) #33
   %.not.i103 = icmp eq i64 %139, 4
   br i1 %.not.i103, label %rb_parser_reg_fragment_check.exit105, label %rb_parser_reg_fragment_check.exit105.thread
 
 rb_parser_reg_fragment_check.exit105.thread:      ; preds = %reg_fragment_setenc.exit.i102
-  %140 = tail call i64 @rb_obj_as_string(i64 noundef %139) #32
+  %140 = tail call i64 @rb_obj_as_string(i64 noundef %139) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.80, i64 noundef %140)
   br label %184
 
@@ -21439,8 +21439,8 @@ rb_parser_reg_fragment_check.exit105:             ; preds = %reg_fragment_setenc
 
 152:                                              ; preds = %149
   %.val.i.i106 = load ptr, ptr %120, align 8
-  %153 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i106, i32 noundef 96, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %153, i32 noundef 96) #32
+  %153 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i106, i32 noundef 96, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %153, i32 noundef 96) #33
   %154 = getelementptr inbounds i8, ptr %153, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %155 = load i64, ptr %153, align 8
@@ -21480,7 +21480,7 @@ rb_parser_reg_fragment_check.exit105:             ; preds = %reg_fragment_setenc
 173:                                              ; preds = %171
   %174 = getelementptr inbounds i8, ptr %133, i64 24
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call nonnull dereferenceable(1) ptr @ruby_xrealloc2(ptr noundef %175, i64 noundef 1, i64 noundef 1) #39
+  %176 = tail call nonnull dereferenceable(1) ptr @ruby_xrealloc2(ptr noundef %175, i64 noundef 1, i64 noundef 1) #40
   store ptr %176, ptr %174, align 8
   br label %177
 
@@ -21498,9 +21498,9 @@ rb_parser_str_resize.exit:                        ; preds = %171, %177
   store ptr %181, ptr %182, align 8
   %183 = load ptr, ptr %122, align 8
   %.val = load ptr, ptr %120, align 8
-  tail call void @rb_ast_delete_node(ptr noundef %.val, ptr noundef %183) #32
+  tail call void @rb_ast_delete_node(ptr noundef %.val, ptr noundef %183) #33
   %.val93 = load ptr, ptr %120, align 8
-  tail call void @rb_ast_delete_node(ptr noundef %.val93, ptr noundef nonnull %.078115) #32
+  tail call void @rb_ast_delete_node(ptr noundef %.val93, ptr noundef nonnull %.078115) #33
   br label %184
 
 184:                                              ; preds = %rb_parser_reg_fragment_check.exit105.thread, %128, %121, %rb_parser_reg_fragment_check.exit105, %141, %rb_parser_str_resize.exit
@@ -21529,8 +21529,8 @@ rb_parser_str_resize.exit:                        ; preds = %171, %177
 190:                                              ; preds = %188
   %191 = getelementptr i8, ptr %0, i64 312
   %.val.i.i108 = load ptr, ptr %191, align 8
-  %192 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i108, i32 noundef 71, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %192, i32 noundef 71) #32
+  %192 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i108, i32 noundef 71, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %192, i32 noundef 71) #33
   %193 = getelementptr inbounds i8, ptr %192, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %194 = load i64, ptr %192, align 8
@@ -21569,7 +21569,7 @@ define internal fastcc noundef ptr @symbol_append(ptr nocapture noundef %0, ptr 
   ]
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @rb_node_set_type(ptr noundef nonnull %2, i32 noundef 103) #32
+  %9 = tail call i64 @rb_node_set_type(ptr noundef nonnull %2, i32 noundef 103) #33
   br label %17
 
 10:                                               ; preds = %3
@@ -21583,7 +21583,7 @@ define internal fastcc noundef ptr @symbol_append(ptr nocapture noundef %0, ptr 
   br label %parser_node_name.exit
 
 15:                                               ; preds = %3
-  %16 = tail call ptr @ruby_node_name(i32 noundef %7) #32
+  %16 = tail call ptr @ruby_node_name(i32 noundef %7) #33
   br label %parser_node_name.exit
 
 parser_node_name.exit:                            ; preds = %3, %14, %15
@@ -21599,8 +21599,8 @@ parser_node_name.exit:                            ; preds = %3, %14, %15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef ptr @str2dstr(ptr %.312.val, ptr nocapture noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @rb_ast_newnode(ptr noundef %.312.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %2, i32 noundef 65) #32
+  %2 = tail call ptr @rb_ast_newnode(ptr noundef %.312.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %2, i32 noundef 65) #33
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, 128
   %.not.i = icmp eq i64 %4, 0
@@ -21643,8 +21643,8 @@ nd_copy_flag.exit:                                ; preds = %1, %5
 define internal fastcc noundef ptr @rb_node_dstr_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 65) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 65) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -21673,8 +21673,8 @@ define internal fastcc noundef ptr @rb_node_dstr_new(ptr nocapture noundef %0, p
 define internal fastcc noundef ptr @rb_node_evstr_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 68, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 68) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 68, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 68) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -21703,8 +21703,8 @@ define internal fastcc noundef ptr @new_evstr(ptr nocapture noundef %0, ptr noun
 .split:                                           ; preds = %3
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 68, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 68) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 68, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 68) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -21737,8 +21737,8 @@ define internal fastcc noundef ptr @new_evstr(ptr nocapture noundef %0, ptr noun
 .split10:                                         ; preds = %18
   %23 = getelementptr i8, ptr %0, i64 312
   %.val.i.i12 = load ptr, ptr %23, align 8
-  %24 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i12, i32 noundef 68, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %24, i32 noundef 68) #32
+  %24 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i12, i32 noundef 68, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %24, i32 noundef 68) #33
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %26 = load i64, ptr %24, align 8
@@ -21761,8 +21761,8 @@ define internal fastcc noundef ptr @new_evstr(ptr nocapture noundef %0, ptr noun
 37:                                               ; preds = %18
   %38 = getelementptr i8, ptr %0, i64 312
   %.val = load ptr, ptr %38, align 8
-  %39 = tail call ptr @rb_ast_newnode(ptr noundef %.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %39, i32 noundef 65) #32
+  %39 = tail call ptr @rb_ast_newnode(ptr noundef %.val, i32 noundef 65, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %39, i32 noundef 65) #33
   %40 = load i64, ptr %1, align 8
   %41 = and i64 %40, 128
   %.not.i.i = icmp eq i64 %41, 0
@@ -22077,7 +22077,7 @@ numparam_name.exit:                               ; preds = %2, %10
   br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %numparam_name.exit
-  %19 = tail call ptr @rb_id2name(i64 noundef %1) #32
+  %19 = tail call ptr @rb_id2name(i64 noundef %1) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.990, i32 noundef 15423, ptr noundef nonnull @.str.983, ptr noundef %14, ptr noundef %19)
   br label %20
 
@@ -22102,7 +22102,7 @@ numparam_name.exit:                               ; preds = %2, %10
   %29 = shl i32 %24, 1
   store i32 %29, ptr %25, align 4
   %30 = sext i32 %29 to i64
-  %31 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %30, i64 noundef 8) #39
+  %31 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %30, i64 noundef 8) #40
   store ptr %31, ptr %14, align 8
   %.pre21.i = load i32, ptr %23, align 8
   br label %32
@@ -22129,8 +22129,8 @@ define internal fastcc noundef ptr @new_kw_arg(ptr nocapture noundef %0, ptr nou
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 75, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 75) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 75, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 75) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -22161,8 +22161,8 @@ define internal fastcc noundef ptr @new_kw_arg(ptr nocapture noundef %0, ptr nou
 define internal fastcc noundef ptr @rb_node_opt_arg_new(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 74, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 74) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 74, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 74) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -22327,7 +22327,7 @@ yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
 yy_syntax_error_arguments.exit.thread6:           ; preds = %32, %.loopexit.i.i.thread, %2, %yy_syntax_error_arguments.exit, %43, %42, %41, %40
   %.0.i5 = phi i32 [ 4, %42 ], [ 3, %41 ], [ 2, %40 ], [ 5, %43 ], [ %39, %yy_syntax_error_arguments.exit ], [ 0, %2 ], [ 1, %.loopexit.i.i.thread ], [ 1, %32 ]
   %.042 = phi ptr [ @.str.557, %42 ], [ @.str.556, %41 ], [ @.str.555, %40 ], [ @.str.558, %43 ], [ @.str.62, %yy_syntax_error_arguments.exit ], [ @.str.62, %2 ], [ @.str.554, %.loopexit.i.i.thread ], [ @.str.554, %32 ]
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #36
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #37
   %45 = shl i32 %.0.i5, 1
   %46 = sext i32 %45 to i64
   %reass.sub = sub i64 %44, %46
@@ -22453,7 +22453,7 @@ count_char.exit72.i:                              ; preds = %.preheader11
   br label %.preheader.i, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %85, %79, %77, %77, %.preheader.i, %.preheader.i, %.lr.ph
-  %90 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54) #36
+  %90 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54) #37
   br label %rb_yytnamerr.exit
 
 rb_yytnamerr.exit:                                ; preds = %.preheader.i, %.loopexit.i
@@ -22677,7 +22677,7 @@ define dso_local void @ruby_show_error_line(ptr nocapture readnone %0, i64 nound
 62:                                               ; preds = %60
   %63 = getelementptr i8, ptr %4, i64 8
   %.val166 = load ptr, ptr %63, align 8
-  %64 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %.val166, ptr noundef %7, ptr noundef nonnull %.0127, ptr noundef %.0138) #32
+  %64 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %.val166, ptr noundef %7, ptr noundef nonnull %.0127, ptr noundef %.0138) #33
   %65 = icmp ugt ptr %64, %7
   %spec.select161 = select i1 %65, ptr @.str.68, ptr @.str.22
   br label %66
@@ -22691,7 +22691,7 @@ define dso_local void @ruby_show_error_line(ptr nocapture readnone %0, i64 nound
 68:                                               ; preds = %66
   %69 = getelementptr i8, ptr %4, i64 8
   %.val167 = load ptr, ptr %69, align 8
-  %70 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %.val167, ptr noundef %.0138, ptr noundef %.0130.lcssa, ptr noundef nonnull %.0132) #32
+  %70 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %.val167, ptr noundef %.0138, ptr noundef %.0130.lcssa, ptr noundef nonnull %.0132) #33
   %71 = icmp ult ptr %70, %.0132
   %spec.select162 = select i1 %71, ptr @.str.68, ptr @.str.22
   br label %72
@@ -22732,7 +22732,7 @@ define dso_local void @ruby_show_error_line(ptr nocapture readnone %0, i64 nound
   br i1 %.not179, label %105, label %89
 
 89:                                               ; preds = %87
-  %90 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef 3441) #32
+  %90 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef 3441) #33
   %91 = inttoptr i64 %90 to ptr
   %92 = getelementptr inbounds i8, ptr %91, i64 16
   %93 = load i64, ptr %92, align 8
@@ -22759,18 +22759,18 @@ RSTRING_END.exit:                                 ; preds = %95, %99
   br i1 %.not156, label %.thread, label %103
 
 103:                                              ; preds = %RSTRING_END.exit
-  %104 = tail call i64 @rb_str_cat(i64 noundef %90, ptr noundef nonnull @.str.7, i64 noundef 1) #32
+  %104 = tail call i64 @rb_str_cat(i64 noundef %90, ptr noundef nonnull @.str.7, i64 noundef 1) #33
   br label %.thread
 
 105:                                              ; preds = %87
   %106 = getelementptr i8, ptr %4, i64 8
   %.val168 = load ptr, ptr %106, align 8
-  %107 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %.val168) #32
+  %107 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %.val168) #33
   %.not157 = icmp eq i64 %1, 0
   br i1 %.not157, label %108, label %.thread
 
 108:                                              ; preds = %105
-  %109 = tail call i32 @rb_stderr_tty_p() #32
+  %109 = tail call i32 @rb_stderr_tty_p() #33
   %.not158 = icmp eq i32 %109, 0
   br i1 %.not158, label %.thread, label %.thread175
 
@@ -22784,7 +22784,7 @@ RSTRING_END.exit:                                 ; preds = %95, %99
   %116 = ptrtoint ptr %.1131 to i64
   %117 = sub i64 %116, %36
   %118 = trunc i64 %117 to i32
-  %119 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %107, ptr noundef nonnull @.str.69, ptr noundef nonnull %.1135, i32 noundef %113, ptr noundef %.2129, i32 noundef %115, ptr noundef %spec.select164, i32 noundef %118, ptr noundef %.0138, ptr noundef nonnull %.0133) #32
+  %119 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %107, ptr noundef nonnull @.str.69, ptr noundef nonnull %.1135, i32 noundef %113, ptr noundef %.2129, i32 noundef %115, ptr noundef %spec.select164, i32 noundef %118, ptr noundef %.0138, ptr noundef nonnull %.0133) #33
   br label %147
 
 .thread:                                          ; preds = %103, %RSTRING_END.exit, %89, %108, %105
@@ -22836,12 +22836,12 @@ RSTRING_END.exit:                                 ; preds = %95, %99
   %.2 = phi ptr [ %143, %140 ], [ %137, %._crit_edge ]
   store i8 0, ptr %.2, align 1
   %145 = trunc i64 %122 to i32
-  %146 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %.0126171, ptr noundef nonnull @.str.70, ptr noundef nonnull %.1135, i32 noundef %145, ptr noundef %.2129, ptr noundef nonnull %.0133, ptr noundef nonnull %.1135, ptr noundef nonnull %129) #32
+  %146 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %.0126171, ptr noundef nonnull @.str.70, ptr noundef nonnull %.1135, i32 noundef %145, ptr noundef %.2129, ptr noundef nonnull %.0133, ptr noundef nonnull %.1135, ptr noundef nonnull %129) #33
   br i1 %.not157174, label %147, label %148
 
 147:                                              ; preds = %.thread175, %144
   %.0126172178 = phi i64 [ %107, %.thread175 ], [ %.0126171, %144 ]
-  call void @rb_write_error_str(i64 noundef %.0126172178) #32
+  call void @rb_write_error_str(i64 noundef %.0126172178) #33
   br label %148
 
 148:                                              ; preds = %84, %5, %147, %144
@@ -22862,20 +22862,20 @@ declare void @rb_write_error_str(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_ruby_parser_compile_string_path(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  %6 = tail call ptr @rb_enc_get(i64 noundef %2) #32
+  %6 = tail call ptr @rb_enc_get(i64 noundef %2) #33
   %7 = getelementptr i8, ptr %6, i64 20
   %.val.i.i = load i32, ptr %7, align 4
   %.not.i.i = icmp eq i32 %.val.i.i, 1
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %4
-  %8 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %6) #36
+  %8 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %6) #37
   %.not3.i.i = icmp eq i32 %8, 0
   br i1 %.not3.i.i, label %must_be_ascii_compatible.exit, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.exit.i, %4
   %9 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.561) #37
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.561) #38
   unreachable
 
 must_be_ascii_compatible.exit:                    ; preds = %rb_enc_asciicompat.exit.i
@@ -22883,7 +22883,7 @@ must_be_ascii_compatible.exit:                    ; preds = %rb_enc_asciicompat.
   store ptr @lex_get_str, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 0, ptr %11, align 8
-  %12 = tail call i64 @rb_str_new_frozen(i64 noundef %2) #32
+  %12 = tail call i64 @rb_str_new_frozen(i64 noundef %2) #33
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 80
@@ -22899,10 +22899,10 @@ must_be_ascii_compatible.exit:                    ; preds = %rb_enc_asciicompat.
   br label %22
 
 18:                                               ; preds = %must_be_ascii_compatible.exit
-  %19 = tail call i64 @rb_str_to_interned_str(i64 noundef %1) #32
+  %19 = tail call i64 @rb_str_to_interned_str(i64 noundef %1) #33
   %20 = getelementptr inbounds i8, ptr %0, i64 224
   store i64 %19, ptr %20, align 8
-  %21 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #32
+  %21 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #33
   br label %22
 
 22:                                               ; preds = %18, %16
@@ -22914,11 +22914,11 @@ must_be_ascii_compatible.exit:                    ; preds = %rb_enc_asciicompat.
   store i32 %24, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %26, align 8
-  %27 = call ptr @rb_ast_new() #32
+  %27 = call ptr @rb_ast_new() #33
   %28 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr %27, ptr %28, align 8
   %29 = ptrtoint ptr %0 to i64
-  %30 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %29) #32
+  %30 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %29) #33
   store ptr null, ptr %28, align 8
   %31 = load ptr, ptr %26, align 8
   %.not12.i.i = icmp eq ptr %31, null
@@ -22937,7 +22937,7 @@ parser_compile_string.exit:                       ; preds = %.lr.ph.i.i, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @rb_ruby_parser_compile_string(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i64 @rb_filesystem_str_new_cstr(ptr noundef %1) #32
+  %5 = tail call i64 @rb_filesystem_str_new_cstr(ptr noundef %1) #33
   %6 = tail call ptr @rb_ruby_parser_compile_string_path(ptr noundef %0, i64 noundef %5, i64 noundef %2, i32 noundef %3)
   ret ptr %6
 }
@@ -22964,10 +22964,10 @@ define hidden ptr @rb_ruby_parser_compile_file_path(ptr noundef %0, i64 noundef 
   br label %16
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @rb_str_to_interned_str(i64 noundef %1) #32
+  %13 = tail call i64 @rb_str_to_interned_str(i64 noundef %1) #33
   %14 = getelementptr inbounds i8, ptr %0, i64 224
   store i64 %13, ptr %14, align 8
-  %15 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #32
+  %15 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #33
   br label %16
 
 16:                                               ; preds = %12, %10
@@ -22979,11 +22979,11 @@ define hidden ptr @rb_ruby_parser_compile_file_path(ptr noundef %0, i64 noundef 
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %20, align 8
-  %21 = call ptr @rb_ast_new() #32
+  %21 = call ptr @rb_ast_new() #33
   %22 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr %21, ptr %22, align 8
   %23 = ptrtoint ptr %0 to i64
-  %24 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %23) #32
+  %24 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %23) #33
   store ptr null, ptr %22, align 8
   %25 = load ptr, ptr %20, align 8
   %.not12.i = icmp eq ptr %25, null
@@ -23002,7 +23002,7 @@ yycompile.exit:                                   ; preds = %.lr.ph.i, %16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @lex_io_gets(ptr nocapture readnone %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @rb_io_gets_internal(i64 noundef %1) #32
+  %3 = tail call i64 @rb_io_gets_internal(i64 noundef %1) #33
   ret i64 %3
 }
 
@@ -23028,10 +23028,10 @@ define hidden ptr @rb_ruby_parser_compile_generic(ptr noundef %0, ptr noundef %1
   br label %18
 
 14:                                               ; preds = %5
-  %15 = tail call i64 @rb_str_to_interned_str(i64 noundef %2) #32
+  %15 = tail call i64 @rb_str_to_interned_str(i64 noundef %2) #33
   %16 = getelementptr inbounds i8, ptr %0, i64 224
   store i64 %15, ptr %16, align 8
-  %17 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #32
+  %17 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #33
   br label %18
 
 18:                                               ; preds = %14, %12
@@ -23043,11 +23043,11 @@ define hidden ptr @rb_ruby_parser_compile_generic(ptr noundef %0, ptr noundef %1
   store i32 %20, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %22, align 8
-  %23 = call ptr @rb_ast_new() #32
+  %23 = call ptr @rb_ast_new() #33
   %24 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr %23, ptr %24, align 8
   %25 = ptrtoint ptr %0 to i64
-  %26 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %25) #32
+  %26 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %25) #33
   store ptr null, ptr %24, align 8
   %27 = load ptr, ptr %22, align 8
   %.not12.i = icmp eq ptr %27, null
@@ -23070,13 +23070,13 @@ define internal i64 @lex_generic_gets(ptr nocapture noundef readonly %0, i64 nou
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
-  %7 = tail call i64 %4(i64 noundef %1, i32 noundef %6) #32
+  %7 = tail call i64 %4(i64 noundef %1, i32 noundef %6) #33
   ret i64 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_parser_node_case_when_optimizable_literal(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @rb_node_case_when_optimizable_literal(ptr noundef %1) #32
+  %3 = tail call i64 @rb_node_case_when_optimizable_literal(ptr noundef %1) #33
   ret i64 %3
 }
 
@@ -23085,7 +23085,7 @@ declare i64 @rb_node_case_when_optimizable_literal(ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @rb_parser_trace_lex_state(ptr nocapture noundef %0, i32 noundef %1, i32 noundef returned %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  %6 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.71, i64 noundef 11) #32
+  %6 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.71, i64 noundef 11) #33
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %4
@@ -23105,7 +23105,7 @@ define dso_local noundef i32 @rb_parser_trace_lex_state(ptr nocapture noundef %0
   br i1 %.not15.i, label %.thread.i, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.593, i64 noundef 1) #32
+  %11 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.593, i64 noundef 1) #33
   br label %.thread.i
 
 12:                                               ; preds = %7
@@ -23116,7 +23116,7 @@ define dso_local noundef i32 @rb_parser_trace_lex_state(ptr nocapture noundef %0
 
 .thread.i:                                        ; preds = %10, %9
   %14 = getelementptr [13 x [8 x i8]], ptr @rb_parser_lex_state_names, i64 0, i64 %indvars.iv.i
-  %15 = tail call i64 @rb_str_cat_cstr(i64 noundef %6, ptr noundef %14) #32
+  %15 = tail call i64 @rb_str_cat_cstr(i64 noundef %6, ptr noundef %14) #33
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = shl i32 %.03.i, 1
   %exitcond.not7.i = icmp eq i64 %indvars.iv.next6.i, 13
@@ -23126,11 +23126,11 @@ define dso_local noundef i32 @rb_parser_trace_lex_state(ptr nocapture noundef %0
   br i1 %.not15.i, label %18, label %append_lex_state_name.exit
 
 18:                                               ; preds = %17
-  %19 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #32
+  %19 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
   br label %append_lex_state_name.exit
 
 append_lex_state_name.exit:                       ; preds = %.thread.i, %17, %18
-  %20 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.72, i64 noundef 4) #32
+  %20 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.72, i64 noundef 4) #33
   br label %.outer.i12
 
 .outer.i12:                                       ; preds = %.thread.i19, %append_lex_state_name.exit
@@ -23150,7 +23150,7 @@ append_lex_state_name.exit:                       ; preds = %.thread.i, %17, %18
   br i1 %.not15.i15, label %.thread.i19, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.593, i64 noundef 1) #32
+  %25 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @.str.593, i64 noundef 1) #33
   br label %.thread.i19
 
 26:                                               ; preds = %21
@@ -23161,7 +23161,7 @@ append_lex_state_name.exit:                       ; preds = %.thread.i, %17, %18
 
 .thread.i19:                                      ; preds = %24, %23
   %28 = getelementptr [13 x [8 x i8]], ptr @rb_parser_lex_state_names, i64 0, i64 %indvars.iv.i16
-  %29 = tail call i64 @rb_str_cat_cstr(i64 noundef %6, ptr noundef %28) #32
+  %29 = tail call i64 @rb_str_cat_cstr(i64 noundef %6, ptr noundef %28) #33
   %indvars.iv.next6.i20 = add nuw nsw i64 %indvars.iv.i16, 1
   %30 = shl i32 %.03.i17, 1
   %exitcond.not7.i21 = icmp eq i64 %indvars.iv.next6.i20, 13
@@ -23171,11 +23171,11 @@ append_lex_state_name.exit:                       ; preds = %.thread.i, %17, %18
   br i1 %.not15.i15, label %32, label %append_lex_state_name.exit24
 
 32:                                               ; preds = %31
-  %33 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #32
+  %33 = tail call i64 @rb_str_cat(i64 noundef %6, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
   br label %append_lex_state_name.exit24
 
 append_lex_state_name.exit24:                     ; preds = %.thread.i19, %31, %32
-  %34 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6, ptr noundef nonnull @.str.73, i32 noundef %3) #32
+  %34 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %6, ptr noundef nonnull @.str.73, i32 noundef %3) #33
   %35 = getelementptr inbounds i8, ptr %0, i64 272
   %36 = load i64, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -23194,7 +23194,7 @@ append_lex_state_name.exit24:                     ; preds = %.thread.i19, %31, %
 
 44:                                               ; preds = %40
   store i64 4, ptr %37, align 8
-  %45 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %36) #32
+  %45 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %5, i64 noundef %36) #33
   br label %46
 
 46:                                               ; preds = %44, %40, %append_lex_state_name.exit24
@@ -23210,7 +23210,7 @@ append_lex_state_name.exit24:                     ; preds = %.thread.i19, %31, %
 
 52:                                               ; preds = %48
   %53 = load i64, ptr %35, align 8
-  %54 = call i64 @rb_io_write(i64 noundef %53, i64 noundef %6) #32
+  %54 = call i64 @rb_io_write(i64 noundef %53, i64 noundef %6) #33
   br label %flush_debug_buffer.exit
 
 flush_debug_buffer.exit:                          ; preds = %46, %48, %52
@@ -23220,7 +23220,7 @@ flush_debug_buffer.exit:                          ; preds = %46, %48, %52
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_parser_lex_state_name(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #32
+  %3 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #33
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %2
@@ -23240,7 +23240,7 @@ define dso_local i64 @rb_parser_lex_state_name(ptr nocapture noundef readnone %0
   br i1 %.not15.i, label %.thread.i, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull @.str.593, i64 noundef 1) #32
+  %8 = tail call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull @.str.593, i64 noundef 1) #33
   br label %.thread.i
 
 9:                                                ; preds = %4
@@ -23251,7 +23251,7 @@ define dso_local i64 @rb_parser_lex_state_name(ptr nocapture noundef readnone %0
 
 .thread.i:                                        ; preds = %7, %6
   %11 = getelementptr [13 x [8 x i8]], ptr @rb_parser_lex_state_names, i64 0, i64 %indvars.iv.i
-  %12 = tail call i64 @rb_str_cat_cstr(i64 noundef %3, ptr noundef %11) #32
+  %12 = tail call i64 @rb_str_cat_cstr(i64 noundef %3, ptr noundef %11) #33
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = shl i32 %.03.i, 1
   %exitcond.not7.i = icmp eq i64 %indvars.iv.next6.i, 13
@@ -23261,11 +23261,11 @@ define dso_local i64 @rb_parser_lex_state_name(ptr nocapture noundef readnone %0
   br i1 %.not15.i, label %15, label %append_lex_state_name.exit
 
 15:                                               ; preds = %14
-  %16 = tail call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #32
+  %16 = tail call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
   br label %append_lex_state_name.exit
 
 append_lex_state_name.exit:                       ; preds = %.thread.i, %14, %15
-  %17 = tail call i64 @rb_str_to_interned_str(i64 noundef %3) #32
+  %17 = tail call i64 @rb_str_to_interned_str(i64 noundef %3) #33
   ret i64 %17
 }
 
@@ -23281,10 +23281,10 @@ define dso_local void @rb_parser_fatal(ptr nocapture noundef %0, ptr noundef %1,
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  %7 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.75, i64 noundef 23) #32
+  %7 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.75, i64 noundef 23) #33
   store i64 %7, ptr %5, align 8
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %8 = call i64 @rb_str_vcatf(i64 noundef %7, ptr noundef %1, ptr noundef nonnull %4) #32
+  %8 = call i64 @rb_str_vcatf(i64 noundef %7, ptr noundef %1, ptr noundef nonnull %4) #33
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = inttoptr i64 %7 to ptr
   %10 = load i64, ptr %9, align 8, !noalias !65
@@ -23338,10 +23338,10 @@ RSTRING_PTR.exit:                                 ; preds = %2, %13
 parser_yyerror0.exit:                             ; preds = %RSTRING_PTR.exit, %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #32, !srcloc !68
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #33, !srcloc !68
   %39 = load ptr, ptr %6, align 8
   %40 = load volatile i64, ptr %39, align 8
-  %41 = call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #32
+  %41 = call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #33
   store i64 %41, ptr %5, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 120
   %43 = load i32, ptr %42, align 8
@@ -23364,7 +23364,7 @@ parser_yyerror0.exit:                             ; preds = %RSTRING_PTR.exit, %
   br i1 %.not15.i, label %.thread.i, label %47
 
 47:                                               ; preds = %46
-  %48 = call i64 @rb_str_cat(i64 noundef %41, ptr noundef nonnull @.str.593, i64 noundef 1) #32
+  %48 = call i64 @rb_str_cat(i64 noundef %41, ptr noundef nonnull @.str.593, i64 noundef 1) #33
   br label %.thread.i
 
 49:                                               ; preds = %44
@@ -23375,7 +23375,7 @@ parser_yyerror0.exit:                             ; preds = %RSTRING_PTR.exit, %
 
 .thread.i:                                        ; preds = %47, %46
   %51 = getelementptr [13 x [8 x i8]], ptr @rb_parser_lex_state_names, i64 0, i64 %indvars.iv.i
-  %52 = call i64 @rb_str_cat_cstr(i64 noundef %41, ptr noundef %51) #32
+  %52 = call i64 @rb_str_cat_cstr(i64 noundef %41, ptr noundef %51) #33
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = shl i32 %.03.i, 1
   %exitcond.not7.i = icmp eq i64 %indvars.iv.next6.i, 13
@@ -23385,14 +23385,14 @@ parser_yyerror0.exit:                             ; preds = %RSTRING_PTR.exit, %
   br i1 %.not15.i, label %55, label %append_lex_state_name.exit
 
 55:                                               ; preds = %54
-  %56 = call i64 @rb_str_cat(i64 noundef %41, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #32
+  %56 = call i64 @rb_str_cat(i64 noundef %41, ptr noundef nonnull @append_lex_state_name.none, i64 noundef 4) #33
   br label %append_lex_state_name.exit
 
 append_lex_state_name.exit:                       ; preds = %.thread.i, %54, %55
   %57 = load i64, ptr %5, align 8
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.76, i64 noundef %57)
   %58 = load i64, ptr %5, align 8
-  %59 = call i64 @rb_str_resize(i64 noundef %58, i64 noundef 0) #32
+  %59 = call i64 @rb_str_resize(i64 noundef %58, i64 noundef 0) #33
   %60 = getelementptr inbounds i8, ptr %0, i64 136
   %61 = load i64, ptr %60, align 8
   %62 = load i64, ptr %5, align 8
@@ -23400,7 +23400,7 @@ append_lex_state_name.exit:                       ; preds = %.thread.i, %54, %55
   br i1 %63, label %64, label %.preheader.i
 
 64:                                               ; preds = %append_lex_state_name.exit
-  %65 = call i64 @rb_str_cat(i64 noundef %62, ptr noundef nonnull @.str.995, i64 noundef 1) #32
+  %65 = call i64 @rb_str_cat(i64 noundef %62, ptr noundef nonnull @.str.995, i64 noundef 1) #33
   br label %append_bitstack_value.exit
 
 .preheader.i:                                     ; preds = %append_lex_state_name.exit, %.preheader.i
@@ -23421,7 +23421,7 @@ append_lex_state_name.exit:                       ; preds = %.thread.i, %54, %55
   %68 = and i64 %.12.i, %61
   %.not14.i15 = icmp eq i64 %68, 0
   %69 = select i1 %.not14.i15, ptr @.str.995, ptr @.str.996
-  %70 = call i64 @rb_str_cat(i64 noundef %62, ptr noundef nonnull %69, i64 noundef 1) #32
+  %70 = call i64 @rb_str_cat(i64 noundef %62, ptr noundef nonnull %69, i64 noundef 1) #33
   %71 = lshr i64 %.12.i, 1
   %.not13.i = icmp ult i64 %.12.i, 2
   br i1 %.not13.i, label %append_bitstack_value.exit, label %.critedge.i, !llvm.loop !29
@@ -23430,7 +23430,7 @@ append_bitstack_value.exit:                       ; preds = %.critedge.i, %64, %
   %72 = load i64, ptr %5, align 8
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.77, i64 noundef %72)
   %73 = load i64, ptr %5, align 8
-  %74 = call i64 @rb_str_resize(i64 noundef %73, i64 noundef 0) #32
+  %74 = call i64 @rb_str_resize(i64 noundef %73, i64 noundef 0) #33
   %75 = getelementptr inbounds i8, ptr %0, i64 144
   %76 = load i64, ptr %75, align 8
   %77 = load i64, ptr %5, align 8
@@ -23438,7 +23438,7 @@ append_bitstack_value.exit:                       ; preds = %.critedge.i, %64, %
   br i1 %78, label %79, label %.preheader.i16
 
 79:                                               ; preds = %append_bitstack_value.exit
-  %80 = call i64 @rb_str_cat(i64 noundef %77, ptr noundef nonnull @.str.995, i64 noundef 1) #32
+  %80 = call i64 @rb_str_cat(i64 noundef %77, ptr noundef nonnull @.str.995, i64 noundef 1) #33
   br label %append_bitstack_value.exit27
 
 .preheader.i16:                                   ; preds = %append_bitstack_value.exit, %.preheader.i16
@@ -23459,7 +23459,7 @@ append_bitstack_value.exit:                       ; preds = %.critedge.i, %64, %
   %83 = and i64 %.12.i24, %76
   %.not14.i25 = icmp eq i64 %83, 0
   %84 = select i1 %.not14.i25, ptr @.str.995, ptr @.str.996
-  %85 = call i64 @rb_str_cat(i64 noundef %77, ptr noundef nonnull %84, i64 noundef 1) #32
+  %85 = call i64 @rb_str_cat(i64 noundef %77, ptr noundef nonnull %84, i64 noundef 1) #33
   %86 = lshr i64 %.12.i24, 1
   %.not13.i26 = icmp ult i64 %.12.i24, 2
   br i1 %.not13.i26, label %append_bitstack_value.exit27, label %.critedge.i23, !llvm.loop !29
@@ -23469,12 +23469,12 @@ append_bitstack_value.exit27:                     ; preds = %.critedge.i23, %79,
   call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.78, i64 noundef %87)
   %88 = getelementptr inbounds i8, ptr %0, i64 272
   %89 = load i64, ptr %88, align 8
-  %90 = call i64 @rb_ractor_stdout() #32
+  %90 = call i64 @rb_ractor_stdout() #33
   %91 = icmp eq i64 %89, %90
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %append_bitstack_value.exit27
-  %93 = call i64 @rb_ractor_stderr() #32
+  %93 = call i64 @rb_ractor_stderr() #33
   store i64 %93, ptr %88, align 8
   br label %94
 
@@ -23658,7 +23658,7 @@ define dso_local void @rb_parser_warn_duplicate_keys(ptr nocapture noundef reado
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = sdiv i64 %5, 2
-  %7 = tail call ptr @rb_st_init_table_with_size(ptr noundef nonnull @rb_parser_warn_duplicate_keys.literal_type, i64 noundef %6) #32
+  %7 = tail call ptr @rb_st_init_table_with_size(ptr noundef nonnull @rb_parser_warn_duplicate_keys.literal_type, i64 noundef %6) #33
   %8 = getelementptr inbounds i8, ptr %0, i64 216
   br label %9
 
@@ -23696,7 +23696,7 @@ define dso_local void @rb_parser_warn_duplicate_keys(ptr nocapture noundef reado
 nd_type_st_key_enable_p.exit:                     ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
   %20 = ptrtoint ptr %spec.select to i64
   store i64 %20, ptr %2, align 8
-  %21 = call i32 @rb_st_delete(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %3) #32
+  %21 = call i32 @rb_st_delete(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %3) #33
   %.not25 = icmp eq i32 %21, 0
   br i1 %.not25, label %58, label %22
 
@@ -23725,48 +23725,48 @@ nd_type_st_key_enable_p.exit:                     ; preds = %12, %12, %12, %12, 
   ]
 
 33:                                               ; preds = %22
-  %34 = call i64 @rb_node_str_string_val(ptr noundef nonnull %spec.select) #32
+  %34 = call i64 @rb_node_str_string_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 35:                                               ; preds = %22
-  %36 = call i64 @rb_node_integer_literal_val(ptr noundef nonnull %spec.select) #32
+  %36 = call i64 @rb_node_integer_literal_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 37:                                               ; preds = %22
-  %38 = call i64 @rb_node_float_literal_val(ptr noundef nonnull %spec.select) #32
+  %38 = call i64 @rb_node_float_literal_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 39:                                               ; preds = %22
-  %40 = call i64 @rb_node_rational_literal_val(ptr noundef nonnull %spec.select) #32
+  %40 = call i64 @rb_node_rational_literal_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 41:                                               ; preds = %22
-  %42 = call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %spec.select) #32
+  %42 = call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 43:                                               ; preds = %22
-  %44 = call i64 @rb_node_sym_string_val(ptr noundef nonnull %spec.select) #32
+  %44 = call i64 @rb_node_sym_string_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 45:                                               ; preds = %22
-  %46 = call i64 @rb_node_regx_string_val(ptr noundef nonnull %spec.select) #32
+  %46 = call i64 @rb_node_regx_string_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 47:                                               ; preds = %22
-  %48 = call i64 @rb_node_line_lineno_val(ptr noundef nonnull %spec.select) #32
+  %48 = call i64 @rb_node_line_lineno_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 49:                                               ; preds = %22
-  %50 = call i64 @rb_node_encoding_val(ptr noundef nonnull %spec.select) #32
+  %50 = call i64 @rb_node_encoding_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 51:                                               ; preds = %22
-  %52 = call i64 @rb_node_file_path_val(ptr noundef nonnull %spec.select) #32
+  %52 = call i64 @rb_node_file_path_val(ptr noundef nonnull %spec.select) #33
   br label %nd_value.exit
 
 53:                                               ; preds = %22
-  %54 = call ptr @ruby_node_name(i32 noundef %32) #32
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.546, ptr noundef %54) #33
+  %54 = call ptr @ruby_node_name(i32 noundef %32) #33
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.546, ptr noundef %54) #34
   unreachable
 
 nd_value.exit:                                    ; preds = %33, %35, %37, %39, %41, %43, %45, %47, %49, %51
@@ -23774,13 +23774,13 @@ nd_value.exit:                                    ; preds = %33, %35, %37, %39, 
   %55 = load i64, ptr %spec.select, align 8
   %56 = lshr i64 %55, 15
   %57 = trunc i64 %56 to i32
-  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %23, i32 noundef %28, ptr noundef nonnull @.str.79, i64 noundef %.0.i26, i32 noundef %57) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %23, i32 noundef %28, ptr noundef nonnull @.str.79, i64 noundef %.0.i26, i32 noundef %57) #33
   br label %58
 
 58:                                               ; preds = %nd_value.exit, %nd_type_st_key_enable_p.exit
   %59 = load i64, ptr %2, align 8
   %60 = ptrtoint ptr %.030 to i64
-  %61 = call i32 @rb_st_insert(ptr noundef %7, i64 noundef %59, i64 noundef %60) #32
+  %61 = call i32 @rb_st_insert(ptr noundef %7, i64 noundef %59, i64 noundef %60) #33
   br label %nd_type_st_key_enable_p.exit.thread
 
 nd_type_st_key_enable_p.exit.thread:              ; preds = %12, %58
@@ -23788,7 +23788,7 @@ nd_type_st_key_enable_p.exit.thread:              ; preds = %12, %58
   br i1 %.not, label %.critedge, label %9, !llvm.loop !69
 
 .critedge:                                        ; preds = %9, %nd_type_st_key_enable_p.exit.thread
-  call void @rb_st_free_table(ptr noundef %7) #32
+  call void @rb_st_free_table(ptr noundef %7) #33
   ret void
 }
 
@@ -23814,7 +23814,7 @@ define internal range(i32 -1, 2) i32 @literal_cmp(i64 noundef %0, i64 noundef %1
   br i1 %or.cond, label %17, label %27
 
 17:                                               ; preds = %4
-  %18 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %5) #32
+  %18 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %5) #33
   %19 = and i64 %18, 1
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %node_integer_line_cmp.exit, label %20
@@ -23822,7 +23822,7 @@ define internal range(i32 -1, 2) i32 @literal_cmp(i64 noundef %0, i64 noundef %1
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i32, ptr %21, align 8
-  %23 = tail call i64 @rb_fix2int(i64 noundef %18) #32
+  %23 = tail call i64 @rb_fix2int(i64 noundef %18) #33
   %24 = trunc i64 %23 to i32
   %25 = icmp ne i32 %22, %24
   %26 = zext i1 %25 to i32
@@ -23835,7 +23835,7 @@ define internal range(i32 -1, 2) i32 @literal_cmp(i64 noundef %0, i64 noundef %1
   br i1 %or.cond3, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %6) #32
+  %31 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %6) #33
   %32 = and i64 %31, 1
   %.not.i58 = icmp eq i64 %32, 0
   br i1 %.not.i58, label %node_integer_line_cmp.exit, label %33
@@ -23843,7 +23843,7 @@ define internal range(i32 -1, 2) i32 @literal_cmp(i64 noundef %0, i64 noundef %1
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   %35 = load i32, ptr %34, align 8
-  %36 = tail call i64 @rb_fix2int(i64 noundef %31) #32
+  %36 = tail call i64 @rb_fix2int(i64 noundef %31) #33
   %37 = trunc i64 %36 to i32
   %38 = icmp ne i32 %35, %37
   %39 = zext i1 %38 to i32
@@ -23956,7 +23956,7 @@ define internal range(i32 -1, 2) i32 @literal_cmp(i64 noundef %0, i64 noundef %1
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %6, i64 32
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %101) #36
+  %102 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %101) #37
   %103 = icmp ne i32 %102, 0
   %104 = zext i1 %103 to i32
   br label %node_integer_line_cmp.exit
@@ -24016,9 +24016,9 @@ define internal range(i32 -1, 2) i32 @literal_cmp(i64 noundef %0, i64 noundef %1
   br label %node_integer_line_cmp.exit
 
 143:                                              ; preds = %89
-  %144 = tail call ptr @ruby_node_name(i32 noundef %10) #32
-  %145 = tail call ptr @ruby_node_name(i32 noundef %10) #32
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1045, ptr noundef %144, ptr noundef %145) #33
+  %144 = tail call ptr @ruby_node_name(i32 noundef %10) #33
+  %145 = tail call ptr @ruby_node_name(i32 noundef %10) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1045, ptr noundef %144, ptr noundef %145) #34
   unreachable
 
 node_integer_line_cmp.exit:                       ; preds = %97, %92, %85, %80, %67, %61, %56, %43, %33, %30, %20, %17, %88, %2, %136, %130, %123, %121, %115, %109, %107, %105, %90
@@ -24047,13 +24047,13 @@ define internal i64 @literal_hash(i64 noundef %0) #0 {
   ]
 
 7:                                                ; preds = %1
-  %8 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %2) #32
+  %8 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %2) #33
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @rb_big_hash(i64 noundef %8) #32
+  %11 = tail call i64 @rb_big_hash(i64 noundef %8) #33
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -24062,7 +24062,7 @@ define internal i64 @literal_hash(i64 noundef %0) #0 {
   br label %rb_parser_str_hash.exit
 
 14:                                               ; preds = %1
-  %15 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %2) #32
+  %15 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %2) #33
   %16 = and i64 %15, 3
   %17 = icmp eq i64 %16, 2
   br i1 %17, label %18, label %25
@@ -24088,17 +24088,17 @@ define internal i64 @literal_hash(i64 noundef %0) #0 {
 
 rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %.0.i = phi double [ %28, %25 ], [ %24, %19 ], [ 0.000000e+00, %18 ]
-  %29 = tail call i64 @rb_dbl_long_hash(double noundef %.0.i) #32
+  %29 = tail call i64 @rb_dbl_long_hash(double noundef %.0.i) #33
   br label %rb_parser_str_hash.exit
 
 30:                                               ; preds = %1
-  %31 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %2) #32
-  %32 = tail call i64 @rb_rational_hash(i64 noundef %31) #32
+  %31 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %2) #33
+  %32 = tail call i64 @rb_rational_hash(i64 noundef %31) #33
   br label %rb_parser_str_hash.exit
 
 33:                                               ; preds = %1
-  %34 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %2) #32
-  %35 = tail call i64 @rb_complex_hash(i64 noundef %34) #32
+  %34 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %2) #33
+  %35 = tail call i64 @rb_complex_hash(i64 noundef %34) #33
   br label %rb_parser_str_hash.exit
 
 36:                                               ; preds = %1
@@ -24202,8 +24202,8 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   br label %rb_parser_str_hash.exit
 
 88:                                               ; preds = %1
-  %89 = tail call ptr @ruby_node_name(i32 noundef %6) #32
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.546, ptr noundef %89) #33
+  %89 = tail call ptr @ruby_node_name(i32 noundef %6) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.546, ptr noundef %89) #34
   unreachable
 
 rb_parser_str_hash.exit:                          ; preds = %.lr.ph.i.i.i43, %.lr.ph.i.i.i36, %.lr.ph.i.i.i29, %.lr.ph.i.i.i, %73, %58, %47, %36, %84, %69, %33, %30, %rb_float_value_inline.exit, %12
@@ -24221,7 +24221,7 @@ declare void @rb_st_free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @rb_parser_local_defined(ptr nocapture noundef readnone %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %2) #32
+  %4 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %2) #33
   ret i32 %4
 }
 
@@ -24421,7 +24421,7 @@ vtable_included.exit43.thread:                    ; preds = %56, %.preheader.i38
 77:                                               ; preds = %.split59.us
   %78 = getelementptr inbounds i8, ptr %0, i64 360
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %79) #32
+  %80 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %79) #33
   br label %vtable_included.exit
 
 vtable_included.exit:                             ; preds = %.split, %42, %.split.us, %17, %.split59.us, %vtable_included.exit43, %59, %77
@@ -24445,37 +24445,37 @@ define dso_local range(i32 0, 256) i32 @rb_reg_fragment_setenc(ptr nocapture nou
   ]
 
 6:                                                ; preds = %3
-  %7 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
+  %7 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   br label %kcode_to_enc.exit
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @rb_enc_find_index(ptr noundef nonnull @.str.1057) #32
+  %9 = tail call i32 @rb_enc_find_index(ptr noundef nonnull @.str.1057) #33
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %find_enc.exit.i
 
 11:                                               ; preds = %8
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.1057) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.1057) #34
   unreachable
 
 find_enc.exit.i:                                  ; preds = %8
-  %12 = tail call ptr @rb_enc_from_index(i32 noundef %9) #32
+  %12 = tail call ptr @rb_enc_from_index(i32 noundef %9) #33
   br label %kcode_to_enc.exit
 
 13:                                               ; preds = %3
-  %14 = tail call i32 @rb_enc_find_index(ptr noundef nonnull @.str.1058) #32
+  %14 = tail call i32 @rb_enc_find_index(ptr noundef nonnull @.str.1058) #33
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %find_enc.exit3.i
 
 16:                                               ; preds = %13
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.1058) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.1058) #34
   unreachable
 
 find_enc.exit3.i:                                 ; preds = %13
-  %17 = tail call ptr @rb_enc_from_index(i32 noundef %14) #32
+  %17 = tail call ptr @rb_enc_from_index(i32 noundef %14) #33
   br label %kcode_to_enc.exit
 
 char_to_option_kcode.exit:                        ; preds = %3
-  %18 = tail call nonnull ptr @rb_utf8_encoding() #32
+  %18 = tail call nonnull ptr @rb_utf8_encoding() #33
   br label %kcode_to_enc.exit
 
 kcode_to_enc.exit:                                ; preds = %3, %6, %find_enc.exit.i, %find_enc.exit3.i, %char_to_option_kcode.exit
@@ -24502,7 +24502,7 @@ kcode_to_enc.exit:                                ; preds = %3, %6, %find_enc.ex
 26:                                               ; preds = %24
   %27 = getelementptr i8, ptr %1, i64 8
   %.val29 = load ptr, ptr %27, align 8
-  %28 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
+  %28 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %29 = icmp eq ptr %28, %.val29
   br i1 %29, label %33, label %30
 
@@ -24512,7 +24512,7 @@ kcode_to_enc.exit:                                ; preds = %3, %6, %find_enc.ex
   br i1 %32, label %33, label %rb_parser_enc_associate.exit
 
 33:                                               ; preds = %30, %26
-  %34 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
+  %34 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %.val.i = load ptr, ptr %27, align 8
   %35 = icmp eq ptr %.val.i, %34
   br i1 %35, label %rb_parser_enc_associate.exit, label %36
@@ -24529,7 +24529,7 @@ kcode_to_enc.exit:                                ; preds = %3, %6, %find_enc.ex
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %38
-  %40 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %34) #36
+  %40 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %34) #37
   %.not3.i.i = icmp eq i32 %40, 0
   br i1 %.not3.i.i, label %41, label %rb_enc_asciicompat.exit.thread.i
 
@@ -24544,7 +24544,7 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
 42:                                               ; preds = %24
   %43 = getelementptr inbounds i8, ptr %0, i64 232
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call nonnull ptr @rb_usascii_encoding() #32
+  %45 = tail call nonnull ptr @rb_usascii_encoding() #33
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %47, label %rb_parser_enc_associate.exit
 
@@ -24555,7 +24555,7 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
   br i1 %49, label %60, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call nonnull ptr @rb_usascii_encoding() #32
+  %52 = tail call nonnull ptr @rb_usascii_encoding() #33
   %.val.i31 = load ptr, ptr %50, align 8
   %53 = icmp eq ptr %.val.i31, %52
   br i1 %53, label %rb_parser_enc_associate.exit, label %54
@@ -24572,7 +24572,7 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
   br i1 %.not.i.i35, label %rb_enc_asciicompat.exit.i36, label %rb_enc_asciicompat.exit.thread.i33
 
 rb_enc_asciicompat.exit.i36:                      ; preds = %56
-  %58 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %52) #36
+  %58 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %52) #37
   %.not3.i.i37 = icmp eq i32 %58, 0
   br i1 %.not3.i.i37, label %59, label %rb_enc_asciicompat.exit.thread.i33
 
@@ -24585,7 +24585,7 @@ rb_enc_asciicompat.exit.thread.i33:               ; preds = %rb_enc_asciicompat.
   br label %rb_parser_enc_associate.exit
 
 60:                                               ; preds = %47
-  %61 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
+  %61 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %.val.i39 = load ptr, ptr %50, align 8
   %62 = icmp eq ptr %.val.i39, %61
   br i1 %62, label %rb_parser_enc_associate.exit, label %63
@@ -24602,7 +24602,7 @@ rb_enc_asciicompat.exit.thread.i33:               ; preds = %rb_enc_asciicompat.
   br i1 %.not.i.i43, label %rb_enc_asciicompat.exit.i44, label %rb_enc_asciicompat.exit.thread.i41
 
 rb_enc_asciicompat.exit.i44:                      ; preds = %65
-  %67 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %61) #36
+  %67 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %61) #37
   %.not3.i.i45 = icmp eq i32 %67, 0
   br i1 %.not3.i.i45, label %68, label %rb_enc_asciicompat.exit.thread.i41
 
@@ -24638,13 +24638,13 @@ define dso_local range(i32 0, 2) i32 @rb_parser_reg_fragment_check(ptr nocapture
   br label %reg_fragment_setenc.exit
 
 reg_fragment_setenc.exit:                         ; preds = %3, %5
-  %8 = tail call i64 @rb_str_new_parser_string(ptr noundef %1) #32
-  %9 = tail call i64 @rb_reg_check_preprocess(i64 noundef %8) #32
+  %8 = tail call i64 @rb_str_new_parser_string(ptr noundef %1) #33
+  %9 = tail call i64 @rb_reg_check_preprocess(i64 noundef %8) #33
   %.not = icmp eq i64 %9, 4
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %reg_fragment_setenc.exit
-  %11 = tail call i64 @rb_obj_as_string(i64 noundef %9) #32
+  %11 = tail call i64 @rb_obj_as_string(i64 noundef %9) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.80, i64 noundef %11)
   br label %12
 
@@ -24665,12 +24665,12 @@ define dso_local noundef i32 @rb_reg_named_capture_assign_iter_impl(ptr noundef 
   br i1 %.not, label %78, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call i32 @rb_enc_symname_type(ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1) #32
+  %8 = tail call i32 @rb_enc_symname_type(ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1) #33
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %78
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @rb_intern3(ptr noundef %1, i64 noundef %2, ptr noundef %3) #32
+  %11 = tail call i64 @rb_intern3(ptr noundef %1, i64 noundef %2, ptr noundef %3) #33
   %12 = icmp slt i64 %2, 12
   br i1 %12, label %13, label %reserved_word.exit.thread
 
@@ -24733,7 +24733,7 @@ hash.exit.i:                                      ; preds = %18, %16
 51:                                               ; preds = %46
   %52 = getelementptr i8, ptr %1, i64 1
   %53 = getelementptr i8, ptr %48, i64 1
-  %54 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #36
+  %54 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #37
   %.not.i.not = icmp eq i32 %54, 0
   br i1 %.not.i.not, label %55, label %reserved_word.exit.thread
 
@@ -24744,7 +24744,7 @@ hash.exit.i:                                      ; preds = %18, %16
 
 reserved_word.exit.thread:                        ; preds = %51, %46, %41, %hash.exit.i, %13, %55, %10
   %57 = tail call fastcc ptr @assignable(ptr noundef %0, i64 noundef %11, ptr noundef null, ptr noundef %5)
-  %58 = tail call i64 @rb_id2str(i64 noundef %11) #32
+  %58 = tail call i64 @rb_id2str(i64 noundef %11) #33
   %59 = tail call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %58, ptr noundef %5)
   %60 = tail call fastcc ptr @node_assign(ptr noundef %0, ptr noundef %57, ptr noundef %59, i32 0, ptr noundef %5)
   %61 = load ptr, ptr %4, align 8
@@ -24754,8 +24754,8 @@ reserved_word.exit.thread:                        ; preds = %51, %46, %41, %hash
 62:                                               ; preds = %reserved_word.exit.thread
   %63 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %63, align 8
-  %64 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 109, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %64, i32 noundef 109) #32
+  %64 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 109, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %64, i32 noundef 109) #33
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
   %66 = load i64, ptr %64, align 8
@@ -24891,7 +24891,7 @@ vtable_included.exit43.thread.us.i.i:             ; preds = %28, %.preheader.i38
 dvar_defined.exit:                                ; preds = %.split59.us.i.i
   %38 = getelementptr inbounds i8, ptr %0, i64 360
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %39) #32
+  %40 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %39) #33
   %.not4 = icmp eq i32 %40, 0
   br i1 %.not4, label %dvar_defined.exit.dyna_in_block.exit.thread_crit_edge, label %dvar_defined.exit.thread10
 
@@ -24934,7 +24934,7 @@ dyna_in_block.exit.thread:                        ; preds = %.split.us.i.i, %dva
 50:                                               ; preds = %.critedge.i.i
   %51 = getelementptr inbounds i8, ptr %0, i64 360
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %52) #32
+  %53 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %52) #33
   %54 = icmp ne i32 %53, 0
   %55 = zext i1 %54 to i32
   br label %dvar_defined.exit.thread10
@@ -25007,7 +25007,7 @@ define dso_local i64 @rb_parser_reg_compile(ptr nocapture noundef readonly %0, i
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 212
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i64 @rb_reg_compile(i64 noundef %1, i32 noundef %4, ptr noundef %6, i32 noundef %8) #32
+  %9 = tail call i64 @rb_reg_compile(i64 noundef %1, i32 noundef %4, ptr noundef %6, i32 noundef %8) #33
   ret i64 %9
 }
 
@@ -25045,38 +25045,38 @@ declare i64 @rb_make_temporary_id(i64 noundef) local_unnamed_addr #1
 define hidden void @rb_ruby_parser_mark(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
-  tail call void @rb_gc_mark(i64 noundef %3) #32
+  tail call void @rb_gc_mark(i64 noundef %3) #33
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load i64, ptr %4, align 8
-  tail call void @rb_gc_mark(i64 noundef %5) #32
+  tail call void @rb_gc_mark(i64 noundef %5) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
-  tail call void @rb_gc_mark(i64 noundef %8) #32
+  tail call void @rb_gc_mark(i64 noundef %8) #33
   %9 = getelementptr inbounds i8, ptr %0, i64 248
   %10 = load i64, ptr %9, align 8
-  tail call void @rb_gc_mark(i64 noundef %10) #32
+  tail call void @rb_gc_mark(i64 noundef %10) #33
   %11 = getelementptr inbounds i8, ptr %0, i64 280
   %12 = load i64, ptr %11, align 8
-  tail call void @rb_gc_mark(i64 noundef %12) #32
+  tail call void @rb_gc_mark(i64 noundef %12) #33
   %13 = getelementptr inbounds i8, ptr %0, i64 384
   %14 = load i64, ptr %13, align 8
-  tail call void @rb_gc_mark(i64 noundef %14) #32
+  tail call void @rb_gc_mark(i64 noundef %14) #33
   %15 = getelementptr inbounds i8, ptr %0, i64 376
   %16 = load i64, ptr %15, align 8
-  tail call void @rb_gc_mark(i64 noundef %16) #32
+  tail call void @rb_gc_mark(i64 noundef %16) #33
   %17 = getelementptr inbounds i8, ptr %0, i64 408
   %18 = load i64, ptr %17, align 8
-  tail call void @rb_gc_mark(i64 noundef %18) #32
+  tail call void @rb_gc_mark(i64 noundef %18) #33
   %19 = getelementptr inbounds i8, ptr %0, i64 264
   %20 = load i64, ptr %19, align 8
-  tail call void @rb_gc_mark(i64 noundef %20) #32
+  tail call void @rb_gc_mark(i64 noundef %20) #33
   %21 = getelementptr inbounds i8, ptr %0, i64 272
   %22 = load i64, ptr %21, align 8
-  tail call void @rb_gc_mark(i64 noundef %22) #32
+  tail call void @rb_gc_mark(i64 noundef %22) #33
   %23 = load ptr, ptr %0, align 8
   %24 = ptrtoint ptr %23 to i64
-  tail call void @rb_gc_mark(i64 noundef %24) #32
+  tail call void @rb_gc_mark(i64 noundef %24) #33
   ret void
 }
 
@@ -25090,7 +25090,7 @@ define dso_local void @rb_ruby_parser_free(ptr noundef %0) #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @ruby_xfree(ptr noundef nonnull %3) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %3) #33
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -25118,7 +25118,7 @@ define dso_local void @rb_ruby_parser_free(ptr noundef %0) #0 {
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %8, align 8
-  tail call void @ruby_xfree(ptr noundef nonnull %12) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %12) #33
   %15 = load ptr, ptr %8, align 8
   %.not22 = icmp eq ptr %15, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph27, !llvm.loop !73
@@ -25152,8 +25152,8 @@ define dso_local void @rb_ruby_parser_free(ptr noundef %0) #0 {
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %25, i64 24
   %28 = load ptr, ptr %27, align 8
-  tail call void @ruby_xfree(ptr noundef %28) #32
-  tail call void @ruby_xfree(ptr noundef nonnull %25) #32
+  tail call void @ruby_xfree(ptr noundef %28) #33
+  tail call void @ruby_xfree(ptr noundef nonnull %25) #33
   %.pre.i = load i64, ptr %18, align 8
   br label %rb_parser_string_free.exit.i
 
@@ -25164,7 +25164,7 @@ rb_parser_string_free.exit.i:                     ; preds = %26, %22
   br i1 %31, label %22, label %._crit_edge.i, !llvm.loop !74
 
 ._crit_edge.i:                                    ; preds = %rb_parser_string_free.exit.i, %.lr.ph5.i
-  tail call void @ruby_xfree(ptr noundef nonnull %.0103.i) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %.0103.i) #33
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %string_buffer_free.exit, label %.lr.ph5.i, !llvm.loop !75
 
@@ -25175,11 +25175,11 @@ string_buffer_free.exit:                          ; preds = %._crit_edge.i, %._c
   br i1 %.not23, label %35, label %34
 
 34:                                               ; preds = %string_buffer_free.exit
-  tail call void @rb_st_free_table(ptr noundef nonnull %33) #32
+  tail call void @rb_st_free_table(ptr noundef nonnull %33) #33
   br label %35
 
 35:                                               ; preds = %34, %string_buffer_free.exit
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #33
   ret void
 }
 
@@ -25213,11 +25213,11 @@ define internal fastcc void @local_free(ptr nocapture noundef %0, ptr noundef %1
   br i1 %.not12.i.i, label %vtable_free_gen.exit.i, label %14
 
 14:                                               ; preds = %12
-  tail call void @ruby_xfree(ptr noundef nonnull %13) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %13) #33
   br label %vtable_free_gen.exit.i
 
 vtable_free_gen.exit.i:                           ; preds = %14, %12
-  tail call void @ruby_xfree(ptr noundef nonnull %.09.i) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %.09.i) #33
   %switch.i = icmp ult ptr %8, inttoptr (i64 2 to ptr)
   br i1 %switch.i, label %vtable_chain_free.exit, label %6, !llvm.loop !76
 
@@ -25249,11 +25249,11 @@ vtable_chain_free.exit:                           ; preds = %vtable_free_gen.exi
   br i1 %.not12.i.i11, label %vtable_free_gen.exit.i12, label %25
 
 25:                                               ; preds = %23
-  tail call void @ruby_xfree(ptr noundef nonnull %24) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %24) #33
   br label %vtable_free_gen.exit.i12
 
 vtable_free_gen.exit.i12:                         ; preds = %25, %23
-  tail call void @ruby_xfree(ptr noundef nonnull %.09.i9) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %.09.i9) #33
   %switch.i13 = icmp ult ptr %19, inttoptr (i64 2 to ptr)
   br i1 %switch.i13, label %vtable_chain_free.exit14, label %17, !llvm.loop !76
 
@@ -25286,16 +25286,16 @@ vtable_chain_free.exit14:                         ; preds = %vtable_free_gen.exi
   br i1 %.not12.i.i19, label %vtable_free_gen.exit.i20, label %37
 
 37:                                               ; preds = %35
-  tail call void @ruby_xfree(ptr noundef nonnull %36) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %36) #33
   br label %vtable_free_gen.exit.i20
 
 vtable_free_gen.exit.i20:                         ; preds = %37, %35
-  tail call void @ruby_xfree(ptr noundef nonnull %.09.i17) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %.09.i17) #33
   %switch.i21 = icmp ult ptr %31, inttoptr (i64 2 to ptr)
   br i1 %switch.i21, label %vtable_chain_free.exit22, label %29, !llvm.loop !76
 
 vtable_chain_free.exit22:                         ; preds = %vtable_free_gen.exit.i20, %vtable_chain_free.exit14
-  tail call void @ruby_xfree(ptr noundef nonnull %1) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %1) #33
   ret void
 }
 
@@ -25399,7 +25399,7 @@ hash.exit.i:                                      ; preds = %6, %5
 39:                                               ; preds = %34
   %40 = getelementptr i8, ptr %0, i64 1
   %41 = getelementptr i8, ptr %36, i64 1
-  %42 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %41) #36
+  %42 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %41) #37
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %reserved_word.exit, label %43
 
@@ -25433,7 +25433,7 @@ define hidden void @rb_ruby_parser_set_script_lines(ptr nocapture noundef writeo
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @rb_ary_new() #32
+  %7 = tail call i64 @rb_ary_new() #33
   br label %14
 
 8:                                                ; preds = %4
@@ -25449,11 +25449,11 @@ define hidden void @rb_ruby_parser_set_script_lines(ptr nocapture noundef writeo
   br i1 %.not.i, label %Check_Type.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %10, %8
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 7) #33
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 7) #34
   unreachable
 
 Check_Type.exit:                                  ; preds = %10
-  tail call void @rb_ary_modify(i64 noundef %1) #32
+  tail call void @rb_ary_modify(i64 noundef %1) #33
   br label %14
 
 14:                                               ; preds = %2, %6, %Check_Type.exit
@@ -25482,7 +25482,7 @@ define hidden void @rb_ruby_parser_keep_tokens(ptr nocapture noundef %0) local_u
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 65536
   store i32 %4, ptr %2, align 8
-  %5 = tail call i64 @rb_ary_new() #32
+  %5 = tail call i64 @rb_ary_new() #33
   %6 = getelementptr inbounds i8, ptr %0, i64 408
   store i64 %5, ptr %6, align 8
   ret void
@@ -25494,9 +25494,9 @@ define hidden ptr @rb_parser_compile_file_path(i64 noundef %0, i64 noundef %1, i
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   store i64 %0, ptr %6, align 8
-  %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   store ptr %6, ptr %7, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #32, !srcloc !78
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #33, !srcloc !78
   %9 = load ptr, ptr %7, align 8
   %10 = load volatile i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
@@ -25516,10 +25516,10 @@ define hidden ptr @rb_parser_compile_file_path(i64 noundef %0, i64 noundef %1, i
   br label %21
 
 17:                                               ; preds = %4
-  %18 = call i64 @rb_str_to_interned_str(i64 noundef %1) #32
+  %18 = call i64 @rb_str_to_interned_str(i64 noundef %1) #33
   %19 = getelementptr inbounds i8, ptr %8, i64 224
   store i64 %18, ptr %19, align 8
-  %20 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #32
+  %20 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #33
   br label %21
 
 21:                                               ; preds = %17, %15
@@ -25531,11 +25531,11 @@ define hidden ptr @rb_parser_compile_file_path(i64 noundef %0, i64 noundef %1, i
   store i32 %23, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %8, i64 184
   store ptr null, ptr %25, align 8
-  %26 = call ptr @rb_ast_new() #32
+  %26 = call ptr @rb_ast_new() #33
   %27 = getelementptr inbounds i8, ptr %8, i64 312
   store ptr %26, ptr %27, align 8
   %28 = ptrtoint ptr %8 to i64
-  %29 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %28) #32
+  %29 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %28) #33
   store ptr null, ptr %27, align 8
   %30 = load ptr, ptr %25, align 8
   %.not12.i.i = icmp eq ptr %30, null
@@ -25560,9 +25560,9 @@ define hidden ptr @rb_parser_compile_generic(i64 noundef %0, ptr noundef %1, i64
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   store i64 %0, ptr %7, align 8
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %9 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   store ptr %7, ptr %8, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #32, !srcloc !79
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #33, !srcloc !79
   %10 = load ptr, ptr %8, align 8
   %11 = load volatile i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
@@ -25584,10 +25584,10 @@ define hidden ptr @rb_parser_compile_generic(i64 noundef %0, ptr noundef %1, i64
   br label %23
 
 19:                                               ; preds = %5
-  %20 = call i64 @rb_str_to_interned_str(i64 noundef %2) #32
+  %20 = call i64 @rb_str_to_interned_str(i64 noundef %2) #33
   %21 = getelementptr inbounds i8, ptr %9, i64 224
   store i64 %20, ptr %21, align 8
-  %22 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #32
+  %22 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #33
   br label %23
 
 23:                                               ; preds = %19, %17
@@ -25599,11 +25599,11 @@ define hidden ptr @rb_parser_compile_generic(i64 noundef %0, ptr noundef %1, i64
   store i32 %25, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %9, i64 184
   store ptr null, ptr %27, align 8
-  %28 = call ptr @rb_ast_new() #32
+  %28 = call ptr @rb_ast_new() #33
   %29 = getelementptr inbounds i8, ptr %9, i64 312
   store ptr %28, ptr %29, align 8
   %30 = ptrtoint ptr %9 to i64
-  %31 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %30) #32
+  %31 = call i64 @rb_suppress_tracing(ptr noundef nonnull @yycompile0, i64 noundef %30) #33
   store ptr null, ptr %29, align 8
   %32 = load ptr, ptr %27, align 8
   %.not12.i.i = icmp eq ptr %32, null
@@ -25625,12 +25625,12 @@ define hidden ptr @rb_parser_compile_string(i64 noundef %0, ptr noundef %1, i64 
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   store i64 %0, ptr %5, align 8
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   store ptr %5, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #32, !srcloc !80
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #33, !srcloc !80
   %8 = load ptr, ptr %6, align 8
   %9 = load volatile i64, ptr %8, align 8
-  %10 = call i64 @rb_filesystem_str_new_cstr(ptr noundef %1) #32
+  %10 = call i64 @rb_filesystem_str_new_cstr(ptr noundef %1) #33
   %11 = call ptr @rb_ruby_parser_compile_string_path(ptr noundef %7, i64 noundef %10, i64 noundef %2, i32 noundef %3)
   ret ptr %11
 }
@@ -25640,9 +25640,9 @@ define dso_local ptr @rb_parser_compile_string_path(i64 noundef %0, i64 noundef 
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   store i64 %0, ptr %5, align 8
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   store ptr %5, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #32, !srcloc !81
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #33, !srcloc !81
   %8 = load ptr, ptr %6, align 8
   %9 = load volatile i64, ptr %8, align 8
   %10 = call ptr @rb_ruby_parser_compile_string_path(ptr noundef %7, i64 noundef %1, i64 noundef %2, i32 noundef %3)
@@ -25651,10 +25651,10 @@ define dso_local ptr @rb_parser_compile_string_path(i64 noundef %0, i64 noundef 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_parser_encoding(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %3 = getelementptr inbounds i8, ptr %2, i64 232
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i64 @rb_enc_from_encoding(ptr noundef %4) #32
+  %5 = tail call i64 @rb_enc_from_encoding(ptr noundef %4) #33
   ret i64 %5
 }
 
@@ -25662,13 +25662,13 @@ define hidden i64 @rb_parser_encoding(i64 noundef %0) local_unnamed_addr #0 {
 define dso_local i64 @rb_ruby_parser_encoding(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @rb_enc_from_encoding(ptr noundef %3) #32
+  %4 = tail call i64 @rb_enc_from_encoding(ptr noundef %3) #33
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i64 0, 21) i64 @rb_parser_end_seen_p(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %3 = getelementptr inbounds i8, ptr %2, i64 368
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
@@ -25688,7 +25688,7 @@ define dso_local range(i32 0, 2) i32 @rb_ruby_parser_end_seen_p(ptr nocapture no
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_parser_error_tolerant(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %3 = getelementptr inbounds i8, ptr %2, i64 368
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 32768
@@ -25698,7 +25698,7 @@ define hidden void @rb_parser_error_tolerant(i64 noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_parser_set_script_lines(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %4 = and i64 %1, -5
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %rb_ruby_parser_set_script_lines.exit, label %5
@@ -25708,7 +25708,7 @@ define hidden void @rb_parser_set_script_lines(i64 noundef %0, i64 noundef %1) l
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @rb_ary_new() #32
+  %8 = tail call i64 @rb_ary_new() #33
   br label %rb_ruby_parser_set_script_lines.exit
 
 9:                                                ; preds = %5
@@ -25724,11 +25724,11 @@ define hidden void @rb_parser_set_script_lines(i64 noundef %0, i64 noundef %1) l
   br i1 %.not.i.i, label %Check_Type.exit.i, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %11, %9
-  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 7) #33
+  tail call void @rb_unexpected_type(i64 noundef %1, i32 noundef 7) #34
   unreachable
 
 Check_Type.exit.i:                                ; preds = %11
-  tail call void @rb_ary_modify(i64 noundef %1) #32
+  tail call void @rb_ary_modify(i64 noundef %1) #33
   br label %rb_ruby_parser_set_script_lines.exit
 
 rb_ruby_parser_set_script_lines.exit:             ; preds = %2, %7, %Check_Type.exit.i
@@ -25740,12 +25740,12 @@ rb_ruby_parser_set_script_lines.exit:             ; preds = %2, %7, %Check_Type.
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_parser_keep_tokens(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %3 = getelementptr inbounds i8, ptr %2, i64 368
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 65536
   store i32 %5, ptr %3, align 8
-  %6 = tail call i64 @rb_ary_new() #32
+  %6 = tail call i64 @rb_ary_new() #33
   %7 = getelementptr inbounds i8, ptr %2, i64 408
   store i64 %6, ptr %7, align 8
   ret void
@@ -25753,7 +25753,7 @@ define hidden void @rb_parser_keep_tokens(i64 noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_parser_new() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef 0, i64 noundef 416, ptr noundef nonnull @parser_data_type) #32
+  %1 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef 0, i64 noundef 416, ptr noundef nonnull @parser_data_type) #33
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
@@ -25777,7 +25777,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %0, %7
   %14 = getelementptr inbounds i8, ptr %9, i64 128
   store i32 -1, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %9, i64 48
-  %16 = tail call noalias nonnull dereferenceable(152) ptr @ruby_xmalloc(i64 noundef 152) #35
+  %16 = tail call noalias nonnull dereferenceable(152) ptr @ruby_xmalloc(i64 noundef 152) #36
   %17 = getelementptr inbounds i8, ptr %9, i64 56
   store ptr %16, ptr %17, align 8
   store ptr %16, ptr %15, align 8
@@ -25803,10 +25803,10 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %0, %7
   store i64 4, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %9, i64 264
   store i64 4, ptr %28, align 8
-  %29 = tail call i64 @rb_ractor_stdout() #32
+  %29 = tail call i64 @rb_ractor_stdout() #33
   %30 = getelementptr inbounds i8, ptr %9, i64 272
   store i64 %29, ptr %30, align 8
-  %31 = tail call nonnull ptr @rb_utf8_encoding() #32
+  %31 = tail call nonnull ptr @rb_utf8_encoding() #33
   %32 = getelementptr inbounds i8, ptr %9, i64 232
   store ptr %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %9, i64 256
@@ -25818,7 +25818,7 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_parser_set_context(i64 noundef returned %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %.not.i = icmp eq i32 %2, 0
   %5 = select i1 %.not.i, i64 4, i64 0
   %6 = getelementptr inbounds i8, ptr %4, i64 376
@@ -25830,7 +25830,7 @@ define dso_local noundef i64 @rb_parser_set_context(i64 noundef returned %0, ptr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_parser_set_options(i64 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 368
   %8 = load i32, ptr %7, align 8
   %9 = shl i32 %1, 11
@@ -25852,7 +25852,7 @@ define hidden void @rb_parser_set_options(i64 noundef %0, i32 noundef %1, i32 no
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef i64 @rb_parser_set_yydebug(i64 noundef %0, i64 noundef returned %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #32
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @parser_data_type) #33
   %4 = and i64 %1, -5
   %.not = icmp eq i64 %4, 0
   %5 = getelementptr inbounds i8, ptr %3, i64 368
@@ -25888,8 +25888,8 @@ define dso_local nonnull ptr @rb_parser_calloc(ptr nocapture noundef %0, i64 nou
   %4 = mul i64 %2, %1
   %5 = lshr i64 %4, 3
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %6, i64 noundef 0) #32
-  %8 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %1, i64 noundef %2) #34
+  %7 = tail call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %6, i64 noundef 0) #33
+  %8 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %1, i64 noundef %2) #35
   store ptr %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %8, ptr %9, align 8
@@ -25919,7 +25919,7 @@ define dso_local nonnull ptr @rb_parser_realloc(ptr nocapture noundef %0, ptr no
 
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds i8, ptr %.022, i64 16
-  %10 = tail call nonnull ptr @ruby_xrealloc(ptr noundef nonnull %1, i64 noundef %2) #40
+  %10 = tail call nonnull ptr @ruby_xrealloc(ptr noundef nonnull %1, i64 noundef %2) #41
   store ptr %10, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %.022, i64 32
   %12 = load i64, ptr %11, align 8
@@ -25933,8 +25933,8 @@ define dso_local nonnull ptr @rb_parser_realloc(ptr nocapture noundef %0, ptr no
   br i1 %.not27, label %.loopexit, label %.preheader, !llvm.loop !82
 
 .loopexit:                                        ; preds = %13, %3
-  %16 = tail call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %.pre, i64 noundef 0) #32
-  %17 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %1, i64 noundef %2) #40
+  %16 = tail call ptr @rb_imemo_tmpbuf_parser_heap(ptr noundef null, ptr noundef %.pre, i64 noundef 0) #33
+  %17 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %1, i64 noundef %2) #41
   store ptr %16, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %17, ptr %18, align 8
@@ -25957,8 +25957,8 @@ declare nonnull ptr @ruby_xrealloc(ptr noundef, i64 noundef) local_unnamed_addr 
 
 declare i64 @rb_io_write(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_yytnamerr(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
+; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+define dso_local i64 @rb_yytnamerr(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #17 {
   %4 = load i8, ptr %2, align 1
   %5 = icmp eq i8 %4, 34
   br i1 %5, label %.preheader, label %.loopexit
@@ -26110,11 +26110,11 @@ ruby_nonempty_memcpy.exit74:                      ; preds = %27
   br i1 %.not67, label %53, label %55
 
 53:                                               ; preds = %.loopexit
-  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
+  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #37
   br label %60
 
 55:                                               ; preds = %.loopexit
-  %56 = tail call ptr @stpcpy(ptr noundef nonnull %1, ptr noundef nonnull %2) #32
+  %56 = tail call ptr @stpcpy(ptr noundef nonnull %1, ptr noundef nonnull %2) #33
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %1 to i64
   %59 = sub i64 %57, %58
@@ -26129,10 +26129,10 @@ ruby_nonempty_memcpy.exit74:                      ; preds = %27
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
+declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #18
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
@@ -26415,337 +26415,337 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
 
 5:                                                ; preds = %4
   %6 = load i64, ptr %1, align 8
-  %7 = tail call i64 @rb_id2str(i64 noundef %6) #32
+  %7 = tail call i64 @rb_id2str(i64 noundef %6) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %7)
   br label %2190
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %1, align 8
-  %10 = tail call i64 @rb_id2str(i64 noundef %9) #32
+  %10 = tail call i64 @rb_id2str(i64 noundef %9) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %10)
   br label %2190
 
 11:                                               ; preds = %4
   %12 = load i64, ptr %1, align 8
-  %13 = tail call i64 @rb_id2str(i64 noundef %12) #32
+  %13 = tail call i64 @rb_id2str(i64 noundef %12) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %13)
   br label %2190
 
 14:                                               ; preds = %4
   %15 = load i64, ptr %1, align 8
-  %16 = tail call i64 @rb_id2str(i64 noundef %15) #32
+  %16 = tail call i64 @rb_id2str(i64 noundef %15) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %16)
   br label %2190
 
 17:                                               ; preds = %4
   %18 = load i64, ptr %1, align 8
-  %19 = tail call i64 @rb_id2str(i64 noundef %18) #32
+  %19 = tail call i64 @rb_id2str(i64 noundef %18) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %19)
   br label %2190
 
 20:                                               ; preds = %4
   %21 = load i64, ptr %1, align 8
-  %22 = tail call i64 @rb_id2str(i64 noundef %21) #32
+  %22 = tail call i64 @rb_id2str(i64 noundef %21) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %22)
   br label %2190
 
 23:                                               ; preds = %4
   %24 = load i64, ptr %1, align 8
-  %25 = tail call i64 @rb_id2str(i64 noundef %24) #32
+  %25 = tail call i64 @rb_id2str(i64 noundef %24) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %25)
   br label %2190
 
 26:                                               ; preds = %4
   %27 = load i64, ptr %1, align 8
-  %28 = tail call i64 @rb_id2str(i64 noundef %27) #32
+  %28 = tail call i64 @rb_id2str(i64 noundef %27) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %28)
   br label %2190
 
 29:                                               ; preds = %4
   %30 = load i64, ptr %1, align 8
-  %31 = tail call i64 @rb_id2str(i64 noundef %30) #32
+  %31 = tail call i64 @rb_id2str(i64 noundef %30) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %31)
   br label %2190
 
 32:                                               ; preds = %4
   %33 = load i64, ptr %1, align 8
-  %34 = tail call i64 @rb_id2str(i64 noundef %33) #32
+  %34 = tail call i64 @rb_id2str(i64 noundef %33) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %34)
   br label %2190
 
 35:                                               ; preds = %4
   %36 = load i64, ptr %1, align 8
-  %37 = tail call i64 @rb_id2str(i64 noundef %36) #32
+  %37 = tail call i64 @rb_id2str(i64 noundef %36) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %37)
   br label %2190
 
 38:                                               ; preds = %4
   %39 = load i64, ptr %1, align 8
-  %40 = tail call i64 @rb_id2str(i64 noundef %39) #32
+  %40 = tail call i64 @rb_id2str(i64 noundef %39) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %40)
   br label %2190
 
 41:                                               ; preds = %4
   %42 = load i64, ptr %1, align 8
-  %43 = tail call i64 @rb_id2str(i64 noundef %42) #32
+  %43 = tail call i64 @rb_id2str(i64 noundef %42) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %43)
   br label %2190
 
 44:                                               ; preds = %4
   %45 = load i64, ptr %1, align 8
-  %46 = tail call i64 @rb_id2str(i64 noundef %45) #32
+  %46 = tail call i64 @rb_id2str(i64 noundef %45) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %46)
   br label %2190
 
 47:                                               ; preds = %4
   %48 = load i64, ptr %1, align 8
-  %49 = tail call i64 @rb_id2str(i64 noundef %48) #32
+  %49 = tail call i64 @rb_id2str(i64 noundef %48) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %49)
   br label %2190
 
 50:                                               ; preds = %4
   %51 = load i64, ptr %1, align 8
-  %52 = tail call i64 @rb_id2str(i64 noundef %51) #32
+  %52 = tail call i64 @rb_id2str(i64 noundef %51) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %52)
   br label %2190
 
 53:                                               ; preds = %4
   %54 = load i64, ptr %1, align 8
-  %55 = tail call i64 @rb_id2str(i64 noundef %54) #32
+  %55 = tail call i64 @rb_id2str(i64 noundef %54) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %55)
   br label %2190
 
 56:                                               ; preds = %4
   %57 = load i64, ptr %1, align 8
-  %58 = tail call i64 @rb_id2str(i64 noundef %57) #32
+  %58 = tail call i64 @rb_id2str(i64 noundef %57) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %58)
   br label %2190
 
 59:                                               ; preds = %4
   %60 = load i64, ptr %1, align 8
-  %61 = tail call i64 @rb_id2str(i64 noundef %60) #32
+  %61 = tail call i64 @rb_id2str(i64 noundef %60) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %61)
   br label %2190
 
 62:                                               ; preds = %4
   %63 = load i64, ptr %1, align 8
-  %64 = tail call i64 @rb_id2str(i64 noundef %63) #32
+  %64 = tail call i64 @rb_id2str(i64 noundef %63) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %64)
   br label %2190
 
 65:                                               ; preds = %4
   %66 = load i64, ptr %1, align 8
-  %67 = tail call i64 @rb_id2str(i64 noundef %66) #32
+  %67 = tail call i64 @rb_id2str(i64 noundef %66) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %67)
   br label %2190
 
 68:                                               ; preds = %4
   %69 = load i64, ptr %1, align 8
-  %70 = tail call i64 @rb_id2str(i64 noundef %69) #32
+  %70 = tail call i64 @rb_id2str(i64 noundef %69) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %70)
   br label %2190
 
 71:                                               ; preds = %4
   %72 = load i64, ptr %1, align 8
-  %73 = tail call i64 @rb_id2str(i64 noundef %72) #32
+  %73 = tail call i64 @rb_id2str(i64 noundef %72) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %73)
   br label %2190
 
 74:                                               ; preds = %4
   %75 = load i64, ptr %1, align 8
-  %76 = tail call i64 @rb_id2str(i64 noundef %75) #32
+  %76 = tail call i64 @rb_id2str(i64 noundef %75) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %76)
   br label %2190
 
 77:                                               ; preds = %4
   %78 = load i64, ptr %1, align 8
-  %79 = tail call i64 @rb_id2str(i64 noundef %78) #32
+  %79 = tail call i64 @rb_id2str(i64 noundef %78) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %79)
   br label %2190
 
 80:                                               ; preds = %4
   %81 = load i64, ptr %1, align 8
-  %82 = tail call i64 @rb_id2str(i64 noundef %81) #32
+  %82 = tail call i64 @rb_id2str(i64 noundef %81) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %82)
   br label %2190
 
 83:                                               ; preds = %4
   %84 = load i64, ptr %1, align 8
-  %85 = tail call i64 @rb_id2str(i64 noundef %84) #32
+  %85 = tail call i64 @rb_id2str(i64 noundef %84) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %85)
   br label %2190
 
 86:                                               ; preds = %4
   %87 = load i64, ptr %1, align 8
-  %88 = tail call i64 @rb_id2str(i64 noundef %87) #32
+  %88 = tail call i64 @rb_id2str(i64 noundef %87) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %88)
   br label %2190
 
 89:                                               ; preds = %4
   %90 = load i64, ptr %1, align 8
-  %91 = tail call i64 @rb_id2str(i64 noundef %90) #32
+  %91 = tail call i64 @rb_id2str(i64 noundef %90) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %91)
   br label %2190
 
 92:                                               ; preds = %4
   %93 = load i64, ptr %1, align 8
-  %94 = tail call i64 @rb_id2str(i64 noundef %93) #32
+  %94 = tail call i64 @rb_id2str(i64 noundef %93) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %94)
   br label %2190
 
 95:                                               ; preds = %4
   %96 = load i64, ptr %1, align 8
-  %97 = tail call i64 @rb_id2str(i64 noundef %96) #32
+  %97 = tail call i64 @rb_id2str(i64 noundef %96) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %97)
   br label %2190
 
 98:                                               ; preds = %4
   %99 = load i64, ptr %1, align 8
-  %100 = tail call i64 @rb_id2str(i64 noundef %99) #32
+  %100 = tail call i64 @rb_id2str(i64 noundef %99) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %100)
   br label %2190
 
 101:                                              ; preds = %4
   %102 = load i64, ptr %1, align 8
-  %103 = tail call i64 @rb_id2str(i64 noundef %102) #32
+  %103 = tail call i64 @rb_id2str(i64 noundef %102) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %103)
   br label %2190
 
 104:                                              ; preds = %4
   %105 = load i64, ptr %1, align 8
-  %106 = tail call i64 @rb_id2str(i64 noundef %105) #32
+  %106 = tail call i64 @rb_id2str(i64 noundef %105) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %106)
   br label %2190
 
 107:                                              ; preds = %4
   %108 = load i64, ptr %1, align 8
-  %109 = tail call i64 @rb_id2str(i64 noundef %108) #32
+  %109 = tail call i64 @rb_id2str(i64 noundef %108) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %109)
   br label %2190
 
 110:                                              ; preds = %4
   %111 = load i64, ptr %1, align 8
-  %112 = tail call i64 @rb_id2str(i64 noundef %111) #32
+  %112 = tail call i64 @rb_id2str(i64 noundef %111) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %112)
   br label %2190
 
 113:                                              ; preds = %4
   %114 = load i64, ptr %1, align 8
-  %115 = tail call i64 @rb_id2str(i64 noundef %114) #32
+  %115 = tail call i64 @rb_id2str(i64 noundef %114) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %115)
   br label %2190
 
 116:                                              ; preds = %4
   %117 = load i64, ptr %1, align 8
-  %118 = tail call i64 @rb_id2str(i64 noundef %117) #32
+  %118 = tail call i64 @rb_id2str(i64 noundef %117) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %118)
   br label %2190
 
 119:                                              ; preds = %4
   %120 = load i64, ptr %1, align 8
-  %121 = tail call i64 @rb_id2str(i64 noundef %120) #32
+  %121 = tail call i64 @rb_id2str(i64 noundef %120) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %121)
   br label %2190
 
 122:                                              ; preds = %4
   %123 = load i64, ptr %1, align 8
-  %124 = tail call i64 @rb_id2str(i64 noundef %123) #32
+  %124 = tail call i64 @rb_id2str(i64 noundef %123) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %124)
   br label %2190
 
 125:                                              ; preds = %4
   %126 = load i64, ptr %1, align 8
-  %127 = tail call i64 @rb_id2str(i64 noundef %126) #32
+  %127 = tail call i64 @rb_id2str(i64 noundef %126) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %127)
   br label %2190
 
 128:                                              ; preds = %4
   %129 = load i64, ptr %1, align 8
-  %130 = tail call i64 @rb_id2str(i64 noundef %129) #32
+  %130 = tail call i64 @rb_id2str(i64 noundef %129) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %130)
   br label %2190
 
 131:                                              ; preds = %4
   %132 = load i64, ptr %1, align 8
-  %133 = tail call i64 @rb_id2str(i64 noundef %132) #32
+  %133 = tail call i64 @rb_id2str(i64 noundef %132) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %133)
   br label %2190
 
 134:                                              ; preds = %4
   %135 = load i64, ptr %1, align 8
-  %136 = tail call i64 @rb_id2str(i64 noundef %135) #32
+  %136 = tail call i64 @rb_id2str(i64 noundef %135) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %136)
   br label %2190
 
 137:                                              ; preds = %4
   %138 = load i64, ptr %1, align 8
-  %139 = tail call i64 @rb_id2str(i64 noundef %138) #32
+  %139 = tail call i64 @rb_id2str(i64 noundef %138) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %139)
   br label %2190
 
 140:                                              ; preds = %4
   %141 = load i64, ptr %1, align 8
-  %142 = tail call i64 @rb_id2str(i64 noundef %141) #32
+  %142 = tail call i64 @rb_id2str(i64 noundef %141) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %142)
   br label %2190
 
 143:                                              ; preds = %4
   %144 = load i64, ptr %1, align 8
-  %145 = tail call i64 @rb_id2str(i64 noundef %144) #32
+  %145 = tail call i64 @rb_id2str(i64 noundef %144) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %145)
   br label %2190
 
 146:                                              ; preds = %4
   %147 = load i64, ptr %1, align 8
-  %148 = tail call i64 @rb_id2str(i64 noundef %147) #32
+  %148 = tail call i64 @rb_id2str(i64 noundef %147) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %148)
   br label %2190
 
 149:                                              ; preds = %4
   %150 = load i64, ptr %1, align 8
-  %151 = tail call i64 @rb_id2str(i64 noundef %150) #32
+  %151 = tail call i64 @rb_id2str(i64 noundef %150) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %151)
   br label %2190
 
 152:                                              ; preds = %4
   %153 = load i64, ptr %1, align 8
-  %154 = tail call i64 @rb_id2str(i64 noundef %153) #32
+  %154 = tail call i64 @rb_id2str(i64 noundef %153) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %154)
   br label %2190
 
 155:                                              ; preds = %4
   %156 = load i64, ptr %1, align 8
-  %157 = tail call i64 @rb_id2str(i64 noundef %156) #32
+  %157 = tail call i64 @rb_id2str(i64 noundef %156) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %157)
   br label %2190
 
 158:                                              ; preds = %4
   %159 = load i64, ptr %1, align 8
-  %160 = tail call i64 @rb_id2str(i64 noundef %159) #32
+  %160 = tail call i64 @rb_id2str(i64 noundef %159) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %160)
   br label %2190
 
 161:                                              ; preds = %4
   %162 = load i64, ptr %1, align 8
-  %163 = tail call i64 @rb_id2str(i64 noundef %162) #32
+  %163 = tail call i64 @rb_id2str(i64 noundef %162) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %163)
   br label %2190
 
 164:                                              ; preds = %4
   %165 = load i64, ptr %1, align 8
-  %166 = tail call i64 @rb_id2str(i64 noundef %165) #32
+  %166 = tail call i64 @rb_id2str(i64 noundef %165) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %166)
   br label %2190
 
 167:                                              ; preds = %4
   %168 = load i64, ptr %1, align 8
-  %169 = tail call i64 @rb_id2str(i64 noundef %168) #32
+  %169 = tail call i64 @rb_id2str(i64 noundef %168) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %169)
   br label %2190
 
 170:                                              ; preds = %4
   %171 = load i64, ptr %1, align 8
-  %172 = tail call i64 @rb_id2str(i64 noundef %171) #32
+  %172 = tail call i64 @rb_id2str(i64 noundef %171) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %172)
   br label %2190
 
@@ -26764,22 +26764,22 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
   ]
 
 179:                                              ; preds = %173
-  %180 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %174) #32
+  %180 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %174) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %180)
   br label %2190
 
 181:                                              ; preds = %173
-  %182 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %174) #32
+  %182 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %174) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %182)
   br label %2190
 
 183:                                              ; preds = %173
-  %184 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %174) #32
+  %184 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %174) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %184)
   br label %2190
 
 185:                                              ; preds = %173
-  %186 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %174) #32
+  %186 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %174) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %186)
   br label %2190
 
@@ -26804,22 +26804,22 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
   ]
 
 196:                                              ; preds = %190
-  %197 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %191) #32
+  %197 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %191) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %197)
   br label %2190
 
 198:                                              ; preds = %190
-  %199 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %191) #32
+  %199 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %191) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %199)
   br label %2190
 
 200:                                              ; preds = %190
-  %201 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %191) #32
+  %201 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %191) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %201)
   br label %2190
 
 202:                                              ; preds = %190
-  %203 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %191) #32
+  %203 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %191) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %203)
   br label %2190
 
@@ -26844,22 +26844,22 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
   ]
 
 213:                                              ; preds = %207
-  %214 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %208) #32
+  %214 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %208) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %214)
   br label %2190
 
 215:                                              ; preds = %207
-  %216 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %208) #32
+  %216 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %208) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %216)
   br label %2190
 
 217:                                              ; preds = %207
-  %218 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %208) #32
+  %218 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %208) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %218)
   br label %2190
 
 219:                                              ; preds = %207
-  %220 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %208) #32
+  %220 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %208) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %220)
   br label %2190
 
@@ -26884,22 +26884,22 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
   ]
 
 230:                                              ; preds = %224
-  %231 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %225) #32
+  %231 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %225) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %231)
   br label %2190
 
 232:                                              ; preds = %224
-  %233 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %225) #32
+  %233 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %225) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %233)
   br label %2190
 
 234:                                              ; preds = %224
-  %235 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %225) #32
+  %235 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %225) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %235)
   br label %2190
 
 236:                                              ; preds = %224
-  %237 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %225) #32
+  %237 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %225) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %237)
   br label %2190
 
@@ -26924,22 +26924,22 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
   ]
 
 247:                                              ; preds = %241
-  %248 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %242) #32
+  %248 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %242) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %248)
   br label %2190
 
 249:                                              ; preds = %241
-  %250 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %242) #32
+  %250 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %242) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %250)
   br label %2190
 
 251:                                              ; preds = %241
-  %252 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %242) #32
+  %252 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %242) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %252)
   br label %2190
 
 253:                                              ; preds = %241
-  %254 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %242) #32
+  %254 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %242) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %254)
   br label %2190
 
@@ -26979,22 +26979,22 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
   ]
 
 273:                                              ; preds = %267
-  %274 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %268) #32
+  %274 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %268) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %274)
   br label %2190
 
 275:                                              ; preds = %267
-  %276 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %268) #32
+  %276 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %268) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %276)
   br label %2190
 
 277:                                              ; preds = %267
-  %278 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %268) #32
+  %278 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %268) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %278)
   br label %2190
 
 279:                                              ; preds = %267
-  %280 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %268) #32
+  %280 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %268) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.530, i64 noundef %280)
   br label %2190
 
@@ -27006,55 +27006,55 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
 
 284:                                              ; preds = %4
   %285 = load i64, ptr %1, align 8
-  %286 = tail call i64 @rb_id2str(i64 noundef %285) #32
+  %286 = tail call i64 @rb_id2str(i64 noundef %285) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %286)
   br label %2190
 
 287:                                              ; preds = %4
   %288 = load i64, ptr %1, align 8
-  %289 = tail call i64 @rb_id2str(i64 noundef %288) #32
+  %289 = tail call i64 @rb_id2str(i64 noundef %288) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %289)
   br label %2190
 
 290:                                              ; preds = %4
   %291 = load i64, ptr %1, align 8
-  %292 = tail call i64 @rb_id2str(i64 noundef %291) #32
+  %292 = tail call i64 @rb_id2str(i64 noundef %291) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %292)
   br label %2190
 
 293:                                              ; preds = %4
   %294 = load i64, ptr %1, align 8
-  %295 = tail call i64 @rb_id2str(i64 noundef %294) #32
+  %295 = tail call i64 @rb_id2str(i64 noundef %294) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %295)
   br label %2190
 
 296:                                              ; preds = %4
   %297 = load i64, ptr %1, align 8
-  %298 = tail call i64 @rb_id2str(i64 noundef %297) #32
+  %298 = tail call i64 @rb_id2str(i64 noundef %297) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %298)
   br label %2190
 
 299:                                              ; preds = %4
   %300 = load i64, ptr %1, align 8
-  %301 = tail call i64 @rb_id2str(i64 noundef %300) #32
+  %301 = tail call i64 @rb_id2str(i64 noundef %300) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %301)
   br label %2190
 
 302:                                              ; preds = %4
   %303 = load i64, ptr %1, align 8
-  %304 = tail call i64 @rb_id2str(i64 noundef %303) #32
+  %304 = tail call i64 @rb_id2str(i64 noundef %303) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %304)
   br label %2190
 
 305:                                              ; preds = %4
   %306 = load i64, ptr %1, align 8
-  %307 = tail call i64 @rb_id2str(i64 noundef %306) #32
+  %307 = tail call i64 @rb_id2str(i64 noundef %306) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %307)
   br label %2190
 
 308:                                              ; preds = %4
   %309 = load i64, ptr %1, align 8
-  %310 = tail call i64 @rb_id2str(i64 noundef %309) #32
+  %310 = tail call i64 @rb_id2str(i64 noundef %309) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %310)
   br label %2190
 
@@ -27084,7 +27084,7 @@ define internal fastcc void @yy_symbol_value_print(i32 noundef %0, ptr noundef r
   br label %parser_node_name.exit
 
 320:                                              ; preds = %314
-  %321 = tail call ptr @ruby_node_name(i32 noundef %318) #32
+  %321 = tail call ptr @ruby_node_name(i32 noundef %318) #33
   br label %parser_node_name.exit
 
 parser_node_name.exit:                            ; preds = %314, %319, %320
@@ -27118,7 +27118,7 @@ parser_node_name.exit:                            ; preds = %314, %319, %320
   br label %parser_node_name.exit1562
 
 331:                                              ; preds = %325
-  %332 = tail call ptr @ruby_node_name(i32 noundef %329) #32
+  %332 = tail call ptr @ruby_node_name(i32 noundef %329) #33
   br label %parser_node_name.exit1562
 
 parser_node_name.exit1562:                        ; preds = %325, %330, %331
@@ -27152,7 +27152,7 @@ parser_node_name.exit1562:                        ; preds = %325, %330, %331
   br label %parser_node_name.exit1564
 
 342:                                              ; preds = %336
-  %343 = tail call ptr @ruby_node_name(i32 noundef %340) #32
+  %343 = tail call ptr @ruby_node_name(i32 noundef %340) #33
   br label %parser_node_name.exit1564
 
 parser_node_name.exit1564:                        ; preds = %336, %341, %342
@@ -27186,7 +27186,7 @@ parser_node_name.exit1564:                        ; preds = %336, %341, %342
   br label %parser_node_name.exit1566
 
 353:                                              ; preds = %347
-  %354 = tail call ptr @ruby_node_name(i32 noundef %351) #32
+  %354 = tail call ptr @ruby_node_name(i32 noundef %351) #33
   br label %parser_node_name.exit1566
 
 parser_node_name.exit1566:                        ; preds = %347, %352, %353
@@ -27220,7 +27220,7 @@ parser_node_name.exit1566:                        ; preds = %347, %352, %353
   br label %parser_node_name.exit1568
 
 364:                                              ; preds = %358
-  %365 = tail call ptr @ruby_node_name(i32 noundef %362) #32
+  %365 = tail call ptr @ruby_node_name(i32 noundef %362) #33
   br label %parser_node_name.exit1568
 
 parser_node_name.exit1568:                        ; preds = %358, %363, %364
@@ -27254,7 +27254,7 @@ parser_node_name.exit1568:                        ; preds = %358, %363, %364
   br label %parser_node_name.exit1570
 
 375:                                              ; preds = %369
-  %376 = tail call ptr @ruby_node_name(i32 noundef %373) #32
+  %376 = tail call ptr @ruby_node_name(i32 noundef %373) #33
   br label %parser_node_name.exit1570
 
 parser_node_name.exit1570:                        ; preds = %369, %374, %375
@@ -27288,7 +27288,7 @@ parser_node_name.exit1570:                        ; preds = %369, %374, %375
   br label %parser_node_name.exit1572
 
 386:                                              ; preds = %380
-  %387 = tail call ptr @ruby_node_name(i32 noundef %384) #32
+  %387 = tail call ptr @ruby_node_name(i32 noundef %384) #33
   br label %parser_node_name.exit1572
 
 parser_node_name.exit1572:                        ; preds = %380, %385, %386
@@ -27322,7 +27322,7 @@ parser_node_name.exit1572:                        ; preds = %380, %385, %386
   br label %parser_node_name.exit1574
 
 397:                                              ; preds = %391
-  %398 = tail call ptr @ruby_node_name(i32 noundef %395) #32
+  %398 = tail call ptr @ruby_node_name(i32 noundef %395) #33
   br label %parser_node_name.exit1574
 
 parser_node_name.exit1574:                        ; preds = %391, %396, %397
@@ -27356,7 +27356,7 @@ parser_node_name.exit1574:                        ; preds = %391, %396, %397
   br label %parser_node_name.exit1576
 
 408:                                              ; preds = %402
-  %409 = tail call ptr @ruby_node_name(i32 noundef %406) #32
+  %409 = tail call ptr @ruby_node_name(i32 noundef %406) #33
   br label %parser_node_name.exit1576
 
 parser_node_name.exit1576:                        ; preds = %402, %407, %408
@@ -27390,7 +27390,7 @@ parser_node_name.exit1576:                        ; preds = %402, %407, %408
   br label %parser_node_name.exit1578
 
 419:                                              ; preds = %413
-  %420 = tail call ptr @ruby_node_name(i32 noundef %417) #32
+  %420 = tail call ptr @ruby_node_name(i32 noundef %417) #33
   br label %parser_node_name.exit1578
 
 parser_node_name.exit1578:                        ; preds = %413, %418, %419
@@ -27424,7 +27424,7 @@ parser_node_name.exit1578:                        ; preds = %413, %418, %419
   br label %parser_node_name.exit1580
 
 430:                                              ; preds = %424
-  %431 = tail call ptr @ruby_node_name(i32 noundef %428) #32
+  %431 = tail call ptr @ruby_node_name(i32 noundef %428) #33
   br label %parser_node_name.exit1580
 
 parser_node_name.exit1580:                        ; preds = %424, %429, %430
@@ -27458,7 +27458,7 @@ parser_node_name.exit1580:                        ; preds = %424, %429, %430
   br label %parser_node_name.exit1582
 
 441:                                              ; preds = %435
-  %442 = tail call ptr @ruby_node_name(i32 noundef %439) #32
+  %442 = tail call ptr @ruby_node_name(i32 noundef %439) #33
   br label %parser_node_name.exit1582
 
 parser_node_name.exit1582:                        ; preds = %435, %440, %441
@@ -27492,7 +27492,7 @@ parser_node_name.exit1582:                        ; preds = %435, %440, %441
   br label %parser_node_name.exit1584
 
 452:                                              ; preds = %446
-  %453 = tail call ptr @ruby_node_name(i32 noundef %450) #32
+  %453 = tail call ptr @ruby_node_name(i32 noundef %450) #33
   br label %parser_node_name.exit1584
 
 parser_node_name.exit1584:                        ; preds = %446, %451, %452
@@ -27526,7 +27526,7 @@ parser_node_name.exit1584:                        ; preds = %446, %451, %452
   br label %parser_node_name.exit1586
 
 463:                                              ; preds = %457
-  %464 = tail call ptr @ruby_node_name(i32 noundef %461) #32
+  %464 = tail call ptr @ruby_node_name(i32 noundef %461) #33
   br label %parser_node_name.exit1586
 
 parser_node_name.exit1586:                        ; preds = %457, %462, %463
@@ -27560,7 +27560,7 @@ parser_node_name.exit1586:                        ; preds = %457, %462, %463
   br label %parser_node_name.exit1588
 
 474:                                              ; preds = %468
-  %475 = tail call ptr @ruby_node_name(i32 noundef %472) #32
+  %475 = tail call ptr @ruby_node_name(i32 noundef %472) #33
   br label %parser_node_name.exit1588
 
 parser_node_name.exit1588:                        ; preds = %468, %473, %474
@@ -27570,7 +27570,7 @@ parser_node_name.exit1588:                        ; preds = %468, %473, %474
 
 476:                                              ; preds = %4
   %477 = load i64, ptr %1, align 8
-  %478 = tail call i64 @rb_id2str(i64 noundef %477) #32
+  %478 = tail call i64 @rb_id2str(i64 noundef %477) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %478)
   br label %2190
 
@@ -27600,7 +27600,7 @@ parser_node_name.exit1588:                        ; preds = %468, %473, %474
   br label %parser_node_name.exit1590
 
 488:                                              ; preds = %482
-  %489 = tail call ptr @ruby_node_name(i32 noundef %486) #32
+  %489 = tail call ptr @ruby_node_name(i32 noundef %486) #33
   br label %parser_node_name.exit1590
 
 parser_node_name.exit1590:                        ; preds = %482, %487, %488
@@ -27634,7 +27634,7 @@ parser_node_name.exit1590:                        ; preds = %482, %487, %488
   br label %parser_node_name.exit1592
 
 499:                                              ; preds = %493
-  %500 = tail call ptr @ruby_node_name(i32 noundef %497) #32
+  %500 = tail call ptr @ruby_node_name(i32 noundef %497) #33
   br label %parser_node_name.exit1592
 
 parser_node_name.exit1592:                        ; preds = %493, %498, %499
@@ -27668,7 +27668,7 @@ parser_node_name.exit1592:                        ; preds = %493, %498, %499
   br label %parser_node_name.exit1594
 
 510:                                              ; preds = %504
-  %511 = tail call ptr @ruby_node_name(i32 noundef %508) #32
+  %511 = tail call ptr @ruby_node_name(i32 noundef %508) #33
   br label %parser_node_name.exit1594
 
 parser_node_name.exit1594:                        ; preds = %504, %509, %510
@@ -27702,7 +27702,7 @@ parser_node_name.exit1594:                        ; preds = %504, %509, %510
   br label %parser_node_name.exit1596
 
 521:                                              ; preds = %515
-  %522 = tail call ptr @ruby_node_name(i32 noundef %519) #32
+  %522 = tail call ptr @ruby_node_name(i32 noundef %519) #33
   br label %parser_node_name.exit1596
 
 parser_node_name.exit1596:                        ; preds = %515, %520, %521
@@ -27736,7 +27736,7 @@ parser_node_name.exit1596:                        ; preds = %515, %520, %521
   br label %parser_node_name.exit1598
 
 532:                                              ; preds = %526
-  %533 = tail call ptr @ruby_node_name(i32 noundef %530) #32
+  %533 = tail call ptr @ruby_node_name(i32 noundef %530) #33
   br label %parser_node_name.exit1598
 
 parser_node_name.exit1598:                        ; preds = %526, %531, %532
@@ -27770,7 +27770,7 @@ parser_node_name.exit1598:                        ; preds = %526, %531, %532
   br label %parser_node_name.exit1600
 
 543:                                              ; preds = %537
-  %544 = tail call ptr @ruby_node_name(i32 noundef %541) #32
+  %544 = tail call ptr @ruby_node_name(i32 noundef %541) #33
   br label %parser_node_name.exit1600
 
 parser_node_name.exit1600:                        ; preds = %537, %542, %543
@@ -27804,7 +27804,7 @@ parser_node_name.exit1600:                        ; preds = %537, %542, %543
   br label %parser_node_name.exit1602
 
 554:                                              ; preds = %548
-  %555 = tail call ptr @ruby_node_name(i32 noundef %552) #32
+  %555 = tail call ptr @ruby_node_name(i32 noundef %552) #33
   br label %parser_node_name.exit1602
 
 parser_node_name.exit1602:                        ; preds = %548, %553, %554
@@ -27838,7 +27838,7 @@ parser_node_name.exit1602:                        ; preds = %548, %553, %554
   br label %parser_node_name.exit1604
 
 565:                                              ; preds = %559
-  %566 = tail call ptr @ruby_node_name(i32 noundef %563) #32
+  %566 = tail call ptr @ruby_node_name(i32 noundef %563) #33
   br label %parser_node_name.exit1604
 
 parser_node_name.exit1604:                        ; preds = %559, %564, %565
@@ -27872,7 +27872,7 @@ parser_node_name.exit1604:                        ; preds = %559, %564, %565
   br label %parser_node_name.exit1606
 
 576:                                              ; preds = %570
-  %577 = tail call ptr @ruby_node_name(i32 noundef %574) #32
+  %577 = tail call ptr @ruby_node_name(i32 noundef %574) #33
   br label %parser_node_name.exit1606
 
 parser_node_name.exit1606:                        ; preds = %570, %575, %576
@@ -27906,7 +27906,7 @@ parser_node_name.exit1606:                        ; preds = %570, %575, %576
   br label %parser_node_name.exit1608
 
 587:                                              ; preds = %581
-  %588 = tail call ptr @ruby_node_name(i32 noundef %585) #32
+  %588 = tail call ptr @ruby_node_name(i32 noundef %585) #33
   br label %parser_node_name.exit1608
 
 parser_node_name.exit1608:                        ; preds = %581, %586, %587
@@ -27940,7 +27940,7 @@ parser_node_name.exit1608:                        ; preds = %581, %586, %587
   br label %parser_node_name.exit1610
 
 598:                                              ; preds = %592
-  %599 = tail call ptr @ruby_node_name(i32 noundef %596) #32
+  %599 = tail call ptr @ruby_node_name(i32 noundef %596) #33
   br label %parser_node_name.exit1610
 
 parser_node_name.exit1610:                        ; preds = %592, %597, %598
@@ -27974,7 +27974,7 @@ parser_node_name.exit1610:                        ; preds = %592, %597, %598
   br label %parser_node_name.exit1612
 
 609:                                              ; preds = %603
-  %610 = tail call ptr @ruby_node_name(i32 noundef %607) #32
+  %610 = tail call ptr @ruby_node_name(i32 noundef %607) #33
   br label %parser_node_name.exit1612
 
 parser_node_name.exit1612:                        ; preds = %603, %608, %609
@@ -28008,7 +28008,7 @@ parser_node_name.exit1612:                        ; preds = %603, %608, %609
   br label %parser_node_name.exit1614
 
 620:                                              ; preds = %614
-  %621 = tail call ptr @ruby_node_name(i32 noundef %618) #32
+  %621 = tail call ptr @ruby_node_name(i32 noundef %618) #33
   br label %parser_node_name.exit1614
 
 parser_node_name.exit1614:                        ; preds = %614, %619, %620
@@ -28042,7 +28042,7 @@ parser_node_name.exit1614:                        ; preds = %614, %619, %620
   br label %parser_node_name.exit1616
 
 631:                                              ; preds = %625
-  %632 = tail call ptr @ruby_node_name(i32 noundef %629) #32
+  %632 = tail call ptr @ruby_node_name(i32 noundef %629) #33
   br label %parser_node_name.exit1616
 
 parser_node_name.exit1616:                        ; preds = %625, %630, %631
@@ -28076,7 +28076,7 @@ parser_node_name.exit1616:                        ; preds = %625, %630, %631
   br label %parser_node_name.exit1618
 
 642:                                              ; preds = %636
-  %643 = tail call ptr @ruby_node_name(i32 noundef %640) #32
+  %643 = tail call ptr @ruby_node_name(i32 noundef %640) #33
   br label %parser_node_name.exit1618
 
 parser_node_name.exit1618:                        ; preds = %636, %641, %642
@@ -28110,7 +28110,7 @@ parser_node_name.exit1618:                        ; preds = %636, %641, %642
   br label %parser_node_name.exit1620
 
 653:                                              ; preds = %647
-  %654 = tail call ptr @ruby_node_name(i32 noundef %651) #32
+  %654 = tail call ptr @ruby_node_name(i32 noundef %651) #33
   br label %parser_node_name.exit1620
 
 parser_node_name.exit1620:                        ; preds = %647, %652, %653
@@ -28144,7 +28144,7 @@ parser_node_name.exit1620:                        ; preds = %647, %652, %653
   br label %parser_node_name.exit1622
 
 664:                                              ; preds = %658
-  %665 = tail call ptr @ruby_node_name(i32 noundef %662) #32
+  %665 = tail call ptr @ruby_node_name(i32 noundef %662) #33
   br label %parser_node_name.exit1622
 
 parser_node_name.exit1622:                        ; preds = %658, %663, %664
@@ -28154,7 +28154,7 @@ parser_node_name.exit1622:                        ; preds = %658, %663, %664
 
 666:                                              ; preds = %4
   %667 = load i64, ptr %1, align 8
-  %668 = tail call i64 @rb_id2str(i64 noundef %667) #32
+  %668 = tail call i64 @rb_id2str(i64 noundef %667) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %668)
   br label %2190
 
@@ -28184,7 +28184,7 @@ parser_node_name.exit1622:                        ; preds = %658, %663, %664
   br label %parser_node_name.exit1624
 
 678:                                              ; preds = %672
-  %679 = tail call ptr @ruby_node_name(i32 noundef %676) #32
+  %679 = tail call ptr @ruby_node_name(i32 noundef %676) #33
   br label %parser_node_name.exit1624
 
 parser_node_name.exit1624:                        ; preds = %672, %677, %678
@@ -28194,7 +28194,7 @@ parser_node_name.exit1624:                        ; preds = %672, %677, %678
 
 680:                                              ; preds = %4
   %681 = load i64, ptr %1, align 8
-  %682 = tail call i64 @rb_id2str(i64 noundef %681) #32
+  %682 = tail call i64 @rb_id2str(i64 noundef %681) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %682)
   br label %2190
 
@@ -28224,7 +28224,7 @@ parser_node_name.exit1624:                        ; preds = %672, %677, %678
   br label %parser_node_name.exit1626
 
 692:                                              ; preds = %686
-  %693 = tail call ptr @ruby_node_name(i32 noundef %690) #32
+  %693 = tail call ptr @ruby_node_name(i32 noundef %690) #33
   br label %parser_node_name.exit1626
 
 parser_node_name.exit1626:                        ; preds = %686, %691, %692
@@ -28258,7 +28258,7 @@ parser_node_name.exit1626:                        ; preds = %686, %691, %692
   br label %parser_node_name.exit1628
 
 703:                                              ; preds = %697
-  %704 = tail call ptr @ruby_node_name(i32 noundef %701) #32
+  %704 = tail call ptr @ruby_node_name(i32 noundef %701) #33
   br label %parser_node_name.exit1628
 
 parser_node_name.exit1628:                        ; preds = %697, %702, %703
@@ -28268,13 +28268,13 @@ parser_node_name.exit1628:                        ; preds = %697, %702, %703
 
 705:                                              ; preds = %4
   %706 = load i64, ptr %1, align 8
-  %707 = tail call i64 @rb_id2str(i64 noundef %706) #32
+  %707 = tail call i64 @rb_id2str(i64 noundef %706) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %707)
   br label %2190
 
 708:                                              ; preds = %4
   %709 = load i64, ptr %1, align 8
-  %710 = tail call i64 @rb_id2str(i64 noundef %709) #32
+  %710 = tail call i64 @rb_id2str(i64 noundef %709) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %710)
   br label %2190
 
@@ -28304,7 +28304,7 @@ parser_node_name.exit1628:                        ; preds = %697, %702, %703
   br label %parser_node_name.exit1630
 
 720:                                              ; preds = %714
-  %721 = tail call ptr @ruby_node_name(i32 noundef %718) #32
+  %721 = tail call ptr @ruby_node_name(i32 noundef %718) #33
   br label %parser_node_name.exit1630
 
 parser_node_name.exit1630:                        ; preds = %714, %719, %720
@@ -28338,7 +28338,7 @@ parser_node_name.exit1630:                        ; preds = %714, %719, %720
   br label %parser_node_name.exit1632
 
 731:                                              ; preds = %725
-  %732 = tail call ptr @ruby_node_name(i32 noundef %729) #32
+  %732 = tail call ptr @ruby_node_name(i32 noundef %729) #33
   br label %parser_node_name.exit1632
 
 parser_node_name.exit1632:                        ; preds = %725, %730, %731
@@ -28348,7 +28348,7 @@ parser_node_name.exit1632:                        ; preds = %725, %730, %731
 
 733:                                              ; preds = %4
   %734 = load i64, ptr %1, align 8
-  %735 = tail call i64 @rb_id2str(i64 noundef %734) #32
+  %735 = tail call i64 @rb_id2str(i64 noundef %734) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %735)
   br label %2190
 
@@ -28378,7 +28378,7 @@ parser_node_name.exit1632:                        ; preds = %725, %730, %731
   br label %parser_node_name.exit1634
 
 745:                                              ; preds = %739
-  %746 = tail call ptr @ruby_node_name(i32 noundef %743) #32
+  %746 = tail call ptr @ruby_node_name(i32 noundef %743) #33
   br label %parser_node_name.exit1634
 
 parser_node_name.exit1634:                        ; preds = %739, %744, %745
@@ -28412,7 +28412,7 @@ parser_node_name.exit1634:                        ; preds = %739, %744, %745
   br label %parser_node_name.exit1636
 
 756:                                              ; preds = %750
-  %757 = tail call ptr @ruby_node_name(i32 noundef %754) #32
+  %757 = tail call ptr @ruby_node_name(i32 noundef %754) #33
   br label %parser_node_name.exit1636
 
 parser_node_name.exit1636:                        ; preds = %750, %755, %756
@@ -28446,7 +28446,7 @@ parser_node_name.exit1636:                        ; preds = %750, %755, %756
   br label %parser_node_name.exit1638
 
 767:                                              ; preds = %761
-  %768 = tail call ptr @ruby_node_name(i32 noundef %765) #32
+  %768 = tail call ptr @ruby_node_name(i32 noundef %765) #33
   br label %parser_node_name.exit1638
 
 parser_node_name.exit1638:                        ; preds = %761, %766, %767
@@ -28480,7 +28480,7 @@ parser_node_name.exit1638:                        ; preds = %761, %766, %767
   br label %parser_node_name.exit1640
 
 778:                                              ; preds = %772
-  %779 = tail call ptr @ruby_node_name(i32 noundef %776) #32
+  %779 = tail call ptr @ruby_node_name(i32 noundef %776) #33
   br label %parser_node_name.exit1640
 
 parser_node_name.exit1640:                        ; preds = %772, %777, %778
@@ -28514,7 +28514,7 @@ parser_node_name.exit1640:                        ; preds = %772, %777, %778
   br label %parser_node_name.exit1642
 
 789:                                              ; preds = %783
-  %790 = tail call ptr @ruby_node_name(i32 noundef %787) #32
+  %790 = tail call ptr @ruby_node_name(i32 noundef %787) #33
   br label %parser_node_name.exit1642
 
 parser_node_name.exit1642:                        ; preds = %783, %788, %789
@@ -28548,7 +28548,7 @@ parser_node_name.exit1642:                        ; preds = %783, %788, %789
   br label %parser_node_name.exit1644
 
 800:                                              ; preds = %794
-  %801 = tail call ptr @ruby_node_name(i32 noundef %798) #32
+  %801 = tail call ptr @ruby_node_name(i32 noundef %798) #33
   br label %parser_node_name.exit1644
 
 parser_node_name.exit1644:                        ; preds = %794, %799, %800
@@ -28582,7 +28582,7 @@ parser_node_name.exit1644:                        ; preds = %794, %799, %800
   br label %parser_node_name.exit1646
 
 811:                                              ; preds = %805
-  %812 = tail call ptr @ruby_node_name(i32 noundef %809) #32
+  %812 = tail call ptr @ruby_node_name(i32 noundef %809) #33
   br label %parser_node_name.exit1646
 
 parser_node_name.exit1646:                        ; preds = %805, %810, %811
@@ -28616,7 +28616,7 @@ parser_node_name.exit1646:                        ; preds = %805, %810, %811
   br label %parser_node_name.exit1648
 
 822:                                              ; preds = %816
-  %823 = tail call ptr @ruby_node_name(i32 noundef %820) #32
+  %823 = tail call ptr @ruby_node_name(i32 noundef %820) #33
   br label %parser_node_name.exit1648
 
 parser_node_name.exit1648:                        ; preds = %816, %821, %822
@@ -28650,7 +28650,7 @@ parser_node_name.exit1648:                        ; preds = %816, %821, %822
   br label %parser_node_name.exit1650
 
 833:                                              ; preds = %827
-  %834 = tail call ptr @ruby_node_name(i32 noundef %831) #32
+  %834 = tail call ptr @ruby_node_name(i32 noundef %831) #33
   br label %parser_node_name.exit1650
 
 parser_node_name.exit1650:                        ; preds = %827, %832, %833
@@ -28684,7 +28684,7 @@ parser_node_name.exit1650:                        ; preds = %827, %832, %833
   br label %parser_node_name.exit1652
 
 844:                                              ; preds = %838
-  %845 = tail call ptr @ruby_node_name(i32 noundef %842) #32
+  %845 = tail call ptr @ruby_node_name(i32 noundef %842) #33
   br label %parser_node_name.exit1652
 
 parser_node_name.exit1652:                        ; preds = %838, %843, %844
@@ -28718,7 +28718,7 @@ parser_node_name.exit1652:                        ; preds = %838, %843, %844
   br label %parser_node_name.exit1654
 
 855:                                              ; preds = %849
-  %856 = tail call ptr @ruby_node_name(i32 noundef %853) #32
+  %856 = tail call ptr @ruby_node_name(i32 noundef %853) #33
   br label %parser_node_name.exit1654
 
 parser_node_name.exit1654:                        ; preds = %849, %854, %855
@@ -28752,7 +28752,7 @@ parser_node_name.exit1654:                        ; preds = %849, %854, %855
   br label %parser_node_name.exit1656
 
 866:                                              ; preds = %860
-  %867 = tail call ptr @ruby_node_name(i32 noundef %864) #32
+  %867 = tail call ptr @ruby_node_name(i32 noundef %864) #33
   br label %parser_node_name.exit1656
 
 parser_node_name.exit1656:                        ; preds = %860, %865, %866
@@ -28786,7 +28786,7 @@ parser_node_name.exit1656:                        ; preds = %860, %865, %866
   br label %parser_node_name.exit1658
 
 877:                                              ; preds = %871
-  %878 = tail call ptr @ruby_node_name(i32 noundef %875) #32
+  %878 = tail call ptr @ruby_node_name(i32 noundef %875) #33
   br label %parser_node_name.exit1658
 
 parser_node_name.exit1658:                        ; preds = %871, %876, %877
@@ -28820,7 +28820,7 @@ parser_node_name.exit1658:                        ; preds = %871, %876, %877
   br label %parser_node_name.exit1660
 
 888:                                              ; preds = %882
-  %889 = tail call ptr @ruby_node_name(i32 noundef %886) #32
+  %889 = tail call ptr @ruby_node_name(i32 noundef %886) #33
   br label %parser_node_name.exit1660
 
 parser_node_name.exit1660:                        ; preds = %882, %887, %888
@@ -28854,7 +28854,7 @@ parser_node_name.exit1660:                        ; preds = %882, %887, %888
   br label %parser_node_name.exit1662
 
 899:                                              ; preds = %893
-  %900 = tail call ptr @ruby_node_name(i32 noundef %897) #32
+  %900 = tail call ptr @ruby_node_name(i32 noundef %897) #33
   br label %parser_node_name.exit1662
 
 parser_node_name.exit1662:                        ; preds = %893, %898, %899
@@ -28888,7 +28888,7 @@ parser_node_name.exit1662:                        ; preds = %893, %898, %899
   br label %parser_node_name.exit1664
 
 910:                                              ; preds = %904
-  %911 = tail call ptr @ruby_node_name(i32 noundef %908) #32
+  %911 = tail call ptr @ruby_node_name(i32 noundef %908) #33
   br label %parser_node_name.exit1664
 
 parser_node_name.exit1664:                        ; preds = %904, %909, %910
@@ -28922,7 +28922,7 @@ parser_node_name.exit1664:                        ; preds = %904, %909, %910
   br label %parser_node_name.exit1666
 
 921:                                              ; preds = %915
-  %922 = tail call ptr @ruby_node_name(i32 noundef %919) #32
+  %922 = tail call ptr @ruby_node_name(i32 noundef %919) #33
   br label %parser_node_name.exit1666
 
 parser_node_name.exit1666:                        ; preds = %915, %920, %921
@@ -28956,7 +28956,7 @@ parser_node_name.exit1666:                        ; preds = %915, %920, %921
   br label %parser_node_name.exit1668
 
 932:                                              ; preds = %926
-  %933 = tail call ptr @ruby_node_name(i32 noundef %930) #32
+  %933 = tail call ptr @ruby_node_name(i32 noundef %930) #33
   br label %parser_node_name.exit1668
 
 parser_node_name.exit1668:                        ; preds = %926, %931, %932
@@ -28990,7 +28990,7 @@ parser_node_name.exit1668:                        ; preds = %926, %931, %932
   br label %parser_node_name.exit1670
 
 943:                                              ; preds = %937
-  %944 = tail call ptr @ruby_node_name(i32 noundef %941) #32
+  %944 = tail call ptr @ruby_node_name(i32 noundef %941) #33
   br label %parser_node_name.exit1670
 
 parser_node_name.exit1670:                        ; preds = %937, %942, %943
@@ -29024,7 +29024,7 @@ parser_node_name.exit1670:                        ; preds = %937, %942, %943
   br label %parser_node_name.exit1672
 
 954:                                              ; preds = %948
-  %955 = tail call ptr @ruby_node_name(i32 noundef %952) #32
+  %955 = tail call ptr @ruby_node_name(i32 noundef %952) #33
   br label %parser_node_name.exit1672
 
 parser_node_name.exit1672:                        ; preds = %948, %953, %954
@@ -29058,7 +29058,7 @@ parser_node_name.exit1672:                        ; preds = %948, %953, %954
   br label %parser_node_name.exit1674
 
 965:                                              ; preds = %959
-  %966 = tail call ptr @ruby_node_name(i32 noundef %963) #32
+  %966 = tail call ptr @ruby_node_name(i32 noundef %963) #33
   br label %parser_node_name.exit1674
 
 parser_node_name.exit1674:                        ; preds = %959, %964, %965
@@ -29092,7 +29092,7 @@ parser_node_name.exit1674:                        ; preds = %959, %964, %965
   br label %parser_node_name.exit1676
 
 976:                                              ; preds = %970
-  %977 = tail call ptr @ruby_node_name(i32 noundef %974) #32
+  %977 = tail call ptr @ruby_node_name(i32 noundef %974) #33
   br label %parser_node_name.exit1676
 
 parser_node_name.exit1676:                        ; preds = %970, %975, %976
@@ -29126,7 +29126,7 @@ parser_node_name.exit1676:                        ; preds = %970, %975, %976
   br label %parser_node_name.exit1678
 
 987:                                              ; preds = %981
-  %988 = tail call ptr @ruby_node_name(i32 noundef %985) #32
+  %988 = tail call ptr @ruby_node_name(i32 noundef %985) #33
   br label %parser_node_name.exit1678
 
 parser_node_name.exit1678:                        ; preds = %981, %986, %987
@@ -29160,7 +29160,7 @@ parser_node_name.exit1678:                        ; preds = %981, %986, %987
   br label %parser_node_name.exit1680
 
 998:                                              ; preds = %992
-  %999 = tail call ptr @ruby_node_name(i32 noundef %996) #32
+  %999 = tail call ptr @ruby_node_name(i32 noundef %996) #33
   br label %parser_node_name.exit1680
 
 parser_node_name.exit1680:                        ; preds = %992, %997, %998
@@ -29194,7 +29194,7 @@ parser_node_name.exit1680:                        ; preds = %992, %997, %998
   br label %parser_node_name.exit1682
 
 1009:                                             ; preds = %1003
-  %1010 = tail call ptr @ruby_node_name(i32 noundef %1007) #32
+  %1010 = tail call ptr @ruby_node_name(i32 noundef %1007) #33
   br label %parser_node_name.exit1682
 
 parser_node_name.exit1682:                        ; preds = %1003, %1008, %1009
@@ -29228,7 +29228,7 @@ parser_node_name.exit1682:                        ; preds = %1003, %1008, %1009
   br label %parser_node_name.exit1684
 
 1020:                                             ; preds = %1014
-  %1021 = tail call ptr @ruby_node_name(i32 noundef %1018) #32
+  %1021 = tail call ptr @ruby_node_name(i32 noundef %1018) #33
   br label %parser_node_name.exit1684
 
 parser_node_name.exit1684:                        ; preds = %1014, %1019, %1020
@@ -29262,7 +29262,7 @@ parser_node_name.exit1684:                        ; preds = %1014, %1019, %1020
   br label %parser_node_name.exit1686
 
 1031:                                             ; preds = %1025
-  %1032 = tail call ptr @ruby_node_name(i32 noundef %1029) #32
+  %1032 = tail call ptr @ruby_node_name(i32 noundef %1029) #33
   br label %parser_node_name.exit1686
 
 parser_node_name.exit1686:                        ; preds = %1025, %1030, %1031
@@ -29296,7 +29296,7 @@ parser_node_name.exit1686:                        ; preds = %1025, %1030, %1031
   br label %parser_node_name.exit1688
 
 1042:                                             ; preds = %1036
-  %1043 = tail call ptr @ruby_node_name(i32 noundef %1040) #32
+  %1043 = tail call ptr @ruby_node_name(i32 noundef %1040) #33
   br label %parser_node_name.exit1688
 
 parser_node_name.exit1688:                        ; preds = %1036, %1041, %1042
@@ -29306,7 +29306,7 @@ parser_node_name.exit1688:                        ; preds = %1036, %1041, %1042
 
 1044:                                             ; preds = %4
   %1045 = load i64, ptr %1, align 8
-  %1046 = tail call i64 @rb_id2str(i64 noundef %1045) #32
+  %1046 = tail call i64 @rb_id2str(i64 noundef %1045) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1046)
   br label %2190
 
@@ -29336,7 +29336,7 @@ parser_node_name.exit1688:                        ; preds = %1036, %1041, %1042
   br label %parser_node_name.exit1690
 
 1056:                                             ; preds = %1050
-  %1057 = tail call ptr @ruby_node_name(i32 noundef %1054) #32
+  %1057 = tail call ptr @ruby_node_name(i32 noundef %1054) #33
   br label %parser_node_name.exit1690
 
 parser_node_name.exit1690:                        ; preds = %1050, %1055, %1056
@@ -29370,7 +29370,7 @@ parser_node_name.exit1690:                        ; preds = %1050, %1055, %1056
   br label %parser_node_name.exit1692
 
 1067:                                             ; preds = %1061
-  %1068 = tail call ptr @ruby_node_name(i32 noundef %1065) #32
+  %1068 = tail call ptr @ruby_node_name(i32 noundef %1065) #33
   br label %parser_node_name.exit1692
 
 parser_node_name.exit1692:                        ; preds = %1061, %1066, %1067
@@ -29380,7 +29380,7 @@ parser_node_name.exit1692:                        ; preds = %1061, %1066, %1067
 
 1069:                                             ; preds = %4
   %1070 = load i64, ptr %1, align 8
-  %1071 = tail call i64 @rb_id2str(i64 noundef %1070) #32
+  %1071 = tail call i64 @rb_id2str(i64 noundef %1070) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1071)
   br label %2190
 
@@ -29410,7 +29410,7 @@ parser_node_name.exit1692:                        ; preds = %1061, %1066, %1067
   br label %parser_node_name.exit1694
 
 1081:                                             ; preds = %1075
-  %1082 = tail call ptr @ruby_node_name(i32 noundef %1079) #32
+  %1082 = tail call ptr @ruby_node_name(i32 noundef %1079) #33
   br label %parser_node_name.exit1694
 
 parser_node_name.exit1694:                        ; preds = %1075, %1080, %1081
@@ -29444,7 +29444,7 @@ parser_node_name.exit1694:                        ; preds = %1075, %1080, %1081
   br label %parser_node_name.exit1696
 
 1092:                                             ; preds = %1086
-  %1093 = tail call ptr @ruby_node_name(i32 noundef %1090) #32
+  %1093 = tail call ptr @ruby_node_name(i32 noundef %1090) #33
   br label %parser_node_name.exit1696
 
 parser_node_name.exit1696:                        ; preds = %1086, %1091, %1092
@@ -29478,7 +29478,7 @@ parser_node_name.exit1696:                        ; preds = %1086, %1091, %1092
   br label %parser_node_name.exit1698
 
 1103:                                             ; preds = %1097
-  %1104 = tail call ptr @ruby_node_name(i32 noundef %1101) #32
+  %1104 = tail call ptr @ruby_node_name(i32 noundef %1101) #33
   br label %parser_node_name.exit1698
 
 parser_node_name.exit1698:                        ; preds = %1097, %1102, %1103
@@ -29488,19 +29488,19 @@ parser_node_name.exit1698:                        ; preds = %1097, %1102, %1103
 
 1105:                                             ; preds = %4
   %1106 = load i64, ptr %1, align 8
-  %1107 = tail call i64 @rb_id2str(i64 noundef %1106) #32
+  %1107 = tail call i64 @rb_id2str(i64 noundef %1106) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1107)
   br label %2190
 
 1108:                                             ; preds = %4
   %1109 = load i64, ptr %1, align 8
-  %1110 = tail call i64 @rb_id2str(i64 noundef %1109) #32
+  %1110 = tail call i64 @rb_id2str(i64 noundef %1109) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1110)
   br label %2190
 
 1111:                                             ; preds = %4
   %1112 = load i64, ptr %1, align 8
-  %1113 = tail call i64 @rb_id2str(i64 noundef %1112) #32
+  %1113 = tail call i64 @rb_id2str(i64 noundef %1112) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1113)
   br label %2190
 
@@ -29530,7 +29530,7 @@ parser_node_name.exit1698:                        ; preds = %1097, %1102, %1103
   br label %parser_node_name.exit1700
 
 1123:                                             ; preds = %1117
-  %1124 = tail call ptr @ruby_node_name(i32 noundef %1121) #32
+  %1124 = tail call ptr @ruby_node_name(i32 noundef %1121) #33
   br label %parser_node_name.exit1700
 
 parser_node_name.exit1700:                        ; preds = %1117, %1122, %1123
@@ -29540,7 +29540,7 @@ parser_node_name.exit1700:                        ; preds = %1117, %1122, %1123
 
 1125:                                             ; preds = %4
   %1126 = load i64, ptr %1, align 8
-  %1127 = tail call i64 @rb_id2str(i64 noundef %1126) #32
+  %1127 = tail call i64 @rb_id2str(i64 noundef %1126) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1127)
   br label %2190
 
@@ -29570,7 +29570,7 @@ parser_node_name.exit1700:                        ; preds = %1117, %1122, %1123
   br label %parser_node_name.exit1702
 
 1137:                                             ; preds = %1131
-  %1138 = tail call ptr @ruby_node_name(i32 noundef %1135) #32
+  %1138 = tail call ptr @ruby_node_name(i32 noundef %1135) #33
   br label %parser_node_name.exit1702
 
 parser_node_name.exit1702:                        ; preds = %1131, %1136, %1137
@@ -29604,7 +29604,7 @@ parser_node_name.exit1702:                        ; preds = %1131, %1136, %1137
   br label %parser_node_name.exit1704
 
 1148:                                             ; preds = %1142
-  %1149 = tail call ptr @ruby_node_name(i32 noundef %1146) #32
+  %1149 = tail call ptr @ruby_node_name(i32 noundef %1146) #33
   br label %parser_node_name.exit1704
 
 parser_node_name.exit1704:                        ; preds = %1142, %1147, %1148
@@ -29638,7 +29638,7 @@ parser_node_name.exit1704:                        ; preds = %1142, %1147, %1148
   br label %parser_node_name.exit1706
 
 1159:                                             ; preds = %1153
-  %1160 = tail call ptr @ruby_node_name(i32 noundef %1157) #32
+  %1160 = tail call ptr @ruby_node_name(i32 noundef %1157) #33
   br label %parser_node_name.exit1706
 
 parser_node_name.exit1706:                        ; preds = %1153, %1158, %1159
@@ -29672,7 +29672,7 @@ parser_node_name.exit1706:                        ; preds = %1153, %1158, %1159
   br label %parser_node_name.exit1708
 
 1170:                                             ; preds = %1164
-  %1171 = tail call ptr @ruby_node_name(i32 noundef %1168) #32
+  %1171 = tail call ptr @ruby_node_name(i32 noundef %1168) #33
   br label %parser_node_name.exit1708
 
 parser_node_name.exit1708:                        ; preds = %1164, %1169, %1170
@@ -29706,7 +29706,7 @@ parser_node_name.exit1708:                        ; preds = %1164, %1169, %1170
   br label %parser_node_name.exit1710
 
 1181:                                             ; preds = %1175
-  %1182 = tail call ptr @ruby_node_name(i32 noundef %1179) #32
+  %1182 = tail call ptr @ruby_node_name(i32 noundef %1179) #33
   br label %parser_node_name.exit1710
 
 parser_node_name.exit1710:                        ; preds = %1175, %1180, %1181
@@ -29740,7 +29740,7 @@ parser_node_name.exit1710:                        ; preds = %1175, %1180, %1181
   br label %parser_node_name.exit1712
 
 1192:                                             ; preds = %1186
-  %1193 = tail call ptr @ruby_node_name(i32 noundef %1190) #32
+  %1193 = tail call ptr @ruby_node_name(i32 noundef %1190) #33
   br label %parser_node_name.exit1712
 
 parser_node_name.exit1712:                        ; preds = %1186, %1191, %1192
@@ -29774,7 +29774,7 @@ parser_node_name.exit1712:                        ; preds = %1186, %1191, %1192
   br label %parser_node_name.exit1714
 
 1203:                                             ; preds = %1197
-  %1204 = tail call ptr @ruby_node_name(i32 noundef %1201) #32
+  %1204 = tail call ptr @ruby_node_name(i32 noundef %1201) #33
   br label %parser_node_name.exit1714
 
 parser_node_name.exit1714:                        ; preds = %1197, %1202, %1203
@@ -29808,7 +29808,7 @@ parser_node_name.exit1714:                        ; preds = %1197, %1202, %1203
   br label %parser_node_name.exit1716
 
 1214:                                             ; preds = %1208
-  %1215 = tail call ptr @ruby_node_name(i32 noundef %1212) #32
+  %1215 = tail call ptr @ruby_node_name(i32 noundef %1212) #33
   br label %parser_node_name.exit1716
 
 parser_node_name.exit1716:                        ; preds = %1208, %1213, %1214
@@ -29842,7 +29842,7 @@ parser_node_name.exit1716:                        ; preds = %1208, %1213, %1214
   br label %parser_node_name.exit1718
 
 1225:                                             ; preds = %1219
-  %1226 = tail call ptr @ruby_node_name(i32 noundef %1223) #32
+  %1226 = tail call ptr @ruby_node_name(i32 noundef %1223) #33
   br label %parser_node_name.exit1718
 
 parser_node_name.exit1718:                        ; preds = %1219, %1224, %1225
@@ -29876,7 +29876,7 @@ parser_node_name.exit1718:                        ; preds = %1219, %1224, %1225
   br label %parser_node_name.exit1720
 
 1236:                                             ; preds = %1230
-  %1237 = tail call ptr @ruby_node_name(i32 noundef %1234) #32
+  %1237 = tail call ptr @ruby_node_name(i32 noundef %1234) #33
   br label %parser_node_name.exit1720
 
 parser_node_name.exit1720:                        ; preds = %1230, %1235, %1236
@@ -29910,7 +29910,7 @@ parser_node_name.exit1720:                        ; preds = %1230, %1235, %1236
   br label %parser_node_name.exit1722
 
 1247:                                             ; preds = %1241
-  %1248 = tail call ptr @ruby_node_name(i32 noundef %1245) #32
+  %1248 = tail call ptr @ruby_node_name(i32 noundef %1245) #33
   br label %parser_node_name.exit1722
 
 parser_node_name.exit1722:                        ; preds = %1241, %1246, %1247
@@ -29944,7 +29944,7 @@ parser_node_name.exit1722:                        ; preds = %1241, %1246, %1247
   br label %parser_node_name.exit1724
 
 1258:                                             ; preds = %1252
-  %1259 = tail call ptr @ruby_node_name(i32 noundef %1256) #32
+  %1259 = tail call ptr @ruby_node_name(i32 noundef %1256) #33
   br label %parser_node_name.exit1724
 
 parser_node_name.exit1724:                        ; preds = %1252, %1257, %1258
@@ -29978,7 +29978,7 @@ parser_node_name.exit1724:                        ; preds = %1252, %1257, %1258
   br label %parser_node_name.exit1726
 
 1269:                                             ; preds = %1263
-  %1270 = tail call ptr @ruby_node_name(i32 noundef %1267) #32
+  %1270 = tail call ptr @ruby_node_name(i32 noundef %1267) #33
   br label %parser_node_name.exit1726
 
 parser_node_name.exit1726:                        ; preds = %1263, %1268, %1269
@@ -30012,7 +30012,7 @@ parser_node_name.exit1726:                        ; preds = %1263, %1268, %1269
   br label %parser_node_name.exit1728
 
 1280:                                             ; preds = %1274
-  %1281 = tail call ptr @ruby_node_name(i32 noundef %1278) #32
+  %1281 = tail call ptr @ruby_node_name(i32 noundef %1278) #33
   br label %parser_node_name.exit1728
 
 parser_node_name.exit1728:                        ; preds = %1274, %1279, %1280
@@ -30046,7 +30046,7 @@ parser_node_name.exit1728:                        ; preds = %1274, %1279, %1280
   br label %parser_node_name.exit1730
 
 1291:                                             ; preds = %1285
-  %1292 = tail call ptr @ruby_node_name(i32 noundef %1289) #32
+  %1292 = tail call ptr @ruby_node_name(i32 noundef %1289) #33
   br label %parser_node_name.exit1730
 
 parser_node_name.exit1730:                        ; preds = %1285, %1290, %1291
@@ -30080,7 +30080,7 @@ parser_node_name.exit1730:                        ; preds = %1285, %1290, %1291
   br label %parser_node_name.exit1732
 
 1302:                                             ; preds = %1296
-  %1303 = tail call ptr @ruby_node_name(i32 noundef %1300) #32
+  %1303 = tail call ptr @ruby_node_name(i32 noundef %1300) #33
   br label %parser_node_name.exit1732
 
 parser_node_name.exit1732:                        ; preds = %1296, %1301, %1302
@@ -30114,7 +30114,7 @@ parser_node_name.exit1732:                        ; preds = %1296, %1301, %1302
   br label %parser_node_name.exit1734
 
 1313:                                             ; preds = %1307
-  %1314 = tail call ptr @ruby_node_name(i32 noundef %1311) #32
+  %1314 = tail call ptr @ruby_node_name(i32 noundef %1311) #33
   br label %parser_node_name.exit1734
 
 parser_node_name.exit1734:                        ; preds = %1307, %1312, %1313
@@ -30148,7 +30148,7 @@ parser_node_name.exit1734:                        ; preds = %1307, %1312, %1313
   br label %parser_node_name.exit1736
 
 1324:                                             ; preds = %1318
-  %1325 = tail call ptr @ruby_node_name(i32 noundef %1322) #32
+  %1325 = tail call ptr @ruby_node_name(i32 noundef %1322) #33
   br label %parser_node_name.exit1736
 
 parser_node_name.exit1736:                        ; preds = %1318, %1323, %1324
@@ -30182,7 +30182,7 @@ parser_node_name.exit1736:                        ; preds = %1318, %1323, %1324
   br label %parser_node_name.exit1738
 
 1335:                                             ; preds = %1329
-  %1336 = tail call ptr @ruby_node_name(i32 noundef %1333) #32
+  %1336 = tail call ptr @ruby_node_name(i32 noundef %1333) #33
   br label %parser_node_name.exit1738
 
 parser_node_name.exit1738:                        ; preds = %1329, %1334, %1335
@@ -30216,7 +30216,7 @@ parser_node_name.exit1738:                        ; preds = %1329, %1334, %1335
   br label %parser_node_name.exit1740
 
 1346:                                             ; preds = %1340
-  %1347 = tail call ptr @ruby_node_name(i32 noundef %1344) #32
+  %1347 = tail call ptr @ruby_node_name(i32 noundef %1344) #33
   br label %parser_node_name.exit1740
 
 parser_node_name.exit1740:                        ; preds = %1340, %1345, %1346
@@ -30250,7 +30250,7 @@ parser_node_name.exit1740:                        ; preds = %1340, %1345, %1346
   br label %parser_node_name.exit1742
 
 1357:                                             ; preds = %1351
-  %1358 = tail call ptr @ruby_node_name(i32 noundef %1355) #32
+  %1358 = tail call ptr @ruby_node_name(i32 noundef %1355) #33
   br label %parser_node_name.exit1742
 
 parser_node_name.exit1742:                        ; preds = %1351, %1356, %1357
@@ -30284,7 +30284,7 @@ parser_node_name.exit1742:                        ; preds = %1351, %1356, %1357
   br label %parser_node_name.exit1744
 
 1368:                                             ; preds = %1362
-  %1369 = tail call ptr @ruby_node_name(i32 noundef %1366) #32
+  %1369 = tail call ptr @ruby_node_name(i32 noundef %1366) #33
   br label %parser_node_name.exit1744
 
 parser_node_name.exit1744:                        ; preds = %1362, %1367, %1368
@@ -30318,7 +30318,7 @@ parser_node_name.exit1744:                        ; preds = %1362, %1367, %1368
   br label %parser_node_name.exit1746
 
 1379:                                             ; preds = %1373
-  %1380 = tail call ptr @ruby_node_name(i32 noundef %1377) #32
+  %1380 = tail call ptr @ruby_node_name(i32 noundef %1377) #33
   br label %parser_node_name.exit1746
 
 parser_node_name.exit1746:                        ; preds = %1373, %1378, %1379
@@ -30352,7 +30352,7 @@ parser_node_name.exit1746:                        ; preds = %1373, %1378, %1379
   br label %parser_node_name.exit1748
 
 1390:                                             ; preds = %1384
-  %1391 = tail call ptr @ruby_node_name(i32 noundef %1388) #32
+  %1391 = tail call ptr @ruby_node_name(i32 noundef %1388) #33
   br label %parser_node_name.exit1748
 
 parser_node_name.exit1748:                        ; preds = %1384, %1389, %1390
@@ -30386,7 +30386,7 @@ parser_node_name.exit1748:                        ; preds = %1384, %1389, %1390
   br label %parser_node_name.exit1750
 
 1401:                                             ; preds = %1395
-  %1402 = tail call ptr @ruby_node_name(i32 noundef %1399) #32
+  %1402 = tail call ptr @ruby_node_name(i32 noundef %1399) #33
   br label %parser_node_name.exit1750
 
 parser_node_name.exit1750:                        ; preds = %1395, %1400, %1401
@@ -30420,7 +30420,7 @@ parser_node_name.exit1750:                        ; preds = %1395, %1400, %1401
   br label %parser_node_name.exit1752
 
 1412:                                             ; preds = %1406
-  %1413 = tail call ptr @ruby_node_name(i32 noundef %1410) #32
+  %1413 = tail call ptr @ruby_node_name(i32 noundef %1410) #33
   br label %parser_node_name.exit1752
 
 parser_node_name.exit1752:                        ; preds = %1406, %1411, %1412
@@ -30454,7 +30454,7 @@ parser_node_name.exit1752:                        ; preds = %1406, %1411, %1412
   br label %parser_node_name.exit1754
 
 1423:                                             ; preds = %1417
-  %1424 = tail call ptr @ruby_node_name(i32 noundef %1421) #32
+  %1424 = tail call ptr @ruby_node_name(i32 noundef %1421) #33
   br label %parser_node_name.exit1754
 
 parser_node_name.exit1754:                        ; preds = %1417, %1422, %1423
@@ -30488,7 +30488,7 @@ parser_node_name.exit1754:                        ; preds = %1417, %1422, %1423
   br label %parser_node_name.exit1756
 
 1434:                                             ; preds = %1428
-  %1435 = tail call ptr @ruby_node_name(i32 noundef %1432) #32
+  %1435 = tail call ptr @ruby_node_name(i32 noundef %1432) #33
   br label %parser_node_name.exit1756
 
 parser_node_name.exit1756:                        ; preds = %1428, %1433, %1434
@@ -30522,7 +30522,7 @@ parser_node_name.exit1756:                        ; preds = %1428, %1433, %1434
   br label %parser_node_name.exit1758
 
 1445:                                             ; preds = %1439
-  %1446 = tail call ptr @ruby_node_name(i32 noundef %1443) #32
+  %1446 = tail call ptr @ruby_node_name(i32 noundef %1443) #33
   br label %parser_node_name.exit1758
 
 parser_node_name.exit1758:                        ; preds = %1439, %1444, %1445
@@ -30556,7 +30556,7 @@ parser_node_name.exit1758:                        ; preds = %1439, %1444, %1445
   br label %parser_node_name.exit1760
 
 1456:                                             ; preds = %1450
-  %1457 = tail call ptr @ruby_node_name(i32 noundef %1454) #32
+  %1457 = tail call ptr @ruby_node_name(i32 noundef %1454) #33
   br label %parser_node_name.exit1760
 
 parser_node_name.exit1760:                        ; preds = %1450, %1455, %1456
@@ -30566,25 +30566,25 @@ parser_node_name.exit1760:                        ; preds = %1450, %1455, %1456
 
 1458:                                             ; preds = %4
   %1459 = load i64, ptr %1, align 8
-  %1460 = tail call i64 @rb_id2str(i64 noundef %1459) #32
+  %1460 = tail call i64 @rb_id2str(i64 noundef %1459) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1460)
   br label %2190
 
 1461:                                             ; preds = %4
   %1462 = load i64, ptr %1, align 8
-  %1463 = tail call i64 @rb_id2str(i64 noundef %1462) #32
+  %1463 = tail call i64 @rb_id2str(i64 noundef %1462) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1463)
   br label %2190
 
 1464:                                             ; preds = %4
   %1465 = load i64, ptr %1, align 8
-  %1466 = tail call i64 @rb_id2str(i64 noundef %1465) #32
+  %1466 = tail call i64 @rb_id2str(i64 noundef %1465) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1466)
   br label %2190
 
 1467:                                             ; preds = %4
   %1468 = load i64, ptr %1, align 8
-  %1469 = tail call i64 @rb_id2str(i64 noundef %1468) #32
+  %1469 = tail call i64 @rb_id2str(i64 noundef %1468) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1469)
   br label %2190
 
@@ -30614,7 +30614,7 @@ parser_node_name.exit1760:                        ; preds = %1450, %1455, %1456
   br label %parser_node_name.exit1762
 
 1479:                                             ; preds = %1473
-  %1480 = tail call ptr @ruby_node_name(i32 noundef %1477) #32
+  %1480 = tail call ptr @ruby_node_name(i32 noundef %1477) #33
   br label %parser_node_name.exit1762
 
 parser_node_name.exit1762:                        ; preds = %1473, %1478, %1479
@@ -30648,7 +30648,7 @@ parser_node_name.exit1762:                        ; preds = %1473, %1478, %1479
   br label %parser_node_name.exit1764
 
 1490:                                             ; preds = %1484
-  %1491 = tail call ptr @ruby_node_name(i32 noundef %1488) #32
+  %1491 = tail call ptr @ruby_node_name(i32 noundef %1488) #33
   br label %parser_node_name.exit1764
 
 parser_node_name.exit1764:                        ; preds = %1484, %1489, %1490
@@ -30682,7 +30682,7 @@ parser_node_name.exit1764:                        ; preds = %1484, %1489, %1490
   br label %parser_node_name.exit1766
 
 1501:                                             ; preds = %1495
-  %1502 = tail call ptr @ruby_node_name(i32 noundef %1499) #32
+  %1502 = tail call ptr @ruby_node_name(i32 noundef %1499) #33
   br label %parser_node_name.exit1766
 
 parser_node_name.exit1766:                        ; preds = %1495, %1500, %1501
@@ -30716,7 +30716,7 @@ parser_node_name.exit1766:                        ; preds = %1495, %1500, %1501
   br label %parser_node_name.exit1768
 
 1512:                                             ; preds = %1506
-  %1513 = tail call ptr @ruby_node_name(i32 noundef %1510) #32
+  %1513 = tail call ptr @ruby_node_name(i32 noundef %1510) #33
   br label %parser_node_name.exit1768
 
 parser_node_name.exit1768:                        ; preds = %1506, %1511, %1512
@@ -30750,7 +30750,7 @@ parser_node_name.exit1768:                        ; preds = %1506, %1511, %1512
   br label %parser_node_name.exit1770
 
 1523:                                             ; preds = %1517
-  %1524 = tail call ptr @ruby_node_name(i32 noundef %1521) #32
+  %1524 = tail call ptr @ruby_node_name(i32 noundef %1521) #33
   br label %parser_node_name.exit1770
 
 parser_node_name.exit1770:                        ; preds = %1517, %1522, %1523
@@ -30784,7 +30784,7 @@ parser_node_name.exit1770:                        ; preds = %1517, %1522, %1523
   br label %parser_node_name.exit1772
 
 1534:                                             ; preds = %1528
-  %1535 = tail call ptr @ruby_node_name(i32 noundef %1532) #32
+  %1535 = tail call ptr @ruby_node_name(i32 noundef %1532) #33
   br label %parser_node_name.exit1772
 
 parser_node_name.exit1772:                        ; preds = %1528, %1533, %1534
@@ -30818,7 +30818,7 @@ parser_node_name.exit1772:                        ; preds = %1528, %1533, %1534
   br label %parser_node_name.exit1774
 
 1545:                                             ; preds = %1539
-  %1546 = tail call ptr @ruby_node_name(i32 noundef %1543) #32
+  %1546 = tail call ptr @ruby_node_name(i32 noundef %1543) #33
   br label %parser_node_name.exit1774
 
 parser_node_name.exit1774:                        ; preds = %1539, %1544, %1545
@@ -30852,7 +30852,7 @@ parser_node_name.exit1774:                        ; preds = %1539, %1544, %1545
   br label %parser_node_name.exit1776
 
 1556:                                             ; preds = %1550
-  %1557 = tail call ptr @ruby_node_name(i32 noundef %1554) #32
+  %1557 = tail call ptr @ruby_node_name(i32 noundef %1554) #33
   br label %parser_node_name.exit1776
 
 parser_node_name.exit1776:                        ; preds = %1550, %1555, %1556
@@ -30886,7 +30886,7 @@ parser_node_name.exit1776:                        ; preds = %1550, %1555, %1556
   br label %parser_node_name.exit1778
 
 1567:                                             ; preds = %1561
-  %1568 = tail call ptr @ruby_node_name(i32 noundef %1565) #32
+  %1568 = tail call ptr @ruby_node_name(i32 noundef %1565) #33
   br label %parser_node_name.exit1778
 
 parser_node_name.exit1778:                        ; preds = %1561, %1566, %1567
@@ -30920,7 +30920,7 @@ parser_node_name.exit1778:                        ; preds = %1561, %1566, %1567
   br label %parser_node_name.exit1780
 
 1578:                                             ; preds = %1572
-  %1579 = tail call ptr @ruby_node_name(i32 noundef %1576) #32
+  %1579 = tail call ptr @ruby_node_name(i32 noundef %1576) #33
   br label %parser_node_name.exit1780
 
 parser_node_name.exit1780:                        ; preds = %1572, %1577, %1578
@@ -30954,7 +30954,7 @@ parser_node_name.exit1780:                        ; preds = %1572, %1577, %1578
   br label %parser_node_name.exit1782
 
 1589:                                             ; preds = %1583
-  %1590 = tail call ptr @ruby_node_name(i32 noundef %1587) #32
+  %1590 = tail call ptr @ruby_node_name(i32 noundef %1587) #33
   br label %parser_node_name.exit1782
 
 parser_node_name.exit1782:                        ; preds = %1583, %1588, %1589
@@ -30988,7 +30988,7 @@ parser_node_name.exit1782:                        ; preds = %1583, %1588, %1589
   br label %parser_node_name.exit1784
 
 1600:                                             ; preds = %1594
-  %1601 = tail call ptr @ruby_node_name(i32 noundef %1598) #32
+  %1601 = tail call ptr @ruby_node_name(i32 noundef %1598) #33
   br label %parser_node_name.exit1784
 
 parser_node_name.exit1784:                        ; preds = %1594, %1599, %1600
@@ -31022,7 +31022,7 @@ parser_node_name.exit1784:                        ; preds = %1594, %1599, %1600
   br label %parser_node_name.exit1786
 
 1611:                                             ; preds = %1605
-  %1612 = tail call ptr @ruby_node_name(i32 noundef %1609) #32
+  %1612 = tail call ptr @ruby_node_name(i32 noundef %1609) #33
   br label %parser_node_name.exit1786
 
 parser_node_name.exit1786:                        ; preds = %1605, %1610, %1611
@@ -31056,7 +31056,7 @@ parser_node_name.exit1786:                        ; preds = %1605, %1610, %1611
   br label %parser_node_name.exit1788
 
 1622:                                             ; preds = %1616
-  %1623 = tail call ptr @ruby_node_name(i32 noundef %1620) #32
+  %1623 = tail call ptr @ruby_node_name(i32 noundef %1620) #33
   br label %parser_node_name.exit1788
 
 parser_node_name.exit1788:                        ; preds = %1616, %1621, %1622
@@ -31090,7 +31090,7 @@ parser_node_name.exit1788:                        ; preds = %1616, %1621, %1622
   br label %parser_node_name.exit1790
 
 1633:                                             ; preds = %1627
-  %1634 = tail call ptr @ruby_node_name(i32 noundef %1631) #32
+  %1634 = tail call ptr @ruby_node_name(i32 noundef %1631) #33
   br label %parser_node_name.exit1790
 
 parser_node_name.exit1790:                        ; preds = %1627, %1632, %1633
@@ -31124,7 +31124,7 @@ parser_node_name.exit1790:                        ; preds = %1627, %1632, %1633
   br label %parser_node_name.exit1792
 
 1644:                                             ; preds = %1638
-  %1645 = tail call ptr @ruby_node_name(i32 noundef %1642) #32
+  %1645 = tail call ptr @ruby_node_name(i32 noundef %1642) #33
   br label %parser_node_name.exit1792
 
 parser_node_name.exit1792:                        ; preds = %1638, %1643, %1644
@@ -31158,7 +31158,7 @@ parser_node_name.exit1792:                        ; preds = %1638, %1643, %1644
   br label %parser_node_name.exit1794
 
 1655:                                             ; preds = %1649
-  %1656 = tail call ptr @ruby_node_name(i32 noundef %1653) #32
+  %1656 = tail call ptr @ruby_node_name(i32 noundef %1653) #33
   br label %parser_node_name.exit1794
 
 parser_node_name.exit1794:                        ; preds = %1649, %1654, %1655
@@ -31192,7 +31192,7 @@ parser_node_name.exit1794:                        ; preds = %1649, %1654, %1655
   br label %parser_node_name.exit1796
 
 1666:                                             ; preds = %1660
-  %1667 = tail call ptr @ruby_node_name(i32 noundef %1664) #32
+  %1667 = tail call ptr @ruby_node_name(i32 noundef %1664) #33
   br label %parser_node_name.exit1796
 
 parser_node_name.exit1796:                        ; preds = %1660, %1665, %1666
@@ -31226,7 +31226,7 @@ parser_node_name.exit1796:                        ; preds = %1660, %1665, %1666
   br label %parser_node_name.exit1798
 
 1677:                                             ; preds = %1671
-  %1678 = tail call ptr @ruby_node_name(i32 noundef %1675) #32
+  %1678 = tail call ptr @ruby_node_name(i32 noundef %1675) #33
   br label %parser_node_name.exit1798
 
 parser_node_name.exit1798:                        ; preds = %1671, %1676, %1677
@@ -31260,7 +31260,7 @@ parser_node_name.exit1798:                        ; preds = %1671, %1676, %1677
   br label %parser_node_name.exit1800
 
 1688:                                             ; preds = %1682
-  %1689 = tail call ptr @ruby_node_name(i32 noundef %1686) #32
+  %1689 = tail call ptr @ruby_node_name(i32 noundef %1686) #33
   br label %parser_node_name.exit1800
 
 parser_node_name.exit1800:                        ; preds = %1682, %1687, %1688
@@ -31294,7 +31294,7 @@ parser_node_name.exit1800:                        ; preds = %1682, %1687, %1688
   br label %parser_node_name.exit1802
 
 1699:                                             ; preds = %1693
-  %1700 = tail call ptr @ruby_node_name(i32 noundef %1697) #32
+  %1700 = tail call ptr @ruby_node_name(i32 noundef %1697) #33
   br label %parser_node_name.exit1802
 
 parser_node_name.exit1802:                        ; preds = %1693, %1698, %1699
@@ -31328,7 +31328,7 @@ parser_node_name.exit1802:                        ; preds = %1693, %1698, %1699
   br label %parser_node_name.exit1804
 
 1710:                                             ; preds = %1704
-  %1711 = tail call ptr @ruby_node_name(i32 noundef %1708) #32
+  %1711 = tail call ptr @ruby_node_name(i32 noundef %1708) #33
   br label %parser_node_name.exit1804
 
 parser_node_name.exit1804:                        ; preds = %1704, %1709, %1710
@@ -31362,7 +31362,7 @@ parser_node_name.exit1804:                        ; preds = %1704, %1709, %1710
   br label %parser_node_name.exit1806
 
 1721:                                             ; preds = %1715
-  %1722 = tail call ptr @ruby_node_name(i32 noundef %1719) #32
+  %1722 = tail call ptr @ruby_node_name(i32 noundef %1719) #33
   br label %parser_node_name.exit1806
 
 parser_node_name.exit1806:                        ; preds = %1715, %1720, %1721
@@ -31396,7 +31396,7 @@ parser_node_name.exit1806:                        ; preds = %1715, %1720, %1721
   br label %parser_node_name.exit1808
 
 1732:                                             ; preds = %1726
-  %1733 = tail call ptr @ruby_node_name(i32 noundef %1730) #32
+  %1733 = tail call ptr @ruby_node_name(i32 noundef %1730) #33
   br label %parser_node_name.exit1808
 
 parser_node_name.exit1808:                        ; preds = %1726, %1731, %1732
@@ -31430,7 +31430,7 @@ parser_node_name.exit1808:                        ; preds = %1726, %1731, %1732
   br label %parser_node_name.exit1810
 
 1743:                                             ; preds = %1737
-  %1744 = tail call ptr @ruby_node_name(i32 noundef %1741) #32
+  %1744 = tail call ptr @ruby_node_name(i32 noundef %1741) #33
   br label %parser_node_name.exit1810
 
 parser_node_name.exit1810:                        ; preds = %1737, %1742, %1743
@@ -31464,7 +31464,7 @@ parser_node_name.exit1810:                        ; preds = %1737, %1742, %1743
   br label %parser_node_name.exit1812
 
 1754:                                             ; preds = %1748
-  %1755 = tail call ptr @ruby_node_name(i32 noundef %1752) #32
+  %1755 = tail call ptr @ruby_node_name(i32 noundef %1752) #33
   br label %parser_node_name.exit1812
 
 parser_node_name.exit1812:                        ; preds = %1748, %1753, %1754
@@ -31498,7 +31498,7 @@ parser_node_name.exit1812:                        ; preds = %1748, %1753, %1754
   br label %parser_node_name.exit1814
 
 1765:                                             ; preds = %1759
-  %1766 = tail call ptr @ruby_node_name(i32 noundef %1763) #32
+  %1766 = tail call ptr @ruby_node_name(i32 noundef %1763) #33
   br label %parser_node_name.exit1814
 
 parser_node_name.exit1814:                        ; preds = %1759, %1764, %1765
@@ -31532,7 +31532,7 @@ parser_node_name.exit1814:                        ; preds = %1759, %1764, %1765
   br label %parser_node_name.exit1816
 
 1776:                                             ; preds = %1770
-  %1777 = tail call ptr @ruby_node_name(i32 noundef %1774) #32
+  %1777 = tail call ptr @ruby_node_name(i32 noundef %1774) #33
   br label %parser_node_name.exit1816
 
 parser_node_name.exit1816:                        ; preds = %1770, %1775, %1776
@@ -31566,7 +31566,7 @@ parser_node_name.exit1816:                        ; preds = %1770, %1775, %1776
   br label %parser_node_name.exit1818
 
 1787:                                             ; preds = %1781
-  %1788 = tail call ptr @ruby_node_name(i32 noundef %1785) #32
+  %1788 = tail call ptr @ruby_node_name(i32 noundef %1785) #33
   br label %parser_node_name.exit1818
 
 parser_node_name.exit1818:                        ; preds = %1781, %1786, %1787
@@ -31600,7 +31600,7 @@ parser_node_name.exit1818:                        ; preds = %1781, %1786, %1787
   br label %parser_node_name.exit1820
 
 1798:                                             ; preds = %1792
-  %1799 = tail call ptr @ruby_node_name(i32 noundef %1796) #32
+  %1799 = tail call ptr @ruby_node_name(i32 noundef %1796) #33
   br label %parser_node_name.exit1820
 
 parser_node_name.exit1820:                        ; preds = %1792, %1797, %1798
@@ -31634,7 +31634,7 @@ parser_node_name.exit1820:                        ; preds = %1792, %1797, %1798
   br label %parser_node_name.exit1822
 
 1809:                                             ; preds = %1803
-  %1810 = tail call ptr @ruby_node_name(i32 noundef %1807) #32
+  %1810 = tail call ptr @ruby_node_name(i32 noundef %1807) #33
   br label %parser_node_name.exit1822
 
 parser_node_name.exit1822:                        ; preds = %1803, %1808, %1809
@@ -31668,7 +31668,7 @@ parser_node_name.exit1822:                        ; preds = %1803, %1808, %1809
   br label %parser_node_name.exit1824
 
 1820:                                             ; preds = %1814
-  %1821 = tail call ptr @ruby_node_name(i32 noundef %1818) #32
+  %1821 = tail call ptr @ruby_node_name(i32 noundef %1818) #33
   br label %parser_node_name.exit1824
 
 parser_node_name.exit1824:                        ; preds = %1814, %1819, %1820
@@ -31678,7 +31678,7 @@ parser_node_name.exit1824:                        ; preds = %1814, %1819, %1820
 
 1822:                                             ; preds = %4
   %1823 = load i64, ptr %1, align 8
-  %1824 = tail call i64 @rb_id2str(i64 noundef %1823) #32
+  %1824 = tail call i64 @rb_id2str(i64 noundef %1823) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1824)
   br label %2190
 
@@ -31708,7 +31708,7 @@ parser_node_name.exit1824:                        ; preds = %1814, %1819, %1820
   br label %parser_node_name.exit1826
 
 1834:                                             ; preds = %1828
-  %1835 = tail call ptr @ruby_node_name(i32 noundef %1832) #32
+  %1835 = tail call ptr @ruby_node_name(i32 noundef %1832) #33
   br label %parser_node_name.exit1826
 
 parser_node_name.exit1826:                        ; preds = %1828, %1833, %1834
@@ -31742,7 +31742,7 @@ parser_node_name.exit1826:                        ; preds = %1828, %1833, %1834
   br label %parser_node_name.exit1828
 
 1845:                                             ; preds = %1839
-  %1846 = tail call ptr @ruby_node_name(i32 noundef %1843) #32
+  %1846 = tail call ptr @ruby_node_name(i32 noundef %1843) #33
   br label %parser_node_name.exit1828
 
 parser_node_name.exit1828:                        ; preds = %1839, %1844, %1845
@@ -31776,7 +31776,7 @@ parser_node_name.exit1828:                        ; preds = %1839, %1844, %1845
   br label %parser_node_name.exit1830
 
 1856:                                             ; preds = %1850
-  %1857 = tail call ptr @ruby_node_name(i32 noundef %1854) #32
+  %1857 = tail call ptr @ruby_node_name(i32 noundef %1854) #33
   br label %parser_node_name.exit1830
 
 parser_node_name.exit1830:                        ; preds = %1850, %1855, %1856
@@ -31786,19 +31786,19 @@ parser_node_name.exit1830:                        ; preds = %1850, %1855, %1856
 
 1858:                                             ; preds = %4
   %1859 = load i64, ptr %1, align 8
-  %1860 = tail call i64 @rb_id2str(i64 noundef %1859) #32
+  %1860 = tail call i64 @rb_id2str(i64 noundef %1859) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1860)
   br label %2190
 
 1861:                                             ; preds = %4
   %1862 = load i64, ptr %1, align 8
-  %1863 = tail call i64 @rb_id2str(i64 noundef %1862) #32
+  %1863 = tail call i64 @rb_id2str(i64 noundef %1862) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1863)
   br label %2190
 
 1864:                                             ; preds = %4
   %1865 = load i64, ptr %1, align 8
-  %1866 = tail call i64 @rb_id2str(i64 noundef %1865) #32
+  %1866 = tail call i64 @rb_id2str(i64 noundef %1865) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1866)
   br label %2190
 
@@ -31828,7 +31828,7 @@ parser_node_name.exit1830:                        ; preds = %1850, %1855, %1856
   br label %parser_node_name.exit1832
 
 1876:                                             ; preds = %1870
-  %1877 = tail call ptr @ruby_node_name(i32 noundef %1874) #32
+  %1877 = tail call ptr @ruby_node_name(i32 noundef %1874) #33
   br label %parser_node_name.exit1832
 
 parser_node_name.exit1832:                        ; preds = %1870, %1875, %1876
@@ -31862,7 +31862,7 @@ parser_node_name.exit1832:                        ; preds = %1870, %1875, %1876
   br label %parser_node_name.exit1834
 
 1887:                                             ; preds = %1881
-  %1888 = tail call ptr @ruby_node_name(i32 noundef %1885) #32
+  %1888 = tail call ptr @ruby_node_name(i32 noundef %1885) #33
   br label %parser_node_name.exit1834
 
 parser_node_name.exit1834:                        ; preds = %1881, %1886, %1887
@@ -31896,7 +31896,7 @@ parser_node_name.exit1834:                        ; preds = %1881, %1886, %1887
   br label %parser_node_name.exit1836
 
 1898:                                             ; preds = %1892
-  %1899 = tail call ptr @ruby_node_name(i32 noundef %1896) #32
+  %1899 = tail call ptr @ruby_node_name(i32 noundef %1896) #33
   br label %parser_node_name.exit1836
 
 parser_node_name.exit1836:                        ; preds = %1892, %1897, %1898
@@ -31930,7 +31930,7 @@ parser_node_name.exit1836:                        ; preds = %1892, %1897, %1898
   br label %parser_node_name.exit1838
 
 1909:                                             ; preds = %1903
-  %1910 = tail call ptr @ruby_node_name(i32 noundef %1907) #32
+  %1910 = tail call ptr @ruby_node_name(i32 noundef %1907) #33
   br label %parser_node_name.exit1838
 
 parser_node_name.exit1838:                        ; preds = %1903, %1908, %1909
@@ -31964,7 +31964,7 @@ parser_node_name.exit1838:                        ; preds = %1903, %1908, %1909
   br label %parser_node_name.exit1840
 
 1920:                                             ; preds = %1914
-  %1921 = tail call ptr @ruby_node_name(i32 noundef %1918) #32
+  %1921 = tail call ptr @ruby_node_name(i32 noundef %1918) #33
   br label %parser_node_name.exit1840
 
 parser_node_name.exit1840:                        ; preds = %1914, %1919, %1920
@@ -31998,7 +31998,7 @@ parser_node_name.exit1840:                        ; preds = %1914, %1919, %1920
   br label %parser_node_name.exit1842
 
 1931:                                             ; preds = %1925
-  %1932 = tail call ptr @ruby_node_name(i32 noundef %1929) #32
+  %1932 = tail call ptr @ruby_node_name(i32 noundef %1929) #33
   br label %parser_node_name.exit1842
 
 parser_node_name.exit1842:                        ; preds = %1925, %1930, %1931
@@ -32032,7 +32032,7 @@ parser_node_name.exit1842:                        ; preds = %1925, %1930, %1931
   br label %parser_node_name.exit1844
 
 1942:                                             ; preds = %1936
-  %1943 = tail call ptr @ruby_node_name(i32 noundef %1940) #32
+  %1943 = tail call ptr @ruby_node_name(i32 noundef %1940) #33
   br label %parser_node_name.exit1844
 
 parser_node_name.exit1844:                        ; preds = %1936, %1941, %1942
@@ -32066,7 +32066,7 @@ parser_node_name.exit1844:                        ; preds = %1936, %1941, %1942
   br label %parser_node_name.exit1846
 
 1953:                                             ; preds = %1947
-  %1954 = tail call ptr @ruby_node_name(i32 noundef %1951) #32
+  %1954 = tail call ptr @ruby_node_name(i32 noundef %1951) #33
   br label %parser_node_name.exit1846
 
 parser_node_name.exit1846:                        ; preds = %1947, %1952, %1953
@@ -32100,7 +32100,7 @@ parser_node_name.exit1846:                        ; preds = %1947, %1952, %1953
   br label %parser_node_name.exit1848
 
 1964:                                             ; preds = %1958
-  %1965 = tail call ptr @ruby_node_name(i32 noundef %1962) #32
+  %1965 = tail call ptr @ruby_node_name(i32 noundef %1962) #33
   br label %parser_node_name.exit1848
 
 parser_node_name.exit1848:                        ; preds = %1958, %1963, %1964
@@ -32134,7 +32134,7 @@ parser_node_name.exit1848:                        ; preds = %1958, %1963, %1964
   br label %parser_node_name.exit1850
 
 1975:                                             ; preds = %1969
-  %1976 = tail call ptr @ruby_node_name(i32 noundef %1973) #32
+  %1976 = tail call ptr @ruby_node_name(i32 noundef %1973) #33
   br label %parser_node_name.exit1850
 
 parser_node_name.exit1850:                        ; preds = %1969, %1974, %1975
@@ -32144,25 +32144,25 @@ parser_node_name.exit1850:                        ; preds = %1969, %1974, %1975
 
 1977:                                             ; preds = %4
   %1978 = load i64, ptr %1, align 8
-  %1979 = tail call i64 @rb_id2str(i64 noundef %1978) #32
+  %1979 = tail call i64 @rb_id2str(i64 noundef %1978) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1979)
   br label %2190
 
 1980:                                             ; preds = %4
   %1981 = load i64, ptr %1, align 8
-  %1982 = tail call i64 @rb_id2str(i64 noundef %1981) #32
+  %1982 = tail call i64 @rb_id2str(i64 noundef %1981) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1982)
   br label %2190
 
 1983:                                             ; preds = %4
   %1984 = load i64, ptr %1, align 8
-  %1985 = tail call i64 @rb_id2str(i64 noundef %1984) #32
+  %1985 = tail call i64 @rb_id2str(i64 noundef %1984) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1985)
   br label %2190
 
 1986:                                             ; preds = %4
   %1987 = load i64, ptr %1, align 8
-  %1988 = tail call i64 @rb_id2str(i64 noundef %1987) #32
+  %1988 = tail call i64 @rb_id2str(i64 noundef %1987) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %1988)
   br label %2190
 
@@ -32192,7 +32192,7 @@ parser_node_name.exit1850:                        ; preds = %1969, %1974, %1975
   br label %parser_node_name.exit1852
 
 1998:                                             ; preds = %1992
-  %1999 = tail call ptr @ruby_node_name(i32 noundef %1996) #32
+  %1999 = tail call ptr @ruby_node_name(i32 noundef %1996) #33
   br label %parser_node_name.exit1852
 
 parser_node_name.exit1852:                        ; preds = %1992, %1997, %1998
@@ -32226,7 +32226,7 @@ parser_node_name.exit1852:                        ; preds = %1992, %1997, %1998
   br label %parser_node_name.exit1854
 
 2009:                                             ; preds = %2003
-  %2010 = tail call ptr @ruby_node_name(i32 noundef %2007) #32
+  %2010 = tail call ptr @ruby_node_name(i32 noundef %2007) #33
   br label %parser_node_name.exit1854
 
 parser_node_name.exit1854:                        ; preds = %2003, %2008, %2009
@@ -32236,7 +32236,7 @@ parser_node_name.exit1854:                        ; preds = %2003, %2008, %2009
 
 2011:                                             ; preds = %4
   %2012 = load i64, ptr %1, align 8
-  %2013 = tail call i64 @rb_id2str(i64 noundef %2012) #32
+  %2013 = tail call i64 @rb_id2str(i64 noundef %2012) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2013)
   br label %2190
 
@@ -32266,7 +32266,7 @@ parser_node_name.exit1854:                        ; preds = %2003, %2008, %2009
   br label %parser_node_name.exit1856
 
 2023:                                             ; preds = %2017
-  %2024 = tail call ptr @ruby_node_name(i32 noundef %2021) #32
+  %2024 = tail call ptr @ruby_node_name(i32 noundef %2021) #33
   br label %parser_node_name.exit1856
 
 parser_node_name.exit1856:                        ; preds = %2017, %2022, %2023
@@ -32300,7 +32300,7 @@ parser_node_name.exit1856:                        ; preds = %2017, %2022, %2023
   br label %parser_node_name.exit1858
 
 2034:                                             ; preds = %2028
-  %2035 = tail call ptr @ruby_node_name(i32 noundef %2032) #32
+  %2035 = tail call ptr @ruby_node_name(i32 noundef %2032) #33
   br label %parser_node_name.exit1858
 
 parser_node_name.exit1858:                        ; preds = %2028, %2033, %2034
@@ -32334,7 +32334,7 @@ parser_node_name.exit1858:                        ; preds = %2028, %2033, %2034
   br label %parser_node_name.exit1860
 
 2045:                                             ; preds = %2039
-  %2046 = tail call ptr @ruby_node_name(i32 noundef %2043) #32
+  %2046 = tail call ptr @ruby_node_name(i32 noundef %2043) #33
   br label %parser_node_name.exit1860
 
 parser_node_name.exit1860:                        ; preds = %2039, %2044, %2045
@@ -32368,7 +32368,7 @@ parser_node_name.exit1860:                        ; preds = %2039, %2044, %2045
   br label %parser_node_name.exit1862
 
 2056:                                             ; preds = %2050
-  %2057 = tail call ptr @ruby_node_name(i32 noundef %2054) #32
+  %2057 = tail call ptr @ruby_node_name(i32 noundef %2054) #33
   br label %parser_node_name.exit1862
 
 parser_node_name.exit1862:                        ; preds = %2050, %2055, %2056
@@ -32378,13 +32378,13 @@ parser_node_name.exit1862:                        ; preds = %2050, %2055, %2056
 
 2058:                                             ; preds = %4
   %2059 = load i64, ptr %1, align 8
-  %2060 = tail call i64 @rb_id2str(i64 noundef %2059) #32
+  %2060 = tail call i64 @rb_id2str(i64 noundef %2059) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2060)
   br label %2190
 
 2061:                                             ; preds = %4
   %2062 = load i64, ptr %1, align 8
-  %2063 = tail call i64 @rb_id2str(i64 noundef %2062) #32
+  %2063 = tail call i64 @rb_id2str(i64 noundef %2062) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2063)
   br label %2190
 
@@ -32414,7 +32414,7 @@ parser_node_name.exit1862:                        ; preds = %2050, %2055, %2056
   br label %parser_node_name.exit1864
 
 2073:                                             ; preds = %2067
-  %2074 = tail call ptr @ruby_node_name(i32 noundef %2071) #32
+  %2074 = tail call ptr @ruby_node_name(i32 noundef %2071) #33
   br label %parser_node_name.exit1864
 
 parser_node_name.exit1864:                        ; preds = %2067, %2072, %2073
@@ -32448,7 +32448,7 @@ parser_node_name.exit1864:                        ; preds = %2067, %2072, %2073
   br label %parser_node_name.exit1866
 
 2084:                                             ; preds = %2078
-  %2085 = tail call ptr @ruby_node_name(i32 noundef %2082) #32
+  %2085 = tail call ptr @ruby_node_name(i32 noundef %2082) #33
   br label %parser_node_name.exit1866
 
 parser_node_name.exit1866:                        ; preds = %2078, %2083, %2084
@@ -32482,7 +32482,7 @@ parser_node_name.exit1866:                        ; preds = %2078, %2083, %2084
   br label %parser_node_name.exit1868
 
 2095:                                             ; preds = %2089
-  %2096 = tail call ptr @ruby_node_name(i32 noundef %2093) #32
+  %2096 = tail call ptr @ruby_node_name(i32 noundef %2093) #33
   br label %parser_node_name.exit1868
 
 parser_node_name.exit1868:                        ; preds = %2089, %2094, %2095
@@ -32516,7 +32516,7 @@ parser_node_name.exit1868:                        ; preds = %2089, %2094, %2095
   br label %parser_node_name.exit1870
 
 2106:                                             ; preds = %2100
-  %2107 = tail call ptr @ruby_node_name(i32 noundef %2104) #32
+  %2107 = tail call ptr @ruby_node_name(i32 noundef %2104) #33
   br label %parser_node_name.exit1870
 
 parser_node_name.exit1870:                        ; preds = %2100, %2105, %2106
@@ -32526,19 +32526,19 @@ parser_node_name.exit1870:                        ; preds = %2100, %2105, %2106
 
 2108:                                             ; preds = %4
   %2109 = load i64, ptr %1, align 8
-  %2110 = tail call i64 @rb_id2str(i64 noundef %2109) #32
+  %2110 = tail call i64 @rb_id2str(i64 noundef %2109) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2110)
   br label %2190
 
 2111:                                             ; preds = %4
   %2112 = load i64, ptr %1, align 8
-  %2113 = tail call i64 @rb_id2str(i64 noundef %2112) #32
+  %2113 = tail call i64 @rb_id2str(i64 noundef %2112) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2113)
   br label %2190
 
 2114:                                             ; preds = %4
   %2115 = load i64, ptr %1, align 8
-  %2116 = tail call i64 @rb_id2str(i64 noundef %2115) #32
+  %2116 = tail call i64 @rb_id2str(i64 noundef %2115) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2116)
   br label %2190
 
@@ -32568,7 +32568,7 @@ parser_node_name.exit1870:                        ; preds = %2100, %2105, %2106
   br label %parser_node_name.exit1872
 
 2126:                                             ; preds = %2120
-  %2127 = tail call ptr @ruby_node_name(i32 noundef %2124) #32
+  %2127 = tail call ptr @ruby_node_name(i32 noundef %2124) #33
   br label %parser_node_name.exit1872
 
 parser_node_name.exit1872:                        ; preds = %2120, %2125, %2126
@@ -32602,7 +32602,7 @@ parser_node_name.exit1872:                        ; preds = %2120, %2125, %2126
   br label %parser_node_name.exit1874
 
 2137:                                             ; preds = %2131
-  %2138 = tail call ptr @ruby_node_name(i32 noundef %2135) #32
+  %2138 = tail call ptr @ruby_node_name(i32 noundef %2135) #33
   br label %parser_node_name.exit1874
 
 parser_node_name.exit1874:                        ; preds = %2131, %2136, %2137
@@ -32636,7 +32636,7 @@ parser_node_name.exit1874:                        ; preds = %2131, %2136, %2137
   br label %parser_node_name.exit1876
 
 2148:                                             ; preds = %2142
-  %2149 = tail call ptr @ruby_node_name(i32 noundef %2146) #32
+  %2149 = tail call ptr @ruby_node_name(i32 noundef %2146) #33
   br label %parser_node_name.exit1876
 
 parser_node_name.exit1876:                        ; preds = %2142, %2147, %2148
@@ -32670,7 +32670,7 @@ parser_node_name.exit1876:                        ; preds = %2142, %2147, %2148
   br label %parser_node_name.exit1878
 
 2159:                                             ; preds = %2153
-  %2160 = tail call ptr @ruby_node_name(i32 noundef %2157) #32
+  %2160 = tail call ptr @ruby_node_name(i32 noundef %2157) #33
   br label %parser_node_name.exit1878
 
 parser_node_name.exit1878:                        ; preds = %2153, %2158, %2159
@@ -32680,37 +32680,37 @@ parser_node_name.exit1878:                        ; preds = %2153, %2158, %2159
 
 2161:                                             ; preds = %4
   %2162 = load i64, ptr %1, align 8
-  %2163 = tail call i64 @rb_id2str(i64 noundef %2162) #32
+  %2163 = tail call i64 @rb_id2str(i64 noundef %2162) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2163)
   br label %2190
 
 2164:                                             ; preds = %4
   %2165 = load i64, ptr %1, align 8
-  %2166 = tail call i64 @rb_id2str(i64 noundef %2165) #32
+  %2166 = tail call i64 @rb_id2str(i64 noundef %2165) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2166)
   br label %2190
 
 2167:                                             ; preds = %4
   %2168 = load i64, ptr %1, align 8
-  %2169 = tail call i64 @rb_id2str(i64 noundef %2168) #32
+  %2169 = tail call i64 @rb_id2str(i64 noundef %2168) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2169)
   br label %2190
 
 2170:                                             ; preds = %4
   %2171 = load i64, ptr %1, align 8
-  %2172 = tail call i64 @rb_id2str(i64 noundef %2171) #32
+  %2172 = tail call i64 @rb_id2str(i64 noundef %2171) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2172)
   br label %2190
 
 2173:                                             ; preds = %4
   %2174 = load i64, ptr %1, align 8
-  %2175 = tail call i64 @rb_id2str(i64 noundef %2174) #32
+  %2175 = tail call i64 @rb_id2str(i64 noundef %2174) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2175)
   br label %2190
 
 2176:                                             ; preds = %4
   %2177 = load i64, ptr %1, align 8
-  %2178 = tail call i64 @rb_id2str(i64 noundef %2177) #32
+  %2178 = tail call i64 @rb_id2str(i64 noundef %2177) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %2, ptr noundef nonnull @.str.80, i64 noundef %2178)
   br label %2190
 
@@ -32740,7 +32740,7 @@ parser_node_name.exit1878:                        ; preds = %2153, %2158, %2159
   br label %parser_node_name.exit1880
 
 2188:                                             ; preds = %2182
-  %2189 = tail call ptr @ruby_node_name(i32 noundef %2186) #32
+  %2189 = tail call ptr @ruby_node_name(i32 noundef %2186) #33
   br label %parser_node_name.exit1880
 
 parser_node_name.exit1880:                        ; preds = %2182, %2187, %2188
@@ -32775,8 +32775,8 @@ define internal fastcc void @reduce_nodes(ptr noundef %0, ptr nocapture noundef 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 96) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 96) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -32970,7 +32970,7 @@ define internal fastcc void @debug_end_expect_token_locations(ptr nocapture noun
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.549, ptr noundef %1) #32
+  %8 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.549, ptr noundef %1) #33
   %9 = getelementptr inbounds i8, ptr %0, i64 392
   %.016 = load ptr, ptr %9, align 8
   %.not1517 = icmp eq ptr %.016, null
@@ -32983,7 +32983,7 @@ define internal fastcc void @debug_end_expect_token_locations(ptr nocapture noun
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.550, i64 noundef 2) #32
+  %12 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.550, i64 noundef 2) #33
   br label %13
 
 13:                                               ; preds = %11, %.lr.ph
@@ -32991,7 +32991,7 @@ define internal fastcc void @debug_end_expect_token_locations(ptr nocapture noun
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.551, i32 noundef %15, i32 noundef %17) #32
+  %18 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.551, i32 noundef %15, i32 noundef %17) #33
   %19 = add i32 %.01418, 1
   %20 = getelementptr inbounds i8, ptr %.019, i64 8
   %.0 = load ptr, ptr %20, align 8
@@ -32999,7 +32999,7 @@ define internal fastcc void @debug_end_expect_token_locations(ptr nocapture noun
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %13, %7
-  %21 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.552, i64 noundef 2) #32
+  %21 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.552, i64 noundef 2) #33
   %22 = getelementptr inbounds i8, ptr %0, i64 272
   %23 = load i64, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -33018,7 +33018,7 @@ define internal fastcc void @debug_end_expect_token_locations(ptr nocapture noun
 
 31:                                               ; preds = %27
   store i64 4, ptr %24, align 8
-  %32 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %3, i64 noundef %23) #32
+  %32 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %3, i64 noundef %23) #33
   br label %33
 
 33:                                               ; preds = %31, %27, %._crit_edge
@@ -33034,7 +33034,7 @@ define internal fastcc void @debug_end_expect_token_locations(ptr nocapture noun
 
 39:                                               ; preds = %35
   %40 = load i64, ptr %22, align 8
-  %41 = call i64 @rb_io_write(i64 noundef %40, i64 noundef %8) #32
+  %41 = call i64 @rb_io_write(i64 noundef %40, i64 noundef %8) #33
   br label %flush_debug_buffer.exit
 
 flush_debug_buffer.exit:                          ; preds = %33, %35, %39
@@ -33076,13 +33076,13 @@ declare ptr @onigenc_get_prev_char_head(ptr noundef, ptr noundef, ptr noundef, p
 declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #19
+declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #19
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @rb_enc_dummy_p(ptr noundef) local_unnamed_addr #20
+declare i32 @rb_enc_dummy_p(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @lex_get_str(ptr nocapture noundef %0, i64 noundef %1) #0 {
@@ -33118,7 +33118,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %7
 17:                                               ; preds = %14, %RSTRING_PTR.exit
   %.022 = phi ptr [ %15, %14 ], [ %.sroa.2.0.i, %RSTRING_PTR.exit ]
   %.0 = phi i64 [ %16, %14 ], [ %9, %RSTRING_PTR.exit ]
-  %18 = tail call ptr @memchr(ptr noundef %.022, i32 noundef 10, i64 noundef %.0) #36
+  %18 = tail call ptr @memchr(ptr noundef %.022, i32 noundef 10, i64 noundef %.0) #37
   %.not26 = icmp eq ptr %18, null
   %19 = getelementptr i8, ptr %18, i64 1
   %20 = ptrtoint ptr %19 to i64
@@ -33129,7 +33129,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %7
   store i64 %23, ptr %10, align 8
   %24 = ptrtoint ptr %.sroa.2.0.i to i64
   %25 = sub i64 %21, %24
-  %26 = tail call i64 @rb_str_subseq(i64 noundef %1, i64 noundef %25, i64 noundef %.1) #32
+  %26 = tail call i64 @rb_str_subseq(i64 noundef %1, i64 noundef %25, i64 noundef %.1) #33
   br label %27
 
 27:                                               ; preds = %12, %17
@@ -33185,7 +33185,7 @@ define internal range(i64 0, 2) i64 @yycompile0(i64 noundef %0) #0 {
 18:                                               ; preds = %18, %16
   %.056 = phi i32 [ %14, %16 ], [ %21, %18 ]
   %19 = load i64, ptr %10, align 8
-  %20 = tail call i64 @rb_ary_push(i64 noundef %19, i64 noundef %17) #32
+  %20 = tail call i64 @rb_ary_push(i64 noundef %19, i64 noundef %17) #33
   %21 = add i32 %.056, -1
   %.not65 = icmp eq i32 %21, 0
   br i1 %.not65, label %.loopexit, label %18, !llvm.loop !88
@@ -33231,7 +33231,7 @@ e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %.loopexit
 
 36:                                               ; preds = %31
   %37 = ptrtoint ptr %33 to i64
-  tail call void @rb_gc_writebarrier(i64 noundef %37, i64 noundef %30) #32
+  tail call void @rb_gc_writebarrier(i64 noundef %37, i64 noundef %30) #33
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %36, %31, %28
@@ -33241,7 +33241,7 @@ rb_obj_write.exit:                                ; preds = %36, %31, %28
   br i1 %.not.i77, label %40, label %45
 
 40:                                               ; preds = %rb_obj_write.exit
-  %41 = tail call ptr @rb_ruby_verbose_ptr() #32
+  %41 = tail call ptr @rb_ruby_verbose_ptr() #33
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, -5
   %.not27.i = icmp eq i64 %43, 0
@@ -33302,7 +33302,7 @@ rb_obj_write.exit:                                ; preds = %36, %31, %28
   br i1 %72, label %73, label %86
 
 73:                                               ; preds = %69
-  %74 = tail call nonnull ptr @rb_utf8_encoding() #32
+  %74 = tail call nonnull ptr @rb_utf8_encoding() #33
   %75 = getelementptr inbounds i8, ptr %2, i64 232
   store ptr %74, ptr %75, align 8
   %76 = load ptr, ptr %61, align 8
@@ -33374,13 +33374,13 @@ parser_prepare.exit:                              ; preds = %45, %.sink.split.i
   br i1 %.not68, label %113, label %108
 
 108:                                              ; preds = %parser_prepare.exit
-  tail call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_parse__begin_semaphore) #32, !srcloc !89
+  tail call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_parse__begin_semaphore) #33, !srcloc !89
   %109 = getelementptr inbounds i8, ptr %2, i64 216
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %2, i64 212
   %112 = load i32, ptr %111, align 4
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_parse__begin_semaphore\0A.asciz \22ruby\22\0A.asciz \22parse__begin\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %110, i32 1025, i32 %112) #32, !srcloc !90
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #32, !srcloc !91
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_parse__begin_semaphore\0A.asciz \22ruby\22\0A.asciz \22parse__begin\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %110, i32 1025, i32 %112) #33, !srcloc !90
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #33, !srcloc !91
   br label %113
 
 113:                                              ; preds = %108, %parser_prepare.exit
@@ -33390,20 +33390,20 @@ parser_prepare.exit:                              ; preds = %45, %.sink.split.i
   br i1 %.not69, label %121, label %116
 
 116:                                              ; preds = %113
-  tail call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_parse__end_semaphore) #32, !srcloc !92
+  tail call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_parse__end_semaphore) #33, !srcloc !92
   %117 = getelementptr inbounds i8, ptr %2, i64 216
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %2, i64 212
   %120 = load i32, ptr %119, align 4
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_parse__end_semaphore\0A.asciz \22ruby\22\0A.asciz \22parse__end\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %118, i32 1025, i32 %120) #32, !srcloc !93
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #32, !srcloc !94
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_parse__end_semaphore\0A.asciz \22ruby\22\0A.asciz \22parse__end\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %118, i32 1025, i32 %120) #33, !srcloc !93
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #33, !srcloc !94
   br label %121
 
 121:                                              ; preds = %116, %113
   store i64 0, ptr %29, align 8
   %122 = getelementptr inbounds i8, ptr %2, i64 24
   %123 = load ptr, ptr %122, align 8
-  tail call void @ruby_xfree(ptr noundef %123) #32
+  tail call void @ruby_xfree(ptr noundef %123) #33
   store ptr null, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %2, i64 80
   %.not70 = icmp eq i32 %114, 0
@@ -33424,7 +33424,7 @@ parser_prepare.exit:                              ; preds = %45, %.sink.split.i
 
 131:                                              ; preds = %128
   %132 = load i64, ptr @rb_eSyntaxError, align 8
-  %133 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %132) #32
+  %133 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %132) #33
   br label %134
 
 134:                                              ; preds = %131, %128
@@ -33435,7 +33435,7 @@ parser_prepare.exit:                              ; preds = %45, %.sink.split.i
   br i1 %.not73, label %137, label %138
 
 137:                                              ; preds = %134
-  tail call void @rb_set_errinfo(i64 noundef %.058) #32
+  tail call void @rb_set_errinfo(i64 noundef %.058) #33
   br label %422
 
 138:                                              ; preds = %134, %125
@@ -33448,8 +33448,8 @@ parser_prepare.exit:                              ; preds = %45, %.sink.split.i
 142:                                              ; preds = %138
   %143 = getelementptr i8, ptr %2, i64 312
   %.val.i.i = load ptr, ptr %143, align 8
-  %144 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %144, i32 noundef 96) #32
+  %144 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 96, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %144, i32 noundef 96) #33
   %145 = getelementptr inbounds i8, ptr %144, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull readonly align 4 dereferenceable(16) @NULL_LOC, i64 16, i1 false)
   %146 = load i64, ptr %144, align 8
@@ -33478,7 +33478,7 @@ parser_prepare.exit:                              ; preds = %45, %.sink.split.i
   br i1 %.not4.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i
 
 .lr.ph.i.i:                                       ; preds = %158, %.lr.ph.i.i
-  %159 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.861, i64 noundef 5) #32
+  %159 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.861, i64 noundef 5) #33
   store i64 %159, ptr @parser_append_options.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %159, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i, !llvm.loop !95
@@ -33487,8 +33487,8 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %158
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %158 ], [ %159, %.lr.ph.i.i ]
   %160 = getelementptr i8, ptr %2, i64 312
   %.val.i.i.i = load ptr, ptr %160, align 8
-  %161 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %161, i32 noundef 50) #32
+  %161 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %161, i32 noundef 50) #33
   %162 = getelementptr inbounds i8, ptr %161, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %163 = load i64, ptr %161, align 8
@@ -33504,8 +33504,8 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %158
   %170 = getelementptr inbounds i8, ptr %161, i64 32
   store i64 3831, ptr %170, align 8
   %.val.i.i45.i = load ptr, ptr %160, align 8
-  %171 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i45.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %171, i32 noundef 43) #32
+  %171 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i45.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %171, i32 noundef 43) #33
   %172 = getelementptr inbounds i8, ptr %171, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %173 = load i64, ptr %171, align 8
@@ -33524,8 +33524,8 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %158
   %181 = getelementptr inbounds i8, ptr %171, i64 48
   store ptr null, ptr %181, align 8
   %.val.i.i46.i = load ptr, ptr %160, align 8
-  %182 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i46.i, i32 noundef 38, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %182, i32 noundef 38) #32
+  %182 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i46.i, i32 noundef 38, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %182, i32 noundef 38) #33
   %183 = getelementptr inbounds i8, ptr %182, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %184 = load i64, ptr %182, align 8
@@ -33558,7 +33558,7 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %158
   br i1 %.not4.i48.i, label %.lr.ph.i50.i, label %rbimpl_intern_const.exit52.i
 
 .lr.ph.i50.i:                                     ; preds = %196, %.lr.ph.i50.i
-  %197 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.863, i64 noundef 2) #32
+  %197 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.863, i64 noundef 2) #33
   store i64 %197, ptr @parser_append_options.rbimpl_id.862, align 8
   %.not.i51.i = icmp eq i64 %197, 0
   br i1 %.not.i51.i, label %.lr.ph.i50.i, label %rbimpl_intern_const.exit52.i, !llvm.loop !95
@@ -33567,8 +33567,8 @@ rbimpl_intern_const.exit52.i:                     ; preds = %.lr.ph.i50.i, %196
   %.lcssa.i49.i = phi i64 [ %.pr.i47.i, %196 ], [ %197, %.lr.ph.i50.i ]
   %198 = getelementptr i8, ptr %2, i64 312
   %.val.i.i53.i = load ptr, ptr %198, align 8
-  %199 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i53.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %199, i32 noundef 50) #32
+  %199 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i53.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %199, i32 noundef 50) #33
   %200 = getelementptr inbounds i8, ptr %199, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %201 = load i64, ptr %199, align 8
@@ -33584,8 +33584,8 @@ rbimpl_intern_const.exit52.i:                     ; preds = %.lr.ph.i50.i, %196
   %208 = getelementptr inbounds i8, ptr %199, i64 32
   store i64 %.lcssa.i49.i, ptr %208, align 8
   %.val.i.i54.i = load ptr, ptr %198, align 8
-  %209 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i54.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %209, i32 noundef 43) #32
+  %209 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i54.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %209, i32 noundef 43) #33
   %210 = getelementptr inbounds i8, ptr %209, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %211 = load i64, ptr %209, align 8
@@ -33614,7 +33614,7 @@ rbimpl_intern_const.exit52.i:                     ; preds = %.lr.ph.i50.i, %196
   br i1 %.not4.i56.i, label %.lr.ph.i58.i, label %rbimpl_intern_const.exit60.i
 
 .lr.ph.i58.i:                                     ; preds = %222, %.lr.ph.i58.i
-  %223 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.865, i64 noundef 2) #32
+  %223 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.865, i64 noundef 2) #33
   store i64 %223, ptr @parser_append_options.rbimpl_id.864, align 8
   %.not.i59.i = icmp eq i64 %223, 0
   br i1 %.not.i59.i, label %.lr.ph.i58.i, label %rbimpl_intern_const.exit60.i, !llvm.loop !95
@@ -33626,7 +33626,7 @@ rbimpl_intern_const.exit60.i:                     ; preds = %.lr.ph.i58.i, %222
   br i1 %.not4.i62.i, label %.lr.ph.i64.i, label %rbimpl_intern_const.exit66.i
 
 .lr.ph.i64.i:                                     ; preds = %rbimpl_intern_const.exit60.i, %.lr.ph.i64.i
-  %224 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.867, i64 noundef 2) #32
+  %224 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.867, i64 noundef 2) #33
   store i64 %224, ptr @parser_append_options.rbimpl_id.866, align 8
   %.not.i65.i = icmp eq i64 %224, 0
   br i1 %.not.i65.i, label %.lr.ph.i64.i, label %rbimpl_intern_const.exit66.i, !llvm.loop !95
@@ -33634,8 +33634,8 @@ rbimpl_intern_const.exit60.i:                     ; preds = %.lr.ph.i58.i, %222
 rbimpl_intern_const.exit66.i:                     ; preds = %.lr.ph.i64.i, %rbimpl_intern_const.exit60.i
   %.lcssa.i63.i = phi i64 [ %.pr.i61.i, %rbimpl_intern_const.exit60.i ], [ %224, %.lr.ph.i64.i ]
   %.val.i.i67.i = load ptr, ptr %198, align 8
-  %225 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i67.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %225, i32 noundef 50) #32
+  %225 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i67.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %225, i32 noundef 50) #33
   %226 = getelementptr inbounds i8, ptr %225, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %226, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %227 = load i64, ptr %225, align 8
@@ -33650,8 +33650,8 @@ rbimpl_intern_const.exit66.i:                     ; preds = %.lr.ph.i64.i, %rbim
   %233 = getelementptr inbounds i8, ptr %225, i64 32
   store i64 %.lcssa.i57.i, ptr %233, align 8
   %.val.i.i68.i = load ptr, ptr %198, align 8
-  %234 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i68.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %234, i32 noundef 43) #32
+  %234 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i68.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %234, i32 noundef 43) #33
   %235 = getelementptr inbounds i8, ptr %234, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %236 = load i64, ptr %234, align 8
@@ -33670,8 +33670,8 @@ rbimpl_intern_const.exit66.i:                     ; preds = %.lr.ph.i64.i, %rbim
   %244 = getelementptr inbounds i8, ptr %234, i64 48
   store ptr null, ptr %244, align 8
   %.val.i.i69.i = load ptr, ptr %198, align 8
-  %245 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i69.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %245, i32 noundef 50) #32
+  %245 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i69.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %245, i32 noundef 50) #33
   %246 = getelementptr inbounds i8, ptr %245, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %247 = load i64, ptr %245, align 8
@@ -33690,7 +33690,7 @@ rbimpl_intern_const.exit66.i:                     ; preds = %.lr.ph.i64.i, %rbim
   br i1 %.not4.i71.i, label %.lr.ph.i73.i, label %rbimpl_intern_const.exit75.i
 
 .lr.ph.i73.i:                                     ; preds = %rbimpl_intern_const.exit66.i, %.lr.ph.i73.i
-  %254 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.869, i64 noundef 5) #32
+  %254 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.869, i64 noundef 5) #33
   store i64 %254, ptr @parser_append_options.rbimpl_id.868, align 8
   %.not.i74.i = icmp eq i64 %254, 0
   br i1 %.not.i74.i, label %.lr.ph.i73.i, label %rbimpl_intern_const.exit75.i, !llvm.loop !95
@@ -33698,8 +33698,8 @@ rbimpl_intern_const.exit66.i:                     ; preds = %.lr.ph.i64.i, %rbim
 rbimpl_intern_const.exit75.i:                     ; preds = %.lr.ph.i73.i, %rbimpl_intern_const.exit66.i
   %.lcssa.i72.i = phi i64 [ %.pr.i70.i, %rbimpl_intern_const.exit66.i ], [ %254, %.lr.ph.i73.i ]
   %.val.i.i76.i = load ptr, ptr %198, align 8
-  %255 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i76.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %255, i32 noundef 36) #32
+  %255 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i76.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %255, i32 noundef 36) #33
   %256 = getelementptr inbounds i8, ptr %255, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %257 = load i64, ptr %255, align 8
@@ -33718,8 +33718,8 @@ rbimpl_intern_const.exit75.i:                     ; preds = %.lr.ph.i73.i, %rbim
   %265 = getelementptr inbounds i8, ptr %255, i64 48
   store ptr %234, ptr %265, align 8
   %.val.i.i77.i = load ptr, ptr %198, align 8
-  %266 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i77.i, i32 noundef 27, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %266, i32 noundef 27) #32
+  %266 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i77.i, i32 noundef 27, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %266, i32 noundef 27) #33
   %267 = getelementptr inbounds i8, ptr %266, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %267, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %268 = load i64, ptr %266, align 8
@@ -33747,11 +33747,11 @@ rbimpl_intern_const.exit75.i:                     ; preds = %.lr.ph.i73.i, %rbim
   br i1 %.not44.i, label %365, label %280
 
 280:                                              ; preds = %277
-  %281 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.870, i64 noundef 5) #32
+  %281 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.870, i64 noundef 5) #33
   %282 = tail call fastcc ptr @rb_node_sym_new(ptr noundef nonnull %2, i64 noundef %281, ptr noundef nonnull @parser_append_options.default_location)
   %.val.i.i78.i = load ptr, ptr %198, align 8
-  %283 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i78.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %283, i32 noundef 43) #32
+  %283 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i78.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %283, i32 noundef 43) #33
   %284 = getelementptr inbounds i8, ptr %283, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %285 = load i64, ptr %283, align 8
@@ -33770,8 +33770,8 @@ rbimpl_intern_const.exit75.i:                     ; preds = %.lr.ph.i73.i, %rbim
   %293 = getelementptr inbounds i8, ptr %283, i64 48
   store ptr null, ptr %293, align 8
   %.val.i.i79.i = load ptr, ptr %198, align 8
-  %294 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i79.i, i32 noundef 97, i64 noundef 32, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %294, i32 noundef 97) #32
+  %294 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i79.i, i32 noundef 97, i64 noundef 32, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %294, i32 noundef 97) #33
   %295 = getelementptr inbounds i8, ptr %294, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %295, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %296 = load i64, ptr %294, align 8
@@ -33798,8 +33798,8 @@ rbimpl_intern_const.exit75.i:                     ; preds = %.lr.ph.i73.i, %rbim
   %308 = add i64 %307, 1
   store i64 %308, ptr %292, align 8
   %.val.i.i21.i85 = load ptr, ptr %198, align 8
-  %309 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i85, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %309, i32 noundef 43) #32
+  %309 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i85, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %309, i32 noundef 43) #33
   %310 = getelementptr inbounds i8, ptr %309, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %310, ptr noundef nonnull readonly align 4 dereferenceable(16) %295, i64 16, i1 false)
   %311 = load i64, ptr %309, align 8
@@ -33830,8 +33830,8 @@ rbimpl_intern_const.exit75.i:                     ; preds = %.lr.ph.i73.i, %rbim
   %328 = load i64, ptr %327, align 8
   store i64 %328, ptr %326, align 8
   %.val.i.i80.i = load ptr, ptr %198, align 8
-  %329 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i80.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %329, i32 noundef 45) #32
+  %329 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i80.i, i32 noundef 45, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %329, i32 noundef 45) #33
   %330 = getelementptr inbounds i8, ptr %329, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %331 = load i64, ptr %329, align 8
@@ -33862,8 +33862,8 @@ list_append.exit:                                 ; preds = %306, %340
   %344 = add i64 %343, 1
   store i64 %344, ptr %218, align 8
   %.val.i.i21.i = load ptr, ptr %198, align 8
-  %345 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %345, i32 noundef 43) #32
+  %345 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %345, i32 noundef 43) #33
   %346 = getelementptr inbounds i8, ptr %345, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %346, ptr noundef nonnull readonly align 4 dereferenceable(16) %330, i64 16, i1 false)
   %347 = load i64, ptr %345, align 8
@@ -33897,8 +33897,8 @@ list_append.exit:                                 ; preds = %306, %340
 
 365:                                              ; preds = %list_append.exit, %277
   %.val.i.i81.i = load ptr, ptr %198, align 8
-  %366 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i81.i, i32 noundef 38, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %366, i32 noundef 38) #32
+  %366 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i81.i, i32 noundef 38, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %366, i32 noundef 38) #33
   %367 = getelementptr inbounds i8, ptr %366, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %368 = load i64, ptr %366, align 8
@@ -33915,8 +33915,8 @@ list_append.exit:                                 ; preds = %306, %340
   %375 = getelementptr inbounds i8, ptr %366, i64 40
   store ptr %209, ptr %375, align 8
   %.val.i.i82.i = load ptr, ptr %198, align 8
-  %376 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i82.i, i32 noundef 9, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %376, i32 noundef 9) #32
+  %376 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i82.i, i32 noundef 9, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %376, i32 noundef 9) #33
   %377 = getelementptr inbounds i8, ptr %376, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %377, ptr noundef nonnull readonly align 4 dereferenceable(16) @parser_append_options.default_location, i64 16, i1 false)
   %378 = load i64, ptr %376, align 8
@@ -33964,9 +33964,9 @@ parser_append_options.exit:                       ; preds = %193, %365
   br i1 %.not75, label %409, label %406
 
 406:                                              ; preds = %parser_append_options.exit
-  %407 = tail call i64 @rb_obj_freeze(i64 noundef %154) #32
+  %407 = tail call i64 @rb_obj_freeze(i64 noundef %154) #33
   %408 = load ptr, ptr %391, align 8
-  tail call void @rb_ast_set_tokens(ptr noundef %408, i64 noundef %154) #32
+  tail call void @rb_ast_set_tokens(ptr noundef %408, i64 noundef %154) #33
   br label %409
 
 409:                                              ; preds = %parser_append_options.exit, %406, %142
@@ -34065,7 +34065,7 @@ define internal fastcc range(i32 -1, 256) i32 @nextc0(ptr noundef %0, i32 nounde
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i64 %32(ptr noundef nonnull %0, i64 noundef %29) #32
+  %33 = tail call i64 %32(ptr noundef nonnull %0, i64 noundef %29) #33
   %34 = icmp eq i64 %33, 4
   br i1 %34, label %.lex_getline.exit.thread.i_crit_edge, label %35
 
@@ -34074,20 +34074,20 @@ define internal fastcc range(i32 -1, 256) i32 @nextc0(ptr noundef %0, i32 nounde
   br label %lex_getline.exit.thread.i
 
 35:                                               ; preds = %30
-  %36 = tail call ptr @rb_enc_get(i64 noundef %33) #32
+  %36 = tail call ptr @rb_enc_get(i64 noundef %33) #33
   %37 = getelementptr i8, ptr %36, i64 20
   %.val.i.i.i.i = load i32, ptr %37, align 4
   %.not.i.i.i.i = icmp eq i32 %.val.i.i.i.i, 1
   br i1 %.not.i.i.i.i, label %rb_enc_asciicompat.exit.i.i.i, label %rb_enc_asciicompat.exit.thread.i.i.i
 
 rb_enc_asciicompat.exit.i.i.i:                    ; preds = %35
-  %38 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %36) #36
+  %38 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %36) #37
   %.not3.i.i.i.i = icmp eq i32 %38, 0
   br i1 %.not3.i.i.i.i, label %must_be_ascii_compatible.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i.i
 
 rb_enc_asciicompat.exit.thread.i.i.i:             ; preds = %rb_enc_asciicompat.exit.i.i.i, %35
   %39 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.561) #37
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.561) #38
   unreachable
 
 must_be_ascii_compatible.exit.i.i:                ; preds = %rb_enc_asciicompat.exit.i.i.i
@@ -34110,18 +34110,18 @@ RSTRING_PTR.exit.i.i.i:                           ; preds = %47, %must_be_ascii_
   %.sroa.2.0.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i.i, %47 ], [ %46, %must_be_ascii_compatible.exit.i.i ]
   %48 = getelementptr inbounds i8, ptr %43, i64 16
   %49 = load i64, ptr %48, align 8
-  %50 = tail call ptr @rb_enc_get(i64 noundef %33) #32
+  %50 = tail call ptr @rb_enc_get(i64 noundef %33) #33
   %51 = icmp slt i64 %49, 0
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %RSTRING_PTR.exit.i.i.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %49) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %49) #34
   unreachable
 
 53:                                               ; preds = %RSTRING_PTR.exit.i.i.i
-  %54 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %54 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %55 = add nuw i64 %49, 1
-  %56 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %55, i64 noundef 1) #34
+  %56 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %55, i64 noundef 1) #35
   %57 = getelementptr inbounds i8, ptr %54, i64 24
   store ptr %56, ptr %57, align 8
   %.not.i.i3.i.i.i = icmp eq ptr %.sroa.2.0.i.i.i.i, null
@@ -34161,7 +34161,7 @@ rb_str_to_parser_string.exit.i.i:                 ; preds = %58, %53
   %69 = shl i64 %67, 1
   %70 = shl i64 %67, 4
   %71 = add i64 %70, 24
-  %72 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %71) #35
+  %72 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %71) #36
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   store i64 %69, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %72, i64 16
@@ -34196,19 +34196,19 @@ lex_getline.exit.thread.i:                        ; preds = %.lex_getline.exit.t
   br i1 %.not43.i, label %99, label %90
 
 90:                                               ; preds = %81
-  %91 = tail call i64 @rb_str_new_parser_string(ptr noundef nonnull %54) #32
+  %91 = tail call i64 @rb_str_new_parser_string(ptr noundef nonnull %54) #33
   %.not44.i = icmp eq i32 %1, 0
   br i1 %.not44.i, label %96, label %92
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds i8, ptr %0, i64 232
   %94 = load ptr, ptr %93, align 8
-  %95 = tail call i64 @rb_enc_associate(i64 noundef %91, ptr noundef %94) #32
+  %95 = tail call i64 @rb_enc_associate(i64 noundef %91, ptr noundef %94) #33
   br label %96
 
 96:                                               ; preds = %92, %90
   %97 = load i64, ptr %88, align 8
-  %98 = tail call i64 @rb_ary_push(i64 noundef %97, i64 noundef %91) #32
+  %98 = tail call i64 @rb_ary_push(i64 noundef %97, i64 noundef %91) #33
   br label %99
 
 99:                                               ; preds = %96, %81
@@ -34296,7 +34296,7 @@ declare ptr @rb_ruby_verbose_ptr() local_unnamed_addr #1
 declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pushback(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #21 {
+define internal fastcc void @pushback(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #22 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %22, label %4
 
@@ -34502,11 +34502,11 @@ parser_dispatch_delayed_token.exit.thread:        ; preds = %28, %73, %106
   %107 = ptrtoint ptr %2 to i64
   %108 = ptrtoint ptr %1 to i64
   %109 = sub i64 %107, %108
-  %110 = tail call i64 @rb_str_buf_new(i64 noundef %109) #32
+  %110 = tail call i64 @rb_str_buf_new(i64 noundef %109) #33
   store i64 %110, ptr %29, align 8
   %111 = getelementptr inbounds i8, ptr %0, i64 232
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call i64 @rb_enc_associate(i64 noundef %110, ptr noundef %112) #32
+  %113 = tail call i64 @rb_enc_associate(i64 noundef %110, ptr noundef %112) #33
   %114 = getelementptr inbounds i8, ptr %0, i64 212
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds i8, ptr %0, i64 288
@@ -34520,7 +34520,7 @@ parser_dispatch_delayed_token.exit.thread:        ; preds = %28, %73, %106
   br i1 %.not.i51, label %rb_long2int_inline.exit, label %122
 
 122:                                              ; preds = %parser_dispatch_delayed_token.exit.thread
-  tail call void @rb_out_of_int(i64 noundef %120) #33
+  tail call void @rb_out_of_int(i64 noundef %120) #34
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %parser_dispatch_delayed_token.exit.thread
@@ -34534,7 +34534,7 @@ rb_long2int_inline.exit:                          ; preds = %parser_dispatch_del
   %.pre-phi58 = phi i64 [ %.pre57, %parser_dispatch_delayed_token.exit._crit_edge ], [ %109, %rb_long2int_inline.exit ]
   %.pre-phi56 = phi i64 [ %.pre55, %parser_dispatch_delayed_token.exit._crit_edge ], [ %107, %rb_long2int_inline.exit ]
   %126 = phi i64 [ %30, %parser_dispatch_delayed_token.exit._crit_edge ], [ %.pre54, %rb_long2int_inline.exit ]
-  %127 = tail call i64 @rb_str_cat(i64 noundef %126, ptr noundef %1, i64 noundef %.pre-phi58) #32
+  %127 = tail call i64 @rb_str_cat(i64 noundef %126, ptr noundef %1, i64 noundef %.pre-phi58) #33
   %128 = getelementptr inbounds i8, ptr %0, i64 212
   %129 = load i32, ptr %128, align 4
   %130 = getelementptr inbounds i8, ptr %0, i64 296
@@ -34548,7 +34548,7 @@ rb_long2int_inline.exit:                          ; preds = %parser_dispatch_del
   br i1 %.not.i52, label %rb_long2int_inline.exit53, label %136
 
 136:                                              ; preds = %125
-  tail call void @rb_out_of_int(i64 noundef %134) #33
+  tail call void @rb_out_of_int(i64 noundef %134) #34
   unreachable
 
 rb_long2int_inline.exit53:                        ; preds = %125
@@ -34567,13 +34567,13 @@ declare i64 @rb_str_buf_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @parser_append_tokens(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call i64 @rb_ary_new_capa(i64 noundef 4) #32
+  %5 = tail call i64 @rb_ary_new_capa(i64 noundef 4) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 400
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 1
   %10 = or disjoint i64 %9, 1
-  %11 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %10) #32
+  %11 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %10) #33
   switch i32 %2, label %324 [
     i32 32, label %12
     i32 33, label %14
@@ -34734,638 +34734,638 @@ define internal fastcc void @parser_append_tokens(ptr nocapture noundef %0, i64 
   ]
 
 12:                                               ; preds = %4
-  %13 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id, ptr noundef @.str.448) #38
+  %13 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id, ptr noundef @.str.448) #39
   br label %parser_token2id.exit
 
 14:                                               ; preds = %4
-  %15 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.568, ptr noundef @.str.569) #38
+  %15 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.568, ptr noundef @.str.569) #39
   br label %parser_token2id.exit
 
 16:                                               ; preds = %4
-  %17 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.570, ptr noundef @.str.571) #38
+  %17 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.570, ptr noundef @.str.571) #39
   br label %parser_token2id.exit
 
 18:                                               ; preds = %4
-  %19 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.572, ptr noundef @.str.573) #38
+  %19 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.572, ptr noundef @.str.573) #39
   br label %parser_token2id.exit
 
 20:                                               ; preds = %4
-  %21 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.574, ptr noundef @.str.575) #38
+  %21 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.574, ptr noundef @.str.575) #39
   br label %parser_token2id.exit
 
 22:                                               ; preds = %4
-  %23 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.576, ptr noundef @.str.577) #38
+  %23 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.576, ptr noundef @.str.577) #39
   br label %parser_token2id.exit
 
 24:                                               ; preds = %4
-  %25 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.578, ptr noundef @.str.579) #38
+  %25 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.578, ptr noundef @.str.579) #39
   br label %parser_token2id.exit
 
 26:                                               ; preds = %4
-  %27 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.580, ptr noundef @.str.581) #38
+  %27 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.580, ptr noundef @.str.581) #39
   br label %parser_token2id.exit
 
 28:                                               ; preds = %4
-  %29 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.582, ptr noundef @.str.583) #38
+  %29 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.582, ptr noundef @.str.583) #39
   br label %parser_token2id.exit
 
 30:                                               ; preds = %4
-  %31 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.584, ptr noundef @.str.585) #38
+  %31 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.584, ptr noundef @.str.585) #39
   br label %parser_token2id.exit
 
 32:                                               ; preds = %4
-  %33 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.586, ptr noundef @.str.587) #38
+  %33 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.586, ptr noundef @.str.587) #39
   br label %parser_token2id.exit
 
 34:                                               ; preds = %4
-  %35 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.588, ptr noundef @.str.589) #38
+  %35 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.588, ptr noundef @.str.589) #39
   br label %parser_token2id.exit
 
 36:                                               ; preds = %4
-  %37 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.590, ptr noundef @.str.591) #38
+  %37 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.590, ptr noundef @.str.591) #39
   br label %parser_token2id.exit
 
 38:                                               ; preds = %4
-  %39 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.592, ptr noundef @.str.593) #38
+  %39 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.592, ptr noundef @.str.593) #39
   br label %parser_token2id.exit
 
 40:                                               ; preds = %4
-  %41 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.594, ptr noundef @.str.595) #38
+  %41 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.594, ptr noundef @.str.595) #39
   br label %parser_token2id.exit
 
 42:                                               ; preds = %4
-  %43 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.596, ptr noundef @.str.597) #38
+  %43 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.596, ptr noundef @.str.597) #39
   br label %parser_token2id.exit
 
 44:                                               ; preds = %4
-  %45 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.598, ptr noundef @.str.599) #38
+  %45 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.598, ptr noundef @.str.599) #39
   br label %parser_token2id.exit
 
 46:                                               ; preds = %4
-  %47 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.600, ptr noundef @.str.601) #38
+  %47 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.600, ptr noundef @.str.601) #39
   br label %parser_token2id.exit
 
 48:                                               ; preds = %4
-  %49 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.602, ptr noundef @.str.603) #38
+  %49 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.602, ptr noundef @.str.603) #39
   br label %parser_token2id.exit
 
 50:                                               ; preds = %4
-  %51 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.604, ptr noundef @.str.605) #38
+  %51 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.604, ptr noundef @.str.605) #39
   br label %parser_token2id.exit
 
 52:                                               ; preds = %4
-  %53 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.606, ptr noundef @.str.607) #38
+  %53 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.606, ptr noundef @.str.607) #39
   br label %parser_token2id.exit
 
 54:                                               ; preds = %4
-  %55 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.608, ptr noundef @.str.609) #38
+  %55 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.608, ptr noundef @.str.609) #39
   br label %parser_token2id.exit
 
 56:                                               ; preds = %4
-  %57 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.610, ptr noundef @.str.50) #38
+  %57 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.610, ptr noundef @.str.50) #39
   br label %parser_token2id.exit
 
 58:                                               ; preds = %4
-  %59 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.611, ptr noundef @.str.612) #38
+  %59 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.611, ptr noundef @.str.612) #39
   br label %parser_token2id.exit
 
 60:                                               ; preds = %4
-  %61 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.613, ptr noundef @.str.614) #38
+  %61 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.613, ptr noundef @.str.614) #39
   br label %parser_token2id.exit
 
 62:                                               ; preds = %4
-  %63 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.615, ptr noundef @.str.616) #38
+  %63 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.615, ptr noundef @.str.616) #39
   br label %parser_token2id.exit
 
 64:                                               ; preds = %4
-  %65 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.617, ptr noundef @.str.89) #38
+  %65 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.617, ptr noundef @.str.89) #39
   br label %parser_token2id.exit
 
 66:                                               ; preds = %4
-  %67 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.618, ptr noundef @.str.619) #38
+  %67 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.618, ptr noundef @.str.619) #39
   br label %parser_token2id.exit
 
 68:                                               ; preds = %4
-  %69 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.620, ptr noundef @.str.621) #38
+  %69 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.620, ptr noundef @.str.621) #39
   br label %parser_token2id.exit
 
 70:                                               ; preds = %4
-  %71 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.622, ptr noundef @.str.623) #38
+  %71 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.622, ptr noundef @.str.623) #39
   br label %parser_token2id.exit
 
 72:                                               ; preds = %4
-  %73 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.624, ptr noundef @.str.625) #38
+  %73 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.624, ptr noundef @.str.625) #39
   br label %parser_token2id.exit
 
 74:                                               ; preds = %4
-  %75 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.626, ptr noundef @.str.627) #38
+  %75 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.626, ptr noundef @.str.627) #39
   br label %parser_token2id.exit
 
 76:                                               ; preds = %4
-  %77 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.628, ptr noundef @.str.629) #38
+  %77 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.628, ptr noundef @.str.629) #39
   br label %parser_token2id.exit
 
 78:                                               ; preds = %4
-  %79 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.630, ptr noundef @.str.631) #38
+  %79 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.630, ptr noundef @.str.631) #39
   br label %parser_token2id.exit
 
 80:                                               ; preds = %4
-  %81 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.632, ptr noundef @.str.633) #38
+  %81 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.632, ptr noundef @.str.633) #39
   br label %parser_token2id.exit
 
 82:                                               ; preds = %4
-  %83 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.634, ptr noundef @.str.635) #38
+  %83 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.634, ptr noundef @.str.635) #39
   br label %parser_token2id.exit
 
 84:                                               ; preds = %4
-  %85 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.636, ptr noundef @.str.637) #38
+  %85 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.636, ptr noundef @.str.637) #39
   br label %parser_token2id.exit
 
 86:                                               ; preds = %4
-  %87 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.638, ptr noundef @.str.639) #38
+  %87 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.638, ptr noundef @.str.639) #39
   br label %parser_token2id.exit
 
 88:                                               ; preds = %4
-  %89 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.640, ptr noundef @.str.641) #38
+  %89 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.640, ptr noundef @.str.641) #39
   br label %parser_token2id.exit
 
 90:                                               ; preds = %4
-  %91 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.642, ptr noundef @.str.643) #38
+  %91 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.642, ptr noundef @.str.643) #39
   br label %parser_token2id.exit
 
 92:                                               ; preds = %4
-  %93 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.644, ptr noundef @.str.645) #38
+  %93 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.644, ptr noundef @.str.645) #39
   br label %parser_token2id.exit
 
 94:                                               ; preds = %4
-  %95 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.646, ptr noundef @.str.647) #38
+  %95 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.646, ptr noundef @.str.647) #39
   br label %parser_token2id.exit
 
 96:                                               ; preds = %4
-  %97 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.648, ptr noundef @.str.649) #38
+  %97 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.648, ptr noundef @.str.649) #39
   br label %parser_token2id.exit
 
 98:                                               ; preds = %4
-  %99 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.650, ptr noundef @.str.651) #38
+  %99 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.650, ptr noundef @.str.651) #39
   br label %parser_token2id.exit
 
 100:                                              ; preds = %4
-  %101 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.652, ptr noundef @.str.653) #38
+  %101 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.652, ptr noundef @.str.653) #39
   br label %parser_token2id.exit
 
 102:                                              ; preds = %4
-  %103 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.654, ptr noundef @.str.655) #38
+  %103 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.654, ptr noundef @.str.655) #39
   br label %parser_token2id.exit
 
 104:                                              ; preds = %4
-  %105 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.656, ptr noundef @.str.657) #38
+  %105 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.656, ptr noundef @.str.657) #39
   br label %parser_token2id.exit
 
 106:                                              ; preds = %4
-  %107 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.658, ptr noundef @.str.659) #38
+  %107 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.658, ptr noundef @.str.659) #39
   br label %parser_token2id.exit
 
 108:                                              ; preds = %4
-  %109 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.660, ptr noundef @.str.661) #38
+  %109 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.660, ptr noundef @.str.661) #39
   br label %parser_token2id.exit
 
 110:                                              ; preds = %4
-  %111 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.662, ptr noundef @.str.663) #38
+  %111 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.662, ptr noundef @.str.663) #39
   br label %parser_token2id.exit
 
 112:                                              ; preds = %4
-  %113 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.664, ptr noundef @.str.665) #38
+  %113 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.664, ptr noundef @.str.665) #39
   br label %parser_token2id.exit
 
 114:                                              ; preds = %4
-  %115 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.666, ptr noundef @.str.667) #38
+  %115 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.666, ptr noundef @.str.667) #39
   br label %parser_token2id.exit
 
 116:                                              ; preds = %4
-  %117 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.668, ptr noundef @.str.669) #38
+  %117 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.668, ptr noundef @.str.669) #39
   br label %parser_token2id.exit
 
 118:                                              ; preds = %4
-  %119 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.670, ptr noundef @.str.671) #38
+  %119 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.670, ptr noundef @.str.671) #39
   br label %parser_token2id.exit
 
 120:                                              ; preds = %4
-  %121 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.672, ptr noundef @.str.673) #38
+  %121 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.672, ptr noundef @.str.673) #39
   br label %parser_token2id.exit
 
 122:                                              ; preds = %4
-  %123 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.674, ptr noundef @.str.675) #38
+  %123 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.674, ptr noundef @.str.675) #39
   br label %parser_token2id.exit
 
 124:                                              ; preds = %4
-  %125 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.676, ptr noundef @.str.677) #38
+  %125 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.676, ptr noundef @.str.677) #39
   br label %parser_token2id.exit
 
 126:                                              ; preds = %4
-  %127 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.678, ptr noundef @.str.679) #38
+  %127 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.678, ptr noundef @.str.679) #39
   br label %parser_token2id.exit
 
 128:                                              ; preds = %4
-  %129 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.680, ptr noundef @.str.681) #38
+  %129 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.680, ptr noundef @.str.681) #39
   br label %parser_token2id.exit
 
 130:                                              ; preds = %4
-  %131 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.682, ptr noundef @.str.683) #38
+  %131 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.682, ptr noundef @.str.683) #39
   br label %parser_token2id.exit
 
 132:                                              ; preds = %4
-  %133 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.684, ptr noundef @.str.685) #38
+  %133 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.684, ptr noundef @.str.685) #39
   br label %parser_token2id.exit
 
 134:                                              ; preds = %4
-  %135 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.686, ptr noundef @.str.687) #38
+  %135 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.686, ptr noundef @.str.687) #39
   br label %parser_token2id.exit
 
 136:                                              ; preds = %4
-  %137 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.688, ptr noundef @.str.689) #38
+  %137 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.688, ptr noundef @.str.689) #39
   br label %parser_token2id.exit
 
 138:                                              ; preds = %4
-  %139 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.690, ptr noundef @.str.691) #38
+  %139 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.690, ptr noundef @.str.691) #39
   br label %parser_token2id.exit
 
 140:                                              ; preds = %4
-  %141 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.692, ptr noundef @.str.693) #38
+  %141 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.692, ptr noundef @.str.693) #39
   br label %parser_token2id.exit
 
 142:                                              ; preds = %4
-  %143 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.694, ptr noundef @.str.695) #38
+  %143 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.694, ptr noundef @.str.695) #39
   br label %parser_token2id.exit
 
 144:                                              ; preds = %4
-  %145 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.696, ptr noundef @.str.697) #38
+  %145 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.696, ptr noundef @.str.697) #39
   br label %parser_token2id.exit
 
 146:                                              ; preds = %4
-  %147 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.698, ptr noundef @.str.699) #38
+  %147 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.698, ptr noundef @.str.699) #39
   br label %parser_token2id.exit
 
 148:                                              ; preds = %4
-  %149 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.700, ptr noundef @.str.701) #38
+  %149 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.700, ptr noundef @.str.701) #39
   br label %parser_token2id.exit
 
 150:                                              ; preds = %4
-  %151 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.702, ptr noundef @.str.703) #38
+  %151 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.702, ptr noundef @.str.703) #39
   br label %parser_token2id.exit
 
 152:                                              ; preds = %4
-  %153 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.704, ptr noundef @.str.705) #38
+  %153 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.704, ptr noundef @.str.705) #39
   br label %parser_token2id.exit
 
 154:                                              ; preds = %4
-  %155 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.706, ptr noundef @.str.707) #38
+  %155 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.706, ptr noundef @.str.707) #39
   br label %parser_token2id.exit
 
 156:                                              ; preds = %4
-  %157 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.708, ptr noundef @.str.709) #38
+  %157 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.708, ptr noundef @.str.709) #39
   br label %parser_token2id.exit
 
 158:                                              ; preds = %4
-  %159 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.710, ptr noundef @.str.711) #38
+  %159 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.710, ptr noundef @.str.711) #39
   br label %parser_token2id.exit
 
 160:                                              ; preds = %4
-  %161 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.712, ptr noundef @.str.713) #38
+  %161 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.712, ptr noundef @.str.713) #39
   br label %parser_token2id.exit
 
 162:                                              ; preds = %4
-  %163 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.714, ptr noundef @.str.715) #38
+  %163 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.714, ptr noundef @.str.715) #39
   br label %parser_token2id.exit
 
 164:                                              ; preds = %4
-  %165 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.716, ptr noundef @.str.717) #38
+  %165 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.716, ptr noundef @.str.717) #39
   br label %parser_token2id.exit
 
 166:                                              ; preds = %4
-  %167 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.718, ptr noundef @.str.719) #38
+  %167 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.718, ptr noundef @.str.719) #39
   br label %parser_token2id.exit
 
 168:                                              ; preds = %4
-  %169 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.720, ptr noundef @.str.721) #38
+  %169 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.720, ptr noundef @.str.721) #39
   br label %parser_token2id.exit
 
 170:                                              ; preds = %4
-  %171 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.722, ptr noundef @.str.723) #38
+  %171 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.722, ptr noundef @.str.723) #39
   br label %parser_token2id.exit
 
 172:                                              ; preds = %4
-  %173 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.724, ptr noundef @.str.725) #38
+  %173 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.724, ptr noundef @.str.725) #39
   br label %parser_token2id.exit
 
 174:                                              ; preds = %4
-  %175 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.726, ptr noundef @.str.727) #38
+  %175 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.726, ptr noundef @.str.727) #39
   br label %parser_token2id.exit
 
 176:                                              ; preds = %4
-  %177 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.728, ptr noundef @.str.729) #38
+  %177 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.728, ptr noundef @.str.729) #39
   br label %parser_token2id.exit
 
 178:                                              ; preds = %4
-  %179 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.730, ptr noundef @.str.731) #38
+  %179 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.730, ptr noundef @.str.731) #39
   br label %parser_token2id.exit
 
 180:                                              ; preds = %4
-  %181 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.732, ptr noundef @.str.733) #38
+  %181 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.732, ptr noundef @.str.733) #39
   br label %parser_token2id.exit
 
 182:                                              ; preds = %4
-  %183 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.734, ptr noundef @.str.735) #38
+  %183 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.734, ptr noundef @.str.735) #39
   br label %parser_token2id.exit
 
 184:                                              ; preds = %4
-  %185 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.736, ptr noundef @.str.737) #38
+  %185 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.736, ptr noundef @.str.737) #39
   br label %parser_token2id.exit
 
 186:                                              ; preds = %4
-  %187 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.738, ptr noundef @.str.739) #38
+  %187 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.738, ptr noundef @.str.739) #39
   br label %parser_token2id.exit
 
 188:                                              ; preds = %4
-  %189 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.740, ptr noundef @.str.741) #38
+  %189 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.740, ptr noundef @.str.741) #39
   br label %parser_token2id.exit
 
 190:                                              ; preds = %4
-  %191 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.742, ptr noundef @.str.743) #38
+  %191 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.742, ptr noundef @.str.743) #39
   br label %parser_token2id.exit
 
 192:                                              ; preds = %4
-  %193 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.744, ptr noundef @.str.745) #38
+  %193 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.744, ptr noundef @.str.745) #39
   br label %parser_token2id.exit
 
 194:                                              ; preds = %4
-  %195 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.746, ptr noundef @.str.747) #38
+  %195 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.746, ptr noundef @.str.747) #39
   br label %parser_token2id.exit
 
 196:                                              ; preds = %4
-  %197 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.748, ptr noundef @.str.157) #38
+  %197 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.748, ptr noundef @.str.157) #39
   br label %parser_token2id.exit
 
 198:                                              ; preds = %4
-  %199 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.749, ptr noundef @.str.750) #38
+  %199 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.749, ptr noundef @.str.750) #39
   br label %parser_token2id.exit
 
 200:                                              ; preds = %4
-  %201 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.751, ptr noundef @.str.752) #38
+  %201 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.751, ptr noundef @.str.752) #39
   br label %parser_token2id.exit
 
 202:                                              ; preds = %4
-  %203 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.753, ptr noundef @.str.754) #38
+  %203 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.753, ptr noundef @.str.754) #39
   br label %parser_token2id.exit
 
 204:                                              ; preds = %4
-  %205 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.755, ptr noundef @.str.756) #38
+  %205 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.755, ptr noundef @.str.756) #39
   br label %parser_token2id.exit
 
 206:                                              ; preds = %4
-  %207 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.757, ptr noundef @.str.758) #38
+  %207 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.757, ptr noundef @.str.758) #39
   br label %parser_token2id.exit
 
 208:                                              ; preds = %4
-  %209 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.759, ptr noundef @.str.760) #38
+  %209 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.759, ptr noundef @.str.760) #39
   br label %parser_token2id.exit
 
 210:                                              ; preds = %4
-  %211 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.761, ptr noundef @.str.762) #38
+  %211 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.761, ptr noundef @.str.762) #39
   br label %parser_token2id.exit
 
 212:                                              ; preds = %4
-  %213 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.763, ptr noundef @.str.764) #38
+  %213 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.763, ptr noundef @.str.764) #39
   br label %parser_token2id.exit
 
 214:                                              ; preds = %4
-  %215 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.765, ptr noundef @.str.766) #38
+  %215 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.765, ptr noundef @.str.766) #39
   br label %parser_token2id.exit
 
 216:                                              ; preds = %4
-  %217 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.767, ptr noundef @.str.768) #38
+  %217 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.767, ptr noundef @.str.768) #39
   br label %parser_token2id.exit
 
 218:                                              ; preds = %4
-  %219 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.769, ptr noundef @.str.770) #38
+  %219 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.769, ptr noundef @.str.770) #39
   br label %parser_token2id.exit
 
 220:                                              ; preds = %4
-  %221 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.771, ptr noundef @.str.772) #38
+  %221 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.771, ptr noundef @.str.772) #39
   br label %parser_token2id.exit
 
 222:                                              ; preds = %4
-  %223 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.773, ptr noundef @.str.774) #38
+  %223 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.773, ptr noundef @.str.774) #39
   br label %parser_token2id.exit
 
 224:                                              ; preds = %4
-  %225 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.775, ptr noundef @.str.776) #38
+  %225 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.775, ptr noundef @.str.776) #39
   br label %parser_token2id.exit
 
 226:                                              ; preds = %4
-  %227 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.777, ptr noundef @.str.778) #38
+  %227 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.777, ptr noundef @.str.778) #39
   br label %parser_token2id.exit
 
 228:                                              ; preds = %4
-  %229 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.779, ptr noundef @.str.780) #38
+  %229 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.779, ptr noundef @.str.780) #39
   br label %parser_token2id.exit
 
 230:                                              ; preds = %4
-  %231 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.781, ptr noundef @.str.782) #38
+  %231 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.781, ptr noundef @.str.782) #39
   br label %parser_token2id.exit
 
 232:                                              ; preds = %4
-  %233 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.783, ptr noundef @.str.784) #38
+  %233 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.783, ptr noundef @.str.784) #39
   br label %parser_token2id.exit
 
 234:                                              ; preds = %4
-  %235 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.785, ptr noundef @.str.786) #38
+  %235 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.785, ptr noundef @.str.786) #39
   br label %parser_token2id.exit
 
 236:                                              ; preds = %4
-  %237 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.787, ptr noundef @.str.788) #38
+  %237 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.787, ptr noundef @.str.788) #39
   br label %parser_token2id.exit
 
 238:                                              ; preds = %4
-  %239 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.789, ptr noundef @.str.790) #38
+  %239 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.789, ptr noundef @.str.790) #39
   br label %parser_token2id.exit
 
 240:                                              ; preds = %4
-  %241 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.791, ptr noundef @.str.792) #38
+  %241 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.791, ptr noundef @.str.792) #39
   br label %parser_token2id.exit
 
 242:                                              ; preds = %4
-  %243 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.793, ptr noundef @.str.794) #38
+  %243 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.793, ptr noundef @.str.794) #39
   br label %parser_token2id.exit
 
 244:                                              ; preds = %4
-  %245 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.795, ptr noundef @.str.796) #38
+  %245 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.795, ptr noundef @.str.796) #39
   br label %parser_token2id.exit
 
 246:                                              ; preds = %4
-  %247 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.797, ptr noundef @.str.798) #38
+  %247 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.797, ptr noundef @.str.798) #39
   br label %parser_token2id.exit
 
 248:                                              ; preds = %4
-  %249 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.799, ptr noundef @.str.800) #38
+  %249 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.799, ptr noundef @.str.800) #39
   br label %parser_token2id.exit
 
 250:                                              ; preds = %4
-  %251 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.801, ptr noundef @.str.802) #38
+  %251 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.801, ptr noundef @.str.802) #39
   br label %parser_token2id.exit
 
 252:                                              ; preds = %4
-  %253 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.803, ptr noundef @.str.804) #38
+  %253 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.803, ptr noundef @.str.804) #39
   br label %parser_token2id.exit
 
 254:                                              ; preds = %4
-  %255 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.805, ptr noundef @.str.806) #38
+  %255 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.805, ptr noundef @.str.806) #39
   br label %parser_token2id.exit
 
 256:                                              ; preds = %4
-  %257 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.807, ptr noundef @.str.808) #38
+  %257 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.807, ptr noundef @.str.808) #39
   br label %parser_token2id.exit
 
 258:                                              ; preds = %4
-  %259 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.809, ptr noundef @.str.810) #38
+  %259 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.809, ptr noundef @.str.810) #39
   br label %parser_token2id.exit
 
 260:                                              ; preds = %4
-  %261 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.811, ptr noundef @.str.812) #38
+  %261 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.811, ptr noundef @.str.812) #39
   br label %parser_token2id.exit
 
 262:                                              ; preds = %4
-  %263 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.813, ptr noundef @.str.814) #38
+  %263 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.813, ptr noundef @.str.814) #39
   br label %parser_token2id.exit
 
 264:                                              ; preds = %4
-  %265 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.815, ptr noundef @.str.816) #38
+  %265 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.815, ptr noundef @.str.816) #39
   br label %parser_token2id.exit
 
 266:                                              ; preds = %4
-  %267 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.817, ptr noundef @.str.818) #38
+  %267 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.817, ptr noundef @.str.818) #39
   br label %parser_token2id.exit
 
 268:                                              ; preds = %4
-  %269 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.819, ptr noundef @.str.820) #38
+  %269 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.819, ptr noundef @.str.820) #39
   br label %parser_token2id.exit
 
 270:                                              ; preds = %4
-  %271 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.821, ptr noundef @.str.822) #38
+  %271 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.821, ptr noundef @.str.822) #39
   br label %parser_token2id.exit
 
 272:                                              ; preds = %4
-  %273 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.823, ptr noundef @.str.824) #38
+  %273 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.823, ptr noundef @.str.824) #39
   br label %parser_token2id.exit
 
 274:                                              ; preds = %4
-  %275 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.825, ptr noundef @.str.826) #38
+  %275 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.825, ptr noundef @.str.826) #39
   br label %parser_token2id.exit
 
 276:                                              ; preds = %4
-  %277 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.827, ptr noundef @.str.828) #38
+  %277 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.827, ptr noundef @.str.828) #39
   br label %parser_token2id.exit
 
 278:                                              ; preds = %4
-  %279 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.829, ptr noundef @.str.830) #38
+  %279 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.829, ptr noundef @.str.830) #39
   br label %parser_token2id.exit
 
 280:                                              ; preds = %4
-  %281 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.831, ptr noundef @.str.832) #38
+  %281 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.831, ptr noundef @.str.832) #39
   br label %parser_token2id.exit
 
 282:                                              ; preds = %4
-  %283 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.833, ptr noundef @.str.834) #38
+  %283 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.833, ptr noundef @.str.834) #39
   br label %parser_token2id.exit
 
 284:                                              ; preds = %4
-  %285 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.835, ptr noundef @.str.836) #38
+  %285 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.835, ptr noundef @.str.836) #39
   br label %parser_token2id.exit
 
 286:                                              ; preds = %4
-  %287 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.837, ptr noundef @.str.838) #38
+  %287 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.837, ptr noundef @.str.838) #39
   br label %parser_token2id.exit
 
 288:                                              ; preds = %4
-  %289 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.839, ptr noundef @.str.840) #38
+  %289 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.839, ptr noundef @.str.840) #39
   br label %parser_token2id.exit
 
 290:                                              ; preds = %4
-  %291 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.841, ptr noundef @.str.842) #38
+  %291 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.841, ptr noundef @.str.842) #39
   br label %parser_token2id.exit
 
 292:                                              ; preds = %4
-  %293 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.843, ptr noundef @.str.844) #38
+  %293 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.843, ptr noundef @.str.844) #39
   br label %parser_token2id.exit
 
 294:                                              ; preds = %4
-  %295 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.845, ptr noundef @.str.212) #38
+  %295 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.845, ptr noundef @.str.212) #39
   br label %parser_token2id.exit
 
 296:                                              ; preds = %4
-  %297 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.846, ptr noundef @.str.213) #38
+  %297 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.846, ptr noundef @.str.213) #39
   br label %parser_token2id.exit
 
 298:                                              ; preds = %4
-  %299 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.847, ptr noundef @.str.214) #38
+  %299 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.847, ptr noundef @.str.214) #39
   br label %parser_token2id.exit
 
 300:                                              ; preds = %4
-  %301 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.848, ptr noundef @.str.215) #38
+  %301 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.848, ptr noundef @.str.215) #39
   br label %parser_token2id.exit
 
 302:                                              ; preds = %4
-  %303 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.849, ptr noundef @.str.216) #38
+  %303 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.849, ptr noundef @.str.216) #39
   br label %parser_token2id.exit
 
 304:                                              ; preds = %4
-  %305 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.850, ptr noundef @.str.217) #38
+  %305 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.850, ptr noundef @.str.217) #39
   br label %parser_token2id.exit
 
 306:                                              ; preds = %4
-  %307 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.851, ptr noundef @.str.218) #38
+  %307 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.851, ptr noundef @.str.218) #39
   br label %parser_token2id.exit
 
 308:                                              ; preds = %4
-  %309 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.852, ptr noundef @.str.219) #38
+  %309 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.852, ptr noundef @.str.219) #39
   br label %parser_token2id.exit
 
 310:                                              ; preds = %4
-  %311 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.853, ptr noundef @.str.220) #38
+  %311 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.853, ptr noundef @.str.220) #39
   br label %parser_token2id.exit
 
 312:                                              ; preds = %4
-  %313 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.854, ptr noundef @.str.221) #38
+  %313 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.854, ptr noundef @.str.221) #39
   br label %parser_token2id.exit
 
 314:                                              ; preds = %4
-  %315 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.855, ptr noundef @.str.222) #38
+  %315 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.855, ptr noundef @.str.222) #39
   br label %parser_token2id.exit
 
 316:                                              ; preds = %4
-  %317 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.856, ptr noundef @.str.223) #38
+  %317 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.856, ptr noundef @.str.223) #39
   br label %parser_token2id.exit
 
 318:                                              ; preds = %4
-  %319 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.857, ptr noundef @.str.224) #38
+  %319 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.857, ptr noundef @.str.224) #39
   br label %parser_token2id.exit
 
 320:                                              ; preds = %4
-  %321 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.858, ptr noundef @.str.238) #38
+  %321 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.858, ptr noundef @.str.238) #39
   br label %parser_token2id.exit
 
 322:                                              ; preds = %4
-  %323 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.859, ptr noundef @.str.241) #38
+  %323 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @parser_token2id.rbimpl_id.859, ptr noundef @.str.241) #39
   br label %parser_token2id.exit
 
 324:                                              ; preds = %4
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.860, i32 noundef %2) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.860, i32 noundef %2) #34
   unreachable
 
 parser_token2id.exit:                             ; preds = %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %290, %292, %294, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322
   %.0.i = phi i64 [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %253, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ %245, %244 ], [ %243, %242 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
-  %325 = tail call i64 @rb_id2sym(i64 noundef %.0.i) #32
-  %326 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %325) #32
-  %327 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %1) #32
+  %325 = tail call i64 @rb_id2sym(i64 noundef %.0.i) #33
+  %326 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %325) #33
+  %327 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %1) #33
   %328 = getelementptr inbounds i8, ptr %0, i64 16
   %329 = load ptr, ptr %328, align 8
   %330 = load i32, ptr %329, align 4
@@ -35387,13 +35387,13 @@ parser_token2id.exit:                             ; preds = %12, %14, %16, %18, 
   %346 = sext i32 %345 to i64
   %347 = shl nsw i64 %346, 1
   %348 = or disjoint i64 %347, 1
-  %349 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %333, i64 noundef %338, i64 noundef %343, i64 noundef %348) #32
-  %350 = tail call i64 @rb_obj_freeze(i64 noundef %349) #32
-  %351 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %349) #32
-  %352 = tail call i64 @rb_obj_freeze(i64 noundef %5) #32
+  %349 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %333, i64 noundef %338, i64 noundef %343, i64 noundef %348) #33
+  %350 = tail call i64 @rb_obj_freeze(i64 noundef %349) #33
+  %351 = tail call i64 @rb_ary_push(i64 noundef %5, i64 noundef %349) #33
+  %352 = tail call i64 @rb_obj_freeze(i64 noundef %5) #33
   %353 = getelementptr inbounds i8, ptr %0, i64 408
   %354 = load i64, ptr %353, align 8
-  %355 = tail call i64 @rb_ary_push(i64 noundef %354, i64 noundef %5) #32
+  %355 = tail call i64 @rb_ary_push(i64 noundef %354, i64 noundef %5) #33
   %356 = load i32, ptr %6, align 8
   %357 = add i32 %356, 1
   store i32 %357, ptr %6, align 8
@@ -35416,14 +35416,14 @@ declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #22 {
+define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #23 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
-  %4 = tail call i64 @rb_intern2(ptr noundef nonnull %1, i64 noundef %3) #32
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
+  %4 = tail call i64 @rb_intern2(ptr noundef nonnull %1, i64 noundef %3) #33
   store i64 %4, ptr %0, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !95
@@ -35436,7 +35436,7 @@ define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0
 declare i64 @rb_ary_new_from_args(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #18
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #19
 
 declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -35444,8 +35444,8 @@ declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_
 define internal fastcc noundef ptr @rb_node_gvar_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 50) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 50) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -35504,7 +35504,7 @@ define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr nocapture nounde
   br i1 %.not.i.i.i, label %rb_enc_asciicompat.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i
 
 rb_enc_asciicompat.exit.i.i:                      ; preds = %20
-  %21 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val16.i) #36
+  %21 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val16.i) #37
   %.not3.i.i.i = icmp eq i32 %21, 0
   br i1 %.not3.i.i.i, label %22, label %rb_enc_asciicompat.exit.thread.i.i
 
@@ -35515,7 +35515,7 @@ rb_enc_asciicompat.exit.i.i:                      ; preds = %20
   br i1 %.not.i.i.i.i, label %rb_enc_asciicompat.exit.i.i.i, label %rb_enc_asciicompat.exit.thread.i.i
 
 rb_enc_asciicompat.exit.i.i.i:                    ; preds = %22
-  %24 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #36
+  %24 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #37
   %.not3.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not3.i.i.i.i, label %rb_parser_enc_str_asciionly_p.exit.i.i, label %rb_enc_asciicompat.exit.thread.i.i
 
@@ -35527,7 +35527,7 @@ rb_parser_enc_str_asciionly_p.exit.i.i:           ; preds = %rb_enc_asciicompat.
   br i1 %.not.i.i.i, label %rb_enc_asciicompat.exit33.i.i, label %rb_parser_enc_compatible.exit
 
 rb_enc_asciicompat.exit33.i.i:                    ; preds = %26
-  %27 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val16.i) #36
+  %27 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val16.i) #37
   %.not3.i32.i.i = icmp eq i32 %27, 0
   br i1 %.not3.i32.i.i, label %28, label %rb_parser_enc_compatible.exit
 
@@ -35538,7 +35538,7 @@ rb_enc_asciicompat.exit33.i.i:                    ; preds = %26
   br i1 %.not.i35.i.i, label %rb_enc_asciicompat.exit38.i.i, label %rb_parser_enc_compatible.exit
 
 rb_enc_asciicompat.exit38.i.i:                    ; preds = %28
-  %30 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #36
+  %30 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %.val.i) #37
   %.not3.i37.i.i = icmp eq i32 %30, 0
   br i1 %.not3.i37.i.i, label %31, label %rb_parser_enc_compatible.exit
 
@@ -35586,7 +35586,7 @@ rb_parser_enc_compatible.exit:                    ; preds = %35, %36, %rb_enc_as
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %1, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call nonnull dereferenceable(1) ptr @ruby_xrealloc2(ptr noundef %48, i64 noundef 1, i64 noundef 1) #39
+  %49 = tail call nonnull dereferenceable(1) ptr @ruby_xrealloc2(ptr noundef %48, i64 noundef 1, i64 noundef 1) #40
   store ptr %49, ptr %47, align 8
   br label %50
 
@@ -35619,7 +35619,7 @@ rb_parser_str_resize.exit:                        ; preds = %44, %50
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %2, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call nonnull dereferenceable(1) ptr @ruby_xrealloc2(ptr noundef %62, i64 noundef 1, i64 noundef 1) #39
+  %63 = tail call nonnull dereferenceable(1) ptr @ruby_xrealloc2(ptr noundef %62, i64 noundef 1, i64 noundef 1) #40
   store ptr %63, ptr %61, align 8
   br label %64
 
@@ -35651,7 +35651,7 @@ rb_enc_asciicompat.exit.thread.i.i:               ; preds = %rb_parser_enc_str_a
   br i1 %or.cond.i25, label %77, label %rb_parser_coderange_scan.exit.i.i
 
 77:                                               ; preds = %74
-  %78 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
+  %78 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %79 = icmp eq ptr %.val77.i.i, %78
   %80 = icmp ne i32 %67, 1
   %or.cond3.i.i = or i1 %80, %79
@@ -35730,7 +35730,7 @@ ruby_nonempty_memcpy.exit.i.i.i:                  ; preds = %93
   %.034.i.i.i = select i1 %or.cond.i.i.i, i64 -1, i64 %103
   %104 = add i64 %94, %71
   %105 = add i64 %104, 1
-  %106 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %99, i64 noundef %105, i64 noundef 1) #39
+  %106 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %99, i64 noundef %105, i64 noundef 1) #40
   store ptr %106, ptr %98, align 8
   store i64 %104, ptr %72, align 8
   %.not41.i.i.i = icmp eq i64 %.034.i.i.i, -1
@@ -35782,7 +35782,7 @@ define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange(ptr noca
   %6 = getelementptr i8, ptr %0, i64 24
   %.val10 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val10, i64 %.val9
-  %8 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
+  %8 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
   %9 = icmp eq ptr %8, %.val
   %10 = icmp ugt ptr %7, %.val10
   br i1 %9, label %11, label %15
@@ -35811,7 +35811,7 @@ define internal fastcc range(i32 1, 0) i32 @rb_parser_enc_str_coderange(ptr noca
   br i1 %.not.i32.i.i, label %19, label %rb_parser_search_nonascii.exit34.preheader.i.i
 
 rb_parser_search_nonascii.exit34.preheader.i.i:   ; preds = %.lr.ph.i30.i.i
-  %17 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.08.i31.i.i, ptr noundef nonnull %7, ptr noundef %.val) #32
+  %17 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.08.i31.i.i, ptr noundef nonnull %7, ptr noundef %.val) #33
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.i.i, label %rb_parser_enc_coderange_scan.exit
 
@@ -35821,7 +35821,7 @@ rb_parser_search_nonascii.exit34.preheader.i.i:   ; preds = %.lr.ph.i30.i.i
   br i1 %exitcond.not.i33.i.i, label %rb_parser_enc_coderange_scan.exit, label %.lr.ph.i30.i.i, !llvm.loop !102
 
 rb_parser_search_nonascii.exit34.loopexit.i.i:    ; preds = %.lr.ph.i36.i.i
-  %21 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.08.i37.i.i, ptr noundef nonnull %7, ptr noundef %.val) #32
+  %21 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.08.i37.i.i, ptr noundef nonnull %7, ptr noundef %.val) #33
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph.i.i, label %rb_parser_enc_coderange_scan.exit
 
@@ -35857,7 +35857,7 @@ rb_parser_enc_coderange_scan.exit:                ; preds = %19, %rb_parser_sear
 declare i32 @rb_enc_precise_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1,2)
-declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #23
+declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @parser_yylex(ptr noundef %0) unnamed_addr #0 {
@@ -35963,7 +35963,7 @@ define internal fastcc i32 @parser_yylex(ptr noundef %0) unnamed_addr #0 {
 heredoc_restore.exit.i:                           ; preds = %70, %.loopexit242.i
   %72 = and i32 %68, -9
   store i32 %72, ptr %8, align 8
-  tail call void @ruby_xfree(ptr noundef nonnull %35) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %35) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.905, i32 noundef %27, ptr noundef %25)
   %73 = load ptr, ptr %13, align 8
   store ptr %73, ptr %15, align 8
@@ -36042,7 +36042,7 @@ parser_set_lex_state.exit.i:                      ; preds = %76, %heredoc_restor
   %.1.i.i = phi ptr [ %.0.i.i, %110 ], [ %.val170.i, %100 ], [ %.val170.i, %98 ]
   %115 = sub nsw i64 0, %28
   %116 = getelementptr i8, ptr %.1.i.i, i64 %115
-  %117 = tail call i32 @strncmp(ptr noundef readonly %25, ptr noundef %116, i64 noundef %28) #36
+  %117 = tail call i32 @strncmp(ptr noundef readonly %25, ptr noundef %116, i64 noundef %28) #37
   %.not.i176.i = icmp eq i32 %117, 0
   br i1 %.not.i176.i, label %118, label %whole_match_p.exit.thread.i
 
@@ -36132,7 +36132,7 @@ whole_match_p.exit.i:                             ; preds = %125, %.lr.ph.i.i, %
 heredoc_restore.exit178.i:                        ; preds = %164, %130
   %166 = and i32 %131, -9
   store i32 %166, ptr %8, align 8
-  tail call void @ruby_xfree(ptr noundef nonnull %132) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %132) #33
   %167 = load ptr, ptr %13, align 8
   store ptr %167, ptr %15, align 8
   %168 = load i32, ptr %8, align 8
@@ -36265,12 +36265,12 @@ whole_match_p.exit.thread.i:                      ; preds = %whole_match_p.exit.
   br i1 %.not162.i, label %223, label %221
 
 221:                                              ; preds = %219
-  %222 = tail call i64 @rb_str_cat(i64 noundef %.0145.i, ptr noundef %185, i64 noundef %220) #32
+  %222 = tail call i64 @rb_str_cat(i64 noundef %.0145.i, ptr noundef %185, i64 noundef %220) #33
   br label %226
 
 223:                                              ; preds = %219
   %224 = load ptr, ptr %18, align 8
-  %225 = tail call i64 @rb_enc_str_new(ptr noundef %185, i64 noundef %220, ptr noundef %224) #32
+  %225 = tail call i64 @rb_enc_str_new(ptr noundef %185, i64 noundef %220, ptr noundef %224) #33
   br label %226
 
 226:                                              ; preds = %223, %221
@@ -36280,7 +36280,7 @@ whole_match_p.exit.thread.i:                      ; preds = %whole_match_p.exit.
   br i1 %.not163.i, label %228, label %230
 
 228:                                              ; preds = %226
-  %229 = tail call i64 @rb_str_cat(i64 noundef %.1146.i, ptr noundef nonnull @.str.7, i64 noundef 1) #32
+  %229 = tail call i64 @rb_str_cat(i64 noundef %.1146.i, ptr noundef nonnull @.str.7, i64 noundef 1) #33
   %.pre265.i = load ptr, ptr %177, align 8
   br label %230
 
@@ -36336,7 +36336,7 @@ whole_match_p.exit.thread.i:                      ; preds = %whole_match_p.exit.
 258:                                              ; preds = %254, %244, %242
   %.1.i182.i = phi ptr [ %.0.i192.i, %254 ], [ %.val172.i, %244 ], [ %.val172.i, %242 ]
   %259 = getelementptr i8, ptr %.1.i182.i, i64 %180
-  %260 = tail call i32 @strncmp(ptr noundef readonly %25, ptr noundef %259, i64 noundef %28) #36
+  %260 = tail call i32 @strncmp(ptr noundef readonly %25, ptr noundef %259, i64 noundef %28) #37
   %.not.i183.i = icmp eq i32 %260, 0
   br i1 %.not.i183.i, label %261, label %whole_match_p.exit194.i
 
@@ -36382,7 +36382,7 @@ whole_match_p.exit194.i:                          ; preds = %.critedge.i187.i, %
 277:                                              ; preds = %273
   %278 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %278, align 4
-  %279 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %279 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %279, ptr %275, align 8
   br label %280
 
@@ -36395,7 +36395,7 @@ whole_match_p.exit194.i:                          ; preds = %.critedge.i187.i, %
 
 285:                                              ; preds = %280
   store i32 60, ptr %282, align 4
-  %286 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %281, i64 noundef 60, i64 noundef 1) #39
+  %286 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %281, i64 noundef 60, i64 noundef 1) #40
   store ptr %286, ptr %275, align 8
   br label %newtok.exit.i
 
@@ -36536,7 +36536,7 @@ parser_peek_variable_name.exit.i:                 ; preds = %328, %325, %320, %3
   store i32 %348, ptr %282, align 4
   %349 = load ptr, ptr %275, align 8
   %350 = sext i32 %348 to i64
-  %351 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %349, i64 noundef %350, i64 noundef 1) #39
+  %351 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %349, i64 noundef %350, i64 noundef 1) #40
   store ptr %351, ptr %275, align 8
   br label %tokadd.exit.i
 
@@ -36644,18 +36644,18 @@ RSTRING_PTR.exit.i.i:                             ; preds = %404, %.loopexit.i
   %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i, %404 ], [ %403, %.loopexit.i ]
   %405 = getelementptr inbounds i8, ptr %400, i64 16
   %406 = load i64, ptr %405, align 8
-  %407 = tail call ptr @rb_enc_get(i64 noundef %.2.i) #32
+  %407 = tail call ptr @rb_enc_get(i64 noundef %.2.i) #33
   %408 = icmp slt i64 %406, 0
   br i1 %408, label %409, label %410
 
 409:                                              ; preds = %RSTRING_PTR.exit.i.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %406) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %406) #34
   unreachable
 
 410:                                              ; preds = %RSTRING_PTR.exit.i.i
-  %411 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %411 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %412 = add nuw i64 %406, 1
-  %413 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %412, i64 noundef 1) #34
+  %413 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %412, i64 noundef 1) #35
   %414 = getelementptr inbounds i8, ptr %411, i64 24
   store ptr %413, ptr %414, align 8
   %.not.i.i3.i.i = icmp eq ptr %.sroa.2.0.i.i.i, null
@@ -36677,8 +36677,8 @@ rb_str_to_parser_string.exit.i:                   ; preds = %415, %410
   store ptr %407, ptr %418, align 8
   %419 = getelementptr i8, ptr %0, i64 312
   %.val.i.i.i = load ptr, ptr %419, align 8
-  %420 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %420, i32 noundef 64) #32
+  %420 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %420, i32 noundef 64) #33
   %421 = getelementptr inbounds i8, ptr %420, i64 8
   store i32 %390, ptr %421, align 8
   %.sroa.3229.0..sroa_idx.i = getelementptr inbounds i8, ptr %420, i64 12
@@ -36710,7 +36710,7 @@ rb_str_to_parser_string.exit.i:                   ; preds = %415, %410
   %437 = ptrtoint ptr %434 to i64
   %438 = sub i64 %436, %437
   %439 = load ptr, ptr %18, align 8
-  %440 = tail call i64 @rb_enc_str_new(ptr noundef %434, i64 noundef %438, ptr noundef %439) #32
+  %440 = tail call i64 @rb_enc_str_new(ptr noundef %434, i64 noundef %438, ptr noundef %439) #33
   br i1 %86, label %441, label %446
 
 441:                                              ; preds = %rb_str_to_parser_string.exit.i
@@ -36745,7 +36745,7 @@ rb_str_to_parser_string.exit.i:                   ; preds = %415, %410
   store i32 %458, ptr %282, align 4
   %459 = load ptr, ptr %275, align 8
   %460 = sext i32 %458 to i64
-  %461 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %459, i64 noundef %460, i64 noundef 1) #39
+  %461 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %459, i64 noundef %460, i64 noundef 1) #40
   store ptr %461, ptr %275, align 8
   br label %tokadd.exit203.i
 
@@ -36804,7 +36804,7 @@ tokadd.exit203.i:                                 ; preds = %457, %447
 490:                                              ; preds = %486, %476, %474
   %.1.i204.i = phi ptr [ %.0.i214.i, %486 ], [ %.val174.i, %476 ], [ %.val174.i, %474 ]
   %491 = getelementptr i8, ptr %.1.i204.i, i64 %356
-  %492 = tail call i32 @strncmp(ptr noundef readonly %25, ptr noundef %491, i64 noundef %28) #36
+  %492 = tail call i32 @strncmp(ptr noundef readonly %25, ptr noundef %491, i64 noundef %28) #37
   %.not.i205.i = icmp eq i32 %492, 0
   br i1 %.not.i205.i, label %493, label %whole_match_p.exit216.i
 
@@ -36904,11 +36904,11 @@ whole_match_p.exit216.i:                          ; preds = %.critedge.i209.i, %
 heredoc_restore.exit218.i:                        ; preds = %546, %.loopexit243.i
   %548 = and i32 %544, -9
   store i32 %548, ptr %8, align 8
-  tail call void @ruby_xfree(ptr noundef nonnull %512) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %512) #33
   %549 = load ptr, ptr %13, align 8
   store ptr %549, ptr %15, align 8
   %550 = or disjoint i32 %31, 32768
-  %551 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %551 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %552 = getelementptr inbounds i8, ptr %551, i64 16
   store i32 %550, ptr %552, align 8
   %553 = getelementptr inbounds i8, ptr %551, i64 24
@@ -36942,18 +36942,18 @@ RSTRING_PTR.exit.i221.i:                          ; preds = %570, %heredoc_resto
   %.sroa.2.0.i.i222.i = phi ptr [ %.sroa.2.0.copyload.i.i220.i, %570 ], [ %569, %heredoc_restore.exit218.i ]
   %571 = getelementptr inbounds i8, ptr %566, i64 16
   %572 = load i64, ptr %571, align 8
-  %573 = tail call ptr @rb_enc_get(i64 noundef %.3.i) #32
+  %573 = tail call ptr @rb_enc_get(i64 noundef %.3.i) #33
   %574 = icmp slt i64 %572, 0
   br i1 %574, label %575, label %576
 
 575:                                              ; preds = %RSTRING_PTR.exit.i221.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %572) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %572) #34
   unreachable
 
 576:                                              ; preds = %RSTRING_PTR.exit.i221.i
-  %577 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %577 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %578 = add nuw i64 %572, 1
-  %579 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %578, i64 noundef 1) #34
+  %579 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %578, i64 noundef 1) #35
   %580 = getelementptr inbounds i8, ptr %577, i64 24
   store ptr %579, ptr %580, align 8
   %.not.i.i3.i223.i = icmp eq ptr %.sroa.2.0.i.i222.i, null
@@ -36975,8 +36975,8 @@ rb_str_to_parser_string.exit226.i:                ; preds = %581, %576
   store ptr %573, ptr %584, align 8
   %585 = getelementptr i8, ptr %0, i64 312
   %.val.i.i227.i = load ptr, ptr %585, align 8
-  %586 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i227.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %586, i32 noundef 64) #32
+  %586 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i227.i, i32 noundef 64, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %586, i32 noundef 64) #33
   %587 = getelementptr inbounds i8, ptr %586, i64 8
   store i32 %555, ptr %587, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %586, i64 12
@@ -37008,7 +37008,7 @@ rb_str_to_parser_string.exit226.i:                ; preds = %581, %576
   %603 = ptrtoint ptr %600 to i64
   %604 = sub i64 %602, %603
   %605 = load ptr, ptr %18, align 8
-  %606 = tail call i64 @rb_enc_str_new(ptr noundef %600, i64 noundef %604, ptr noundef %605) #32
+  %606 = tail call i64 @rb_enc_str_new(ptr noundef %600, i64 noundef %604, ptr noundef %605) #33
   br i1 %86, label %607, label %here_document.exit
 
 607:                                              ; preds = %rb_str_to_parser_string.exit226.i
@@ -37067,7 +37067,7 @@ parser_set_lex_state.exit.i845:                   ; preds = %629, %626
   %633 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 2, ptr %633, align 8
   %634 = load ptr, ptr %9, align 8
-  tail call void @ruby_xfree(ptr noundef %634) #32
+  tail call void @ruby_xfree(ptr noundef %634) #33
   store ptr null, ptr %9, align 8
   %635 = and i32 %614, 4
   %.not99.i = icmp eq i32 %635, 0
@@ -37178,7 +37178,7 @@ pushback.exit.i878:                               ; preds = %674, %670, %667, %6
 
 677:                                              ; preds = %654
   %678 = load ptr, ptr %9, align 8
-  tail call void @ruby_xfree(ptr noundef %678) #32
+  tail call void @ruby_xfree(ptr noundef %678) #33
   store ptr null, ptr %9, align 8
   %679 = and i32 %614, 4
   %.not.i101.i = icmp eq i32 %679, 0
@@ -37320,7 +37320,7 @@ pushback.exit103.i:                               ; preds = %738, %734, %731, %7
 745:                                              ; preds = %741
   %746 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %746, align 4
-  %747 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %747 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %747, ptr %743, align 8
   br label %748
 
@@ -37333,7 +37333,7 @@ pushback.exit103.i:                               ; preds = %738, %734, %731, %7
 
 753:                                              ; preds = %748
   store i32 60, ptr %750, align 4
-  %754 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %749, i64 noundef 60, i64 noundef 1) #39
+  %754 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %749, i64 noundef 60, i64 noundef 1) #40
   store ptr %754, ptr %743, align 8
   br label %newtok.exit.i851
 
@@ -37451,7 +37451,7 @@ select.unfold.i:                                  ; preds = %798, %788, %770, %7
   store i32 %808, ptr %750, align 4
   %809 = load ptr, ptr %743, align 8
   %810 = sext i32 %808 to i64
-  %811 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %809, i64 noundef %810, i64 noundef 1) #39
+  %811 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %809, i64 noundef %810, i64 noundef 1) #40
   store ptr %811, ptr %743, align 8
   br label %tokadd.exit.i865
 
@@ -37510,7 +37510,7 @@ pushback.exit108.i:                               ; preds = %830, %826, %823, %8
 838:                                              ; preds = %836
   tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef @.str.920)
   %839 = load ptr, ptr %9, align 8
-  tail call void @ruby_xfree(ptr noundef %839) #32
+  tail call void @ruby_xfree(ptr noundef %839) #33
   store ptr null, ptr %9, align 8
   br label %parse_string.exit
 
@@ -37564,18 +37564,18 @@ RSTRING_PTR.exit.i.i855:                          ; preds = %872, %844
   %.sroa.2.0.i.i.i856 = phi ptr [ %.sroa.2.0.copyload.i.i.i854, %872 ], [ %871, %844 ]
   %873 = getelementptr inbounds i8, ptr %868, i64 16
   %874 = load i64, ptr %873, align 8
-  %875 = tail call ptr @rb_enc_get(i64 noundef %854) #32
+  %875 = tail call ptr @rb_enc_get(i64 noundef %854) #33
   %876 = icmp slt i64 %874, 0
   br i1 %876, label %877, label %878
 
 877:                                              ; preds = %RSTRING_PTR.exit.i.i855
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %874) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %874) #34
   unreachable
 
 878:                                              ; preds = %RSTRING_PTR.exit.i.i855
-  %879 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %879 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %880 = add nuw i64 %874, 1
-  %881 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %880, i64 noundef 1) #34
+  %881 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %880, i64 noundef 1) #35
   %882 = getelementptr inbounds i8, ptr %879, i64 24
   store ptr %881, ptr %882, align 8
   %.not.i.i3.i.i857 = icmp eq ptr %.sroa.2.0.i.i.i856, null
@@ -37597,8 +37597,8 @@ rb_str_to_parser_string.exit.i860:                ; preds = %883, %878
   store ptr %875, ptr %886, align 8
   %887 = getelementptr i8, ptr %0, i64 312
   %.val.i.i.i861 = load ptr, ptr %887, align 8
-  %888 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i861, i32 noundef 64, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %888, i32 noundef 64) #32
+  %888 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i861, i32 noundef 64, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %888, i32 noundef 64) #33
   %889 = getelementptr inbounds i8, ptr %888, i64 8
   store i32 %856, ptr %889, align 8
   %.sroa.3.0..sroa_idx.i862 = getelementptr inbounds i8, ptr %888, i64 12
@@ -37630,7 +37630,7 @@ rb_str_to_parser_string.exit.i860:                ; preds = %883, %878
   %905 = ptrtoint ptr %902 to i64
   %906 = sub i64 %904, %905
   %907 = load ptr, ptr %619, align 8
-  %908 = tail call i64 @rb_enc_str_new(ptr noundef %902, i64 noundef %906, ptr noundef %907) #32
+  %908 = tail call i64 @rb_enc_str_new(ptr noundef %902, i64 noundef %906, ptr noundef %907) #33
   tail call fastcc void @flush_string_content(ptr noundef nonnull %0, ptr noundef %852)
   br label %parse_string.exit
 
@@ -37787,7 +37787,7 @@ warn_cr.exit.sink.split:                          ; preds = %1002, %968
   store i32 %971, ptr %8, align 8
   %972 = load ptr, ptr %940, align 8
   %973 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %972, i32 noundef %973, ptr noundef nonnull @.str.925) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %972, i32 noundef %973, ptr noundef nonnull @.str.925) #33
   br label %warn_cr.exit.preheader
 
 warn_cr.exit.preheader:                           ; preds = %968, %.backedge, %.backedge, %.backedge, %.backedge, %warn_cr.exit.sink.split
@@ -38363,7 +38363,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1035, %1027, %1065,
   br i1 %.not189.i, label %1196, label %1188
 
 1188:                                             ; preds = %.critedge10.i
-  %1189 = call i64 @rb_str_resize(i64 noundef %.0153.ph.i, i64 noundef %1187) #32
+  %1189 = call i64 @rb_str_resize(i64 noundef %.0153.ph.i, i64 noundef %1187) #33
   %1190 = inttoptr i64 %.0153.ph.i to ptr
   %1191 = load i64, ptr %1190, align 8, !noalias !128
   %1192 = and i64 %1191, 8192
@@ -38386,7 +38386,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %1194, %1188
 
 1196:                                             ; preds = %.critedge10.i
   %1197 = load ptr, ptr %931, align 8
-  %1198 = call i64 @rb_enc_str_new(ptr noundef nonnull %.us-phi1393, i64 noundef %1187, ptr noundef %1197) #32
+  %1198 = call i64 @rb_enc_str_new(ptr noundef nonnull %.us-phi1393, i64 noundef %1187, ptr noundef %1197) #33
   %.pre379.i = inttoptr i64 %1198 to ptr
   br label %ruby_nonempty_memcpy.exit.i
 
@@ -38432,7 +38432,7 @@ RSTRING_PTR.exit212.i:                            ; preds = %1202, %ruby_nonempt
 .preheader.i894:                                  ; preds = %.preheader.i894.preheader, %1245
   %.0147.i895 = phi ptr [ %1246, %1245 ], [ @magic_comments, %.preheader.i894.preheader ]
   %1213 = load ptr, ptr %.0147.i895, align 8
-  %1214 = call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef %1213, ptr noundef %.sroa.2.0.i211.i, i64 noundef %1187) #36
+  %1214 = call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef %1213, ptr noundef %.sroa.2.0.i211.i, i64 noundef %1187) #37
   %1215 = icmp eq i32 %1214, 0
   br i1 %1215, label %1216, label %1245
 
@@ -38452,7 +38452,7 @@ RSTRING_PTR.exit212.i:                            ; preds = %1202, %ruby_nonempt
   br i1 %.not191.i, label %1227, label %1225
 
 1225:                                             ; preds = %1219
-  %1226 = call i64 %1224(ptr noundef %0, ptr noundef %.0149.i, i64 noundef %1222) #32
+  %1226 = call i64 %1224(ptr noundef %0, ptr noundef %.0149.i, i64 noundef %1222) #33
   br label %1227
 
 1227:                                             ; preds = %1225, %1219
@@ -38461,7 +38461,7 @@ RSTRING_PTR.exit212.i:                            ; preds = %1202, %ruby_nonempt
   br i1 %.not192.i, label %1236, label %1228
 
 1228:                                             ; preds = %1227
-  %1229 = call i64 @rb_str_resize(i64 noundef %.0150.ph.i, i64 noundef %.0132.i) #32
+  %1229 = call i64 @rb_str_resize(i64 noundef %.0150.ph.i, i64 noundef %.0132.i) #33
   %1230 = inttoptr i64 %.0150.ph.i to ptr
   %1231 = load i64, ptr %1230, align 8, !noalias !135
   %1232 = and i64 %1231, 8192
@@ -38484,7 +38484,7 @@ rbimpl_size_mul_or_raise.exit217.i:               ; preds = %1234, %1228
 
 1236:                                             ; preds = %1227
   %1237 = load ptr, ptr %931, align 8
-  %1238 = call i64 @rb_enc_str_new(ptr noundef %.0149.i, i64 noundef %.0132.i, ptr noundef %1237) #32
+  %1238 = call i64 @rb_enc_str_new(ptr noundef %.0149.i, i64 noundef %.0132.i, ptr noundef %1237) #33
   %.pre380.i = inttoptr i64 %1238 to ptr
   br label %ruby_nonempty_memcpy.exit219.i
 
@@ -38507,7 +38507,7 @@ ruby_nonempty_memcpy.exit219.i:                   ; preds = %1236, %1235, %rbimp
 
 RSTRING_PTR.exit223.i:                            ; preds = %1244, %ruby_nonempty_memcpy.exit219.i
   %.sroa.2.0.i222.i = phi ptr [ %.sroa.2.0.copyload.i221.i, %1244 ], [ %1243, %ruby_nonempty_memcpy.exit219.i ]
-  call void %1240(ptr noundef nonnull %0, ptr noundef nonnull %1213, ptr noundef %.sroa.2.0.i222.i) #32
+  call void %1240(ptr noundef nonnull %0, ptr noundef nonnull %1213, ptr noundef %.sroa.2.0.i222.i) #33
   br label %.loopexit.i896
 
 1245:                                             ; preds = %1216, %.preheader.i894
@@ -38600,7 +38600,7 @@ comment_at_top.exit:                              ; preds = %.loopexit1145.split
 
 1281:                                             ; preds = %1276, %.lr.ph.i902, %.lr.ph.i902
   %1282 = phi i1 [ true, %1276 ], [ false, %.lr.ph.i902 ], [ false, %.lr.ph.i902 ]
-  %1283 = call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef nonnull %.065.i, ptr noundef nonnull @.str.926, i64 noundef 6) #36
+  %1283 = call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef nonnull %.065.i, ptr noundef nonnull @.str.926, i64 noundef 6) #37
   %1284 = icmp eq i32 %1283, 0
   br i1 %1284, label %.preheader58.i, label %.backedge.i
 
@@ -38673,7 +38673,7 @@ comment_at_top.exit:                              ; preds = %.loopexit1145.split
   %1310 = ptrtoint ptr %1286 to i64
   %1311 = sub i64 %1309, %1310
   %1312 = call i64 @parser_encode_length(ptr poison, ptr noundef nonnull %1286, i64 noundef %1311)
-  %1313 = call i64 @rb_str_new(ptr noundef nonnull %1286, i64 noundef %1312) #32
+  %1313 = call i64 @rb_str_new(ptr noundef nonnull %1286, i64 noundef %1312) #33
   store ptr %1286, ptr %918, align 8
   store ptr %.5.i908, ptr %916, align 8
   %1314 = inttoptr i64 %1313 to ptr
@@ -38690,7 +38690,7 @@ comment_at_top.exit:                              ; preds = %.loopexit1145.split
 RSTRING_PTR.exit.i:                               ; preds = %1318, %.critedge.i907
   %.sroa.2.0.i.i911 = phi ptr [ %.sroa.2.0.copyload.i.i910, %1318 ], [ %1317, %.critedge.i907 ]
   call fastcc void @parser_set_encode(ptr noundef nonnull %0, ptr noundef %.sroa.2.0.i.i911)
-  %1319 = call i64 @rb_str_resize(i64 noundef %1313, i64 noundef 0) #32
+  %1319 = call i64 @rb_str_resize(i64 noundef %1313, i64 noundef 0) #33
   br label %parser_magic_comment.exit
 
 parser_magic_comment.exit:                        ; preds = %.critedge4.i, %.outer.i.split.us, %.outer.i.split, %.backedge.i, %1295, %1104, %1075, %1094, %1090, %1285, %1114, %1123, %.loopexit1145.split.us, %RSTRING_PTR.exit.i, %1254, %comment_at_top.exit
@@ -39088,7 +39088,7 @@ parser_set_lex_state.exit922:                     ; preds = %1459, %1464
   %.0663.ph.ph = phi i32 [ 134, %1458 ], [ 42, %1480 ]
   %1481 = load ptr, ptr %940, align 8
   %1482 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1481, i32 noundef %1482, ptr noundef nonnull %.str.883.sink) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1481, i32 noundef %1482, ptr noundef nonnull %.str.883.sink) #33
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %1472, %1450
@@ -39096,7 +39096,7 @@ parser_set_lex_state.exit922:                     ; preds = %1459, %1464
   %.0663.ph = phi i32 [ 335, %1450 ], [ 334, %1472 ], [ %.0663.ph.ph, %.sink.split.sink.split ]
   %1483 = load ptr, ptr %940, align 8
   %1484 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1483, i32 noundef %1484, ptr noundef nonnull %.str.884.sink) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1483, i32 noundef %1484, ptr noundef nonnull %.str.884.sink) #33
   br label %1485
 
 1485:                                             ; preds = %.sink.split, %1480, %1480, %1480, %1480, %1480, %1480, %1458, %1458, %1458, %1458, %1458, %1458, %1477, %1473, %1455, %1451
@@ -39175,7 +39175,7 @@ parser_set_lex_state.exit930:                     ; preds = %1502, %1503
   br i1 %1512, label %1513, label %word_match_p.exit
 
 1513:                                             ; preds = %1508
-  %1514 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1509, ptr noundef nonnull readonly dereferenceable(6) @.str.29, i64 noundef 5) #36
+  %1514 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1509, ptr noundef nonnull readonly dereferenceable(6) @.str.29, i64 noundef 5) #37
   %.not.i931 = icmp eq i32 %1514, 0
   br i1 %.not.i931, label %1515, label %word_match_p.exit
 
@@ -39468,10 +39468,10 @@ parser_set_lex_state.exit948:                     ; preds = %1614, %1619
 1627:                                             ; preds = %1626
   %1628 = load ptr, ptr %940, align 8
   %1629 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1628, i32 noundef %1629, ptr noundef nonnull @.str.888) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1628, i32 noundef %1629, ptr noundef nonnull @.str.888) #33
   %1630 = load ptr, ptr %940, align 8
   %1631 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1630, i32 noundef %1631, ptr noundef nonnull @.str.889) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1630, i32 noundef %1631, ptr noundef nonnull @.str.889) #33
   br label %pushback.exit977
 
 1632:                                             ; preds = %1610
@@ -39541,7 +39541,7 @@ parser_set_lex_state.exit953:                     ; preds = %1645, %1650
   %.not784 = icmp eq i32 %1660, 0
   %1661 = select i1 %or.cond13, i1 %.not784, i1 false
   %1662 = select i1 %1661, i32 2, i32 66
-  %1663 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %1663 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %1664 = getelementptr inbounds i8, ptr %1663, i64 16
   store i32 %1662, ptr %1664, align 8
   %1665 = getelementptr inbounds i8, ptr %1663, i64 24
@@ -39609,7 +39609,7 @@ parser_set_lex_state.exit959:                     ; preds = %1685, %1686
   br label %pushback.exit977
 
 1688:                                             ; preds = %1677
-  %1689 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %1689 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %1690 = getelementptr inbounds i8, ptr %1689, i64 16
   store i32 2, ptr %1690, align 8
   %1691 = getelementptr inbounds i8, ptr %1689, i64 24
@@ -39629,7 +39629,7 @@ parser_set_lex_state.exit959:                     ; preds = %1685, %1686
   %.not780 = icmp eq i32 %1698, 0
   %1699 = select i1 %or.cond15, i1 %.not780, i1 false
   %1700 = select i1 %1699, i32 0, i32 64
-  %1701 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %1701 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %1702 = getelementptr inbounds i8, ptr %1701, i64 16
   store i32 %1700, ptr %1702, align 8
   %1703 = getelementptr inbounds i8, ptr %1701, i64 24
@@ -39768,7 +39768,7 @@ parser_set_lex_state.exit967:                     ; preds = %1736, %1741
   %1758 = zext i8 %1755 to i32
   %1759 = getelementptr inbounds i8, ptr %1757, i64 88
   %1760 = load ptr, ptr %1759, align 8
-  %1761 = call i32 %1760(i32 noundef %1758, i32 noundef 13, ptr noundef %1757) #32
+  %1761 = call i32 %1760(i32 noundef %1758, i32 noundef 13, ptr noundef %1757) #33
   %.not.i969 = icmp eq i32 %1761, 0
   br i1 %.not.i969, label %1762, label %is_identchar.exit.thread
 
@@ -39806,7 +39806,7 @@ parser_set_lex_state.exit967:                     ; preds = %1736, %1741
 1773:                                             ; preds = %1772
   %1774 = load ptr, ptr %940, align 8
   %1775 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1774, i32 noundef %1775, ptr noundef nonnull @.str.891) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1774, i32 noundef %1775, ptr noundef nonnull @.str.891) #33
   br label %is_identchar.exit.thread.sink.split
 
 is_identchar.exit.thread.sink.split:              ; preds = %1750, %1749, %1762, %1773
@@ -39814,7 +39814,7 @@ is_identchar.exit.thread.sink.split:              ; preds = %1750, %1749, %1762,
   %.1.ph = phi i32 [ 38, %1773 ], [ 336, %1762 ], [ 336, %1749 ], [ 336, %1750 ]
   %1776 = load ptr, ptr %940, align 8
   %1777 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1776, i32 noundef %1777, ptr noundef nonnull %.str.884.sink1890) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1776, i32 noundef %1777, ptr noundef nonnull %.str.884.sink1890) #33
   br label %is_identchar.exit.thread
 
 is_identchar.exit.thread:                         ; preds = %is_identchar.exit.thread.sink.split, %1772, %1772, %1772, %1772, %1772, %1772, %1754, %1756, %1762, %1754, %1769, %1765
@@ -40023,7 +40023,7 @@ parser_set_lex_state.exit985:                     ; preds = %1849, %1854
 1866:                                             ; preds = %1865
   %1867 = load ptr, ptr %940, align 8
   %1868 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1867, i32 noundef %1868, ptr noundef nonnull @.str.955, i32 noundef 43) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1867, i32 noundef %1868, ptr noundef nonnull @.str.955, i32 noundef 43) #33
   br label %1869
 
 1869:                                             ; preds = %1866, %1857
@@ -40079,10 +40079,10 @@ parser_set_lex_state.exit990:                     ; preds = %1878, %1881
 1886:                                             ; preds = %1885
   %1887 = load ptr, ptr %940, align 8
   %1888 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1887, i32 noundef %1888, ptr noundef nonnull @.str.892) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1887, i32 noundef %1888, ptr noundef nonnull @.str.892) #33
   %1889 = load ptr, ptr %940, align 8
   %1890 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1889, i32 noundef %1890, ptr noundef nonnull @.str.893) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1889, i32 noundef %1890, ptr noundef nonnull @.str.893) #33
   br label %pushback.exit977
 
 1891:                                             ; preds = %.backedge
@@ -40177,7 +40177,7 @@ parser_set_lex_state.exit997:                     ; preds = %1911, %1914
 1925:                                             ; preds = %1924
   %1926 = load ptr, ptr %940, align 8
   %1927 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1926, i32 noundef %1927, ptr noundef nonnull @.str.955, i32 noundef 45) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1926, i32 noundef %1927, ptr noundef nonnull @.str.955, i32 noundef 45) #33
   br label %1928
 
 1928:                                             ; preds = %1925, %1916
@@ -40230,10 +40230,10 @@ parser_set_lex_state.exit1002:                    ; preds = %1935, %1938
 1943:                                             ; preds = %1942
   %1944 = load ptr, ptr %940, align 8
   %1945 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1944, i32 noundef %1945, ptr noundef nonnull @.str.894) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1944, i32 noundef %1945, ptr noundef nonnull @.str.894) #33
   %1946 = load ptr, ptr %940, align 8
   %1947 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1946, i32 noundef %1947, ptr noundef nonnull @.str.893) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %1946, i32 noundef %1947, ptr noundef nonnull @.str.893) #33
   br label %pushback.exit977
 
 1948:                                             ; preds = %.backedge
@@ -40300,7 +40300,7 @@ parser_set_lex_state.exit1007:                    ; preds = %1965, %1968
 1977:                                             ; preds = %1975
   %1978 = load ptr, ptr %940, align 8
   %1979 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %1978, i32 noundef %1979, ptr noundef nonnull @.str.895) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %1978, i32 noundef %1979, ptr noundef nonnull @.str.895) #33
   br label %1988
 
 1980:                                             ; preds = %1975, %1971
@@ -40723,10 +40723,10 @@ parser_set_lex_state.exit1023:                    ; preds = %2160, %2165
 2176:                                             ; preds = %2175
   %2177 = load ptr, ptr %940, align 8
   %2178 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2177, i32 noundef %2178, ptr noundef nonnull @.str.898) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2177, i32 noundef %2178, ptr noundef nonnull @.str.898) #33
   %2179 = load ptr, ptr %940, align 8
   %2180 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2179, i32 noundef %2180, ptr noundef nonnull @.str.899) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2179, i32 noundef %2180, ptr noundef nonnull @.str.899) #33
   br label %2181
 
 2181:                                             ; preds = %2175, %2175, %2175, %2175, %2175, %2175, %2176, %2171
@@ -40745,7 +40745,7 @@ parser_set_lex_state.exit1027:                    ; preds = %2181, %2184
   br label %pushback.exit977
 
 2187:                                             ; preds = %2170
-  %2188 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %2188 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %2189 = getelementptr inbounds i8, ptr %2188, i64 16
   store i32 16, ptr %2189, align 8
   %2190 = getelementptr inbounds i8, ptr %2188, i64 24
@@ -40756,7 +40756,7 @@ parser_set_lex_state.exit1027:                    ; preds = %2181, %2184
   br label %2198
 
 2192:                                             ; preds = %2170
-  %2193 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %2193 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %2194 = getelementptr inbounds i8, ptr %2193, i64 16
   store i32 18, ptr %2194, align 8
   %2195 = getelementptr inbounds i8, ptr %2193, i64 24
@@ -40795,7 +40795,7 @@ parser_set_lex_state.exit1029:                    ; preds = %2198, %2201
   br i1 %or.cond832, label %2209, label %2214
 
 2209:                                             ; preds = %2204
-  %2210 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %2210 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %2211 = getelementptr inbounds i8, ptr %2210, i64 16
   store i32 7, ptr %2211, align 8
   %2212 = getelementptr inbounds i8, ptr %2210, i64 24
@@ -40850,8 +40850,8 @@ parser_set_lex_state.exit1031:                    ; preds = %2217, %2222
 2231:                                             ; preds = %2230
   %2232 = load ptr, ptr %940, align 8
   %2233 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2232, i32 noundef %2233, ptr noundef nonnull @.str.954, i32 noundef 47) #32
-  %2234 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2232, i32 noundef %2233, ptr noundef nonnull @.str.954, i32 noundef 47) #33
+  %2234 = call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %2235 = getelementptr inbounds i8, ptr %2234, i64 16
   store i32 7, ptr %2235, align 8
   %2236 = getelementptr inbounds i8, ptr %2234, i64 24
@@ -40894,10 +40894,10 @@ parser_set_lex_state.exit1034:                    ; preds = %2238, %2243
 2248:                                             ; preds = %2247
   %2249 = load ptr, ptr %940, align 8
   %2250 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2249, i32 noundef %2250, ptr noundef nonnull @.str.900) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2249, i32 noundef %2250, ptr noundef nonnull @.str.900) #33
   %2251 = load ptr, ptr %940, align 8
   %2252 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2251, i32 noundef %2252, ptr noundef nonnull @.str.901) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2251, i32 noundef %2252, ptr noundef nonnull @.str.901) #33
   br label %pushback.exit977
 
 2253:                                             ; preds = %.backedge
@@ -41057,7 +41057,7 @@ parser_set_lex_state.exit1047:                    ; preds = %2298, %2301
 2321:                                             ; preds = %2315
   %2322 = load ptr, ptr %940, align 8
   %2323 = load i32, ptr %921, align 4
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2322, i32 noundef %2323, ptr noundef nonnull @.str.902) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %2322, i32 noundef %2323, ptr noundef nonnull @.str.902) #33
   br label %2324
 
 2324:                                             ; preds = %2309, %2303, %2308, %2313, %2315, %2321
@@ -41387,7 +41387,7 @@ parser_set_lex_state.exit1057:                    ; preds = %2425, %.thread1091,
   %2471 = zext i8 %2470 to i32
   %2472 = getelementptr inbounds i8, ptr %2469, i64 88
   %2473 = load ptr, ptr %2472, align 8
-  %2474 = call i32 %2473(i32 noundef %2471, i32 noundef 13, ptr noundef %2469) #32
+  %2474 = call i32 %2473(i32 noundef %2471, i32 noundef 13, ptr noundef %2469) #33
   %.not.i.i1062 = icmp eq i32 %2474, 0
   br i1 %.not.i.i1062, label %2475, label %parser_is_identchar.exit.thread
 
@@ -41473,7 +41473,7 @@ define internal fastcc void @parser_dispatch_scan_event(ptr nocapture noundef %0
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %45, %41
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.978, i32 noundef %35, i64 noundef %40, i64 noundef %42, i64 noundef %46) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.978, i32 noundef %35, i64 noundef %40, i64 noundef %42, i64 noundef %46) #34
   unreachable
 
 parser_has_token.exit:                            ; preds = %25
@@ -41514,7 +41514,7 @@ parser_has_token.exit:                            ; preds = %25
   %72 = sub i64 %70, %71
   %73 = getelementptr inbounds i8, ptr %0, i64 232
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call i64 @rb_enc_str_new(ptr noundef %68, i64 noundef %72, ptr noundef %74) #32
+  %75 = tail call i64 @rb_enc_str_new(ptr noundef %68, i64 noundef %72, ptr noundef %74) #33
   tail call fastcc void @parser_append_tokens(ptr noundef nonnull %0, i64 noundef %75, i32 noundef %1, i32 noundef %2)
   br label %76
 
@@ -41647,7 +41647,7 @@ parser_yyerror0.exit:                             ; preds = %26, %45
   %60 = zext i8 %59 to i32
   %61 = getelementptr inbounds i8, ptr %58, i64 88
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 %62(i32 noundef %60, i32 noundef 13, ptr noundef %58) #32
+  %63 = tail call i32 %62(i32 noundef %60, i32 noundef 13, ptr noundef %58) #33
   %.not.i.i = icmp eq i32 %63, 0
   br i1 %.not.i.i, label %64, label %parser_is_identchar.exit.thread
 
@@ -41727,7 +41727,7 @@ parser_is_identchar.exit.thread:                  ; preds = %54, %64
   %102 = getelementptr i8, ptr %101, i64 -1
   %103 = load ptr, ptr %99, align 8
   %104 = load ptr, ptr %57, align 8
-  %105 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %102, ptr noundef %103, ptr noundef %104) #32
+  %105 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %102, ptr noundef %103, ptr noundef %104) #33
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %parser_precise_mbclen.exit, label %parser_precise_mbclen.exit.thread
 
@@ -41762,7 +41762,7 @@ parser_precise_mbclen.exit:                       ; preds = %100
   %122 = zext i8 %121 to i32
   %123 = getelementptr inbounds i8, ptr %120, i64 88
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call i32 %124(i32 noundef %122, i32 noundef 13, ptr noundef %120) #32
+  %125 = tail call i32 %124(i32 noundef %122, i32 noundef 13, ptr noundef %120) #33
   %.not.i.i90 = icmp eq i32 %125, 0
   br i1 %.not.i.i90, label %126, label %parser_is_identchar.exit92
 
@@ -41868,7 +41868,7 @@ parser_yyerror0.exit94:                           ; preds = %155, %171
   %177 = getelementptr inbounds i8, ptr %0, i64 96
   %178 = load ptr, ptr %177, align 8
   store ptr %178, ptr %5, align 8
-  %179 = call noalias noundef nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %179 = call noalias noundef nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %180 = load i64, ptr %179, align 8
   %181 = or i64 %180, 65536
   store i64 %181, ptr %179, align 8
@@ -41943,7 +41943,7 @@ parser_set_lex_state.exit:                        ; preds = %7, %11
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 88
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(i32 noundef %14, i32 noundef 9, ptr noundef %19) #32
+  %22 = tail call i32 %21(i32 noundef %14, i32 noundef 9, ptr noundef %19) #33
   %.not123 = icmp eq i32 %22, 0
   br i1 %.not123, label %58, label %23
 
@@ -41984,7 +41984,7 @@ parser_set_lex_state.exit:                        ; preds = %7, %11
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 212
   %36 = load i32, ptr %35, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %34, i32 noundef %36, ptr noundef nonnull @.str.952, i32 noundef %.0.i.ph) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %34, i32 noundef %36, ptr noundef nonnull @.str.952, i32 noundef %.0.i.ph) #33
   br label %escaped_control_code.exit
 
 escaped_control_code.exit:                        ; preds = %32, %23, %.critedge, %is_identchar.exit.thread, %26
@@ -42041,7 +42041,7 @@ parser_set_lex_state.exit105:                     ; preds = %pushback.exit, %55
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %63, align 4
-  %64 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %64 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %64, ptr %60, align 8
   br label %65
 
@@ -42054,7 +42054,7 @@ parser_set_lex_state.exit105:                     ; preds = %pushback.exit, %55
 
 70:                                               ; preds = %65
   store i32 60, ptr %67, align 4
-  %71 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %66, i64 noundef 60, i64 noundef 1) #39
+  %71 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %66, i64 noundef 60, i64 noundef 1) #40
   store ptr %71, ptr %60, align 8
   br label %newtok.exit
 
@@ -42075,7 +42075,7 @@ newtok.exit:                                      ; preds = %65, %70
 79:                                               ; preds = %newtok.exit
   %80 = getelementptr inbounds i8, ptr %72, i64 88
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 %81(i32 noundef %14, i32 noundef 13, ptr noundef %72) #32
+  %82 = tail call i32 %81(i32 noundef %14, i32 noundef 13, ptr noundef %72) #33
   %83 = icmp ne i32 %82, 0
   %84 = icmp eq i32 %14, 95
   %or.cond = or i1 %84, %83
@@ -42094,7 +42094,7 @@ newtok.exit:                                      ; preds = %65, %70
   %92 = zext i8 %91 to i32
   %93 = getelementptr inbounds i8, ptr %90, i64 88
   %94 = load ptr, ptr %93, align 8
-  %95 = tail call i32 %94(i32 noundef %92, i32 noundef 13, ptr noundef %90) #32
+  %95 = tail call i32 %94(i32 noundef %92, i32 noundef 13, ptr noundef %90) #33
   %.not.i107 = icmp eq i32 %95, 0
   br i1 %.not.i107, label %96, label %is_identchar.exit.thread
 
@@ -42118,7 +42118,7 @@ is_identchar.exit.thread:                         ; preds = %89, %96
   %.083 = phi ptr [ %101, %99 ], [ %110, %is_identchar.exit111 ]
   %103 = load ptr, ptr %87, align 8
   %104 = load ptr, ptr %18, align 8
-  %105 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %.083, ptr noundef %103, ptr noundef %104) #32
+  %105 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %.083, ptr noundef %103, ptr noundef %104) #33
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %parser_precise_mbclen.exit, label %parser_precise_mbclen.exit.thread
 
@@ -42142,7 +42142,7 @@ parser_precise_mbclen.exit:                       ; preds = %102
   %115 = zext i8 %114 to i32
   %116 = getelementptr inbounds i8, ptr %113, i64 88
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call i32 %117(i32 noundef %115, i32 noundef 13, ptr noundef %113) #32
+  %118 = tail call i32 %117(i32 noundef %115, i32 noundef 13, ptr noundef %113) #33
   %.not.i109 = icmp eq i32 %118, 0
   br i1 %.not.i109, label %119, label %is_identchar.exit111
 
@@ -42170,7 +42170,7 @@ is_identchar.exit111:                             ; preds = %112, %119, %122
   %130 = ptrtoint ptr %101 to i64
   %131 = sub i64 %129, %130
   %132 = trunc i64 %131 to i32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %126, i32 noundef %128, ptr noundef nonnull @.str.953, i32 noundef %132, ptr noundef %101) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %126, i32 noundef %128, ptr noundef nonnull @.str.953, i32 noundef %132, ptr noundef %101) #33
   br label %escaped_control_code.exit
 
 133:                                              ; preds = %96, %79, %85
@@ -42191,7 +42191,7 @@ is_identchar.exit111:                             ; preds = %112, %119, %122
 
 142:                                              ; preds = %139
   %143 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
-  %144 = tail call nonnull ptr @rb_utf8_encoding() #32
+  %144 = tail call nonnull ptr @rb_utf8_encoding() #33
   store ptr %144, ptr %3, align 8
   call fastcc void @tokadd_utf8(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef -1, i32 noundef 0)
   %.pre = load ptr, ptr %3, align 8
@@ -42233,7 +42233,7 @@ is_identchar.exit111:                             ; preds = %112, %119, %122
   store i32 %164, ptr %67, align 4
   %165 = load ptr, ptr %60, align 8
   %166 = sext i32 %164 to i64
-  %167 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %165, i64 noundef %166, i64 noundef 1) #39
+  %167 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %165, i64 noundef %166, i64 noundef 1) #40
   store ptr %167, ptr %60, align 8
   br label %tokadd.exit
 
@@ -42248,35 +42248,35 @@ tokadd.exit:                                      ; preds = %163, %154, %142, %.
   %174 = load i32, ptr %59, align 8
   %175 = sext i32 %174 to i64
   %176 = load ptr, ptr %18, align 8
-  %177 = tail call i64 @rb_enc_str_new(ptr noundef %173, i64 noundef %175, ptr noundef %168) #32
+  %177 = tail call i64 @rb_enc_str_new(ptr noundef %173, i64 noundef %175, ptr noundef %168) #33
   %178 = getelementptr i8, ptr %168, i64 20
   %.val.i.i = load i32, ptr %178, align 4
   %.not.i.i = icmp eq i32 %.val.i.i, 1
   br i1 %.not.i.i, label %rb_enc_asciicompat.exit.i, label %parser_str_new.exit
 
 rb_enc_asciicompat.exit.i:                        ; preds = %tokadd.exit
-  %179 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %168) #36
+  %179 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %168) #37
   %.not3.i.i = icmp eq i32 %179, 0
   br i1 %.not3.i.i, label %180, label %parser_str_new.exit
 
 180:                                              ; preds = %rb_enc_asciicompat.exit.i
-  %181 = tail call i32 @rb_enc_str_coderange(i64 noundef %177) #32
+  %181 = tail call i32 @rb_enc_str_coderange(i64 noundef %177) #33
   %182 = icmp eq i32 %181, 1048576
   br i1 %182, label %parser_str_new.exit, label %183
 
 183:                                              ; preds = %180
-  %184 = tail call nonnull ptr @rb_usascii_encoding() #32
+  %184 = tail call nonnull ptr @rb_usascii_encoding() #33
   %185 = icmp eq ptr %184, %176
   br i1 %185, label %186, label %parser_str_new.exit
 
 186:                                              ; preds = %183
-  %187 = tail call nonnull ptr @rb_utf8_encoding() #32
+  %187 = tail call nonnull ptr @rb_utf8_encoding() #33
   %.not9.i = icmp eq ptr %187, %168
   br i1 %.not9.i, label %parser_str_new.exit, label %188
 
 188:                                              ; preds = %186
-  %189 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
-  %190 = tail call i64 @rb_enc_associate(i64 noundef %177, ptr noundef nonnull %189) #32
+  %189 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
+  %190 = tail call i64 @rb_enc_associate(i64 noundef %177, ptr noundef nonnull %189) #33
   br label %parser_str_new.exit
 
 parser_str_new.exit:                              ; preds = %tokadd.exit, %rb_enc_asciicompat.exit.i, %180, %183, %186, %188
@@ -42309,18 +42309,18 @@ RSTRING_PTR.exit.i:                               ; preds = %209, %parser_str_ne
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %209 ], [ %208, %parser_str_new.exit ]
   %210 = getelementptr inbounds i8, ptr %205, i64 16
   %211 = load i64, ptr %210, align 8
-  %212 = tail call ptr @rb_enc_get(i64 noundef %177) #32
+  %212 = tail call ptr @rb_enc_get(i64 noundef %177) #33
   %213 = icmp slt i64 %211, 0
   br i1 %213, label %214, label %215
 
 214:                                              ; preds = %RSTRING_PTR.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %211) #33
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.81, i64 noundef %211) #34
   unreachable
 
 215:                                              ; preds = %RSTRING_PTR.exit.i
-  %216 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #34
+  %216 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #35
   %217 = add nuw i64 %211, 1
-  %218 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %217, i64 noundef 1) #34
+  %218 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %217, i64 noundef 1) #35
   %219 = getelementptr inbounds i8, ptr %216, i64 24
   store ptr %218, ptr %219, align 8
   %.not.i.i3.i = icmp eq ptr %.sroa.2.0.i.i, null
@@ -42342,8 +42342,8 @@ rb_str_to_parser_string.exit:                     ; preds = %215, %220
   store ptr %212, ptr %223, align 8
   %224 = getelementptr i8, ptr %0, i64 312
   %.val.i.i113 = load ptr, ptr %224, align 8
-  %225 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i113, i32 noundef 64, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %225, i32 noundef 64) #32
+  %225 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i113, i32 noundef 64, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %225, i32 noundef 64) #33
   %226 = getelementptr inbounds i8, ptr %225, i64 8
   store i32 %192, ptr %226, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %225, i64 12
@@ -42375,7 +42375,7 @@ rb_str_to_parser_string.exit:                     ; preds = %215, %220
   %242 = ptrtoint ptr %239 to i64
   %243 = sub i64 %241, %242
   %244 = load ptr, ptr %18, align 8
-  %245 = tail call i64 @rb_enc_str_new(ptr noundef %239, i64 noundef %243, ptr noundef %244) #32
+  %245 = tail call i64 @rb_enc_str_new(ptr noundef %239, i64 noundef %243, ptr noundef %244) #33
   %246 = getelementptr inbounds i8, ptr %0, i64 368
   %247 = load i32, ptr %246, align 8
   %248 = and i32 %247, 32
@@ -42424,7 +42424,7 @@ parser_set_lex_state.exit:                        ; preds = %2, %7
 15:                                               ; preds = %parser_set_lex_state.exit
   %16 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %16, align 4
-  %17 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %17 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %17, ptr %13, align 8
   br label %18
 
@@ -42437,7 +42437,7 @@ parser_set_lex_state.exit:                        ; preds = %2, %7
 
 23:                                               ; preds = %18
   store i32 60, ptr %20, align 4
-  %24 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %19, i64 noundef 60, i64 noundef 1) #39
+  %24 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %19, i64 noundef 60, i64 noundef 1) #40
   store ptr %24, ptr %13, align 8
   br label %newtok.exit
 
@@ -42466,7 +42466,7 @@ newtok.exit:                                      ; preds = %18, %23
   store i32 %35, ptr %20, align 4
   %36 = load ptr, ptr %13, align 8
   %37 = sext i32 %35 to i64
-  %38 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %36, i64 noundef %37, i64 noundef 1) #39
+  %38 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %36, i64 noundef %37, i64 noundef 1) #40
   store ptr %38, ptr %13, align 8
   br label %tokadd.exit
 
@@ -42546,7 +42546,7 @@ tokadd.exit:                                      ; preds = %26, %34
   store i32 %72, ptr %20, align 4
   %73 = load ptr, ptr %13, align 8
   %74 = sext i32 %72 to i64
-  %75 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %73, i64 noundef %74, i64 noundef 1) #39
+  %75 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %73, i64 noundef %74, i64 noundef 1) #40
   store ptr %75, ptr %13, align 8
   br label %tokadd.exit312
 
@@ -42659,7 +42659,7 @@ pushback.exit.thread:                             ; preds = %46
   store i32 %127, ptr %20, align 4
   %128 = load ptr, ptr %13, align 8
   %129 = sext i32 %127 to i64
-  %130 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %128, i64 noundef %129, i64 noundef 1) #39
+  %130 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %128, i64 noundef %129, i64 noundef 1) #40
   store ptr %130, ptr %13, align 8
   br label %tokadd.exit314
 
@@ -42780,7 +42780,7 @@ pushback.exit315.thread:                          ; preds = %132
   store i32 %187, ptr %20, align 4
   %188 = load ptr, ptr %13, align 8
   %189 = sext i32 %187 to i64
-  %190 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %188, i64 noundef %189, i64 noundef 1) #39
+  %190 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %188, i64 noundef %189, i64 noundef 1) #40
   store ptr %190, ptr %13, align 8
   br label %tokadd.exit317
 
@@ -42925,7 +42925,7 @@ pushback.exit318.thread:                          ; preds = %167
   store i32 %254, ptr %20, align 4
   %255 = load ptr, ptr %13, align 8
   %256 = sext i32 %254 to i64
-  %257 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %255, i64 noundef %256, i64 noundef 1) #39
+  %257 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %255, i64 noundef %256, i64 noundef 1) #40
   store ptr %257, ptr %13, align 8
   br label %tokadd.exit320
 
@@ -43042,7 +43042,7 @@ tokadd.exit320:                                   ; preds = %253, %244, %239
   store i32 %294, ptr %20, align 4
   %295 = load ptr, ptr %13, align 8
   %296 = sext i32 %294 to i64
-  %297 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %295, i64 noundef %296, i64 noundef 1) #39
+  %297 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %295, i64 noundef %296, i64 noundef 1) #40
   store ptr %297, ptr %13, align 8
   br label %tokadd.exit322
 
@@ -43112,7 +43112,7 @@ tokadd.exit320:                                   ; preds = %253, %244, %239
   %333 = shl i32 %331, 1
   store i32 %333, ptr %20, align 4
   %334 = sext i32 %333 to i64
-  %335 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre445, i64 noundef %334, i64 noundef 1) #39
+  %335 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre445, i64 noundef %334, i64 noundef 1) #40
   store ptr %335, ptr %13, align 8
   %.pre446 = load i32, ptr %12, align 8
   br label %tokadd.exit325
@@ -43136,7 +43136,7 @@ tokadd.exit325:                                   ; preds = %324, %332
   store i32 %345, ptr %20, align 4
   %346 = load ptr, ptr %13, align 8
   %347 = sext i32 %345 to i64
-  %348 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %346, i64 noundef %347, i64 noundef 1) #39
+  %348 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %346, i64 noundef %347, i64 noundef 1) #40
   store ptr %348, ptr %13, align 8
   br label %tokadd.exit327
 
@@ -43243,7 +43243,7 @@ tokadd.exit327:                                   ; preds = %tokadd.exit325, %34
   %402 = shl i32 %400, 1
   store i32 %402, ptr %20, align 4
   %403 = sext i32 %402 to i64
-  %404 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %403, i64 noundef 1) #39
+  %404 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %403, i64 noundef 1) #40
   store ptr %404, ptr %13, align 8
   %.pre444 = load i32, ptr %12, align 8
   br label %tokadd.exit331
@@ -43268,7 +43268,7 @@ tokadd.exit331:                                   ; preds = %392, %401
   store i32 %415, ptr %20, align 4
   %416 = load ptr, ptr %13, align 8
   %417 = sext i32 %415 to i64
-  %418 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %416, i64 noundef %417, i64 noundef 1) #39
+  %418 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %416, i64 noundef %417, i64 noundef 1) #40
   store ptr %418, ptr %13, align 8
   br label %tokadd.exit333
 
@@ -43396,8 +43396,8 @@ parser_show_error_line.exit:                      ; preds = %460, %.loopexit, %p
 
 473:                                              ; preds = %469
   %474 = load ptr, ptr %13, align 8
-  %475 = call double @ruby_strtod(ptr noundef %474, ptr noundef null) #32
-  %476 = call ptr @rb_errno_ptr() #32
+  %475 = call double @ruby_strtod(ptr noundef %474, ptr noundef null) #33
+  %476 = call ptr @rb_errno_ptr() #33
   %477 = load i32, ptr %476, align 4
   %478 = icmp eq i32 %477, 34
   br i1 %478, label %479, label %486
@@ -43408,8 +43408,8 @@ parser_show_error_line.exit:                      ; preds = %460, %.loopexit, %p
   %482 = getelementptr inbounds i8, ptr %0, i64 212
   %483 = load i32, ptr %482, align 4
   %484 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %481, i32 noundef %483, ptr noundef nonnull @.str.958, ptr noundef %484) #32
-  %485 = call ptr @rb_errno_ptr() #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %481, i32 noundef %483, ptr noundef nonnull @.str.958, ptr noundef %484) #33
+  %485 = call ptr @rb_errno_ptr() #33
   store i32 0, ptr %485, align 4
   br label %486
 
@@ -43472,7 +43472,7 @@ define internal fastcc range(i32 0, 346) i32 @parse_percent(ptr noundef %0, i32 
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 88
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %27(i32 noundef %23, i32 noundef 13, ptr noundef %25) #32
+  %28 = tail call i32 %27(i32 noundef %23, i32 noundef 13, ptr noundef %25) #33
   %.not123 = icmp eq i32 %28, 0
   %.pre125.pre = load ptr, ptr %6, align 8
   br i1 %.not123, label %29, label %32
@@ -43521,7 +43521,7 @@ pushback.exit:                                    ; preds = %32, %.thread115, %4
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 232
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %50, ptr noundef %52, ptr noundef %54) #32
+  %55 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %50, ptr noundef %52, ptr noundef %54) #33
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %parser_precise_mbclen.exit, label %parser_precise_mbclen.exit.thread
 
@@ -43621,7 +43621,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   ]
 
 94:                                               ; preds = %91
-  %95 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %95 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   store i32 2, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %95, i64 24
@@ -43632,7 +43632,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 99:                                               ; preds = %91
-  %100 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %100 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %101 = getelementptr inbounds i8, ptr %100, i64 16
   store i32 0, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %100, i64 24
@@ -43643,7 +43643,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 104:                                              ; preds = %91
-  %105 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %105 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   store i32 16394, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 24
@@ -43654,7 +43654,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 109:                                              ; preds = %91
-  %110 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %110 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %111 = getelementptr inbounds i8, ptr %110, i64 16
   store i32 16392, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %110, i64 24
@@ -43665,7 +43665,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 114:                                              ; preds = %91
-  %115 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %115 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %116 = getelementptr inbounds i8, ptr %115, i64 16
   store i32 16394, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %115, i64 24
@@ -43676,7 +43676,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 119:                                              ; preds = %91
-  %120 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %120 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %121 = getelementptr inbounds i8, ptr %120, i64 16
   store i32 16392, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %120, i64 24
@@ -43687,7 +43687,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 124:                                              ; preds = %91
-  %125 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %125 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %126 = getelementptr inbounds i8, ptr %125, i64 16
   store i32 2, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %125, i64 24
@@ -43698,7 +43698,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 129:                                              ; preds = %91
-  %130 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %130 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %131 = getelementptr inbounds i8, ptr %130, i64 16
   store i32 7, ptr %131, align 8
   %132 = getelementptr inbounds i8, ptr %130, i64 24
@@ -43709,7 +43709,7 @@ parser_yyerror0.exit:                             ; preds = %parser_precise_mbcl
   br label %201
 
 134:                                              ; preds = %91
-  %135 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #34
+  %135 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
   %136 = getelementptr inbounds i8, ptr %135, i64 16
   store i32 16, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %135, i64 24
@@ -43852,10 +43852,10 @@ pushback.exit111:                                 ; preds = %parser_set_lex_stat
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %0, i64 212
   %198 = load i32, ptr %197, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %196, i32 noundef %198, ptr noundef nonnull @.str.963) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %196, i32 noundef %198, ptr noundef nonnull @.str.963) #33
   %199 = load ptr, ptr %195, align 8
   %200 = load i32, ptr %197, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %199, i32 noundef %200, ptr noundef nonnull @.str.964) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %199, i32 noundef %200, ptr noundef nonnull @.str.964) #33
   br label %201
 
 201:                                              ; preds = %193, %193, %193, %193, %193, %193, %parser_precise_mbclen.exit.thread, %pushback.exit111, %194, %parser_set_lex_state.exit107, %145, %parser_set_lex_state.exit, %129, %124, %119, %114, %109, %104, %99, %94, %86, %parser_yyerror0.exit
@@ -43898,7 +43898,7 @@ parser_set_lex_state.exit:                        ; preds = %2, %11
 21:                                               ; preds = %parser_set_lex_state.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %22, align 4
-  %23 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %23 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %23, ptr %19, align 8
   br label %24
 
@@ -43911,7 +43911,7 @@ parser_set_lex_state.exit:                        ; preds = %2, %11
 
 29:                                               ; preds = %24
   store i32 60, ptr %26, align 4
-  %30 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %25, i64 noundef 60, i64 noundef 1) #39
+  %30 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %25, i64 noundef 60, i64 noundef 1) #40
   store ptr %30, ptr %19, align 8
   br label %newtok.exit
 
@@ -43968,7 +43968,7 @@ newtok.exit:                                      ; preds = %24, %29
   %42 = zext i8 %41 to i32
   %43 = getelementptr inbounds i8, ptr %40, i64 88
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 %44(i32 noundef %42, i32 noundef 13, ptr noundef %40) #32
+  %45 = tail call i32 %44(i32 noundef %42, i32 noundef 13, ptr noundef %40) #33
   %.not.i.i = icmp eq i32 %45, 0
   br i1 %.not.i.i, label %46, label %parser_is_identchar.exit.thread
 
@@ -44006,7 +44006,7 @@ parser_is_identchar.exit.thread145:               ; preds = %46, %32
   %58 = shl i32 %56, 1
   store i32 %58, ptr %26, align 4
   %59 = sext i32 %58 to i64
-  %60 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre162, i64 noundef %59, i64 noundef 1) #39
+  %60 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre162, i64 noundef %59, i64 noundef 1) #40
   store ptr %60, ptr %19, align 8
   %.pre163 = load i32, ptr %18, align 8
   br label %tokadd.exit
@@ -44030,7 +44030,7 @@ tokadd.exit:                                      ; preds = %49, %57
   %70 = shl i32 %68, 1
   store i32 %70, ptr %26, align 4
   %71 = sext i32 %70 to i64
-  %72 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre166, i64 noundef %71, i64 noundef 1) #39
+  %72 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre166, i64 noundef %71, i64 noundef 1) #40
   store ptr %72, ptr %19, align 8
   br label %tokadd.exit110
 
@@ -44052,7 +44052,7 @@ tokadd.exit:                                      ; preds = %49, %57
   %82 = shl i32 %80, 1
   store i32 %82, ptr %26, align 4
   %83 = sext i32 %82 to i64
-  %84 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre160, i64 noundef %83, i64 noundef 1) #39
+  %84 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre160, i64 noundef %83, i64 noundef 1) #40
   store ptr %84, ptr %19, align 8
   %.pre161 = load i32, ptr %18, align 8
   br label %tokadd.exit112
@@ -44075,7 +44075,7 @@ tokadd.exit112:                                   ; preds = %73, %81
   store i32 %93, ptr %26, align 4
   %94 = load ptr, ptr %19, align 8
   %95 = sext i32 %93 to i64
-  %96 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %94, i64 noundef %95, i64 noundef 1) #39
+  %96 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %94, i64 noundef %95, i64 noundef 1) #40
   store ptr %96, ptr %19, align 8
   br label %tokadd.exit114
 
@@ -44095,7 +44095,7 @@ tokadd.exit114:                                   ; preds = %tokadd.exit112, %92
   %106 = zext i8 %105 to i32
   %107 = getelementptr inbounds i8, ptr %104, i64 88
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call i32 %108(i32 noundef %106, i32 noundef 13, ptr noundef %104) #32
+  %109 = tail call i32 %108(i32 noundef %106, i32 noundef 13, ptr noundef %104) #33
   %.not.i.i116 = icmp eq i32 %109, 0
   br i1 %.not.i.i116, label %110, label %parser_is_identchar.exit118.thread
 
@@ -44149,7 +44149,7 @@ tokadd.exit110:                                   ; preds = %parser_is_identchar
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds i8, ptr %0, i64 232
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i64 @rb_intern3(ptr noundef %130, i64 noundef %132, ptr noundef %134) #32
+  %135 = tail call i64 @rb_intern3(ptr noundef %130, i64 noundef %132, ptr noundef %134) #33
   %136 = getelementptr inbounds i8, ptr %0, i64 8
   %137 = load ptr, ptr %136, align 8
   store i64 %135, ptr %137, align 8
@@ -44157,8 +44157,8 @@ tokadd.exit110:                                   ; preds = %parser_is_identchar
   %139 = load i32, ptr %18, align 8
   %140 = sext i32 %139 to i64
   %141 = load ptr, ptr %133, align 8
-  %142 = tail call i64 @rb_intern3(ptr noundef %138, i64 noundef %140, ptr noundef %141) #32
-  %143 = tail call i64 @rb_id2sym(i64 noundef %142) #32
+  %142 = tail call i64 @rb_intern3(ptr noundef %138, i64 noundef %140, ptr noundef %141) #33
+  %143 = tail call i64 @rb_id2sym(i64 noundef %142) #33
   br label %pushback.exit
 
 144:                                              ; preds = %newtok.exit, %newtok.exit, %newtok.exit, %newtok.exit
@@ -44184,7 +44184,7 @@ tokadd.exit110:                                   ; preds = %parser_is_identchar
   %155 = shl i32 %153, 1
   store i32 %155, ptr %26, align 4
   %156 = sext i32 %155 to i64
-  %157 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %156, i64 noundef 1) #39
+  %157 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %156, i64 noundef 1) #40
   store ptr %157, ptr %19, align 8
   %.pre159 = load i32, ptr %18, align 8
   br label %tokadd.exit120
@@ -44208,7 +44208,7 @@ tokadd.exit120:                                   ; preds = %146, %154
   %167 = shl i32 %165, 1
   store i32 %167, ptr %26, align 4
   %168 = sext i32 %167 to i64
-  %169 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre165, i64 noundef %168, i64 noundef 1) #39
+  %169 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre165, i64 noundef %168, i64 noundef 1) #40
   store ptr %169, ptr %19, align 8
   br label %tokadd.exit110
 
@@ -44229,8 +44229,8 @@ tokadd.exit120:                                   ; preds = %146, %154
   %184 = zext nneg i32 %31 to i64
   %185 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %185, align 8
-  %186 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 55, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %186, i32 noundef 55) #32
+  %186 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 55, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %186, i32 noundef 55) #33
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   store i32 %172, ptr %187, align 8
   %.sroa.3141.0..sroa_idx = getelementptr inbounds i8, ptr %186, i64 12
@@ -44263,7 +44263,7 @@ tokadd.exit120:                                   ; preds = %146, %154
   %204 = sub i64 %202, %203
   %205 = getelementptr inbounds i8, ptr %0, i64 232
   %206 = load ptr, ptr %205, align 8
-  %207 = tail call i64 @rb_enc_str_new(ptr noundef %200, i64 noundef %204, ptr noundef %206) #32
+  %207 = tail call i64 @rb_enc_str_new(ptr noundef %200, i64 noundef %204, ptr noundef %206) #33
   br label %pushback.exit
 
 208:                                              ; preds = %newtok.exit, %newtok.exit, %newtok.exit, %newtok.exit, %newtok.exit, %newtok.exit, %newtok.exit, %newtok.exit, %newtok.exit
@@ -44284,7 +44284,7 @@ tokadd.exit120:                                   ; preds = %146, %154
   store i32 %217, ptr %26, align 4
   %218 = load ptr, ptr %19, align 8
   %219 = sext i32 %217 to i64
-  %220 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %218, i64 noundef %219, i64 noundef 1) #39
+  %220 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %218, i64 noundef %219, i64 noundef 1) #40
   store ptr %220, ptr %19, align 8
   br label %tokadd.exit124.preheader
 
@@ -44311,7 +44311,7 @@ tokadd.exit124:                                   ; preds = %tokadd.exit124.preh
   store i32 %230, ptr %26, align 4
   %231 = load ptr, ptr %19, align 8
   %232 = sext i32 %230 to i64
-  %233 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %231, i64 noundef %232, i64 noundef 1) #39
+  %233 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %231, i64 noundef %232, i64 noundef 1) #40
   store ptr %233, ptr %19, align 8
   br label %tokadd.exit126
 
@@ -44370,7 +44370,7 @@ tokadd.exit126:                                   ; preds = %tokadd.exit124, %22
   %260 = load i32, ptr %18, align 8
   %261 = add i32 %260, -1
   %262 = sext i32 %261 to i64
-  %263 = call i64 @ruby_scan_digits(ptr noundef %259, i64 noundef %262, i32 noundef 10, ptr noundef nonnull %3, ptr noundef nonnull %4) #32
+  %263 = call i64 @ruby_scan_digits(ptr noundef %259, i64 noundef %262, i32 noundef 10, ptr noundef nonnull %3, ptr noundef nonnull %4) #33
   %264 = load i32, ptr %4, align 4
   %265 = icmp ne i32 %264, 0
   %266 = icmp ugt i64 %263, 1073741823
@@ -44383,7 +44383,7 @@ tokadd.exit126:                                   ; preds = %tokadd.exit124, %22
   %270 = getelementptr inbounds i8, ptr %0, i64 212
   %271 = load i32, ptr %270, align 4
   %272 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %269, i32 noundef %271, ptr noundef nonnull @.str.968, ptr noundef %272) #32
+  call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %269, i32 noundef %271, ptr noundef nonnull @.str.968, ptr noundef %272) #33
   br label %parse_numvar.exit
 
 parse_numvar.exit:                                ; preds = %254, %267
@@ -44405,8 +44405,8 @@ parse_numvar.exit:                                ; preds = %254, %267
   %285 = trunc i64 %284 to i32
   %286 = getelementptr i8, ptr %0, i64 312
   %.val.i.i128 = load ptr, ptr %286, align 8
-  %287 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i128, i32 noundef 54, i64 noundef 40, i64 noundef 8) #32
-  call void @rb_node_init(ptr noundef %287, i32 noundef 54) #32
+  %287 = call ptr @rb_ast_newnode(ptr noundef %.val.i.i128, i32 noundef 54, i64 noundef 40, i64 noundef 8) #33
+  call void @rb_node_init(ptr noundef %287, i32 noundef 54) #33
   %288 = getelementptr inbounds i8, ptr %287, i64 8
   store i32 %274, ptr %288, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %287, i64 12
@@ -44439,7 +44439,7 @@ parse_numvar.exit:                                ; preds = %254, %267
   %305 = sub i64 %303, %304
   %306 = getelementptr inbounds i8, ptr %0, i64 232
   %307 = load ptr, ptr %306, align 8
-  %308 = call i64 @rb_enc_str_new(ptr noundef %301, i64 noundef %305, ptr noundef %307) #32
+  %308 = call i64 @rb_enc_str_new(ptr noundef %301, i64 noundef %305, ptr noundef %307) #33
   br label %pushback.exit
 
 309:                                              ; preds = %newtok.exit
@@ -44457,7 +44457,7 @@ parse_numvar.exit:                                ; preds = %254, %267
   %318 = zext i8 %317 to i32
   %319 = getelementptr inbounds i8, ptr %316, i64 88
   %320 = load ptr, ptr %319, align 8
-  %321 = tail call i32 %320(i32 noundef %318, i32 noundef 13, ptr noundef %316) #32
+  %321 = tail call i32 %320(i32 noundef %318, i32 noundef 13, ptr noundef %316) #33
   %.not.i.i130 = icmp eq i32 %321, 0
   br i1 %.not.i.i130, label %322, label %parser_is_identchar.exit132.thread
 
@@ -44533,7 +44533,7 @@ parser_is_identchar.exit132.thread:               ; preds = %312, %322, %newtok.
   store i32 %354, ptr %26, align 4
   %355 = load ptr, ptr %19, align 8
   %356 = sext i32 %354 to i64
-  %357 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %355, i64 noundef %356, i64 noundef 1) #39
+  %357 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %355, i64 noundef %356, i64 noundef 1) #40
   store ptr %357, ptr %19, align 8
   br label %tokadd.exit134
 
@@ -44563,7 +44563,7 @@ tokadd.exit134:                                   ; preds = %353, %parser_is_ide
   %371 = zext i8 %370 to i32
   %372 = getelementptr inbounds i8, ptr %369, i64 88
   %373 = load ptr, ptr %372, align 8
-  %374 = tail call i32 %373(i32 noundef %371, i32 noundef 13, ptr noundef %369) #32
+  %374 = tail call i32 %373(i32 noundef %371, i32 noundef 13, ptr noundef %369) #33
   %.not.i.i.i = icmp eq i32 %374, 0
   br i1 %.not.i.i.i, label %375, label %parser_is_identchar.exit.i
 
@@ -44634,7 +44634,7 @@ parser_set_lex_state.exit139:                     ; preds = %397, %400
   %404 = load i32, ptr %18, align 8
   %405 = sext i32 %404 to i64
   %406 = load ptr, ptr %358, align 8
-  %407 = tail call i32 @rb_enc_symname_type(ptr noundef %403, i64 noundef %405, ptr noundef %406, i32 noundef 64) #32
+  %407 = tail call i32 @rb_enc_symname_type(ptr noundef %403, i64 noundef %405, ptr noundef %406, i32 noundef 64) #33
   %408 = icmp eq i32 %407, 6
   br i1 %408, label %409, label %410
 
@@ -44675,7 +44675,7 @@ define internal fastcc range(i32 0, 313) i32 @parse_atmark(ptr noundef %0, i32 n
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %13, align 4
-  %14 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %14 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %14, ptr %10, align 8
   br label %15
 
@@ -44688,7 +44688,7 @@ define internal fastcc range(i32 0, 313) i32 @parse_atmark(ptr noundef %0, i32 n
 
 20:                                               ; preds = %15
   store i32 60, ptr %17, align 4
-  %21 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %16, i64 noundef 60, i64 noundef 1) #39
+  %21 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %16, i64 noundef 60, i64 noundef 1) #40
   store ptr %21, ptr %10, align 8
   br label %newtok.exit
 
@@ -44710,7 +44710,7 @@ newtok.exit:                                      ; preds = %15, %20
   store i32 %30, ptr %17, align 4
   %31 = load ptr, ptr %10, align 8
   %32 = sext i32 %30 to i64
-  %33 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %31, i64 noundef %32, i64 noundef 1) #39
+  %33 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %31, i64 noundef %32, i64 noundef 1) #40
   store ptr %33, ptr %10, align 8
   br label %tokadd.exit
 
@@ -44736,7 +44736,7 @@ tokadd.exit:                                      ; preds = %newtok.exit, %29
   store i32 %43, ptr %17, align 4
   %44 = load ptr, ptr %10, align 8
   %45 = sext i32 %43 to i64
-  %46 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %44, i64 noundef %45, i64 noundef 1) #39
+  %46 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %44, i64 noundef %45, i64 noundef 1) #40
   store ptr %46, ptr %10, align 8
   br label %tokadd.exit50
 
@@ -44789,7 +44789,7 @@ parser_set_lex_state.exit..split_crit_edge:       ; preds = %parser_set_lex_stat
   %69 = zext i8 %68 to i32
   %70 = getelementptr inbounds i8, ptr %67, i64 88
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 %71(i32 noundef %69, i32 noundef 13, ptr noundef %67) #32
+  %72 = tail call i32 %71(i32 noundef %69, i32 noundef 13, ptr noundef %67) #33
   %.not.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i, label %73, label %parser_is_identchar.exit.thread
 
@@ -44987,7 +44987,7 @@ parser_set_lex_state.exit60:                      ; preds = %parser_show_error_l
   %177 = zext i8 %176 to i32
   %178 = getelementptr inbounds i8, ptr %175, i64 88
   %179 = load ptr, ptr %178, align 8
-  %180 = tail call i32 %179(i32 noundef %177, i32 noundef 13, ptr noundef %175) #32
+  %180 = tail call i32 %179(i32 noundef %177, i32 noundef 13, ptr noundef %175) #33
   %.not.i.i.i = icmp eq i32 %180, 0
   br i1 %.not.i.i.i, label %181, label %parser_is_identchar.exit.i
 
@@ -45042,11 +45042,11 @@ parser_is_identchar.exit.thread.i:                ; preds = %parser_is_identchar
   %206 = load i32, ptr %9, align 8
   %207 = sext i32 %206 to i64
   %208 = load ptr, ptr %66, align 8
-  %209 = tail call i64 @rb_intern3(ptr noundef %205, i64 noundef %207, ptr noundef %208) #32
+  %209 = tail call i64 @rb_intern3(ptr noundef %205, i64 noundef %207, ptr noundef %208) #33
   %210 = getelementptr inbounds i8, ptr %0, i64 8
   %211 = load ptr, ptr %210, align 8
   store i64 %209, ptr %211, align 8
-  %212 = tail call i64 @rb_id2sym(i64 noundef %209) #32
+  %212 = tail call i64 @rb_id2sym(i64 noundef %209) #33
   br label %tokadd_ident.exit
 
 tokadd_ident.exit:                                ; preds = %.preheader, %204, %parser_set_lex_state.exit60, %parser_set_lex_state.exit55
@@ -45054,8 +45054,8 @@ tokadd_ident.exit:                                ; preds = %.preheader, %204, %
   ret i32 %.041
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96.val, ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #24 {
+; Function Attrs: nofree nounwind sspstrong memory(argmem: read) uwtable
+define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96.val, ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #25 {
   %4 = ptrtoint ptr %.96.val to i64
   %5 = ptrtoint ptr %.80.val to i64
   %6 = sub i64 %4, %5
@@ -45094,7 +45094,7 @@ define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96
   %.1 = phi ptr [ %.0, %20 ], [ %.96.val, %10 ], [ %.96.val, %8 ]
   %25 = sub nsw i64 0, %1
   %26 = getelementptr i8, ptr %.1, i64 %25
-  %27 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %26, i64 noundef %1) #36
+  %27 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %26, i64 noundef %1) #37
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %40
 
@@ -45142,7 +45142,7 @@ define internal fastcc void @newtok(ptr nocapture noundef %0) unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %6, align 4
-  %7 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %7 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %7, ptr %3, align 8
   br label %8
 
@@ -45155,7 +45155,7 @@ define internal fastcc void @newtok(ptr nocapture noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %8
   store i32 60, ptr %10, align 4
-  %14 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %9, i64 noundef 60, i64 noundef 1) #39
+  %14 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %9, i64 noundef 60, i64 noundef 1) #40
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -45196,7 +45196,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @parse_ident(ptr noundef %0,
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds i8, ptr %20, i64 88
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(i32 noundef %22, i32 noundef 13, ptr noundef %20) #32
+  %25 = tail call i32 %24(i32 noundef %22, i32 noundef 13, ptr noundef %20) #33
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %26, label %parser_is_identchar.exit
 
@@ -45265,7 +45265,7 @@ parser_is_identchar.exit.thread..thread225_crit_edge: ; preds = %parser_is_ident
   store i32 %52, ptr %49, align 4
   %53 = load ptr, ptr %41, align 8
   %54 = sext i32 %52 to i64
-  %55 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %53, i64 noundef %54, i64 noundef 1) #39
+  %55 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %53, i64 noundef %54, i64 noundef 1) #40
   store ptr %55, ptr %41, align 8
   br label %tokadd.exit
 
@@ -45325,7 +45325,7 @@ parser_is_identchar.exit.thread..thread225_crit_edge: ; preds = %parser_is_ident
   store i32 %83, ptr %80, align 4
   %84 = load ptr, ptr %72, align 8
   %85 = sext i32 %83 to i64
-  %86 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %84, i64 noundef %85, i64 noundef 1) #39
+  %86 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %84, i64 noundef %85, i64 noundef 1) #40
   store ptr %86, ptr %72, align 8
   br label %tokadd.exit
 
@@ -45415,7 +45415,7 @@ parser_set_lex_state.exit:                        ; preds = %126, %129
   %133 = load i32, ptr %105, align 8
   %134 = sext i32 %133 to i64
   %135 = load ptr, ptr %8, align 8
-  %136 = tail call i64 @rb_intern3(ptr noundef %132, i64 noundef %134, ptr noundef %135) #32
+  %136 = tail call i64 @rb_intern3(ptr noundef %132, i64 noundef %134, ptr noundef %135) #33
   %137 = getelementptr inbounds i8, ptr %0, i64 8
   %138 = load ptr, ptr %137, align 8
   store i64 %136, ptr %138, align 8
@@ -45423,8 +45423,8 @@ parser_set_lex_state.exit:                        ; preds = %126, %129
   %140 = load i32, ptr %105, align 8
   %141 = sext i32 %140 to i64
   %142 = load ptr, ptr %8, align 8
-  %143 = tail call i64 @rb_intern3(ptr noundef %139, i64 noundef %141, ptr noundef %142) #32
-  %144 = tail call i64 @rb_id2sym(i64 noundef %143) #32
+  %143 = tail call i64 @rb_intern3(ptr noundef %139, i64 noundef %141, ptr noundef %142) #33
+  %144 = tail call i64 @rb_id2sym(i64 noundef %143) #33
   br label %.loopexit
 
 145:                                              ; preds = %tokadd.exit, %114, %118, %123
@@ -45529,7 +45529,7 @@ hash.exit.i:                                      ; preds = %176, %175
 209:                                              ; preds = %204
   %210 = getelementptr i8, ptr %171, i64 1
   %211 = getelementptr i8, ptr %206, i64 1
-  %212 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %210, ptr noundef nonnull dereferenceable(1) %211) #36
+  %212 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %210, ptr noundef nonnull dereferenceable(1) %211) #37
   %.not.i195.not = icmp eq i32 %212, 0
   br i1 %.not.i195.not, label %213, label %reserved_word.exit.thread
 
@@ -45620,7 +45620,7 @@ hash.exit.i200:                                   ; preds = %231, %230
 264:                                              ; preds = %259
   %265 = getelementptr i8, ptr %226, i64 1
   %266 = getelementptr i8, ptr %261, i64 1
-  %267 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %265, ptr noundef nonnull dereferenceable(1) %266) #36
+  %267 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %265, ptr noundef nonnull dereferenceable(1) %266) #37
   %.not.i202.not = icmp eq i32 %267, 0
   br i1 %.not.i202.not, label %268, label %thread-pre-split
 
@@ -45646,15 +45646,15 @@ parser_set_lex_state.exit205:                     ; preds = %270, %273
   %.pre-phi = phi i64 [ %228, %270 ], [ %.pre245, %273 ]
   %275 = phi ptr [ %226, %270 ], [ %.pre239, %273 ]
   store i32 8, ptr %4, align 8
-  %276 = tail call i64 @rb_intern2(ptr noundef %275, i64 noundef %.pre-phi) #32
+  %276 = tail call i64 @rb_intern2(ptr noundef %275, i64 noundef %.pre-phi) #33
   %277 = getelementptr inbounds i8, ptr %0, i64 8
   %278 = load ptr, ptr %277, align 8
   store i64 %276, ptr %278, align 8
   %279 = load ptr, ptr %103, align 8
   %280 = load i32, ptr %105, align 8
   %281 = sext i32 %280 to i64
-  %282 = tail call i64 @rb_intern2(ptr noundef %279, i64 noundef %281) #32
-  %283 = tail call i64 @rb_id2sym(i64 noundef %282) #32
+  %282 = tail call i64 @rb_intern2(ptr noundef %279, i64 noundef %281) #33
+  %283 = tail call i64 @rb_id2sym(i64 noundef %282) #33
   %284 = getelementptr inbounds i8, ptr %256, i64 2
   %285 = load i16, ptr %284, align 2
   %286 = sext i16 %285 to i32
@@ -45828,11 +45828,11 @@ parser_set_lex_state.exit211:                     ; preds = %362, %361, %359, %3
   %365 = load i32, ptr %105, align 8
   %366 = sext i32 %365 to i64
   %367 = load ptr, ptr %8, align 8
-  %368 = tail call i64 @rb_intern3(ptr noundef %364, i64 noundef %366, ptr noundef %367) #32
+  %368 = tail call i64 @rb_intern3(ptr noundef %364, i64 noundef %366, ptr noundef %367) #33
   %369 = getelementptr inbounds i8, ptr %0, i64 8
   %370 = load ptr, ptr %369, align 8
   store i64 %368, ptr %370, align 8
-  %371 = tail call i64 @rb_id2sym(i64 noundef %368) #32
+  %371 = tail call i64 @rb_id2sym(i64 noundef %368) #33
   br i1 %102, label %372, label %377
 
 372:                                              ; preds = %parser_set_lex_state.exit211
@@ -45974,7 +45974,7 @@ parser_dispatch_delayed_token.exit:               ; preds = %46, %10, %2
   %57 = sub i64 %55, %56
   %58 = getelementptr inbounds i8, ptr %0, i64 232
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i64 @rb_enc_str_new(ptr noundef %52, i64 noundef %57, ptr noundef %59) #32
+  %60 = tail call i64 @rb_enc_str_new(ptr noundef %52, i64 noundef %57, ptr noundef %59) #33
   %61 = getelementptr inbounds i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 212
@@ -46066,7 +46066,7 @@ define internal fastcc void @tokadd(ptr nocapture noundef %0, i32 noundef %1) un
   store i32 %15, ptr %12, align 4
   %16 = load ptr, ptr %4, align 8
   %17 = sext i32 %15 to i64
-  %18 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %16, i64 noundef %17, i64 noundef 1) #39
+  %18 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %16, i64 noundef %17, i64 noundef 1) #40
   store ptr %18, ptr %4, align 8
   br label %19
 
@@ -46322,7 +46322,7 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %49,
   store i32 %127, ptr %21, align 4
   %128 = load ptr, ptr %19, align 8
   %129 = sext i32 %127 to i64
-  %130 = call nonnull ptr @ruby_xrealloc2(ptr noundef %128, i64 noundef %129, i64 noundef 1) #39
+  %130 = call nonnull ptr @ruby_xrealloc2(ptr noundef %128, i64 noundef %129, i64 noundef 1) #40
   store ptr %130, ptr %19, align 8
   br label %tokadd.exit.thread
 
@@ -46347,7 +46347,7 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %49,
   store i32 %141, ptr %21, align 4
   %142 = load ptr, ptr %19, align 8
   %143 = sext i32 %141 to i64
-  %144 = call nonnull ptr @ruby_xrealloc2(ptr noundef %142, i64 noundef %143, i64 noundef 1) #39
+  %144 = call nonnull ptr @ruby_xrealloc2(ptr noundef %142, i64 noundef %143, i64 noundef 1) #40
   store ptr %144, ptr %19, align 8
   br label %tokadd.exit.thread
 
@@ -46372,7 +46372,7 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %49,
   store i32 %155, ptr %21, align 4
   %156 = load ptr, ptr %19, align 8
   %157 = sext i32 %155 to i64
-  %158 = call nonnull ptr @ruby_xrealloc2(ptr noundef %156, i64 noundef %157, i64 noundef 1) #39
+  %158 = call nonnull ptr @ruby_xrealloc2(ptr noundef %156, i64 noundef %157, i64 noundef 1) #40
   store ptr %158, ptr %19, align 8
   br label %tokadd.exit.thread
 
@@ -46405,7 +46405,7 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %49,
   store i32 %172, ptr %21, align 4
   %173 = load ptr, ptr %19, align 8
   %174 = sext i32 %172 to i64
-  %175 = call nonnull ptr @ruby_xrealloc2(ptr noundef %173, i64 noundef %174, i64 noundef 1) #39
+  %175 = call nonnull ptr @ruby_xrealloc2(ptr noundef %173, i64 noundef %174, i64 noundef 1) #40
   store ptr %175, ptr %19, align 8
   br label %tokadd.exit191
 
@@ -46468,7 +46468,7 @@ pushback.exit192:                                 ; preds = %178, %185, %188, %1
   store i32 %198, ptr %21, align 4
   %201 = load ptr, ptr %19, align 8
   %202 = sext i32 %198 to i64
-  %203 = call nonnull ptr @ruby_xrealloc2(ptr noundef %201, i64 noundef %202, i64 noundef 1) #39
+  %203 = call nonnull ptr @ruby_xrealloc2(ptr noundef %201, i64 noundef %202, i64 noundef 1) #40
   store ptr %203, ptr %19, align 8
   %.pre13.i = load i32, ptr %20, align 8
   br label %tokspace.exit
@@ -46559,7 +46559,7 @@ pushback.exit194:                                 ; preds = %228, %235, %238, %2
   %245 = load ptr, ptr %27, align 8
   %246 = getelementptr i8, ptr %245, i64 -1
   store ptr %246, ptr %27, align 8
-  %247 = call i64 @ruby_scan_oct(ptr noundef %246, i64 noundef 3, ptr noundef nonnull %11) #38
+  %247 = call i64 @ruby_scan_oct(ptr noundef %246, i64 noundef 3, ptr noundef nonnull %11) #39
   %248 = load i64, ptr %11, align 8
   %249 = icmp eq i64 %248, 0
   br i1 %249, label %306, label %250
@@ -46591,7 +46591,7 @@ pushback.exit194:                                 ; preds = %228, %235, %238, %2
   store i32 %259, ptr %21, align 4
   %262 = load ptr, ptr %19, align 8
   %263 = sext i32 %259 to i64
-  %264 = call nonnull ptr @ruby_xrealloc2(ptr noundef %262, i64 noundef %263, i64 noundef 1) #39
+  %264 = call nonnull ptr @ruby_xrealloc2(ptr noundef %262, i64 noundef %263, i64 noundef 1) #40
   store ptr %264, ptr %19, align 8
   %.pre13.i.i = load i32, ptr %20, align 8
   %.pre32.i = load i64, ptr %11, align 8
@@ -46647,7 +46647,7 @@ tokspace.exit.i:                                  ; preds = %261, %._crit_edge.i
   store i32 %288, ptr %21, align 4
   %291 = load ptr, ptr %19, align 8
   %292 = sext i32 %288 to i64
-  %293 = call nonnull ptr @ruby_xrealloc2(ptr noundef %291, i64 noundef %292, i64 noundef 1) #39
+  %293 = call nonnull ptr @ruby_xrealloc2(ptr noundef %291, i64 noundef %292, i64 noundef 1) #40
   store ptr %293, ptr %19, align 8
   %.pre13.i20.i = load i32, ptr %20, align 8
   %.pre.i196 = load i64, ptr %11, align 8
@@ -46728,7 +46728,7 @@ parser_yyerror0.exit.i:                           ; preds = %323, %306
   %336 = shl i32 %334, 1
   store i32 %336, ptr %21, align 4
   %337 = sext i32 %336 to i64
-  %338 = call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre33.i, i64 noundef %337, i64 noundef 1) #39
+  %338 = call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre33.i, i64 noundef %337, i64 noundef 1) #40
   store ptr %338, ptr %19, align 8
   %.pre34.i = load i32, ptr %20, align 8
   br label %tokadd.exit.i
@@ -46752,7 +46752,7 @@ tokadd.exit.i:                                    ; preds = %335, %327
   store i32 %348, ptr %21, align 4
   %349 = load ptr, ptr %19, align 8
   %350 = sext i32 %348 to i64
-  %351 = call nonnull ptr @ruby_xrealloc2(ptr noundef %349, i64 noundef %350, i64 noundef 1) #39
+  %351 = call nonnull ptr @ruby_xrealloc2(ptr noundef %349, i64 noundef %350, i64 noundef 1) #40
   store ptr %351, ptr %19, align 8
   br label %352
 
@@ -46831,7 +46831,7 @@ pushback.exit197:                                 ; preds = %362, %369, %372, %3
   store i32 %386, ptr %21, align 4
   %387 = load ptr, ptr %19, align 8
   %388 = sext i32 %386 to i64
-  %389 = call nonnull ptr @ruby_xrealloc2(ptr noundef %387, i64 noundef %388, i64 noundef 1) #39
+  %389 = call nonnull ptr @ruby_xrealloc2(ptr noundef %387, i64 noundef %388, i64 noundef 1) #40
   store ptr %389, ptr %19, align 8
   br label %tokadd.exit199
 
@@ -47036,7 +47036,7 @@ tokadd.exit.thread:                               ; preds = %154, %146, %140, %1
   store i32 %466, ptr %21, align 4
   %467 = load ptr, ptr %19, align 8
   %468 = sext i32 %466 to i64
-  %469 = call nonnull ptr @ruby_xrealloc2(ptr noundef %467, i64 noundef %468, i64 noundef 1) #39
+  %469 = call nonnull ptr @ruby_xrealloc2(ptr noundef %467, i64 noundef %468, i64 noundef 1) #40
   store ptr %469, ptr %19, align 8
   br label %.backedge
 
@@ -47057,7 +47057,7 @@ pushback.exit:                                    ; preds = %.backedge, %117, %7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @parser_str_new(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone %4) unnamed_addr #0 {
-  %6 = tail call i64 @rb_enc_str_new(ptr noundef %0, i64 noundef %1, ptr noundef %2) #32
+  %6 = tail call i64 @rb_enc_str_new(ptr noundef %0, i64 noundef %1, ptr noundef %2) #33
   %7 = and i32 %3, 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %rb_enc_asciicompat.exit.thread
@@ -47069,28 +47069,28 @@ define internal fastcc i64 @parser_str_new(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %8
-  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %2) #36
+  %10 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %2) #37
   %.not3.i = icmp eq i32 %10, 0
   br i1 %.not3.i, label %11, label %rb_enc_asciicompat.exit.thread
 
 11:                                               ; preds = %rb_enc_asciicompat.exit
-  %12 = tail call i32 @rb_enc_str_coderange(i64 noundef %6) #32
+  %12 = tail call i32 @rb_enc_str_coderange(i64 noundef %6) #33
   %13 = icmp eq i32 %12, 1048576
   br i1 %13, label %rb_enc_asciicompat.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call nonnull ptr @rb_usascii_encoding() #32
+  %15 = tail call nonnull ptr @rb_usascii_encoding() #33
   %16 = icmp eq ptr %15, %4
   br i1 %16, label %17, label %rb_enc_asciicompat.exit.thread
 
 17:                                               ; preds = %14
-  %18 = tail call nonnull ptr @rb_utf8_encoding() #32
+  %18 = tail call nonnull ptr @rb_utf8_encoding() #33
   %.not9 = icmp eq ptr %18, %2
   br i1 %.not9, label %rb_enc_asciicompat.exit.thread, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call nonnull ptr @rb_ascii8bit_encoding() #32
-  %21 = tail call i64 @rb_enc_associate(i64 noundef %6, ptr noundef nonnull %20) #32
+  %20 = tail call nonnull ptr @rb_ascii8bit_encoding() #33
+  %21 = tail call i64 @rb_enc_associate(i64 noundef %6, ptr noundef nonnull %20) #33
   br label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %8, %11, %19, %17, %14, %rb_enc_asciicompat.exit, %5
@@ -47116,7 +47116,7 @@ define internal fastcc void @flush_string_content(ptr nocapture noundef %0, ptr 
   br i1 %14, label %15, label %30
 
 15:                                               ; preds = %6
-  %16 = tail call i64 @rb_enc_str_buf_cat(i64 noundef %4, ptr noundef %10, i64 noundef %13, ptr noundef %1) #32
+  %16 = tail call i64 @rb_enc_str_buf_cat(i64 noundef %4, ptr noundef %10, i64 noundef %13, ptr noundef %1) #33
   %17 = getelementptr inbounds i8, ptr %0, i64 212
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 296
@@ -47132,7 +47132,7 @@ define internal fastcc void @flush_string_content(ptr nocapture noundef %0, ptr 
   br i1 %.not.i, label %rb_long2int_inline.exit, label %27
 
 27:                                               ; preds = %15
-  tail call void @rb_out_of_int(i64 noundef %25) #33
+  tail call void @rb_out_of_int(i64 noundef %25) #34
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %15
@@ -47241,7 +47241,7 @@ define internal fastcc void @tokadd_utf8(ptr noundef %0, ptr nocapture noundef %
   %18 = shl i32 %16, 1
   store i32 %18, ptr %15, align 4
   %19 = sext i32 %18 to i64
-  %20 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %19, i64 noundef 1) #39
+  %20 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %19, i64 noundef 1) #40
   store ptr %20, ptr %7, align 8
   %.pre150 = load i32, ptr %9, align 8
   br label %tokadd.exit
@@ -47264,7 +47264,7 @@ tokadd.exit:                                      ; preds = %6, %17
   store i32 %29, ptr %15, align 4
   %30 = load ptr, ptr %7, align 8
   %31 = sext i32 %29 to i64
-  %32 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %30, i64 noundef %31, i64 noundef 1) #39
+  %32 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %30, i64 noundef %31, i64 noundef 1) #40
   store ptr %32, ptr %7, align 8
   br label %tokadd.exit109
 
@@ -47313,7 +47313,7 @@ tokadd.exit109:                                   ; preds = %28, %tokadd.exit, %
   store i32 %59, ptr %56, align 4
   %60 = load ptr, ptr %48, align 8
   %61 = sext i32 %59 to i64
-  %62 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %60, i64 noundef %61, i64 noundef 1) #39
+  %62 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %60, i64 noundef %61, i64 noundef 1) #40
   store ptr %62, ptr %48, align 8
   br label %tokadd.exit111
 
@@ -47352,7 +47352,7 @@ tokadd.exit111:                                   ; preds = %47, %58
   store i32 %81, ptr %56, align 4
   %82 = load ptr, ptr %48, align 8
   %83 = sext i32 %81 to i64
-  %84 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %82, i64 noundef %83, i64 noundef 1) #39
+  %84 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %82, i64 noundef %83, i64 noundef 1) #40
   store ptr %84, ptr %48, align 8
   br label %tokadd.exit113
 
@@ -47393,7 +47393,7 @@ tokadd.exit113:                                   ; preds = %72, %80
   store i32 %102, ptr %56, align 4
   %103 = load ptr, ptr %48, align 8
   %104 = sext i32 %102 to i64
-  %105 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %103, i64 noundef %104, i64 noundef 1) #39
+  %105 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %103, i64 noundef %104, i64 noundef 1) #40
   store ptr %105, ptr %48, align 8
   br label %tokadd.exit115
 
@@ -47544,7 +47544,7 @@ tokadd.exit115:                                   ; preds = %93, %101
   store i32 %158, ptr %130, align 4
   %159 = load ptr, ptr %128, align 8
   %160 = sext i32 %158 to i64
-  %161 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %159, i64 noundef %160, i64 noundef 1) #39
+  %161 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %159, i64 noundef %160, i64 noundef 1) #40
   store ptr %161, ptr %128, align 8
   br label %tokadd.exit117
 
@@ -47750,7 +47750,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 pushback.exit:                                    ; preds = %11, %20, %23, %27
   %28 = phi ptr [ %16, %11 ], [ %16, %20 ], [ %16, %23 ], [ %24, %27 ]
-  %29 = call i64 @ruby_scan_oct(ptr noundef %28, i64 noundef 3, ptr noundef nonnull %4) #38
+  %29 = call i64 @ruby_scan_oct(ptr noundef %28, i64 noundef 3, ptr noundef nonnull %4) #39
   %30 = trunc i64 %29 to i32
   %31 = load i64, ptr %4, align 8
   %32 = load ptr, ptr %5, align 8
@@ -47829,7 +47829,7 @@ tailrecurse.backedge:                             ; preds = %46, %49
   %62 = getelementptr inbounds i8, ptr %0, i64 212
   %63 = load i32, ptr %62, align 4
   %.str.911..str.912 = select i1 %or.cond, ptr @.str.911, ptr @.str.912
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %61, i32 noundef %63, ptr noundef nonnull %.str.911..str.912, i32 noundef %56) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %61, i32 noundef %63, ptr noundef nonnull %.str.911..str.912, i32 noundef %56) #33
   br label %67
 
 64:                                               ; preds = %55
@@ -47914,22 +47914,22 @@ tailrecurse.backedge:                             ; preds = %46, %49
   br i1 %.not80, label %99, label %98
 
 98:                                               ; preds = %97
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.911, i32 noundef %88) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.911, i32 noundef %88) #33
   br label %104
 
 99:                                               ; preds = %97
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.913, i32 noundef %88) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.913, i32 noundef %88) #33
   br label %104
 
 100:                                              ; preds = %91
   br i1 %.not80, label %102, label %101
 
 101:                                              ; preds = %100
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.914, i32 noundef %88) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.914, i32 noundef %88) #33
   br label %104
 
 102:                                              ; preds = %100
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.915, i32 noundef %88) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %94, i32 noundef %96, ptr noundef nonnull @.str.915, i32 noundef %88) #33
   br label %104
 
 103:                                              ; preds = %87
@@ -48088,7 +48088,7 @@ define internal fastcc range(i32 -128, 256) i32 @tokadd_mbchar(ptr nocapture nou
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 232
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %5, ptr noundef %7, ptr noundef %9) #32
+  %10 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %5, ptr noundef %7, ptr noundef %9) #33
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %parser_precise_mbclen.exit, label %parser_precise_mbclen.exit.thread
 
@@ -48121,7 +48121,7 @@ parser_precise_mbclen.exit:                       ; preds = %2
   store i32 %26, ptr %23, align 4
   %27 = load ptr, ptr %15, align 8
   %28 = sext i32 %26 to i64
-  %29 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %27, i64 noundef %28, i64 noundef 1) #39
+  %29 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %27, i64 noundef %28, i64 noundef 1) #40
   store ptr %29, ptr %15, align 8
   br label %tokadd.exit
 
@@ -48156,7 +48156,7 @@ tokspace.exit:                                    ; preds = %.preheader.i
   store i32 %39, ptr %23, align 4
   %41 = load ptr, ptr %15, align 8
   %42 = sext i32 %39 to i64
-  %43 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %41, i64 noundef %42, i64 noundef 1) #39
+  %43 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %41, i64 noundef %42, i64 noundef 1) #40
   store ptr %43, ptr %15, align 8
   %.pre13.i = load i32, ptr %17, align 8
   %.not.i17 = icmp eq i32 %30, 0
@@ -48202,7 +48202,7 @@ define internal fastcc range(i32 0, 2) i32 @tokadd_codepoint(ptr nocapture nound
 
 20:                                               ; preds = %4, %14
   %21 = phi i64 [ %19, %14 ], [ 4, %4 ]
-  %22 = call i64 @ruby_scan_hex(ptr noundef %12, i64 noundef %21, ptr noundef nonnull %8) #32
+  %22 = call i64 @ruby_scan_hex(ptr noundef %12, i64 noundef %21, ptr noundef nonnull %8) #33
   %23 = trunc i64 %22 to i32
   %24 = load i64, ptr %8, align 8
   %25 = load ptr, ptr %11, align 8
@@ -48388,7 +48388,7 @@ parser_yyerror0.exit58:                           ; preds = %88, %103
   %120 = getelementptr inbounds i8, ptr %0, i64 176
   %121 = load ptr, ptr %120, align 8
   %122 = sext i32 %117 to i64
-  %123 = call nonnull ptr @ruby_xrealloc2(ptr noundef %121, i64 noundef %122, i64 noundef 1) #39
+  %123 = call nonnull ptr @ruby_xrealloc2(ptr noundef %121, i64 noundef %122, i64 noundef 1) #40
   store ptr %123, ptr %120, align 8
   %.pre13.i = load i32, ptr %111, align 8
   %.pre = load i64, ptr %8, align 8
@@ -48418,7 +48418,7 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %119
   br i1 %136, label %137, label %189
 
 137:                                              ; preds = %135
-  %138 = call nonnull ptr @rb_utf8_encoding() #32
+  %138 = call nonnull ptr @rb_utf8_encoding() #33
   %139 = load ptr, ptr %1, align 8
   %.not53 = icmp eq ptr %139, null
   %.not54 = icmp eq ptr %138, %139
@@ -48464,7 +48464,7 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %119
 
 166:                                              ; preds = %137
   store ptr %138, ptr %1, align 8
-  %167 = call i32 @rb_enc_codelen(i32 noundef %23, ptr noundef nonnull %138) #32
+  %167 = call i32 @rb_enc_codelen(i32 noundef %23, ptr noundef nonnull %138) #33
   %168 = getelementptr inbounds i8, ptr %0, i64 152
   %169 = load i32, ptr %168, align 8
   %170 = add i32 %169, %167
@@ -48490,7 +48490,7 @@ tokspace.exit:                                    ; preds = %._crit_edge.i, %119
   %177 = getelementptr inbounds i8, ptr %0, i64 176
   %178 = load ptr, ptr %177, align 8
   %179 = sext i32 %174 to i64
-  %180 = call nonnull ptr @ruby_xrealloc2(ptr noundef %178, i64 noundef %179, i64 noundef 1) #39
+  %180 = call nonnull ptr @ruby_xrealloc2(ptr noundef %178, i64 noundef %179, i64 noundef 1) #40
   store ptr %180, ptr %177, align 8
   %.pre13.i.i = load i32, ptr %168, align 8
   br label %tokaddmbc.exit
@@ -48503,7 +48503,7 @@ tokaddmbc.exit:                                   ; preds = %._crit_edge.i.i, %1
   %185 = getelementptr i8, ptr %182, i64 %184
   %186 = getelementptr inbounds i8, ptr %138, i64 48
   %187 = load ptr, ptr %186, align 8
-  %188 = call i32 %187(i32 noundef %23, ptr noundef %185, ptr noundef nonnull %138) #32
+  %188 = call i32 %187(i32 noundef %23, ptr noundef %185, ptr noundef nonnull %138) #33
   br label %ruby_nonempty_memcpy.exit
 
 189:                                              ; preds = %135
@@ -48528,7 +48528,7 @@ tokaddmbc.exit:                                   ; preds = %._crit_edge.i.i, %1
   store i32 %202, ptr %199, align 4
   %203 = load ptr, ptr %191, align 8
   %204 = sext i32 %202 to i64
-  %205 = call nonnull ptr @ruby_xrealloc2(ptr noundef %203, i64 noundef %204, i64 noundef 1) #39
+  %205 = call nonnull ptr @ruby_xrealloc2(ptr noundef %203, i64 noundef %204, i64 noundef 1) #40
   store ptr %205, ptr %191, align 8
   br label %ruby_nonempty_memcpy.exit
 
@@ -48542,14 +48542,14 @@ declare i64 @ruby_scan_hex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 declare i32 @rb_enc_codelen(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare i64 @ruby_scan_oct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #25
+declare i64 @ruby_scan_oct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #26
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @tok_hex(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @ruby_scan_hex(ptr noundef %5, i64 noundef 2, ptr noundef %1) #32
+  %6 = tail call i64 @ruby_scan_hex(ptr noundef %5, i64 noundef 2, ptr noundef %1) #33
   %7 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %33
@@ -48650,7 +48650,7 @@ define internal fastcc void @tokskip_mbchar(ptr nocapture noundef %0) unnamed_ad
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %4, ptr noundef %6, ptr noundef %8) #32
+  %9 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %4, ptr noundef %6, ptr noundef %8) #33
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %13, label %parser_precise_mbclen.exit
 
@@ -48690,7 +48690,7 @@ define internal fastcc i32 @regx_options(ptr noundef %0) unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 60, ptr %7, align 4
-  %8 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #34
+  %8 = tail call noalias nonnull dereferenceable(60) ptr @ruby_xmalloc2(i64 noundef 60, i64 noundef 1) #35
   store ptr %8, ptr %4, align 8
   br label %9
 
@@ -48703,7 +48703,7 @@ define internal fastcc i32 @regx_options(ptr noundef %0) unnamed_addr #0 {
 
 14:                                               ; preds = %9
   store i32 60, ptr %11, align 4
-  %15 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %10, i64 noundef 60, i64 noundef 1) #39
+  %15 = tail call nonnull dereferenceable(60) ptr @ruby_xrealloc2(ptr noundef nonnull %10, i64 noundef 60, i64 noundef 1) #40
   store ptr %15, ptr %4, align 8
   br label %newtok.exit
 
@@ -48767,7 +48767,7 @@ char_to_option_kcode.exit:                        ; preds = %.lr.ph
   store i32 %35, ptr %11, align 4
   %36 = load ptr, ptr %4, align 8
   %37 = sext i32 %35 to i64
-  %38 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %36, i64 noundef %37, i64 noundef 1) #39
+  %38 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %36, i64 noundef %37, i64 noundef 1) #40
   store ptr %38, ptr %4, align 8
   br label %tokadd.exit
 
@@ -48879,7 +48879,7 @@ parser_show_error_line.exit:                      ; preds = %92, %64, %pushback.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #20
+declare i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @magic_comment_encoding(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
@@ -48920,7 +48920,7 @@ define internal i64 @parser_encode_length(ptr nocapture readnone %0, ptr noundef
 
 10:                                               ; preds = %5
   %11 = getelementptr i8, ptr %7, i64 1
-  %12 = tail call i32 @rb_memcicmp(ptr noundef %11, ptr noundef nonnull @.str.938, i64 noundef 4) #32
+  %12 = tail call i32 @rb_memcicmp(ptr noundef %11, ptr noundef nonnull @.str.938, i64 noundef 4) #33
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %33, label %.thread
 
@@ -48937,12 +48937,12 @@ define internal i64 @parser_encode_length(ptr nocapture readnone %0, ptr noundef
 
 20:                                               ; preds = %.thread
   %21 = getelementptr i8, ptr %17, i64 1
-  %22 = tail call i32 @rb_memcicmp(ptr noundef %21, ptr noundef nonnull @.str.939, i64 noundef 3) #32
+  %22 = tail call i32 @rb_memcicmp(ptr noundef %21, ptr noundef nonnull @.str.939, i64 noundef 3) #33
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @rb_memcicmp(ptr noundef %21, ptr noundef nonnull @.str.940, i64 noundef 3) #32
+  %25 = tail call i32 @rb_memcicmp(ptr noundef %21, ptr noundef nonnull @.str.940, i64 noundef 3) #33
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %32
 
@@ -48951,7 +48951,7 @@ define internal i64 @parser_encode_length(ptr nocapture readnone %0, ptr noundef
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @rb_memcicmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.941, i64 noundef 8) #32
+  %30 = tail call i32 @rb_memcicmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.941, i64 noundef 8) #33
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %33
 
@@ -48976,7 +48976,7 @@ define internal void @parser_set_frozen_string_literal(ptr nocapture noundef %0,
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 212
   %11 = load i32, ptr %10, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %9, i32 noundef %11, ptr noundef nonnull @.str.942, ptr noundef %1) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %9, i32 noundef %11, ptr noundef nonnull @.str.942, ptr noundef %1) #33
   br label %25
 
 12:                                               ; preds = %3
@@ -48989,12 +48989,12 @@ define internal void @parser_set_frozen_string_literal(ptr nocapture noundef %0,
   ]
 
 14:                                               ; preds = %12, %12
-  %15 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.943) #36
+  %15 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.943) #37
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %22, label %parser_get_bool.exit
 
 17:                                               ; preds = %12, %12
-  %18 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.944) #36
+  %18 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.944) #37
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %parser_get_bool.exit
 
@@ -49003,7 +49003,7 @@ parser_get_bool.exit:                             ; preds = %12, %14, %17
   %.val.i = load i32, ptr %20, align 4
   %21 = getelementptr i8, ptr %0, i64 216
   %.val6.i = load ptr, ptr %21, align 8
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %.val6.i, i32 noundef %.val.i, ptr noundef nonnull @.str.945, ptr noundef %1, ptr noundef nonnull %2) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %.val6.i, i32 noundef %.val.i, ptr noundef nonnull @.str.945, ptr noundef %1, ptr noundef nonnull %2) #33
   br label %25
 
 22:                                               ; preds = %14, %17
@@ -49040,7 +49040,7 @@ define internal void @parser_set_shareable_constant_value(ptr nocapture noundef 
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 212
   %14 = load i32, ptr %13, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %12, i32 noundef %14, ptr noundef nonnull @.str.946, ptr noundef %1) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %12, i32 noundef %14, ptr noundef nonnull @.str.946, ptr noundef %1) #33
   br label %51
 
 15:                                               ; preds = %.lr.ph, %.lr.ph
@@ -49060,7 +49060,7 @@ define internal void @parser_set_shareable_constant_value(ptr nocapture noundef 
   ]
 
 18:                                               ; preds = %._crit_edge, %._crit_edge
-  %19 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.529) #36
+  %19 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.529) #37
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %48
 
@@ -49072,7 +49072,7 @@ define internal void @parser_set_shareable_constant_value(ptr nocapture noundef 
   br label %51
 
 25:                                               ; preds = %._crit_edge, %._crit_edge
-  %26 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.442) #36
+  %26 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.442) #37
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %48
 
@@ -49085,7 +49085,7 @@ define internal void @parser_set_shareable_constant_value(ptr nocapture noundef 
   br label %51
 
 33:                                               ; preds = %._crit_edge, %._crit_edge
-  %34 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.947) #36
+  %34 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.947) #37
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %41
 
@@ -49098,7 +49098,7 @@ define internal void @parser_set_shareable_constant_value(ptr nocapture noundef 
   br label %51
 
 41:                                               ; preds = %33
-  %42 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.948) #36
+  %42 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.948) #37
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %48
 
@@ -49114,7 +49114,7 @@ define internal void @parser_set_shareable_constant_value(ptr nocapture noundef 
   %.val = load i32, ptr %49, align 4
   %50 = getelementptr i8, ptr %0, i64 216
   %.val24 = load ptr, ptr %50, align 8
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %.val24, i32 noundef %.val, ptr noundef nonnull @.str.945, ptr noundef %1, ptr noundef nonnull %2) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %.val24, i32 noundef %.val, ptr noundef nonnull @.str.945, ptr noundef %1, ptr noundef nonnull %2) #33
   br label %51
 
 51:                                               ; preds = %48, %44, %36, %28, %21, %10
@@ -49132,12 +49132,12 @@ define internal void @parser_set_token_info(ptr nocapture noundef %0, ptr nounde
   ]
 
 5:                                                ; preds = %3, %3
-  %6 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.943) #36
+  %6 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.943) #37
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %13, label %parser_get_bool.exit
 
 8:                                                ; preds = %3, %3
-  %9 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.944) #36
+  %9 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.944) #37
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %parser_get_bool.exit
 
@@ -49146,7 +49146,7 @@ parser_get_bool.exit:                             ; preds = %3, %5, %8
   %.val.i = load i32, ptr %11, align 4
   %12 = getelementptr i8, ptr %0, i64 216
   %.val6.i = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %.val6.i, i32 noundef %.val.i, ptr noundef nonnull @.str.945, ptr noundef %1, ptr noundef nonnull %2) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %.val6.i, i32 noundef %.val.i, ptr noundef nonnull @.str.945, ptr noundef %1, ptr noundef nonnull %2) #33
   br label %18
 
 13:                                               ; preds = %5, %8
@@ -49189,17 +49189,17 @@ define internal fastcc void @parser_set_encode(ptr nocapture noundef %0, ptr nou
 
 9:                                                ; preds = %2, %2, %8, %7, %6
   %.033.ph = phi ptr [ @.str.932, %6 ], [ @.str.933, %7 ], [ @.str.934, %8 ], [ @.str.931, %2 ], [ @.str.931, %2 ]
-  %10 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %.033.ph) #36
+  %10 = tail call i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %.033.ph) #37
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %2, %9
-  %13 = tail call i32 @rb_enc_find_index(ptr noundef nonnull %1) #32
+  %13 = tail call i32 @rb_enc_find_index(ptr noundef nonnull %1) #33
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %48
 
 15:                                               ; preds = %12, %9
-  %16 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.935, ptr noundef nonnull %1) #32
+  %16 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.935, ptr noundef nonnull %1) #33
   br label %17
 
 17:                                               ; preds = %rb_enc_asciicompat.exit.thread, %15
@@ -49208,16 +49208,16 @@ define internal fastcc void @parser_set_encode(ptr nocapture noundef %0, ptr nou
   store i64 %.sink, ptr %18, align 8
   %19 = load i64, ptr @rb_eArgError, align 8
   store i64 %19, ptr %3, align 16
-  %20 = tail call i64 @rb_make_backtrace() #32
+  %20 = tail call i64 @rb_make_backtrace() #33
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %20, ptr %21, align 16
   %22 = getelementptr inbounds i8, ptr %0, i64 224
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 212
   %25 = load i32, ptr %24, align 4
-  %26 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.936, i64 noundef %23, i32 noundef %25) #32
-  %27 = tail call i64 @rb_ary_unshift(i64 noundef %20, i64 noundef %26) #32
-  %28 = call i64 @rb_make_exception(i32 noundef 3, ptr noundef nonnull %3) #32
+  %26 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.936, i64 noundef %23, i32 noundef %25) #33
+  %27 = tail call i64 @rb_ary_unshift(i64 noundef %20, i64 noundef %26) #33
+  %28 = call i64 @rb_make_exception(i32 noundef 3, ptr noundef nonnull %3) #33
   %29 = load i32, ptr %24, align 4
   store i32 %29, ptr %4, align 4
   %30 = getelementptr inbounds i8, ptr %4, i64 4
@@ -49242,25 +49242,25 @@ define internal fastcc void @parser_set_encode(ptr nocapture noundef %0, ptr nou
   %46 = getelementptr inbounds i8, ptr %0, i64 64
   %47 = load ptr, ptr %46, align 8
   call void @ruby_show_error_line(ptr poison, i64 noundef %28, ptr noundef nonnull %4, i32 noundef %29, ptr noundef %47)
-  call void @rb_exc_raise(i64 noundef %28) #37
+  call void @rb_exc_raise(i64 noundef %28) #38
   unreachable
 
 48:                                               ; preds = %12
-  %49 = tail call ptr @rb_enc_from_index(i32 noundef %13) #32
+  %49 = tail call ptr @rb_enc_from_index(i32 noundef %13) #33
   %50 = getelementptr i8, ptr %49, i64 20
   %.val.i = load i32, ptr %50, align 4
   %.not.i = icmp eq i32 %.val.i, 1
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit:                          ; preds = %48
-  %51 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %49) #36
+  %51 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %49) #37
   %.not3.i = icmp eq i32 %51, 0
   br i1 %.not3.i, label %54, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %48, %rb_enc_asciicompat.exit
   %52 = getelementptr i8, ptr %49, i64 8
   %.val = load ptr, ptr %52, align 8
-  %53 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.937, ptr noundef %.val) #32
+  %53 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.937, ptr noundef %.val) #33
   br label %17
 
 54:                                               ; preds = %rb_enc_asciicompat.exit
@@ -49313,7 +49313,7 @@ RARRAY_AREF.exit:                                 ; preds = %71, %74
   %.0.i.i = phi ptr [ %75, %74 ], [ %69, %71 ]
   %76 = getelementptr i64, ptr %.0.i.i, i64 %.043
   %77 = load i64, ptr %76, align 8
-  %78 = tail call i64 @rb_enc_associate_index(i64 noundef %77, i32 noundef %13) #32
+  %78 = tail call i64 @rb_enc_associate_index(i64 noundef %77, i32 noundef %13) #33
   %79 = add nuw nsw i64 %.043, 1
   %exitcond.not = icmp eq i64 %79, %.0.i38
   br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !167
@@ -49323,7 +49323,7 @@ RARRAY_AREF.exit:                                 ; preds = %71, %74
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #20
+declare i32 @rb_parser_st_locale_insensitive_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #21
 
 declare i32 @rb_enc_find_index(ptr noundef) local_unnamed_addr #1
 
@@ -49334,7 +49334,7 @@ declare i64 @rb_ary_unshift(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_make_exception(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #19
+declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #20
 
 declare ptr @rb_enc_from_index(i32 noundef) local_unnamed_addr #1
 
@@ -49533,11 +49533,11 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr nocapture
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds i8, ptr %0, i64 176
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %25) #32
+  %26 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %25) #33
   %27 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %27, align 8
-  %28 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 60, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %28, i32 noundef 60) #32
+  %28 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 60, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %28, i32 noundef 60) #33
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   store i32 %10, ptr %29, align 8
   %.sroa.359.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 12
@@ -49584,11 +49584,11 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr nocapture
   %57 = trunc i64 %56 to i32
   %58 = getelementptr inbounds i8, ptr %0, i64 176
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %59) #32
+  %60 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %59) #33
   %61 = getelementptr i8, ptr %0, i64 312
   %.val.i.i47 = load ptr, ptr %61, align 8
-  %62 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i47, i32 noundef 61, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %62, i32 noundef 61) #32
+  %62 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i47, i32 noundef 61, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %62, i32 noundef 61) #33
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   store i32 %44, ptr %63, align 8
   %.sroa.355.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 12
@@ -49633,11 +49633,11 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr nocapture
   %90 = trunc i64 %89 to i32
   %91 = getelementptr inbounds i8, ptr %0, i64 176
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %92) #32
+  %93 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %92) #33
   %94 = getelementptr i8, ptr %0, i64 312
   %.val.i.i48 = load ptr, ptr %94, align 8
-  %95 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef 62, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %95, i32 noundef 62) #32
+  %95 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef 62, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %95, i32 noundef 62) #33
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   store i32 %77, ptr %96, align 8
   %.sroa.351.0..sroa_idx = getelementptr inbounds i8, ptr %95, i64 12
@@ -49689,11 +49689,11 @@ define internal fastcc range(i32 314, 318) i32 @set_number_literal(ptr nocapture
   %126 = trunc i64 %125 to i32
   %127 = getelementptr inbounds i8, ptr %0, i64 176
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %128) #32
+  %129 = tail call noalias nonnull ptr @ruby_strdup(ptr noundef %128) #33
   %130 = getelementptr i8, ptr %0, i64 312
   %.val.i.i49 = load ptr, ptr %130, align 8
-  %131 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i49, i32 noundef 63, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %131, i32 noundef 63) #32
+  %131 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i49, i32 noundef 63, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %131, i32 noundef 63) #33
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   store i32 %113, ptr %132, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %131, i64 12
@@ -49743,7 +49743,7 @@ default.unreachable:                              ; preds = %5
   %154 = sub i64 %152, %153
   %155 = getelementptr inbounds i8, ptr %0, i64 232
   %156 = load ptr, ptr %155, align 8
-  %157 = tail call i64 @rb_enc_str_new(ptr noundef %150, i64 noundef %154, ptr noundef %156) #32
+  %157 = tail call i64 @rb_enc_str_new(ptr noundef %150, i64 noundef %154, ptr noundef %156) #33
   %158 = getelementptr inbounds i8, ptr %0, i64 368
   %159 = load i32, ptr %158, align 8
   %160 = and i32 %159, 32
@@ -49777,11 +49777,11 @@ define internal fastcc void @tokenize_ident(ptr nocapture noundef readonly %0) u
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @rb_intern3(ptr noundef %3, i64 noundef %6, ptr noundef %8) #32
+  %9 = tail call i64 @rb_intern3(ptr noundef %3, i64 noundef %6, ptr noundef %8) #33
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   store i64 %9, ptr %11, align 8
-  %12 = tail call i64 @rb_id2sym(i64 noundef %9) #32
+  %12 = tail call i64 @rb_id2sym(i64 noundef %9) #33
   ret void
 }
 
@@ -49800,8 +49800,8 @@ define internal fastcc void @rb_parser_string_free(ptr noundef %0) unnamed_addr 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  tail call void @ruby_xfree(ptr noundef %4) #32
-  tail call void @ruby_xfree(ptr noundef nonnull %0) #32
+  tail call void @ruby_xfree(ptr noundef %4) #33
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #33
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -49812,8 +49812,8 @@ define internal fastcc void @rb_parser_string_free(ptr noundef %0) unnamed_addr 
 define internal fastcc noundef ptr @rb_node_list_new2(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 43) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 43) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -49842,8 +49842,8 @@ define internal fastcc noundef ptr @rb_node_list_new2(ptr nocapture noundef %0, 
 define internal fastcc noundef ptr @rb_node_match2_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %5, align 8
-  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 57, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %6, i32 noundef 57) #32
+  %6 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 57, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %6, i32 noundef 57) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %8 = load i64, ptr %6, align 8
@@ -50009,7 +50009,7 @@ define internal fastcc i32 @local_id_ref(ptr nocapture noundef readonly %0, i64 
 21:                                               ; preds = %.critedge
   %22 = getelementptr inbounds i8, ptr %0, i64 360
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %23) #32
+  %24 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %23) #33
   br label %vtable_included.exit
 
 .critedge37:                                      ; preds = %19, %3, %.critedge
@@ -50145,7 +50145,7 @@ define internal fastcc noundef zeroext i1 @parser_numbered_param(ptr nocapture n
   br i1 %.not.i, label %34, label %32
 
 32:                                               ; preds = %25
-  %33 = tail call ptr @rb_id2name(i64 noundef %29) #32
+  %33 = tail call ptr @rb_id2name(i64 noundef %29) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.990, i32 noundef 10524, ptr noundef nonnull @.str.328, ptr noundef nonnull %7, ptr noundef %33)
   %.pre = load i32, ptr %20, align 8
   br label %34
@@ -50161,7 +50161,7 @@ define internal fastcc noundef zeroext i1 @parser_numbered_param(ptr nocapture n
   %39 = shl i32 %35, 1
   store i32 %39, ptr %24, align 4
   %40 = sext i32 %39 to i64
-  %41 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %40, i64 noundef 8) #39
+  %41 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %40, i64 noundef 8) #40
   store ptr %41, ptr %7, align 8
   %.pre21.i = load i32, ptr %20, align 8
   br label %vtable_add_gen.exit
@@ -50228,7 +50228,7 @@ define internal fastcc void @vtable_add_gen(ptr nocapture noundef %0, i32 nounde
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @rb_id2name(i64 noundef %4) #32
+  %10 = tail call ptr @rb_id2name(i64 noundef %4) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.990, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %10)
   br label %11
 
@@ -50253,7 +50253,7 @@ define internal fastcc void @vtable_add_gen(ptr nocapture noundef %0, i32 nounde
   %20 = shl i32 %15, 1
   store i32 %20, ptr %16, align 4
   %21 = sext i32 %20 to i64
-  %22 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %21, i64 noundef 8) #39
+  %22 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre, i64 noundef %21, i64 noundef 8) #40
   store ptr %22, ptr %3, align 8
   %.pre21 = load i32, ptr %14, align 8
   br label %23
@@ -50276,8 +50276,8 @@ define internal fastcc void @vtable_add_gen(ptr nocapture noundef %0, i32 nounde
 define internal fastcc noundef ptr @rb_node_vcall_new(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val.i = load ptr, ptr %4, align 8
-  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 39, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %5, i32 noundef 39) #32
+  %5 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i, i32 noundef 39, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %5, i32 noundef 39) #33
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %7 = load i64, ptr %5, align 8
@@ -50323,11 +50323,11 @@ define internal fastcc noundef ptr @str_to_sym_node(ptr nocapture noundef %0, pt
 parser_yyerror.exit:                              ; preds = %5, %10
   %15 = getelementptr inbounds i8, ptr %0, i64 232
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %16) #32
+  %17 = tail call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 0, ptr noundef %16) #33
   br label %20
 
 18:                                               ; preds = %2
-  %19 = tail call i64 @rb_str_new_parser_string(ptr noundef %.32.val) #32
+  %19 = tail call i64 @rb_str_new_parser_string(ptr noundef %.32.val) #33
   br label %20
 
 20:                                               ; preds = %18, %parser_yyerror.exit
@@ -50338,7 +50338,7 @@ parser_yyerror.exit:                              ; preds = %5, %10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @reg_compile(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = tail call i64 @rb_errinfo() #32
+  %4 = tail call i64 @rb_errinfo() #33
   %5 = tail call i32 @rb_reg_fragment_setenc(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %parser_reg_compile.exit, label %6
@@ -50352,20 +50352,20 @@ define internal fastcc void @reg_compile(ptr nocapture noundef %0, ptr noundef %
   br label %parser_reg_compile.exit
 
 parser_reg_compile.exit:                          ; preds = %3, %6
-  %9 = tail call i64 @rb_str_new_parser_string(ptr noundef %1) #32
+  %9 = tail call i64 @rb_str_new_parser_string(ptr noundef %1) #33
   %10 = and i32 %2, 255
   %11 = getelementptr inbounds i8, ptr %0, i64 216
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 212
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i64 @rb_reg_compile(i64 noundef %9, i32 noundef %10, ptr noundef %12, i32 noundef %14) #32
+  %15 = tail call i64 @rb_reg_compile(i64 noundef %9, i32 noundef %10, ptr noundef %12, i32 noundef %14) #33
   %16 = icmp eq i64 %15, 4
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %parser_reg_compile.exit
-  %18 = tail call i64 @rb_errinfo() #32
-  %19 = tail call i64 @rb_attr_get(i64 noundef %18, i64 noundef 3441) #32
-  tail call void @rb_set_errinfo(i64 noundef %4) #32
+  %18 = tail call i64 @rb_errinfo() #33
+  %19 = tail call i64 @rb_attr_get(i64 noundef %18, i64 noundef 3441) #33
+  tail call void @rb_set_errinfo(i64 noundef %4) #33
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.80, i64 noundef %19)
   br label %20
 
@@ -50546,7 +50546,7 @@ vtable_included.exit43.thread.us.i:               ; preds = %26, %.preheader.i38
 36:                                               ; preds = %.split59.us.i
   %37 = getelementptr inbounds i8, ptr %0, i64 360
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %38) #32
+  %39 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %38) #33
   br label %rb_parser_dvar_defined_ref.exit
 
 rb_parser_dvar_defined_ref.exit:                  ; preds = %.split.us.i, %12, %22, %.split59.us.i, %36
@@ -50585,7 +50585,7 @@ define internal fastcc i32 @local_id(ptr nocapture noundef readonly %0, i64 noun
 14:                                               ; preds = %.critedge.i
   %15 = getelementptr inbounds i8, ptr %0, i64 360
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %16) #32
+  %17 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %16) #33
   br label %local_id_ref.exit
 
 .critedge37.i:                                    ; preds = %10, %.critedge.i, %2
@@ -50679,7 +50679,7 @@ numparam_name.exit:                               ; preds = %2, %10
   br i1 %.not.i, label %21, label %19
 
 19:                                               ; preds = %numparam_name.exit
-  %20 = tail call ptr @rb_id2name(i64 noundef %1) #32
+  %20 = tail call ptr @rb_id2name(i64 noundef %1) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.990, i32 noundef 15430, ptr noundef nonnull @.str.1007, ptr noundef %15, ptr noundef %20)
   br label %21
 
@@ -50704,7 +50704,7 @@ numparam_name.exit:                               ; preds = %2, %10
   %30 = shl i32 %25, 1
   store i32 %30, ptr %26, align 4
   %31 = sext i32 %30 to i64
-  %32 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %31, i64 noundef 8) #39
+  %32 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %31, i64 noundef 8) #40
   store ptr %32, ptr %15, align 8
   %.pre21.i = load i32, ptr %24, align 8
   br label %33
@@ -50736,7 +50736,7 @@ vtable_add_gen.exit:                              ; preds = %22, %33
   br i1 %.not.i8, label %50, label %48
 
 48:                                               ; preds = %42
-  %49 = tail call ptr @rb_id2name(i64 noundef %45) #32
+  %49 = tail call ptr @rb_id2name(i64 noundef %45) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.990, i32 noundef 15432, ptr noundef nonnull @.str.1008, ptr noundef nonnull %41, ptr noundef %49)
   br label %50
 
@@ -50761,7 +50761,7 @@ vtable_add_gen.exit:                              ; preds = %22, %33
   %59 = shl i32 %54, 1
   store i32 %59, ptr %55, align 4
   %60 = sext i32 %59 to i64
-  %61 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i10, i64 noundef %60, i64 noundef 8) #39
+  %61 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i10, i64 noundef %60, i64 noundef 8) #40
   store ptr %61, ptr %41, align 8
   %.pre21.i11 = load i32, ptr %53, align 8
   br label %62
@@ -50863,7 +50863,7 @@ dvar_curr.exit:                                   ; preds = %16, %26
   br i1 %36, label %37, label %is_private_local_id.exit.thread
 
 37:                                               ; preds = %32
-  %38 = tail call i64 @rb_id2str(i64 noundef %1) #32
+  %38 = tail call i64 @rb_id2str(i64 noundef %1) #33
   %.not.i = icmp eq i64 %38, 0
   br i1 %.not.i, label %is_private_local_id.exit.thread, label %39
 
@@ -51011,7 +51011,7 @@ vtable_included.exit43.thread.us.i.i:             ; preds = %91, %.preheader.i38
 dvar_defined.exit:                                ; preds = %.split59.us.i.i
   %101 = getelementptr inbounds i8, ptr %0, i64 360
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %102) #32
+  %103 = tail call i32 @rb_dvar_defined(i64 noundef %1, ptr noundef %102) #33
   %.not26 = icmp eq i32 %103, 0
   %.pre141 = load ptr, ptr %5, align 8
   br i1 %.not26, label %dvar_defined.exit.dvar_defined.exit.thread_crit_edge, label %dvar_defined.exit.thread84
@@ -51106,7 +51106,7 @@ vtable_included.exit.thread.i.i:                  ; preds = %122, %.preheader.i.
 local_id.exit:                                    ; preds = %.critedge.i.i
   %133 = getelementptr inbounds i8, ptr %0, i64 360
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %134) #32
+  %135 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %134) #33
   %.not27 = icmp eq i32 %135, 0
   br i1 %.not27, label %vtable_add_gen.exit40, label %local_id.exit.dvar_defined.exit.thread84_crit_edge
 
@@ -51125,7 +51125,7 @@ dvar_defined.exit.thread84:                       ; preds = %77, %87, %118, %128
   br i1 %.not.i34, label %144, label %142
 
 142:                                              ; preds = %dvar_defined.exit.thread84
-  %143 = tail call ptr @rb_id2name(i64 noundef %1) #32
+  %143 = tail call ptr @rb_id2name(i64 noundef %1) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.990, i32 noundef 13713, ptr noundef nonnull @.str.1007, ptr noundef %138, ptr noundef %143)
   br label %144
 
@@ -51150,7 +51150,7 @@ dvar_defined.exit.thread84:                       ; preds = %77, %87, %118, %128
   %153 = shl i32 %148, 1
   store i32 %153, ptr %149, align 4
   %154 = sext i32 %153 to i64
-  %155 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %154, i64 noundef 8) #39
+  %155 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i, i64 noundef %154, i64 noundef 8) #40
   store ptr %155, ptr %138, align 8
   %.pre21.i = load i32, ptr %147, align 8
   br label %156
@@ -51183,7 +51183,7 @@ vtable_add_gen.exit:                              ; preds = %145, %156
   br i1 %.not.i36, label %174, label %172
 
 172:                                              ; preds = %165
-  %173 = tail call ptr @rb_id2name(i64 noundef %169) #32
+  %173 = tail call ptr @rb_id2name(i64 noundef %169) #33
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.990, i32 noundef 13715, ptr noundef nonnull @.str.1008, ptr noundef nonnull %164, ptr noundef %173)
   br label %174
 
@@ -51208,7 +51208,7 @@ vtable_add_gen.exit:                              ; preds = %145, %156
   %183 = shl i32 %178, 1
   store i32 %183, ptr %179, align 4
   %184 = sext i32 %183 to i64
-  %185 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i38, i64 noundef %184, i64 noundef 8) #39
+  %185 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %.pre.i38, i64 noundef %184, i64 noundef 8) #40
   store ptr %185, ptr %164, align 8
   %.pre21.i39 = load i32, ptr %177, align 8
   br label %186
@@ -51309,7 +51309,7 @@ vtable_included.exit.thread.i.i52:                ; preds = %208, %.preheader.i.
 local_id.exit65:                                  ; preds = %.critedge.i.i64
   %219 = getelementptr inbounds i8, ptr %0, i64 360
   %220 = load ptr, ptr %219, align 8
-  %221 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %220) #32
+  %221 = tail call i32 @rb_local_defined(i64 noundef %1, ptr noundef %220) #33
   %.not23 = icmp eq i32 %221, 0
   %222 = icmp eq i64 %1, 3649
   %or.cond = or i1 %222, %.not23
@@ -51327,7 +51327,7 @@ local_id.exit65.thread96:                         ; preds = %204, %214
   br i1 %227, label %228, label %is_private_local_id.exit72.thread
 
 228:                                              ; preds = %223
-  %229 = tail call i64 @rb_id2str(i64 noundef %1) #32
+  %229 = tail call i64 @rb_id2str(i64 noundef %1) #33
   %.not.i67 = icmp eq i64 %229, 0
   br i1 %.not.i67, label %is_private_local_id.exit72.thread, label %230
 
@@ -51426,8 +51426,8 @@ define internal fastcc noundef ptr @arg_concat(ptr nocapture noundef %0, ptr nou
 15:                                               ; preds = %10
   %16 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %16, align 8
-  %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %17, i32 noundef 43) #32
+  %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %17, i32 noundef 43) #33
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %19 = load i64, ptr %17, align 8
@@ -51467,8 +51467,8 @@ define internal fastcc noundef ptr @arg_concat(ptr nocapture noundef %0, ptr nou
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %0, i64 312
   %.val.i.i38 = load ptr, ptr %39, align 8
-  %40 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i38, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %40, i32 noundef 43) #32
+  %40 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i38, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %40, i32 noundef 43) #33
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %42 = load i64, ptr %40, align 8
@@ -51513,7 +51513,7 @@ list_concat.exit:                                 ; preds = %36, %60
   %65 = load i64, ptr %64, align 8
   store i64 %65, ptr %63, align 8
   store ptr %40, ptr %37, align 8
-  %66 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 77) #32
+  %66 = tail call i64 @rb_node_set_type(ptr noundef nonnull %1, i32 noundef 77) #33
   br label %114
 
 67:                                               ; preds = %5
@@ -51576,8 +51576,8 @@ list_concat.exit43:                               ; preds = %81, %90
 98:                                               ; preds = %67, %70, %33, %5
   %99 = getelementptr i8, ptr %0, i64 312
   %.val.i.i44 = load ptr, ptr %99, align 8
-  %100 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i44, i32 noundef 77, i64 noundef 48, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %100, i32 noundef 77) #32
+  %100 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i44, i32 noundef 77, i64 noundef 48, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %100, i32 noundef 77) #33
   %101 = getelementptr inbounds i8, ptr %100, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %102 = load i64, ptr %100, align 8
@@ -51638,8 +51638,8 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 13:                                               ; preds = %11
   %14 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %14, align 8
-  %15 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %15, i32 noundef 36) #32
+  %15 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %15, i32 noundef 36) #33
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %17 = load i64, ptr %15, align 8
@@ -51664,12 +51664,12 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br label %rb_obj_write.exit
 
 30:                                               ; preds = %6
-  %31 = tail call i64 @rb_node_str_string_val(ptr noundef nonnull %3) #32
-  %32 = tail call i64 @rb_str_to_interned_str(i64 noundef %31) #32
+  %31 = tail call i64 @rb_node_str_string_val(ptr noundef nonnull %3) #33
+  %32 = tail call i64 @rb_str_to_interned_str(i64 noundef %31) #33
   %33 = getelementptr i8, ptr %0, i64 312
   %.val.i.i141 = load ptr, ptr %33, align 8
-  %34 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i141, i32 noundef 59, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %34, i32 noundef 59) #32
+  %34 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i141, i32 noundef 59, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %34, i32 noundef 59) #33
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %36 = load i64, ptr %34, align 8
@@ -51696,16 +51696,16 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 51:                                               ; preds = %30
   %52 = load ptr, ptr %33, align 8
   %53 = ptrtoint ptr %52 to i64
-  tail call void @rb_gc_writebarrier(i64 noundef %53, i64 noundef %32) #32
+  tail call void @rb_gc_writebarrier(i64 noundef %53, i64 noundef %32) #33
   br label %rb_obj_write.exit
 
 54:                                               ; preds = %6
-  %55 = tail call i64 @rb_node_file_path_val(ptr noundef nonnull %3) #32
-  %56 = tail call i64 @rb_str_to_interned_str(i64 noundef %55) #32
+  %55 = tail call i64 @rb_node_file_path_val(ptr noundef nonnull %3) #33
+  %56 = tail call i64 @rb_str_to_interned_str(i64 noundef %55) #33
   %57 = getelementptr i8, ptr %0, i64 312
   %.val.i.i142 = load ptr, ptr %57, align 8
-  %58 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i142, i32 noundef 59, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %58, i32 noundef 59) #32
+  %58 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i142, i32 noundef 59, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %58, i32 noundef 59) #33
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %60 = load i64, ptr %58, align 8
@@ -51732,19 +51732,19 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 75:                                               ; preds = %54
   %76 = load ptr, ptr %57, align 8
   %77 = ptrtoint ptr %76 to i64
-  tail call void @rb_gc_writebarrier(i64 noundef %77, i64 noundef %56) #32
+  tail call void @rb_gc_writebarrier(i64 noundef %77, i64 noundef %56) #33
   br label %rb_obj_write.exit
 
 78:                                               ; preds = %6
-  %79 = tail call i64 @rb_ary_new() #32
+  %79 = tail call i64 @rb_ary_new() #33
   %80 = inttoptr i64 %79 to ptr
   %81 = load i64, ptr %80, align 8
   %82 = or i64 %81, 2048
   store i64 %82, ptr %80, align 8
   %83 = getelementptr i8, ptr %0, i64 312
   %.val.i.i143 = load ptr, ptr %83, align 8
-  %84 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i143, i32 noundef 59, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %84, i32 noundef 59) #32
+  %84 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i143, i32 noundef 59, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %84, i32 noundef 59) #33
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %86 = load i64, ptr %84, align 8
@@ -51771,11 +51771,11 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 101:                                              ; preds = %78
   %102 = load ptr, ptr %83, align 8
   %103 = ptrtoint ptr %102 to i64
-  tail call void @rb_gc_writebarrier(i64 noundef %103, i64 noundef %79) #32
+  tail call void @rb_gc_writebarrier(i64 noundef %103, i64 noundef %79) #33
   br label %rb_obj_write.exit
 
 104:                                              ; preds = %6
-  %105 = tail call i64 @rb_ary_new() #32
+  %105 = tail call i64 @rb_ary_new() #33
   %106 = add i64 %5, 1
   br label %107
 
@@ -51803,7 +51803,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %.not160, label %117, label %.thread
 
 .thread:                                          ; preds = %114
-  %116 = tail call i64 @rb_ary_clear(i64 noundef %.0115168) #32
+  %116 = tail call i64 @rb_ary_clear(i64 noundef %.0115168) #33
   br label %126
 
 117:                                              ; preds = %113, %114, %107
@@ -51818,11 +51818,11 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %121, label %124, label %122
 
 122:                                              ; preds = %119
-  %123 = tail call i64 @rb_ary_push(i64 noundef %.0115168, i64 noundef %120) #32
+  %123 = tail call i64 @rb_ary_push(i64 noundef %.0115168, i64 noundef %120) #33
   br label %126
 
 124:                                              ; preds = %119
-  %125 = tail call i64 @rb_ary_clear(i64 noundef %.0115168) #32
+  %125 = tail call i64 @rb_ary_clear(i64 noundef %.0115168) #33
   br label %126
 
 126:                                              ; preds = %.thread, %117, %124, %122
@@ -51839,7 +51839,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %.not, label %rb_obj_write.exit, label %132
 
 132:                                              ; preds = %129
-  %133 = tail call i64 @rb_hash_new() #32
+  %133 = tail call i64 @rb_hash_new() #33
   %134 = getelementptr inbounds i8, ptr %3, i64 32
   %.0114163 = load ptr, ptr %134, align 8
   %.not132164 = icmp eq ptr %.0114163, null
@@ -51877,7 +51877,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %.not157, label %151, label %149
 
 149:                                              ; preds = %147
-  %150 = tail call i64 @rb_hash_clear(i64 noundef %.3165) #32
+  %150 = tail call i64 @rb_hash_clear(i64 noundef %.3165) #33
   br label %151
 
 151:                                              ; preds = %146, %149, %147, %136
@@ -51904,7 +51904,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %.not158, label %161, label %.thread151
 
 .thread151:                                       ; preds = %158
-  %160 = tail call i64 @rb_hash_clear(i64 noundef %.4) #32
+  %160 = tail call i64 @rb_hash_clear(i64 noundef %.4) #33
   br label %172
 
 161:                                              ; preds = %155, %158, %151
@@ -51922,11 +51922,11 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   br i1 %or.cond, label %170, label %168
 
 168:                                              ; preds = %163
-  %169 = tail call i64 @rb_hash_aset(i64 noundef %.4, i64 noundef %164, i64 noundef %165) #32
+  %169 = tail call i64 @rb_hash_aset(i64 noundef %.4, i64 noundef %164, i64 noundef %165) #33
   br label %172
 
 170:                                              ; preds = %163
-  %171 = tail call i64 @rb_hash_clear(i64 noundef %.4) #32
+  %171 = tail call i64 @rb_hash_clear(i64 noundef %.4) #33
   br label %172
 
 172:                                              ; preds = %.thread151, %161, %170, %168
@@ -51945,8 +51945,8 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %178 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
   %179 = getelementptr i8, ptr %0, i64 312
   %.val.i.i.i = load ptr, ptr %179, align 8
-  %180 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %180, i32 noundef 59) #32
+  %180 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %180, i32 noundef 59) #33
   %181 = getelementptr inbounds i8, ptr %180, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %182 = load i64, ptr %180, align 8
@@ -51965,8 +51965,8 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
   %192 = getelementptr inbounds i8, ptr %180, i64 32
   store i64 %178, ptr %192, align 8
   %.val.i.i13.i = load ptr, ptr %179, align 8
-  %193 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i13.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %193, i32 noundef 43) #32
+  %193 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i13.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %193, i32 noundef 43) #33
   %194 = getelementptr inbounds i8, ptr %193, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %195 = load i64, ptr %193, align 8
@@ -51995,10 +51995,10 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 
 210:                                              ; preds = %177
   %211 = getelementptr inbounds i8, ptr %207, i64 8
-  %212 = tail call i64 @rb_node_const_decl_val(ptr noundef nonnull %207) #32
+  %212 = tail call i64 @rb_node_const_decl_val(ptr noundef nonnull %207) #33
   %.val.i.i.i.i = load ptr, ptr %179, align 8
-  %213 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %213, i32 noundef 59) #32
+  %213 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %213, i32 noundef 59) #33
   %214 = getelementptr inbounds i8, ptr %213, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull readonly align 4 dereferenceable(16) %211, i64 16, i1 false)
   %215 = load i64, ptr %213, align 8
@@ -52026,7 +52026,7 @@ define internal fastcc noundef ptr @shareable_literal_constant(ptr noundef %0, i
 230:                                              ; preds = %210
   %231 = load ptr, ptr %179, align 8
   %232 = ptrtoint ptr %231 to i64
-  tail call void @rb_gc_writebarrier(i64 noundef %232, i64 noundef %225) #32
+  tail call void @rb_gc_writebarrier(i64 noundef %232, i64 noundef %225) #33
   br label %const_decl_path.exit.i
 
 const_decl_path.exit.i:                           ; preds = %210, %230
@@ -52047,8 +52047,8 @@ list_append.exit:                                 ; preds = %177, %const_decl_pa
   store i64 %237, ptr %205, align 8
   %238 = getelementptr inbounds i8, ptr %.0.i.i156, i64 8
   %.val.i.i21.i = load ptr, ptr %179, align 8
-  %239 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %239, i32 noundef 43) #32
+  %239 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i21.i, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %239, i32 noundef 43) #33
   %240 = getelementptr inbounds i8, ptr %239, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, ptr noundef nonnull readonly align 4 dereferenceable(16) %238, i64 16, i1 false)
   %241 = load i64, ptr %239, align 8
@@ -52083,7 +52083,7 @@ list_append.exit:                                 ; preds = %177, %const_decl_pa
   br i1 %.not4.i.i, label %.lr.ph.i.i, label %ensure_shareable_node.exit
 
 .lr.ph.i.i:                                       ; preds = %list_append.exit, %.lr.ph.i.i
-  %259 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1014, i64 noundef 16) #32
+  %259 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1014, i64 noundef 16) #33
   store i64 %259, ptr @ensure_shareable_node.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %259, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %ensure_shareable_node.exit, !llvm.loop !95
@@ -52091,8 +52091,8 @@ list_append.exit:                                 ; preds = %177, %const_decl_pa
 ensure_shareable_node.exit:                       ; preds = %.lr.ph.i.i, %list_append.exit
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %list_append.exit ], [ %259, %.lr.ph.i.i ]
   %.val.i.i14.i = load ptr, ptr %179, align 8
-  %260 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i14.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %260, i32 noundef 36) #32
+  %260 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i14.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %260, i32 noundef 36) #33
   %261 = getelementptr inbounds i8, ptr %260, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %261, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %262 = load i64, ptr %260, align 8
@@ -52127,11 +52127,11 @@ ensure_shareable_node.exit:                       ; preds = %.lr.ph.i.i, %list_a
   br label %rb_obj_write.exit
 
 276:                                              ; preds = %.loopexit
-  %277 = tail call i64 @rb_ractor_make_shareable(i64 noundef %.7) #32
+  %277 = tail call i64 @rb_ractor_make_shareable(i64 noundef %.7) #33
   %278 = getelementptr i8, ptr %0, i64 312
   %.val.i.i146 = load ptr, ptr %278, align 8
-  %279 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i146, i32 noundef 59, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %279, i32 noundef 59) #32
+  %279 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i146, i32 noundef 59, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %279, i32 noundef 59) #33
   %280 = getelementptr inbounds i8, ptr %279, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %281 = load i64, ptr %279, align 8
@@ -52158,7 +52158,7 @@ ensure_shareable_node.exit:                       ; preds = %.lr.ph.i.i, %list_a
 296:                                              ; preds = %276
   %297 = load ptr, ptr %278, align 8
   %298 = ptrtoint ptr %297 to i64
-  tail call void @rb_gc_writebarrier(i64 noundef %298, i64 noundef %277) #32
+  tail call void @rb_gc_writebarrier(i64 noundef %298, i64 noundef %277) #33
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %.loopexit, %296, %276, %101, %78, %75, %54, %51, %30, %274, %175, %129, %11, %13, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %ensure_shareable_node.exit
@@ -52171,8 +52171,8 @@ define internal fastcc noundef ptr @make_shareable_node(ptr nocapture noundef %0
   %5 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
   %6 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %6, align 8
-  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %7, i32 noundef 59) #32
+  %7 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 59, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %7, i32 noundef 59) #33
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %9 = load i64, ptr %7, align 8
@@ -52198,7 +52198,7 @@ define internal fastcc noundef ptr @make_shareable_node(ptr nocapture noundef %0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1015, i64 noundef 19) #32
+  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1015, i64 noundef 19) #33
   store i64 %21, ptr @make_shareable_node.rbimpl_id, align 8
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !95
@@ -52209,7 +52209,7 @@ define internal fastcc noundef ptr @make_shareable_node(ptr nocapture noundef %0
   br i1 %.not4.i20, label %.lr.ph.i22, label %rbimpl_intern_const.exit
 
 .lr.ph.i22:                                       ; preds = %22, %.lr.ph.i22
-  %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1017, i64 noundef 14) #32
+  %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1017, i64 noundef 14) #33
   store i64 %23, ptr @make_shareable_node.rbimpl_id.1016, align 8
   %.not.i23 = icmp eq i64 %23, 0
   br i1 %.not.i23, label %.lr.ph.i22, label %rbimpl_intern_const.exit, !llvm.loop !95
@@ -52217,8 +52217,8 @@ define internal fastcc noundef ptr @make_shareable_node(ptr nocapture noundef %0
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i22, %.lr.ph.i, %22, %20
   %.lcssa.i21.sink = phi i64 [ %.pr.i, %20 ], [ %.pr.i19, %22 ], [ %21, %.lr.ph.i ], [ %23, %.lr.ph.i22 ]
   %.val.i.i25 = load ptr, ptr %6, align 8
-  %24 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i25, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %24, i32 noundef 43) #32
+  %24 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i25, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %24, i32 noundef 43) #33
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %26 = load i64, ptr %24, align 8
@@ -52240,8 +52240,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i22, %.lr.ph
   %37 = getelementptr inbounds i8, ptr %24, i64 48
   store ptr null, ptr %37, align 8
   %.val.i.i26 = load ptr, ptr %6, align 8
-  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i26, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %38, i32 noundef 36) #32
+  %38 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i26, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %38, i32 noundef 36) #33
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false)
   %40 = load i64, ptr %38, align 8
@@ -52303,35 +52303,35 @@ define internal fastcc i64 @shareable_literal_value(ptr noundef %0) unnamed_addr
   br label %29
 
 9:                                                ; preds = %2
-  %10 = tail call i64 @rb_node_sym_string_val(ptr noundef nonnull %0) #32
+  %10 = tail call i64 @rb_node_sym_string_val(ptr noundef nonnull %0) #33
   br label %29
 
 11:                                               ; preds = %2
-  %12 = tail call i64 @rb_node_line_lineno_val(ptr noundef nonnull %0) #32
+  %12 = tail call i64 @rb_node_line_lineno_val(ptr noundef nonnull %0) #33
   br label %29
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %0) #32
+  %14 = tail call i64 @rb_node_integer_literal_val(ptr noundef nonnull %0) #33
   br label %29
 
 15:                                               ; preds = %2
-  %16 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %0) #32
+  %16 = tail call i64 @rb_node_float_literal_val(ptr noundef nonnull %0) #33
   br label %29
 
 17:                                               ; preds = %2
-  %18 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %0) #32
+  %18 = tail call i64 @rb_node_rational_literal_val(ptr noundef nonnull %0) #33
   br label %29
 
 19:                                               ; preds = %2
-  %20 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %0) #32
+  %20 = tail call i64 @rb_node_imaginary_literal_val(ptr noundef nonnull %0) #33
   br label %29
 
 21:                                               ; preds = %2
-  %22 = tail call i64 @rb_node_encoding_val(ptr noundef nonnull %0) #32
+  %22 = tail call i64 @rb_node_encoding_val(ptr noundef nonnull %0) #33
   br label %29
 
 23:                                               ; preds = %2
-  %24 = tail call i64 @rb_node_regx_string_val(ptr noundef nonnull %0) #32
+  %24 = tail call i64 @rb_node_regx_string_val(ptr noundef nonnull %0) #33
   br label %29
 
 25:                                               ; preds = %2
@@ -52365,7 +52365,7 @@ define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1) unn
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 212
   %7 = load i32, ptr %6, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %5, i32 noundef %7, ptr noundef nonnull @.str.1019) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %5, i32 noundef %7, ptr noundef nonnull @.str.1019) #33
   br label %.loopexit
 
 .lr.ph103:                                        ; preds = %2, %66
@@ -52596,7 +52596,7 @@ get_nd_value.exit16.i:                            ; preds = %get_nd_value.exit12
   %21 = load i64, ptr %.0.i.i, align 8
   %22 = lshr i64 %21, 15
   %23 = trunc i64 %22 to i32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %20, i32 noundef %23, ptr noundef nonnull @.str.1037) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %20, i32 noundef %23, ptr noundef nonnull @.str.1037) #33
   %.pre120 = load i64, ptr %14, align 8
   %.pre121 = trunc i64 %.pre120 to i32
   %.pre122 = lshr i32 %.pre121, 8
@@ -52651,7 +52651,7 @@ common.ret128:                                    ; preds = %80, %50, %29, %30, 
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 212
   %34 = load i32, ptr %33, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %32, i32 noundef %34, ptr noundef nonnull @.str.1029) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %32, i32 noundef %34, ptr noundef nonnull @.str.1029) #33
   br label %common.ret128
 
 35:                                               ; preds = %29
@@ -52659,7 +52659,7 @@ common.ret128:                                    ; preds = %80, %50, %29, %30, 
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 212
   %39 = load i32, ptr %38, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %37, i32 noundef %39, ptr noundef nonnull @.str.1030) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %37, i32 noundef %39, ptr noundef nonnull @.str.1030) #33
   br label %common.ret128
 
 40:                                               ; preds = %assign_in_cond.exit
@@ -52694,11 +52694,11 @@ e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %40, %e_op
   %.str.1032.sink = phi ptr [ @.str.1032, %47 ], [ @.str.1031, %e_option_supplied.exit.thread ]
   %48 = getelementptr inbounds i8, ptr %0, i64 212
   %49 = load i32, ptr %48, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val103, i32 noundef %49, ptr noundef nonnull %.str.1032.sink) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val103, i32 noundef %49, ptr noundef nonnull %.str.1032.sink) #33
   br label %50
 
 50:                                               ; preds = %.sink.split, %e_option_supplied.exit.thread, %e_option_supplied.exit
-  %51 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 56) #32
+  %51 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 56) #33
   br label %common.ret128
 
 52:                                               ; preds = %assign_in_cond.exit
@@ -52733,7 +52733,7 @@ e_option_supplied.exit112.thread:                 ; preds = %sub_1.i109, %52, %e
   %.str.1032.sink126 = phi ptr [ @.str.1032, %59 ], [ @.str.1031, %e_option_supplied.exit112.thread ]
   %60 = getelementptr inbounds i8, ptr %0, i64 212
   %61 = load i32, ptr %60, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef nonnull %.val, i32 noundef %61, ptr noundef nonnull %.str.1032.sink126) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef nonnull %.val, i32 noundef %61, ptr noundef nonnull %.str.1032.sink126) #33
   br label %62
 
 62:                                               ; preds = %.sink.split125, %e_option_supplied.exit112.thread, %e_option_supplied.exit112
@@ -52785,11 +52785,11 @@ e_option_supplied.exit112.thread:                 ; preds = %sub_1.i109, %52, %e
   ]
 
 90:                                               ; preds = %80
-  %91 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 93) #32
+  %91 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 93) #33
   br label %common.ret128
 
 92:                                               ; preds = %80
-  %93 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 94) #32
+  %93 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 94) #33
   br label %common.ret128
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %107, %RB_SYMBOL_P.exit, %assign_in_cond.exit, %assign_in_cond.exit
@@ -52803,7 +52803,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %107, %RB_SYMBOL_P.e
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 212
   %98 = load i32, ptr %97, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %96, i32 noundef %98, ptr noundef nonnull @.str.1033) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %96, i32 noundef %98, ptr noundef nonnull @.str.1033) #33
   br label %common.ret128
 
 99:                                               ; preds = %RB_SYMBOL_P.exit.thread
@@ -52811,7 +52811,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %107, %RB_SYMBOL_P.e
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 212
   %103 = load i32, ptr %102, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %101, i32 noundef %103, ptr noundef nonnull @.str.1034) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %101, i32 noundef %103, ptr noundef nonnull @.str.1034) #33
   br label %common.ret128
 
 104:                                              ; preds = %assign_in_cond.exit
@@ -52850,7 +52850,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %0, i64 212
   %120 = load i32, ptr %119, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %118, i32 noundef %120, ptr noundef nonnull @.str.1035) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %118, i32 noundef %120, ptr noundef nonnull @.str.1035) #33
   br label %common.ret128
 
 121:                                              ; preds = %RB_SYMBOL_P.exit.thread116
@@ -52858,7 +52858,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %0, i64 212
   %125 = load i32, ptr %124, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %123, i32 noundef %125, ptr noundef nonnull @.str.1036) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %123, i32 noundef %125, ptr noundef nonnull @.str.1036) #33
   br label %common.ret128
 
 126:                                              ; preds = %assign_in_cond.exit
@@ -52872,7 +52872,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %0, i64 212
   %131 = load i32, ptr %130, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %129, i32 noundef %131, ptr noundef nonnull @.str.1035) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %129, i32 noundef %131, ptr noundef nonnull @.str.1035) #33
   br label %common.ret128
 
 132:                                              ; preds = %126
@@ -52880,7 +52880,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %0, i64 212
   %136 = load i32, ptr %135, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %134, i32 noundef %136, ptr noundef nonnull @.str.1036) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %134, i32 noundef %136, ptr noundef nonnull @.str.1036) #33
   br label %common.ret128
 
 137:                                              ; preds = %assign_in_cond.exit
@@ -52894,7 +52894,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %0, i64 212
   %142 = load i32, ptr %141, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %140, i32 noundef %142, ptr noundef nonnull @.str.1035) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %140, i32 noundef %142, ptr noundef nonnull @.str.1035) #33
   br label %common.ret128
 
 143:                                              ; preds = %137
@@ -52902,7 +52902,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %0, i64 212
   %147 = load i32, ptr %146, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %145, i32 noundef %147, ptr noundef nonnull @.str.1036) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %145, i32 noundef %147, ptr noundef nonnull @.str.1036) #33
   br label %common.ret128
 
 148:                                              ; preds = %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit
@@ -52916,7 +52916,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %0, i64 212
   %153 = load i32, ptr %152, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %151, i32 noundef %153, ptr noundef nonnull @.str.1035) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %151, i32 noundef %153, ptr noundef nonnull @.str.1035) #33
   br label %common.ret128
 
 154:                                              ; preds = %148
@@ -52924,7 +52924,7 @@ RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.e
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %0, i64 212
   %158 = load i32, ptr %157, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %156, i32 noundef %158, ptr noundef nonnull @.str.1036) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %156, i32 noundef %158, ptr noundef nonnull @.str.1036) #33
   br label %common.ret128
 }
 
@@ -52984,7 +52984,7 @@ e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %21, %e_op
   %28 = load i64, ptr %1, align 8
   %29 = lshr i64 %28, 15
   %30 = trunc i64 %29 to i32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val, i32 noundef %30, ptr noundef nonnull @.str.1038) #32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val, i32 noundef %30, ptr noundef nonnull @.str.1038) #33
   br label %31
 
 31:                                               ; preds = %e_option_supplied.exit.thread, %e_option_supplied.exit
@@ -52993,7 +52993,7 @@ e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %21, %e_op
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
-  %32 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1039, i64 noundef 2) #32
+  %32 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.1039, i64 noundef 2) #33
   store i64 %32, ptr @range_op.rbimpl_id, align 8
   %.not.i22 = icmp eq i64 %32, 0
   br i1 %.not.i22, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !95
@@ -53002,8 +53002,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
   %.lcssa.i = phi i64 [ %.pr.i, %31 ], [ %32, %.lr.ph.i ]
   %33 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %33, align 8
-  %34 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %34, i32 noundef 50) #32
+  %34 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 50, i64 noundef 40, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %34, i32 noundef 50) #33
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %36 = load i64, ptr %34, align 8
@@ -53022,8 +53022,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
   %46 = getelementptr inbounds i8, ptr %34, i64 32
   store i64 %.lcssa.i, ptr %46, align 8
   %.val.i.i23 = load ptr, ptr %33, align 8
-  %47 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i23, i32 noundef 43, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %47, i32 noundef 43) #32
+  %47 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i23, i32 noundef 43, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %47, i32 noundef 43) #33
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %49 = load i64, ptr %47, align 8
@@ -53045,8 +53045,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
   %60 = getelementptr inbounds i8, ptr %47, i64 48
   store ptr null, ptr %60, align 8
   %.val.i.i24 = load ptr, ptr %33, align 8
-  %61 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i24, i32 noundef 36, i64 noundef 56, i64 noundef 8) #32
-  tail call void @rb_node_init(ptr noundef %61, i32 noundef 36) #32
+  %61 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i24, i32 noundef 36, i64 noundef 56, i64 noundef 8) #33
+  tail call void @rb_node_init(ptr noundef %61, i32 noundef 36) #33
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull readonly align 4 dereferenceable(16) %2, i64 16, i1 false)
   %63 = load i64, ptr %61, align 8
@@ -53079,7 +53079,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_static_content(ptr noundef readonly %0) unnamed_addr #26 {
+define internal fastcc range(i32 0, 2) i32 @is_static_content(ptr noundef readonly %0) unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -53141,7 +53141,7 @@ define internal fastcc range(i32 0, 2) i32 @is_static_content(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rb_parser_string_hash_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #27 {
+define internal fastcc range(i32 0, 2) i32 @rb_parser_string_hash_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -53173,7 +53173,7 @@ define internal fastcc range(i32 0, 2) i32 @rb_parser_string_hash_cmp(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @node_integer_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #27 {
+define internal fastcc range(i32 0, 2) i32 @node_integer_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -53194,7 +53194,7 @@ define internal fastcc range(i32 0, 2) i32 @node_integer_cmp(ptr nocapture nound
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %16) #36
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %16) #37
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i32
   br label %20
@@ -53205,7 +53205,7 @@ define internal fastcc range(i32 0, 2) i32 @node_integer_cmp(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @node_rational_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #27 {
+define internal fastcc range(i32 0, 2) i32 @node_rational_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -53234,7 +53234,7 @@ define internal fastcc range(i32 0, 2) i32 @node_rational_cmp(ptr nocapture noun
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %21) #36
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %21) #37
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
   br label %25
@@ -53245,7 +53245,7 @@ define internal fastcc range(i32 0, 2) i32 @node_rational_cmp(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @node_imaginary_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #27 {
+define internal fastcc range(i32 0, 2) i32 @node_imaginary_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -53282,7 +53282,7 @@ define internal fastcc range(i32 0, 2) i32 @node_imaginary_cmp(ptr nocapture nou
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %26) #36
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %26) #37
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
   br label %30
@@ -53293,7 +53293,7 @@ define internal fastcc range(i32 0, 2) i32 @node_imaginary_cmp(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rb_parser_regx_hash_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #27 {
+define internal fastcc range(i32 0, 2) i32 @rb_parser_regx_hash_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #28 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -53405,7 +53405,7 @@ define internal fastcc void @warn_unused_var(ptr nocapture noundef %0, ptr nocap
   br i1 %31, label %32, label %is_private_local_id.exit.thread
 
 32:                                               ; preds = %27
-  %33 = tail call i64 @rb_id2str(i64 noundef %22) #32
+  %33 = tail call i64 @rb_id2str(i64 noundef %22) #33
   %.not.i = icmp eq i64 %33, 0
   br i1 %.not.i, label %is_private_local_id.exit.thread, label %34
 
@@ -53432,8 +53432,8 @@ is_private_local_id.exit.thread:                  ; preds = %32, %27, %is_privat
   %42 = load i64, ptr %24, align 8
   %43 = trunc i64 %42 to i32
   %44 = load i64, ptr %21, align 8
-  %45 = tail call i64 @rb_id2str(i64 noundef %44) #32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %41, i32 noundef %43, ptr noundef nonnull @.str.1050, i64 noundef %45) #32
+  %45 = tail call i64 @rb_id2str(i64 noundef %44) #33
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %41, i32 noundef %43, ptr noundef nonnull @.str.1050, i64 noundef %45) #33
   br label %is_private_local_id.exit.thread29
 
 is_private_local_id.exit.thread29:                ; preds = %is_private_local_id.exit, %20, %23, %is_private_local_id.exit.thread
@@ -53482,11 +53482,11 @@ define internal fastcc void @dyna_pop_1(ptr nocapture noundef %0) unnamed_addr #
   br i1 %.not12.i, label %20, label %19
 
 19:                                               ; preds = %17
-  tail call void @ruby_xfree(ptr noundef nonnull %18) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %18) #33
   br label %20
 
 20:                                               ; preds = %19, %17
-  tail call void @ruby_xfree(ptr noundef nonnull %5) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %5) #33
   br label %vtable_free_gen.exit
 
 vtable_free_gen.exit:                             ; preds = %20, %16, %1
@@ -53515,11 +53515,11 @@ vtable_free_gen.exit:                             ; preds = %20, %16, %1
   br i1 %.not12.i.i, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void @ruby_xfree(ptr noundef nonnull %31) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %31) #33
   br label %33
 
 33:                                               ; preds = %32, %30
-  tail call void @ruby_xfree(ptr noundef nonnull %22) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %22) #33
   br label %dyna_pop_vtable.exit
 
 dyna_pop_vtable.exit:                             ; preds = %29, %33
@@ -53548,11 +53548,11 @@ dyna_pop_vtable.exit:                             ; preds = %29, %33
   br i1 %.not12.i.i13, label %46, label %45
 
 45:                                               ; preds = %43
-  tail call void @ruby_xfree(ptr noundef nonnull %44) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %44) #33
   br label %46
 
 46:                                               ; preds = %45, %43
-  tail call void @ruby_xfree(ptr noundef nonnull %36) #32
+  tail call void @ruby_xfree(ptr noundef nonnull %36) #33
   br label %dyna_pop_vtable.exit14
 
 dyna_pop_vtable.exit14:                           ; preds = %42, %46
@@ -53560,47 +53560,47 @@ dyna_pop_vtable.exit14:                           ; preds = %42, %46
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #18
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #19
 
 declare i64 @rb_io_flush(i64 noundef) local_unnamed_addr #1
 
 declare i64 @rb_syntax_error_append(i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #28
+declare void @llvm.va_start.p0(ptr) #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #28
+declare void @llvm.va_end.p0(ptr) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #29
+declare i32 @llvm.fshl.i32(i32, i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #29
+declare i64 @llvm.smin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #29
+declare i32 @llvm.smin.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #29
+declare i32 @llvm.smax.i32(i32, i32) #30
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #29
+declare i64 @llvm.fshl.i64(i64, i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #29
+declare i32 @llvm.umax.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #29
+declare i32 @llvm.usub.sat.i32(i32, i32) #30
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -53619,30 +53619,31 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willr
 attributes #14 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #31 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #32 = { nounwind }
-attributes #33 = { cold noreturn nounwind }
-attributes #34 = { nounwind allocsize(0,1) }
-attributes #35 = { nounwind allocsize(0) }
-attributes #36 = { nounwind willreturn memory(read) }
-attributes #37 = { noreturn nounwind }
-attributes #38 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #39 = { nounwind allocsize(1,2) }
-attributes #40 = { nounwind allocsize(1) }
+attributes #17 = { nofree nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #32 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #33 = { nounwind }
+attributes #34 = { cold noreturn nounwind }
+attributes #35 = { nounwind allocsize(0,1) }
+attributes #36 = { nounwind allocsize(0) }
+attributes #37 = { nounwind willreturn memory(read) }
+attributes #38 = { noreturn nounwind }
+attributes #39 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #40 = { nounwind allocsize(1,2) }
+attributes #41 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

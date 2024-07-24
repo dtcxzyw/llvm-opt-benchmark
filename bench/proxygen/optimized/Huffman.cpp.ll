@@ -101,7 +101,7 @@ $_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr = comdat any
 @_ZN8proxygen7huffman8HuffTreeC1EPKjPKh = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8proxygen7huffman8HuffTreeC2EPKjPKh
 @_ZN8proxygen7huffman8HuffTreeC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN8proxygen7huffman8HuffTreeC2ERKS1_
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen7huffman8HuffTreeC2EPKjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef %codes, ptr noundef %bits) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
@@ -205,7 +205,7 @@ _ZN8proxygen7huffman8HuffTree9buildTreeEv.exit:   ; preds = %_ZN8proxygen7huffma
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen7huffman8HuffTree9buildTreeEv(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this) local_unnamed_addr #0 align 2 {
 entry:
   %codes_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -281,7 +281,7 @@ for.end:                                          ; preds = %_ZN8proxygen7huffma
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen7huffman8HuffTreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %tree) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
@@ -482,8 +482,8 @@ while.end:                                        ; preds = %if.end30, %entry
   ret i1 true
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen7huffman8HuffTree6insertEjhh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, i32 noundef %code, i8 noundef zeroext %bits, i8 noundef zeroext %ch) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN8proxygen7huffman8HuffTree6insertEjhh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, i32 noundef %code, i8 noundef zeroext %bits, i8 noundef zeroext %ch) local_unnamed_addr #2 align 2 {
 entry:
   %table_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp15 = icmp ugt i8 %bits, 8
@@ -2002,7 +2002,7 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

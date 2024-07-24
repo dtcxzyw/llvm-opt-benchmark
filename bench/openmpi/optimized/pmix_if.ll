@@ -807,8 +807,8 @@ define range(i32 -1, 1) i32 @pmix_ifindextoflags(i32 noundef %0, ptr nocapture n
   ret i32 %.07
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_ifindextoname(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define range(i32 -1, 1) i32 @pmix_ifindextoname(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = sext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %4, i1 false)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
@@ -872,8 +872,8 @@ pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %15, %9
   ret i32 %.010
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @pmix_ifkindextoname(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define range(i32 -1, 1) i32 @pmix_ifkindextoname(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = sext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %4, i1 false)
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8

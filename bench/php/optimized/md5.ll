@@ -95,7 +95,7 @@ define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br i1 %or.cond, label %10, label %11
 
 10:                                               ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #11
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #10
   br label %.thread231
 
 11:                                               ; preds = %2
@@ -111,7 +111,7 @@ define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %19
 
 17:                                               ; preds = %11
-  %18 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1) #11
+  %18 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1) #10
   br i1 %18, label %19, label %.thread231
 
 19:                                               ; preds = %17, %.critedge
@@ -136,7 +136,7 @@ define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) 
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %26, ptr noundef nonnull %4, i32 noundef 2) #11
+  %27 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %26, ptr noundef nonnull %4, i32 noundef 2) #10
   %.fr = freeze i1 %27
   br i1 %.fr, label %.thread224, label %.thread231
 
@@ -145,7 +145,7 @@ define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %.0201239 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
   %.0202238 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %25 ]
   %.0203237 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 2, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0201239, i32 noundef %.0200240, ptr noundef null, i32 noundef %.0203237, ptr noundef %.0202238) #11
+  call void @zend_wrong_parameter_error(i32 noundef %.0201239, i32 noundef %.0200240, ptr noundef null, i32 noundef %.0203237, ptr noundef %.0202238) #10
   br label %76
 
 .thread224:                                       ; preds = %25, %.thread220, %19
@@ -182,7 +182,7 @@ PHP_MD5Update.exit:                               ; preds = %.thread224, %39
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %PHP_MD5Update.exit
-  %47 = call noalias ptr @_emalloc_48() #11
+  %47 = call noalias ptr @_emalloc_48() #10
   store i32 1, ptr %47, align 4
   %48 = getelementptr inbounds i8, ptr %47, i64 4
   store i32 22, ptr %48, align 4
@@ -200,7 +200,7 @@ PHP_MD5Update.exit:                               ; preds = %.thread224, %39
   br label %76
 
 54:                                               ; preds = %PHP_MD5Update.exit
-  %55 = call noalias ptr @_emalloc_64() #11
+  %55 = call noalias ptr @_emalloc_64() #10
   store i32 1, ptr %55, align 4
   %56 = getelementptr inbounds i8, ptr %55, i64 4
   store i32 22, ptr %56, align 4
@@ -468,7 +468,7 @@ define void @PHP_MD5Final(ptr nocapture noundef writeonly %0, ptr noundef %1) lo
   %109 = trunc nuw i32 %108 to i8
   %110 = getelementptr inbounds i8, ptr %0, i64 15
   store i8 %109, ptr %110, align 1
-  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 152) #11
+  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 152) #10
   ret void
 }
 
@@ -487,7 +487,7 @@ define hidden void @zif_md5_file(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %or.cond, label %11, label %12
 
 11:                                               ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #11
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #10
   br label %.thread262
 
 12:                                               ; preds = %2
@@ -503,7 +503,7 @@ define hidden void @zif_md5_file(ptr noundef %0, ptr nocapture noundef writeonly
   br label %20
 
 18:                                               ; preds = %12
-  %19 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 1) #11
+  %19 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 1) #10
   br i1 %19, label %thread-pre-split, label %.thread262
 
 thread-pre-split:                                 ; preds = %18
@@ -519,7 +519,7 @@ thread-pre-split:                                 ; preds = %18
   %23 = getelementptr inbounds i8, ptr %21, i64 24
   %24 = getelementptr inbounds i8, ptr %21, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #12
+  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #11
   %.not240 = icmp eq i64 %25, %26
   br i1 %.not240, label %27, label %.thread262
 
@@ -546,7 +546,7 @@ thread-pre-split:                                 ; preds = %18
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 96
-  %36 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef 2) #11
+  %36 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef 2) #10
   %cond.fr249 = freeze i1 %36
   br i1 %cond.fr249, label %.thread273, label %.thread262
 
@@ -555,11 +555,11 @@ thread-pre-split:                                 ; preds = %18
   %.0230271 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %34 ]
   %.0231270 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
   %.0232269 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0229272, i32 noundef %.0230271, ptr noundef null, i32 noundef %.0231270, ptr noundef %.0232269) #11
+  call void @zend_wrong_parameter_error(i32 noundef %.0229272, i32 noundef %.0230271, ptr noundef null, i32 noundef %.0231270, ptr noundef %.0232269) #10
   br label %118
 
 .thread273:                                       ; preds = %34, %.thread281, %27
-  %37 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %28, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef null, ptr noundef null) #11
+  %37 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %28, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef null, ptr noundef null) #10
   %.not242 = icmp eq ptr %37, null
   br i1 %.not242, label %38, label %40
 
@@ -575,7 +575,7 @@ thread-pre-split:                                 ; preds = %18
   store i32 271733878, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %7, i64 4
   store <4 x i32> <i32 0, i32 0, i32 1732584193, i32 -271733879>, ptr %7, align 16
-  %44 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #11
+  %44 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #10
   %45 = icmp sgt i64 %44, 0
   br i1 %45, label %.lr.ph, label %._crit_edge
 
@@ -640,13 +640,13 @@ thread-pre-split:                                 ; preds = %18
   br label %PHP_MD5Update.exit
 
 PHP_MD5Update.exit:                               ; preds = %67, %78
-  %79 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #11
+  %79 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #10
   %80 = icmp sgt i64 %79, 0
   br i1 %80, label %47, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %PHP_MD5Update.exit, %40
-  %81 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %37) #11
-  %82 = call i32 @_php_stream_free(ptr noundef nonnull %37, i32 noundef 3) #11
+  %81 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %37) #10
+  %82 = call i32 @_php_stream_free(ptr noundef nonnull %37, i32 noundef 3) #10
   call void @PHP_MD5Final(ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %81, label %85, label %83
 
@@ -661,7 +661,7 @@ PHP_MD5Update.exit:                               ; preds = %67, %78
   br i1 %87, label %88, label %96
 
 88:                                               ; preds = %85
-  %89 = call noalias ptr @_emalloc_48() #11
+  %89 = call noalias ptr @_emalloc_48() #10
   store i32 1, ptr %89, align 4
   %90 = getelementptr inbounds i8, ptr %89, i64 4
   store i32 22, ptr %90, align 4
@@ -679,7 +679,7 @@ PHP_MD5Update.exit:                               ; preds = %67, %78
   br label %118
 
 96:                                               ; preds = %85
-  %97 = call noalias ptr @_emalloc_64() #11
+  %97 = call noalias ptr @_emalloc_64() #10
   store i32 1, ptr %97, align 4
   %98 = getelementptr inbounds i8, ptr %97, i64 4
   store i32 22, ptr %98, align 4
@@ -735,8 +735,8 @@ declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc nonnull ptr @body(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc nonnull ptr @body(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1298,10 +1298,10 @@ define internal fastcc nonnull ptr @body(ptr nocapture noundef %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1312,10 +1312,10 @@ declare noalias ptr @_emalloc_48() local_unnamed_addr #2
 declare noalias ptr @_emalloc_64() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1323,13 +1323,12 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

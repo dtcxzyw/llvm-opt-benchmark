@@ -1121,8 +1121,8 @@ define hidden zeroext i1 @lexbor_str_data_nupcmp_right(ptr nocapture noundef rea
   ret i1 %.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @lexbor_str_data_casecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define hidden zeroext i1 @lexbor_str_data_casecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %4
@@ -1211,8 +1211,8 @@ define hidden zeroext i1 @lexbor_str_data_ncmp(ptr nocapture noundef readonly %0
   ret i1 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @lexbor_str_data_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define hidden zeroext i1 @lexbor_str_data_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = load i8, ptr %0, align 1
   %4 = load i8, ptr %1, align 1
   %.not10 = icmp eq i8 %3, %4
@@ -1237,8 +1237,8 @@ define hidden zeroext i1 @lexbor_str_data_cmp(ptr nocapture noundef readonly %0,
   ret i1 %.not.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @lexbor_str_data_cmp_ws(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define hidden noundef zeroext i1 @lexbor_str_data_cmp_ws(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = load i8, ptr %0, align 1
   %4 = load i8, ptr %1, align 1
   %.not14 = icmp eq i8 %3, %4

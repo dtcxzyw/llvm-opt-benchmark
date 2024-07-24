@@ -1788,8 +1788,8 @@ default.unreachable:                              ; preds = %811
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -2093,8 +2093,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr nocapture noundef readonly %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_U16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_U16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -2389,8 +2389,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr nocapture noundef readonly %0,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S32_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S32_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -4547,8 +4547,8 @@ default.unreachable:                              ; preds = %880
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -4852,8 +4852,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_U16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_U16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -5148,8 +5148,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S32_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S32_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -5453,8 +5453,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -5758,8 +5758,8 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_U16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_U16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -6054,8 +6054,8 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S32_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S32_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -7491,8 +7491,8 @@ default.unreachable:                              ; preds = %485
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -7796,8 +7796,8 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_U16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_U16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -8092,8 +8092,8 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUp_S32_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUp_S32_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -8397,8 +8397,8 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr nocapture noundef readonly %0
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = ptrtoint ptr %2 to i64
   %10 = alloca [256 x i16], align 16
   %11 = alloca [256 x i32], align 16
@@ -9444,8 +9444,8 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = ptrtoint ptr %2 to i64
   %10 = alloca [4 x ptr], align 16
   %11 = icmp sgt i32 %6, 0
@@ -10225,8 +10225,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr nocapture noundef readonly %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = ptrtoint ptr %2 to i64
   %10 = alloca [4 x ptr], align 16
   %11 = icmp sgt i32 %6, 0
@@ -10997,8 +10997,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr nocapture noundef readonly %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -11298,8 +11298,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr nocapture noundef readonly %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [256 x i32], align 16
   %10 = alloca [512 x i32], align 16
   %11 = alloca [512 x i32], align 16
@@ -12266,8 +12266,8 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr nocapture noundef readonly %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -12567,8 +12567,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -12859,8 +12859,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -13160,8 +13160,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -13461,8 +13461,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -13753,8 +13753,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -14054,8 +14054,8 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = ptrtoint ptr %0 to i64
   %10 = icmp slt i32 %4, 7
   br i1 %10, label %11, label %141
@@ -15096,8 +15096,8 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -15397,8 +15397,8 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -15689,8 +15689,8 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr nocapture noundef readonly 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #1 {
   %9 = alloca [4 x ptr], align 16
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -15991,17 +15991,18 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #1
+declare i32 @llvm.fshl.i32(i32, i32, i32) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #1
+declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

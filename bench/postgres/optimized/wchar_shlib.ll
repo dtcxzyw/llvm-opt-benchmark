@@ -276,7 +276,7 @@ thread-pre-split:                                 ; preds = %2
   ret i1 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_ascii2wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -305,7 +305,7 @@ define internal i32 @pg_ascii2wchar_with_len(ptr nocapture noundef readonly %0, 
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_wchar2single_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -359,7 +359,7 @@ define internal noundef i32 @pg_ascii_verifychar(ptr nocapture readnone %0, i32 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pg_ascii_verifystr(ptr noundef %0, i32 noundef %1) #4 {
   %3 = sext i32 %1 to i64
-  %4 = tail call ptr @memchr(ptr noundef %0, i32 noundef 0, i64 noundef %3) #10
+  %4 = tail call ptr @memchr(ptr noundef %0, i32 noundef 0, i64 noundef %3) #9
   %5 = icmp eq ptr %4, null
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -369,7 +369,7 @@ define internal i32 @pg_ascii_verifystr(ptr noundef %0, i32 noundef %1) #4 {
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_eucjp2wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit
@@ -451,7 +451,7 @@ pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %39, %3
   ret i32 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -645,7 +645,7 @@ define internal range(i32 -1, 4) i32 @pg_eucjp_verifychar(ptr nocapture noundef 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_eucjp_verifychar.exit.thread
@@ -725,7 +725,7 @@ pg_eucjp_verifychar.exit.thread:                  ; preds = %pg_eucjp_verifychar
   ret i32 %36
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_euccn2wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -864,7 +864,7 @@ define internal range(i32 -1, 3) i32 @pg_euckr_verifychar(ptr nocapture noundef 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_euckr_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_euckr_verifychar.exit.thread
@@ -911,7 +911,7 @@ pg_euckr_verifychar.exit.thread:                  ; preds = %pg_euckr_verifychar
   ret i32 %21
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_euckr2wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit
@@ -1034,7 +1034,7 @@ pg_euc_dsplen.exit:                               ; preds = %1, %2
   ret i32 %.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_euctw2wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -1223,7 +1223,7 @@ define internal range(i32 -1, 5) i32 @pg_euctw_verifychar(ptr nocapture noundef 
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_euctw_verifychar.exit.thread
@@ -1297,7 +1297,7 @@ pg_euctw_verifychar.exit.thread:                  ; preds = %pg_euctw_verifychar
   ret i32 %34
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_utf2wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -1420,7 +1420,7 @@ define internal i32 @pg_utf2wchar_with_len(ptr nocapture noundef readonly %0, pt
   ret i32 %.042.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_wchar2utf_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -1528,7 +1528,7 @@ pg_utf_mblen.exit:                                ; preds = %49, %unicode_to_utf
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -1, 3) i32 @pg_utf_dsplen(ptr nocapture noundef readonly %0) #6 {
+define internal range(i32 -1, 3) i32 @pg_utf_dsplen(ptr nocapture noundef readonly %0) #5 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp sgt i8 %2, -1
@@ -1728,8 +1728,8 @@ define internal range(i32 -1, 5) i32 @pg_utf8_verifychar(ptr nocapture noundef r
   ret i32 %.010
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #7 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
   %3 = icmp ugt i32 %1, 31
   br i1 %3, label %.preheader47, label %pg_utf_mblen.exit.thread
 
@@ -1888,7 +1888,7 @@ pg_utf8_verifychar.exit.thread:                   ; preds = %pg_utf8_verifychar.
   ret i32 %72
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_mule2wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -2030,7 +2030,7 @@ define internal i32 @pg_mule2wchar_with_len(ptr nocapture noundef readonly %0, p
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_wchar2mule_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -2184,7 +2184,7 @@ define internal range(i32 1, 3) i32 @pg_mule_dsplen(ptr nocapture noundef readon
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -1, 5) i32 @pg_mule_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %4 = add i8 %3, 127
@@ -2227,7 +2227,7 @@ pg_mule_mblen.exit:                               ; preds = %2, %5, %8
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_mule_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_mule_verifychar.exit.thread
@@ -2296,7 +2296,7 @@ pg_mule_verifychar.exit.thread:                   ; preds = %pg_mule_verifychar.
   ret i32 %26
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @pg_latin12wchar_with_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
@@ -2350,7 +2350,7 @@ define internal noundef i32 @pg_latin1_verifychar(ptr nocapture readnone %0, i32
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pg_latin1_verifystr(ptr noundef %0, i32 noundef %1) #4 {
   %3 = sext i32 %1 to i64
-  %4 = tail call ptr @memchr(ptr noundef %0, i32 noundef 0, i64 noundef %3) #10
+  %4 = tail call ptr @memchr(ptr noundef %0, i32 noundef 0, i64 noundef %3) #9
   %5 = icmp eq ptr %4, null
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -2432,7 +2432,7 @@ define internal range(i32 -1, 3) i32 @pg_sjis_verifychar(ptr nocapture noundef r
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_sjis_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_sjis_verifychar.exit.thread
@@ -2521,7 +2521,7 @@ define internal range(i32 -1, 3) i32 @pg_big5_dsplen(ptr nocapture noundef reado
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
@@ -2545,7 +2545,7 @@ define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr nocapture noundef r
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_big5_verifychar.exit.thread
@@ -2621,7 +2621,7 @@ define internal range(i32 -1, 3) i32 @pg_gbk_dsplen(ptr nocapture noundef readon
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
@@ -2645,7 +2645,7 @@ define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr nocapture noundef re
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_gbk_verifychar.exit.thread
@@ -2721,7 +2721,7 @@ define internal range(i32 -1, 3) i32 @pg_uhc_dsplen(ptr nocapture noundef readon
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
@@ -2745,7 +2745,7 @@ define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr nocapture noundef re
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_uhc_verifychar.exit.thread
@@ -2899,7 +2899,7 @@ define internal range(i32 -1, 5) i32 @pg_gb18030_verifychar(ptr nocapture nounde
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_gb18030_verifychar.exit.thread
@@ -3023,7 +3023,7 @@ pg_euc_dsplen.exit:                               ; preds = %1, %2
   ret i32 %.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -1, 4) i32 @pg_johab_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %.val.i = load i8, ptr %0, align 1
   switch i8 %.val.i, label %4 [
@@ -3067,7 +3067,7 @@ pg_johab_mblen.exit:                              ; preds = %2, %3, %4
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @pg_johab_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %pg_johab_verifychar.exit.thread
@@ -3121,7 +3121,7 @@ pg_johab_verifychar.exit.thread:                  ; preds = %pg_johab_verifychar
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
   br i1 %or.cond, label %3, label %8
 
@@ -3129,7 +3129,7 @@ define i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) local_unnamed_addr
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %4, i32 2
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %1) #11
+  %7 = tail call i32 %6(ptr noundef %1) #10
   br label %8
 
 8:                                                ; preds = %2, %3
@@ -3138,7 +3138,7 @@ define i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_encoding_mblen_bounded(i32 noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define i32 @pg_encoding_mblen_bounded(i32 noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %or.cond.i = icmp ult i32 %0, 42
   br i1 %or.cond.i, label %3, label %pg_encoding_mblen.exit
 
@@ -3146,22 +3146,22 @@ define i32 @pg_encoding_mblen_bounded(i32 noundef %0, ptr noundef %1) local_unna
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %4, i32 2
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %1) #11
+  %7 = tail call i32 %6(ptr noundef %1) #10
   %8 = sext i32 %7 to i64
   br label %pg_encoding_mblen.exit
 
 pg_encoding_mblen.exit:                           ; preds = %2, %3
   %9 = phi i64 [ %8, %3 ], [ 1, %2 ]
-  %10 = tail call i64 @strnlen(ptr noundef %1, i64 noundef %9) #10
+  %10 = tail call i64 @strnlen(ptr noundef %1, i64 noundef %9) #9
   %11 = trunc i64 %10 to i32
   ret i32 %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_encoding_dsplen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define i32 @pg_encoding_dsplen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
   br i1 %or.cond, label %3, label %8
 
@@ -3169,7 +3169,7 @@ define i32 @pg_encoding_dsplen(i32 noundef %0, ptr noundef %1) local_unnamed_add
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %4, i32 3
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %1) #11
+  %7 = tail call i32 %6(ptr noundef %1) #10
   br label %13
 
 8:                                                ; preds = %2
@@ -3188,7 +3188,7 @@ define i32 @pg_encoding_dsplen(i32 noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_encoding_verifymbchar(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define i32 @pg_encoding_verifymbchar(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
   br i1 %or.cond, label %4, label %9
 
@@ -3196,7 +3196,7 @@ define i32 @pg_encoding_verifymbchar(i32 noundef %0, ptr noundef %1, i32 noundef
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 4
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #11
+  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #10
   br label %9
 
 9:                                                ; preds = %3, %4
@@ -3205,7 +3205,7 @@ define i32 @pg_encoding_verifymbchar(i32 noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pg_encoding_verifymbstr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define i32 @pg_encoding_verifymbstr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
   br i1 %or.cond, label %4, label %9
 
@@ -3213,12 +3213,12 @@ define i32 @pg_encoding_verifymbstr(i32 noundef %0, ptr noundef %1, i32 noundef 
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr [42 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %5, i32 5
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #11
+  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #10
   br label %17
 
 9:                                                ; preds = %3
   %10 = sext i32 %2 to i64
-  %11 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %10) #10
+  %11 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %10) #9
   %12 = icmp eq ptr %11, null
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %1 to i64
@@ -3241,20 +3241,19 @@ define i32 @pg_encoding_max_length(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

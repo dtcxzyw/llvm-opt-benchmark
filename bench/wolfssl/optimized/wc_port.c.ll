@@ -77,7 +77,7 @@ if.end26:                                         ; preds = %if.end19
 
 if.then28:                                        ; preds = %if.end26
   store i64 %call13, ptr %bufLen, align 8
-  %call29 = tail call ptr @wolfSSL_Malloc(i64 noundef %call13) #14
+  %call29 = tail call ptr @wolfSSL_Malloc(i64 noundef %call13) #15
   store ptr %call29, ptr %buf, align 8
   %cmp30 = icmp eq ptr %call29, null
   br i1 %cmp30, label %return.sink.split, label %if.else
@@ -127,7 +127,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %s = getelementptr inbounds i8, ptr %ctx, i64 16
-  %call = call i32 @stat(ptr noundef nonnull %fname, ptr noundef nonnull %s) #14
+  %call = call i32 @stat(ptr noundef nonnull %fname, ptr noundef nonnull %s) #15
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.else, label %return
 
@@ -169,7 +169,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %ctx, i8 0, i64 424, i1 false)
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #15
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #16
   %conv = trunc i64 %call to i32
   %call4 = tail call ptr @opendir(ptr noundef nonnull %path)
   %dir = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -178,7 +178,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp6, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end3
-  %call1126 = tail call ptr @readdir(ptr noundef nonnull %call4) #14
+  %call1126 = tail call ptr @readdir(ptr noundef nonnull %call4) #15
   store ptr %call1126, ptr %ctx, align 8
   %cmp13.not27 = icmp eq ptr %call1126, null
   br i1 %cmp13.not27, label %if.end.i, label %while.body.lr.ph
@@ -196,7 +196,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.cond:                                       ; preds = %if.end22
   %0 = load ptr, ptr %dir, align 8
-  %call11 = tail call ptr @readdir(ptr noundef %0) #14
+  %call11 = tail call ptr @readdir(ptr noundef %0) #15
   store ptr %call11, ptr %ctx, align 8
   %cmp13.not = icmp eq ptr %call11, null
   br i1 %cmp13.not, label %if.end.i, label %while.body, !llvm.loop !4
@@ -204,24 +204,24 @@ while.cond:                                       ; preds = %if.end22
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %call1128 = phi ptr [ %call1126, %while.body.lr.ph ], [ %call11, %while.cond ]
   %d_name = getelementptr inbounds i8, ptr %call1128, i64 19
-  %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #15
+  %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #16
   %conv17 = trunc i64 %call16 to i32
   %add = add nsw i32 %conv17, %conv
   %cmp19 = icmp sgt i32 %add, 258
   br i1 %cmp19, label %if.end.i, label %if.end22
 
 if.end22:                                         ; preds = %while.body
-  %call27 = tail call ptr @strncpy(ptr noundef nonnull %name23, ptr noundef %path, i64 noundef %add26) #14
+  %call27 = tail call ptr @strncpy(ptr noundef nonnull %name23, ptr noundef %path, i64 noundef %add26) #15
   store i8 47, ptr %arrayidx, align 1
   %1 = load ptr, ptr %ctx, align 8
   %d_name33 = getelementptr inbounds i8, ptr %1, i64 19
   %sext24 = shl i64 %call16, 32
   %conv35 = ashr exact i64 %sext24, 32
   %add36 = add nsw i64 %conv35, 1
-  %call37 = tail call ptr @strncpy(ptr noundef nonnull %add.ptr31, ptr noundef nonnull %d_name33, i64 noundef %add36) #14
+  %call37 = tail call ptr @strncpy(ptr noundef nonnull %add.ptr31, ptr noundef nonnull %d_name33, i64 noundef %add36) #15
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %ctx.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %ctx.i, i8 0, i64 424, i1 false)
-  %call.i = call i32 @stat(ptr noundef nonnull readonly %name23, ptr noundef nonnull %s.i) #14
+  %call.i = call i32 @stat(ptr noundef nonnull readonly %name23, ptr noundef nonnull %s.i) #15
   %cmp1.not.i = icmp eq i32 %call.i, 0
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %2, 61440
@@ -307,11 +307,11 @@ if.end:                                           ; preds = %if.then, %entry
 if.end3:                                          ; preds = %if.end
   %name4 = getelementptr inbounds i8, ptr %ctx, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(261) %name4, i8 0, i64 261, i1 false)
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #15
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #16
   %conv = trunc i64 %call to i32
   %dir = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %dir, align 8
-  %call524 = tail call ptr @readdir(ptr noundef %0) #14
+  %call524 = tail call ptr @readdir(ptr noundef %0) #15
   store ptr %call524, ptr %ctx, align 8
   %cmp7.not25 = icmp eq ptr %call524, null
   br i1 %cmp7.not25, label %if.end.i, label %while.body.lr.ph
@@ -329,7 +329,7 @@ while.body.lr.ph:                                 ; preds = %if.end3
 
 while.cond:                                       ; preds = %if.end17
   %1 = load ptr, ptr %dir, align 8
-  %call5 = tail call ptr @readdir(ptr noundef %1) #14
+  %call5 = tail call ptr @readdir(ptr noundef %1) #15
   store ptr %call5, ptr %ctx, align 8
   %cmp7.not = icmp eq ptr %call5, null
   br i1 %cmp7.not, label %if.end.i, label %while.body, !llvm.loop !6
@@ -337,24 +337,24 @@ while.cond:                                       ; preds = %if.end17
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %call526 = phi ptr [ %call524, %while.body.lr.ph ], [ %call5, %while.cond ]
   %d_name = getelementptr inbounds i8, ptr %call526, i64 19
-  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #15
+  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #16
   %conv12 = trunc i64 %call11 to i32
   %add = add nsw i32 %conv12, %conv
   %cmp14 = icmp sgt i32 %add, 258
   br i1 %cmp14, label %if.end.i, label %if.end17
 
 if.end17:                                         ; preds = %while.body
-  %call22 = tail call ptr @strncpy(ptr noundef nonnull %name4, ptr noundef %path, i64 noundef %add21) #14
+  %call22 = tail call ptr @strncpy(ptr noundef nonnull %name4, ptr noundef %path, i64 noundef %add21) #15
   store i8 47, ptr %arrayidx, align 1
   %2 = load ptr, ptr %ctx, align 8
   %d_name28 = getelementptr inbounds i8, ptr %2, i64 19
   %sext21 = shl i64 %call11, 32
   %conv30 = ashr exact i64 %sext21, 32
   %add31 = add nsw i64 %conv30, 1
-  %call32 = tail call ptr @strncpy(ptr noundef nonnull %gep, ptr noundef nonnull %d_name28, i64 noundef %add31) #14
+  %call32 = tail call ptr @strncpy(ptr noundef nonnull %gep, ptr noundef nonnull %d_name28, i64 noundef %add31) #15
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %ctx.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %ctx.i, i8 0, i64 424, i1 false)
-  %call.i = call i32 @stat(ptr noundef nonnull readonly %name4, ptr noundef nonnull %s.i) #14
+  %call.i = call i32 @stat(ptr noundef nonnull readonly %name4, ptr noundef nonnull %s.i) #15
   %cmp1.not.i = icmp eq i32 %call.i, 0
   %3 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %3, 61440
@@ -394,17 +394,17 @@ declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @wc_InitAndAllocMutex() local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @wolfSSL_Malloc(i64 noundef 40) #14
+  %call = tail call ptr @wolfSSL_Malloc(i64 noundef 40) #15
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call, ptr noundef null) #14
+  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call, ptr noundef null) #15
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  tail call void @wolfSSL_Free(ptr noundef nonnull %call) #14
+  tail call void @wolfSSL_Free(ptr noundef nonnull %call) #15
   br label %if.end8
 
 if.end8:                                          ; preds = %entry, %if.then, %if.then4
@@ -415,7 +415,7 @@ if.end8:                                          ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_InitMutex(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @pthread_mutex_init(ptr noundef %m, ptr noundef null) #14
+  %call = tail call i32 @pthread_mutex_init(ptr noundef %m, ptr noundef null) #15
   %cmp = icmp eq i32 %call, 0
   %. = select i1 %cmp, i32 0, i32 -106
   ret i32 %.
@@ -591,8 +591,8 @@ return:                                           ; preds = %return.sink.split, 
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @wc_strlcpy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %dstSize) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i64 @wc_strlcpy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %dstSize) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq i64 %dstSize, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -629,19 +629,19 @@ return:                                           ; preds = %entry, %for.end
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @wc_strlcat(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %dstSize) local_unnamed_addr #9 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
+define i64 @wc_strlcat(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %dstSize) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq i64 %dstSize, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dst) #15
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dst) #16
   %cmp = icmp ugt i64 %call, %dstSize
   br i1 %cmp, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #15
+  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #16
   %add = add i64 %call2, %call
   br label %return
 
@@ -691,7 +691,7 @@ return:                                           ; preds = %entry, %wc_strlcpy.
 ; Function Attrs: nounwind uwtable
 define void @wolfSSL_RefInit(ptr noundef %ref, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_init(ptr noundef %ref, ptr noundef null) #14
+  %call.i = tail call i32 @pthread_mutex_init(ptr noundef %ref, ptr noundef null) #15
   %cmp.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.i, i32 0, i32 -106
   %count = getelementptr inbounds i8, ptr %ref, i64 40
@@ -703,14 +703,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @wolfSSL_RefFree(ptr noundef %ref) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef %ref) #14
+  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef %ref) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_FreeMutex(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @pthread_mutex_destroy(ptr noundef %m) #14
+  %call = tail call i32 @pthread_mutex_destroy(ptr noundef %m) #15
   %cmp = icmp eq i32 %call, 0
   %. = select i1 %cmp, i32 0, i32 -106
   ret i32 %.
@@ -719,7 +719,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @wolfSSL_RefInc(ptr noundef %ref, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %ref) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %ref) #15
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.else, label %if.end
 
@@ -728,7 +728,7 @@ if.else:                                          ; preds = %entry
   %0 = load i32, ptr %count, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %count, align 8
-  %call.i4 = tail call i32 @pthread_mutex_unlock(ptr noundef %ref) #14
+  %call.i4 = tail call i32 @pthread_mutex_unlock(ptr noundef %ref) #15
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
@@ -740,7 +740,7 @@ if.end:                                           ; preds = %entry, %if.else
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_LockMutex(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef %m) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef %m) #15
   %cmp = icmp eq i32 %call, 0
   %. = select i1 %cmp, i32 0, i32 -106
   ret i32 %.
@@ -749,7 +749,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_UnLockMutex(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %m) #14
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %m) #15
   %cmp = icmp eq i32 %call, 0
   %. = select i1 %cmp, i32 0, i32 -106
   ret i32 %.
@@ -758,7 +758,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @wolfSSL_RefDec(ptr noundef %ref, ptr nocapture noundef writeonly %isZero, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %ref) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %ref) #15
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.else, label %do.end
 
@@ -782,7 +782,7 @@ if.end:                                           ; preds = %if.then2, %if.else
   %cmp5 = icmp eq i32 %1, 0
   %conv = zext i1 %cmp5 to i32
   store i32 %conv, ptr %isZero, align 4
-  %call.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ref) #14
+  %call.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ref) #15
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %do.end
@@ -792,21 +792,21 @@ if.end8:                                          ; preds = %if.end, %do.end
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_InitRwLock(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_init(ptr noundef %m, ptr noundef null) #14
+  %call.i = tail call i32 @pthread_mutex_init(ptr noundef %m, ptr noundef null) #15
   %cmp.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.i, i32 0, i32 -106
   ret i32 %..i
@@ -815,7 +815,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_FreeRwLock(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef %m) #14
+  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef %m) #15
   %cmp.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.i, i32 0, i32 -106
   ret i32 %..i
@@ -824,7 +824,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_LockRwLock_Wr(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %m) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %m) #15
   %cmp.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.i, i32 0, i32 -106
   ret i32 %..i
@@ -833,7 +833,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_LockRwLock_Rd(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %m) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %m) #15
   %cmp.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.i, i32 0, i32 -106
   ret i32 %..i
@@ -842,16 +842,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 -106, 1) i32 @wc_UnLockRwLock(ptr noundef %m) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef %m) #14
+  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef %m) #15
   %cmp.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.i, i32 0, i32 -106
   ret i32 %..i
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @mystrnstr(ptr noundef readonly %s1, ptr nocapture noundef readonly %s2, i32 noundef %n) local_unnamed_addr #11 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define noundef ptr @mystrnstr(ptr noundef readonly %s1, ptr nocapture noundef readonly %s2, i32 noundef %n) local_unnamed_addr #12 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s2) #15
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s2) #16
   %conv = trunc i64 %call to i32
   %cmp = icmp eq i32 %conv, 0
   br i1 %cmp, label %return, label %while.cond.preheader
@@ -898,7 +898,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_create(ptr noundef nonnull %thread, ptr noundef null, ptr noundef nonnull %cb, ptr noundef %arg) #14
+  %call = tail call i32 @pthread_create(ptr noundef nonnull %thread, ptr noundef null, ptr noundef nonnull %cb, ptr noundef %arg) #15
   %cmp2.not = icmp eq i32 %call, 0
   %. = select i1 %cmp2.not, i32 0, i32 -125
   br label %return
@@ -909,7 +909,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define i32 @wolfSSL_NewThreadNoJoin(ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #1 {
@@ -920,13 +920,13 @@ entry:
   br i1 %cmp1.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i32 @pthread_create(ptr noundef nonnull %thread, ptr noundef null, ptr noundef nonnull %cb, ptr noundef %arg) #14
+  %call.i = call i32 @pthread_create(ptr noundef nonnull %thread, ptr noundef null, ptr noundef nonnull %cb, ptr noundef %arg) #15
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.end.i
   %0 = load i64, ptr %thread, align 8
-  %call1 = call i32 @pthread_detach(i64 noundef %0) #14
+  %call1 = call i32 @pthread_detach(i64 noundef %0) #15
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %entry, %if.then
@@ -935,7 +935,7 @@ if.end:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_detach(i64 noundef) local_unnamed_addr #10
+declare i32 @pthread_detach(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 1) i32 @wolfSSL_JoinThread(i64 noundef %thread) local_unnamed_addr #1 {
@@ -944,7 +944,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_join(i64 noundef %thread, ptr noundef null) #14
+  %call = tail call i32 @pthread_join(i64 noundef %thread, ptr noundef null) #15
   %cmp1.not = icmp eq i32 %call, 0
   %. = select i1 %cmp1.not, i32 0, i32 -125
   br label %return
@@ -963,18 +963,18 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %cond, ptr noundef null) #14
+  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %cond, ptr noundef null) #15
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
   %cond4 = getelementptr inbounds i8, ptr %cond, i64 40
-  %call5 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond4, ptr noundef null) #14
+  %call5 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cond4, ptr noundef null) #15
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end3
-  %call9 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %cond) #14
+  %call9 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %cond) #15
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then7, %if.end, %entry
@@ -983,7 +983,7 @@ return:                                           ; preds = %if.end3, %if.then7,
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 1) i32 @wolfSSL_CondFree(ptr noundef %cond) local_unnamed_addr #1 {
@@ -992,10 +992,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %cond) #14
+  %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %cond) #15
   %cmp1.not = icmp eq i32 %call, 0
   %cond4 = getelementptr inbounds i8, ptr %cond, i64 40
-  %call5 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond4) #14
+  %call5 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond4) #15
   %cmp6.not = icmp eq i32 %call5, 0
   %0 = select i1 %cmp6.not, i1 %cmp1.not, i1 false
   %ret.1 = select i1 %0, i32 0, i32 -125
@@ -1007,7 +1007,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 1) i32 @wolfSSL_CondStart(ptr noundef %cond) local_unnamed_addr #1 {
@@ -1016,7 +1016,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %cond) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %cond) #15
   %cmp1.not = icmp eq i32 %call, 0
   %. = select i1 %cmp1.not, i32 0, i32 -106
   br label %return
@@ -1034,7 +1034,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cond1 = getelementptr inbounds i8, ptr %cond, i64 40
-  %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond1) #14
+  %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond1) #15
   %cmp2.not = icmp eq i32 %call, 0
   %. = select i1 %cmp2.not, i32 0, i32 -125
   br label %return
@@ -1045,7 +1045,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -173, 1) i32 @wolfSSL_CondWait(ptr noundef %cond) local_unnamed_addr #1 {
@@ -1055,7 +1055,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cond1 = getelementptr inbounds i8, ptr %cond, i64 40
-  %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond1, ptr noundef nonnull %cond) #14
+  %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond1, ptr noundef nonnull %cond) #15
   %cmp2.not = icmp eq i32 %call, 0
   %. = select i1 %cmp2.not, i32 0, i32 -125
   br label %return
@@ -1074,7 +1074,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %cond) #14
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %cond) #15
   %cmp1.not = icmp eq i32 %call, 0
   %. = select i1 %cmp1.not, i32 0, i32 -106
   br label %return
@@ -1085,13 +1085,13 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1102,13 +1102,14 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

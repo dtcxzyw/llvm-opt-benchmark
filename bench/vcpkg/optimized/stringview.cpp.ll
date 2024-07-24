@@ -110,7 +110,7 @@ _ZN5vcpkgeqENS_10StringViewES0_.exit:             ; preds = %4, %7, %9
   ret i1 %.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %.v = tail call i64 @llvm.smin.i64(i64 %3, i64 %1)
@@ -150,7 +150,7 @@ _ZSt23lexicographical_compareIPKcS1_EbT_S2_T0_S3_.exit: ; preds = %_ZSt23lexicog
   ret i1 %.0.i.i.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN5vcpkggtENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %.v.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %3)
@@ -190,7 +190,7 @@ _ZN5vcpkgltENS_10StringViewES0_.exit:             ; preds = %_ZN5vcpkgltENS_10St
   ret i1 %.0.i.i.i.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN5vcpkgleENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %.v.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %3)
@@ -230,7 +230,7 @@ _ZN5vcpkgltENS_10StringViewES0_.exit:             ; preds = %_ZN5vcpkgltENS_10St
   ret i1 %.0.i.i.i.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN5vcpkggeENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %.v.i = tail call i64 @llvm.smin.i64(i64 %3, i64 %1)
@@ -294,7 +294,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

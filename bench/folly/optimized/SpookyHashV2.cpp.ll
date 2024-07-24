@@ -3,7 +3,7 @@ source_filename = "bench/folly/original/SpookyHashV2.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5folly4hash12SpookyHashV25ShortEPKvmPmS4_(ptr noundef readonly %message, i64 noundef %length, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %rem = and i64 %length, 31
@@ -335,7 +335,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %message, i64 noundef %length, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %buf = alloca [12 x i64], align 16
@@ -347,7 +347,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %buf) #7
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %buf) #6
   %0 = load i64, ptr %hash1, align 8, !tbaa !7
   %1 = load i64, ptr %hash2, align 8, !tbaa !7
   %div = udiv i64 %length, 96
@@ -623,7 +623,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %or.i126.i = tail call i64 @llvm.fshl.i64(i64 %xor29.i50, i64 %xor29.i50, i64 54)
   store i64 %or.i126.i, ptr %hash1, align 8, !tbaa !7
   store i64 %xor32.i, ptr %hash2, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %buf) #7
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %buf) #6
   br label %return
 
 return:                                           ; preds = %while.end, %if.then
@@ -650,8 +650,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly4hash12SpookyHashV26UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef readonly %message, i64 noundef %length) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN5folly4hash12SpookyHashV26UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef readonly %message, i64 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %m_remainder = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load i8, ptr %m_remainder, align 8, !tbaa !19
@@ -1065,7 +1065,7 @@ cleanup:                                          ; preds = %while.end, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5folly4hash12SpookyHashV25FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %buf = alloca [24 x i64], align 16
@@ -1086,7 +1086,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %buf) #7
+  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %buf) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %buf, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 192, i1 false)
   %m_remainder = getelementptr inbounds i8, ptr %this, i64 296
   %4 = load i8, ptr %m_remainder, align 8, !tbaa !19
@@ -1370,7 +1370,7 @@ if.end37:                                         ; preds = %if.then34, %if.end
   %or.i126.i = tail call i64 @llvm.fshl.i64(i64 %xor29.i79, i64 %xor29.i79, i64 54)
   store i64 %or.i126.i, ptr %hash1, align 8, !tbaa !7
   store i64 %xor32.i, ptr %hash2, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %buf) #7
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %buf) #6
   br label %return
 
 return:                                           ; preds = %if.end37, %if.then
@@ -1378,16 +1378,15 @@ return:                                           ; preds = %if.end37, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

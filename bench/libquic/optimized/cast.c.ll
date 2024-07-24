@@ -2318,8 +2318,8 @@ for.end936:                                       ; preds = %for.body923
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @CAST_cfb64_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr nocapture noundef readonly %schedule, ptr nocapture noundef %ivec, ptr nocapture noundef %num, i32 noundef %enc) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @CAST_cfb64_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr nocapture noundef readonly %schedule, ptr nocapture noundef %ivec, ptr nocapture noundef %num, i32 noundef %enc) local_unnamed_addr #2 {
 entry:
   %ti = alloca [2 x i32], align 4
   %0 = load i32, ptr %num, align 4

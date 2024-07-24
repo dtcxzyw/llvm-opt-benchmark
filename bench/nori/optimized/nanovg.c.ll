@@ -1608,7 +1608,7 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %77
 118:                                              ; preds = %115
   %119 = getelementptr inbounds i8, ptr %108, i64 21112
   %120 = load ptr, ptr %119, align 8
-  tail call void %117(ptr noundef %120, i32 noundef 2, i32 noundef %113) #55
+  tail call void %117(ptr noundef %120, i32 noundef 2, i32 noundef %113) #57
   br label %fons__tmpalloc.exit.thread
 
 fons__tmpalloc.exit:                              ; preds = %89
@@ -2345,7 +2345,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
 526:                                              ; preds = %523
   %527 = getelementptr inbounds i8, ptr %516, i64 21112
   %528 = load ptr, ptr %527, align 8
-  tail call void %525(ptr noundef %528, i32 noundef 2, i32 noundef %521) #55
+  tail call void %525(ptr noundef %528, i32 noundef 2, i32 noundef %521) #57
   br label %fons__tmpalloc.exit.thread
 
 fons__tmpalloc.exit399:                           ; preds = %513
@@ -3754,7 +3754,7 @@ define dso_local void @stbtt_Rasterize(ptr nocapture noundef readonly %0, float 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %11, i64 21112
   %39 = load ptr, ptr %38, align 8
-  tail call void %36(ptr noundef %39, i32 noundef 2, i32 noundef %32) #55
+  tail call void %36(ptr noundef %39, i32 noundef 2, i32 noundef %32) #57
   br label %stbtt_FlattenCurves.exit.thread
 
 fons__tmpalloc.exit.i:                            ; preds = %26
@@ -3895,7 +3895,7 @@ stbtt__add_point.exit.us.i:                       ; preds = %99, %94, %85, %80, 
 109:                                              ; preds = %.split.us.i
   %110 = getelementptr inbounds i8, ptr %11, i64 21112
   %111 = load ptr, ptr %110, align 8
-  tail call void %108(ptr noundef %111, i32 noundef 2, i32 noundef %53) #55
+  tail call void %108(ptr noundef %111, i32 noundef 2, i32 noundef %53) #57
   br label %stbtt_FlattenCurves.exit.thread
 
 stbtt_FlattenCurves.exit.thread:                  ; preds = %fons__tmpalloc.exit89.us.i, %12, %fons__tmpalloc.exit.i, %37, %34, %109, %.split.us.i, %._crit_edge.i
@@ -3941,7 +3941,7 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge107.us.i
 126:                                              ; preds = %123
   %127 = getelementptr inbounds i8, ptr %11, i64 21112
   %128 = load ptr, ptr %127, align 8
-  tail call void %125(ptr noundef %128, i32 noundef 2, i32 noundef %121) #55
+  tail call void %125(ptr noundef %128, i32 noundef 2, i32 noundef %121) #57
   br label %stbtt__rasterize.exit
 
 fons__tmpalloc.exit.i23:                          ; preds = %._crit_edge.i22
@@ -4223,7 +4223,7 @@ stbtt__sort_edges.exit.i:                         ; preds = %234, %._crit_edge11
 247:                                              ; preds = %244
   %248 = getelementptr inbounds i8, ptr %11, i64 21112
   %249 = load ptr, ptr %248, align 8
-  tail call void %246(ptr noundef %249, i32 noundef 2, i32 noundef %242) #55
+  tail call void %246(ptr noundef %249, i32 noundef 2, i32 noundef %242) #57
   br label %fons__tmpalloc.exit.i.i
 
 250:                                              ; preds = %237
@@ -4349,7 +4349,7 @@ stbtt__hheap_alloc.exit.thread32.i.i.i:           ; preds = %299
 
 309:                                              ; preds = %307
   %310 = load ptr, ptr %268, align 8
-  tail call void %308(ptr noundef %310, i32 noundef 2, i32 noundef %305) #55
+  tail call void %308(ptr noundef %310, i32 noundef 2, i32 noundef %305) #57
   br label %stbtt__new_active.exit.thread.i.i
 
 fons__tmpalloc.exit.i.i.i.i:                      ; preds = %303
@@ -6305,7 +6305,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %20, %22
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %61, i64 21112
   %73 = load ptr, ptr %72, align 8
-  call void %70(ptr noundef %73, i32 noundef 2, i32 noundef %66) #55
+  call void %70(ptr noundef %73, i32 noundef 2, i32 noundef %66) #57
   br label %fons__tmpalloc.exit.thread
 
 fons__tmpalloc.exit:                              ; preds = %59
@@ -6719,7 +6719,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackBegin(ptr nocapture noundef writ
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %6, i64 21112
   %17 = load ptr, ptr %16, align 8
-  tail call void %14(ptr noundef %17, i32 noundef 2, i32 noundef %10) #55
+  tail call void %14(ptr noundef %17, i32 noundef 2, i32 noundef %10) #57
   %.pre = load i32, ptr %8, align 8
   br label %fons__tmpalloc.exit
 
@@ -6750,7 +6750,7 @@ fons__tmpalloc.exit:                              ; preds = %12, %15, %18
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %6, i64 21112
   %34 = load ptr, ptr %33, align 8
-  tail call void %31(ptr noundef %34, i32 noundef 2, i32 noundef %27) #55
+  tail call void %31(ptr noundef %34, i32 noundef 2, i32 noundef %27) #57
   br label %.thread
 
 fons__tmpalloc.exit54:                            ; preds = %fons__tmpalloc.exit
@@ -8330,7 +8330,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr nocapture noundef
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %31, i64 21112
   %41 = load ptr, ptr %40, align 8
-  tail call void %38(ptr noundef %41, i32 noundef 2, i32 noundef %34) #55
+  tail call void %38(ptr noundef %41, i32 noundef 2, i32 noundef %34) #57
   br label %fons__tmpalloc.exit.thread
 
 fons__tmpalloc.exit:                              ; preds = %._crit_edge60
@@ -8565,16 +8565,16 @@ define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i3
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define dso_local range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #14 {
   %5 = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   %6 = icmp eq i32 %5, %1
   %7 = zext i1 %6 to i32
   ret i32 %7
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #14 {
   %.not84 = icmp eq i32 %3, 0
   br i1 %.not84, label %._crit_edge, label %.lr.ph
 
@@ -8945,15 +8945,15 @@ stbtt__find_table.exit.thread:                    ; preds = %39, %127, %58, %6, 
   ret ptr %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #14 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define dso_local i32 @stbtt_FindMatchingFont(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #15 {
   %invariant.gep = getelementptr i8, ptr %0, i64 45
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %stbtt__matches.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #56
+  %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #58
   %7 = trunc i64 %6 to i32
   %.not39.i = icmp eq i32 %2, 0
   %8 = and i32 %2, 7
@@ -9613,7 +9613,7 @@ stbtt_GetGlyphKernAdvance.exit:                   ; preds = %75, %3, %10, %18, %
 define dso_local noundef ptr @fonsCreateInternal(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = tail call noalias dereferenceable_or_null(21120) ptr @malloc(i64 noundef 21120) #57
+  %4 = tail call noalias dereferenceable_or_null(21120) ptr @malloc(i64 noundef 21120) #59
   %5 = icmp eq ptr %4, null
   br i1 %5, label %78, label %6
 
@@ -9621,7 +9621,7 @@ define dso_local noundef ptr @fonsCreateInternal(ptr nocapture noundef readonly 
   %7 = getelementptr i8, ptr %4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21056) %7, i8 0, i64 21056, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %8 = tail call noalias dereferenceable_or_null(96000) ptr @malloc(i64 noundef 96000) #57
+  %8 = tail call noalias dereferenceable_or_null(96000) ptr @malloc(i64 noundef 96000) #59
   %9 = getelementptr inbounds i8, ptr %4, i64 20608
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
@@ -9644,7 +9644,7 @@ define dso_local noundef ptr @fonsCreateInternal(ptr nocapture noundef readonly 
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 %13(ptr noundef %16, i32 noundef %.pre, i32 noundef %18) #55
+  %19 = tail call i32 %13(ptr noundef %16, i32 noundef %.pre, i32 noundef %18) #57
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %78, label %21
 
@@ -9665,7 +9665,7 @@ define dso_local noundef ptr @fonsCreateInternal(ptr nocapture noundef readonly 
   br i1 %26, label %fons__deleteAtlas.exit.i, label %28
 
 fons__deleteAtlas.exit.i:                         ; preds = %23
-  tail call void @free(ptr noundef nonnull %calloc24.i) #55
+  tail call void @free(ptr noundef nonnull %calloc24.i) #57
   br label %fons__allocAtlas.exit.thread
 
 fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAtlas.exit.i
@@ -9779,7 +9779,7 @@ fonsPushState.exit:                               ; preds = %65, %48
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fonsPushState(ptr nocapture noundef %0) local_unnamed_addr #3 {
@@ -9797,7 +9797,7 @@ define dso_local void @fonsPushState(ptr nocapture noundef %0) local_unnamed_add
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 21112
   %10 = load ptr, ptr %9, align 8
-  tail call void %7(ptr noundef %10, i32 noundef 3, i32 noundef 0) #55
+  tail call void %7(ptr noundef %10, i32 noundef 3, i32 noundef 0) #57
   br label %23
 
 11:                                               ; preds = %1
@@ -9859,7 +9859,7 @@ define dso_local void @fonsDeleteInternal(ptr noundef %0) local_unnamed_addr #3 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  tail call void %5(ptr noundef %8) #55
+  tail call void %5(ptr noundef %8) #57
   br label %9
 
 9:                                                ; preds = %6, %3
@@ -9888,7 +9888,7 @@ define dso_local void @fonsDeleteInternal(ptr noundef %0) local_unnamed_addr #3 
   br i1 %.not.i, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %22) #55
+  tail call void @free(ptr noundef nonnull %22) #57
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -9904,11 +9904,11 @@ define dso_local void @fonsDeleteInternal(ptr noundef %0) local_unnamed_addr #3 
   br i1 %.not10.i, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %29) #55
+  tail call void @free(ptr noundef nonnull %29) #57
   br label %31
 
 31:                                               ; preds = %30, %27, %24
-  tail call void @free(ptr noundef nonnull %18) #55
+  tail call void @free(ptr noundef nonnull %18) #57
   %.pre = load i32, ptr %10, align 4
   br label %fons__freeFont.exit
 
@@ -9932,11 +9932,11 @@ fons__freeFont.exit:                              ; preds = %14, %31
   br i1 %.not.i28, label %fons__deleteAtlas.exit, label %40
 
 40:                                               ; preds = %37
-  tail call void @free(ptr noundef nonnull %39) #55
+  tail call void @free(ptr noundef nonnull %39) #57
   br label %fons__deleteAtlas.exit
 
 fons__deleteAtlas.exit:                           ; preds = %37, %40
-  tail call void @free(ptr noundef nonnull %36) #55
+  tail call void @free(ptr noundef nonnull %36) #57
   br label %41
 
 41:                                               ; preds = %fons__deleteAtlas.exit, %._crit_edge
@@ -9946,7 +9946,7 @@ fons__deleteAtlas.exit:                           ; preds = %37, %40
   br i1 %.not25, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void @free(ptr noundef nonnull %43) #55
+  tail call void @free(ptr noundef nonnull %43) #57
   br label %45
 
 45:                                               ; preds = %44, %41
@@ -9956,7 +9956,7 @@ fons__deleteAtlas.exit:                           ; preds = %37, %40
   br i1 %.not26, label %49, label %48
 
 48:                                               ; preds = %45
-  tail call void @free(ptr noundef nonnull %47) #55
+  tail call void @free(ptr noundef nonnull %47) #57
   br label %49
 
 49:                                               ; preds = %48, %45
@@ -9966,11 +9966,11 @@ fons__deleteAtlas.exit:                           ; preds = %37, %40
   br i1 %.not27, label %53, label %52
 
 52:                                               ; preds = %49
-  tail call void @free(ptr noundef nonnull %51) #55
+  tail call void @free(ptr noundef nonnull %51) #57
   br label %53
 
 53:                                               ; preds = %52, %49
-  tail call void @free(ptr noundef nonnull %0) #55
+  tail call void @free(ptr noundef nonnull %0) #57
   br label %54
 
 54:                                               ; preds = %1, %53
@@ -9978,7 +9978,7 @@ fons__deleteAtlas.exit:                           ; preds = %37, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @fonsAddFallbackFont(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
+define dso_local range(i32 0, 2) i32 @fonsAddFallbackFont(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -10091,7 +10091,7 @@ define dso_local void @fonsPopState(ptr nocapture noundef %0) local_unnamed_addr
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 21112
   %10 = load ptr, ptr %9, align 8
-  tail call void %7(ptr noundef %10, i32 noundef 4, i32 noundef 0) #55
+  tail call void %7(ptr noundef %10, i32 noundef 4, i32 noundef 0) #57
   br label %13
 
 11:                                               ; preds = %1
@@ -10116,7 +10116,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFont(ptr noundef
   %10 = tail call i32 @fseek(ptr noundef nonnull %4, i64 noundef 0, i32 noundef 0)
   %sext = shl i64 %8, 32
   %11 = ashr exact i64 %sext, 32
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #57
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #59
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
@@ -10131,7 +10131,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFont(ptr noundef
   br label %.thread35
 
 .thread32:                                        ; preds = %14
-  tail call void @free(ptr noundef nonnull %12) #55
+  tail call void @free(ptr noundef nonnull %12) #57
   br label %.thread35
 
 19:                                               ; preds = %6
@@ -10144,19 +10144,19 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFont(ptr noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #17
+declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFontMem(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
@@ -10176,7 +10176,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFontMem(ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %spec.select.i to i64
   %16 = shl nsw i64 %15, 3
-  %17 = tail call ptr @realloc(ptr noundef %14, i64 noundef %16) #58
+  %17 = tail call ptr @realloc(ptr noundef %14, i64 noundef %16) #60
   store ptr %17, ptr %13, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %fons__allocFont.exit.thread, label %19
@@ -10187,14 +10187,14 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @fonsAddFontMem(ptr noun
   br i1 %20, label %fons__allocFont.exit.thread, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #57
+  %22 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #59
   %23 = getelementptr inbounds i8, ptr %calloc.i, i64 152
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
   br i1 %24, label %fons__freeFont.exit.i, label %fons__allocFont.exit
 
 fons__freeFont.exit.i:                            ; preds = %21
-  tail call void @free(ptr noundef nonnull %calloc.i) #55
+  tail call void @free(ptr noundef nonnull %calloc.i) #57
   br label %fons__allocFont.exit.thread
 
 fons__allocFont.exit:                             ; preds = %21
@@ -10219,7 +10219,7 @@ fons__allocFont.exit:                             ; preds = %21
   %38 = getelementptr inbounds ptr, ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 56
-  %41 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 64) #55
+  %41 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 64) #57
   %42 = getelementptr inbounds i8, ptr %39, i64 119
   store i8 0, ptr %42, align 1
   %43 = getelementptr inbounds i8, ptr %39, i64 168
@@ -10296,7 +10296,7 @@ fons__allocFont.exit:                             ; preds = %21
   br i1 %.not.i35, label %95, label %94
 
 94:                                               ; preds = %91
-  tail call void @free(ptr noundef nonnull %93) #55
+  tail call void @free(ptr noundef nonnull %93) #57
   br label %95
 
 95:                                               ; preds = %94, %91
@@ -10310,11 +10310,11 @@ fons__allocFont.exit:                             ; preds = %21
   br i1 %.not10.i, label %fons__freeFont.exit, label %99
 
 99:                                               ; preds = %97
-  tail call void @free(ptr noundef nonnull %98) #55
+  tail call void @free(ptr noundef nonnull %98) #57
   br label %fons__freeFont.exit
 
 fons__freeFont.exit:                              ; preds = %95, %97, %99
-  tail call void @free(ptr noundef nonnull %39) #55
+  tail call void @free(ptr noundef nonnull %39) #57
   %100 = load i32, ptr %6, align 4
   %101 = add nsw i32 %100, -1
   store i32 %101, ptr %6, align 4
@@ -10326,13 +10326,13 @@ fons__allocFont.exit.thread:                      ; preds = %19, %fons__freeFont
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #19
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @fonsGetFontByName(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
+define dso_local i32 @fonsGetFontByName(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -10349,7 +10349,7 @@ define dso_local i32 @fonsGetFontByName(ptr nocapture noundef readonly %0, ptr n
   %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 56
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #56
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #58
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge.loopexit.split.loop.exit12, label %14
 
@@ -10368,7 +10368,7 @@ define dso_local i32 @fonsGetFontByName(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
@@ -10444,7 +10444,7 @@ define dso_local float @fonsDrawText(ptr noundef %0, float noundef %1, float nou
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %36
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #56
+  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #58
   %65 = getelementptr inbounds i8, ptr %3, i64 %64
   br label %66
 
@@ -10666,7 +10666,7 @@ fons__decutf8.exit:                               ; preds = %165, %169
 195:                                              ; preds = %193
   %196 = load ptr, ptr %144, align 8
   %197 = load ptr, ptr %145, align 8
-  tail call void %194(ptr noundef %196, ptr noundef nonnull %139, ptr noundef %197) #55
+  tail call void %194(ptr noundef %196, ptr noundef nonnull %139, ptr noundef %197) #57
   %.pre.pre = load i32, ptr %138, align 8
   br label %198
 
@@ -10687,7 +10687,7 @@ fons__decutf8.exit:                               ; preds = %165, %169
 
 203:                                              ; preds = %.thread
   %204 = load ptr, ptr %144, align 8
-  tail call void %202(ptr noundef %204, ptr noundef nonnull %147, ptr noundef nonnull %148, ptr noundef nonnull %149, i32 noundef %201) #55
+  tail call void %202(ptr noundef %204, ptr noundef nonnull %147, ptr noundef nonnull %148, ptr noundef nonnull %149, i32 noundef %201) #57
   br label %205
 
 205:                                              ; preds = %203, %.thread
@@ -10897,7 +10897,7 @@ fons__decutf8.exit:                               ; preds = %165, %169
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr inbounds i8, ptr %0, i64 72
   %357 = load ptr, ptr %356, align 8
-  tail call void %352(ptr noundef %355, ptr noundef nonnull %339, ptr noundef %357) #55
+  tail call void %352(ptr noundef %355, ptr noundef nonnull %339, ptr noundef %357) #57
   br label %358
 
 358:                                              ; preds = %353, %350
@@ -10925,7 +10925,7 @@ fons__decutf8.exit:                               ; preds = %165, %169
   %370 = getelementptr inbounds i8, ptr %0, i64 120
   %371 = getelementptr inbounds i8, ptr %0, i64 8312
   %372 = getelementptr inbounds i8, ptr %0, i64 16504
-  tail call void %366(ptr noundef %369, ptr noundef nonnull %370, ptr noundef nonnull %371, ptr noundef nonnull %372, i32 noundef %362) #55
+  tail call void %366(ptr noundef %369, ptr noundef nonnull %370, ptr noundef nonnull %371, ptr noundef nonnull %372, i32 noundef %362) #57
   br label %373
 
 373:                                              ; preds = %367, %364
@@ -10938,7 +10938,7 @@ fons__flush.exit80:                               ; preds = %373, %360, %27, %5,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define dso_local float @fonsTextBounds(ptr nocapture noundef %0, float noundef %1, float noundef %2, ptr noundef readonly %3, ptr noundef readnone %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
@@ -11106,7 +11106,7 @@ fons__getVertAlign.exit:                          ; preds = %69, %76, %85, %87, 
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %fons__getVertAlign.exit
-  %121 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #56
+  %121 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #58
   %122 = getelementptr inbounds i8, ptr %3, i64 %121
   br label %123
 
@@ -11529,7 +11529,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %.loopexit, %128
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i8, ptr %0, i64 21112
   %167 = load ptr, ptr %166, align 8
-  call void %164(ptr noundef %167, i32 noundef 1, i32 noundef 0) #55
+  call void %164(ptr noundef %167, i32 noundef 1, i32 noundef 0) #57
   %168 = load ptr, ptr %158, align 8
   %169 = call fastcc i32 @fons__atlasAddRect(ptr noundef %168, i32 noundef %153, i32 noundef %155, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %170 = icmp eq i32 %169, 0
@@ -11566,7 +11566,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %.loopexit, %128
   %181 = load ptr, ptr %180, align 8
   %182 = sext i32 %spec.select.i to i64
   %183 = shl nsw i64 %182, 5
-  %184 = call ptr @realloc(ptr noundef %181, i64 noundef %183) #58
+  %184 = call ptr @realloc(ptr noundef %181, i64 noundef %183) #60
   store ptr %184, ptr %180, align 8
   %185 = icmp ne ptr %184, null
   call void @llvm.assume(i1 %185)
@@ -11724,7 +11724,7 @@ fons__allocGlyph.exit:                            ; preds = %._crit_edge.i, %._c
   %284 = fmul float %283, 0x3FE279A6C0000000
   %285 = fadd float %284, 1.000000e+00
   %286 = fdiv float 0xC002666660000000, %285
-  %287 = call float @expf(float noundef %286) #55
+  %287 = call float @expf(float noundef %286) #57
   %288 = fsub float 1.000000e+00, %287
   %289 = fmul float %288, 6.553600e+04
   %290 = fptosi float %289 to i32
@@ -12355,7 +12355,7 @@ fons__getVertAlign.exit:                          ; preds = %87, %95, %105, %107
   br i1 %143, label %144, label %147
 
 144:                                              ; preds = %fons__getVertAlign.exit
-  %145 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #56
+  %145 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #58
   %146 = getelementptr inbounds i8, ptr %4, i64 %145
   br label %147
 
@@ -12545,7 +12545,7 @@ define dso_local void @fonsDrawDebug(ptr noundef %0, float noundef %1, float nou
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8
-  tail call void %32(ptr noundef %35, ptr noundef nonnull %19, ptr noundef %37) #55
+  tail call void %32(ptr noundef %35, ptr noundef nonnull %19, ptr noundef %37) #57
   %.pre129.pre = load i32, ptr %15, align 8
   %38 = load <2 x i32>, ptr %0, align 8
   store <2 x i32> %38, ptr %19, align 8
@@ -12567,7 +12567,7 @@ define dso_local void @fonsDrawDebug(ptr noundef %0, float noundef %1, float nou
   %46 = getelementptr inbounds i8, ptr %0, i64 120
   %47 = getelementptr inbounds i8, ptr %0, i64 8312
   %48 = getelementptr inbounds i8, ptr %0, i64 16504
-  tail call void %42(ptr noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48, i32 noundef %40) #55
+  tail call void %42(ptr noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48, i32 noundef %40) #57
   br label %49
 
 49:                                               ; preds = %43, %.thread
@@ -12931,7 +12931,7 @@ fons__flush.exit:                                 ; preds = %49, %33, %3
 316:                                              ; preds = %314
   %317 = load ptr, ptr %296, align 8
   %318 = load ptr, ptr %297, align 8
-  tail call void %315(ptr noundef %317, ptr noundef nonnull %291, ptr noundef %318) #55
+  tail call void %315(ptr noundef %317, ptr noundef nonnull %291, ptr noundef %318) #57
   %.pre130.pre = load i32, ptr %15, align 8
   br label %319
 
@@ -12952,7 +12952,7 @@ fons__flush.exit:                                 ; preds = %49, %33, %3
 
 324:                                              ; preds = %.thread138
   %325 = load ptr, ptr %296, align 8
-  tail call void %323(ptr noundef %325, ptr noundef nonnull %53, ptr noundef nonnull %62, ptr noundef nonnull %70, i32 noundef %322) #55
+  tail call void %323(ptr noundef %325, ptr noundef nonnull %53, ptr noundef nonnull %62, ptr noundef nonnull %70, i32 noundef %322) #57
   br label %326
 
 326:                                              ; preds = %324, %.thread138
@@ -13197,7 +13197,7 @@ fons__flush.exit122:                              ; preds = %326, %319, %299
   %514 = load ptr, ptr %513, align 8
   %515 = getelementptr inbounds i8, ptr %0, i64 72
   %516 = load ptr, ptr %515, align 8
-  tail call void %511(ptr noundef %514, ptr noundef nonnull %498, ptr noundef %516) #55
+  tail call void %511(ptr noundef %514, ptr noundef nonnull %498, ptr noundef %516) #57
   %.pre131.pre = load i32, ptr %15, align 8
   br label %517
 
@@ -13223,7 +13223,7 @@ fons__flush.exit122:                              ; preds = %326, %319, %299
 525:                                              ; preds = %522
   %526 = getelementptr inbounds i8, ptr %0, i64 16
   %527 = load ptr, ptr %526, align 8
-  tail call void %524(ptr noundef %527, ptr noundef nonnull %53, ptr noundef nonnull %62, ptr noundef nonnull %70, i32 noundef %520) #55
+  tail call void %524(ptr noundef %527, ptr noundef nonnull %53, ptr noundef nonnull %62, ptr noundef nonnull %70, i32 noundef %520) #57
   br label %528
 
 528:                                              ; preds = %525, %522
@@ -13629,7 +13629,7 @@ define dso_local range(i32 0, 2) i32 @fonsExpandAtlas(ptr noundef %0, i32 nounde
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8
-  tail call void %29(ptr noundef %32, ptr noundef nonnull %16, ptr noundef %34) #55
+  tail call void %29(ptr noundef %32, ptr noundef nonnull %16, ptr noundef %34) #57
   %35 = load <2 x i32>, ptr %0, align 8
   br label %36
 
@@ -13658,7 +13658,7 @@ define dso_local range(i32 0, 2) i32 @fonsExpandAtlas(ptr noundef %0, i32 nounde
   %48 = getelementptr inbounds i8, ptr %0, i64 120
   %49 = getelementptr inbounds i8, ptr %0, i64 8312
   %50 = getelementptr inbounds i8, ptr %0, i64 16504
-  tail call void %44(ptr noundef %47, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef %40) #55
+  tail call void %44(ptr noundef %47, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef %40) #57
   br label %51
 
 51:                                               ; preds = %45, %42
@@ -13676,7 +13676,7 @@ fons__flush.exit:                                 ; preds = %38, %51
   %56 = load ptr, ptr %55, align 8
   %57 = extractelement <2 x i32> %10, i64 0
   %58 = extractelement <2 x i32> %10, i64 1
-  %59 = tail call i32 %53(ptr noundef %56, i32 noundef %57, i32 noundef %58) #55
+  %59 = tail call i32 %53(ptr noundef %56, i32 noundef %57, i32 noundef %58) #57
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %154, label %61
 
@@ -13685,7 +13685,7 @@ fons__flush.exit:                                 ; preds = %38, %51
   %63 = extractelement <2 x i32> %10, i64 1
   %64 = mul nsw i32 %63, %62
   %65 = sext i32 %64 to i64
-  %66 = tail call noalias ptr @malloc(i64 noundef %65) #57
+  %66 = tail call noalias ptr @malloc(i64 noundef %65) #59
   %67 = icmp eq ptr %66, null
   br i1 %67, label %154, label %.preheader
 
@@ -13747,7 +13747,7 @@ fons__flush.exit:                                 ; preds = %38, %51
 95:                                               ; preds = %88, %._crit_edge
   %96 = getelementptr inbounds i8, ptr %0, i64 72
   %97 = load ptr, ptr %96, align 8
-  tail call void @free(ptr noundef %97) #55
+  tail call void @free(ptr noundef %97) #57
   store ptr %66, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 104
   %99 = load ptr, ptr %98, align 8
@@ -13773,7 +13773,7 @@ fons__flush.exit:                                 ; preds = %38, %51
   %112 = load ptr, ptr %111, align 8
   %113 = sext i32 %spec.select.i.i to i64
   %114 = mul nsw i64 %113, 6
-  %115 = tail call ptr @realloc(ptr noundef %112, i64 noundef %114) #58
+  %115 = tail call ptr @realloc(ptr noundef %112, i64 noundef %114) #60
   store ptr %115, ptr %111, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %fons__atlasExpand.exit, label %117
@@ -13901,7 +13901,7 @@ define dso_local range(i32 0, 2) i32 @fonsResetAtlas(ptr noundef %0, i32 noundef
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
-  tail call void %21(ptr noundef %24, ptr noundef nonnull %8, ptr noundef %26) #55
+  tail call void %21(ptr noundef %24, ptr noundef nonnull %8, ptr noundef %26) #57
   br label %27
 
 27:                                               ; preds = %22, %19
@@ -13929,7 +13929,7 @@ define dso_local range(i32 0, 2) i32 @fonsResetAtlas(ptr noundef %0, i32 noundef
   %39 = getelementptr inbounds i8, ptr %0, i64 120
   %40 = getelementptr inbounds i8, ptr %0, i64 8312
   %41 = getelementptr inbounds i8, ptr %0, i64 16504
-  tail call void %35(ptr noundef %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, i32 noundef %31) #55
+  tail call void %35(ptr noundef %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, i32 noundef %31) #57
   br label %42
 
 42:                                               ; preds = %36, %33
@@ -13945,7 +13945,7 @@ fons__flush.exit:                                 ; preds = %29, %42
 45:                                               ; preds = %fons__flush.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %44(ptr noundef %47, i32 noundef %1, i32 noundef %2) #55
+  %48 = tail call i32 %44(ptr noundef %47, i32 noundef %1, i32 noundef %2) #57
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %116, label %50
 
@@ -13974,7 +13974,7 @@ fons__flush.exit:                                 ; preds = %29, %42
   %65 = load ptr, ptr %64, align 8
   %66 = mul nsw i32 %2, %1
   %67 = sext i32 %66 to i64
-  %68 = tail call ptr @realloc(ptr noundef %65, i64 noundef %67) #58
+  %68 = tail call ptr @realloc(ptr noundef %65, i64 noundef %67) #60
   store ptr %68, ptr %64, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %116, label %70
@@ -14071,22 +14071,22 @@ fons__addWhiteRect.exit:                          ; preds = %._crit_edge, %108
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local ptr @stbi_failure_reason() local_unnamed_addr #22 {
+define dso_local ptr @stbi_failure_reason() local_unnamed_addr #24 {
   %1 = load ptr, ptr @stbi__g_failure_reason, align 8
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @stbi_image_free(ptr nocapture noundef %0) local_unnamed_addr #23 {
-  tail call void @free(ptr noundef %0) #55
+define dso_local void @stbi_image_free(ptr nocapture noundef %0) local_unnamed_addr #25 {
+  tail call void @free(ptr noundef %0) #57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @stbi_set_flip_vertically_on_load(i32 noundef %0) local_unnamed_addr #24 {
+define dso_local void @stbi_set_flip_vertically_on_load(i32 noundef %0) local_unnamed_addr #26 {
   store i32 %0, ptr @stbi__vertically_flip_on_load, align 4
   ret void
 }
@@ -14116,7 +14116,7 @@ define dso_local ptr @stbi_load(ptr nocapture noundef readonly %0, ptr nocapture
   %15 = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %10, align 8
-  %17 = call i32 %16(ptr noundef nonnull %7, ptr noundef nonnull %14, i32 noundef 128) #55
+  %17 = call i32 %16(ptr noundef nonnull %7, ptr noundef nonnull %14, i32 noundef 128) #57
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
 
@@ -14179,7 +14179,7 @@ define dso_local ptr @stbi_load_from_file(ptr noundef %0, ptr nocapture noundef 
   %12 = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #55
+  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #57
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
@@ -14249,7 +14249,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef %0, ptr 
   %20 = mul nsw i32 %14, %13
   %21 = mul nsw i32 %20, %19
   %22 = sext i32 %21 to i64
-  %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #57
+  %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #59
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %.preheader.i
 
@@ -14278,7 +14278,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef %0, ptr 
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !77
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef nonnull %8) #55
+  tail call void @free(ptr noundef nonnull %8) #57
   br label %stbi__convert_16_to_8.exit
 
 stbi__convert_16_to_8.exit:                       ; preds = %26, %._crit_edge.i
@@ -14372,7 +14372,7 @@ define dso_local ptr @stbi_load_from_file_16(ptr noundef %0, ptr nocapture nound
   %12 = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #55
+  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #57
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
@@ -14443,7 +14443,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_16bit(ptr noundef %0, ptr
   %21 = mul nsw i32 %20, %19
   %22 = shl nsw i32 %21, 1
   %23 = sext i32 %22 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #57
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #59
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %.preheader.i
 
@@ -14472,7 +14472,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_16bit(ptr noundef %0, ptr
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !80
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef nonnull %8) #55
+  tail call void @free(ptr noundef nonnull %8) #57
   br label %stbi__convert_8_to_16.exit
 
 stbi__convert_8_to_16.exit:                       ; preds = %27, %._crit_edge.i
@@ -14577,7 +14577,7 @@ define dso_local ptr @stbi_load_16(ptr nocapture noundef readonly %0, ptr nocapt
   %15 = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %10, align 8
-  %17 = call i32 %16(ptr noundef nonnull %7, ptr noundef nonnull %14, i32 noundef 128) #55
+  %17 = call i32 %16(ptr noundef nonnull %7, ptr noundef nonnull %14, i32 noundef 128) #57
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
 
@@ -14661,7 +14661,7 @@ define dso_local ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly
   %13 = getelementptr inbounds i8, ptr %7, i64 200
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = call i32 %14(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #55
+  %15 = call i32 %14(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #57
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
 
@@ -14724,7 +14724,7 @@ define dso_local ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %0
   %13 = getelementptr inbounds i8, ptr %7, i64 200
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = call i32 %14(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #55
+  %15 = call i32 %14(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #57
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
 
@@ -14815,22 +14815,22 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   br i1 %.not61.i, label %43, label %37
 
 37:                                               ; preds = %28
-  %38 = call ptr @realloc(ptr noundef nonnull %.04871.i, i64 noundef %36) #58
+  %38 = call ptr @realloc(ptr noundef nonnull %.04871.i, i64 noundef %36) #60
   br i1 %.not58.i, label %48, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %2, align 8
   %41 = shl nuw nsw i64 %indvars.iv.next.i, 2
-  %42 = call ptr @realloc(ptr noundef %40, i64 noundef %41) #58
+  %42 = call ptr @realloc(ptr noundef %40, i64 noundef %41) #60
   br label %.sink.split.i
 
 43:                                               ; preds = %28
-  %44 = call noalias noundef ptr @malloc(i64 noundef %36) #57
+  %44 = call noalias noundef ptr @malloc(i64 noundef %36) #59
   br i1 %.not58.i, label %48, label %45
 
 45:                                               ; preds = %43
   %46 = shl nuw nsw i64 %indvars.iv.next.i, 2
-  %47 = call noalias noundef ptr @malloc(i64 noundef %46) #57
+  %47 = call noalias noundef ptr @malloc(i64 noundef %46) #59
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %45, %39
@@ -14874,13 +14874,13 @@ define dso_local noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noun
   %.048.lcssa.i = phi ptr [ null, %23 ], [ %.149.i, %62 ]
   %65 = getelementptr inbounds i8, ptr %10, i64 8
   %66 = load ptr, ptr %65, align 8
-  call void @free(ptr noundef %66) #55
+  call void @free(ptr noundef %66) #57
   %67 = getelementptr inbounds i8, ptr %10, i64 24
   %68 = load ptr, ptr %67, align 8
-  call void @free(ptr noundef %68) #55
+  call void @free(ptr noundef %68) #57
   %69 = getelementptr inbounds i8, ptr %10, i64 16
   %70 = load ptr, ptr %69, align 8
-  call void @free(ptr noundef %70) #55
+  call void @free(ptr noundef %70) #57
   %71 = and i32 %7, -5
   %or.cond.not.i = icmp eq i32 %71, 0
   br i1 %or.cond.not.i, label %78, label %72
@@ -15131,12 +15131,12 @@ stbi__malloc_mad4.exit.i:                         ; preds = %stbi__mul2sizes_val
   %58 = shl i32 %51, 2
   %59 = mul i32 %58, %46
   %60 = sext i32 %59 to i64
-  %61 = tail call noalias noundef ptr @malloc(i64 noundef %60) #57
+  %61 = tail call noalias noundef ptr @malloc(i64 noundef %60) #59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %stbi__malloc_mad4.exit.thread.i, label %63
 
 stbi__malloc_mad4.exit.thread.i:                  ; preds = %stbi__malloc_mad4.exit.i, %stbi__mul2sizes_valid.exit18.i.i.i, %stbi__mul2sizes_valid.exit.thread24.i.i.i, %stbi__mul2sizes_valid.exit.i.i.i, %45
-  tail call void @free(ptr noundef nonnull %39) #55
+  tail call void @free(ptr noundef nonnull %39) #57
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   br label %stbi__float_postprocess.exit
 
@@ -15173,7 +15173,7 @@ stbi__malloc_mad4.exit.thread.i:                  ; preds = %stbi__malloc_mad4.e
   %76 = fpext float %75 to double
   %77 = load float, ptr @stbi__l2h_gamma, align 4
   %78 = fpext float %77 to double
-  %79 = tail call double @pow(double noundef %76, double noundef %78) #55
+  %79 = tail call double @pow(double noundef %76, double noundef %78) #57
   %80 = load float, ptr @stbi__l2h_scale, align 4
   %81 = fpext float %80 to double
   %82 = fmul double %79, %81
@@ -15213,7 +15213,7 @@ stbi__malloc_mad4.exit.thread.i:                  ; preds = %stbi__malloc_mad4.e
   br i1 %exitcond64.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !84
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %._crit_edge51.i, %63
-  tail call void @free(ptr noundef nonnull %39) #55
+  tail call void @free(ptr noundef nonnull %39) #57
   br label %stbi__float_postprocess.exit
 
 94:                                               ; preds = %38
@@ -15240,7 +15240,7 @@ define dso_local noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef re
   %13 = getelementptr inbounds i8, ptr %7, i64 200
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = call i32 %14(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #55
+  %15 = call i32 %14(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 128) #57
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
 
@@ -15292,7 +15292,7 @@ define dso_local noundef ptr @stbi_loadf(ptr nocapture noundef readonly %0, ptr 
   %15 = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %10, align 8
-  %17 = call i32 %16(ptr noundef nonnull %7, ptr noundef nonnull %14, i32 noundef 128) #55
+  %17 = call i32 %16(ptr noundef nonnull %7, ptr noundef nonnull %14, i32 noundef 128) #57
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
 
@@ -15340,7 +15340,7 @@ define dso_local noundef ptr @stbi_loadf_from_file(ptr noundef %0, ptr nocapture
   %12 = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #55
+  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #57
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
@@ -15430,7 +15430,7 @@ define internal fastcc noundef i32 @stbi__hdr_test(ptr noundef %0) unnamed_addr 
   %22 = load ptr, ptr %5, align 8
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %8, align 4
-  %25 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %7, i32 noundef %24) #55
+  %25 = tail call i32 %22(ptr noundef %23, ptr noundef nonnull %7, i32 noundef %24) #57
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28
 
@@ -15504,7 +15504,7 @@ stbi__hdr_test_core.exit:                         ; preds = %10
   %56 = load ptr, ptr %5, align 8
   %57 = load ptr, ptr %6, align 8
   %58 = load i32, ptr %8, align 4
-  %59 = tail call i32 %56(ptr noundef %57, ptr noundef nonnull %7, i32 noundef %58) #55
+  %59 = tail call i32 %56(ptr noundef %57, ptr noundef nonnull %7, i32 noundef %58) #57
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %62
 
@@ -15569,7 +15569,7 @@ define dso_local noundef i32 @stbi_is_hdr(ptr nocapture noundef readonly %0) loc
   %11 = getelementptr inbounds i8, ptr %2, i64 200
   store ptr %10, ptr %11, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = call i32 %12(ptr noundef nonnull %3, ptr noundef nonnull %10, i32 noundef 128) #55
+  %13 = call i32 %12(ptr noundef nonnull %3, ptr noundef nonnull %10, i32 noundef 128) #57
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %17
 
@@ -15619,7 +15619,7 @@ define dso_local noundef i32 @stbi_is_hdr_from_file(ptr noundef %0) local_unname
   %9 = getelementptr inbounds i8, ptr %2, i64 200
   store ptr %8, ptr %9, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = call i32 %10(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 128) #55
+  %11 = call i32 %10(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 128) #57
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
@@ -15662,7 +15662,7 @@ define dso_local noundef i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef r
   %9 = getelementptr inbounds i8, ptr %3, i64 200
   store ptr %8, ptr %9, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = call i32 %10(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 128) #55
+  %11 = call i32 %10(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 128) #57
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
@@ -15690,26 +15690,26 @@ stbi__start_callbacks.exit:                       ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @stbi_ldr_to_hdr_gamma(float noundef %0) local_unnamed_addr #24 {
+define dso_local void @stbi_ldr_to_hdr_gamma(float noundef %0) local_unnamed_addr #26 {
   store float %0, ptr @stbi__l2h_gamma, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @stbi_ldr_to_hdr_scale(float noundef %0) local_unnamed_addr #24 {
+define dso_local void @stbi_ldr_to_hdr_scale(float noundef %0) local_unnamed_addr #26 {
   store float %0, ptr @stbi__l2h_scale, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @stbi_hdr_to_ldr_gamma(float noundef %0) local_unnamed_addr #24 {
+define dso_local void @stbi_hdr_to_ldr_gamma(float noundef %0) local_unnamed_addr #26 {
   %2 = fdiv float 1.000000e+00, %0
   store float %2, ptr @stbi__h2l_gamma_i, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @stbi_hdr_to_ldr_scale(float noundef %0) local_unnamed_addr #24 {
+define dso_local void @stbi_hdr_to_ldr_scale(float noundef %0) local_unnamed_addr #26 {
   %2 = fdiv float 1.000000e+00, %0
   store float %2, ptr @stbi__h2l_scale_i, align 4
   ret void
@@ -15719,7 +15719,7 @@ define dso_local void @stbi_hdr_to_ldr_scale(float noundef %0) local_unnamed_add
 define dso_local ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = alloca %struct.stbi__zbuf, align 8
   %6 = sext i32 %2 to i64
-  %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #57
+  %7 = tail call noalias noundef ptr @malloc(i64 noundef %6) #59
   %8 = icmp eq ptr %7, null
   br i1 %8, label %27, label %9
 
@@ -15757,7 +15757,7 @@ define dso_local ptr @stbi_zlib_decode_malloc_guesssize(ptr noundef %0, i32 noun
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %5, i64 32
   %26 = load ptr, ptr %25, align 8
-  call void @free(ptr noundef %26) #55
+  call void @free(ptr noundef %26) #57
   br label %27
 
 27:                                               ; preds = %15, %._crit_edge, %4, %24
@@ -16085,7 +16085,7 @@ stbi__zget8.exit.i34.i:                           ; preds = %121, %119
 
 160:                                              ; preds = %157
   %161 = sext i32 %.022.i.i.i to i64
-  %162 = tail call ptr @realloc(ptr noundef %148, i64 noundef %161) #58
+  %162 = tail call ptr @realloc(ptr noundef %148, i64 noundef %161) #60
   %163 = icmp eq ptr %162, null
   br i1 %163, label %stbi__parse_uncompressed_block.exit.thread.i, label %stbi__zexpand.exit.i.i
 
@@ -16801,7 +16801,7 @@ stbi__zhuffman_decode.exit.i58.i:                 ; preds = %472, %458
 
 508:                                              ; preds = %506
   %509 = sext i32 %.022.i.i64.i to i64
-  %510 = tail call ptr @realloc(ptr noundef %498, i64 noundef %509) #58
+  %510 = tail call ptr @realloc(ptr noundef %498, i64 noundef %509) #60
   %511 = icmp eq ptr %510, null
   br i1 %511, label %512, label %513
 
@@ -17096,7 +17096,7 @@ stbi__zreceive.exit108.i.i:                       ; preds = %stbi__zget8.exit.i.
 
 666:                                              ; preds = %663
   %667 = sext i32 %.022.i110.i.i to i64
-  %668 = tail call ptr @realloc(ptr noundef %642, i64 noundef %667) #58
+  %668 = tail call ptr @realloc(ptr noundef %642, i64 noundef %667) #60
   %669 = icmp eq ptr %668, null
   br i1 %669, label %670, label %671
 
@@ -17172,7 +17172,7 @@ stbi__parse_zlib.exit:                            ; preds = %stbi__zreceive.exit
 define dso_local ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca %struct.stbi__zbuf, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #57
+  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #59
   %6 = icmp eq ptr %5, null
   br i1 %6, label %stbi_zlib_decode_malloc_guesssize.exit, label %7
 
@@ -17210,7 +17210,7 @@ define dso_local ptr @stbi_zlib_decode_malloc(ptr noundef %0, i32 noundef %1, pt
 22:                                               ; preds = %7
   %23 = getelementptr inbounds i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8
-  call void @free(ptr noundef %24) #55
+  call void @free(ptr noundef %24) #57
   br label %stbi_zlib_decode_malloc_guesssize.exit
 
 stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %3, %._crit_edge.i, %13, %22
@@ -17223,7 +17223,7 @@ stbi_zlib_decode_malloc_guesssize.exit:           ; preds = %3, %._crit_edge.i, 
 define dso_local ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.stbi__zbuf, align 8
   %7 = sext i32 %2 to i64
-  %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #57
+  %8 = tail call noalias noundef ptr @malloc(i64 noundef %7) #59
   %9 = icmp eq ptr %8, null
   br i1 %9, label %28, label %10
 
@@ -17261,7 +17261,7 @@ define dso_local ptr @stbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef %
 25:                                               ; preds = %10
   %26 = getelementptr inbounds i8, ptr %6, i64 32
   %27 = load ptr, ptr %26, align 8
-  call void @free(ptr noundef %27) #55
+  call void @free(ptr noundef %27) #57
   br label %28
 
 28:                                               ; preds = %16, %._crit_edge, %5, %25
@@ -17294,7 +17294,7 @@ define dso_local i32 @stbi_zlib_decode_buffer(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca %struct.stbi__zbuf, align 8
-  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #57
+  %5 = tail call noalias noundef dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #59
   %6 = icmp eq ptr %5, null
   br i1 %6, label %25, label %7
 
@@ -17332,7 +17332,7 @@ define dso_local ptr @stbi_zlib_decode_noheader_malloc(ptr noundef %0, i32 nound
 22:                                               ; preds = %7
   %23 = getelementptr inbounds i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8
-  call void @free(ptr noundef %24) #55
+  call void @free(ptr noundef %24) #57
   br label %25
 
 25:                                               ; preds = %13, %._crit_edge, %3, %22
@@ -17363,13 +17363,13 @@ define dso_local i32 @stbi_zlib_decode_noheader_buffer(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @stbi_set_unpremultiply_on_load(i32 noundef %0) local_unnamed_addr #24 {
+define dso_local void @stbi_set_unpremultiply_on_load(i32 noundef %0) local_unnamed_addr #26 {
   store i32 %0, ptr @stbi__unpremultiply_on_load, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unnamed_addr #24 {
+define dso_local void @stbi_convert_iphone_png_to_rgb(i32 noundef %0) local_unnamed_addr #26 {
   store i32 %0, ptr @stbi__de_iphone_flag, align 4
   ret void
 }
@@ -17400,7 +17400,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %
   %15 = getelementptr inbounds i8, ptr %5, i64 200
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %10, align 8
-  %17 = call i32 %16(ptr noundef nonnull %6, ptr noundef nonnull %14, i32 noundef 128) #55
+  %17 = call i32 %16(ptr noundef nonnull %6, ptr noundef nonnull %14, i32 noundef 128) #57
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
 
@@ -17450,7 +17450,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info_from_file(ptr noundef %0, ptr no
   %12 = getelementptr inbounds i8, ptr %5, i64 200
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #55
+  %14 = call i32 %13(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 128) #57
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
@@ -17482,7 +17482,7 @@ stbi__start_file.exit:                            ; preds = %16, %18
 define internal fastcc range(i32 0, 2) i32 @stbi__info_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = alloca %struct.stbi__bmp_data, align 4
   %6 = alloca %struct.stbi__png, align 8
-  %7 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #57
+  %7 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #59
   store ptr %0, ptr %7, align 8
   %8 = tail call fastcc i32 @stbi__decode_jpeg_header(ptr noundef nonnull %7, i32 noundef 2)
   %.not.i.i = icmp eq i32 %8, 0
@@ -17523,7 +17523,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__info_main(ptr noundef %0, ptr 
   br label %stbi__jpeg_info.exit.thread
 
 stbi__jpeg_info.exit.thread:                      ; preds = %19, %18
-  tail call void @free(ptr noundef nonnull %7) #55
+  tail call void @free(ptr noundef nonnull %7) #57
   br label %89
 
 24:                                               ; preds = %4
@@ -17532,7 +17532,7 @@ stbi__jpeg_info.exit.thread:                      ; preds = %19, %18
   %27 = getelementptr inbounds i8, ptr %25, i64 184
   %28 = load <2 x ptr>, ptr %26, align 8
   store <2 x ptr> %28, ptr %27, align 8
-  tail call void @free(ptr noundef nonnull %7) #55
+  tail call void @free(ptr noundef nonnull %7) #57
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %29 = call fastcc i32 @stbi__parse_png_file(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 0)
@@ -17582,7 +17582,7 @@ stbi__png_info.exit.thread:                       ; preds = %40, %39
   %48 = load <2 x ptr>, ptr %46, align 8
   store <2 x ptr> %48, ptr %47, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %49 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #57
+  %49 = tail call noalias noundef dereferenceable_or_null(34928) ptr @malloc(i64 noundef 34928) #59
   %50 = tail call fastcc i32 @stbi__gif_header(ptr noundef %0, ptr noundef %49, ptr noundef %3, i32 noundef 1)
   %.not.i.i49 = icmp eq i32 %50, 0
   br i1 %.not.i.i49, label %58, label %51
@@ -17607,11 +17607,11 @@ stbi__png_info.exit.thread:                       ; preds = %40, %39
   br label %stbi__gif_info.exit
 
 stbi__gif_info.exit:                              ; preds = %54, %55
-  tail call void @free(ptr noundef %49) #55
+  tail call void @free(ptr noundef %49) #57
   br label %89
 
 58:                                               ; preds = %44
-  tail call void @free(ptr noundef %49) #55
+  tail call void @free(ptr noundef %49) #57
   %59 = getelementptr inbounds i8, ptr %0, i64 200
   %60 = getelementptr inbounds i8, ptr %0, i64 184
   %61 = load <2 x ptr>, ptr %59, align 8
@@ -17721,7 +17721,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef reado
   %12 = getelementptr inbounds i8, ptr %2, i64 200
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = call i32 %13(ptr noundef nonnull %3, ptr noundef nonnull %11, i32 noundef 128) #55
+  %14 = call i32 %13(ptr noundef nonnull %3, ptr noundef nonnull %11, i32 noundef 128) #57
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
@@ -17771,7 +17771,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_file(ptr noundef %0) l
   %9 = getelementptr inbounds i8, ptr %2, i64 200
   store ptr %8, ptr %9, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = call i32 %10(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 128) #55
+  %11 = call i32 %10(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 128) #57
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
@@ -17862,7 +17862,7 @@ stbi__png_is16.exit:                              ; preds = %1
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = getelementptr inbounds i8, ptr %0, i64 52
   %34 = load i32, ptr %33, align 4
-  %35 = tail call i32 %29(ptr noundef %31, ptr noundef nonnull %32, i32 noundef %34) #55
+  %35 = tail call i32 %29(ptr noundef %31, ptr noundef nonnull %32, i32 noundef %34) #57
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %39
 
@@ -17913,7 +17913,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %58 = getelementptr inbounds i8, ptr %0, i64 56
   %59 = getelementptr inbounds i8, ptr %0, i64 52
   %60 = load i32, ptr %59, align 4
-  %61 = tail call i32 %55(ptr noundef %57, ptr noundef nonnull %58, i32 noundef %60) #55
+  %61 = tail call i32 %55(ptr noundef %57, ptr noundef nonnull %58, i32 noundef %60) #57
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
 
@@ -17974,7 +17974,7 @@ stbi__get16be.exit.i:                             ; preds = %stbi__refill_buffer
   %90 = getelementptr inbounds i8, ptr %0, i64 40
   %91 = load ptr, ptr %90, align 8
   %92 = sub nsw i32 6, %85
-  tail call void %89(ptr noundef %91, i32 noundef %92) #55
+  tail call void %89(ptr noundef %91, i32 noundef %92) #57
   %.pre.i = load ptr, ptr %16, align 8
   %.pre41.i = load ptr, ptr %18, align 8
   br label %stbi__skip.exit.i
@@ -18009,7 +18009,7 @@ stbi__skip.exit.i:                                ; preds = %._crit_edge.i.i, %8
   %107 = getelementptr inbounds i8, ptr %0, i64 56
   %108 = getelementptr inbounds i8, ptr %0, i64 52
   %109 = load i32, ptr %108, align 4
-  %110 = tail call i32 %104(ptr noundef %106, ptr noundef nonnull %107, i32 noundef %109) #55
+  %110 = tail call i32 %104(ptr noundef %106, ptr noundef nonnull %107, i32 noundef %109) #57
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %114
 
@@ -18059,7 +18059,7 @@ stbi__get8.exit.i21.i:                            ; preds = %stbi__refill_buffer
   %132 = getelementptr inbounds i8, ptr %0, i64 56
   %133 = getelementptr inbounds i8, ptr %0, i64 52
   %134 = load i32, ptr %133, align 4
-  %135 = tail call i32 %129(ptr noundef %131, ptr noundef nonnull %132, i32 noundef %134) #55
+  %135 = tail call i32 %129(ptr noundef %131, ptr noundef nonnull %132, i32 noundef %134) #57
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %139
 
@@ -18125,7 +18125,7 @@ stbi__get16be.exit28.i:                           ; preds = %stbi__refill_buffer
   %168 = getelementptr inbounds i8, ptr %0, i64 56
   %169 = getelementptr inbounds i8, ptr %0, i64 52
   %170 = load i32, ptr %169, align 4
-  %171 = tail call i32 %165(ptr noundef %167, ptr noundef nonnull %168, i32 noundef %170) #55
+  %171 = tail call i32 %165(ptr noundef %167, ptr noundef nonnull %168, i32 noundef %170) #57
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %175
 
@@ -18175,7 +18175,7 @@ stbi__get8.exit.i33.i:                            ; preds = %stbi__refill_buffer
   %193 = getelementptr inbounds i8, ptr %0, i64 56
   %194 = getelementptr inbounds i8, ptr %0, i64 52
   %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 %190(ptr noundef %192, ptr noundef nonnull %193, i32 noundef %195) #55
+  %196 = tail call i32 %190(ptr noundef %192, ptr noundef nonnull %193, i32 noundef %195) #57
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %200
 
@@ -18255,7 +18255,7 @@ define dso_local range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr nocapture nou
   %12 = getelementptr inbounds i8, ptr %6, i64 200
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = call i32 %13(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 128) #55
+  %14 = call i32 %13(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 128) #57
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
@@ -18318,7 +18318,7 @@ define dso_local range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr nocaptur
   %9 = getelementptr inbounds i8, ptr %3, i64 200
   store ptr %8, ptr %9, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = call i32 %10(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 128) #55
+  %11 = call i32 %10(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 128) #57
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
@@ -18346,9 +18346,9 @@ stbi__start_callbacks.exit:                       ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %0) local_unnamed_addr #25 {
+define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %0) local_unnamed_addr #27 {
   %2 = alloca %struct.FONSparams, align 8
-  %3 = tail call noalias dereferenceable_or_null(8920) ptr @malloc(i64 noundef 8920) #57
+  %3 = tail call noalias dereferenceable_or_null(8920) ptr @malloc(i64 noundef 8920) #59
   %4 = icmp eq ptr %3, null
   br i1 %4, label %72, label %5
 
@@ -18358,7 +18358,7 @@ define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %0, i64 112, i1 false)
   %7 = getelementptr inbounds i8, ptr %3, i64 8880
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %8 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #57
+  %8 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #59
   %9 = getelementptr inbounds i8, ptr %3, i64 112
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %8, null
@@ -18374,7 +18374,7 @@ define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %
   br i1 %13, label %nvg__allocPathCache.exit.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #57
+  %15 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #59
   store ptr %15, ptr %calloc.i, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %.thread20.thread.i, label %16
@@ -18382,7 +18382,7 @@ define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %calloc.i, i64 12
   store i32 128, ptr %17, align 4
-  %18 = tail call noalias dereferenceable_or_null(896) ptr @malloc(i64 noundef 896) #57
+  %18 = tail call noalias dereferenceable_or_null(896) ptr @malloc(i64 noundef 896) #59
   %19 = getelementptr inbounds i8, ptr %calloc.i, i64 16
   store ptr %18, ptr %19, align 8
   %.not18.i = icmp eq ptr %18, null
@@ -18391,23 +18391,23 @@ define dso_local noundef ptr @nvgCreateInternal(ptr nocapture noundef readonly %
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %calloc.i, i64 28
   store i32 16, ptr %21, align 4
-  %22 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #57
+  %22 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #59
   %23 = getelementptr inbounds i8, ptr %calloc.i, i64 32
   store ptr %22, ptr %23, align 8
   %.not19.i = icmp eq ptr %22, null
   br i1 %.not19.i, label %24, label %nvgSave.exit
 
 24:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %15) #55
+  tail call void @free(ptr noundef nonnull %15) #57
   br label %.thread20.thread.sink.split.i
 
 .thread20.thread.sink.split.i:                    ; preds = %24, %16
   %.sink.i = phi ptr [ %18, %24 ], [ %15, %16 ]
-  tail call void @free(ptr noundef nonnull %.sink.i) #55
+  tail call void @free(ptr noundef nonnull %.sink.i) #57
   br label %.thread20.thread.i
 
 .thread20.thread.i:                               ; preds = %.thread20.thread.sink.split.i, %14
-  tail call void @free(ptr noundef nonnull %calloc.i) #55
+  tail call void @free(ptr noundef nonnull %calloc.i) #57
   br label %nvg__allocPathCache.exit.thread
 
 nvg__allocPathCache.exit.thread:                  ; preds = %10, %.thread20.thread.i
@@ -18477,7 +18477,7 @@ nvgSave.exit:                                     ; preds = %20
   %50 = getelementptr inbounds i8, ptr %3, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %3, align 8
-  %53 = tail call i32 %51(ptr noundef %52) #55
+  %53 = tail call i32 %51(ptr noundef %52) #57
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %72, label %55
 
@@ -18503,7 +18503,7 @@ nvgSave.exit:                                     ; preds = %20
   %65 = getelementptr inbounds i8, ptr %3, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %3, align 8
-  %68 = tail call i32 %66(ptr noundef %67, i32 noundef 1, i32 noundef 512, i32 noundef 512, i32 noundef 0, ptr noundef null) #55
+  %68 = tail call i32 %66(ptr noundef %67, i32 noundef 1, i32 noundef 512, i32 noundef 512, i32 noundef 0, ptr noundef null) #57
   store i32 %68, ptr %7, align 8
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %72, label %70
@@ -18555,7 +18555,7 @@ define dso_local void @nvgSave(ptr nocapture noundef %0) local_unnamed_addr #11 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgReset(ptr nocapture noundef %0) local_unnamed_addr #26 {
+define dso_local void @nvgReset(ptr nocapture noundef %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = getelementptr inbounds i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
@@ -18630,7 +18630,7 @@ define dso_local void @nvgDeleteInternal(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %5) #55
+  tail call void @free(ptr noundef nonnull %5) #57
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -18645,7 +18645,7 @@ define dso_local void @nvgDeleteInternal(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not.i, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %11) #55
+  tail call void @free(ptr noundef nonnull %11) #57
   br label %13
 
 13:                                               ; preds = %12, %10
@@ -18655,7 +18655,7 @@ define dso_local void @nvgDeleteInternal(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not11.i, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @free(ptr noundef nonnull %15) #55
+  tail call void @free(ptr noundef nonnull %15) #57
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -18665,11 +18665,11 @@ define dso_local void @nvgDeleteInternal(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not12.i, label %nvg__deletePathCache.exit, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %19) #55
+  tail call void @free(ptr noundef nonnull %19) #57
   br label %nvg__deletePathCache.exit
 
 nvg__deletePathCache.exit:                        ; preds = %17, %20
-  tail call void @free(ptr noundef nonnull %9) #55
+  tail call void @free(ptr noundef nonnull %9) #57
   br label %21
 
 21:                                               ; preds = %nvg__deletePathCache.exit, %7
@@ -18697,7 +18697,7 @@ nvg__deletePathCache.exit:                        ; preds = %17, %20
 31:                                               ; preds = %28
   %32 = load ptr, ptr %27, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = tail call i32 %32(ptr noundef %33, i32 noundef %30) #55
+  %34 = tail call i32 %32(ptr noundef %33, i32 noundef %30) #57
   store i32 0, ptr %29, align 4
   br label %35
 
@@ -18714,11 +18714,11 @@ nvg__deletePathCache.exit:                        ; preds = %17, %20
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %0, align 8
-  tail call void %38(ptr noundef %40) #55
+  tail call void %38(ptr noundef %40) #57
   br label %41
 
 41:                                               ; preds = %39, %36
-  tail call void @free(ptr noundef nonnull %0) #55
+  tail call void @free(ptr noundef nonnull %0) #57
   br label %42
 
 42:                                               ; preds = %1, %41
@@ -18735,12 +18735,12 @@ define dso_local void @nvgDeleteImage(ptr nocapture noundef readonly %0, i32 nou
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call i32 %4(ptr noundef %5, i32 noundef %1) #55
+  %6 = tail call i32 %4(ptr noundef %5, i32 noundef %1) #57
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nvgBeginFrame(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #25 {
+define dso_local void @nvgBeginFrame(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #27 {
 nvgSave.exit:
   %4 = getelementptr inbounds i8, ptr %0, i64 8840
   store i32 1, ptr %4, align 8
@@ -18807,7 +18807,7 @@ nvgSave.exit:
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %0, align 8
-  tail call void %33(ptr noundef %34, float noundef %1, float noundef %2, float noundef %3) #55
+  tail call void %33(ptr noundef %34, float noundef %1, float noundef %2, float noundef %3) #57
   %35 = getelementptr inbounds i8, ptr %0, i64 8900
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   ret void
@@ -18818,7 +18818,7 @@ define dso_local void @nvgCancelFrame(ptr nocapture noundef readonly %0) local_u
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  tail call void %3(ptr noundef %4) #55
+  tail call void %3(ptr noundef %4) #57
   ret void
 }
 
@@ -18831,7 +18831,7 @@ define dso_local void @nvgEndFrame(ptr nocapture noundef %0) local_unnamed_addr 
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
-  tail call void %7(ptr noundef %8) #55
+  tail call void %7(ptr noundef %8) #57
   %9 = getelementptr inbounds i8, ptr %0, i64 8896
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
@@ -18849,7 +18849,7 @@ define dso_local void @nvgEndFrame(ptr nocapture noundef %0) local_unnamed_addr 
   %18 = getelementptr inbounds i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %0, align 8
-  %21 = call i32 %19(ptr noundef %20, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3) #55
+  %21 = call i32 %19(ptr noundef %20, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3) #57
   %22 = load i32, ptr %9, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge.thread
@@ -18874,7 +18874,7 @@ define dso_local void @nvgEndFrame(ptr nocapture noundef %0) local_unnamed_addr 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %18, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = call i32 %29(ptr noundef %30, i32 noundef %27, ptr noundef nonnull %4, ptr noundef nonnull %5) #55
+  %31 = call i32 %29(ptr noundef %30, i32 noundef %27, ptr noundef nonnull %4, ptr noundef nonnull %5) #57
   %32 = load i32, ptr %4, align 4
   %33 = load i32, ptr %2, align 4
   %34 = icmp slt i32 %32, %33
@@ -18890,7 +18890,7 @@ define dso_local void @nvgEndFrame(ptr nocapture noundef %0) local_unnamed_addr 
   %40 = load i32, ptr %26, align 4
   %41 = load ptr, ptr %24, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = call i32 %41(ptr noundef %42, i32 noundef %40) #55
+  %43 = call i32 %41(ptr noundef %42, i32 noundef %40) #57
   br label %49
 
 44:                                               ; preds = %35
@@ -18941,12 +18941,12 @@ define dso_local void @nvgImageSize(ptr nocapture noundef readonly %0, i32 nound
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call i32 %6(ptr noundef %7, i32 noundef %1, ptr noundef %2, ptr noundef %3) #55
+  %8 = tail call i32 %6(ptr noundef %7, i32 noundef %1, ptr noundef %2, ptr noundef %3) #57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { <2 x float>, <2 x float> } @nvgRGB(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #27 {
+define dso_local { <2 x float>, <2 x float> } @nvgRGB(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #29 {
   %4 = uitofp i8 %0 to float
   %5 = fdiv float %4, 2.550000e+02
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %5, i64 0
@@ -18977,7 +18977,7 @@ define dso_local { <2 x float>, <2 x float> } @nvgRGBA(i8 noundef zeroext %0, i8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { <2 x float>, <2 x float> } @nvgRGBf(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #27 {
+define dso_local { <2 x float>, <2 x float> } @nvgRGBf(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #29 {
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %0, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %1, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %2, i64 0
@@ -18998,7 +18998,7 @@ define dso_local { <2 x float>, <2 x float> } @nvgRGBAf(float noundef %0, float 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { <2 x float>, <2 x float> } @nvgTransRGBA(<2 x float> %0, <2 x float> %1, i8 noundef zeroext %2) local_unnamed_addr #27 {
+define dso_local { <2 x float>, <2 x float> } @nvgTransRGBA(<2 x float> %0, <2 x float> %1, i8 noundef zeroext %2) local_unnamed_addr #29 {
   %4 = uitofp i8 %2 to float
   %5 = fdiv float %4, 2.550000e+02
   %.sroa.2.12.vec.insert = insertelement <2 x float> %1, float %5, i64 1
@@ -19008,7 +19008,7 @@ define dso_local { <2 x float>, <2 x float> } @nvgTransRGBA(<2 x float> %0, <2 x
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { <2 x float>, <2 x float> } @nvgTransRGBAf(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #27 {
+define dso_local { <2 x float>, <2 x float> } @nvgTransRGBAf(<2 x float> %0, <2 x float> %1, float noundef %2) local_unnamed_addr #29 {
   %.sroa.2.12.vec.insert = insertelement <2 x float> %1, float %2, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.2.12.vec.insert, 1
@@ -19016,7 +19016,7 @@ define dso_local { <2 x float>, <2 x float> } @nvgTransRGBAf(<2 x float> %0, <2 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local { <2 x float>, <2 x float> } @nvgLerpRGBA(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #28 {
+define dso_local { <2 x float>, <2 x float> } @nvgLerpRGBA(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4) local_unnamed_addr #30 {
   %6 = alloca %struct.NVGcolor, align 8
   %7 = alloca %struct.NVGcolor, align 8
   %8 = alloca %struct.NVGcolor, align 8
@@ -19058,14 +19058,14 @@ define dso_local { <2 x float>, <2 x float> } @nvgLerpRGBA(<2 x float> %0, <2 x 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local { <2 x float>, <2 x float> } @nvgHSL(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #29 {
+define dso_local { <2 x float>, <2 x float> } @nvgHSL(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #31 {
   %4 = tail call { <2 x float>, <2 x float> } @nvgHSLA(float noundef %0, float noundef %1, float noundef %2, i8 noundef zeroext -1)
   ret { <2 x float>, <2 x float> } %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local { <2 x float>, <2 x float> } @nvgHSLA(float noundef %0, float noundef %1, float noundef %2, i8 noundef zeroext %3) local_unnamed_addr #30 {
-  %5 = tail call float @fmodf(float noundef %0, float noundef 1.000000e+00) #55
+define dso_local { <2 x float>, <2 x float> } @nvgHSLA(float noundef %0, float noundef %1, float noundef %2, i8 noundef zeroext %3) local_unnamed_addr #32 {
+  %5 = tail call float @fmodf(float noundef %0, float noundef 1.000000e+00) #57
   %6 = fcmp olt float %5, 0.000000e+00
   %7 = fadd float %5, 1.000000e+00
   %.0 = select i1 %6, float %7, float %5
@@ -19243,9 +19243,9 @@ define dso_local void @nvgTransformScale(ptr nocapture noundef writeonly %0, flo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @nvgTransformRotate(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #30 {
-  %3 = tail call float @cosf(float noundef %1) #55
-  %4 = tail call float @sinf(float noundef %1) #55
+define dso_local void @nvgTransformRotate(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #32 {
+  %3 = tail call float @cosf(float noundef %1) #57
+  %4 = tail call float @sinf(float noundef %1) #57
   store float %3, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store float %4, ptr %5, align 4
@@ -19260,9 +19260,9 @@ define dso_local void @nvgTransformRotate(ptr nocapture noundef writeonly %0, fl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @nvgTransformSkewX(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #30 {
+define dso_local void @nvgTransformSkewX(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #32 {
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %0, align 4
-  %3 = tail call float @tanf(float noundef %1) #55
+  %3 = tail call float @tanf(float noundef %1) #57
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store float %3, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -19273,9 +19273,9 @@ define dso_local void @nvgTransformSkewX(ptr nocapture noundef writeonly %0, flo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @nvgTransformSkewY(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #30 {
+define dso_local void @nvgTransformSkewY(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #32 {
   store float 1.000000e+00, ptr %0, align 4
-  %3 = tail call float @tanf(float noundef %1) #55
+  %3 = tail call float @tanf(float noundef %1) #57
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store float %3, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19673,14 +19673,14 @@ define dso_local void @nvgTranslate(ptr nocapture noundef %0, float noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgRotate(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #31 {
+define dso_local void @nvgRotate(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = getelementptr inbounds i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call float @cosf(float noundef %1) #55
-  %9 = tail call float @sinf(float noundef %1) #55
+  %8 = tail call float @cosf(float noundef %1) #57
+  %9 = tail call float @sinf(float noundef %1) #57
   %10 = fneg float %9
   %11 = getelementptr inbounds [32 x %struct.NVGstate], ptr %3, i64 0, i64 %7, i32 9
   %12 = getelementptr inbounds i8, ptr %11, i64 8
@@ -19707,13 +19707,13 @@ define dso_local void @nvgRotate(ptr nocapture noundef %0, float noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgSkewX(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #31 {
+define dso_local void @nvgSkewX(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = getelementptr inbounds i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call float @tanf(float noundef %1) #55
+  %8 = tail call float @tanf(float noundef %1) #57
   %9 = getelementptr inbounds [32 x %struct.NVGstate], ptr %3, i64 0, i64 %7, i32 9
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
@@ -19734,13 +19734,13 @@ define dso_local void @nvgSkewX(ptr nocapture noundef %0, float noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgSkewY(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #31 {
+define dso_local void @nvgSkewY(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #33 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = getelementptr inbounds i8, ptr %0, i64 8840
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call float @tanf(float noundef %1) #55
+  %8 = tail call float @tanf(float noundef %1) #57
   %9 = getelementptr inbounds [32 x %struct.NVGstate], ptr %3, i64 0, i64 %7, i32 9
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
@@ -19810,7 +19810,7 @@ define dso_local void @nvgCurrentTransform(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgStrokeColor(ptr nocapture noundef %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #26 {
+define dso_local void @nvgStrokeColor(ptr nocapture noundef %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #28 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = getelementptr inbounds i8, ptr %0, i64 8840
   %6 = load i32, ptr %5, align 8
@@ -19885,7 +19885,7 @@ define dso_local void @nvgStrokePaint(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgFillColor(ptr nocapture noundef %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #26 {
+define dso_local void @nvgFillColor(ptr nocapture noundef %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #28 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = getelementptr inbounds i8, ptr %0, i64 8840
   %6 = load i32, ptr %5, align 8
@@ -19976,8 +19976,8 @@ define dso_local i32 @nvgCreateImage(ptr nocapture noundef readonly %0, ptr noca
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = call i32 %13(ptr noundef %14, i32 noundef 2, i32 noundef %10, i32 noundef %11, i32 noundef %2, ptr noundef nonnull %7) #55
-  call void @free(ptr noundef nonnull %7) #55
+  %15 = call i32 %13(ptr noundef %14, i32 noundef 2, i32 noundef %10, i32 noundef %11, i32 noundef %2, ptr noundef nonnull %7) #57
+  call void @free(ptr noundef nonnull %7) #57
   br label %16
 
 16:                                               ; preds = %3, %9
@@ -19990,7 +19990,7 @@ define dso_local i32 @nvgCreateImageRGBA(ptr nocapture noundef readonly %0, i32 
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call i32 %7(ptr noundef %8, i32 noundef 2, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #55
+  %9 = tail call i32 %7(ptr noundef %8, i32 noundef 2, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #57
   ret i32 %9
 }
 
@@ -20026,8 +20026,8 @@ define dso_local i32 @nvgCreateImageMem(ptr nocapture noundef readonly %0, i32 n
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %0, align 8
-  %25 = call i32 %23(ptr noundef %24, i32 noundef 2, i32 noundef %20, i32 noundef %21, i32 noundef %1, ptr noundef nonnull %17) #55
-  call void @free(ptr noundef nonnull %17) #55
+  %25 = call i32 %23(ptr noundef %24, i32 noundef 2, i32 noundef %20, i32 noundef %21, i32 noundef %1, ptr noundef nonnull %17) #57
+  call void @free(ptr noundef nonnull %17) #57
   br label %26
 
 26:                                               ; preds = %4, %19
@@ -20042,18 +20042,18 @@ define dso_local void @nvgUpdateImage(ptr nocapture noundef readonly %0, i32 nou
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = call i32 %7(ptr noundef %8, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #55
+  %9 = call i32 %7(ptr noundef %8, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #57
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = load i32, ptr %4, align 4
   %14 = load i32, ptr %5, align 4
-  %15 = call i32 %11(ptr noundef %12, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %13, i32 noundef %14, ptr noundef %2) #55
+  %15 = call i32 %11(ptr noundef %12, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %13, i32 noundef %14, ptr noundef %2) #57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nvgLinearGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #32 {
+define dso_local void @nvgLinearGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #34 {
   %11 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %11, align 4
   %12 = insertelement <2 x float> poison, float %4, i64 0
@@ -20107,7 +20107,7 @@ define dso_local void @nvgLinearGradient(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nvgRadialGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #32 {
+define dso_local void @nvgRadialGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, <2 x float> %6, <2 x float> %7, <2 x float> %8, <2 x float> %9) local_unnamed_addr #34 {
   %11 = fadd float %4, %5
   %12 = fmul float %11, 5.000000e-01
   %13 = fsub float %5, %4
@@ -20137,7 +20137,7 @@ define dso_local void @nvgRadialGradient(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, <2 x float> %8, <2 x float> %9, ptr nocapture noundef readonly byval(%struct.NVGcolor) align 8 %10) local_unnamed_addr #26 {
+define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, <2 x float> %8, <2 x float> %9, ptr nocapture noundef readonly byval(%struct.NVGcolor) align 8 %10) local_unnamed_addr #28 {
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %12, align 4
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %0, align 4
@@ -20167,11 +20167,11 @@ define dso_local void @nvgBoxGradient(ptr dead_on_unwind noalias nocapture writa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @nvgImagePattern(ptr dead_on_unwind noalias nocapture writable sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, float noundef %8) local_unnamed_addr #33 {
+define dso_local void @nvgImagePattern(ptr dead_on_unwind noalias nocapture writable sret(%struct.NVGpaint) align 4 %0, ptr nocapture noundef readnone %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 noundef %7, float noundef %8) local_unnamed_addr #35 {
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %10, i8 0, i64 24, i1 false)
-  %11 = tail call float @cosf(float noundef %6) #55
-  %12 = tail call float @sinf(float noundef %6) #55
+  %11 = tail call float @cosf(float noundef %6) #57
+  %12 = tail call float @sinf(float noundef %6) #57
   store float %11, ptr %0, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 4
   store float %12, ptr %13, align 4
@@ -20524,7 +20524,7 @@ define dso_local void @nvgGlobalCompositeBlendFuncSeparate(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nvgBeginPath(ptr nocapture noundef %0) local_unnamed_addr #34 {
+define dso_local void @nvgBeginPath(ptr nocapture noundef %0) local_unnamed_addr #36 {
   %2 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8848
@@ -20572,7 +20572,7 @@ define internal fastcc void @nvg__appendCommands(ptr nocapture noundef %0, ptr n
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %18 to i64
   %22 = shl nsw i64 %21, 2
-  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #58
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #60
   %24 = icmp eq ptr %23, null
   br i1 %24, label %147, label %25
 
@@ -20914,9 +20914,9 @@ nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
   %75 = extractelement <2 x float> %73, i64 1
   %76 = fmul float %74, %75
   %77 = tail call float @llvm.fmuladd.f32(float %.091, float %.089, float %76)
-  %78 = tail call float @acosf(float noundef %77) #55
+  %78 = tail call float @acosf(float noundef %77) #57
   %79 = fmul float %78, 5.000000e-01
-  %80 = tail call float @tanf(float noundef %79) #55
+  %80 = tail call float @tanf(float noundef %79) #57
   %81 = fdiv float %5, %80
   %82 = fcmp ogt float %81, 1.000000e+04
   br i1 %82, label %83, label %86
@@ -20942,9 +20942,9 @@ nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
 
 .split63:                                         ; preds = %86
   %92 = fneg float %75
-  %93 = tail call float @atan2f(float noundef %.091, float noundef %92) #55
+  %93 = tail call float @atan2f(float noundef %.091, float noundef %92) #57
   %94 = fneg float %.089
-  %95 = tail call float @atan2f(float noundef %94, float noundef %74) #55
+  %95 = tail call float @atan2f(float noundef %94, float noundef %74) #57
   %96 = tail call float @llvm.fmuladd.f32(float %75, float %81, float %2)
   %97 = tail call float @llvm.fmuladd.f32(float %87, float %5, float %96)
   %98 = tail call float @llvm.fmuladd.f32(float %75, float %5, float %91)
@@ -20952,9 +20952,9 @@ nvg__normalize.exit:                              ; preds = %nvg__distPtSeg.exit
   br label %106
 
 .split:                                           ; preds = %86
-  %99 = tail call float @atan2f(float noundef %87, float noundef %75) #55
+  %99 = tail call float @atan2f(float noundef %87, float noundef %75) #57
   %100 = fneg float %74
-  %101 = tail call float @atan2f(float noundef %.089, float noundef %100) #55
+  %101 = tail call float @atan2f(float noundef %.089, float noundef %100) #57
   %102 = tail call float @llvm.fmuladd.f32(float %75, float %81, float %2)
   %103 = tail call float @llvm.fmuladd.f32(float %.091, float %5, float %102)
   %104 = fneg float %75
@@ -21019,10 +21019,10 @@ define dso_local void @nvgArc(ptr nocapture noundef %0, float noundef %1, float 
   %34 = uitofp nneg i32 %33 to float
   %35 = fdiv float %.2, %34
   %36 = fmul float %35, 5.000000e-01
-  %37 = tail call float @cosf(float noundef %36) #55
+  %37 = tail call float @cosf(float noundef %36) #57
   %38 = fsub float 1.000000e+00, %37
   %39 = fmul float %38, 0x3FF5555560000000
-  %40 = tail call float @sinf(float noundef %36) #55
+  %40 = tail call float @sinf(float noundef %36) #57
   %41 = fdiv float %39, %40
   %42 = fcmp oge float %41, 0.000000e+00
   %43 = fneg float %41
@@ -21043,8 +21043,8 @@ define dso_local void @nvgArc(ptr nocapture noundef %0, float noundef %1, float 
   %49 = uitofp nneg i32 %.06985 to float
   %50 = fdiv float %49, %34
   %51 = tail call float @llvm.fmuladd.f32(float %.2, float %50, float %4)
-  %52 = tail call float @cosf(float noundef %51) #55
-  %53 = tail call float @sinf(float noundef %51) #55
+  %52 = tail call float @cosf(float noundef %51) #57
+  %53 = tail call float @sinf(float noundef %51) #57
   %54 = tail call float @llvm.fmuladd.f32(float %52, float %3, float %1)
   %55 = tail call float @llvm.fmuladd.f32(float %53, float %3, float %2)
   %56 = fneg float %53
@@ -21527,7 +21527,7 @@ define dso_local void @nvgCircle(ptr nocapture noundef %0, float noundef %1, flo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @nvgDebugDumpPathCache(ptr nocapture noundef readonly %0) local_unnamed_addr #35 {
+define dso_local void @nvgDebugDumpPathCache(ptr nocapture noundef readonly %0) local_unnamed_addr #37 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8848
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -21624,7 +21624,7 @@ define dso_local void @nvgDebugDumpPathCache(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nvgFill(ptr noundef %0) local_unnamed_addr #3 {
@@ -21683,7 +21683,7 @@ define dso_local void @nvgFill(ptr noundef %0) local_unnamed_addr #3 {
   %40 = load i64, ptr %8, align 4
   %41 = getelementptr inbounds i8, ptr %8, i64 8
   %42 = load i64, ptr %41, align 4
-  call void %28(ptr noundef %29, ptr noundef nonnull %2, i64 %40, i64 %42, ptr noundef nonnull %30, float noundef %32, ptr noundef nonnull %35, ptr noundef %37, i32 noundef %39) #55
+  call void %28(ptr noundef %29, ptr noundef nonnull %2, i64 %40, i64 %42, ptr noundef nonnull %30, float noundef %32, ptr noundef nonnull %35, ptr noundef %37, i32 noundef %39) #57
   %43 = load ptr, ptr %33, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8
@@ -21784,7 +21784,7 @@ define internal fastcc void @nvg__flattenPaths(ptr nocapture noundef readonly %0
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %29 to i64
   %33 = mul nsw i64 %32, 56
-  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #58
+  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #60
   %35 = icmp eq ptr %34, null
   br i1 %35, label %nvg__addPath.exit, label %36
 
@@ -22226,7 +22226,7 @@ define internal fastcc void @nvg__expandFill(ptr nocapture noundef readonly %0, 
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %35 to i64
   %39 = shl nsw i64 %38, 4
-  %40 = tail call ptr @realloc(ptr noundef %37, i64 noundef %39) #58
+  %40 = tail call ptr @realloc(ptr noundef %37, i64 noundef %39) #60
   %41 = icmp eq ptr %40, null
   br i1 %41, label %nvg__allocTempVerts.exit.thread, label %42
 
@@ -22659,7 +22659,7 @@ define dso_local void @nvgStroke(ptr noundef %0) local_unnamed_addr #3 {
   %86 = load i64, ptr %8, align 4
   %87 = getelementptr inbounds i8, ptr %8, i64 8
   %88 = load i64, ptr %87, align 4
-  call void %76(ptr noundef %77, ptr noundef nonnull %2, i64 %86, i64 %88, ptr noundef nonnull %78, float noundef %79, float noundef %.0, ptr noundef %83, i32 noundef %85) #55
+  call void %76(ptr noundef %77, ptr noundef nonnull %2, i64 %86, i64 %88, ptr noundef nonnull %78, float noundef %79, float noundef %.0, ptr noundef %83, i32 noundef %85) #57
   %89 = load ptr, ptr %80, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 24
   %91 = load i32, ptr %90, align 8
@@ -22704,7 +22704,7 @@ define internal fastcc void @nvg__expandStroke(ptr nocapture noundef readonly %0
   %10 = load float, ptr %9, align 8
   %11 = fadd float %10, %1
   %12 = fdiv float %1, %11
-  %13 = tail call float @acosf(float noundef %12) #55
+  %13 = tail call float @acosf(float noundef %12) #57
   %14 = fmul float %13, 2.000000e+00
   %15 = fdiv float 0x400921FB60000000, %14
   %16 = tail call float @llvm.ceil.f32(float %15)
@@ -22841,7 +22841,7 @@ define internal fastcc void @nvg__expandStroke(ptr nocapture noundef readonly %0
   %83 = load ptr, ptr %82, align 8
   %84 = sext i32 %81 to i64
   %85 = shl nsw i64 %84, 4
-  %86 = tail call ptr @realloc(ptr noundef %83, i64 noundef %85) #58
+  %86 = tail call ptr @realloc(ptr noundef %83, i64 noundef %85) #60
   %87 = icmp eq ptr %86, null
   br i1 %87, label %nvg__allocTempVerts.exit.thread, label %88
 
@@ -23024,9 +23024,9 @@ nvg__normalize.exit:                              ; preds = %115
   %200 = uitofp nneg i32 %.0481.i to float
   %201 = fdiv float %200, %101
   %202 = fmul float %201, 0x400921FB60000000
-  %203 = tail call float @cosf(float noundef %202) #55
+  %203 = tail call float @cosf(float noundef %202) #57
   %204 = fmul float %19, %203
-  %205 = tail call float @sinf(float noundef %202) #55
+  %205 = tail call float @sinf(float noundef %202) #57
   %206 = fmul float %19, %205
   %207 = insertelement <2 x float> poison, float %204, i64 0
   %208 = shufflevector <2 x float> %207, <2 x float> poison, <2 x i32> zeroinitializer
@@ -23137,9 +23137,9 @@ nvg__chooseBevel.exit.i:                          ; preds = %256, %250
   %.08.i = phi float [ %259, %256 ], [ %251, %250 ]
   %storemerge.i.i = phi float [ %263, %256 ], [ %255, %250 ]
   %264 = fneg float %.1179.val202
-  %265 = tail call float @atan2f(float noundef %.1179.val201, float noundef %264) #55
+  %265 = tail call float @atan2f(float noundef %.1179.val201, float noundef %264) #57
   %266 = fneg float %240
-  %267 = tail call float @atan2f(float noundef %242, float noundef %266) #55
+  %267 = tail call float @atan2f(float noundef %242, float noundef %266) #57
   %268 = fcmp ogt float %267, %265
   %269 = fadd float %267, 0xC01921FB60000000
   %.0133.i = select i1 %268, float %269, float %267
@@ -23186,10 +23186,10 @@ nvg__chooseBevel.exit.i:                          ; preds = %256, %250
   %294 = fdiv float %293, %290
   %295 = tail call float @llvm.fmuladd.f32(float %294, float %291, float %265)
   %296 = load float, ptr %.1267, align 4
-  %297 = tail call float @cosf(float noundef %295) #55
+  %297 = tail call float @cosf(float noundef %295) #57
   %298 = tail call float @llvm.fmuladd.f32(float %297, float %19, float %296)
   %299 = load float, ptr %248, align 4
-  %300 = tail call float @sinf(float noundef %295) #55
+  %300 = tail call float @sinf(float noundef %295) #57
   %301 = tail call float @llvm.fmuladd.f32(float %300, float %19, float %299)
   %302 = load float, ptr %.1267, align 4
   %303 = load float, ptr %248, align 4
@@ -23255,8 +23255,8 @@ nvg__chooseBevel.exit144.i:                       ; preds = %326, %320
   %.010.i = phi float [ %333, %326 ], [ %323, %320 ]
   %.09.i = phi float [ %329, %326 ], [ %324, %320 ]
   %storemerge.i143.i = phi float [ %333, %326 ], [ %325, %320 ]
-  %334 = tail call float @atan2f(float noundef %238, float noundef %.1179.val202) #55
-  %335 = tail call float @atan2f(float noundef %243, float noundef %240) #55
+  %334 = tail call float @atan2f(float noundef %238, float noundef %.1179.val202) #57
+  %335 = tail call float @atan2f(float noundef %243, float noundef %240) #57
   %336 = fcmp olt float %335, %334
   %337 = fadd float %335, 0x401921FB60000000
   %.0134.i = select i1 %336, float %337, float %335
@@ -23302,10 +23302,10 @@ nvg__chooseBevel.exit144.i:                       ; preds = %326, %320
   %361 = fdiv float %360, %358
   %362 = tail call float @llvm.fmuladd.f32(float %361, float %348, float %334)
   %363 = load float, ptr %.1267, align 4
-  %364 = tail call float @cosf(float noundef %362) #55
+  %364 = tail call float @cosf(float noundef %362) #57
   %365 = tail call float @llvm.fmuladd.f32(float %364, float %19, float %363)
   %366 = load float, ptr %248, align 4
-  %367 = tail call float @sinf(float noundef %362) #55
+  %367 = tail call float @sinf(float noundef %362) #57
   %368 = tail call float @llvm.fmuladd.f32(float %367, float %19, float %366)
   store float %365, ptr %.122.i, align 4
   %369 = getelementptr inbounds i8, ptr %.pn21.i, i64 36
@@ -23558,9 +23558,9 @@ nvg__normalize.exit212:                           ; preds = %._crit_edge270
   %510 = uitofp nneg i32 %.0482.i to float
   %511 = fdiv float %510, %101
   %512 = fmul float %511, 0x400921FB60000000
-  %513 = tail call float @cosf(float noundef %512) #55
+  %513 = tail call float @cosf(float noundef %512) #57
   %514 = fmul float %19, %513
-  %515 = tail call float @sinf(float noundef %512) #55
+  %515 = tail call float @sinf(float noundef %512) #57
   %516 = fmul float %19, %515
   store float %493, ptr %.04.i, align 4
   %517 = getelementptr inbounds i8, ptr %.pn3.i, i64 36
@@ -23636,7 +23636,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @nvgCreateFontMem(ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @nvgFindFont(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #14 {
+define dso_local i32 @nvgFindFont(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #21 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %fonsGetFontByName.exit, label %4
 
@@ -23659,7 +23659,7 @@ define dso_local i32 @nvgFindFont(ptr nocapture noundef readonly %0, ptr noundef
   %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #56
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #58
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %._crit_edge.loopexit.split.loop.exit12.i, label %18
 
@@ -23678,7 +23678,7 @@ fonsGetFontByName.exit:                           ; preds = %18, %._crit_edge.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @nvgAddFallbackFontId(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
+define dso_local range(i32 0, 2) i32 @nvgAddFallbackFontId(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = icmp eq i32 %1, -1
   %5 = icmp eq i32 %2, -1
   %or.cond = or i1 %4, %5
@@ -23712,7 +23712,7 @@ fonsAddFallbackFont.exit:                         ; preds = %17, %6, %3
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @nvgAddFallbackFont(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #36 {
+define dso_local range(i32 0, 2) i32 @nvgAddFallbackFont(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #38 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %nvgFindFont.exit, label %5
 
@@ -23735,7 +23735,7 @@ define dso_local range(i32 0, 2) i32 @nvgAddFallbackFont(ptr nocapture noundef r
   %14 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i.i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #56
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #58
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge.loopexit.split.loop.exit12.i.i, label %19
 
@@ -23772,7 +23772,7 @@ nvgFindFont.exit:                                 ; preds = %19, %3, %5, %._crit
   %31 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.i.i8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 56
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) %2) #56
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) %2) #58
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %nvgFindFont.exit12, label %36
 
@@ -23882,7 +23882,7 @@ define dso_local void @nvgFontFaceId(ptr nocapture noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nvgFontFace(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #37 {
+define dso_local void @nvgFontFace(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #39 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8840
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8872
@@ -23903,7 +23903,7 @@ define dso_local void @nvgFontFace(ptr nocapture noundef %0, ptr nocapture nound
   %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 56
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #56
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #58
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %._crit_edge.loopexit.split.loop.exit12.i, label %18
 
@@ -23965,7 +23965,7 @@ define dso_local float @nvgText(ptr noundef %0, float noundef %1, float noundef 
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %5
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #56
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #58
   %41 = getelementptr inbounds i8, ptr %3, i64 %40
   br label %42
 
@@ -24050,7 +24050,7 @@ define dso_local float @nvgText(ptr noundef %0, float noundef %1, float noundef 
   %110 = load ptr, ptr %109, align 8
   %111 = zext nneg i32 %108 to i64
   %112 = shl nuw nsw i64 %111, 4
-  %113 = tail call ptr @realloc(ptr noundef %110, i64 noundef %112) #58
+  %113 = tail call ptr @realloc(ptr noundef %110, i64 noundef %112) #60
   %114 = icmp eq ptr %113, null
   br i1 %114, label %nvg__allocTempVerts.exit.thread, label %115
 
@@ -24137,7 +24137,7 @@ nvg__allocTempVerts.exit:                         ; preds = %46, %115
   %169 = load i64, ptr %154, align 4
   %170 = getelementptr inbounds i8, ptr %154, i64 8
   %171 = load i64, ptr %170, align 4
-  call void %166(ptr noundef %167, ptr noundef nonnull %7, i64 %169, i64 %171, ptr noundef nonnull %168, ptr noundef nonnull %122, i32 noundef %.092) #55
+  call void %166(ptr noundef %167, ptr noundef nonnull %7, i64 %169, i64 %171, ptr noundef nonnull %168, ptr noundef nonnull %122, i32 noundef %.092) #57
   %172 = load i32, ptr %138, align 4
   %173 = add nsw i32 %172, 1
   store i32 %173, ptr %138, align 4
@@ -24283,7 +24283,7 @@ nvg__allocTempVerts.exit:                         ; preds = %46, %115
   %266 = getelementptr inbounds i8, ptr %0, i64 40
   %267 = load ptr, ptr %266, align 8
   %268 = load ptr, ptr %0, align 8
-  %269 = call i32 %267(ptr noundef %268, i32 noundef %259, i32 noundef %242, i32 noundef %248, i32 noundef %264, i32 noundef %265, ptr noundef %263) #55
+  %269 = call i32 %267(ptr noundef %268, i32 noundef %259, i32 noundef %242, i32 noundef %248, i32 noundef %264, i32 noundef %265, ptr noundef %263) #57
   br label %nvg__flushTextTexture.exit
 
 nvg__flushTextTexture.exit:                       ; preds = %._crit_edge, %246, %252, %260
@@ -24319,7 +24319,7 @@ nvg__flushTextTexture.exit:                       ; preds = %._crit_edge, %246, 
   %294 = load i64, ptr %273, align 4
   %295 = getelementptr inbounds i8, ptr %273, i64 8
   %296 = load i64, ptr %295, align 4
-  call void %291(ptr noundef %292, ptr noundef nonnull %6, i64 %294, i64 %296, ptr noundef nonnull %293, ptr noundef nonnull %122, i32 noundef %.4) #55
+  call void %291(ptr noundef %292, ptr noundef nonnull %6, i64 %294, i64 %296, ptr noundef nonnull %293, ptr noundef nonnull %122, i32 noundef %.4) #57
   %297 = getelementptr inbounds i8, ptr %0, i64 8900
   %298 = load i32, ptr %297, align 4
   %299 = add nsw i32 %298, 1
@@ -24384,7 +24384,7 @@ define internal fastcc range(i32 0, 2) i32 @nvg__allocTextAtlas(ptr nocapture no
   %31 = getelementptr inbounds i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = tail call i32 %32(ptr noundef %33, i32 noundef %24, i32 noundef %7, i32 noundef %13, i32 noundef %29, i32 noundef %30, ptr noundef %28) #55
+  %34 = tail call i32 %32(ptr noundef %33, i32 noundef %24, i32 noundef %7, i32 noundef %13, i32 noundef %29, i32 noundef %30, ptr noundef %28) #57
   br label %nvg__flushTextTexture.exit
 
 nvg__flushTextTexture.exit:                       ; preds = %1, %11, %17, %25
@@ -24406,7 +24406,7 @@ nvg__flushTextTexture.exit:                       ; preds = %1, %11, %17, %25
   %45 = getelementptr inbounds i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %0, align 8
-  %48 = call i32 %46(ptr noundef %47, i32 noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %3) #55
+  %48 = call i32 %46(ptr noundef %47, i32 noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %3) #57
   br label %81
 
 49:                                               ; preds = %38
@@ -24416,7 +24416,7 @@ nvg__flushTextTexture.exit:                       ; preds = %1, %11, %17, %25
   %53 = getelementptr inbounds i8, ptr %0, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %0, align 8
-  %56 = call i32 %54(ptr noundef %55, i32 noundef %52, ptr noundef nonnull %2, ptr noundef nonnull %3) #55
+  %56 = call i32 %54(ptr noundef %55, i32 noundef %52, ptr noundef nonnull %2, ptr noundef nonnull %3) #57
   %57 = load i32, ptr %2, align 4
   %58 = load i32, ptr %3, align 4
   %59 = icmp sgt i32 %57, %58
@@ -24451,7 +24451,7 @@ nvg__flushTextTexture.exit:                       ; preds = %1, %11, %17, %25
   %73 = getelementptr inbounds i8, ptr %0, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %0, align 8
-  %76 = call i32 %74(ptr noundef %75, i32 noundef 1, i32 noundef %72, i32 noundef %71, i32 noundef 0, ptr noundef null) #55
+  %76 = call i32 %74(ptr noundef %75, i32 noundef 1, i32 noundef %72, i32 noundef %71, i32 noundef 0, ptr noundef null) #57
   %77 = load i32, ptr %35, align 8
   %78 = add nsw i32 %77, 1
   %79 = sext i32 %78 to i64
@@ -24651,7 +24651,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nvgTextMetrics(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #16 {
+define dso_local void @nvgTextMetrics(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #17 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = getelementptr inbounds i8, ptr %0, i64 8840
   %7 = load i32, ptr %6, align 8
@@ -24891,7 +24891,7 @@ define dso_local i32 @nvgTextBreakLines(ptr nocapture noundef %0, ptr noundef %1
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %42
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #56
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #58
   %46 = getelementptr inbounds i8, ptr %1, i64 %45
   br label %47
 
@@ -25270,7 +25270,7 @@ define dso_local i32 @nvgTextGlyphPositions(ptr nocapture noundef %0, float noun
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #56
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #58
   %45 = getelementptr inbounds i8, ptr %3, i64 %44
   br label %46
 
@@ -25912,7 +25912,7 @@ define dso_local void @nvgTextBoxBounds(ptr nocapture noundef %0, float noundef 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr nocapture noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #38 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr nocapture noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #40 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -25985,8 +25985,8 @@ stbtt__add_point.exit:                            ; preds = %44, %45
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1) unnamed_addr #39 {
+; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1) unnamed_addr #40 {
   %3 = alloca %struct.stbtt__edge, align 4
   %4 = icmp sgt i32 %1, 12
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -26096,8 +26096,8 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 nou
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #8
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #14 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 2
@@ -26439,7 +26439,7 @@ fons__atlasRectFits.exit.thread:                  ; preds = %26, %.lr.ph.i, %15,
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %spec.select.i.i to i64
   %62 = mul nsw i64 %61, 6
-  %63 = tail call ptr @realloc(ptr noundef %60, i64 noundef %62) #58
+  %63 = tail call ptr @realloc(ptr noundef %60, i64 noundef %62) #60
   store ptr %63, ptr %59, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %fons__atlasAddSkylineLevel.exit, label %._crit_edge32.i.i
@@ -26651,10 +26651,10 @@ fons__atlasAddSkylineLevel.exit:                  ; preds = %5, %56, %._crit_edg
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @expf(float noundef) local_unnamed_addr #40
+declare float @expf(float noundef) local_unnamed_addr #41
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @fons__blurRows(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @fons__blurRows(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge47
 
@@ -26812,7 +26812,7 @@ define internal fastcc void @fons__blurRows(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @stbi__stdio_read(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #35 {
+define internal noundef i32 @stbi__stdio_read(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #37 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = trunc i64 %5 to i32
@@ -26820,20 +26820,20 @@ define internal noundef i32 @stbi__stdio_read(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @stbi__stdio_skip(ptr nocapture noundef %0, i32 noundef %1) #35 {
+define internal void @stbi__stdio_skip(ptr nocapture noundef %0, i32 noundef %1) #37 {
   %3 = sext i32 %1 to i64
   %4 = tail call i32 @fseek(ptr noundef %0, i64 noundef %3, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @stbi__stdio_eof(ptr nocapture noundef %0) #35 {
-  %2 = tail call i32 @feof(ptr noundef %0) #55
+define internal noundef i32 @stbi__stdio_eof(ptr nocapture noundef %0) #37 {
+  %2 = tail call i32 @feof(ptr noundef %0) #57
   ret i32 %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @stbi__load_main(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #3 {
@@ -26850,7 +26850,7 @@ define internal fastcc ptr @stbi__load_main(ptr noundef %0, ptr nocapture nounde
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %17, align 4
-  %18 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #57
+  %18 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #59
   store ptr %0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 18544
   %20 = getelementptr inbounds i8, ptr %18, i64 18552
@@ -26881,11 +26881,11 @@ stbi__jpeg_test.exit:                             ; preds = %7, %26
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %31, ptr %32, align 8
-  tail call void @free(ptr noundef nonnull %18) #55
+  tail call void @free(ptr noundef nonnull %18) #57
   br i1 %.not, label %33, label %1665
 
 33:                                               ; preds = %stbi__jpeg_test.exit
-  %34 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #57
+  %34 = tail call noalias noundef dereferenceable_or_null(18568) ptr @malloc(i64 noundef 18568) #59
   store ptr %0, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 18544
   %36 = getelementptr inbounds i8, ptr %34, i64 18552
@@ -26988,7 +26988,7 @@ stbi__jpeg_test.exit:                             ; preds = %7, %26
   %90 = getelementptr inbounds i8, ptr %73, i64 56
   %91 = getelementptr inbounds i8, ptr %73, i64 52
   %92 = load i32, ptr %91, align 4
-  %93 = call i32 %87(ptr noundef %89, ptr noundef nonnull %90, i32 noundef %92) #55
+  %93 = call i32 %87(ptr noundef %89, ptr noundef nonnull %90, i32 noundef %92) #57
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %97
 
@@ -27039,7 +27039,7 @@ stbi__get8.exit.i.i.i.i.i:                        ; preds = %stbi__refill_buffer
   %116 = getelementptr inbounds i8, ptr %73, i64 56
   %117 = getelementptr inbounds i8, ptr %73, i64 52
   %118 = load i32, ptr %117, align 4
-  %119 = call i32 %113(ptr noundef %115, ptr noundef nonnull %116, i32 noundef %118) #55
+  %119 = call i32 %113(ptr noundef %115, ptr noundef nonnull %116, i32 noundef %118) #57
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %123
 
@@ -27101,7 +27101,7 @@ stbi__get8.exit.thread.i.i.i.i:                   ; preds = %141
   %149 = getelementptr inbounds i8, ptr %132, i64 56
   %150 = getelementptr inbounds i8, ptr %132, i64 52
   %151 = load i32, ptr %150, align 4
-  %152 = call i32 %146(ptr noundef %148, ptr noundef nonnull %149, i32 noundef %151) #55
+  %152 = call i32 %146(ptr noundef %148, ptr noundef nonnull %149, i32 noundef %151) #57
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %156
 
@@ -27184,7 +27184,7 @@ stbi__get8.exit.i.i.i.i:                          ; preds = %stbi__refill_buffer
   %189 = getelementptr inbounds i8, ptr %172, i64 56
   %190 = getelementptr inbounds i8, ptr %172, i64 52
   %191 = load i32, ptr %190, align 4
-  %192 = call i32 %186(ptr noundef %188, ptr noundef nonnull %189, i32 noundef %191) #55
+  %192 = call i32 %186(ptr noundef %188, ptr noundef nonnull %189, i32 noundef %191) #57
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %196
 
@@ -27239,7 +27239,7 @@ stbi__get8.exit72.i.i.i.i:                        ; preds = %stbi__refill_buffer
   %219 = getelementptr inbounds i8, ptr %202, i64 56
   %220 = getelementptr inbounds i8, ptr %202, i64 52
   %221 = load i32, ptr %220, align 4
-  %222 = call i32 %216(ptr noundef %218, ptr noundef nonnull %219, i32 noundef %221) #55
+  %222 = call i32 %216(ptr noundef %218, ptr noundef nonnull %219, i32 noundef %221) #57
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %224, label %226
 
@@ -27358,7 +27358,7 @@ stbi__get8.exit78.i.i.i.i:                        ; preds = %stbi__refill_buffer
   %275 = getelementptr inbounds i8, ptr %232, i64 56
   %276 = getelementptr inbounds i8, ptr %232, i64 52
   %277 = load i32, ptr %276, align 4
-  %278 = call i32 %272(ptr noundef %274, ptr noundef nonnull %275, i32 noundef %277) #55
+  %278 = call i32 %272(ptr noundef %274, ptr noundef nonnull %275, i32 noundef %277) #57
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %280, label %282
 
@@ -27414,7 +27414,7 @@ stbi__get8.exit84.i.i.i.i:                        ; preds = %stbi__refill_buffer
   %305 = getelementptr inbounds i8, ptr %288, i64 56
   %306 = getelementptr inbounds i8, ptr %288, i64 52
   %307 = load i32, ptr %306, align 4
-  %308 = call i32 %302(ptr noundef %304, ptr noundef nonnull %305, i32 noundef %307) #55
+  %308 = call i32 %302(ptr noundef %304, ptr noundef nonnull %305, i32 noundef %307) #57
   %309 = icmp eq i32 %308, 0
   br i1 %309, label %310, label %312
 
@@ -27470,7 +27470,7 @@ stbi__get8.exit90.i.i.i.i:                        ; preds = %stbi__refill_buffer
   %335 = getelementptr inbounds i8, ptr %318, i64 56
   %336 = getelementptr inbounds i8, ptr %318, i64 52
   %337 = load i32, ptr %336, align 4
-  %338 = call i32 %332(ptr noundef %334, ptr noundef nonnull %335, i32 noundef %337) #55
+  %338 = call i32 %332(ptr noundef %334, ptr noundef nonnull %335, i32 noundef %337) #57
   %339 = icmp eq i32 %338, 0
   br i1 %339, label %340, label %342
 
@@ -27640,7 +27640,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %366, %358
   %413 = getelementptr inbounds i8, ptr %409, i64 %412
   %414 = shl nsw i64 %indvars.iv311.i.i.i.i, 3
   %415 = getelementptr inbounds i8, ptr %413, i64 %414
-  call void %408(ptr noundef %415, i32 noundef %410, ptr noundef nonnull %12) #55
+  call void %408(ptr noundef %415, i32 noundef %410, ptr noundef nonnull %12) #57
   %416 = load i32, ptr %63, align 4
   %417 = add nsw i32 %416, -1
   store i32 %417, ptr %63, align 4
@@ -27766,7 +27766,7 @@ stbi__process_scan_header.exit.i.i.i:             ; preds = %366, %358
   %481 = getelementptr inbounds i8, ptr %477, i64 %480
   %482 = sext i32 %475 to i64
   %483 = getelementptr inbounds i8, ptr %481, i64 %482
-  call void %476(ptr noundef %483, i32 noundef %478, ptr noundef nonnull %13) #55
+  call void %476(ptr noundef %483, i32 noundef %478, ptr noundef nonnull %13) #57
   %484 = add nuw nsw i32 %.0193267.i.i.i.i, 1
   %485 = load i32, ptr %445, align 4
   %486 = icmp slt i32 %484, %485
@@ -28702,7 +28702,7 @@ thread-pre-split.i.i.i:                           ; preds = %._crit_edge255.i.i.
   %930 = load ptr, ptr %929, align 8
   %931 = getelementptr inbounds i8, ptr %925, i64 40
   %932 = load ptr, ptr %931, align 8
-  %933 = call i32 %930(ptr noundef %932) #55
+  %933 = call i32 %930(ptr noundef %932) #57
   %.not6.i.i.i.i = icmp eq i32 %933, 0
   br i1 %.not6.i.i.i.i, label %stbi__at_eof.exit.thread.i.i.i, label %934
 
@@ -28749,7 +28749,7 @@ stbi__at_eof.exit.thread.i.i.i:                   ; preds = %stbi__at_eof.exit.i
   %959 = getelementptr inbounds i8, ptr %942, i64 56
   %960 = getelementptr inbounds i8, ptr %942, i64 52
   %961 = load i32, ptr %960, align 4
-  %962 = call i32 %956(ptr noundef %958, ptr noundef nonnull %959, i32 noundef %961) #55
+  %962 = call i32 %956(ptr noundef %958, ptr noundef nonnull %959, i32 noundef %961) #57
   %963 = icmp eq i32 %962, 0
   br i1 %963, label %964, label %966
 
@@ -28807,7 +28807,7 @@ stbi__get8.exit.i.i.i:                            ; preds = %stbi__refill_buffer
   %990 = getelementptr inbounds i8, ptr %973, i64 56
   %991 = getelementptr inbounds i8, ptr %973, i64 52
   %992 = load i32, ptr %991, align 4
-  %993 = call i32 %987(ptr noundef %989, ptr noundef nonnull %990, i32 noundef %992) #55
+  %993 = call i32 %987(ptr noundef %989, ptr noundef nonnull %990, i32 noundef %992) #57
   %994 = icmp eq i32 %993, 0
   br i1 %994, label %995, label %997
 
@@ -28865,7 +28865,7 @@ stbi__get8.exit59.i.i.i:                          ; preds = %stbi__refill_buffer
   %1020 = getelementptr inbounds i8, ptr %1003, i64 56
   %1021 = getelementptr inbounds i8, ptr %1003, i64 52
   %1022 = load i32, ptr %1021, align 4
-  %1023 = call i32 %1017(ptr noundef %1019, ptr noundef nonnull %1020, i32 noundef %1022) #55
+  %1023 = call i32 %1017(ptr noundef %1019, ptr noundef nonnull %1020, i32 noundef %1022) #57
   %1024 = icmp eq i32 %1023, 0
   br i1 %1024, label %1025, label %1027
 
@@ -28916,7 +28916,7 @@ stbi__get8.exit.i64.i.i.i:                        ; preds = %stbi__refill_buffer
   %1046 = getelementptr inbounds i8, ptr %1003, i64 56
   %1047 = getelementptr inbounds i8, ptr %1003, i64 52
   %1048 = load i32, ptr %1047, align 4
-  %1049 = call i32 %1043(ptr noundef %1045, ptr noundef nonnull %1046, i32 noundef %1048) #55
+  %1049 = call i32 %1043(ptr noundef %1045, ptr noundef nonnull %1046, i32 noundef %1048) #57
   %1050 = icmp eq i32 %1049, 0
   br i1 %1050, label %1051, label %1053
 
@@ -28974,7 +28974,7 @@ stbi__get16be.exit.i.i.i:                         ; preds = %stbi__refill_buffer
   %1079 = getelementptr inbounds i8, ptr %1062, i64 56
   %1080 = getelementptr inbounds i8, ptr %1062, i64 52
   %1081 = load i32, ptr %1080, align 4
-  %1082 = call i32 %1076(ptr noundef %1078, ptr noundef nonnull %1079, i32 noundef %1081) #55
+  %1082 = call i32 %1076(ptr noundef %1078, ptr noundef nonnull %1079, i32 noundef %1081) #57
   %1083 = icmp eq i32 %1082, 0
   br i1 %1083, label %1084, label %1086
 
@@ -29025,7 +29025,7 @@ stbi__get8.exit.i70.i.i.i:                        ; preds = %stbi__refill_buffer
   %1105 = getelementptr inbounds i8, ptr %1062, i64 56
   %1106 = getelementptr inbounds i8, ptr %1062, i64 52
   %1107 = load i32, ptr %1106, align 4
-  %1108 = call i32 %1102(ptr noundef %1104, ptr noundef nonnull %1105, i32 noundef %1107) #55
+  %1108 = call i32 %1102(ptr noundef %1104, ptr noundef nonnull %1105, i32 noundef %1107) #57
   %1109 = icmp eq i32 %1108, 0
   br i1 %1109, label %1110, label %1112
 
@@ -29168,7 +29168,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %1164
   %1175 = getelementptr inbounds i8, ptr %1171, i64 %1174
   %1176 = shl nsw i64 %indvars.iv.i84.i.i.i, 3
   %1177 = getelementptr inbounds i8, ptr %1175, i64 %1176
-  call void %1170(ptr noundef %1177, i32 noundef %1172, ptr noundef nonnull %1160) #55
+  call void %1170(ptr noundef %1177, i32 noundef %1172, ptr noundef nonnull %1160) #57
   %indvars.iv.next.i87.i.i.i = add nuw nsw i64 %indvars.iv.i84.i.i.i, 1
   %exitcond.not.i88.i.i.i = icmp eq i64 %indvars.iv.next.i87.i.i.i, %wide.trip.count.i82.i.i.i
   br i1 %exitcond.not.i88.i.i.i, label %._crit_edge.us.i.i.i.i, label %1152, !llvm.loop !165
@@ -29211,7 +29211,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %1164
   br i1 %.not.i.i289.i.i, label %1194, label %1192
 
 1192:                                             ; preds = %1188
-  call void @free(ptr noundef nonnull %1191) #55
+  call void @free(ptr noundef nonnull %1191) #57
   %1193 = getelementptr inbounds i8, ptr %1189, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1193, i8 0, i64 16, i1 false)
   br label %1194
@@ -29223,7 +29223,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %1164
   br i1 %.not28.i.i.i.i, label %1199, label %1197
 
 1197:                                             ; preds = %1194
-  call void @free(ptr noundef nonnull %1196) #55
+  call void @free(ptr noundef nonnull %1196) #57
   store ptr null, ptr %1195, align 8
   %1198 = getelementptr inbounds i8, ptr %1189, i64 80
   store ptr null, ptr %1198, align 8
@@ -29236,7 +29236,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %1164
   br i1 %.not29.i.i.i.i, label %1203, label %1202
 
 1202:                                             ; preds = %1199
-  call void @free(ptr noundef nonnull %1201) #55
+  call void @free(ptr noundef nonnull %1201) #57
   store ptr null, ptr %1200, align 8
   br label %1203
 
@@ -29301,7 +29301,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   %1231 = getelementptr inbounds [4 x %struct.stbi__resample], ptr %15, i64 0, i64 %indvars.iv.i.i
   %1232 = add i32 %1230, 3
   %1233 = zext i32 %1232 to i64
-  %1234 = call noalias noundef ptr @malloc(i64 noundef %1233) #57
+  %1234 = call noalias noundef ptr @malloc(i64 noundef %1233) #59
   %1235 = getelementptr inbounds [4 x %struct.anon.0], ptr %43, i64 0, i64 %indvars.iv.i.i
   %1236 = getelementptr inbounds i8, ptr %1235, i64 72
   store ptr %1234, ptr %1236, align 8
@@ -29326,7 +29326,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   br i1 %.not.i.i295.i.i, label %1246, label %1244
 
 1244:                                             ; preds = %1240
-  call void @free(ptr noundef nonnull %1243) #55
+  call void @free(ptr noundef nonnull %1243) #57
   %1245 = getelementptr inbounds i8, ptr %1241, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1245, i8 0, i64 16, i1 false)
   br label %1246
@@ -29338,7 +29338,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   br i1 %.not28.i.i296.i.i, label %1251, label %1249
 
 1249:                                             ; preds = %1246
-  call void @free(ptr noundef nonnull %1248) #55
+  call void @free(ptr noundef nonnull %1248) #57
   store ptr null, ptr %1247, align 8
   %1250 = getelementptr inbounds i8, ptr %1241, i64 80
   store ptr null, ptr %1250, align 8
@@ -29351,7 +29351,7 @@ stbi__decode_jpeg_image.exit.i.i:                 ; preds = %._crit_edge38.i.i.i
   br i1 %.not29.i.i297.i.i, label %1255, label %1254
 
 1254:                                             ; preds = %1251
-  call void @free(ptr noundef nonnull %1253) #55
+  call void @free(ptr noundef nonnull %1253) #57
   store ptr null, ptr %1252, align 8
   br label %1255
 
@@ -29466,7 +29466,7 @@ stbi__mad3sizes_valid.exit.i.i.i:                 ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit.i.i:                       ; preds = %stbi__mad3sizes_valid.exit.i.i.i
   %1297 = add nsw i32 %1296, 1
   %1298 = sext i32 %1297 to i64
-  %1299 = call noalias noundef ptr @malloc(i64 noundef %1298) #57
+  %1299 = call noalias noundef ptr @malloc(i64 noundef %1298) #59
   %.not279.i.i = icmp eq ptr %1299, null
   br i1 %.not279.i.i, label %stbi__malloc_mad3.exit.thread.i.i, label %.preheader346.i.i
 
@@ -29501,7 +29501,7 @@ stbi__malloc_mad3.exit.thread.i.i:                ; preds = %stbi__malloc_mad3.e
   br i1 %.not.i.i306.i.i, label %1314, label %1312
 
 1312:                                             ; preds = %1308
-  call void @free(ptr noundef nonnull %1311) #55
+  call void @free(ptr noundef nonnull %1311) #57
   %1313 = getelementptr inbounds i8, ptr %1309, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1313, i8 0, i64 16, i1 false)
   br label %1314
@@ -29513,7 +29513,7 @@ stbi__malloc_mad3.exit.thread.i.i:                ; preds = %stbi__malloc_mad3.e
   br i1 %.not28.i.i307.i.i, label %1319, label %1317
 
 1317:                                             ; preds = %1314
-  call void @free(ptr noundef nonnull %1316) #55
+  call void @free(ptr noundef nonnull %1316) #57
   store ptr null, ptr %1315, align 8
   %1318 = getelementptr inbounds i8, ptr %1309, i64 80
   store ptr null, ptr %1318, align 8
@@ -29526,7 +29526,7 @@ stbi__malloc_mad3.exit.thread.i.i:                ; preds = %stbi__malloc_mad3.e
   br i1 %.not29.i.i308.i.i, label %1323, label %1322
 
 1322:                                             ; preds = %1319
-  call void @free(ptr noundef nonnull %1321) #55
+  call void @free(ptr noundef nonnull %1321) #57
   store ptr null, ptr %1320, align 8
   br label %1323
 
@@ -29572,7 +29572,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1346 = load i32, ptr %1345, align 16
   %1347 = getelementptr inbounds i8, ptr %1331, i64 24
   %1348 = load i32, ptr %1347, align 8
-  %1349 = call ptr %1337(ptr noundef %1340, ptr noundef %1343, ptr noundef %1344, i32 noundef %1346, i32 noundef %1348) #55
+  %1349 = call ptr %1337(ptr noundef %1340, ptr noundef %1343, ptr noundef %1344, i32 noundef %1346, i32 noundef %1348) #57
   %1350 = getelementptr inbounds [4 x ptr], ptr %14, i64 0, i64 %indvars.iv483.i.i
   store ptr %1349, ptr %1350, align 8
   %1351 = add nsw i32 %1333, 1
@@ -29730,7 +29730,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1436 = load ptr, ptr %1304, align 8
   %1437 = load ptr, ptr %1305, align 16
   %1438 = load i32, ptr %1368, align 8
-  call void %1435(ptr noundef nonnull %1330, ptr noundef %1367, ptr noundef %1436, ptr noundef %1437, i32 noundef %1438, i32 noundef %1220) #55
+  call void %1435(ptr noundef nonnull %1330, ptr noundef %1367, ptr noundef %1436, ptr noundef %1437, i32 noundef %1438, i32 noundef %1220) #57
   %1439 = load ptr, ptr %34, align 8
   %1440 = load i32, ptr %1439, align 8
   %.not430.i.i = icmp eq i32 %1440, 0
@@ -30035,7 +30035,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   %1630 = load ptr, ptr %1304, align 8
   %1631 = load ptr, ptr %1305, align 16
   %1632 = load i32, ptr %1368, align 8
-  call void %1629(ptr noundef nonnull %1330, ptr noundef %1367, ptr noundef %1630, ptr noundef %1631, i32 noundef %1632, i32 noundef %1220) #55
+  call void %1629(ptr noundef nonnull %1330, ptr noundef %1367, ptr noundef %1630, ptr noundef %1631, i32 noundef %1632, i32 noundef %1220) #57
   %.pre99.i = load ptr, ptr %34, align 8
   br label %.loopexit.i.i
 
@@ -30067,7 +30067,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   br i1 %.not.i.i315.i.i, label %1647, label %1645
 
 1645:                                             ; preds = %1641
-  call void @free(ptr noundef nonnull %1644) #55
+  call void @free(ptr noundef nonnull %1644) #57
   %1646 = getelementptr inbounds i8, ptr %1642, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1646, i8 0, i64 16, i1 false)
   br label %1647
@@ -30079,7 +30079,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   br i1 %.not28.i.i316.i.i, label %1652, label %1650
 
 1650:                                             ; preds = %1647
-  call void @free(ptr noundef nonnull %1649) #55
+  call void @free(ptr noundef nonnull %1649) #57
   store ptr null, ptr %1648, align 8
   %1651 = getelementptr inbounds i8, ptr %1642, i64 80
   store ptr null, ptr %1651, align 8
@@ -30092,7 +30092,7 @@ stbi__cleanup_jpeg.exit311.i.i:                   ; preds = %1323, %stbi__malloc
   br i1 %.not29.i.i317.i.i, label %1656, label %1655
 
 1655:                                             ; preds = %1652
-  call void @free(ptr noundef nonnull %1654) #55
+  call void @free(ptr noundef nonnull %1654) #57
   store ptr null, ptr %1653, align 8
   br label %1656
 
@@ -30127,7 +30127,7 @@ stbi__jpeg_load.exit:                             ; preds = %1203, %39, %.loopex
   %.0.i.i = phi ptr [ null, %39 ], [ null, %stbi__cleanup_jpeg.exit300.i.i ], [ null, %stbi__cleanup_jpeg.exit311.i.i ], [ %1299, %1661 ], [ %1299, %stbi__cleanup_jpeg.exit320.i.i ], [ null, %.loopexit357.i.i ], [ null, %1203 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %15)
-  call void @free(ptr noundef nonnull %34) #55
+  call void @free(ptr noundef nonnull %34) #57
   br label %2811
 
 1665:                                             ; preds = %stbi__jpeg_test.exit
@@ -30166,7 +30166,7 @@ stbi__jpeg_load.exit:                             ; preds = %1203, %39, %.loopex
   %1683 = load ptr, ptr %1667, align 8
   %1684 = load ptr, ptr %1668, align 8
   %1685 = load i32, ptr %1670, align 4
-  %1686 = tail call i32 %1683(ptr noundef %1684, ptr noundef nonnull %1669, i32 noundef %1685) #55
+  %1686 = tail call i32 %1683(ptr noundef %1684, ptr noundef nonnull %1669, i32 noundef %1685) #57
   %1687 = icmp eq i32 %1686, 0
   br i1 %1687, label %1688, label %1689
 
@@ -30276,13 +30276,13 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
 1727:                                             ; preds = %1724, %._crit_edge.i.i93, %._crit_edge.i
   %1728 = phi ptr [ null, %1724 ], [ null, %._crit_edge.i.i93 ], [ %.pre.i95, %._crit_edge.i ]
   %.2.i.i = phi ptr [ %.1.i.i, %1724 ], [ %.1.i.i, %._crit_edge.i.i93 ], [ null, %._crit_edge.i ]
-  tail call void @free(ptr noundef %1728) #55
+  tail call void @free(ptr noundef %1728) #57
   %1729 = getelementptr inbounds i8, ptr %11, i64 16
   %1730 = load ptr, ptr %1729, align 8
-  tail call void @free(ptr noundef %1730) #55
+  tail call void @free(ptr noundef %1730) #57
   %1731 = getelementptr inbounds i8, ptr %11, i64 8
   %1732 = load ptr, ptr %1731, align 8
-  tail call void @free(ptr noundef %1732) #55
+  tail call void @free(ptr noundef %1732) #57
   br label %stbi__png_load.exit
 
 stbi__png_load.exit:                              ; preds = %1699, %1719, %1727
@@ -30314,7 +30314,7 @@ stbi__png_load.exit:                              ; preds = %1699, %1719, %1727
   %1743 = load ptr, ptr %1667, align 8
   %1744 = load ptr, ptr %1668, align 8
   %1745 = load i32, ptr %1670, align 4
-  %1746 = tail call i32 %1743(ptr noundef %1744, ptr noundef nonnull %1669, i32 noundef %1745) #55
+  %1746 = tail call i32 %1743(ptr noundef %1744, ptr noundef nonnull %1669, i32 noundef %1745) #57
   %1747 = icmp eq i32 %1746, 0
   br i1 %1747, label %1748, label %1749
 
@@ -30362,7 +30362,7 @@ stbi__get8.exit.i.i100:                           ; preds = %stbi__refill_buffer
   %1763 = load ptr, ptr %1667, align 8
   %1764 = load ptr, ptr %1668, align 8
   %1765 = load i32, ptr %1670, align 4
-  %1766 = tail call i32 %1763(ptr noundef %1764, ptr noundef nonnull %1669, i32 noundef %1765) #55
+  %1766 = tail call i32 %1763(ptr noundef %1764, ptr noundef nonnull %1669, i32 noundef %1765) #57
   %1767 = icmp eq i32 %1766, 0
   br i1 %1767, label %1768, label %1769
 
@@ -30409,7 +30409,7 @@ stbi__get8.exit25.i.i:                            ; preds = %stbi__refill_buffer
   %1783 = load ptr, ptr %1667, align 8
   %1784 = load ptr, ptr %1668, align 8
   %1785 = load i32, ptr %1670, align 4
-  %1786 = tail call i32 %1783(ptr noundef %1784, ptr noundef nonnull %1669, i32 noundef %1785) #55
+  %1786 = tail call i32 %1783(ptr noundef %1784, ptr noundef nonnull %1669, i32 noundef %1785) #57
   %1787 = icmp eq i32 %1786, 0
   br i1 %1787, label %1788, label %1789
 
@@ -30453,7 +30453,7 @@ stbi__get8.exit.i.i.i107:                         ; preds = %stbi__get8.exit.i.s
   %1800 = load ptr, ptr %1667, align 8
   %1801 = load ptr, ptr %1668, align 8
   %1802 = load i32, ptr %1670, align 4
-  %1803 = tail call i32 %1800(ptr noundef %1801, ptr noundef nonnull %1669, i32 noundef %1802) #55
+  %1803 = tail call i32 %1800(ptr noundef %1801, ptr noundef nonnull %1669, i32 noundef %1802) #57
   %1804 = icmp eq i32 %1803, 0
   br i1 %1804, label %1805, label %1806
 
@@ -30497,7 +30497,7 @@ stbi__get16le.exit.i.i:                           ; preds = %stbi__get16le.exit.
   %1817 = load ptr, ptr %1667, align 8
   %1818 = load ptr, ptr %1668, align 8
   %1819 = load i32, ptr %1670, align 4
-  %1820 = tail call i32 %1817(ptr noundef %1818, ptr noundef nonnull %1669, i32 noundef %1819) #55
+  %1820 = tail call i32 %1817(ptr noundef %1818, ptr noundef nonnull %1669, i32 noundef %1819) #57
   %1821 = icmp eq i32 %1820, 0
   br i1 %1821, label %1822, label %1823
 
@@ -30541,7 +30541,7 @@ stbi__get8.exit.i30.i.i:                          ; preds = %stbi__get8.exit.i30
   %1834 = load ptr, ptr %1667, align 8
   %1835 = load ptr, ptr %1668, align 8
   %1836 = load i32, ptr %1670, align 4
-  %1837 = tail call i32 %1834(ptr noundef %1835, ptr noundef nonnull %1669, i32 noundef %1836) #55
+  %1837 = tail call i32 %1834(ptr noundef %1835, ptr noundef nonnull %1669, i32 noundef %1836) #57
   %1838 = icmp eq i32 %1837, 0
   br i1 %1838, label %1839, label %1840
 
@@ -30695,7 +30695,7 @@ stbi__mul2sizes_valid.exit12.i.i.i:               ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit.i:                         ; preds = %stbi__mul2sizes_valid.exit12.i.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i.i
   %1893 = mul nuw nsw i32 %1887, %1856
   %1894 = zext nneg i32 %1893 to i64
-  %1895 = tail call noalias noundef ptr @malloc(i64 noundef %1894) #57
+  %1895 = tail call noalias noundef ptr @malloc(i64 noundef %1894) #59
   %.not315.i = icmp eq ptr %1895, null
   br i1 %.not315.i, label %stbi__malloc_mad3.exit.thread.i, label %1896
 
@@ -30724,7 +30724,7 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
   br label %1903
 
 1902:                                             ; preds = %1898
-  tail call void @free(ptr noundef nonnull %1895) #55
+  tail call void @free(ptr noundef nonnull %1895) #57
   store ptr @.str.72, ptr @stbi__g_failure_reason, align 8
   br label %stbi__bmp_load.exit
 
@@ -30752,7 +30752,7 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
   %1915 = load ptr, ptr %1667, align 8
   %1916 = load ptr, ptr %1668, align 8
   %1917 = load i32, ptr %1670, align 4
-  %1918 = tail call i32 %1915(ptr noundef %1916, ptr noundef nonnull %1669, i32 noundef %1917) #55
+  %1918 = tail call i32 %1915(ptr noundef %1916, ptr noundef nonnull %1669, i32 noundef %1917) #57
   %1919 = icmp eq i32 %1918, 0
   br i1 %1919, label %1920, label %1921
 
@@ -30801,7 +30801,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %1938 = load ptr, ptr %1667, align 8
   %1939 = load ptr, ptr %1668, align 8
   %1940 = load i32, ptr %1670, align 4
-  %1941 = tail call i32 %1938(ptr noundef %1939, ptr noundef nonnull %1669, i32 noundef %1940) #55
+  %1941 = tail call i32 %1938(ptr noundef %1939, ptr noundef nonnull %1669, i32 noundef %1940) #57
   %1942 = icmp eq i32 %1941, 0
   br i1 %1942, label %1943, label %1944
 
@@ -30849,7 +30849,7 @@ stbi__get8.exit331.i:                             ; preds = %stbi__refill_buffer
   %1960 = load ptr, ptr %1667, align 8
   %1961 = load ptr, ptr %1668, align 8
   %1962 = load i32, ptr %1670, align 4
-  %1963 = tail call i32 %1960(ptr noundef %1961, ptr noundef nonnull %1669, i32 noundef %1962) #55
+  %1963 = tail call i32 %1960(ptr noundef %1961, ptr noundef nonnull %1669, i32 noundef %1962) #57
   %1964 = icmp eq i32 %1963, 0
   br i1 %1964, label %1965, label %1966
 
@@ -30897,7 +30897,7 @@ stbi__get8.exit337.i:                             ; preds = %stbi__refill_buffer
   %1981 = load ptr, ptr %1667, align 8
   %1982 = load ptr, ptr %1668, align 8
   %1983 = load i32, ptr %1670, align 4
-  %1984 = tail call i32 %1981(ptr noundef %1982, ptr noundef nonnull %1669, i32 noundef %1983) #55
+  %1984 = tail call i32 %1981(ptr noundef %1982, ptr noundef nonnull %1669, i32 noundef %1983) #57
   %1985 = icmp eq i32 %1984, 0
   br i1 %1985, label %1986, label %1987
 
@@ -30974,7 +30974,7 @@ stbi__get8.exit343.i:                             ; preds = %stbi__get8.exit343.
   %2014 = load ptr, ptr %2013, align 8
   %2015 = load ptr, ptr %1668, align 8
   %2016 = sub nsw i32 %1998, %2010
-  tail call void %2014(ptr noundef %2015, i32 noundef %2016) #55
+  tail call void %2014(ptr noundef %2015, i32 noundef %2016) #57
   br label %stbi__skip.exit.i
 
 2017:                                             ; preds = %2004, %._crit_edge.i.i120
@@ -31002,7 +31002,7 @@ stbi__skip.exit.i:                                ; preds = %2017, %2012, %2000
   br label %.preheader19.i
 
 2027:                                             ; preds = %stbi__skip.exit.i
-  tail call void @free(ptr noundef %1895) #55
+  tail call void @free(ptr noundef %1895) #57
   store ptr @.str.73, ptr @stbi__g_failure_reason, align 8
   br label %stbi__bmp_load.exit
 
@@ -31061,7 +31061,7 @@ stbi__skip.exit.i:                                ; preds = %2017, %2012, %2000
   %2057 = load ptr, ptr %1667, align 8
   %2058 = load ptr, ptr %1668, align 8
   %2059 = load i32, ptr %1670, align 4
-  %2060 = tail call i32 %2057(ptr noundef %2058, ptr noundef nonnull %1669, i32 noundef %2059) #55
+  %2060 = tail call i32 %2057(ptr noundef %2058, ptr noundef nonnull %1669, i32 noundef %2059) #57
   %2061 = icmp eq i32 %2060, 0
   br i1 %2061, label %2062, label %2063
 
@@ -31145,7 +31145,7 @@ stbi__get8.exit351.i:                             ; preds = %stbi__refill_buffer
   %2099 = load ptr, ptr %1667, align 8
   %2100 = load ptr, ptr %1668, align 8
   %2101 = load i32, ptr %1670, align 4
-  %2102 = tail call i32 %2099(ptr noundef %2100, ptr noundef nonnull %1669, i32 noundef %2101) #55
+  %2102 = tail call i32 %2099(ptr noundef %2100, ptr noundef nonnull %1669, i32 noundef %2101) #57
   %2103 = icmp eq i32 %2102, 0
   br i1 %2103, label %2107, label %2104
 
@@ -31245,7 +31245,7 @@ stbi__get8.exit357.i.us:                          ; preds = %2109, %stbi__refill
   %2148 = load ptr, ptr %1667, align 8
   %2149 = load ptr, ptr %1668, align 8
   %2150 = load i32, ptr %1670, align 4
-  %2151 = tail call i32 %2148(ptr noundef %2149, ptr noundef nonnull %1669, i32 noundef %2150) #55
+  %2151 = tail call i32 %2148(ptr noundef %2149, ptr noundef nonnull %1669, i32 noundef %2150) #57
   %2152 = icmp eq i32 %2151, 0
   br i1 %2152, label %2153, label %2154
 
@@ -31319,7 +31319,7 @@ stbi__get8.exit357.i:                             ; preds = %stbi__refill_buffer
   %2177 = load ptr, ptr %2045, align 8
   %2178 = load ptr, ptr %1668, align 8
   %2179 = sub nsw i32 %2041, %2174
-  tail call void %2177(ptr noundef %2178, i32 noundef %2179) #55
+  tail call void %2177(ptr noundef %2178, i32 noundef %2179) #57
   br label %stbi__skip.exit362.i
 
 ._crit_edge.i359.i:                               ; preds = %2170, %._crit_edge58.i
@@ -31370,7 +31370,7 @@ stbi__skip.exit362.i:                             ; preds = %._crit_edge.i359.i,
   %2197 = load ptr, ptr %1667, align 8
   %2198 = load ptr, ptr %1668, align 8
   %2199 = load i32, ptr %1670, align 4
-  %2200 = tail call i32 %2197(ptr noundef %2198, ptr noundef nonnull %1669, i32 noundef %2199) #55
+  %2200 = tail call i32 %2197(ptr noundef %2198, ptr noundef nonnull %1669, i32 noundef %2199) #57
   %2201 = icmp eq i32 %2200, 0
   br i1 %2201, label %2202, label %2203
 
@@ -31456,7 +31456,7 @@ stbi__get8.exit368.i:                             ; preds = %stbi__refill_buffer
   %2243 = load ptr, ptr %1667, align 8
   %2244 = load ptr, ptr %1668, align 8
   %2245 = load i32, ptr %1670, align 4
-  %2246 = tail call i32 %2243(ptr noundef %2244, ptr noundef nonnull %1669, i32 noundef %2245) #55
+  %2246 = tail call i32 %2243(ptr noundef %2244, ptr noundef nonnull %1669, i32 noundef %2245) #57
   %2247 = icmp eq i32 %2246, 0
   br i1 %2247, label %2248, label %2249
 
@@ -31547,7 +31547,7 @@ stbi__get8.exit374.i:                             ; preds = %stbi__refill_buffer
   %2292 = load ptr, ptr %2035, align 8
   %2293 = load ptr, ptr %1668, align 8
   %2294 = sub nsw i32 %2029, %2289
-  tail call void %2292(ptr noundef %2293, i32 noundef %2294) #55
+  tail call void %2292(ptr noundef %2293, i32 noundef %2294) #57
   br label %stbi__skip.exit379.i
 
 2295:                                             ; preds = %2283, %._crit_edge.i376.i
@@ -31600,7 +31600,7 @@ stbi__skip.exit379.i:                             ; preds = %2295, %2291
   %2320 = load ptr, ptr %2319, align 8
   %2321 = load ptr, ptr %1668, align 8
   %2322 = sub nsw i32 %2304, %2316
-  tail call void %2320(ptr noundef %2321, i32 noundef %2322) #55
+  tail call void %2320(ptr noundef %2321, i32 noundef %2322) #57
   br label %stbi__skip.exit384.i
 
 2323:                                             ; preds = %2310, %._crit_edge.i381.i
@@ -31647,7 +31647,7 @@ stbi__skip.exit384.i:                             ; preds = %2323, %2318, %2306
   br i1 %or.cond13.i, label %stbi__high_bit.exit406.i, label %2342
 
 2342:                                             ; preds = %.thread7.i
-  tail call void @free(ptr noundef nonnull %1895) #55
+  tail call void @free(ptr noundef nonnull %1895) #57
   store ptr @.str.74, ptr @stbi__g_failure_reason, align 8
   br label %stbi__bmp_load.exit
 
@@ -31912,7 +31912,7 @@ stbi__high_bit.exit417.i:                         ; preds = %2433, %stbi__high_b
   %2513 = load ptr, ptr %1667, align 8
   %2514 = load ptr, ptr %1668, align 8
   %2515 = load i32, ptr %1670, align 4
-  %2516 = tail call i32 %2513(ptr noundef %2514, ptr noundef nonnull %1669, i32 noundef %2515) #55
+  %2516 = tail call i32 %2513(ptr noundef %2514, ptr noundef nonnull %1669, i32 noundef %2515) #57
   %2517 = icmp eq i32 %2516, 0
   br i1 %2517, label %2518, label %2519
 
@@ -31962,7 +31962,7 @@ stbi__get8.exit423.i:                             ; preds = %stbi__refill_buffer
   %2537 = load ptr, ptr %1667, align 8
   %2538 = load ptr, ptr %1668, align 8
   %2539 = load i32, ptr %1670, align 4
-  %2540 = tail call i32 %2537(ptr noundef %2538, ptr noundef nonnull %1669, i32 noundef %2539) #55
+  %2540 = tail call i32 %2537(ptr noundef %2538, ptr noundef nonnull %1669, i32 noundef %2539) #57
   %2541 = icmp eq i32 %2540, 0
   br i1 %2541, label %2542, label %2543
 
@@ -32010,7 +32010,7 @@ stbi__get8.exit429.i:                             ; preds = %stbi__refill_buffer
   %2559 = load ptr, ptr %1667, align 8
   %2560 = load ptr, ptr %1668, align 8
   %2561 = load i32, ptr %1670, align 4
-  %2562 = tail call i32 %2559(ptr noundef %2560, ptr noundef nonnull %1669, i32 noundef %2561) #55
+  %2562 = tail call i32 %2559(ptr noundef %2560, ptr noundef nonnull %1669, i32 noundef %2561) #57
   %2563 = icmp eq i32 %2562, 0
   br i1 %2563, label %2564, label %2565
 
@@ -32061,7 +32061,7 @@ stbi__get8.exit435.i:                             ; preds = %stbi__refill_buffer
   %2582 = load ptr, ptr %1667, align 8
   %2583 = load ptr, ptr %1668, align 8
   %2584 = load i32, ptr %1670, align 4
-  %2585 = tail call i32 %2582(ptr noundef %2583, ptr noundef nonnull %1669, i32 noundef %2584) #55
+  %2585 = tail call i32 %2582(ptr noundef %2583, ptr noundef nonnull %1669, i32 noundef %2584) #57
   %2586 = icmp eq i32 %2585, 0
   br i1 %2586, label %2587, label %2588
 
@@ -32134,7 +32134,7 @@ stbi__get8.exit441.i:                             ; preds = %stbi__refill_buffer
   %2617 = load ptr, ptr %1667, align 8
   %2618 = load ptr, ptr %1668, align 8
   %2619 = load i32, ptr %1670, align 4
-  %2620 = tail call i32 %2617(ptr noundef %2618, ptr noundef nonnull %1669, i32 noundef %2619) #55
+  %2620 = tail call i32 %2617(ptr noundef %2618, ptr noundef nonnull %1669, i32 noundef %2619) #57
   %2621 = icmp eq i32 %2620, 0
   br i1 %2621, label %2622, label %2623
 
@@ -32178,7 +32178,7 @@ stbi__get8.exit.i.i116:                           ; preds = %stbi__refill_buffer
   %2636 = load ptr, ptr %1667, align 8
   %2637 = load ptr, ptr %1668, align 8
   %2638 = load i32, ptr %1670, align 4
-  %2639 = tail call i32 %2636(ptr noundef %2637, ptr noundef nonnull %1669, i32 noundef %2638) #55
+  %2639 = tail call i32 %2636(ptr noundef %2637, ptr noundef nonnull %1669, i32 noundef %2638) #57
   %2640 = icmp eq i32 %2639, 0
   br i1 %2640, label %2641, label %2642
 
@@ -32312,7 +32312,7 @@ stbi__get16le.exit.i:                             ; preds = %stbi__refill_buffer
   %2717 = load ptr, ptr %2494, align 8
   %2718 = load ptr, ptr %1668, align 8
   %2719 = sub nsw i32 %2465, %2714
-  tail call void %2717(ptr noundef %2718, i32 noundef %2719) #55
+  tail call void %2717(ptr noundef %2718, i32 noundef %2719) #57
   br label %stbi__skip.exit451.i
 
 2720:                                             ; preds = %2708, %._crit_edge.i448.i
@@ -32478,17 +32478,17 @@ stbi__bmp_load.exit:                              ; preds = %1848, %1890, %stbi_
   br i1 %.not15.i, label %stbi__gif_load.exit, label %2777
 
 2777:                                             ; preds = %2774
-  call void @free(ptr noundef nonnull %2776) #55
+  call void @free(ptr noundef nonnull %2776) #57
   br label %stbi__gif_load.exit
 
 stbi__gif_load.exit:                              ; preds = %2767, %2772, %2774, %2777
   %.0.i123 = phi ptr [ %2773, %2772 ], [ %2765, %2767 ], [ null, %2777 ], [ null, %2774 ]
   %2778 = getelementptr inbounds i8, ptr %8, i64 24
   %2779 = load ptr, ptr %2778, align 8
-  call void @free(ptr noundef %2779) #55
+  call void @free(ptr noundef %2779) #57
   %2780 = getelementptr inbounds i8, ptr %8, i64 16
   %2781 = load ptr, ptr %2780, align 8
-  call void @free(ptr noundef %2781) #55
+  call void @free(ptr noundef %2781) #57
   call void @llvm.lifetime.end.p0(i64 34928, ptr nonnull %8)
   br label %2811
 
@@ -32589,7 +32589,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__gif_test(ptr noundef %0) unnam
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = getelementptr inbounds i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #55
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #57
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -32644,7 +32644,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %45 = getelementptr inbounds i8, ptr %0, i64 56
   %46 = getelementptr inbounds i8, ptr %0, i64 52
   %47 = load i32, ptr %46, align 4
-  %48 = tail call i32 %42(ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47) #55
+  %48 = tail call i32 %42(ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47) #57
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %52
 
@@ -32699,7 +32699,7 @@ stbi__get8.exit18.i:                              ; preds = %stbi__refill_buffer
   %72 = getelementptr inbounds i8, ptr %0, i64 56
   %73 = getelementptr inbounds i8, ptr %0, i64 52
   %74 = load i32, ptr %73, align 4
-  %75 = tail call i32 %69(ptr noundef %71, ptr noundef nonnull %72, i32 noundef %74) #55
+  %75 = tail call i32 %69(ptr noundef %71, ptr noundef nonnull %72, i32 noundef %74) #57
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %79
 
@@ -32754,7 +32754,7 @@ stbi__get8.exit24.i:                              ; preds = %stbi__refill_buffer
   %99 = getelementptr inbounds i8, ptr %0, i64 56
   %100 = getelementptr inbounds i8, ptr %0, i64 52
   %101 = load i32, ptr %100, align 4
-  %102 = tail call i32 %96(ptr noundef %98, ptr noundef nonnull %99, i32 noundef %101) #55
+  %102 = tail call i32 %96(ptr noundef %98, ptr noundef nonnull %99, i32 noundef %101) #57
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %106
 
@@ -32809,7 +32809,7 @@ stbi__get8.exit30.i:                              ; preds = %stbi__refill_buffer
   %126 = getelementptr inbounds i8, ptr %0, i64 56
   %127 = getelementptr inbounds i8, ptr %0, i64 52
   %128 = load i32, ptr %127, align 4
-  %129 = tail call i32 %123(ptr noundef %125, ptr noundef nonnull %126, i32 noundef %128) #55
+  %129 = tail call i32 %123(ptr noundef %125, ptr noundef nonnull %126, i32 noundef %128) #57
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %133
 
@@ -32866,7 +32866,7 @@ stbi__get8.exit36.i:                              ; preds = %stbi__refill_buffer
   %153 = getelementptr inbounds i8, ptr %0, i64 56
   %154 = getelementptr inbounds i8, ptr %0, i64 52
   %155 = load i32, ptr %154, align 4
-  %156 = tail call i32 %150(ptr noundef %152, ptr noundef nonnull %153, i32 noundef %155) #55
+  %156 = tail call i32 %150(ptr noundef %152, ptr noundef nonnull %153, i32 noundef %155) #57
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %160
 
@@ -32943,7 +32943,7 @@ define internal fastcc noundef ptr @stbi__psd_load(ptr noundef %0, ptr nocapture
   %27 = getelementptr inbounds i8, ptr %0, i64 56
   %28 = getelementptr inbounds i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
-  %30 = tail call i32 %24(ptr noundef %26, ptr noundef nonnull %27, i32 noundef %29) #55
+  %30 = tail call i32 %24(ptr noundef %26, ptr noundef nonnull %27, i32 noundef %29) #57
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -32994,7 +32994,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %53 = getelementptr inbounds i8, ptr %0, i64 56
   %54 = getelementptr inbounds i8, ptr %0, i64 52
   %55 = load i32, ptr %54, align 4
-  %56 = tail call i32 %50(ptr noundef %52, ptr noundef nonnull %53, i32 noundef %55) #55
+  %56 = tail call i32 %50(ptr noundef %52, ptr noundef nonnull %53, i32 noundef %55) #57
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
@@ -33054,7 +33054,7 @@ stbi__get16be.exit:                               ; preds = %42, %45, %stbi__ref
   %83 = getelementptr inbounds i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8
   %85 = sub nsw i32 6, %78
-  tail call void %82(ptr noundef %84, i32 noundef %85) #55
+  tail call void %82(ptr noundef %84, i32 noundef %85) #57
   %.pre = load ptr, ptr %11, align 8
   %.pre399 = load ptr, ptr %13, align 8
   br label %stbi__skip.exit
@@ -33089,7 +33089,7 @@ stbi__skip.exit:                                  ; preds = %80, %._crit_edge.i
   %100 = getelementptr inbounds i8, ptr %0, i64 56
   %101 = getelementptr inbounds i8, ptr %0, i64 52
   %102 = load i32, ptr %101, align 4
-  %103 = tail call i32 %97(ptr noundef %99, ptr noundef nonnull %100, i32 noundef %102) #55
+  %103 = tail call i32 %97(ptr noundef %99, ptr noundef nonnull %100, i32 noundef %102) #57
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %107
 
@@ -33139,7 +33139,7 @@ stbi__get8.exit.i215:                             ; preds = %stbi__refill_buffer
   %125 = getelementptr inbounds i8, ptr %0, i64 56
   %126 = getelementptr inbounds i8, ptr %0, i64 52
   %127 = load i32, ptr %126, align 4
-  %128 = tail call i32 %122(ptr noundef %124, ptr noundef nonnull %125, i32 noundef %127) #55
+  %128 = tail call i32 %122(ptr noundef %124, ptr noundef nonnull %125, i32 noundef %127) #57
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %132
 
@@ -33203,7 +33203,7 @@ stbi__get16be.exit222:                            ; preds = %115, %118, %stbi__r
   %159 = getelementptr inbounds i8, ptr %0, i64 56
   %160 = getelementptr inbounds i8, ptr %0, i64 52
   %161 = load i32, ptr %160, align 4
-  %162 = tail call i32 %156(ptr noundef %158, ptr noundef nonnull %159, i32 noundef %161) #55
+  %162 = tail call i32 %156(ptr noundef %158, ptr noundef nonnull %159, i32 noundef %161) #57
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %164, label %166
 
@@ -33253,7 +33253,7 @@ stbi__get8.exit.i227:                             ; preds = %stbi__refill_buffer
   %184 = getelementptr inbounds i8, ptr %0, i64 56
   %185 = getelementptr inbounds i8, ptr %0, i64 52
   %186 = load i32, ptr %185, align 4
-  %187 = tail call i32 %181(ptr noundef %183, ptr noundef nonnull %184, i32 noundef %186) #55
+  %187 = tail call i32 %181(ptr noundef %183, ptr noundef nonnull %184, i32 noundef %186) #57
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %191
 
@@ -33318,7 +33318,7 @@ stbi__get16be.exit234:                            ; preds = %174, %177, %stbi__r
   %215 = getelementptr inbounds i8, ptr %0, i64 56
   %216 = getelementptr inbounds i8, ptr %0, i64 52
   %217 = load i32, ptr %216, align 4
-  %218 = tail call i32 %212(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #55
+  %218 = tail call i32 %212(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #57
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %220, label %222
 
@@ -33368,7 +33368,7 @@ stbi__get8.exit.i239:                             ; preds = %stbi__refill_buffer
   %240 = getelementptr inbounds i8, ptr %0, i64 56
   %241 = getelementptr inbounds i8, ptr %0, i64 52
   %242 = load i32, ptr %241, align 4
-  %243 = tail call i32 %237(ptr noundef %239, ptr noundef nonnull %240, i32 noundef %242) #55
+  %243 = tail call i32 %237(ptr noundef %239, ptr noundef nonnull %240, i32 noundef %242) #57
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %245, label %247
 
@@ -33441,7 +33441,7 @@ stbi__get16be.exit246:                            ; preds = %230, %233, %stbi__r
   %275 = getelementptr inbounds i8, ptr %0, i64 40
   %276 = load ptr, ptr %275, align 8
   %277 = sub nsw i32 %258, %270
-  tail call void %274(ptr noundef %276, i32 noundef %277) #55
+  tail call void %274(ptr noundef %276, i32 noundef %277) #57
   br label %stbi__skip.exit251
 
 278:                                              ; preds = %264, %._crit_edge.i248
@@ -33487,7 +33487,7 @@ stbi__skip.exit251:                               ; preds = %260, %272, %278
   %299 = getelementptr inbounds i8, ptr %0, i64 40
   %300 = load ptr, ptr %299, align 8
   %301 = sub nsw i32 %282, %294
-  tail call void %298(ptr noundef %300, i32 noundef %301) #55
+  tail call void %298(ptr noundef %300, i32 noundef %301) #57
   br label %stbi__skip.exit256
 
 302:                                              ; preds = %288, %._crit_edge.i253
@@ -33533,7 +33533,7 @@ stbi__skip.exit256:                               ; preds = %284, %296, %302
   %323 = getelementptr inbounds i8, ptr %0, i64 40
   %324 = load ptr, ptr %323, align 8
   %325 = sub nsw i32 %306, %318
-  tail call void %322(ptr noundef %324, i32 noundef %325) #55
+  tail call void %322(ptr noundef %324, i32 noundef %325) #57
   %.pre400 = load ptr, ptr %11, align 8
   br label %stbi__skip.exit261
 
@@ -33569,7 +33569,7 @@ stbi__skip.exit261:                               ; preds = %308, %320, %326
   %343 = getelementptr inbounds i8, ptr %0, i64 56
   %344 = getelementptr inbounds i8, ptr %0, i64 52
   %345 = load i32, ptr %344, align 4
-  %346 = tail call i32 %340(ptr noundef %342, ptr noundef nonnull %343, i32 noundef %345) #55
+  %346 = tail call i32 %340(ptr noundef %342, ptr noundef nonnull %343, i32 noundef %345) #57
   %347 = icmp eq i32 %346, 0
   br i1 %347, label %348, label %350
 
@@ -33619,7 +33619,7 @@ stbi__get8.exit.i266:                             ; preds = %stbi__refill_buffer
   %368 = getelementptr inbounds i8, ptr %0, i64 56
   %369 = getelementptr inbounds i8, ptr %0, i64 52
   %370 = load i32, ptr %369, align 4
-  %371 = tail call i32 %365(ptr noundef %367, ptr noundef nonnull %368, i32 noundef %370) #55
+  %371 = tail call i32 %365(ptr noundef %367, ptr noundef nonnull %368, i32 noundef %370) #57
   %372 = icmp eq i32 %371, 0
   br i1 %372, label %373, label %375
 
@@ -33695,7 +33695,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   %398 = shl i32 %144, 2
   %399 = mul i32 %398, %145
   %400 = sext i32 %399 to i64
-  %401 = tail call noalias noundef ptr @malloc(i64 noundef %400) #57
+  %401 = tail call noalias noundef ptr @malloc(i64 noundef %400) #59
   br label %402
 
 402:                                              ; preds = %397, %395
@@ -33772,7 +33772,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   %434 = load ptr, ptr %72, align 8
   %435 = load ptr, ptr %418, align 8
   %436 = load i32, ptr %420, align 4
-  %437 = tail call i32 %434(ptr noundef %435, ptr noundef nonnull %419, i32 noundef %436) #55
+  %437 = tail call i32 %434(ptr noundef %435, ptr noundef nonnull %419, i32 noundef %436) #57
   %438 = icmp eq i32 %437, 0
   br i1 %438, label %442, label %439
 
@@ -33830,7 +33830,7 @@ stbi__get8.exit.i280.us:                          ; preds = %444, %stbi__refill_
   %461 = load ptr, ptr %72, align 8
   %462 = load ptr, ptr %418, align 8
   %463 = load i32, ptr %420, align 4
-  %464 = tail call i32 %461(ptr noundef %462, ptr noundef nonnull %419, i32 noundef %463) #55
+  %464 = tail call i32 %461(ptr noundef %462, ptr noundef nonnull %419, i32 noundef %463) #57
   %465 = icmp eq i32 %464, 0
   br i1 %465, label %469, label %466
 
@@ -33901,7 +33901,7 @@ stbi__get8.exit49.i.us:                           ; preds = %471, %stbi__refill_
   %488 = load ptr, ptr %72, align 8
   %489 = load ptr, ptr %418, align 8
   %490 = load i32, ptr %420, align 4
-  %491 = tail call i32 %488(ptr noundef %489, ptr noundef nonnull %419, i32 noundef %490) #55
+  %491 = tail call i32 %488(ptr noundef %489, ptr noundef nonnull %419, i32 noundef %490) #57
   %492 = icmp eq i32 %491, 0
   br i1 %492, label %496, label %493
 
@@ -33959,7 +33959,7 @@ stbi__psd_decode_rle.exit.us:                     ; preds = %424, %.loopexit.i.u
   br label %424
 
 .split333.us:                                     ; preds = %453, %478
-  tail call void @free(ptr noundef %.0183) #55
+  tail call void @free(ptr noundef %.0183) #57
   store ptr @.str.93, ptr @stbi__g_failure_reason, align 8
   br label %703
 
@@ -34043,7 +34043,7 @@ stbi__psd_decode_rle.exit.us:                     ; preds = %424, %.loopexit.i.u
   %535 = load ptr, ptr %72, align 8
   %536 = load ptr, ptr %408, align 8
   %537 = load i32, ptr %410, align 4
-  %538 = tail call i32 %535(ptr noundef %536, ptr noundef nonnull %409, i32 noundef %537) #55
+  %538 = tail call i32 %535(ptr noundef %536, ptr noundef nonnull %409, i32 noundef %537) #57
   %539 = icmp eq i32 %538, 0
   br i1 %539, label %540, label %541
 
@@ -34087,7 +34087,7 @@ stbi__get8.exit.i287:                             ; preds = %stbi__refill_buffer
   %554 = load ptr, ptr %72, align 8
   %555 = load ptr, ptr %408, align 8
   %556 = load i32, ptr %410, align 4
-  %557 = tail call i32 %554(ptr noundef %555, ptr noundef nonnull %409, i32 noundef %556) #55
+  %557 = tail call i32 %554(ptr noundef %555, ptr noundef nonnull %409, i32 noundef %556) #57
   %558 = icmp eq i32 %557, 0
   br i1 %558, label %559, label %560
 
@@ -34166,7 +34166,7 @@ stbi__get16be.exit294:                            ; preds = %548, %551, %stbi__r
   %583 = load ptr, ptr %72, align 8
   %584 = load ptr, ptr %408, align 8
   %585 = load i32, ptr %410, align 4
-  %586 = tail call i32 %583(ptr noundef %584, ptr noundef nonnull %409, i32 noundef %585) #55
+  %586 = tail call i32 %583(ptr noundef %584, ptr noundef nonnull %409, i32 noundef %585) #57
   %587 = icmp eq i32 %586, 0
   br i1 %587, label %588, label %589
 
@@ -34208,7 +34208,7 @@ stbi__get8.exit.i299:                             ; preds = %stbi__refill_buffer
   %601 = load ptr, ptr %72, align 8
   %602 = load ptr, ptr %408, align 8
   %603 = load i32, ptr %410, align 4
-  %604 = tail call i32 %601(ptr noundef %602, ptr noundef nonnull %409, i32 noundef %603) #55
+  %604 = tail call i32 %601(ptr noundef %602, ptr noundef nonnull %409, i32 noundef %603) #57
   %605 = icmp eq i32 %604, 0
   br i1 %605, label %606, label %607
 
@@ -34265,7 +34265,7 @@ stbi__get16be.exit306:                            ; preds = %stbi__get16be.exit3
   %623 = load ptr, ptr %72, align 8
   %624 = load ptr, ptr %408, align 8
   %625 = load i32, ptr %410, align 4
-  %626 = tail call i32 %623(ptr noundef %624, ptr noundef nonnull %409, i32 noundef %625) #55
+  %626 = tail call i32 %623(ptr noundef %624, ptr noundef nonnull %409, i32 noundef %625) #57
   %627 = icmp eq i32 %626, 0
   br i1 %627, label %628, label %629
 
@@ -34489,7 +34489,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__pic_test(ptr noundef %0) unnam
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr %8, align 4
-  %24 = tail call i32 %21(ptr noundef %22, ptr noundef nonnull %7, i32 noundef %23) #55
+  %24 = tail call i32 %21(ptr noundef %22, ptr noundef nonnull %7, i32 noundef %23) #57
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
 
@@ -34540,7 +34540,7 @@ stbi__pic_is4.exit.preheader.i:                   ; preds = %10, %stbi__get8.exi
   %43 = load ptr, ptr %5, align 8
   %44 = load ptr, ptr %6, align 8
   %45 = load i32, ptr %8, align 4
-  %46 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %7, i32 noundef %45) #55
+  %46 = tail call i32 %43(ptr noundef %44, ptr noundef nonnull %7, i32 noundef %45) #57
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %49
 
@@ -34599,7 +34599,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__get8.exit.sin
   %63 = load ptr, ptr %5, align 8
   %64 = load ptr, ptr %6, align 8
   %65 = load i32, ptr %8, align 4
-  %66 = tail call i32 %63(ptr noundef %64, ptr noundef nonnull %7, i32 noundef %65) #55
+  %66 = tail call i32 %63(ptr noundef %64, ptr noundef nonnull %7, i32 noundef %65) #57
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %69
 
@@ -34675,7 +34675,7 @@ define internal fastcc noundef ptr @stbi__pic_load(ptr noundef %0, ptr nocapture
   %26 = load ptr, ptr %12, align 8
   %27 = load ptr, ptr %13, align 8
   %28 = load i32, ptr %15, align 4
-  %29 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %14, i32 noundef %28) #55
+  %29 = tail call i32 %26(ptr noundef %27, ptr noundef nonnull %14, i32 noundef %28) #57
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %32
 
@@ -34727,7 +34727,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %46 = load ptr, ptr %12, align 8
   %47 = load ptr, ptr %13, align 8
   %48 = load i32, ptr %15, align 4
-  %49 = tail call i32 %46(ptr noundef %47, ptr noundef nonnull %14, i32 noundef %48) #55
+  %49 = tail call i32 %46(ptr noundef %47, ptr noundef nonnull %14, i32 noundef %48) #57
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %52
 
@@ -34771,7 +34771,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %65 = load ptr, ptr %12, align 8
   %66 = load ptr, ptr %13, align 8
   %67 = load i32, ptr %15, align 4
-  %68 = tail call i32 %65(ptr noundef %66, ptr noundef nonnull %14, i32 noundef %67) #55
+  %68 = tail call i32 %65(ptr noundef %66, ptr noundef nonnull %14, i32 noundef %67) #57
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %71
 
@@ -34819,7 +34819,7 @@ stbi__get16be.exit:                               ; preds = %59, %62, %stbi__ref
   %88 = load ptr, ptr %12, align 8
   %89 = load ptr, ptr %13, align 8
   %90 = load i32, ptr %15, align 4
-  %91 = tail call i32 %88(ptr noundef %89, ptr noundef nonnull %14, i32 noundef %90) #55
+  %91 = tail call i32 %88(ptr noundef %89, ptr noundef nonnull %14, i32 noundef %90) #57
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %94
 
@@ -34863,7 +34863,7 @@ stbi__get8.exit.i47:                              ; preds = %stbi__refill_buffer
   %107 = load ptr, ptr %12, align 8
   %108 = load ptr, ptr %13, align 8
   %109 = load i32, ptr %15, align 4
-  %110 = tail call i32 %107(ptr noundef %108, ptr noundef nonnull %14, i32 noundef %109) #55
+  %110 = tail call i32 %107(ptr noundef %108, ptr noundef nonnull %14, i32 noundef %109) #57
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %113
 
@@ -34901,7 +34901,7 @@ stbi__get16be.exit54:                             ; preds = %101, %104, %stbi__r
   %125 = getelementptr inbounds i8, ptr %0, i64 32
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %13, align 8
-  %128 = tail call i32 %126(ptr noundef %127) #55
+  %128 = tail call i32 %126(ptr noundef %127) #57
   %.not6.i = icmp eq i32 %128, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %129
 
@@ -34961,7 +34961,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__at_eof.exit.t
   %147 = load ptr, ptr %12, align 8
   %148 = load ptr, ptr %13, align 8
   %149 = load i32, ptr %15, align 4
-  %150 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %14, i32 noundef %149) #55
+  %150 = tail call i32 %147(ptr noundef %148, ptr noundef nonnull %14, i32 noundef %149) #57
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %153
 
@@ -35005,7 +35005,7 @@ stbi__get8.exit.i62:                              ; preds = %stbi__get8.exit.i62
   %164 = load ptr, ptr %12, align 8
   %165 = load ptr, ptr %13, align 8
   %166 = load i32, ptr %15, align 4
-  %167 = tail call i32 %164(ptr noundef %165, ptr noundef nonnull %14, i32 noundef %166) #55
+  %167 = tail call i32 %164(ptr noundef %165, ptr noundef nonnull %14, i32 noundef %166) #57
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %170
 
@@ -35049,7 +35049,7 @@ stbi__get16be.exit69:                             ; preds = %stbi__get16be.exit6
   %181 = load ptr, ptr %12, align 8
   %182 = load ptr, ptr %13, align 8
   %183 = load i32, ptr %15, align 4
-  %184 = tail call i32 %181(ptr noundef %182, ptr noundef nonnull %14, i32 noundef %183) #55
+  %184 = tail call i32 %181(ptr noundef %182, ptr noundef nonnull %14, i32 noundef %183) #57
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %187
 
@@ -35093,7 +35093,7 @@ stbi__get8.exit.i74:                              ; preds = %stbi__get8.exit.i74
   %198 = load ptr, ptr %12, align 8
   %199 = load ptr, ptr %13, align 8
   %200 = load i32, ptr %15, align 4
-  %201 = tail call i32 %198(ptr noundef %199, ptr noundef nonnull %14, i32 noundef %200) #55
+  %201 = tail call i32 %198(ptr noundef %199, ptr noundef nonnull %14, i32 noundef %200) #57
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %203, label %204
 
@@ -35133,7 +35133,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i
   %210 = shl nuw nsw i32 %209, 2
   %211 = zext nneg i32 %210 to i64
-  %212 = tail call noalias noundef ptr @malloc(i64 noundef %211) #57
+  %212 = tail call noalias noundef ptr @malloc(i64 noundef %211) #59
   br label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i, %stbi__mad3sizes_valid.exit.i
@@ -35178,7 +35178,7 @@ stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_val
   %230 = load ptr, ptr %12, align 8
   %231 = load ptr, ptr %13, align 8
   %232 = load i32, ptr %15, align 4
-  %233 = tail call i32 %230(ptr noundef %231, ptr noundef nonnull %14, i32 noundef %232) #55
+  %233 = tail call i32 %230(ptr noundef %231, ptr noundef nonnull %14, i32 noundef %232) #57
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %236
 
@@ -35222,7 +35222,7 @@ stbi__get8.exit.i88:                              ; preds = %stbi__refill_buffer
   %249 = load ptr, ptr %12, align 8
   %250 = load ptr, ptr %13, align 8
   %251 = load i32, ptr %15, align 4
-  %252 = tail call i32 %249(ptr noundef %250, ptr noundef nonnull %14, i32 noundef %251) #55
+  %252 = tail call i32 %249(ptr noundef %250, ptr noundef nonnull %14, i32 noundef %251) #57
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %255
 
@@ -35267,7 +35267,7 @@ stbi__get8.exit118.i:                             ; preds = %stbi__refill_buffer
   %269 = load ptr, ptr %12, align 8
   %270 = load ptr, ptr %13, align 8
   %271 = load i32, ptr %15, align 4
-  %272 = tail call i32 %269(ptr noundef %270, ptr noundef nonnull %14, i32 noundef %271) #55
+  %272 = tail call i32 %269(ptr noundef %270, ptr noundef nonnull %14, i32 noundef %271) #57
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %274, label %275
 
@@ -35313,7 +35313,7 @@ stbi__get8.exit124.i:                             ; preds = %stbi__refill_buffer
   %289 = load ptr, ptr %12, align 8
   %290 = load ptr, ptr %13, align 8
   %291 = load i32, ptr %15, align 4
-  %292 = tail call i32 %289(ptr noundef %290, ptr noundef nonnull %14, i32 noundef %291) #55
+  %292 = tail call i32 %289(ptr noundef %290, ptr noundef nonnull %14, i32 noundef %291) #57
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %294, label %295
 
@@ -35350,7 +35350,7 @@ stbi__get8.exit130.i:                             ; preds = %stbi__refill_buffer
 305:                                              ; preds = %stbi__get8.exit130.i
   %306 = load ptr, ptr %216, align 8
   %307 = load ptr, ptr %13, align 8
-  %308 = tail call i32 %306(ptr noundef %307) #55
+  %308 = tail call i32 %306(ptr noundef %307) #57
   %.not6.i.i = icmp eq i32 %308, 0
   br i1 %.not6.i.i, label %stbi__at_eof.exit.thread.i, label %309
 
@@ -35460,7 +35460,7 @@ stbi__at_eof.exit.thread.i:                       ; preds = %stbi__at_eof.exit.i
 336:                                              ; preds = %334
   %337 = load ptr, ptr %216, align 8
   %338 = load ptr, ptr %13, align 8
-  %339 = tail call i32 %337(ptr noundef %338) #55
+  %339 = tail call i32 %337(ptr noundef %338) #57
   %.not6.i.i.i = icmp eq i32 %339, 0
   br i1 %.not6.i.i.i, label %.stbi__at_eof.exit.thread_crit_edge.i.i, label %340
 
@@ -35501,7 +35501,7 @@ stbi__at_eof.exit.thread.i.i:                     ; preds = %stbi__at_eof.exit.i
   %354 = load ptr, ptr %12, align 8
   %355 = load ptr, ptr %13, align 8
   %356 = load i32, ptr %15, align 4
-  %357 = tail call i32 %354(ptr noundef %355, ptr noundef nonnull %14, i32 noundef %356) #55
+  %357 = tail call i32 %354(ptr noundef %355, ptr noundef nonnull %14, i32 noundef %356) #57
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %359, label %360
 
@@ -35568,7 +35568,7 @@ stbi__readval.exit.i:                             ; preds = %365
   %380 = load ptr, ptr %12, align 8
   %381 = load ptr, ptr %13, align 8
   %382 = load i32, ptr %15, align 4
-  %383 = tail call i32 %380(ptr noundef %381, ptr noundef nonnull %14, i32 noundef %382) #55
+  %383 = tail call i32 %380(ptr noundef %381, ptr noundef nonnull %14, i32 noundef %382) #57
   %384 = icmp eq i32 %383, 0
   br i1 %384, label %385, label %386
 
@@ -35601,7 +35601,7 @@ stbi__get8.exit140.i:                             ; preds = %stbi__refill_buffer
 393:                                              ; preds = %stbi__get8.exit140.i
   %394 = load ptr, ptr %216, align 8
   %395 = load ptr, ptr %13, align 8
-  %396 = tail call i32 %394(ptr noundef %395) #55
+  %396 = tail call i32 %394(ptr noundef %395) #57
   %.not6.i142.i = icmp eq i32 %396, 0
   br i1 %.not6.i142.i, label %stbi__at_eof.exit144.thread.i, label %397
 
@@ -35645,7 +35645,7 @@ stbi__at_eof.exit144.thread.i:                    ; preds = %stbi__at_eof.exit14
 411:                                              ; preds = %409
   %412 = load ptr, ptr %216, align 8
   %413 = load ptr, ptr %13, align 8
-  %414 = tail call i32 %412(ptr noundef %413) #55
+  %414 = tail call i32 %412(ptr noundef %413) #57
   %.not6.i.i149.i = icmp eq i32 %414, 0
   br i1 %.not6.i.i149.i, label %.stbi__at_eof.exit.thread_crit_edge.i163.i, label %415
 
@@ -35686,7 +35686,7 @@ stbi__at_eof.exit.thread.i154.i:                  ; preds = %stbi__at_eof.exit.i
   %429 = load ptr, ptr %12, align 8
   %430 = load ptr, ptr %13, align 8
   %431 = load i32, ptr %15, align 4
-  %432 = tail call i32 %429(ptr noundef %430, ptr noundef nonnull %14, i32 noundef %431) #55
+  %432 = tail call i32 %429(ptr noundef %430, ptr noundef nonnull %14, i32 noundef %431) #57
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %434, label %435
 
@@ -35787,7 +35787,7 @@ stbi__readval.exit166._crit_edge.i:               ; preds = %stbi__copyval.exit.
   %467 = load ptr, ptr %12, align 8
   %468 = load ptr, ptr %13, align 8
   %469 = load i32, ptr %15, align 4
-  %470 = tail call i32 %467(ptr noundef %468, ptr noundef nonnull %14, i32 noundef %469) #55
+  %470 = tail call i32 %467(ptr noundef %468, ptr noundef nonnull %14, i32 noundef %469) #57
   %471 = icmp eq i32 %470, 0
   br i1 %471, label %472, label %473
 
@@ -35821,7 +35821,7 @@ stbi__get8.exit176.i:                             ; preds = %stbi__refill_buffer
 481:                                              ; preds = %stbi__get8.exit176.i
   %482 = load ptr, ptr %216, align 8
   %483 = load ptr, ptr %13, align 8
-  %484 = tail call i32 %482(ptr noundef %483) #55
+  %484 = tail call i32 %482(ptr noundef %483) #57
   %.not6.i178.i = icmp eq i32 %484, 0
   br i1 %.not6.i178.i, label %stbi__at_eof.exit180.thread.i, label %485
 
@@ -35870,7 +35870,7 @@ stbi__at_eof.exit180.thread.i:                    ; preds = %stbi__at_eof.exit18
   %503 = load ptr, ptr %12, align 8
   %504 = load ptr, ptr %13, align 8
   %505 = load i32, ptr %15, align 4
-  %506 = tail call i32 %503(ptr noundef %504, ptr noundef nonnull %14, i32 noundef %505) #55
+  %506 = tail call i32 %503(ptr noundef %504, ptr noundef nonnull %14, i32 noundef %505) #57
   %507 = icmp eq i32 %506, 0
   br i1 %507, label %508, label %509
 
@@ -35914,7 +35914,7 @@ stbi__get8.exit.i185.i:                           ; preds = %stbi__refill_buffer
   %522 = load ptr, ptr %12, align 8
   %523 = load ptr, ptr %13, align 8
   %524 = load i32, ptr %15, align 4
-  %525 = tail call i32 %522(ptr noundef %523, ptr noundef nonnull %14, i32 noundef %524) #55
+  %525 = tail call i32 %522(ptr noundef %523, ptr noundef nonnull %14, i32 noundef %524) #57
   %526 = icmp eq i32 %525, 0
   br i1 %526, label %527, label %528
 
@@ -35973,7 +35973,7 @@ stbi__get16be.exit.i:                             ; preds = %stbi__refill_buffer
 547:                                              ; preds = %545
   %548 = load ptr, ptr %216, align 8
   %549 = load ptr, ptr %13, align 8
-  %550 = tail call i32 %548(ptr noundef %549) #55
+  %550 = tail call i32 %548(ptr noundef %549) #57
   %.not6.i.i190.i = icmp eq i32 %550, 0
   br i1 %.not6.i.i190.i, label %.stbi__at_eof.exit.thread_crit_edge.i204.i, label %551
 
@@ -36014,7 +36014,7 @@ stbi__at_eof.exit.thread.i195.i:                  ; preds = %stbi__at_eof.exit.i
   %565 = load ptr, ptr %12, align 8
   %566 = load ptr, ptr %13, align 8
   %567 = load i32, ptr %15, align 4
-  %568 = tail call i32 %565(ptr noundef %566, ptr noundef nonnull %14, i32 noundef %567) #55
+  %568 = tail call i32 %565(ptr noundef %566, ptr noundef nonnull %14, i32 noundef %567) #57
   %569 = icmp eq i32 %568, 0
   br i1 %569, label %570, label %571
 
@@ -36112,7 +36112,7 @@ stbi__copyval.exit213.i:                          ; preds = %587
 599:                                              ; preds = %597
   %600 = load ptr, ptr %216, align 8
   %601 = load ptr, ptr %13, align 8
-  %602 = tail call i32 %600(ptr noundef %601) #55
+  %602 = tail call i32 %600(ptr noundef %601) #57
   %.not6.i.i218.i = icmp eq i32 %602, 0
   br i1 %.not6.i.i218.i, label %.stbi__at_eof.exit.thread_crit_edge.i232.i, label %603
 
@@ -36153,7 +36153,7 @@ stbi__at_eof.exit.thread.i223.i:                  ; preds = %stbi__at_eof.exit.i
   %617 = load ptr, ptr %12, align 8
   %618 = load ptr, ptr %13, align 8
   %619 = load i32, ptr %15, align 4
-  %620 = tail call i32 %617(ptr noundef %618, ptr noundef nonnull %14, i32 noundef %619) #55
+  %620 = tail call i32 %617(ptr noundef %618, ptr noundef nonnull %14, i32 noundef %619) #57
   %621 = icmp eq i32 %620, 0
   br i1 %621, label %622, label %623
 
@@ -36236,7 +36236,7 @@ stbi__pic_load_core.exit:                         ; preds = %635, %.cont
 
 636:                                              ; preds = %stbi__pic_load_core.exit.thread, %stbi__pic_load_core.exit
   %.214 = phi i32 [ %.2.ph, %stbi__pic_load_core.exit.thread ], [ %317, %stbi__pic_load_core.exit ]
-  tail call void @free(ptr noundef %.0.i82) #55
+  tail call void @free(ptr noundef %.0.i82) #57
   br label %637
 
 637:                                              ; preds = %636, %stbi__pic_load_core.exit
@@ -36292,7 +36292,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__pnm_test(ptr noundef %0) unnam
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = getelementptr inbounds i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #55
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #57
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -36343,7 +36343,7 @@ stbi__get8.exit:                                  ; preds = %7, %10, %stbi__refi
   %44 = getelementptr inbounds i8, ptr %0, i64 56
   %45 = getelementptr inbounds i8, ptr %0, i64 52
   %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 %41(ptr noundef %43, ptr noundef nonnull %44, i32 noundef %46) #55
+  %47 = tail call i32 %41(ptr noundef %43, ptr noundef nonnull %44, i32 noundef %46) #57
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %51
 
@@ -36462,7 +36462,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i, %stbi__mul2sizes_valid.exit12.i.i
   %28 = mul i32 %20, %14
   %29 = sext i32 %28 to i64
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #57
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #59
   %.not42 = icmp eq ptr %30, null
   br i1 %.not42, label %stbi__malloc_mad3.exit.thread, label %31
 
@@ -36503,7 +36503,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %30, i64 %45
   %49 = sub nsw i32 %28, %42
-  %50 = tail call i32 %33(ptr noundef %47, ptr noundef nonnull %48, i32 noundef %49) #55
+  %50 = tail call i32 %33(ptr noundef %47, ptr noundef nonnull %48, i32 noundef %49) #57
   %51 = load ptr, ptr %35, align 8
   store ptr %51, ptr %37, align 8
   br label %stbi__getn.exit
@@ -36598,7 +36598,7 @@ define internal fastcc noundef ptr @stbi__hdr_load(ptr noundef %0, ptr nocapture
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %6, i64 3
   store ptr %25, ptr %7, align 8
-  %26 = call i64 @strtol(ptr noundef nonnull %25, ptr noundef nonnull %7, i32 noundef 10) #55
+  %26 = call i64 @strtol(ptr noundef nonnull %25, ptr noundef nonnull %7, i32 noundef 10) #57
   %.promoted = load ptr, ptr %7, align 8
   br label %27
 
@@ -36642,7 +36642,7 @@ sub_2:                                            ; preds = %sub_1
 44:                                               ; preds = %.tail
   %45 = getelementptr inbounds i8, ptr %28, i64 3
   store ptr %45, ptr %7, align 8
-  %46 = call i64 @strtol(ptr nocapture noundef nonnull %45, ptr noundef null, i32 noundef 10) #55
+  %46 = call i64 @strtol(ptr nocapture noundef nonnull %45, ptr noundef null, i32 noundef 10) #57
   %.fr = freeze i64 %46
   %47 = trunc i64 %.fr to i32
   store i32 %47, ptr %1, align 4
@@ -36700,7 +36700,7 @@ stbi__malloc_mad4.exit:                           ; preds = %stbi__mul2sizes_val
   %63 = shl i32 %spec.store.select, 2
   %64 = mul i32 %63, %55
   %65 = sext i32 %64 to i64
-  %66 = call noalias noundef ptr @malloc(i64 noundef %65) #57
+  %66 = call noalias noundef ptr @malloc(i64 noundef %65) #59
   %.not136 = icmp eq ptr %66, null
   br i1 %.not136, label %stbi__malloc_mad4.exit.thread, label %67
 
@@ -36761,7 +36761,7 @@ stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %94, label %stbi__malloc_mad2.exit.us, label %.split.us.us
 
 stbi__malloc_mad2.exit.us:                        ; preds = %93
-  %95 = call noalias noundef ptr @malloc(i64 noundef %71) #57
+  %95 = call noalias noundef ptr @malloc(i64 noundef %71) #59
   %.not140.us = icmp eq ptr %95, null
   br i1 %.not140.us, label %stbi__malloc_mad2.exit.thread, label %.split.us.us
 
@@ -36807,7 +36807,7 @@ stbi__malloc_mad2.exit.us:                        ; preds = %93
   %110 = load ptr, ptr %75, align 8
   %111 = load ptr, ptr %76, align 8
   %112 = load i32, ptr %78, align 4
-  %113 = call i32 %110(ptr noundef %111, ptr noundef nonnull %77, i32 noundef %112) #55
+  %113 = call i32 %110(ptr noundef %111, ptr noundef nonnull %77, i32 noundef %112) #57
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %118, label %115
 
@@ -36864,7 +36864,7 @@ stbi__get8.exit.thread.us.us:                     ; preds = %stbi__get8.exit.us.
   %134 = load ptr, ptr %75, align 8
   %135 = load ptr, ptr %76, align 8
   %136 = load i32, ptr %78, align 4
-  %137 = call i32 %134(ptr noundef %135, ptr noundef nonnull %77, i32 noundef %136) #55
+  %137 = call i32 %134(ptr noundef %135, ptr noundef nonnull %77, i32 noundef %136) #57
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %142, label %139
 
@@ -36916,7 +36916,7 @@ stbi__get8.exit162.us.us:                         ; preds = %144, %stbi__refill_
   %156 = load ptr, ptr %75, align 8
   %157 = load ptr, ptr %76, align 8
   %158 = load i32, ptr %78, align 4
-  %159 = call i32 %156(ptr noundef %157, ptr noundef nonnull %77, i32 noundef %158) #55
+  %159 = call i32 %156(ptr noundef %157, ptr noundef nonnull %77, i32 noundef %158) #57
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %164, label %161
 
@@ -37048,7 +37048,7 @@ stbi__get8.exit156.us.us:                         ; preds = %166, %stbi__refill_
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %8, i64 %201
   %205 = sub nsw i32 4, %198
-  %206 = call i32 %189(ptr noundef %203, ptr noundef nonnull %204, i32 noundef %205) #55
+  %206 = call i32 %189(ptr noundef %203, ptr noundef nonnull %204, i32 noundef %205) #57
   %207 = load ptr, ptr %191, align 8
   store ptr %207, ptr %193, align 8
   br label %stbi__getn.exit
@@ -37083,7 +37083,7 @@ stbi__getn.exit:                                  ; preds = %200, %208, %212
 224:                                              ; preds = %stbi__getn.exit
   %225 = zext i8 %223 to i32
   %226 = add nsw i32 %225, -136
-  %227 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %226) #55
+  %227 = call double @ldexp(double noundef 1.000000e+00, i32 noundef %226) #57
   %228 = fptrunc double %227 to float
   %229 = icmp slt i32 %spec.store.select, 3
   %230 = load i8, ptr %8, align 4
@@ -37181,34 +37181,34 @@ stbi__hdr_convert.exit:                           ; preds = %254, %255, %257, %2
   %273 = getelementptr inbounds i8, ptr %9, i64 3
   store i8 %272, ptr %273, align 1
   call fastcc void @stbi__hdr_convert(ptr noundef nonnull %66, ptr noundef nonnull %9, i32 noundef %spec.store.select)
-  call void @free(ptr noundef %.011363.us) #55
+  call void @free(ptr noundef %.011363.us) #57
   br label %187
 
 .split73.us:                                      ; preds = %87
-  call void @free(ptr noundef %66) #55
-  call void @free(ptr noundef %.011363.us) #55
+  call void @free(ptr noundef %66) #57
+  call void @free(ptr noundef %.011363.us) #57
   store ptr @.str.107, ptr @stbi__g_failure_reason, align 8
   br label %._crit_edge65.thread
 
 stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__malloc_mad2.exit.us
-  call void @free(ptr noundef %66) #55
+  call void @free(ptr noundef %66) #57
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   br label %._crit_edge65.thread
 
 .split57.us:                                      ; preds = %stbi__get8.exit156.us.us
-  call void @free(ptr noundef %66) #55
-  call void @free(ptr noundef nonnull %.1114.us) #55
+  call void @free(ptr noundef %66) #57
+  call void @free(ptr noundef nonnull %.1114.us) #57
   store ptr @.str.93, ptr @stbi__g_failure_reason, align 8
   br label %._crit_edge65.thread
 
 .split55.us:                                      ; preds = %stbi__get8.exit.thread.us.us
-  call void @free(ptr noundef %66) #55
-  call void @free(ptr noundef nonnull %.1114.us) #55
+  call void @free(ptr noundef %66) #57
+  call void @free(ptr noundef nonnull %.1114.us) #57
   store ptr @.str.93, ptr @stbi__g_failure_reason, align 8
   br label %._crit_edge65.thread
 
 ._crit_edge65:                                    ; preds = %._crit_edge61.us
-  call void @free(ptr noundef nonnull %.1114.us) #55
+  call void @free(ptr noundef nonnull %.1114.us) #57
   br label %._crit_edge65.thread
 
 ._crit_edge65.thread:                             ; preds = %.preheader18, %183, %._crit_edge65, %.split55.us, %.split57.us, %stbi__malloc_mad2.exit.thread, %.split73.us, %stbi__malloc_mad4.exit.thread, %stbi__mad4sizes_valid.exit.thread, %43, %23, %._crit_edge.thread, %12
@@ -37253,12 +37253,12 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %12
 stbi__malloc_mad3.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit12.i.i
   %15 = mul nsw i32 %10, %3
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #57
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #59
   %18 = icmp eq ptr %17, null
   br i1 %18, label %stbi__malloc_mad3.exit.thread, label %19
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i, %5, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef nonnull %0) #55
+  tail call void @free(ptr noundef nonnull %0) #57
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   br label %66
 
@@ -37316,7 +37316,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %44 = fpext float %43 to double
   %45 = load float, ptr @stbi__h2l_gamma_i, align 4
   %46 = fpext float %45 to double
-  %47 = tail call double @pow(double noundef %44, double noundef %46) #55
+  %47 = tail call double @pow(double noundef %44, double noundef %46) #57
   %48 = fptrunc double %47 to float
   %49 = tail call float @llvm.fmuladd.f32(float %48, float 2.550000e+02, float 5.000000e-01)
   %50 = fcmp olt float %49, 0.000000e+00
@@ -37362,7 +37362,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %exitcond.not, label %._crit_edge57, label %.preheader.us58, !llvm.loop !230
 
 ._crit_edge57:                                    ; preds = %.preheader.us58, %37, %.preheader.lr.ph.split, %19
-  tail call void @free(ptr noundef nonnull %0) #55
+  tail call void @free(ptr noundef nonnull %0) #57
   br label %66
 
 66:                                               ; preds = %4, %._crit_edge57, %stbi__malloc_mad3.exit.thread
@@ -37397,7 +37397,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__tga_test(ptr noundef %0) unnam
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = getelementptr inbounds i8, ptr %0, i64 52
   %19 = load i32, ptr %18, align 4
-  %20 = tail call i32 %14(ptr noundef %16, ptr noundef nonnull %17, i32 noundef %19) #55
+  %20 = tail call i32 %14(ptr noundef %16, ptr noundef nonnull %17, i32 noundef %19) #57
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
 
@@ -37450,7 +37450,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %42 = getelementptr inbounds i8, ptr %0, i64 56
   %43 = getelementptr inbounds i8, ptr %0, i64 52
   %44 = load i32, ptr %43, align 4
-  %45 = tail call i32 %39(ptr noundef %41, ptr noundef nonnull %42, i32 noundef %44) #55
+  %45 = tail call i32 %39(ptr noundef %41, ptr noundef nonnull %42, i32 noundef %44) #57
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %49
 
@@ -37508,7 +37508,7 @@ stbi__get8.exit65.thread:                         ; preds = %34, %stbi__get8.exi
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   %72 = getelementptr inbounds i8, ptr %0, i64 52
   %73 = load i32, ptr %72, align 4
-  %74 = tail call i32 %68(ptr noundef %70, ptr noundef nonnull %71, i32 noundef %73) #55
+  %74 = tail call i32 %68(ptr noundef %70, ptr noundef nonnull %71, i32 noundef %73) #57
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %78
 
@@ -37564,7 +37564,7 @@ stbi__get8.exit71:                                ; preds = %60, %63, %stbi__ref
   %98 = getelementptr inbounds i8, ptr %0, i64 40
   %99 = load ptr, ptr %98, align 8
   %100 = sub nsw i32 4, %93
-  tail call void %97(ptr noundef %99, i32 noundef %100) #55
+  tail call void %97(ptr noundef %99, i32 noundef %100) #57
   %.pre = load ptr, ptr %2, align 8
   %.pre111 = load ptr, ptr %4, align 8
   br label %stbi__skip.exit
@@ -37599,7 +37599,7 @@ stbi__skip.exit:                                  ; preds = %95, %._crit_edge.i
   %115 = getelementptr inbounds i8, ptr %0, i64 56
   %116 = getelementptr inbounds i8, ptr %0, i64 52
   %117 = load i32, ptr %116, align 4
-  %118 = tail call i32 %112(ptr noundef %114, ptr noundef nonnull %115, i32 noundef %117) #55
+  %118 = tail call i32 %112(ptr noundef %114, ptr noundef nonnull %115, i32 noundef %117) #57
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %122
 
@@ -37654,7 +37654,7 @@ stbi__get8.exit79:                                ; preds = %105, %stbi__refill_
   %139 = getelementptr inbounds i8, ptr %0, i64 40
   %140 = load ptr, ptr %139, align 8
   %141 = sub nsw i32 4, %134
-  tail call void %138(ptr noundef %140, i32 noundef %141) #55
+  tail call void %138(ptr noundef %140, i32 noundef %141) #57
   br label %stbi__skip.exit84
 
 ._crit_edge.i81:                                  ; preds = %128, %130
@@ -37688,7 +37688,7 @@ stbi__get8.exit79:                                ; preds = %105, %stbi__refill_
   %157 = getelementptr inbounds i8, ptr %0, i64 40
   %158 = load ptr, ptr %157, align 8
   %159 = sub nsw i32 9, %152
-  tail call void %156(ptr noundef %158, i32 noundef %159) #55
+  tail call void %156(ptr noundef %158, i32 noundef %159) #57
   br label %stbi__skip.exit84
 
 ._crit_edge.i86:                                  ; preds = %145, %148
@@ -37722,7 +37722,7 @@ stbi__skip.exit84:                                ; preds = %._crit_edge.i86, %1
   %175 = getelementptr inbounds i8, ptr %0, i64 56
   %176 = getelementptr inbounds i8, ptr %0, i64 52
   %177 = load i32, ptr %176, align 4
-  %178 = tail call i32 %172(ptr noundef %174, ptr noundef nonnull %175, i32 noundef %177) #55
+  %178 = tail call i32 %172(ptr noundef %174, ptr noundef nonnull %175, i32 noundef %177) #57
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %182
 
@@ -37773,7 +37773,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %201 = getelementptr inbounds i8, ptr %0, i64 56
   %202 = getelementptr inbounds i8, ptr %0, i64 52
   %203 = load i32, ptr %202, align 4
-  %204 = tail call i32 %198(ptr noundef %200, ptr noundef nonnull %201, i32 noundef %203) #55
+  %204 = tail call i32 %198(ptr noundef %200, ptr noundef nonnull %201, i32 noundef %203) #57
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %208
 
@@ -37832,7 +37832,7 @@ stbi__get16le.exit:                               ; preds = %190, %193, %stbi__r
   %233 = getelementptr inbounds i8, ptr %0, i64 56
   %234 = getelementptr inbounds i8, ptr %0, i64 52
   %235 = load i32, ptr %234, align 4
-  %236 = tail call i32 %230(ptr noundef %232, ptr noundef nonnull %233, i32 noundef %235) #55
+  %236 = tail call i32 %230(ptr noundef %232, ptr noundef nonnull %233, i32 noundef %235) #57
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %240
 
@@ -37883,7 +37883,7 @@ stbi__get8.exit.i94:                              ; preds = %stbi__refill_buffer
   %259 = getelementptr inbounds i8, ptr %0, i64 56
   %260 = getelementptr inbounds i8, ptr %0, i64 52
   %261 = load i32, ptr %260, align 4
-  %262 = tail call i32 %256(ptr noundef %258, ptr noundef nonnull %259, i32 noundef %261) #55
+  %262 = tail call i32 %256(ptr noundef %258, ptr noundef nonnull %259, i32 noundef %261) #57
   %263 = icmp eq i32 %262, 0
   br i1 %263, label %264, label %266
 
@@ -37942,7 +37942,7 @@ stbi__get16le.exit101:                            ; preds = %248, %251, %stbi__r
   %291 = getelementptr inbounds i8, ptr %0, i64 56
   %292 = getelementptr inbounds i8, ptr %0, i64 52
   %293 = load i32, ptr %292, align 4
-  %294 = tail call i32 %288(ptr noundef %290, ptr noundef nonnull %291, i32 noundef %293) #55
+  %294 = tail call i32 %288(ptr noundef %290, ptr noundef nonnull %291, i32 noundef %293) #57
   %295 = icmp eq i32 %294, 0
   br i1 %295, label %296, label %298
 
@@ -38027,7 +38027,7 @@ define internal fastcc noundef ptr @stbi__tga_load(ptr noundef %0, ptr nocapture
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = getelementptr inbounds i8, ptr %0, i64 52
   %25 = load i32, ptr %24, align 4
-  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #55
+  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #57
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %30
 
@@ -38079,7 +38079,7 @@ stbi__get8.exit:                                  ; preds = %12, %15, %stbi__ref
   %50 = getelementptr inbounds i8, ptr %0, i64 56
   %51 = getelementptr inbounds i8, ptr %0, i64 52
   %52 = load i32, ptr %51, align 4
-  %53 = tail call i32 %47(ptr noundef %49, ptr noundef nonnull %50, i32 noundef %52) #55
+  %53 = tail call i32 %47(ptr noundef %49, ptr noundef nonnull %50, i32 noundef %52) #57
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %57
 
@@ -38130,7 +38130,7 @@ stbi__get8.exit222:                               ; preds = %39, %42, %stbi__ref
   %76 = getelementptr inbounds i8, ptr %0, i64 56
   %77 = getelementptr inbounds i8, ptr %0, i64 52
   %78 = load i32, ptr %77, align 4
-  %79 = tail call i32 %73(ptr noundef %75, ptr noundef nonnull %76, i32 noundef %78) #55
+  %79 = tail call i32 %73(ptr noundef %75, ptr noundef nonnull %76, i32 noundef %78) #57
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %83
 
@@ -38182,7 +38182,7 @@ stbi__get8.exit228:                               ; preds = %65, %68, %stbi__ref
   %103 = getelementptr inbounds i8, ptr %0, i64 56
   %104 = getelementptr inbounds i8, ptr %0, i64 52
   %105 = load i32, ptr %104, align 4
-  %106 = tail call i32 %100(ptr noundef %102, ptr noundef nonnull %103, i32 noundef %105) #55
+  %106 = tail call i32 %100(ptr noundef %102, ptr noundef nonnull %103, i32 noundef %105) #57
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %110
 
@@ -38233,7 +38233,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %129 = getelementptr inbounds i8, ptr %0, i64 56
   %130 = getelementptr inbounds i8, ptr %0, i64 52
   %131 = load i32, ptr %130, align 4
-  %132 = tail call i32 %126(ptr noundef %128, ptr noundef nonnull %129, i32 noundef %131) #55
+  %132 = tail call i32 %126(ptr noundef %128, ptr noundef nonnull %129, i32 noundef %131) #57
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %136
 
@@ -38288,7 +38288,7 @@ stbi__get16le.exit:                               ; preds = %118, %121, %stbi__r
   %159 = getelementptr inbounds i8, ptr %0, i64 56
   %160 = getelementptr inbounds i8, ptr %0, i64 52
   %161 = load i32, ptr %160, align 4
-  %162 = tail call i32 %156(ptr noundef %158, ptr noundef nonnull %159, i32 noundef %161) #55
+  %162 = tail call i32 %156(ptr noundef %158, ptr noundef nonnull %159, i32 noundef %161) #57
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %164, label %166
 
@@ -38339,7 +38339,7 @@ stbi__get8.exit.i233:                             ; preds = %stbi__refill_buffer
   %185 = getelementptr inbounds i8, ptr %0, i64 56
   %186 = getelementptr inbounds i8, ptr %0, i64 52
   %187 = load i32, ptr %186, align 4
-  %188 = tail call i32 %182(ptr noundef %184, ptr noundef nonnull %185, i32 noundef %187) #55
+  %188 = tail call i32 %182(ptr noundef %184, ptr noundef nonnull %185, i32 noundef %187) #57
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %190, label %192
 
@@ -38394,7 +38394,7 @@ stbi__get16le.exit240:                            ; preds = %174, %177, %stbi__r
   %215 = getelementptr inbounds i8, ptr %0, i64 56
   %216 = getelementptr inbounds i8, ptr %0, i64 52
   %217 = load i32, ptr %216, align 4
-  %218 = tail call i32 %212(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #55
+  %218 = tail call i32 %212(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #57
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %220, label %222
 
@@ -38443,7 +38443,7 @@ stbi__get8.exit246:                               ; preds = %204, %207, %stbi__r
   %240 = getelementptr inbounds i8, ptr %0, i64 56
   %241 = getelementptr inbounds i8, ptr %0, i64 52
   %242 = load i32, ptr %241, align 4
-  %243 = tail call i32 %237(ptr noundef %239, ptr noundef nonnull %240, i32 noundef %242) #55
+  %243 = tail call i32 %237(ptr noundef %239, ptr noundef nonnull %240, i32 noundef %242) #57
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %245, label %247
 
@@ -38494,7 +38494,7 @@ stbi__get8.exit.i251:                             ; preds = %stbi__get8.exit.i25
   %264 = getelementptr inbounds i8, ptr %0, i64 56
   %265 = getelementptr inbounds i8, ptr %0, i64 52
   %266 = load i32, ptr %265, align 4
-  %267 = tail call i32 %261(ptr noundef %263, ptr noundef nonnull %264, i32 noundef %266) #55
+  %267 = tail call i32 %261(ptr noundef %263, ptr noundef nonnull %264, i32 noundef %266) #57
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %269, label %271
 
@@ -38545,7 +38545,7 @@ stbi__get16le.exit258:                            ; preds = %stbi__get16le.exit2
   %288 = getelementptr inbounds i8, ptr %0, i64 56
   %289 = getelementptr inbounds i8, ptr %0, i64 52
   %290 = load i32, ptr %289, align 4
-  %291 = tail call i32 %285(ptr noundef %287, ptr noundef nonnull %288, i32 noundef %290) #55
+  %291 = tail call i32 %285(ptr noundef %287, ptr noundef nonnull %288, i32 noundef %290) #57
   %292 = icmp eq i32 %291, 0
   br i1 %292, label %293, label %295
 
@@ -38596,7 +38596,7 @@ stbi__get8.exit.i263:                             ; preds = %stbi__get8.exit.i26
   %312 = getelementptr inbounds i8, ptr %0, i64 56
   %313 = getelementptr inbounds i8, ptr %0, i64 52
   %314 = load i32, ptr %313, align 4
-  %315 = tail call i32 %309(ptr noundef %311, ptr noundef nonnull %312, i32 noundef %314) #55
+  %315 = tail call i32 %309(ptr noundef %311, ptr noundef nonnull %312, i32 noundef %314) #57
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %317, label %319
 
@@ -38649,7 +38649,7 @@ stbi__get16le.exit270:                            ; preds = %stbi__get16le.exit2
   %337 = getelementptr inbounds i8, ptr %0, i64 56
   %338 = getelementptr inbounds i8, ptr %0, i64 52
   %339 = load i32, ptr %338, align 4
-  %340 = tail call i32 %334(ptr noundef %336, ptr noundef nonnull %337, i32 noundef %339) #55
+  %340 = tail call i32 %334(ptr noundef %336, ptr noundef nonnull %337, i32 noundef %339) #57
   %341 = icmp eq i32 %340, 0
   br i1 %341, label %342, label %344
 
@@ -38700,7 +38700,7 @@ stbi__get8.exit.i275:                             ; preds = %stbi__refill_buffer
   %363 = getelementptr inbounds i8, ptr %0, i64 56
   %364 = getelementptr inbounds i8, ptr %0, i64 52
   %365 = load i32, ptr %364, align 4
-  %366 = tail call i32 %360(ptr noundef %362, ptr noundef nonnull %363, i32 noundef %365) #55
+  %366 = tail call i32 %360(ptr noundef %362, ptr noundef nonnull %363, i32 noundef %365) #57
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %368, label %370
 
@@ -38755,7 +38755,7 @@ stbi__get16le.exit282:                            ; preds = %352, %355, %stbi__r
   %393 = getelementptr inbounds i8, ptr %0, i64 56
   %394 = getelementptr inbounds i8, ptr %0, i64 52
   %395 = load i32, ptr %394, align 4
-  %396 = tail call i32 %390(ptr noundef %392, ptr noundef nonnull %393, i32 noundef %395) #55
+  %396 = tail call i32 %390(ptr noundef %392, ptr noundef nonnull %393, i32 noundef %395) #57
   %397 = icmp eq i32 %396, 0
   br i1 %397, label %398, label %400
 
@@ -38806,7 +38806,7 @@ stbi__get8.exit.i287:                             ; preds = %stbi__refill_buffer
   %419 = getelementptr inbounds i8, ptr %0, i64 56
   %420 = getelementptr inbounds i8, ptr %0, i64 52
   %421 = load i32, ptr %420, align 4
-  %422 = tail call i32 %416(ptr noundef %418, ptr noundef nonnull %419, i32 noundef %421) #55
+  %422 = tail call i32 %416(ptr noundef %418, ptr noundef nonnull %419, i32 noundef %421) #57
   %423 = icmp eq i32 %422, 0
   br i1 %423, label %424, label %426
 
@@ -38861,7 +38861,7 @@ stbi__get16le.exit294:                            ; preds = %408, %411, %stbi__r
   %449 = getelementptr inbounds i8, ptr %0, i64 56
   %450 = getelementptr inbounds i8, ptr %0, i64 52
   %451 = load i32, ptr %450, align 4
-  %452 = tail call i32 %446(ptr noundef %448, ptr noundef nonnull %449, i32 noundef %451) #55
+  %452 = tail call i32 %446(ptr noundef %448, ptr noundef nonnull %449, i32 noundef %451) #57
   %453 = icmp eq i32 %452, 0
   br i1 %453, label %454, label %456
 
@@ -38912,7 +38912,7 @@ stbi__get8.exit300:                               ; preds = %438, %441, %stbi__r
   %475 = getelementptr inbounds i8, ptr %0, i64 56
   %476 = getelementptr inbounds i8, ptr %0, i64 52
   %477 = load i32, ptr %476, align 4
-  %478 = tail call i32 %472(ptr noundef %474, ptr noundef nonnull %475, i32 noundef %477) #55
+  %478 = tail call i32 %472(ptr noundef %474, ptr noundef nonnull %475, i32 noundef %477) #57
   %479 = icmp eq i32 %478, 0
   br i1 %479, label %480, label %482
 
@@ -39036,7 +39036,7 @@ stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_val
   %514 = phi i32 [ %510, %stbi__mul2sizes_valid.exit.i.i ], [ %508, %stbi__mul2sizes_valid.exit.thread15.i ]
   %515 = mul nuw nsw i32 %514, %.0190.ph
   %516 = zext nneg i32 %515 to i64
-  %517 = tail call noalias noundef ptr @malloc(i64 noundef %516) #57
+  %517 = tail call noalias noundef ptr @malloc(i64 noundef %516) #59
   %.not201 = icmp eq ptr %517, null
   br i1 %.not201, label %stbi__malloc_mad3.exit.thread, label %518
 
@@ -39071,7 +39071,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %532 = getelementptr inbounds i8, ptr %0, i64 40
   %533 = load ptr, ptr %532, align 8
   %534 = sub nsw i32 %37, %527
-  tail call void %531(ptr noundef %533, i32 noundef %534) #55
+  tail call void %531(ptr noundef %533, i32 noundef %534) #57
   br label %stbi__skip.exit
 
 535:                                              ; preds = %521, %._crit_edge.i
@@ -39189,7 +39189,7 @@ stbi__getn.exit.us:                               ; preds = %558, %._crit_edge.i
   %581 = load ptr, ptr %540, align 8
   %582 = getelementptr inbounds i8, ptr %569, i64 %580
   %583 = sub nsw i32 %539, %577
-  %584 = tail call i32 %570(ptr noundef %581, ptr noundef nonnull %582, i32 noundef %583) #55
+  %584 = tail call i32 %570(ptr noundef %581, ptr noundef nonnull %582, i32 noundef %583) #57
   %585 = load ptr, ptr %9, align 8
   br label %stbi__getn.exit.sink.split
 
@@ -39243,7 +39243,7 @@ stbi__getn.exit:                                  ; preds = %stbi__getn.exit.sin
   %606 = getelementptr inbounds i8, ptr %0, i64 40
   %607 = load ptr, ptr %606, align 8
   %608 = sub nsw i32 %146, %601
-  tail call void %605(ptr noundef %607, i32 noundef %608) #55
+  tail call void %605(ptr noundef %607, i32 noundef %608) #57
   br label %stbi__skip.exit326
 
 609:                                              ; preds = %595, %._crit_edge.i323
@@ -39256,12 +39256,12 @@ stbi__getn.exit:                                  ; preds = %stbi__getn.exit.sin
 stbi__skip.exit326:                               ; preds = %603, %609
   %613 = mul nuw nsw i32 %202, %.0190.ph
   %614 = zext nneg i32 %613 to i64
-  %615 = tail call noalias noundef ptr @malloc(i64 noundef %614) #57
+  %615 = tail call noalias noundef ptr @malloc(i64 noundef %614) #59
   %.not203 = icmp eq ptr %615, null
   br i1 %.not203, label %stbi__malloc_mad2.exit.thread, label %616
 
 stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__skip.exit326
-  tail call void @free(ptr noundef nonnull %517) #55
+  tail call void @free(ptr noundef nonnull %517) #57
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   br label %784
 
@@ -39292,8 +39292,8 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__skip.exit326
   br i1 %.not205, label %624, label %.loopexit31
 
 624:                                              ; preds = %622
-  tail call void @free(ptr noundef nonnull %517) #55
-  tail call void @free(ptr noundef nonnull %615) #55
+  tail call void @free(ptr noundef nonnull %517) #57
+  tail call void @free(ptr noundef nonnull %615) #57
   store ptr @.str.108, ptr @stbi__g_failure_reason, align 8
   br label %784
 
@@ -39352,7 +39352,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %stbi__skip.exit326
   %648 = load ptr, ptr %519, align 8
   %649 = load ptr, ptr %626, align 8
   %650 = load i32, ptr %628, align 4
-  %651 = tail call i32 %648(ptr noundef %649, ptr noundef nonnull %627, i32 noundef %650) #55
+  %651 = tail call i32 %648(ptr noundef %649, ptr noundef nonnull %627, i32 noundef %650) #57
   %652 = icmp eq i32 %651, 0
   br i1 %652, label %653, label %654
 
@@ -39418,7 +39418,7 @@ stbi__get8.exit335:                               ; preds = %642, %645, %stbi__r
   %674 = load ptr, ptr %519, align 8
   %675 = load ptr, ptr %626, align 8
   %676 = load i32, ptr %628, align 4
-  %677 = tail call i32 %674(ptr noundef %675, ptr noundef nonnull %627, i32 noundef %676) #55
+  %677 = tail call i32 %674(ptr noundef %675, ptr noundef nonnull %627, i32 noundef %676) #57
   %678 = icmp eq i32 %677, 0
   br i1 %678, label %679, label %680
 
@@ -39463,7 +39463,7 @@ stbi__get8.exit341:                               ; preds = %668, %671, %stbi__r
   %692 = load ptr, ptr %519, align 8
   %693 = load ptr, ptr %626, align 8
   %694 = load i32, ptr %628, align 4
-  %695 = tail call i32 %692(ptr noundef %693, ptr noundef nonnull %627, i32 noundef %694) #55
+  %695 = tail call i32 %692(ptr noundef %693, ptr noundef nonnull %627, i32 noundef %694) #57
   %696 = icmp eq i32 %695, 0
   br i1 %696, label %697, label %698
 
@@ -39507,7 +39507,7 @@ stbi__get8.exit.i346:                             ; preds = %stbi__refill_buffer
   %711 = load ptr, ptr %519, align 8
   %712 = load ptr, ptr %626, align 8
   %713 = load i32, ptr %628, align 4
-  %714 = tail call i32 %711(ptr noundef %712, ptr noundef nonnull %627, i32 noundef %713) #55
+  %714 = tail call i32 %711(ptr noundef %712, ptr noundef nonnull %627, i32 noundef %713) #57
   %715 = icmp eq i32 %714, 0
   br i1 %715, label %716, label %717
 
@@ -39581,7 +39581,7 @@ stbi__get16le.exit353:                            ; preds = %705, %708, %stbi__r
   %739 = load ptr, ptr %519, align 8
   %740 = load ptr, ptr %626, align 8
   %741 = load i32, ptr %628, align 4
-  %742 = tail call i32 %739(ptr noundef %740, ptr noundef nonnull %627, i32 noundef %741) #55
+  %742 = tail call i32 %739(ptr noundef %740, ptr noundef nonnull %627, i32 noundef %741) #57
   %743 = icmp eq i32 %742, 0
   br i1 %743, label %744, label %745
 
@@ -39679,7 +39679,7 @@ stbi__get8.exit359:                               ; preds = %733, %736, %stbi__r
   br i1 %.not207, label %.loopexit33, label %772
 
 772:                                              ; preds = %.loopexit26
-  tail call void @free(ptr noundef nonnull %.0188) #55
+  tail call void @free(ptr noundef nonnull %.0188) #57
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %stbi__getn.exit, %stbi__getn.exit.us, %stbi__getn.exit.us.us, %.preheader32, %.loopexit26, %772
@@ -39782,7 +39782,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr nocaptu
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %21, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %26(ptr noundef %28) #55
+  %29 = tail call i32 %26(ptr noundef %28) #57
   %.not6.i = icmp eq i32 %29, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %30
 
@@ -39823,7 +39823,7 @@ stbi__at_eof.exit.thread:                         ; preds = %24, %stbi__at_eof.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @stbi__idct_simd(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #41 {
+define internal void @stbi__idct_simd(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #42 {
   %4 = load <8 x i16>, ptr %2, align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load <8 x i16>, ptr %5, align 16
@@ -40122,8 +40122,8 @@ define internal void @stbi__idct_simd(ptr nocapture noundef writeonly %0, i32 no
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) #42 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) #43 {
   %7 = icmp eq i32 %5, 4
   %8 = icmp sgt i32 %4, 7
   %or.cond = and i1 %7, %8
@@ -40478,7 +40478,7 @@ define internal fastcc zeroext i8 @stbi__get_marker(ptr nocapture noundef %0) un
   %23 = getelementptr inbounds i8, ptr %6, i64 56
   %24 = getelementptr inbounds i8, ptr %6, i64 52
   %25 = load i32, ptr %24, align 4
-  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #55
+  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #57
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %30
 
@@ -40536,7 +40536,7 @@ stbi__get8.exit:                                  ; preds = %12, %stbi__refill_b
   %52 = getelementptr inbounds i8, ptr %35, i64 56
   %53 = getelementptr inbounds i8, ptr %35, i64 52
   %54 = load i32, ptr %53, align 4
-  %55 = tail call i32 %49(ptr noundef %51, ptr noundef nonnull %52, i32 noundef %54) #55
+  %55 = tail call i32 %49(ptr noundef %51, ptr noundef nonnull %52, i32 noundef %54) #57
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
@@ -40613,7 +40613,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__process_marker(ptr nocapture n
   %23 = getelementptr inbounds i8, ptr %6, i64 56
   %24 = getelementptr inbounds i8, ptr %6, i64 52
   %25 = load i32, ptr %24, align 4
-  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #55
+  %26 = tail call i32 %20(ptr noundef %22, ptr noundef nonnull %23, i32 noundef %25) #57
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %30
 
@@ -40664,7 +40664,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %49 = getelementptr inbounds i8, ptr %6, i64 56
   %50 = getelementptr inbounds i8, ptr %6, i64 52
   %51 = load i32, ptr %50, align 4
-  %52 = tail call i32 %46(ptr noundef %48, ptr noundef nonnull %49, i32 noundef %51) #55
+  %52 = tail call i32 %46(ptr noundef %48, ptr noundef nonnull %49, i32 noundef %51) #57
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %56
 
@@ -40730,7 +40730,7 @@ stbi__get16be.exit:                               ; preds = %38, %41, %stbi__ref
   %84 = getelementptr inbounds i8, ptr %67, i64 56
   %85 = getelementptr inbounds i8, ptr %67, i64 52
   %86 = load i32, ptr %85, align 4
-  %87 = tail call i32 %81(ptr noundef %83, ptr noundef nonnull %84, i32 noundef %86) #55
+  %87 = tail call i32 %81(ptr noundef %83, ptr noundef nonnull %84, i32 noundef %86) #57
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %91
 
@@ -40781,7 +40781,7 @@ stbi__get8.exit.i134:                             ; preds = %stbi__refill_buffer
   %110 = getelementptr inbounds i8, ptr %67, i64 56
   %111 = getelementptr inbounds i8, ptr %67, i64 52
   %112 = load i32, ptr %111, align 4
-  %113 = tail call i32 %107(ptr noundef %109, ptr noundef nonnull %110, i32 noundef %112) #55
+  %113 = tail call i32 %107(ptr noundef %109, ptr noundef nonnull %110, i32 noundef %112) #57
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %117
 
@@ -40844,7 +40844,7 @@ stbi__get16be.exit141:                            ; preds = %99, %102, %stbi__re
   %145 = getelementptr inbounds i8, ptr %128, i64 56
   %146 = getelementptr inbounds i8, ptr %128, i64 52
   %147 = load i32, ptr %146, align 4
-  %148 = tail call i32 %142(ptr noundef %144, ptr noundef nonnull %145, i32 noundef %147) #55
+  %148 = tail call i32 %142(ptr noundef %144, ptr noundef nonnull %145, i32 noundef %147) #57
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %152
 
@@ -40895,7 +40895,7 @@ stbi__get8.exit.i146:                             ; preds = %stbi__refill_buffer
   %171 = getelementptr inbounds i8, ptr %128, i64 56
   %172 = getelementptr inbounds i8, ptr %128, i64 52
   %173 = load i32, ptr %172, align 4
-  %174 = tail call i32 %168(ptr noundef %170, ptr noundef nonnull %171, i32 noundef %173) #55
+  %174 = tail call i32 %168(ptr noundef %170, ptr noundef nonnull %171, i32 noundef %173) #57
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %178
 
@@ -40963,7 +40963,7 @@ stbi__get16be.exit153:                            ; preds = %160, %163, %stbi__r
   %208 = getelementptr inbounds i8, ptr %191, i64 56
   %209 = getelementptr inbounds i8, ptr %191, i64 52
   %210 = load i32, ptr %209, align 4
-  %211 = tail call i32 %205(ptr noundef %207, ptr noundef nonnull %208, i32 noundef %210) #55
+  %211 = tail call i32 %205(ptr noundef %207, ptr noundef nonnull %208, i32 noundef %210) #57
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %213, label %215
 
@@ -41037,7 +41037,7 @@ stbi__get8.exit.thread:                           ; preds = %stbi__get8.exit
   %242 = getelementptr inbounds i8, ptr %228, i64 56
   %243 = getelementptr inbounds i8, ptr %228, i64 52
   %244 = load i32, ptr %243, align 4
-  %245 = tail call i32 %239(ptr noundef %241, ptr noundef nonnull %242, i32 noundef %244) #55
+  %245 = tail call i32 %239(ptr noundef %241, ptr noundef nonnull %242, i32 noundef %244) #57
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %250, label %247
 
@@ -41088,7 +41088,7 @@ stbi__get8.exit.i158.us:                          ; preds = %254, %stbi__refill_
   %268 = getelementptr inbounds i8, ptr %228, i64 56
   %269 = getelementptr inbounds i8, ptr %228, i64 52
   %270 = load i32, ptr %269, align 4
-  %271 = tail call i32 %265(ptr noundef %267, ptr noundef nonnull %268, i32 noundef %270) #55
+  %271 = tail call i32 %265(ptr noundef %267, ptr noundef nonnull %268, i32 noundef %270) #57
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %276, label %273
 
@@ -41167,7 +41167,7 @@ stbi__get16be.exit165.us:                         ; preds = %280, %stbi__refill_
   %309 = getelementptr inbounds i8, ptr %292, i64 56
   %310 = getelementptr inbounds i8, ptr %292, i64 52
   %311 = load i32, ptr %310, align 4
-  %312 = tail call i32 %306(ptr noundef %308, ptr noundef nonnull %309, i32 noundef %311) #55
+  %312 = tail call i32 %306(ptr noundef %308, ptr noundef nonnull %309, i32 noundef %311) #57
   %313 = icmp eq i32 %312, 0
   br i1 %313, label %314, label %316
 
@@ -41243,7 +41243,7 @@ stbi__get8.exit171:                               ; preds = %298, %301, %stbi__r
   %347 = getelementptr inbounds i8, ptr %330, i64 56
   %348 = getelementptr inbounds i8, ptr %330, i64 52
   %349 = load i32, ptr %348, align 4
-  %350 = tail call i32 %344(ptr noundef %346, ptr noundef nonnull %347, i32 noundef %349) #55
+  %350 = tail call i32 %344(ptr noundef %346, ptr noundef nonnull %347, i32 noundef %349) #57
   %351 = icmp eq i32 %350, 0
   br i1 %351, label %352, label %354
 
@@ -41294,7 +41294,7 @@ stbi__get8.exit.i176:                             ; preds = %stbi__refill_buffer
   %373 = getelementptr inbounds i8, ptr %330, i64 56
   %374 = getelementptr inbounds i8, ptr %330, i64 52
   %375 = load i32, ptr %374, align 4
-  %376 = tail call i32 %370(ptr noundef %372, ptr noundef nonnull %373, i32 noundef %375) #55
+  %376 = tail call i32 %370(ptr noundef %372, ptr noundef nonnull %373, i32 noundef %375) #57
   %377 = icmp eq i32 %376, 0
   br i1 %377, label %378, label %380
 
@@ -41364,7 +41364,7 @@ stbi__get16be.exit183:                            ; preds = %362, %365, %stbi__r
   %412 = getelementptr inbounds i8, ptr %395, i64 56
   %413 = getelementptr inbounds i8, ptr %395, i64 52
   %414 = load i32, ptr %413, align 4
-  %415 = tail call i32 %409(ptr noundef %411, ptr noundef nonnull %412, i32 noundef %414) #55
+  %415 = tail call i32 %409(ptr noundef %411, ptr noundef nonnull %412, i32 noundef %414) #57
   %416 = icmp eq i32 %415, 0
   br i1 %416, label %417, label %419
 
@@ -41431,7 +41431,7 @@ stbi__get8.exit189:                               ; preds = %401, %404, %stbi__r
   %445 = getelementptr inbounds i8, ptr %428, i64 56
   %446 = getelementptr inbounds i8, ptr %428, i64 52
   %447 = load i32, ptr %446, align 4
-  %448 = tail call i32 %442(ptr noundef %444, ptr noundef nonnull %445, i32 noundef %447) #55
+  %448 = tail call i32 %442(ptr noundef %444, ptr noundef nonnull %445, i32 noundef %447) #57
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %450, label %452
 
@@ -41524,7 +41524,7 @@ stbi__get8.exit195:                               ; preds = %434, %437, %stbi__r
   %491 = getelementptr inbounds i8, ptr %474, i64 56
   %492 = getelementptr inbounds i8, ptr %474, i64 52
   %493 = load i32, ptr %492, align 4
-  %494 = tail call i32 %488(ptr noundef %490, ptr noundef nonnull %491, i32 noundef %493) #55
+  %494 = tail call i32 %488(ptr noundef %490, ptr noundef nonnull %491, i32 noundef %493) #57
   %495 = icmp eq i32 %494, 0
   br i1 %495, label %496, label %498
 
@@ -41668,7 +41668,7 @@ stbi__build_fast_ac.exit:                         ; preds = %543, %._crit_edge
   %568 = getelementptr inbounds i8, ptr %551, i64 56
   %569 = getelementptr inbounds i8, ptr %551, i64 52
   %570 = load i32, ptr %569, align 4
-  %571 = tail call i32 %565(ptr noundef %567, ptr noundef nonnull %568, i32 noundef %570) #55
+  %571 = tail call i32 %565(ptr noundef %567, ptr noundef nonnull %568, i32 noundef %570) #57
   %572 = icmp eq i32 %571, 0
   br i1 %572, label %573, label %575
 
@@ -41719,7 +41719,7 @@ stbi__get8.exit.i207:                             ; preds = %stbi__refill_buffer
   %594 = getelementptr inbounds i8, ptr %551, i64 56
   %595 = getelementptr inbounds i8, ptr %551, i64 52
   %596 = load i32, ptr %595, align 4
-  %597 = tail call i32 %591(ptr noundef %593, ptr noundef nonnull %594, i32 noundef %596) #55
+  %597 = tail call i32 %591(ptr noundef %593, ptr noundef nonnull %594, i32 noundef %596) #57
   %598 = icmp eq i32 %597, 0
   br i1 %598, label %599, label %601
 
@@ -41800,7 +41800,7 @@ stbi__get16be.exit214:                            ; preds = %583, %586, %stbi__r
   %634 = getelementptr inbounds i8, ptr %617, i64 56
   %635 = getelementptr inbounds i8, ptr %617, i64 52
   %636 = load i32, ptr %635, align 4
-  %637 = tail call i32 %631(ptr noundef %633, ptr noundef nonnull %634, i32 noundef %636) #55
+  %637 = tail call i32 %631(ptr noundef %633, ptr noundef nonnull %634, i32 noundef %636) #57
   %638 = icmp eq i32 %637, 0
   br i1 %638, label %639, label %641
 
@@ -41886,7 +41886,7 @@ stbi__get8.exit220:                               ; preds = %623, %626, %stbi__r
   %674 = getelementptr inbounds i8, ptr %657, i64 56
   %675 = getelementptr inbounds i8, ptr %657, i64 52
   %676 = load i32, ptr %675, align 4
-  %677 = tail call i32 %671(ptr noundef %673, ptr noundef nonnull %674, i32 noundef %676) #55
+  %677 = tail call i32 %671(ptr noundef %673, ptr noundef nonnull %674, i32 noundef %676) #57
   %678 = icmp eq i32 %677, 0
   br i1 %678, label %679, label %681
 
@@ -41985,7 +41985,7 @@ stbi__get8.exit226:                               ; preds = %663, %666, %stbi__r
   %724 = getelementptr inbounds i8, ptr %708, i64 40
   %725 = load ptr, ptr %724, align 8
   %726 = sub nsw i32 %.2233, %719
-  tail call void %723(ptr noundef %725, i32 noundef %726) #55
+  tail call void %723(ptr noundef %725, i32 noundef %726) #57
   br label %stbi__skip.exit
 
 727:                                              ; preds = %711, %._crit_edge.i
@@ -42036,7 +42036,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__process_frame_header(ptr nocap
   %20 = getelementptr inbounds i8, ptr %3, i64 56
   %21 = getelementptr inbounds i8, ptr %3, i64 52
   %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 %17(ptr noundef %19, ptr noundef nonnull %20, i32 noundef %22) #55
+  %23 = tail call i32 %17(ptr noundef %19, ptr noundef nonnull %20, i32 noundef %22) #57
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %27
 
@@ -42087,7 +42087,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %46 = getelementptr inbounds i8, ptr %3, i64 56
   %47 = getelementptr inbounds i8, ptr %3, i64 52
   %48 = load i32, ptr %47, align 4
-  %49 = tail call i32 %43(ptr noundef %45, ptr noundef nonnull %46, i32 noundef %48) #55
+  %49 = tail call i32 %43(ptr noundef %45, ptr noundef nonnull %46, i32 noundef %48) #57
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
@@ -42150,7 +42150,7 @@ stbi__get16be.exit:                               ; preds = %35, %38, %stbi__ref
   %79 = getelementptr inbounds i8, ptr %3, i64 56
   %80 = getelementptr inbounds i8, ptr %3, i64 52
   %81 = load i32, ptr %80, align 4
-  %82 = tail call i32 %76(ptr noundef %78, ptr noundef nonnull %79, i32 noundef %81) #55
+  %82 = tail call i32 %76(ptr noundef %78, ptr noundef nonnull %79, i32 noundef %81) #57
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %86
 
@@ -42209,7 +42209,7 @@ stbi__get8.exit.thread:                           ; preds = %71, %stbi__get8.exi
   %106 = getelementptr inbounds i8, ptr %3, i64 56
   %107 = getelementptr inbounds i8, ptr %3, i64 52
   %108 = load i32, ptr %107, align 4
-  %109 = tail call i32 %103(ptr noundef %105, ptr noundef nonnull %106, i32 noundef %108) #55
+  %109 = tail call i32 %103(ptr noundef %105, ptr noundef nonnull %106, i32 noundef %108) #57
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %113
 
@@ -42260,7 +42260,7 @@ stbi__get8.exit.i188:                             ; preds = %stbi__refill_buffer
   %132 = getelementptr inbounds i8, ptr %3, i64 56
   %133 = getelementptr inbounds i8, ptr %3, i64 52
   %134 = load i32, ptr %133, align 4
-  %135 = tail call i32 %129(ptr noundef %131, ptr noundef nonnull %132, i32 noundef %134) #55
+  %135 = tail call i32 %129(ptr noundef %131, ptr noundef nonnull %132, i32 noundef %134) #57
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %139
 
@@ -42325,7 +42325,7 @@ stbi__get16be.exit195:                            ; preds = %121, %124, %stbi__r
   %166 = getelementptr inbounds i8, ptr %3, i64 56
   %167 = getelementptr inbounds i8, ptr %3, i64 52
   %168 = load i32, ptr %167, align 4
-  %169 = tail call i32 %163(ptr noundef %165, ptr noundef nonnull %166, i32 noundef %168) #55
+  %169 = tail call i32 %163(ptr noundef %165, ptr noundef nonnull %166, i32 noundef %168) #57
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %173
 
@@ -42376,7 +42376,7 @@ stbi__get8.exit.i200:                             ; preds = %stbi__refill_buffer
   %192 = getelementptr inbounds i8, ptr %3, i64 56
   %193 = getelementptr inbounds i8, ptr %3, i64 52
   %194 = load i32, ptr %193, align 4
-  %195 = tail call i32 %189(ptr noundef %191, ptr noundef nonnull %192, i32 noundef %194) #55
+  %195 = tail call i32 %189(ptr noundef %191, ptr noundef nonnull %192, i32 noundef %194) #57
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %197, label %199
 
@@ -42440,7 +42440,7 @@ stbi__get16be.exit207:                            ; preds = %181, %184, %stbi__r
   %225 = getelementptr inbounds i8, ptr %3, i64 56
   %226 = getelementptr inbounds i8, ptr %3, i64 52
   %227 = load i32, ptr %226, align 4
-  %228 = tail call i32 %222(ptr noundef %224, ptr noundef nonnull %225, i32 noundef %227) #55
+  %228 = tail call i32 %222(ptr noundef %224, ptr noundef nonnull %225, i32 noundef %227) #57
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %230, label %232
 
@@ -42545,7 +42545,7 @@ stbi__get8.exit213.thread:                        ; preds = %217, %stbi__get8.ex
   %268 = load ptr, ptr %252, align 8
   %269 = load ptr, ptr %253, align 8
   %270 = load i32, ptr %255, align 4
-  %271 = tail call i32 %268(ptr noundef %269, ptr noundef nonnull %254, i32 noundef %270) #55
+  %271 = tail call i32 %268(ptr noundef %269, ptr noundef nonnull %254, i32 noundef %270) #57
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %274
 
@@ -42614,7 +42614,7 @@ stbi__get8.exit225.thread:                        ; preds = %296
   %300 = load ptr, ptr %252, align 8
   %301 = load ptr, ptr %253, align 8
   %302 = load i32, ptr %255, align 4
-  %303 = tail call i32 %300(ptr noundef %301, ptr noundef nonnull %254, i32 noundef %302) #55
+  %303 = tail call i32 %300(ptr noundef %301, ptr noundef nonnull %254, i32 noundef %302) #57
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %305, label %306
 
@@ -42688,7 +42688,7 @@ stbi__get8.exit231.thread:                        ; preds = %326
   %330 = load ptr, ptr %252, align 8
   %331 = load ptr, ptr %253, align 8
   %332 = load i32, ptr %255, align 4
-  %333 = tail call i32 %330(ptr noundef %331, ptr noundef nonnull %254, i32 noundef %332) #55
+  %333 = tail call i32 %330(ptr noundef %331, ptr noundef nonnull %254, i32 noundef %332) #57
   %334 = icmp eq i32 %333, 0
   br i1 %334, label %335, label %336
 
@@ -42850,7 +42850,7 @@ stbi__malloc_mad2.exit:                           ; preds = %409, %stbi__mul2siz
   %413 = mul nsw i32 %404, %401
   %414 = or disjoint i32 %413, 15
   %415 = sext i32 %414 to i64
-  %416 = tail call noalias noundef ptr @malloc(i64 noundef %415) #57
+  %416 = tail call noalias noundef ptr @malloc(i64 noundef %415) #59
   %417 = getelementptr inbounds i8, ptr %387, i64 56
   store ptr %416, ptr %417, align 8
   %418 = icmp eq ptr %416, null
@@ -42941,7 +42941,7 @@ define internal fastcc zeroext i8 @stbi__get8(ptr noundef %0) unnamed_addr #3 {
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = getelementptr inbounds i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #55
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #57
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -42997,7 +42997,7 @@ define internal fastcc void @stbi__get16be(ptr noundef %0) unnamed_addr #3 {
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = getelementptr inbounds i8, ptr %0, i64 52
   %19 = load i32, ptr %18, align 4
-  %20 = tail call i32 %14(ptr noundef %16, ptr noundef nonnull %17, i32 noundef %19) #55
+  %20 = tail call i32 %14(ptr noundef %16, ptr noundef nonnull %17, i32 noundef %19) #57
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
 
@@ -43048,7 +43048,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %41 = getelementptr inbounds i8, ptr %0, i64 56
   %42 = getelementptr inbounds i8, ptr %0, i64 52
   %43 = load i32, ptr %42, align 4
-  %44 = tail call i32 %38(ptr noundef %40, ptr noundef nonnull %41, i32 noundef %43) #55
+  %44 = tail call i32 %38(ptr noundef %40, ptr noundef nonnull %41, i32 noundef %43) #57
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %48
 
@@ -43271,7 +43271,7 @@ define internal fastcc void @stbi__skip(ptr nocapture noundef %0, i32 noundef %1
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = sub nsw i32 %1, %19
-  tail call void %23(ptr noundef %25, i32 noundef %26) #55
+  tail call void %23(ptr noundef %25, i32 noundef %26) #57
   br label %32
 
 27:                                               ; preds = %._crit_edge, %11
@@ -43347,7 +43347,7 @@ define internal fastcc void @stbi__free_jpeg_components(ptr nocapture noundef %0
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %8) #55
+  tail call void @free(ptr noundef nonnull %8) #57
   %10 = getelementptr inbounds i8, ptr %6, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   br label %11
@@ -43359,7 +43359,7 @@ define internal fastcc void @stbi__free_jpeg_components(ptr nocapture noundef %0
   br i1 %.not28, label %16, label %14
 
 14:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %13) #55
+  tail call void @free(ptr noundef nonnull %13) #57
   store ptr null, ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr null, ptr %15, align 8
@@ -43372,7 +43372,7 @@ define internal fastcc void @stbi__free_jpeg_components(ptr nocapture noundef %0
   br i1 %.not29, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %18) #55
+  tail call void @free(ptr noundef nonnull %18) #57
   store ptr null, ptr %17, align 8
   br label %20
 
@@ -43424,7 +43424,7 @@ stbi__mad3sizes_valid.exit:                       ; preds = %11, %stbi__mul2size
 16:                                               ; preds = %stbi__mad3sizes_valid.exit
   %17 = add nsw i32 %14, %3
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #57
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #59
   br label %stbi__mad3sizes_valid.exit.thread
 
 stbi__mad3sizes_valid.exit.thread:                ; preds = %stbi__mul2sizes_valid.exit.thread15.i, %4, %stbi__mul2sizes_valid.exit.i, %stbi__mul2sizes_valid.exit12.i, %stbi__mad3sizes_valid.exit, %16
@@ -44006,7 +44006,7 @@ define internal fastcc void @stbi__grow_buffer_unsafe(ptr nocapture noundef %0) 
   %31 = getelementptr inbounds i8, ptr %14, i64 56
   %32 = getelementptr inbounds i8, ptr %14, i64 52
   %33 = load i32, ptr %32, align 4
-  %34 = tail call i32 %28(ptr noundef %30, ptr noundef nonnull %31, i32 noundef %33) #55
+  %34 = tail call i32 %28(ptr noundef %30, ptr noundef nonnull %31, i32 noundef %33) #57
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %38
 
@@ -44064,7 +44064,7 @@ stbi__refill_buffer.exit.i:                       ; preds = %38, %36
   %63 = getelementptr inbounds i8, ptr %46, i64 56
   %64 = getelementptr inbounds i8, ptr %46, i64 52
   %65 = load i32, ptr %64, align 4
-  %66 = tail call i32 %60(ptr noundef %62, ptr noundef nonnull %63, i32 noundef %65) #55
+  %66 = tail call i32 %60(ptr noundef %62, ptr noundef nonnull %63, i32 noundef %65) #57
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %70
 
@@ -44132,7 +44132,7 @@ stbi__get8.exit20.backedge:                       ; preds = %82, %85, %stbi__ref
   %93 = getelementptr inbounds i8, ptr %76, i64 56
   %94 = getelementptr inbounds i8, ptr %76, i64 52
   %95 = load i32, ptr %94, align 4
-  %96 = tail call i32 %90(ptr noundef %92, ptr noundef nonnull %93, i32 noundef %95) #55
+  %96 = tail call i32 %90(ptr noundef %92, ptr noundef nonnull %93, i32 noundef %95) #57
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %100
 
@@ -44472,7 +44472,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__parse_png_file(ptr nocapture n
   %31 = load ptr, ptr %15, align 8
   %32 = load ptr, ptr %16, align 8
   %33 = load i32, ptr %18, align 4
-  %34 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %17, i32 noundef %33) #55
+  %34 = tail call i32 %31(ptr noundef %32, ptr noundef nonnull %17, i32 noundef %33) #57
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
 
@@ -44573,7 +44573,7 @@ stbi__check_png_header.exit:                      ; preds = %20
   %69 = load ptr, ptr %50, align 8
   %70 = load ptr, ptr %16, align 8
   %71 = sub nsw i32 %52, %66
-  tail call void %69(ptr noundef %70, i32 noundef %71) #55
+  tail call void %69(ptr noundef %70, i32 noundef %71) #57
   br label %stbi__skip.exit
 
 72:                                               ; preds = %60, %._crit_edge.i
@@ -44644,7 +44644,7 @@ stbi__get8.exit.thread:                           ; preds = %95
   %98 = load ptr, ptr %15, align 8
   %99 = load ptr, ptr %16, align 8
   %100 = load i32, ptr %18, align 4
-  %101 = tail call i32 %98(ptr noundef %99, ptr noundef nonnull %17, i32 noundef %100) #55
+  %101 = tail call i32 %98(ptr noundef %99, ptr noundef nonnull %17, i32 noundef %100) #57
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %104
 
@@ -44703,7 +44703,7 @@ stbi__get8.exit:                                  ; preds = %92, %stbi__refill_b
   %119 = load ptr, ptr %15, align 8
   %120 = load ptr, ptr %16, align 8
   %121 = load i32, ptr %18, align 4
-  %122 = tail call i32 %119(ptr noundef %120, ptr noundef nonnull %17, i32 noundef %121) #55
+  %122 = tail call i32 %119(ptr noundef %120, ptr noundef nonnull %17, i32 noundef %121) #57
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %125
 
@@ -44783,7 +44783,7 @@ stbi__get8.exit279:                               ; preds = %113, %stbi__refill_
   %152 = load ptr, ptr %15, align 8
   %153 = load ptr, ptr %16, align 8
   %154 = load i32, ptr %18, align 4
-  %155 = tail call i32 %152(ptr noundef %153, ptr noundef nonnull %17, i32 noundef %154) #55
+  %155 = tail call i32 %152(ptr noundef %153, ptr noundef nonnull %17, i32 noundef %154) #57
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %158
 
@@ -44837,7 +44837,7 @@ stbi__get8.exit285.thread:                        ; preds = %149, %stbi__get8.ex
   %174 = load ptr, ptr %15, align 8
   %175 = load ptr, ptr %16, align 8
   %176 = load i32, ptr %18, align 4
-  %177 = tail call i32 %174(ptr noundef %175, ptr noundef nonnull %17, i32 noundef %176) #55
+  %177 = tail call i32 %174(ptr noundef %175, ptr noundef nonnull %17, i32 noundef %176) #57
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %179, label %180
 
@@ -44891,7 +44891,7 @@ stbi__get8.exit291.thread:                        ; preds = %171, %stbi__get8.ex
   %196 = load ptr, ptr %15, align 8
   %197 = load ptr, ptr %16, align 8
   %198 = load i32, ptr %18, align 4
-  %199 = tail call i32 %196(ptr noundef %197, ptr noundef nonnull %17, i32 noundef %198) #55
+  %199 = tail call i32 %196(ptr noundef %197, ptr noundef nonnull %17, i32 noundef %198) #57
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %202
 
@@ -45032,7 +45032,7 @@ stbi__get8.exit297.thread:                        ; preds = %193, %stbi__get8.ex
   %248 = load ptr, ptr %15, align 8
   %249 = load ptr, ptr %16, align 8
   %250 = load i32, ptr %18, align 4
-  %251 = tail call i32 %248(ptr noundef %249, ptr noundef nonnull %17, i32 noundef %250) #55
+  %251 = tail call i32 %248(ptr noundef %249, ptr noundef nonnull %17, i32 noundef %250) #57
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %254
 
@@ -45079,7 +45079,7 @@ stbi__get8.exit303:                               ; preds = %242, %245, %stbi__r
   %269 = load ptr, ptr %15, align 8
   %270 = load ptr, ptr %16, align 8
   %271 = load i32, ptr %18, align 4
-  %272 = tail call i32 %269(ptr noundef %270, ptr noundef nonnull %17, i32 noundef %271) #55
+  %272 = tail call i32 %269(ptr noundef %270, ptr noundef nonnull %17, i32 noundef %271) #57
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %274, label %275
 
@@ -45126,7 +45126,7 @@ stbi__get8.exit309:                               ; preds = %263, %266, %stbi__r
   %290 = load ptr, ptr %15, align 8
   %291 = load ptr, ptr %16, align 8
   %292 = load i32, ptr %18, align 4
-  %293 = tail call i32 %290(ptr noundef %291, ptr noundef nonnull %17, i32 noundef %292) #55
+  %293 = tail call i32 %290(ptr noundef %291, ptr noundef nonnull %17, i32 noundef %292) #57
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %295, label %296
 
@@ -45238,7 +45238,7 @@ stbi__get8.exit315:                               ; preds = %284, %287, %stbi__r
   %329 = load ptr, ptr %15, align 8
   %330 = load ptr, ptr %16, align 8
   %331 = load i32, ptr %18, align 4
-  %332 = tail call i32 %329(ptr noundef %330, ptr noundef nonnull %17, i32 noundef %331) #55
+  %332 = tail call i32 %329(ptr noundef %330, ptr noundef nonnull %17, i32 noundef %331) #57
   %333 = icmp eq i32 %332, 0
   br i1 %333, label %334, label %335
 
@@ -45336,7 +45336,7 @@ stbi__get8.exit321:                               ; preds = %323, %326, %stbi__r
   %365 = load ptr, ptr %15, align 8
   %366 = load ptr, ptr %16, align 8
   %367 = load i32, ptr %18, align 4
-  %368 = tail call i32 %365(ptr noundef %366, ptr noundef nonnull %17, i32 noundef %367) #55
+  %368 = tail call i32 %365(ptr noundef %366, ptr noundef nonnull %17, i32 noundef %367) #57
   %369 = icmp eq i32 %368, 0
   br i1 %369, label %370, label %371
 
@@ -45380,7 +45380,7 @@ stbi__get8.exit.i326:                             ; preds = %stbi__refill_buffer
   %384 = load ptr, ptr %15, align 8
   %385 = load ptr, ptr %16, align 8
   %386 = load i32, ptr %18, align 4
-  %387 = tail call i32 %384(ptr noundef %385, ptr noundef nonnull %17, i32 noundef %386) #55
+  %387 = tail call i32 %384(ptr noundef %385, ptr noundef nonnull %17, i32 noundef %386) #57
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %389, label %390
 
@@ -45438,7 +45438,7 @@ stbi__get16be.exit:                               ; preds = %378, %381, %stbi__r
   %412 = load ptr, ptr %15, align 8
   %413 = load ptr, ptr %16, align 8
   %414 = load i32, ptr %18, align 4
-  %415 = tail call i32 %412(ptr noundef %413, ptr noundef nonnull %17, i32 noundef %414) #55
+  %415 = tail call i32 %412(ptr noundef %413, ptr noundef nonnull %17, i32 noundef %414) #57
   %416 = icmp eq i32 %415, 0
   br i1 %416, label %417, label %418
 
@@ -45484,7 +45484,7 @@ stbi__get8.exit.i332:                             ; preds = %stbi__get8.exit.i33
   %430 = load ptr, ptr %15, align 8
   %431 = load ptr, ptr %16, align 8
   %432 = load i32, ptr %18, align 4
-  %433 = tail call i32 %430(ptr noundef %431, ptr noundef nonnull %17, i32 noundef %432) #55
+  %433 = tail call i32 %430(ptr noundef %431, ptr noundef nonnull %17, i32 noundef %432) #57
   %434 = icmp eq i32 %433, 0
   br i1 %434, label %435, label %436
 
@@ -45577,7 +45577,7 @@ stbi__get16be.exit339:                            ; preds = %424, %427, %stbi__r
 471:                                              ; preds = %468
   %472 = load ptr, ptr %10, align 8
   %473 = zext i32 %.2203 to i64
-  %474 = tail call ptr @realloc(ptr noundef %472, i64 noundef %473) #58
+  %474 = tail call ptr @realloc(ptr noundef %472, i64 noundef %473) #60
   %475 = icmp eq ptr %474, null
   br i1 %475, label %476, label %477
 
@@ -45636,7 +45636,7 @@ stbi__getn.exit:                                  ; preds = %483
   %500 = load ptr, ptr %16, align 8
   %501 = getelementptr inbounds i8, ptr %481, i64 %498
   %502 = sub nsw i32 %52, %489
-  %503 = tail call i32 %499(ptr noundef %500, ptr noundef %501, i32 noundef %502) #55
+  %503 = tail call i32 %499(ptr noundef %500, ptr noundef %501, i32 noundef %502) #57
   %.not = icmp eq i32 %503, %502
   %504 = load ptr, ptr %13, align 8
   store ptr %504, ptr %12, align 8
@@ -45689,7 +45689,7 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
 
 528:                                              ; preds = %512
   %529 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %529) #55
+  call void @free(ptr noundef %529) #57
   store ptr null, ptr %10, align 8
   %530 = load i32, ptr %47, align 8
   %531 = add nsw i32 %530, 1
@@ -45774,7 +45774,7 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
 
 565:                                              ; preds = %561, %562, %557
   %566 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %566) #55
+  call void @free(ptr noundef %566) #57
   store ptr null, ptr %9, align 8
   br label %.loopexit
 
@@ -45839,7 +45839,7 @@ stbi__getn.exit.thread:                           ; preds = %491, %stbi__getn.ex
   %595 = load ptr, ptr %50, align 8
   %596 = load ptr, ptr %16, align 8
   %597 = sub nsw i32 %52, %592
-  tail call void %595(ptr noundef %596, i32 noundef %597) #55
+  tail call void %595(ptr noundef %596, i32 noundef %597) #57
   br label %stbi__skip.exit
 
 598:                                              ; preds = %586, %._crit_edge.i346
@@ -45867,8 +45867,8 @@ stbi__skip.exit:                                  ; preds = %stbi__get8.exit321,
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__convert_format(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define internal fastcc noundef ptr @stbi__convert_format(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #47 {
   %6 = icmp eq i32 %2, %1
   br i1 %6, label %151, label %7
 
@@ -45904,7 +45904,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %14
 stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2sizes_valid.exit12.i.i
   %17 = mul nsw i32 %12, %4
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #57
+  %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #59
   %20 = icmp eq ptr %19, null
   br i1 %20, label %stbi__malloc_mad3.exit.thread, label %.preheader191
 
@@ -45921,7 +45921,7 @@ stbi__malloc_mad3.exit:                           ; preds = %14, %stbi__mul2size
   br label %25
 
 stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i, %7, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__malloc_mad3.exit
-  tail call void @free(ptr noundef %0) #55
+  tail call void @free(ptr noundef %0) #57
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   br label %151
 
@@ -46229,7 +46229,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !289
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader191
-  tail call void @free(ptr noundef %0) #55
+  tail call void @free(ptr noundef %0) #57
   br label %151
 
 151:                                              ; preds = %5, %._crit_edge, %stbi__malloc_mad3.exit.thread
@@ -46237,8 +46237,8 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   ret ptr %.0151
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #47 {
   %6 = icmp eq i32 %2, %1
   br i1 %6, label %139, label %7
 
@@ -46247,7 +46247,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   %9 = mul i32 %8, %3
   %10 = mul i32 %9, %4
   %11 = zext i32 %10 to i64
-  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #57
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #59
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %.preheader190
 
@@ -46264,7 +46264,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   br label %19
 
 18:                                               ; preds = %7
-  tail call void @free(ptr noundef %0) #55
+  tail call void @free(ptr noundef %0) #57
   store ptr @.str.41, ptr @stbi__g_failure_reason, align 8
   br label %139
 
@@ -46564,7 +46564,7 @@ define internal fastcc noundef ptr @stbi__convert_format16(ptr noundef %0, i32 n
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !302
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader190
-  tail call void @free(ptr noundef %0) #55
+  tail call void @free(ptr noundef %0) #57
   br label %139
 
 139:                                              ; preds = %5, %._crit_edge, %18
@@ -46601,7 +46601,7 @@ define internal fastcc i32 @stbi__get32be(ptr noundef %0) unnamed_addr #3 {
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = getelementptr inbounds i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #55
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #57
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -46652,7 +46652,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %44 = getelementptr inbounds i8, ptr %0, i64 56
   %45 = getelementptr inbounds i8, ptr %0, i64 52
   %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 %41(ptr noundef %43, ptr noundef nonnull %44, i32 noundef %46) #55
+  %47 = tail call i32 %41(ptr noundef %43, ptr noundef nonnull %44, i32 noundef %46) #57
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %51
 
@@ -46703,7 +46703,7 @@ stbi__get16be.exit:                               ; preds = %33, %36, %stbi__ref
   %70 = getelementptr inbounds i8, ptr %0, i64 56
   %71 = getelementptr inbounds i8, ptr %0, i64 52
   %72 = load i32, ptr %71, align 4
-  %73 = tail call i32 %67(ptr noundef %69, ptr noundef nonnull %70, i32 noundef %72) #55
+  %73 = tail call i32 %67(ptr noundef %69, ptr noundef nonnull %70, i32 noundef %72) #57
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %77
 
@@ -46754,7 +46754,7 @@ stbi__get8.exit.i6:                               ; preds = %stbi__refill_buffer
   %96 = getelementptr inbounds i8, ptr %0, i64 56
   %97 = getelementptr inbounds i8, ptr %0, i64 52
   %98 = load i32, ptr %97, align 4
-  %99 = tail call i32 %93(ptr noundef %95, ptr noundef nonnull %96, i32 noundef %98) #55
+  %99 = tail call i32 %93(ptr noundef %95, ptr noundef nonnull %96, i32 noundef %98) #57
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %103
 
@@ -46828,7 +46828,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__getn(ptr nocapture noundef %0,
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 %17
   %22 = sub nsw i32 %2, %14
-  %23 = tail call i32 %18(ptr noundef %20, ptr noundef %21, i32 noundef %22) #55
+  %23 = tail call i32 %18(ptr noundef %20, ptr noundef %21, i32 noundef %22) #57
   %24 = icmp eq i32 %23, %22
   %25 = zext i1 %24 to i32
   %26 = load ptr, ptr %7, align 8
@@ -46904,7 +46904,7 @@ stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %24
 stbi__mad3sizes_valid.exit.i:                     ; preds = %stbi__mul2sizes_valid.exit12.i.i, %24
   %27 = mul nsw i32 %22, %10
   %28 = sext i32 %27 to i64
-  %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #57
+  %29 = tail call noalias noundef ptr @malloc(i64 noundef %28) #59
   br label %stbi__malloc_mad3.exit
 
 stbi__malloc_mad3.exit:                           ; preds = %17, %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i, %stbi__mul2sizes_valid.exit12.i.i, %stbi__mad3sizes_valid.exit.i
@@ -47003,12 +47003,12 @@ stbi__malloc_mad3.exit:                           ; preds = %17, %stbi__mul2size
   br i1 %88, label %.preheader.us, label %._crit_edge85, !llvm.loop !304
 
 89:                                               ; preds = %55
-  tail call void @free(ptr noundef %.0.i) #55
+  tail call void @free(ptr noundef %.0.i) #57
   br label %96
 
 ._crit_edge85:                                    ; preds = %._crit_edge.us, %.preheader82
   %90 = load ptr, ptr %30, align 8
-  tail call void @free(ptr noundef %90) #55
+  tail call void @free(ptr noundef %90) #57
   %91 = zext i32 %63 to i64
   %92 = getelementptr inbounds i8, ptr %.07288, i64 %91
   %93 = sub i32 %.07387, %63
@@ -47030,8 +47030,8 @@ stbi__malloc_mad3.exit:                           ; preds = %17, %stbi__mul2size
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -47099,8 +47099,8 @@ define internal fastcc void @stbi__compute_transparency16(i32 %.0.val.0.val, i32
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -47168,8 +47168,8 @@ define internal fastcc void @stbi__compute_transparency(i32 %.0.val.0.val, i32 %
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #13 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr nocapture %.24.val) unnamed_addr #5 {
   %1 = load i32, ptr %.0.val, align 8
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
   %3 = load i32, ptr %2, align 4
@@ -47303,7 +47303,7 @@ stbi__mul2sizes_valid.exit.i.i:                   ; preds = %12
 stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit.i.i
   %15 = mul nsw i32 %8, %2
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #57
+  %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #59
   %18 = icmp eq ptr %17, null
   br i1 %18, label %stbi__malloc_mad2.exit.thread, label %19
 
@@ -47374,7 +47374,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %3, %stbi__mul2sizes
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !314
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph55, %.preheader49, %.preheader
-  tail call void @free(ptr noundef %10) #55
+  tail call void @free(ptr noundef %10) #57
   store ptr %17, ptr %9, align 8
   br label %46
 
@@ -47384,7 +47384,7 @@ stbi__malloc_mad2.exit.thread:                    ; preds = %3, %stbi__mul2sizes
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #35 {
+define internal fastcc range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #37 {
   %9 = icmp eq i32 %6, 16
   %10 = load ptr, ptr %0, align 8
   %11 = mul i32 %4, %3
@@ -47430,7 +47430,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 stbi__malloc_mad3.exit:                           ; preds = %24, %stbi__mul2sizes_valid.exit12.i.i
   %28 = mul nsw i32 %16, %22
   %29 = sext i32 %28 to i64
-  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #57
+  %30 = tail call noalias noundef ptr @malloc(i64 noundef %29) #59
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
   %.not = icmp eq ptr %30, null
@@ -48600,7 +48600,7 @@ define internal fastcc i32 @stbi__get32le(ptr noundef %0) unnamed_addr #3 {
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = getelementptr inbounds i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #55
+  %21 = tail call i32 %15(ptr noundef %17, ptr noundef nonnull %18, i32 noundef %20) #57
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -48651,7 +48651,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %44 = getelementptr inbounds i8, ptr %0, i64 56
   %45 = getelementptr inbounds i8, ptr %0, i64 52
   %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 %41(ptr noundef %43, ptr noundef nonnull %44, i32 noundef %46) #55
+  %47 = tail call i32 %41(ptr noundef %43, ptr noundef nonnull %44, i32 noundef %46) #57
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %51
 
@@ -48702,7 +48702,7 @@ stbi__get16le.exit:                               ; preds = %33, %36, %stbi__ref
   %70 = getelementptr inbounds i8, ptr %0, i64 56
   %71 = getelementptr inbounds i8, ptr %0, i64 52
   %72 = load i32, ptr %71, align 4
-  %73 = tail call i32 %67(ptr noundef %69, ptr noundef nonnull %70, i32 noundef %72) #55
+  %73 = tail call i32 %67(ptr noundef %69, ptr noundef nonnull %70, i32 noundef %72) #57
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %77
 
@@ -48753,7 +48753,7 @@ stbi__get8.exit.i6:                               ; preds = %stbi__refill_buffer
   %96 = getelementptr inbounds i8, ptr %0, i64 56
   %97 = getelementptr inbounds i8, ptr %0, i64 52
   %98 = load i32, ptr %97, align 4
-  %99 = tail call i32 %93(ptr noundef %95, ptr noundef nonnull %96, i32 noundef %98) #55
+  %99 = tail call i32 %93(ptr noundef %95, ptr noundef nonnull %96, i32 noundef %98) #57
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %103
 
@@ -48821,7 +48821,7 @@ define internal fastcc noundef ptr @stbi__bmp_parse_header(ptr noundef %0, ptr n
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = getelementptr inbounds i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4
-  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #55
+  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #57
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %26
 
@@ -48876,7 +48876,7 @@ stbi__get8.exit:                                  ; preds = %8, %stbi__refill_bu
   %46 = getelementptr inbounds i8, ptr %0, i64 56
   %47 = getelementptr inbounds i8, ptr %0, i64 52
   %48 = load i32, ptr %47, align 4
-  %49 = tail call i32 %43(ptr noundef %45, ptr noundef nonnull %46, i32 noundef %48) #55
+  %49 = tail call i32 %43(ptr noundef %45, ptr noundef nonnull %46, i32 noundef %48) #57
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
@@ -48934,7 +48934,7 @@ stbi__get8.exit.thread:                           ; preds = %38, %11, %stbi__get
   %73 = getelementptr inbounds i8, ptr %0, i64 56
   %74 = getelementptr inbounds i8, ptr %0, i64 52
   %75 = load i32, ptr %74, align 4
-  %76 = tail call i32 %70(ptr noundef %72, ptr noundef nonnull %73, i32 noundef %75) #55
+  %76 = tail call i32 %70(ptr noundef %72, ptr noundef nonnull %73, i32 noundef %75) #57
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %80
 
@@ -48985,7 +48985,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__get8.exit.i.s
   %97 = getelementptr inbounds i8, ptr %0, i64 56
   %98 = getelementptr inbounds i8, ptr %0, i64 52
   %99 = load i32, ptr %98, align 4
-  %100 = tail call i32 %94(ptr noundef %96, ptr noundef nonnull %97, i32 noundef %99) #55
+  %100 = tail call i32 %94(ptr noundef %96, ptr noundef nonnull %97, i32 noundef %99) #57
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %104
 
@@ -49036,7 +49036,7 @@ stbi__get16le.exit:                               ; preds = %stbi__get16le.exit.
   %121 = getelementptr inbounds i8, ptr %0, i64 56
   %122 = getelementptr inbounds i8, ptr %0, i64 52
   %123 = load i32, ptr %122, align 4
-  %124 = tail call i32 %118(ptr noundef %120, ptr noundef nonnull %121, i32 noundef %123) #55
+  %124 = tail call i32 %118(ptr noundef %120, ptr noundef nonnull %121, i32 noundef %123) #57
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %128
 
@@ -49087,7 +49087,7 @@ stbi__get8.exit.i118:                             ; preds = %stbi__get8.exit.i11
   %145 = getelementptr inbounds i8, ptr %0, i64 56
   %146 = getelementptr inbounds i8, ptr %0, i64 52
   %147 = load i32, ptr %146, align 4
-  %148 = tail call i32 %142(ptr noundef %144, ptr noundef nonnull %145, i32 noundef %147) #55
+  %148 = tail call i32 %142(ptr noundef %144, ptr noundef nonnull %145, i32 noundef %147) #57
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %152
 
@@ -49164,7 +49164,7 @@ stbi__get16le.exit125:                            ; preds = %stbi__get16le.exit1
   %180 = getelementptr inbounds i8, ptr %0, i64 56
   %181 = getelementptr inbounds i8, ptr %0, i64 52
   %182 = load i32, ptr %181, align 4
-  %183 = tail call i32 %177(ptr noundef %179, ptr noundef nonnull %180, i32 noundef %182) #55
+  %183 = tail call i32 %177(ptr noundef %179, ptr noundef nonnull %180, i32 noundef %182) #57
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %185, label %187
 
@@ -49215,7 +49215,7 @@ stbi__get8.exit.i130:                             ; preds = %stbi__refill_buffer
   %206 = getelementptr inbounds i8, ptr %0, i64 56
   %207 = getelementptr inbounds i8, ptr %0, i64 52
   %208 = load i32, ptr %207, align 4
-  %209 = tail call i32 %203(ptr noundef %205, ptr noundef nonnull %206, i32 noundef %208) #55
+  %209 = tail call i32 %203(ptr noundef %205, ptr noundef nonnull %206, i32 noundef %208) #57
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %213
 
@@ -49271,7 +49271,7 @@ stbi__get16le.exit137:                            ; preds = %195, %198, %stbi__r
   %236 = getelementptr inbounds i8, ptr %0, i64 56
   %237 = getelementptr inbounds i8, ptr %0, i64 52
   %238 = load i32, ptr %237, align 4
-  %239 = tail call i32 %233(ptr noundef %235, ptr noundef nonnull %236, i32 noundef %238) #55
+  %239 = tail call i32 %233(ptr noundef %235, ptr noundef nonnull %236, i32 noundef %238) #57
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %241, label %243
 
@@ -49322,7 +49322,7 @@ stbi__get8.exit.i142:                             ; preds = %stbi__refill_buffer
   %262 = getelementptr inbounds i8, ptr %0, i64 56
   %263 = getelementptr inbounds i8, ptr %0, i64 52
   %264 = load i32, ptr %263, align 4
-  %265 = tail call i32 %259(ptr noundef %261, ptr noundef nonnull %262, i32 noundef %264) #55
+  %265 = tail call i32 %259(ptr noundef %261, ptr noundef nonnull %262, i32 noundef %264) #57
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %269
 
@@ -49394,7 +49394,7 @@ stbi__get16le.exit149:                            ; preds = %251, %254, %stbi__r
   %300 = getelementptr inbounds i8, ptr %0, i64 56
   %301 = getelementptr inbounds i8, ptr %0, i64 52
   %302 = load i32, ptr %301, align 4
-  %303 = tail call i32 %297(ptr noundef %299, ptr noundef nonnull %300, i32 noundef %302) #55
+  %303 = tail call i32 %297(ptr noundef %299, ptr noundef nonnull %300, i32 noundef %302) #57
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %305, label %307
 
@@ -49445,7 +49445,7 @@ stbi__get8.exit.i154:                             ; preds = %stbi__refill_buffer
   %326 = getelementptr inbounds i8, ptr %0, i64 56
   %327 = getelementptr inbounds i8, ptr %0, i64 52
   %328 = load i32, ptr %327, align 4
-  %329 = tail call i32 %323(ptr noundef %325, ptr noundef nonnull %326, i32 noundef %328) #55
+  %329 = tail call i32 %323(ptr noundef %325, ptr noundef nonnull %326, i32 noundef %328) #57
   %330 = icmp eq i32 %329, 0
   br i1 %330, label %331, label %333
 
@@ -49508,7 +49508,7 @@ stbi__get16le.exit161:                            ; preds = %315, %318, %stbi__r
   %358 = getelementptr inbounds i8, ptr %0, i64 56
   %359 = getelementptr inbounds i8, ptr %0, i64 52
   %360 = load i32, ptr %359, align 4
-  %361 = tail call i32 %355(ptr noundef %357, ptr noundef nonnull %358, i32 noundef %360) #55
+  %361 = tail call i32 %355(ptr noundef %357, ptr noundef nonnull %358, i32 noundef %360) #57
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %363, label %365
 
@@ -49559,7 +49559,7 @@ stbi__get8.exit.i166:                             ; preds = %stbi__refill_buffer
   %384 = getelementptr inbounds i8, ptr %0, i64 56
   %385 = getelementptr inbounds i8, ptr %0, i64 52
   %386 = load i32, ptr %385, align 4
-  %387 = tail call i32 %381(ptr noundef %383, ptr noundef nonnull %384, i32 noundef %386) #55
+  %387 = tail call i32 %381(ptr noundef %383, ptr noundef nonnull %384, i32 noundef %386) #57
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %389, label %391
 
@@ -49749,13 +49749,13 @@ stbi__mad3sizes_valid.exit:                       ; preds = %stbi__mul2sizes_val
   %17 = mul nuw nsw i32 %12, %10
   %18 = shl nsw i32 %17, 2
   %19 = zext nneg i32 %18 to i64
-  %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #57
+  %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #59
   store ptr %20, ptr %5, align 8
-  %21 = tail call noalias noundef ptr @malloc(i64 noundef %19) #57
+  %21 = tail call noalias noundef ptr @malloc(i64 noundef %19) #59
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %21, ptr %22, align 8
   %23 = zext nneg i32 %17 to i64
-  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #57
+  %24 = tail call noalias noundef ptr @malloc(i64 noundef %23) #59
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %24, ptr %25, align 8
   %.not164 = icmp eq ptr %20, null
@@ -49915,7 +49915,7 @@ stbi__skip.exit271:                               ; preds = %stbi__skip.exit271.
   %102 = load ptr, ptr %83, align 8
   %103 = load ptr, ptr %84, align 8
   %104 = load i32, ptr %86, align 4
-  %105 = tail call i32 %102(ptr noundef %103, ptr noundef nonnull %85, i32 noundef %104) #55
+  %105 = tail call i32 %102(ptr noundef %103, ptr noundef nonnull %85, i32 noundef %104) #57
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %108
 
@@ -49966,7 +49966,7 @@ stbi__get8.exit:                                  ; preds = %96, %stbi__refill_b
   %122 = load ptr, ptr %83, align 8
   %123 = load ptr, ptr %84, align 8
   %124 = load i32, ptr %86, align 4
-  %125 = tail call i32 %122(ptr noundef %123, ptr noundef nonnull %85, i32 noundef %124) #55
+  %125 = tail call i32 %122(ptr noundef %123, ptr noundef nonnull %85, i32 noundef %124) #57
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %128
 
@@ -50010,7 +50010,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %141 = load ptr, ptr %83, align 8
   %142 = load ptr, ptr %84, align 8
   %143 = load i32, ptr %86, align 4
-  %144 = tail call i32 %141(ptr noundef %142, ptr noundef nonnull %85, i32 noundef %143) #55
+  %144 = tail call i32 %141(ptr noundef %142, ptr noundef nonnull %85, i32 noundef %143) #57
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %147
 
@@ -50058,7 +50058,7 @@ stbi__get16le.exit:                               ; preds = %135, %138, %stbi__r
   %164 = load ptr, ptr %83, align 8
   %165 = load ptr, ptr %84, align 8
   %166 = load i32, ptr %86, align 4
-  %167 = tail call i32 %164(ptr noundef %165, ptr noundef nonnull %85, i32 noundef %166) #55
+  %167 = tail call i32 %164(ptr noundef %165, ptr noundef nonnull %85, i32 noundef %166) #57
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %170
 
@@ -50102,7 +50102,7 @@ stbi__get8.exit.i182:                             ; preds = %stbi__refill_buffer
   %183 = load ptr, ptr %83, align 8
   %184 = load ptr, ptr %84, align 8
   %185 = load i32, ptr %86, align 4
-  %186 = tail call i32 %183(ptr noundef %184, ptr noundef nonnull %85, i32 noundef %185) #55
+  %186 = tail call i32 %183(ptr noundef %184, ptr noundef nonnull %85, i32 noundef %185) #57
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %189
 
@@ -50150,7 +50150,7 @@ stbi__get16le.exit189:                            ; preds = %177, %180, %stbi__r
   %206 = load ptr, ptr %83, align 8
   %207 = load ptr, ptr %84, align 8
   %208 = load i32, ptr %86, align 4
-  %209 = tail call i32 %206(ptr noundef %207, ptr noundef nonnull %85, i32 noundef %208) #55
+  %209 = tail call i32 %206(ptr noundef %207, ptr noundef nonnull %85, i32 noundef %208) #57
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %212
 
@@ -50194,7 +50194,7 @@ stbi__get8.exit.i194:                             ; preds = %stbi__refill_buffer
   %225 = load ptr, ptr %83, align 8
   %226 = load ptr, ptr %84, align 8
   %227 = load i32, ptr %86, align 4
-  %228 = tail call i32 %225(ptr noundef %226, ptr noundef nonnull %85, i32 noundef %227) #55
+  %228 = tail call i32 %225(ptr noundef %226, ptr noundef nonnull %85, i32 noundef %227) #57
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %230, label %231
 
@@ -50242,7 +50242,7 @@ stbi__get16le.exit201:                            ; preds = %219, %222, %stbi__r
   %248 = load ptr, ptr %83, align 8
   %249 = load ptr, ptr %84, align 8
   %250 = load i32, ptr %86, align 4
-  %251 = tail call i32 %248(ptr noundef %249, ptr noundef nonnull %85, i32 noundef %250) #55
+  %251 = tail call i32 %248(ptr noundef %249, ptr noundef nonnull %85, i32 noundef %250) #57
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %254
 
@@ -50286,7 +50286,7 @@ stbi__get8.exit.i206:                             ; preds = %stbi__refill_buffer
   %267 = load ptr, ptr %83, align 8
   %268 = load ptr, ptr %84, align 8
   %269 = load i32, ptr %86, align 4
-  %270 = tail call i32 %267(ptr noundef %268, ptr noundef nonnull %85, i32 noundef %269) #55
+  %270 = tail call i32 %267(ptr noundef %268, ptr noundef nonnull %85, i32 noundef %269) #57
   %271 = icmp eq i32 %270, 0
   br i1 %271, label %272, label %273
 
@@ -50372,7 +50372,7 @@ stbi__get8.exit219.thread:                        ; preds = %308
   %312 = load ptr, ptr %83, align 8
   %313 = load ptr, ptr %84, align 8
   %314 = load i32, ptr %86, align 4
-  %315 = tail call i32 %312(ptr noundef %313, ptr noundef nonnull %85, i32 noundef %314) #55
+  %315 = tail call i32 %312(ptr noundef %313, ptr noundef nonnull %85, i32 noundef %314) #57
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %317, label %318
 
@@ -50467,7 +50467,7 @@ stbi__get8.exit219:                               ; preds = %305, %stbi__refill_
   %355 = load ptr, ptr %83, align 8
   %356 = load ptr, ptr %84, align 8
   %357 = load i32, ptr %86, align 4
-  %358 = tail call i32 %355(ptr noundef %356, ptr noundef nonnull %85, i32 noundef %357) #55
+  %358 = tail call i32 %355(ptr noundef %356, ptr noundef nonnull %85, i32 noundef %357) #57
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %360, label %361
 
@@ -50566,7 +50566,7 @@ stbi__get8.exit.thread.i:                         ; preds = %stbi__get8.exit.i22
   %392 = load ptr, ptr %83, align 8
   %393 = load ptr, ptr %84, align 8
   %394 = load i32, ptr %86, align 4
-  %395 = tail call i32 %392(ptr noundef %393, ptr noundef nonnull %85, i32 noundef %394) #55
+  %395 = tail call i32 %392(ptr noundef %393, ptr noundef nonnull %85, i32 noundef %394) #57
   %396 = icmp eq i32 %395, 0
   br i1 %396, label %397, label %398
 
@@ -50619,7 +50619,7 @@ stbi__get8.exit108.i:                             ; preds = %stbi__refill_buffer
   %417 = load ptr, ptr %83, align 8
   %418 = load ptr, ptr %84, align 8
   %419 = load i32, ptr %86, align 4
-  %420 = tail call i32 %417(ptr noundef %418, ptr noundef nonnull %85, i32 noundef %419) #55
+  %420 = tail call i32 %417(ptr noundef %418, ptr noundef nonnull %85, i32 noundef %419) #57
   %421 = icmp eq i32 %420, 0
   br i1 %421, label %422, label %423
 
@@ -50693,7 +50693,7 @@ stbi__get8.exit114.i:                             ; preds = %stbi__refill_buffer
   %453 = load ptr, ptr %88, align 8
   %454 = load ptr, ptr %84, align 8
   %455 = sub nsw i32 %.076.i, %450
-  tail call void %453(ptr noundef %454, i32 noundef %455) #55
+  tail call void %453(ptr noundef %454, i32 noundef %455) #57
   br label %stbi__skip.exit.i.preheader
 
 456:                                              ; preds = %444, %._crit_edge.i.i
@@ -50727,7 +50727,7 @@ stbi__skip.exit.i:                                ; preds = %stbi__skip.exit.i.b
   %469 = load ptr, ptr %83, align 8
   %470 = load ptr, ptr %84, align 8
   %471 = load i32, ptr %86, align 4
-  %472 = tail call i32 %469(ptr noundef %470, ptr noundef nonnull %85, i32 noundef %471) #55
+  %472 = tail call i32 %469(ptr noundef %470, ptr noundef nonnull %85, i32 noundef %471) #57
   %473 = icmp eq i32 %472, 0
   br i1 %473, label %474, label %475
 
@@ -50775,7 +50775,7 @@ stbi__get8.exit122.i:                             ; preds = %stbi__refill_buffer
   %490 = load ptr, ptr %88, align 8
   %491 = load ptr, ptr %84, align 8
   %492 = sub nsw i32 %481, %487
-  tail call void %490(ptr noundef %491, i32 noundef %492) #55
+  tail call void %490(ptr noundef %491, i32 noundef %492) #57
   br label %stbi__skip.exit.i.backedge
 
 ._crit_edge.i124.i:                               ; preds = %483, %480
@@ -50924,7 +50924,7 @@ stbi__process_gif_raster.exit:                    ; preds = %389, %stbi__get8.ex
   %559 = load ptr, ptr %83, align 8
   %560 = load ptr, ptr %84, align 8
   %561 = load i32, ptr %86, align 4
-  %562 = tail call i32 %559(ptr noundef %560, ptr noundef nonnull %85, i32 noundef %561) #55
+  %562 = tail call i32 %559(ptr noundef %560, ptr noundef nonnull %85, i32 noundef %561) #57
   %563 = icmp eq i32 %562, 0
   br i1 %563, label %564, label %565
 
@@ -50975,7 +50975,7 @@ stbi__get8.exit234.thread.preheader:              ; preds = %556, %stbi__get8.ex
 579:                                              ; preds = %577
   %580 = load ptr, ptr %84, align 8
   %581 = load i32, ptr %86, align 4
-  %582 = tail call i32 %.pre340(ptr noundef %580, ptr noundef nonnull %85, i32 noundef %581) #55
+  %582 = tail call i32 %.pre340(ptr noundef %580, ptr noundef nonnull %85, i32 noundef %581) #57
   %583 = icmp eq i32 %582, 0
   br i1 %583, label %584, label %585
 
@@ -51027,7 +51027,7 @@ stbi__get8.exit240.stbi__get8.exit240.thread_crit_edge: ; preds = %stbi__get8.ex
   %600 = load ptr, ptr %83, align 8
   %601 = load ptr, ptr %84, align 8
   %602 = load i32, ptr %86, align 4
-  %603 = tail call i32 %600(ptr noundef %601, ptr noundef nonnull %85, i32 noundef %602) #55
+  %603 = tail call i32 %600(ptr noundef %601, ptr noundef nonnull %85, i32 noundef %602) #57
   %604 = icmp eq i32 %603, 0
   br i1 %604, label %605, label %606
 
@@ -51073,7 +51073,7 @@ stbi__get8.exit246:                               ; preds = %594, %597, %stbi__r
   %620 = load ptr, ptr %83, align 8
   %621 = load ptr, ptr %84, align 8
   %622 = load i32, ptr %86, align 4
-  %623 = tail call i32 %620(ptr noundef %621, ptr noundef nonnull %85, i32 noundef %622) #55
+  %623 = tail call i32 %620(ptr noundef %621, ptr noundef nonnull %85, i32 noundef %622) #57
   %624 = icmp eq i32 %623, 0
   br i1 %624, label %625, label %626
 
@@ -51117,7 +51117,7 @@ stbi__get8.exit.i251:                             ; preds = %stbi__refill_buffer
   %639 = load ptr, ptr %83, align 8
   %640 = load ptr, ptr %84, align 8
   %641 = load i32, ptr %86, align 4
-  %642 = tail call i32 %639(ptr noundef %640, ptr noundef nonnull %85, i32 noundef %641) #55
+  %642 = tail call i32 %639(ptr noundef %640, ptr noundef nonnull %85, i32 noundef %641) #57
   %643 = icmp eq i32 %642, 0
   br i1 %643, label %644, label %645
 
@@ -51184,7 +51184,7 @@ stbi__get16le.exit258:                            ; preds = %633, %636, %stbi__r
   %672 = load ptr, ptr %83, align 8
   %673 = load ptr, ptr %84, align 8
   %674 = load i32, ptr %86, align 4
-  %675 = tail call i32 %672(ptr noundef %673, ptr noundef nonnull %85, i32 noundef %674) #55
+  %675 = tail call i32 %672(ptr noundef %673, ptr noundef nonnull %85, i32 noundef %674) #57
   %676 = icmp eq i32 %675, 0
   br i1 %676, label %677, label %678
 
@@ -51239,7 +51239,7 @@ stbi__get8.exit264:                               ; preds = %666, %669, %stbi__r
   %696 = load ptr, ptr %88, align 8
   %697 = load ptr, ptr %84, align 8
   %698 = sub nsw i32 1, %693
-  tail call void %696(ptr noundef %697, i32 noundef %698) #55
+  tail call void %696(ptr noundef %697, i32 noundef %698) #57
   br label %stbi__skip.exit
 
 699:                                              ; preds = %687, %._crit_edge.i
@@ -51274,7 +51274,7 @@ stbi__get8.exit240.thread:                        ; preds = %stbi__get8.exit240.
   %712 = load ptr, ptr %88, align 8
   %713 = load ptr, ptr %84, align 8
   %714 = sub nsw i32 %704, %709
-  tail call void %712(ptr noundef %713, i32 noundef %714) #55
+  tail call void %712(ptr noundef %713, i32 noundef %714) #57
   br label %stbi__skip.exit271.backedge
 
 ._crit_edge.i268:                                 ; preds = %stbi__get8.exit240.thread, %705
@@ -51307,7 +51307,7 @@ stbi__get8.exit234.thread:                        ; preds = %stbi__get8.exit234.
   %726 = load ptr, ptr %83, align 8
   %727 = load ptr, ptr %84, align 8
   %728 = load i32, ptr %86, align 4
-  %729 = tail call i32 %726(ptr noundef %727, ptr noundef nonnull %85, i32 noundef %728) #55
+  %729 = tail call i32 %726(ptr noundef %727, ptr noundef nonnull %85, i32 noundef %728) #57
   %730 = icmp eq i32 %729, 0
   br i1 %730, label %731, label %732
 
@@ -51355,7 +51355,7 @@ stbi__get8.exit277:                               ; preds = %720, %stbi__refill_
   %747 = load ptr, ptr %88, align 8
   %748 = load ptr, ptr %84, align 8
   %749 = sub nsw i32 %738, %744
-  tail call void %747(ptr noundef %748, i32 noundef %749) #55
+  tail call void %747(ptr noundef %748, i32 noundef %749) #57
   br label %stbi__get8.exit234.thread.backedge
 
 stbi__get8.exit234.thread.backedge:               ; preds = %746, %._crit_edge.i279
@@ -51406,7 +51406,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__gif_header(ptr noundef %0, ptr
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   %22 = getelementptr inbounds i8, ptr %0, i64 52
   %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 %18(ptr noundef %20, ptr noundef nonnull %21, i32 noundef %23) #55
+  %24 = tail call i32 %18(ptr noundef %20, ptr noundef nonnull %21, i32 noundef %23) #57
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %28
 
@@ -51461,7 +51461,7 @@ stbi__get8.exit:                                  ; preds = %10, %stbi__refill_b
   %48 = getelementptr inbounds i8, ptr %0, i64 56
   %49 = getelementptr inbounds i8, ptr %0, i64 52
   %50 = load i32, ptr %49, align 4
-  %51 = tail call i32 %45(ptr noundef %47, ptr noundef nonnull %48, i32 noundef %50) #55
+  %51 = tail call i32 %45(ptr noundef %47, ptr noundef nonnull %48, i32 noundef %50) #57
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %55
 
@@ -51516,7 +51516,7 @@ stbi__get8.exit41:                                ; preds = %37, %stbi__refill_b
   %75 = getelementptr inbounds i8, ptr %0, i64 56
   %76 = getelementptr inbounds i8, ptr %0, i64 52
   %77 = load i32, ptr %76, align 4
-  %78 = tail call i32 %72(ptr noundef %74, ptr noundef nonnull %75, i32 noundef %77) #55
+  %78 = tail call i32 %72(ptr noundef %74, ptr noundef nonnull %75, i32 noundef %77) #57
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %82
 
@@ -51571,7 +51571,7 @@ stbi__get8.exit47:                                ; preds = %64, %stbi__refill_b
   %102 = getelementptr inbounds i8, ptr %0, i64 56
   %103 = getelementptr inbounds i8, ptr %0, i64 52
   %104 = load i32, ptr %103, align 4
-  %105 = tail call i32 %99(ptr noundef %101, ptr noundef nonnull %102, i32 noundef %104) #55
+  %105 = tail call i32 %99(ptr noundef %101, ptr noundef nonnull %102, i32 noundef %104) #57
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %109
 
@@ -51630,7 +51630,7 @@ stbi__get8.exit.thread:                           ; preds = %94, %67, %40, %13, 
   %129 = getelementptr inbounds i8, ptr %0, i64 56
   %130 = getelementptr inbounds i8, ptr %0, i64 52
   %131 = load i32, ptr %130, align 4
-  %132 = tail call i32 %126(ptr noundef %128, ptr noundef nonnull %129, i32 noundef %131) #55
+  %132 = tail call i32 %126(ptr noundef %128, ptr noundef nonnull %129, i32 noundef %131) #57
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %136
 
@@ -51691,7 +51691,7 @@ stbi__get8.exit59.thread:                         ; preds = %121, %stbi__get8.ex
   %156 = getelementptr inbounds i8, ptr %0, i64 56
   %157 = getelementptr inbounds i8, ptr %0, i64 52
   %158 = load i32, ptr %157, align 4
-  %159 = tail call i32 %153(ptr noundef %155, ptr noundef nonnull %156, i32 noundef %158) #55
+  %159 = tail call i32 %153(ptr noundef %155, ptr noundef nonnull %156, i32 noundef %158) #57
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %161, label %163
 
@@ -51751,7 +51751,7 @@ stbi__get8.exit65.thread:                         ; preds = %148, %stbi__get8.ex
   %183 = getelementptr inbounds i8, ptr %0, i64 56
   %184 = getelementptr inbounds i8, ptr %0, i64 52
   %185 = load i32, ptr %184, align 4
-  %186 = tail call i32 %180(ptr noundef %182, ptr noundef nonnull %183, i32 noundef %185) #55
+  %186 = tail call i32 %180(ptr noundef %182, ptr noundef nonnull %183, i32 noundef %185) #57
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %190
 
@@ -51802,7 +51802,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %209 = getelementptr inbounds i8, ptr %0, i64 56
   %210 = getelementptr inbounds i8, ptr %0, i64 52
   %211 = load i32, ptr %210, align 4
-  %212 = tail call i32 %206(ptr noundef %208, ptr noundef nonnull %209, i32 noundef %211) #55
+  %212 = tail call i32 %206(ptr noundef %208, ptr noundef nonnull %209, i32 noundef %211) #57
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %214, label %216
 
@@ -51858,7 +51858,7 @@ stbi__get16le.exit:                               ; preds = %198, %201, %stbi__r
   %239 = getelementptr inbounds i8, ptr %0, i64 56
   %240 = getelementptr inbounds i8, ptr %0, i64 52
   %241 = load i32, ptr %240, align 4
-  %242 = tail call i32 %236(ptr noundef %238, ptr noundef nonnull %239, i32 noundef %241) #55
+  %242 = tail call i32 %236(ptr noundef %238, ptr noundef nonnull %239, i32 noundef %241) #57
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %244, label %246
 
@@ -51909,7 +51909,7 @@ stbi__get8.exit.i70:                              ; preds = %stbi__refill_buffer
   %265 = getelementptr inbounds i8, ptr %0, i64 56
   %266 = getelementptr inbounds i8, ptr %0, i64 52
   %267 = load i32, ptr %266, align 4
-  %268 = tail call i32 %262(ptr noundef %264, ptr noundef nonnull %265, i32 noundef %267) #55
+  %268 = tail call i32 %262(ptr noundef %264, ptr noundef nonnull %265, i32 noundef %267) #57
   %269 = icmp eq i32 %268, 0
   br i1 %269, label %270, label %272
 
@@ -51966,7 +51966,7 @@ stbi__get16le.exit77:                             ; preds = %254, %257, %stbi__r
   %296 = getelementptr inbounds i8, ptr %0, i64 56
   %297 = getelementptr inbounds i8, ptr %0, i64 52
   %298 = load i32, ptr %297, align 4
-  %299 = tail call i32 %293(ptr noundef %295, ptr noundef nonnull %296, i32 noundef %298) #55
+  %299 = tail call i32 %293(ptr noundef %295, ptr noundef nonnull %296, i32 noundef %298) #57
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %301, label %303
 
@@ -52020,7 +52020,7 @@ stbi__get8.exit83:                                ; preds = %285, %288, %stbi__r
   %324 = getelementptr inbounds i8, ptr %0, i64 56
   %325 = getelementptr inbounds i8, ptr %0, i64 52
   %326 = load i32, ptr %325, align 4
-  %327 = tail call i32 %321(ptr noundef %323, ptr noundef nonnull %324, i32 noundef %326) #55
+  %327 = tail call i32 %321(ptr noundef %323, ptr noundef nonnull %324, i32 noundef %326) #57
   %328 = icmp eq i32 %327, 0
   br i1 %328, label %329, label %331
 
@@ -52074,7 +52074,7 @@ stbi__get8.exit89:                                ; preds = %313, %316, %stbi__r
   %352 = getelementptr inbounds i8, ptr %0, i64 56
   %353 = getelementptr inbounds i8, ptr %0, i64 52
   %354 = load i32, ptr %353, align 4
-  %355 = tail call i32 %349(ptr noundef %351, ptr noundef nonnull %352, i32 noundef %354) #55
+  %355 = tail call i32 %349(ptr noundef %351, ptr noundef nonnull %352, i32 noundef %354) #57
   %356 = icmp eq i32 %355, 0
   br i1 %356, label %357, label %359
 
@@ -52174,7 +52174,7 @@ define internal fastcc void @stbi__gif_parse_colortable(ptr noundef %0, ptr noca
   %25 = load ptr, ptr %9, align 8
   %26 = load ptr, ptr %10, align 8
   %27 = load i32, ptr %12, align 4
-  %28 = tail call i32 %25(ptr noundef %26, ptr noundef nonnull %11, i32 noundef %27) #55
+  %28 = tail call i32 %25(ptr noundef %26, ptr noundef nonnull %11, i32 noundef %27) #57
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %31
 
@@ -52221,7 +52221,7 @@ stbi__get8.exit:                                  ; preds = %19, %22, %stbi__ref
   %46 = load ptr, ptr %9, align 8
   %47 = load ptr, ptr %10, align 8
   %48 = load i32, ptr %12, align 4
-  %49 = tail call i32 %46(ptr noundef %47, ptr noundef nonnull %11, i32 noundef %48) #55
+  %49 = tail call i32 %46(ptr noundef %47, ptr noundef nonnull %11, i32 noundef %48) #57
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %52
 
@@ -52267,7 +52267,7 @@ stbi__get8.exit20:                                ; preds = %40, %43, %stbi__ref
   %66 = load ptr, ptr %9, align 8
   %67 = load ptr, ptr %10, align 8
   %68 = load i32, ptr %12, align 4
-  %69 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %11, i32 noundef %68) #55
+  %69 = tail call i32 %66(ptr noundef %67, ptr noundef nonnull %11, i32 noundef %68) #57
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %72
 
@@ -52305,7 +52305,7 @@ stbi__get8.exit26:                                ; preds = %60, %63, %stbi__ref
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbi__out_gif_code(ptr nocapture noundef %0, i16 noundef zeroext %1) unnamed_addr #39 {
+define internal fastcc void @stbi__out_gif_code(ptr nocapture noundef %0, i16 noundef zeroext %1) unnamed_addr #48 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2100
   %4 = zext i16 %1 to i64
   %5 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %3, i64 0, i64 %4
@@ -52455,7 +52455,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__pnm_info(ptr noundef %0, ptr n
   %24 = getelementptr inbounds i8, ptr %0, i64 56
   %25 = getelementptr inbounds i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4
-  %27 = tail call i32 %21(ptr noundef %23, ptr noundef nonnull %24, i32 noundef %26) #55
+  %27 = tail call i32 %21(ptr noundef %23, ptr noundef nonnull %24, i32 noundef %26) #57
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
@@ -52506,7 +52506,7 @@ stbi__get8.exit:                                  ; preds = %13, %16, %stbi__ref
   %50 = getelementptr inbounds i8, ptr %0, i64 56
   %51 = getelementptr inbounds i8, ptr %0, i64 52
   %52 = load i32, ptr %51, align 4
-  %53 = tail call i32 %47(ptr noundef %49, ptr noundef nonnull %50, i32 noundef %52) #55
+  %53 = tail call i32 %47(ptr noundef %49, ptr noundef nonnull %50, i32 noundef %52) #57
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %57
 
@@ -52582,7 +52582,7 @@ stbi__get8.exit35.thread:                         ; preds = %42, %stbi__get8.exi
   %83 = getelementptr inbounds i8, ptr %0, i64 56
   %84 = getelementptr inbounds i8, ptr %0, i64 52
   %85 = load i32, ptr %84, align 4
-  %86 = tail call i32 %80(ptr noundef %82, ptr noundef nonnull %83, i32 noundef %85) #55
+  %86 = tail call i32 %80(ptr noundef %82, ptr noundef nonnull %83, i32 noundef %85) #57
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %90
 
@@ -52630,7 +52630,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__get8.exit.i.b
 103:                                              ; preds = %stbi__get8.exit.i
   %104 = load ptr, ptr %97, align 8
   %105 = load ptr, ptr %98, align 8
-  %106 = tail call i32 %104(ptr noundef %105) #55
+  %106 = tail call i32 %104(ptr noundef %105) #57
   %.not6.i.i = icmp eq i32 %106, 0
   br i1 %.not6.i.i, label %stbi__at_eof.exit.thread.i, label %107
 
@@ -52683,7 +52683,7 @@ stbi__at_eof.exit.thread.i._crit_edge:            ; preds = %stbi__at_eof.exit.t
   %128 = load ptr, ptr %96, align 8
   %129 = load ptr, ptr %98, align 8
   %130 = load i32, ptr %100, align 4
-  %131 = tail call i32 %128(ptr noundef %129, ptr noundef nonnull %99, i32 noundef %130) #55
+  %131 = tail call i32 %128(ptr noundef %129, ptr noundef nonnull %99, i32 noundef %130) #57
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %134
 
@@ -52732,7 +52732,7 @@ stbi__get8.exit.i53:                              ; preds = %stbi__get8.exit.i53
 139:                                              ; preds = %stbi__get8.exit.i53
   %140 = load ptr, ptr %97, align 8
   %141 = load ptr, ptr %98, align 8
-  %142 = tail call i32 %140(ptr noundef %141) #55
+  %142 = tail call i32 %140(ptr noundef %141) #57
   %.not6.i.i45 = icmp eq i32 %142, 0
   br i1 %.not6.i.i45, label %stbi__at_eof.exit.thread.i48, label %143
 
@@ -52785,7 +52785,7 @@ stbi__at_eof.exit.thread.i48._crit_edge:          ; preds = %stbi__at_eof.exit.t
   %164 = load ptr, ptr %96, align 8
   %165 = load ptr, ptr %98, align 8
   %166 = load i32, ptr %100, align 4
-  %167 = tail call i32 %164(ptr noundef %165, ptr noundef nonnull %99, i32 noundef %166) #55
+  %167 = tail call i32 %164(ptr noundef %165, ptr noundef nonnull %99, i32 noundef %166) #57
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %170
 
@@ -52834,7 +52834,7 @@ stbi__get8.exit.i66:                              ; preds = %stbi__get8.exit.i66
 175:                                              ; preds = %stbi__get8.exit.i66
   %176 = load ptr, ptr %97, align 8
   %177 = load ptr, ptr %98, align 8
-  %178 = tail call i32 %176(ptr noundef %177) #55
+  %178 = tail call i32 %176(ptr noundef %177) #57
   %.not6.i.i58 = icmp eq i32 %178, 0
   br i1 %.not6.i.i58, label %stbi__at_eof.exit.thread.i61, label %179
 
@@ -52887,7 +52887,7 @@ stbi__at_eof.exit.thread.i61._crit_edge:          ; preds = %stbi__at_eof.exit.t
   %200 = load ptr, ptr %96, align 8
   %201 = load ptr, ptr %98, align 8
   %202 = load i32, ptr %100, align 4
-  %203 = tail call i32 %200(ptr noundef %201, ptr noundef nonnull %99, i32 noundef %202) #55
+  %203 = tail call i32 %200(ptr noundef %201, ptr noundef nonnull %99, i32 noundef %202) #57
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %205, label %206
 
@@ -52947,7 +52947,7 @@ define internal fastcc void @stbi__pnm_skip_whitespace(ptr noundef %0, ptr nocap
 13:                                               ; preds = %.critedge2
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %6, align 8
-  %16 = tail call i32 %14(ptr noundef %15) #55
+  %16 = tail call i32 %14(ptr noundef %15) #57
   %.not6.i = icmp eq i32 %16, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %17
 
@@ -52994,7 +52994,7 @@ stbi__pnm_isspace.exit.thread:                    ; preds = %stbi__at_eof.exit.t
   %32 = load ptr, ptr %4, align 8
   %33 = load ptr, ptr %6, align 8
   %34 = load i32, ptr %10, align 4
-  %35 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %9, i32 noundef %34) #55
+  %35 = tail call i32 %32(ptr noundef %33, ptr noundef nonnull %9, i32 noundef %34) #57
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %38
 
@@ -53032,7 +53032,7 @@ stbi__get8.exit:                                  ; preds = %26, %29, %stbi__ref
 43:                                               ; preds = %.critedge
   %44 = load ptr, ptr %5, align 8
   %45 = load ptr, ptr %6, align 8
-  %46 = tail call i32 %44(ptr noundef %45) #55
+  %46 = tail call i32 %44(ptr noundef %45) #57
   %.not6.i22 = icmp eq i32 %46, 0
   br i1 %.not6.i22, label %stbi__at_eof.exit24.thread, label %47
 
@@ -53060,7 +53060,7 @@ stbi__at_eof.exit24.thread:                       ; preds = %43, %stbi__at_eof.e
 54:                                               ; preds = %.preheader
   %55 = load ptr, ptr %5, align 8
   %56 = load ptr, ptr %6, align 8
-  %57 = tail call i32 %55(ptr noundef %56) #55
+  %57 = tail call i32 %55(ptr noundef %56) #57
   %.not6.i26 = icmp eq i32 %57, 0
   br i1 %.not6.i26, label %stbi__at_eof.exit28.thread, label %58
 
@@ -53103,7 +53103,7 @@ stbi__at_eof.exit28.thread:                       ; preds = %54, %stbi__at_eof.e
   %74 = load ptr, ptr %4, align 8
   %75 = load ptr, ptr %6, align 8
   %76 = load i32, ptr %10, align 4
-  %77 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %9, i32 noundef %76) #55
+  %77 = tail call i32 %74(ptr noundef %75, ptr noundef nonnull %9, i32 noundef %76) #57
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %80
 
@@ -53163,7 +53163,7 @@ define internal fastcc noundef ptr @stbi__hdr_gettoken(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = getelementptr inbounds i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4
-  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #55
+  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #57
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %26
 
@@ -53212,7 +53212,7 @@ stbi__get8.exit33:                                ; preds = %stbi__get8.exit33.b
 43:                                               ; preds = %stbi__get8.exit33
   %44 = load ptr, ptr %34, align 8
   %45 = load ptr, ptr %35, align 8
-  %46 = tail call i32 %44(ptr noundef %45) #55
+  %46 = tail call i32 %44(ptr noundef %45) #57
   %.not6.i = icmp eq i32 %46, 0
   br i1 %.not6.i, label %stbi__at_eof.exit, label %47
 
@@ -53255,7 +53255,7 @@ stbi__at_eof.exit:                                ; preds = %43, %50
 61:                                               ; preds = %.preheader
   %62 = load ptr, ptr %34, align 8
   %63 = load ptr, ptr %35, align 8
-  %64 = tail call i32 %62(ptr noundef %63) #55
+  %64 = tail call i32 %62(ptr noundef %63) #57
   %.not6.i19 = icmp eq i32 %64, 0
   br i1 %.not6.i19, label %.stbi__at_eof.exit21.thread_crit_edge, label %65
 
@@ -53296,7 +53296,7 @@ stbi__at_eof.exit21.thread:                       ; preds = %.stbi__at_eof.exit2
   %79 = load ptr, ptr %33, align 8
   %80 = load ptr, ptr %35, align 8
   %81 = load i32, ptr %38, align 4
-  %82 = tail call i32 %79(ptr noundef %80, ptr noundef nonnull %37, i32 noundef %81) #55
+  %82 = tail call i32 %79(ptr noundef %80, ptr noundef nonnull %37, i32 noundef %81) #57
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %85
 
@@ -53350,7 +53350,7 @@ stbi__get8.exit33.backedge:                       ; preds = %93, %96, %stbi__ref
   %99 = load ptr, ptr %33, align 8
   %100 = load ptr, ptr %35, align 8
   %101 = load i32, ptr %38, align 4
-  %102 = tail call i32 %99(ptr noundef %100, ptr noundef nonnull %37, i32 noundef %101) #55
+  %102 = tail call i32 %99(ptr noundef %100, ptr noundef nonnull %37, i32 noundef %101) #57
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %105
 
@@ -53384,10 +53384,10 @@ stbi__refill_buffer.exit.i30:                     ; preds = %105, %104
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #47
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #49
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc void @stbi__hdr_convert(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #48 {
+define internal fastcc void @stbi__hdr_convert(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #50 {
   %4 = getelementptr inbounds i8, ptr %1, i64 3
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
@@ -53396,7 +53396,7 @@ define internal fastcc void @stbi__hdr_convert(ptr nocapture noundef writeonly %
 6:                                                ; preds = %3
   %7 = zext i8 %5 to i32
   %8 = add nsw i32 %7, -136
-  %9 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %8) #55
+  %9 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %8) #57
   %10 = fptrunc double %9 to float
   %11 = icmp slt i32 %2, 3
   %12 = load i8, ptr %1, align 1
@@ -53485,10 +53485,10 @@ define internal fastcc void @stbi__hdr_convert(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #47
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #49
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #40
+declare double @pow(double noundef, double noundef) local_unnamed_addr #41
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @stbi__tga_read_rgb16(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 {
@@ -53519,7 +53519,7 @@ define internal fastcc void @stbi__tga_read_rgb16(ptr noundef %0, ptr nocapture 
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = getelementptr inbounds i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4
-  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #55
+  %22 = tail call i32 %16(ptr noundef %18, ptr noundef nonnull %19, i32 noundef %21) #57
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %26
 
@@ -53570,7 +53570,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %45 = getelementptr inbounds i8, ptr %0, i64 56
   %46 = getelementptr inbounds i8, ptr %0, i64 52
   %47 = load i32, ptr %46, align 4
-  %48 = tail call i32 %42(ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47) #55
+  %48 = tail call i32 %42(ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47) #57
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %52
 
@@ -53838,7 +53838,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__psd_info(ptr noundef %0, ptr n
   %27 = getelementptr inbounds i8, ptr %0, i64 56
   %28 = getelementptr inbounds i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
-  %30 = tail call i32 %24(ptr noundef %26, ptr noundef nonnull %27, i32 noundef %29) #55
+  %30 = tail call i32 %24(ptr noundef %26, ptr noundef nonnull %27, i32 noundef %29) #57
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -53889,7 +53889,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %53 = getelementptr inbounds i8, ptr %0, i64 56
   %54 = getelementptr inbounds i8, ptr %0, i64 52
   %55 = load i32, ptr %54, align 4
-  %56 = tail call i32 %50(ptr noundef %52, ptr noundef nonnull %53, i32 noundef %55) #55
+  %56 = tail call i32 %50(ptr noundef %52, ptr noundef nonnull %53, i32 noundef %55) #57
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
@@ -53951,7 +53951,7 @@ stbi__get16be.exit:                               ; preds = %42, %45, %stbi__ref
   %85 = getelementptr inbounds i8, ptr %0, i64 40
   %86 = load ptr, ptr %85, align 8
   %87 = sub nsw i32 6, %80
-  tail call void %84(ptr noundef %86, i32 noundef %87) #55
+  tail call void %84(ptr noundef %86, i32 noundef %87) #57
   %.pre = load ptr, ptr %11, align 8
   %.pre72 = load ptr, ptr %13, align 8
   br label %stbi__skip.exit
@@ -53986,7 +53986,7 @@ stbi__skip.exit:                                  ; preds = %82, %._crit_edge.i
   %102 = getelementptr inbounds i8, ptr %0, i64 56
   %103 = getelementptr inbounds i8, ptr %0, i64 52
   %104 = load i32, ptr %103, align 4
-  %105 = tail call i32 %99(ptr noundef %101, ptr noundef nonnull %102, i32 noundef %104) #55
+  %105 = tail call i32 %99(ptr noundef %101, ptr noundef nonnull %102, i32 noundef %104) #57
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %109
 
@@ -54036,7 +54036,7 @@ stbi__get8.exit.i37:                              ; preds = %stbi__refill_buffer
   %127 = getelementptr inbounds i8, ptr %0, i64 56
   %128 = getelementptr inbounds i8, ptr %0, i64 52
   %129 = load i32, ptr %128, align 4
-  %130 = tail call i32 %124(ptr noundef %126, ptr noundef nonnull %127, i32 noundef %129) #55
+  %130 = tail call i32 %124(ptr noundef %126, ptr noundef nonnull %127, i32 noundef %129) #57
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %134
 
@@ -54116,7 +54116,7 @@ stbi__get16be.exit44:                             ; preds = %117, %120, %stbi__r
   %163 = getelementptr inbounds i8, ptr %0, i64 56
   %164 = getelementptr inbounds i8, ptr %0, i64 52
   %165 = load i32, ptr %164, align 4
-  %166 = tail call i32 %160(ptr noundef %162, ptr noundef nonnull %163, i32 noundef %165) #55
+  %166 = tail call i32 %160(ptr noundef %162, ptr noundef nonnull %163, i32 noundef %165) #57
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %170
 
@@ -54166,7 +54166,7 @@ stbi__get8.exit.i49:                              ; preds = %stbi__refill_buffer
   %188 = getelementptr inbounds i8, ptr %0, i64 56
   %189 = getelementptr inbounds i8, ptr %0, i64 52
   %190 = load i32, ptr %189, align 4
-  %191 = tail call i32 %185(ptr noundef %187, ptr noundef nonnull %188, i32 noundef %190) #55
+  %191 = tail call i32 %185(ptr noundef %187, ptr noundef nonnull %188, i32 noundef %190) #57
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %195
 
@@ -54232,7 +54232,7 @@ stbi__get16be.exit56:                             ; preds = %178, %181, %stbi__r
   %220 = getelementptr inbounds i8, ptr %0, i64 56
   %221 = getelementptr inbounds i8, ptr %0, i64 52
   %222 = load i32, ptr %221, align 4
-  %223 = tail call i32 %217(ptr noundef %219, ptr noundef nonnull %220, i32 noundef %222) #55
+  %223 = tail call i32 %217(ptr noundef %219, ptr noundef nonnull %220, i32 noundef %222) #57
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %227
 
@@ -54282,7 +54282,7 @@ stbi__get8.exit.i61:                              ; preds = %stbi__refill_buffer
   %245 = getelementptr inbounds i8, ptr %0, i64 56
   %246 = getelementptr inbounds i8, ptr %0, i64 52
   %247 = load i32, ptr %246, align 4
-  %248 = tail call i32 %242(ptr noundef %244, ptr noundef nonnull %245, i32 noundef %247) #55
+  %248 = tail call i32 %242(ptr noundef %244, ptr noundef nonnull %245, i32 noundef %247) #57
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %250, label %252
 
@@ -54377,7 +54377,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__pic_info(ptr noundef %0, ptr n
   %24 = load ptr, ptr %8, align 8
   %25 = load ptr, ptr %9, align 8
   %26 = load i32, ptr %11, align 4
-  %27 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %10, i32 noundef %26) #55
+  %27 = tail call i32 %24(ptr noundef %25, ptr noundef nonnull %10, i32 noundef %26) #57
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %30
 
@@ -54433,7 +54433,7 @@ stbi__pic_is4.exit:                               ; preds = %13
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %9, align 8
   %51 = sub nsw i32 88, %45
-  tail call void %49(ptr noundef %50, i32 noundef %51) #55
+  tail call void %49(ptr noundef %50, i32 noundef %51) #57
   %.pre = load ptr, ptr %5, align 8
   %.pre128 = load ptr, ptr %6, align 8
   br label %stbi__skip.exit
@@ -54464,7 +54464,7 @@ stbi__skip.exit:                                  ; preds = %47, %._crit_edge.i
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %9, align 8
   %64 = load i32, ptr %11, align 4
-  %65 = tail call i32 %62(ptr noundef %63, ptr noundef nonnull %10, i32 noundef %64) #55
+  %65 = tail call i32 %62(ptr noundef %63, ptr noundef nonnull %10, i32 noundef %64) #57
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %68
 
@@ -54508,7 +54508,7 @@ stbi__get8.exit.i56:                              ; preds = %stbi__refill_buffer
   %81 = load ptr, ptr %8, align 8
   %82 = load ptr, ptr %9, align 8
   %83 = load i32, ptr %11, align 4
-  %84 = tail call i32 %81(ptr noundef %82, ptr noundef nonnull %10, i32 noundef %83) #55
+  %84 = tail call i32 %81(ptr noundef %82, ptr noundef nonnull %10, i32 noundef %83) #57
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %87
 
@@ -54567,7 +54567,7 @@ stbi__get16be.exit.cont:                          ; preds = %stbi__get16be.exit,
   %106 = load ptr, ptr %8, align 8
   %107 = load ptr, ptr %9, align 8
   %108 = load i32, ptr %11, align 4
-  %109 = tail call i32 %106(ptr noundef %107, ptr noundef nonnull %10, i32 noundef %108) #55
+  %109 = tail call i32 %106(ptr noundef %107, ptr noundef nonnull %10, i32 noundef %108) #57
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %112
 
@@ -54611,7 +54611,7 @@ stbi__get8.exit.i62:                              ; preds = %stbi__refill_buffer
   %125 = load ptr, ptr %8, align 8
   %126 = load ptr, ptr %9, align 8
   %127 = load i32, ptr %11, align 4
-  %128 = tail call i32 %125(ptr noundef %126, ptr noundef nonnull %10, i32 noundef %127) #55
+  %128 = tail call i32 %125(ptr noundef %126, ptr noundef nonnull %10, i32 noundef %127) #57
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %131
 
@@ -54655,7 +54655,7 @@ stbi__get16be.exit69.cont:                        ; preds = %stbi__get16be.exit6
   %141 = getelementptr inbounds i8, ptr %0, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %9, align 8
-  %144 = tail call i32 %142(ptr noundef %143) #55
+  %144 = tail call i32 %142(ptr noundef %143) #57
   %.not6.i = icmp eq i32 %144, 0
   br i1 %.not6.i, label %stbi__at_eof.exit.thread, label %145
 
@@ -54732,7 +54732,7 @@ stbi__at_eof.exit.thread:                         ; preds = %140, %stbi__at_eof.
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %9, align 8
   %174 = sub nsw i32 8, %168
-  tail call void %172(ptr noundef %173, i32 noundef %174) #55
+  tail call void %172(ptr noundef %173, i32 noundef %174) #57
   br label %stbi__skip.exit75
 
 175:                                              ; preds = %162, %._crit_edge.i72
@@ -54773,7 +54773,7 @@ stbi__skip.exit75:                                ; preds = %170, %175
   %191 = load ptr, ptr %8, align 8
   %192 = load ptr, ptr %9, align 8
   %193 = load i32, ptr %11, align 4
-  %194 = tail call i32 %191(ptr noundef %192, ptr noundef nonnull %10, i32 noundef %193) #55
+  %194 = tail call i32 %191(ptr noundef %192, ptr noundef nonnull %10, i32 noundef %193) #57
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %197
 
@@ -54817,7 +54817,7 @@ stbi__get8.exit:                                  ; preds = %185, %188, %stbi__r
   %210 = load ptr, ptr %8, align 8
   %211 = load ptr, ptr %9, align 8
   %212 = load i32, ptr %11, align 4
-  %213 = tail call i32 %210(ptr noundef %211, ptr noundef nonnull %10, i32 noundef %212) #55
+  %213 = tail call i32 %210(ptr noundef %211, ptr noundef nonnull %10, i32 noundef %212) #57
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %216
 
@@ -54859,7 +54859,7 @@ stbi__get8.exit84:                                ; preds = %204, %207, %stbi__r
   %229 = load ptr, ptr %8, align 8
   %230 = load ptr, ptr %9, align 8
   %231 = load i32, ptr %11, align 4
-  %232 = tail call i32 %229(ptr noundef %230, ptr noundef nonnull %10, i32 noundef %231) #55
+  %232 = tail call i32 %229(ptr noundef %230, ptr noundef nonnull %10, i32 noundef %231) #57
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %234, label %235
 
@@ -54905,7 +54905,7 @@ stbi__get8.exit90:                                ; preds = %stbi__get8.exit90.s
   %247 = load ptr, ptr %8, align 8
   %248 = load ptr, ptr %9, align 8
   %249 = load i32, ptr %11, align 4
-  %250 = tail call i32 %247(ptr noundef %248, ptr noundef nonnull %10, i32 noundef %249) #55
+  %250 = tail call i32 %247(ptr noundef %248, ptr noundef nonnull %10, i32 noundef %249) #57
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %252, label %253
 
@@ -54940,7 +54940,7 @@ stbi__get8.exit96:                                ; preds = %241, %244, %stbi__r
 262:                                              ; preds = %stbi__get8.exit96
   %263 = load ptr, ptr %178, align 8
   %264 = load ptr, ptr %9, align 8
-  %265 = tail call i32 %263(ptr noundef %264) #55
+  %265 = tail call i32 %263(ptr noundef %264) #57
   %.not6.i98 = icmp eq i32 %265, 0
   br i1 %.not6.i98, label %stbi__at_eof.exit100.thread, label %266
 
@@ -55056,7 +55056,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__hdr_info(ptr noundef %0, ptr n
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %5, i64 3
   store ptr %31, ptr %6, align 8
-  %32 = call i64 @strtol(ptr noundef nonnull %31, ptr noundef nonnull %6, i32 noundef 10) #55
+  %32 = call i64 @strtol(ptr noundef nonnull %31, ptr noundef nonnull %6, i32 noundef 10) #57
   br i1 %.not17, label %.cont, label %.else
 
 .else:                                            ; preds = %30
@@ -55098,7 +55098,7 @@ sub_1:                                            ; preds = %34
 45:                                               ; preds = %.tail
   %46 = getelementptr inbounds i8, ptr %35, i64 3
   store ptr %46, ptr %6, align 8
-  %47 = call i64 @strtol(ptr nocapture noundef nonnull %46, ptr noundef null, i32 noundef 10) #55
+  %47 = call i64 @strtol(ptr nocapture noundef nonnull %46, ptr noundef null, i32 noundef 10) #57
   br i1 %.not, label %.cont25, label %.else27
 
 .else27:                                          ; preds = %45
@@ -55145,7 +55145,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__tga_info(ptr noundef %0, ptr n
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = getelementptr inbounds i8, ptr %0, i64 52
   %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 %17(ptr noundef %19, ptr noundef nonnull %20, i32 noundef %22) #55
+  %23 = tail call i32 %17(ptr noundef %19, ptr noundef nonnull %20, i32 noundef %22) #57
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %27
 
@@ -55198,7 +55198,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   %45 = getelementptr inbounds i8, ptr %0, i64 56
   %46 = getelementptr inbounds i8, ptr %0, i64 52
   %47 = load i32, ptr %46, align 4
-  %48 = tail call i32 %42(ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47) #55
+  %48 = tail call i32 %42(ptr noundef %44, ptr noundef nonnull %45, i32 noundef %47) #57
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %52
 
@@ -55262,7 +55262,7 @@ stbi__get8.exit86.thread:                         ; preds = %37, %stbi__get8.exi
   %77 = getelementptr inbounds i8, ptr %0, i64 56
   %78 = getelementptr inbounds i8, ptr %0, i64 52
   %79 = load i32, ptr %78, align 4
-  %80 = tail call i32 %74(ptr noundef %76, ptr noundef nonnull %77, i32 noundef %79) #55
+  %80 = tail call i32 %74(ptr noundef %76, ptr noundef nonnull %77, i32 noundef %79) #57
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %84
 
@@ -55325,7 +55325,7 @@ stbi__get8.exit92:                                ; preds = %66, %69, %stbi__ref
   %107 = getelementptr inbounds i8, ptr %0, i64 40
   %108 = load ptr, ptr %107, align 8
   %109 = sub nsw i32 4, %102
-  tail call void %106(ptr noundef %108, i32 noundef %109) #55
+  tail call void %106(ptr noundef %108, i32 noundef %109) #57
   %.pre = load ptr, ptr %5, align 8
   %.pre145 = load ptr, ptr %7, align 8
   br label %stbi__skip.exit
@@ -55360,7 +55360,7 @@ stbi__skip.exit:                                  ; preds = %104, %._crit_edge.i
   %124 = getelementptr inbounds i8, ptr %0, i64 56
   %125 = getelementptr inbounds i8, ptr %0, i64 52
   %126 = load i32, ptr %125, align 4
-  %127 = tail call i32 %121(ptr noundef %123, ptr noundef nonnull %124, i32 noundef %126) #55
+  %127 = tail call i32 %121(ptr noundef %123, ptr noundef nonnull %124, i32 noundef %126) #57
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %131
 
@@ -55422,7 +55422,7 @@ stbi__get8.exit100.thread:                        ; preds = %117, %stbi__get8.ex
   %150 = getelementptr inbounds i8, ptr %0, i64 40
   %151 = load ptr, ptr %150, align 8
   %152 = sub nsw i32 4, %145
-  tail call void %149(ptr noundef %151, i32 noundef %152) #55
+  tail call void %149(ptr noundef %151, i32 noundef %152) #57
   br label %stbi__skip.exit105
 
 ._crit_edge.i102:                                 ; preds = %139, %141
@@ -55462,7 +55462,7 @@ stbi__get8.exit100.thread:                        ; preds = %117, %stbi__get8.ex
   %171 = getelementptr inbounds i8, ptr %0, i64 40
   %172 = load ptr, ptr %171, align 8
   %173 = sub nsw i32 9, %166
-  tail call void %170(ptr noundef %172, i32 noundef %173) #55
+  tail call void %170(ptr noundef %172, i32 noundef %173) #57
   br label %stbi__skip.exit105
 
 ._crit_edge.i107:                                 ; preds = %159, %162
@@ -55497,7 +55497,7 @@ stbi__skip.exit105:                               ; preds = %._crit_edge.i107, %
   %189 = getelementptr inbounds i8, ptr %0, i64 56
   %190 = getelementptr inbounds i8, ptr %0, i64 52
   %191 = load i32, ptr %190, align 4
-  %192 = tail call i32 %186(ptr noundef %188, ptr noundef nonnull %189, i32 noundef %191) #55
+  %192 = tail call i32 %186(ptr noundef %188, ptr noundef nonnull %189, i32 noundef %191) #57
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %196
 
@@ -55548,7 +55548,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
   %215 = getelementptr inbounds i8, ptr %0, i64 56
   %216 = getelementptr inbounds i8, ptr %0, i64 52
   %217 = load i32, ptr %216, align 4
-  %218 = tail call i32 %212(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #55
+  %218 = tail call i32 %212(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #57
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %220, label %222
 
@@ -55613,7 +55613,7 @@ stbi__get16le.exit:                               ; preds = %204, %207, %stbi__r
   %250 = getelementptr inbounds i8, ptr %0, i64 56
   %251 = getelementptr inbounds i8, ptr %0, i64 52
   %252 = load i32, ptr %251, align 4
-  %253 = tail call i32 %247(ptr noundef %249, ptr noundef nonnull %250, i32 noundef %252) #55
+  %253 = tail call i32 %247(ptr noundef %249, ptr noundef nonnull %250, i32 noundef %252) #57
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %255, label %257
 
@@ -55664,7 +55664,7 @@ stbi__get8.exit.i115:                             ; preds = %stbi__refill_buffer
   %276 = getelementptr inbounds i8, ptr %0, i64 56
   %277 = getelementptr inbounds i8, ptr %0, i64 52
   %278 = load i32, ptr %277, align 4
-  %279 = tail call i32 %273(ptr noundef %275, ptr noundef nonnull %276, i32 noundef %278) #55
+  %279 = tail call i32 %273(ptr noundef %275, ptr noundef nonnull %276, i32 noundef %278) #57
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %281, label %283
 
@@ -55729,7 +55729,7 @@ stbi__get16le.exit122:                            ; preds = %265, %268, %stbi__r
   %311 = getelementptr inbounds i8, ptr %0, i64 56
   %312 = getelementptr inbounds i8, ptr %0, i64 52
   %313 = load i32, ptr %312, align 4
-  %314 = tail call i32 %308(ptr noundef %310, ptr noundef nonnull %311, i32 noundef %313) #55
+  %314 = tail call i32 %308(ptr noundef %310, ptr noundef nonnull %311, i32 noundef %313) #57
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %316, label %318
 
@@ -55778,7 +55778,7 @@ stbi__get8.exit128:                               ; preds = %300, %303, %stbi__r
   %336 = getelementptr inbounds i8, ptr %0, i64 56
   %337 = getelementptr inbounds i8, ptr %0, i64 52
   %338 = load i32, ptr %337, align 4
-  %339 = tail call i32 %333(ptr noundef %335, ptr noundef nonnull %336, i32 noundef %338) #55
+  %339 = tail call i32 %333(ptr noundef %335, ptr noundef nonnull %336, i32 noundef %338) #57
   %340 = icmp eq i32 %339, 0
   br i1 %340, label %341, label %343
 
@@ -55900,25 +55900,25 @@ stbi__tga_get_comp.exit:                          ; preds = %357, %351
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @fmodf(float noundef, float noundef) local_unnamed_addr #40
+declare float @fmodf(float noundef, float noundef) local_unnamed_addr #41
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #40
+declare float @cosf(float noundef) local_unnamed_addr #41
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #40
+declare float @sinf(float noundef) local_unnamed_addr #41
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @tanf(float noundef) local_unnamed_addr #40
+declare float @tanf(float noundef) local_unnamed_addr #41
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @acosf(float noundef) local_unnamed_addr #40
+declare float @acosf(float noundef) local_unnamed_addr #41
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #40
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #41
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @nvg__addPoint(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3) unnamed_addr #49 {
+define internal fastcc void @nvg__addPoint(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3) unnamed_addr #51 {
   %5 = getelementptr i8, ptr %0, i64 8848
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -55984,7 +55984,7 @@ nvg__lastPoint.exit:                              ; preds = %15
   %48 = load ptr, ptr %.val, align 8
   %49 = sext i32 %47 to i64
   %50 = shl nsw i64 %49, 5
-  %51 = tail call ptr @realloc(ptr noundef %48, i64 noundef %50) #58
+  %51 = tail call ptr @realloc(ptr noundef %48, i64 noundef %50) #60
   %52 = icmp eq ptr %51, null
   br i1 %52, label %nvg__lastPath.exit.thread, label %53
 
@@ -56278,8 +56278,8 @@ define internal fastcc void @nvg__calculateJoins(ptr nocapture readonly %.8848.v
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc nonnull ptr @nvg__bevelJoin(ptr noundef writeonly %0, float %.8.val, float %.12.val, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #34 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc nonnull ptr @nvg__bevelJoin(ptr noundef writeonly %0, float %.8.val, float %.12.val, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) unnamed_addr #11 {
   %7 = fneg float %.8.val
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load float, ptr %8, align 4
@@ -56637,76 +56637,76 @@ nvg__chooseBevel.exit192:                         ; preds = %108, %114
 declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #50
+declare float @llvm.floor.f32(float) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #50
+declare i16 @llvm.smin.i16(i16, i16) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #50
+declare i32 @llvm.smax.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #50
+declare i32 @llvm.smin.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #50
+declare float @llvm.fabs.f32(float) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #50
+declare i64 @llvm.umin.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #50
+declare i32 @llvm.umax.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bitreverse.i16(i16) #50
+declare i16 @llvm.bitreverse.i16(i16) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #50
+declare float @llvm.sqrt.f32(float) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #51
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #51
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #53
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #52
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #54
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #53
+declare void @llvm.assume(i1 noundef) #55
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #50
+declare i32 @llvm.umin.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #50
+declare i32 @llvm.fshl.i32(i32, i32, i32) #52
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #54
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #56
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #50
+declare i64 @llvm.umax.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #50
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #50
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #50
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #50
+declare <2 x float> @llvm.floor.v2f32(<2 x float>) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #50
+declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #50
+declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #50
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #52
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
@@ -56722,51 +56722,53 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #14 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #23 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #25 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #28 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #29 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #30 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #31 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #33 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #35 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #36 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #37 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #38 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #39 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #40 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #41 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #42 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #15 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #18 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #21 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #23 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #25 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #27 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #30 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #31 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #32 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #33 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #35 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #36 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #37 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #38 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #39 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #40 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #41 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #42 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #43 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #44 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #45 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #46 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #47 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #48 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #49 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #50 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #51 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #52 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #53 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #54 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #55 = { nounwind }
-attributes #56 = { nounwind willreturn memory(read) }
-attributes #57 = { nounwind allocsize(0) }
-attributes #58 = { nounwind allocsize(1) }
+attributes #47 = { nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #48 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #49 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #50 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #51 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #52 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #53 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #54 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #55 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #56 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #57 = { nounwind }
+attributes #58 = { nounwind willreturn memory(read) }
+attributes #59 = { nounwind allocsize(0) }
+attributes #60 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

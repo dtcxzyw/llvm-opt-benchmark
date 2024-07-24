@@ -35,7 +35,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Init_shift_jis() local_unnamed_addr #0 {
-  %1 = tail call i32 @rb_enc_register(ptr noundef nonnull @.str, ptr noundef nonnull @encoding_Shift_JIS) #8
+  %1 = tail call i32 @rb_enc_register(ptr noundef nonnull @.str, ptr noundef nonnull @encoding_Shift_JIS) #7
   ret void
 }
 
@@ -83,7 +83,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
 
 declare i32 @onigenc_is_mbc_newline_0x0a(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @mbc_to_code(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
@@ -180,7 +180,7 @@ define internal range(i32 -401, 3) i32 @code_to_mbclen(i32 noundef %0, ptr nocap
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2) #5 {
   %4 = and i32 %0, 65280
   %.not = icmp eq i32 %4, 0
@@ -205,7 +205,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr nocapture r
   ret i32 %15
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture readnone %4) #6 {
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
@@ -343,7 +343,7 @@ code_to_mbc.exit:                                 ; preds = %get_lower_case.exit
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @apply_all_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @onigenc_apply_all_case_fold_with_map(i32 noundef 83, ptr noundef nonnull @CaseFoldMap, i32 noundef 0, i32 noundef %0, ptr noundef %1, ptr noundef %2) #8
+  %5 = tail call i32 @onigenc_apply_all_case_fold_with_map(i32 noundef 83, ptr noundef nonnull @CaseFoldMap, i32 noundef 0, i32 noundef %0, ptr noundef %1, ptr noundef %2) #7
   ret i32 %5
 }
 
@@ -414,7 +414,7 @@ mbc_to_code.exit.thread:                          ; preds = %.preheader.i
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %mbc_to_code.exit.thread, %mbc_to_code.exit
-  %38 = tail call i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #8
+  %38 = tail call i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
   br label %93
 
 39:                                               ; preds = %mbc_to_code.exit
@@ -586,7 +586,7 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds i8, ptr %1, i64 %7
-  %37 = tail call i32 @onigenc_with_ascii_strnicmp(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %1, ptr noundef nonnull %36, ptr noundef nonnull %30, i32 noundef %11) #8
+  %37 = tail call i32 @onigenc_with_ascii_strnicmp(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %1, ptr noundef nonnull %36, ptr noundef nonnull %30, i32 noundef %11) #7
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %38, label %42
 
@@ -597,7 +597,7 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %41, label %onig_jis_property.exit, label %42
 
 42:                                               ; preds = %3, %9, %23, %28, %35, %38
-  %43 = tail call i32 @onigenc_minimum_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) #8
+  %43 = tail call i32 @onigenc_minimum_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   br label %47
 
 onig_jis_property.exit:                           ; preds = %38
@@ -646,7 +646,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture
   %22 = zext nneg i32 %19 to i64
   %23 = getelementptr inbounds [6 x ptr], ptr @PropertyList, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @onig_is_in_code_range(ptr noundef %24, i32 noundef %0) #8
+  %25 = tail call i32 @onig_is_in_code_range(ptr noundef %24, i32 noundef %0) #7
   br label %26
 
 26:                                               ; preds = %18, %14, %21, %7
@@ -655,7 +655,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #7 {
+define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #5 {
   %5 = icmp ult i32 %0, 15
   br i1 %5, label %13, label %6
 
@@ -677,7 +677,7 @@ define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr n
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture readnone %3) #3 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %5, label %48
@@ -789,12 +789,11 @@ declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

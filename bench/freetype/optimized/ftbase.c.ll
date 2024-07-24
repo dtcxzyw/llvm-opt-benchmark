@@ -17611,8 +17611,8 @@ ft_mem_qalloc.exit.i:                             ; preds = %11, %7
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @ft_mem_strcpyn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden range(i32 0, 2) i32 @ft_mem_strcpyn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = icmp ugt i64 %2, 1
   br i1 %4, label %.lr.ph, label %.critedge
 

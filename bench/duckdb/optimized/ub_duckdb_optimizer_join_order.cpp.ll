@@ -12477,8 +12477,8 @@ entry:
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6duckdb9SortTdomsERKNS_15RelationsToTDomES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %b) #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef zeroext i1 @_ZN6duckdb9SortTdomsERKNS_15RelationsToTDomES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %b) #11 {
 entry:
   %has_tdom_hll = getelementptr inbounds i8, ptr %a, i64 72
   %0 = load i8, ptr %has_tdom_hll, align 8, !tbaa !469, !range !339, !noundef !340

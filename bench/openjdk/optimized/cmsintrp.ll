@@ -26,7 +26,7 @@ define hidden void @_cmsAllocInterpPluginChunk(ptr nocapture noundef %0, ptr nou
   %.0 = phi ptr [ %5, %3 ], [ @_cmsAllocInterpPluginChunk.InterpPluginChunk, %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @_cmsSubAllocDup(ptr noundef %8, ptr noundef %.0, i32 noundef 8) #9
+  %9 = tail call ptr @_cmsSubAllocDup(ptr noundef %8, ptr noundef %.0, i32 noundef 8) #8
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %9, ptr %10, align 8
   ret void
@@ -36,7 +36,7 @@ declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @_cmsRegisterInterpPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #9
+  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -55,7 +55,7 @@ declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #9
+  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #8
   %4 = getelementptr inbounds i8, ptr %1, i64 208
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
@@ -69,7 +69,7 @@ define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, p
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = tail call ptr %5(i32 noundef %8, i32 noundef %10, i32 noundef %12) #9
+  %13 = tail call ptr %5(i32 noundef %8, i32 noundef %10, i32 noundef %12) #8
   store ptr %13, ptr %4, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %48
@@ -219,11 +219,11 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr nocapture nound
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %2, i32 noundef 15) #9
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %2, i32 noundef 15) #8
   br label %37
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 216) #9
+  %10 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 216) #8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %37, label %12
 
@@ -295,8 +295,8 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr nocapture nound
   br i1 %.not, label %36, label %37
 
 36:                                               ; preds = %._crit_edge54
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1, i32 noundef %2, i32 noundef %3) #9
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %10) #9
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.1, i32 noundef %2, i32 noundef %3) #8
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %10) #8
   br label %37
 
 37:                                               ; preds = %._crit_edge54, %9, %36, %8
@@ -335,7 +335,7 @@ define hidden void @_cmsFreeInterpParams(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %3, ptr noundef nonnull %0) #9
+  tail call void @_cmsFree(ptr noundef %3, ptr noundef nonnull %0) #8
   br label %4
 
 4:                                                ; preds = %2, %1
@@ -1488,8 +1488,8 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -5486,36 +5486,35 @@ define internal void @Eval15Inputs(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #6
+declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #6
+declare double @llvm.ceil.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #7
+declare float @llvm.floor.f32(float) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #7
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

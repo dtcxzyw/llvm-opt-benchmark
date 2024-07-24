@@ -22,7 +22,7 @@ define void @PHP_FNV132Init(ptr nocapture noundef writeonly %0, ptr nocapture re
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @PHP_FNV132Update(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) #1 {
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -47,7 +47,7 @@ fnv_32_buf.exit:                                  ; preds = %.lr.ph22.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_FNV132Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 {
+define void @PHP_FNV132Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -65,13 +65,13 @@ define void @PHP_FNV132Final(ptr nocapture noundef writeonly %0, ptr nocapture n
   ret void
 }
 
-declare i32 @php_hash_copy(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @php_hash_copy(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #3
+declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @PHP_FNV1a32Update(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) #1 {
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -101,7 +101,7 @@ define void @PHP_FNV164Init(ptr nocapture noundef writeonly %0, ptr nocapture re
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @PHP_FNV164Update(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) #1 {
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -126,7 +126,7 @@ fnv_64_buf.exit:                                  ; preds = %.lr.ph22.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_FNV164Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 {
+define void @PHP_FNV164Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -144,7 +144,7 @@ define void @PHP_FNV164Final(ptr nocapture noundef writeonly %0, ptr nocapture n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @PHP_FNV1a64Update(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) #1 {
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -169,9 +169,8 @@ fnv_64_buf.exit:                                  ; preds = %.lr.ph.i, %3
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

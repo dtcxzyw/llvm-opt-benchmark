@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @zipmapNew() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(2) ptr @zmalloc(i64 noundef 2) #12
+  %call = tail call noalias dereferenceable_or_null(2) ptr @zmalloc(i64 noundef 2) #11
   store i8 0, ptr %call, align 1
   %arrayidx1 = getelementptr inbounds i8, ptr %call, i64 1
   store i8 -1, ptr %arrayidx1, align 1
@@ -182,7 +182,7 @@ if.then3:                                         ; preds = %zipmapLookupRaw.exi
   %add33.i103 = phi i32 [ %add33.i101, %zipmapLookupRaw.exit.thread ], [ %add33.i, %zipmapLookupRaw.exit ]
   %add = add i32 %add33.i103, %l.1.i
   %conv.i60 = zext i32 %add to i64
-  %call.i = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i60) #13
+  %call.i = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i60) #12
   %sub.i = add i32 %add, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %idxprom.i
@@ -262,7 +262,7 @@ if.then19:                                        ; preds = %zipmapRawEntryLengt
   %sub = sub i32 %add33.i, %add.i64
   %add21 = add i32 %sub, %l.1.i
   %conv.i65 = zext i32 %add21 to i64
-  %call.i66 = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i65) #13
+  %call.i66 = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i65) #12
   %sub.i67 = add i32 %add21, -1
   %idxprom.i68 = zext i32 %sub.i67 to i64
   %arrayidx.i69 = getelementptr inbounds i8, ptr %call.i66, i64 %idxprom.i68
@@ -302,7 +302,7 @@ if.then40:                                        ; preds = %if.end36
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr46, ptr align 1 %add.ptr48, i64 %conv52, i1 false)
   %sub53 = sub i32 %zmlen.0, %sub37
   %conv.i70 = zext i32 %sub53 to i64
-  %call.i71 = tail call ptr @zrealloc(ptr noundef %zm.addr.0, i64 noundef %conv.i70) #13
+  %call.i71 = tail call ptr @zrealloc(ptr noundef %zm.addr.0, i64 noundef %conv.i70) #12
   %sub.i72 = add i32 %sub53, -1
   %idxprom.i73 = zext i32 %sub.i72 to i64
   %arrayidx.i74 = getelementptr inbounds i8, ptr %call.i71, i64 %idxprom.i73
@@ -514,7 +514,7 @@ zipmapRawEntryLength.exit:                        ; preds = %if.then.i.i10.i, %i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %k.0.i, ptr nonnull align 1 %add.ptr, i64 %sub, i1 false)
   %sub4 = sub i32 %add33.i, %add.i18
   %conv.i = zext i32 %sub4 to i64
-  %call.i = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i) #13
+  %call.i = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i) #12
   %sub.i = add i32 %sub4, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %idxprom.i
@@ -674,7 +674,7 @@ return:                                           ; preds = %entry, %zipmapRawVa
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr nocapture noundef writeonly %value, ptr nocapture noundef writeonly %vlen) local_unnamed_addr #5 {
 entry:
   %cmp3.not.i = icmp eq ptr %key, null
@@ -794,7 +794,7 @@ return:                                           ; preds = %while.cond.us40.i, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @zipmapExists(ptr nocapture noundef readonly %zm, ptr noundef readonly %key, i32 noundef %klen) local_unnamed_addr #6 {
 entry:
   %cmp3.not.i = icmp eq ptr %key, null
@@ -871,7 +871,7 @@ zipmapLookupRaw.exit:                             ; preds = %while.cond.us40.i, 
   ret i32 %retval.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local i32 @zipmapLen(ptr nocapture noundef %zm) local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %zm, align 1
@@ -954,7 +954,7 @@ if.end12:                                         ; preds = %while.end, %if.then
   ret i32 %len.1
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local noundef range(i64 0, 4294967296) i64 @zipmapBlobLen(ptr noundef %zm) local_unnamed_addr #8 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %zm, i64 1
@@ -1020,7 +1020,7 @@ zipmapLookupRaw.exit:                             ; preds = %while.cond.us.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapValidateIntegrity(ptr noundef readonly %zm, i64 noundef %size, i32 noundef %deep) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @zipmapValidateIntegrity(ptr noundef readonly %zm, i64 noundef %size, i32 noundef %deep) local_unnamed_addr #8 {
 entry:
   %cmp = icmp ult i64 %size, 2
   br i1 %cmp, label %return, label %if.end
@@ -1125,25 +1125,24 @@ return:                                           ; preds = %zipmapDecodeLength.
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind allocsize(1) }
+attributes #5 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

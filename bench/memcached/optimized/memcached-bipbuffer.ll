@@ -69,7 +69,7 @@ define dso_local noalias noundef ptr @bipbuf_new(i32 noundef %size) local_unname
 entry:
   %conv.i = zext i32 %size to i64
   %add.i = add nuw nsw i64 %conv.i, 24
-  %call1 = tail call noalias ptr @malloc(i64 noundef %add.i) #9
+  %call1 = tail call noalias ptr @malloc(i64 noundef %add.i) #8
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -89,7 +89,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @bipbuf_free(ptr nocapture noundef %me) local_unnamed_addr #4 {
 entry:
-  tail call void @free(ptr noundef %me) #10
+  tail call void @free(ptr noundef %me) #9
   ret void
 }
 
@@ -344,8 +344,8 @@ return:                                           ; preds = %entry, %if.end
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @bipbuf_poll(ptr noundef %me, i32 noundef %size) local_unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define dso_local ptr @bipbuf_poll(ptr noundef %me, i32 noundef %size) local_unnamed_addr #6 {
 entry:
   %a_start.i = getelementptr inbounds i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start.i, align 8
@@ -420,9 +420,8 @@ attributes #4 = { mustprogress nounwind willreturn memory(argmem: readwrite, ina
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

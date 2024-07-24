@@ -457,8 +457,8 @@ return:                                           ; preds = %for.end, %if.then
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @lj_strfmt_wuleb128(ptr noundef writeonly %p, i32 noundef %v) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
+define hidden nonnull ptr @lj_strfmt_wuleb128(ptr noundef writeonly %p, i32 noundef %v) local_unnamed_addr #2 {
 entry:
   %cmp6 = icmp ugt i32 %v, 127
   br i1 %cmp6, label %for.body, label %for.end
@@ -484,7 +484,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_wstrnum(ptr noundef %L, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %lenp) local_unnamed_addr #5 {
+define hidden ptr @lj_strfmt_wstrnum(ptr noundef %L, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %lenp) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
@@ -542,7 +542,7 @@ if.then24:                                        ; preds = %if.else19
   %13 = load ptr, ptr %b.i, align 8
   store ptr %13, ptr %tmpbuf.i, align 8
   %14 = load double, ptr %o, align 8
-  %call25 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %14) #13
+  %call25 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %14) #12
   %15 = load ptr, ptr %call25, align 8
   %b = getelementptr inbounds i8, ptr %call25, i64 16
   %16 = load ptr, ptr %b, align 8
@@ -559,10 +559,10 @@ return:                                           ; preds = %if.else19, %if.then
   ret ptr %retval.0
 }
 
-declare hidden ptr @lj_strfmt_putfnum(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #6
+declare hidden ptr @lj_strfmt_putfnum(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putint(ptr noundef returned %sb, i32 noundef %k) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putint(ptr noundef returned %sb, i32 noundef %k) local_unnamed_addr #4 {
 entry:
   %e.i = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load ptr, ptr %e.i, align 8
@@ -575,7 +575,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 11) #13
+  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 11) #12
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
@@ -586,15 +586,15 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_putnum(ptr noundef %sb, ptr nocapture noundef readonly %o) local_unnamed_addr #5 {
+define hidden ptr @lj_strfmt_putnum(ptr noundef %sb, ptr nocapture noundef readonly %o) local_unnamed_addr #4 {
 entry:
   %0 = load double, ptr %o, align 8
-  %call = tail call ptr @lj_strfmt_putfnum(ptr noundef %sb, i32 noundef 251658293, double noundef %0) #13
+  %call = tail call ptr @lj_strfmt_putfnum(ptr noundef %sb, i32 noundef 251658293, double noundef %0) #12
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putptr(ptr noundef returned %sb, ptr noundef %v) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putptr(ptr noundef returned %sb, ptr noundef %v) local_unnamed_addr #4 {
 entry:
   %e.i = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load ptr, ptr %e.i, align 8
@@ -607,7 +607,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 18) #13
+  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 18) #12
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
@@ -670,7 +670,7 @@ lj_strfmt_wptr.exit:                              ; preds = %if.then.i9, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putquoted(ptr noundef returned %sb, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putquoted(ptr noundef returned %sb, ptr nocapture noundef readonly %str) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %str, i64 24
   %len = getelementptr inbounds i8, ptr %str, i64 20
@@ -680,7 +680,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @strfmt_putquotedlen(ptr noundef returned %sb, ptr nocapture noundef readonly %s, i32 noundef %len) unnamed_addr #5 {
+define internal fastcc noundef ptr @strfmt_putquotedlen(ptr noundef returned %sb, ptr nocapture noundef readonly %s, i32 noundef %len) unnamed_addr #4 {
 entry:
   %e.i.i53 = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load ptr, ptr %e.i.i53, align 8
@@ -693,7 +693,7 @@ entry:
   br i1 %cmp.i.i58, label %if.then.i.i65, label %lj_buf_putb.exit67
 
 if.then.i.i65:                                    ; preds = %entry
-  %call.i.i66 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #13
+  %call.i.i66 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #12
   br label %lj_buf_putb.exit67
 
 lj_buf_putb.exit67:                               ; preds = %entry, %if.then.i.i65
@@ -721,7 +721,7 @@ while.body:                                       ; preds = %lj_buf_putb.exit67,
   br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
 
 if.then.i:                                        ; preds = %while.body
-  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 4) #13
+  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 4) #12
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %while.body, %if.then.i
@@ -812,7 +812,7 @@ while.end:                                        ; preds = %if.end41, %lj_buf_p
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_buf_putb.exit
 
 if.then.i.i:                                      ; preds = %while.end
-  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #13
+  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 1) #12
   br label %lj_buf_putb.exit
 
 lj_buf_putb.exit:                                 ; preds = %while.end, %if.then.i.i
@@ -824,7 +824,7 @@ lj_buf_putb.exit:                                 ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putfchar(ptr noundef returned %sb, i32 noundef %sf, i32 noundef %c) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfchar(ptr noundef returned %sb, i32 noundef %sf, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %shr = lshr i32 %sf, 16
   %and = and i32 %shr, 255
@@ -840,7 +840,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond) #13
+  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond) #12
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
@@ -886,7 +886,7 @@ if.end10:                                         ; preds = %if.then7, %while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putfstr(ptr noundef returned %sb, i32 noundef %sf, ptr nocapture noundef readonly %str) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfstr(ptr noundef returned %sb, i32 noundef %sf, ptr nocapture noundef readonly %str) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %str, i64 24
   %len = getelementptr inbounds i8, ptr %str, i64 20
@@ -908,7 +908,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_buf_more.exit.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond.i) #13
+  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond.i) #12
   br label %lj_buf_more.exit.i
 
 lj_buf_more.exit.i:                               ; preds = %if.then.i.i, %entry
@@ -954,7 +954,7 @@ strfmt_putfstrlen.exit:                           ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %sb, i32 noundef %sf, i64 noundef %k) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfxint(ptr noundef returned %sb, i32 noundef %sf, i64 noundef %k) local_unnamed_addr #4 {
 entry:
   %buf = alloca [23 x i8], align 16
   %and = and i32 %sf, 15
@@ -1131,7 +1131,7 @@ if.end78:                                         ; preds = %do.body, %do.end51,
   br i1 %cmp.i, label %if.then.i, label %lj_buf_more.exit
 
 if.then.i:                                        ; preds = %if.end78
-  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond92) #13
+  %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond92) #12
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %if.end78, %if.then.i
@@ -1250,7 +1250,7 @@ if.end154:                                        ; preds = %while.body151.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putfnum_int(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfnum_int(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #4 {
 entry:
   %conv = fptosi double %n to i64
   %0 = add i64 %conv, 2147483648
@@ -1272,7 +1272,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_strfmt_putint.exit
 
 if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 11) #13
+  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 11) #12
   br label %lj_strfmt_putint.exit
 
 lj_strfmt_putint.exit:                            ; preds = %if.then, %if.then.i.i
@@ -1290,7 +1290,7 @@ return:                                           ; preds = %if.else, %lj_strfmt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_strfmt_putfnum_uint(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #5 {
+define hidden noundef ptr @lj_strfmt_putfnum_uint(ptr noundef returned %sb, i32 noundef %sf, double noundef %n) local_unnamed_addr #4 {
 entry:
   %cmp = fcmp ult double %n, 0x43E0000000000000
   %sub = fadd double %n, 0xC3F0000000000000
@@ -1301,7 +1301,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_strfmt_putarg(ptr noundef %L, ptr noundef %sb, i32 noundef %arg, i32 noundef %retry) local_unnamed_addr #5 {
+define hidden i32 @lj_strfmt_putarg(ptr noundef %L, ptr noundef %sb, i32 noundef %arg, i32 noundef %retry) local_unnamed_addr #4 {
 entry:
   %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
@@ -1312,7 +1312,7 @@ entry:
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %conv = trunc i64 %sub.ptr.div to i32
-  %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef %arg) #13
+  %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef %arg) #12
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 24
   %len = getelementptr inbounds i8, ptr %call, i64 20
   %2 = load i32, ptr %len, align 4
@@ -1518,15 +1518,15 @@ lj_strfmt_parse.exit:                             ; preds = %if.then109.i
 if.then:                                          ; preds = %retlit.i, %lj_strfmt_parse.exit
   %fs.sroa.0.1145 = phi ptr [ %add.ptr114.i, %lj_strfmt_parse.exit ], [ %storemerge.i, %retlit.i ]
   %fs.sroa.10.1143 = phi i32 [ %fs.sroa.10.0, %lj_strfmt_parse.exit ], [ %conv140.i, %retlit.i ]
-  %call6 = tail call ptr @lj_buf_putmem(ptr noundef %sb, ptr noundef %fs.sroa.0.0, i32 noundef %fs.sroa.10.1143) #13
+  %call6 = tail call ptr @lj_buf_putmem(ptr noundef %sb, ptr noundef %fs.sroa.0.0, i32 noundef %fs.sroa.10.1143) #12
   br label %while.cond.backedge
 
 if.then9:                                         ; preds = %lj_strfmt_parse.exit, %lj_strfmt_parse.exit.thread146
   %fs.sroa.10.1150 = phi i32 [ %conv128.i, %lj_strfmt_parse.exit.thread146 ], [ %fs.sroa.10.0, %lj_strfmt_parse.exit ]
   %conv12 = zext i32 %fs.sroa.10.1150 to i64
-  %call13 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %fs.sroa.0.0, i64 noundef %conv12) #13
+  %call13 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %fs.sroa.0.0, i64 noundef %conv12) #12
   %add.ptr14 = getelementptr inbounds i8, ptr %call13, i64 24
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %L, i32 noundef 1908, ptr noundef nonnull %add.ptr14) #14
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %L, i32 noundef 1908, ptr noundef nonnull %add.ptr14) #13
   unreachable
 
 if.else15:                                        ; preds = %lj_strfmt_parse.exit
@@ -1538,7 +1538,7 @@ if.else15:                                        ; preds = %lj_strfmt_parse.exi
   br i1 %cmp17.not, label %if.end, label %if.then19
 
 if.then19:                                        ; preds = %if.else15
-  tail call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef %inc, i32 noundef 551) #14
+  tail call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef %inc, i32 noundef 551) #13
   unreachable
 
 if.end:                                           ; preds = %if.else15
@@ -1574,7 +1574,7 @@ if.then32:                                        ; preds = %if.then23
   br label %while.cond.backedge
 
 if.end36:                                         ; preds = %if.then23, %sw.bb
-  %call37 = tail call double @lj_lib_checknum(ptr noundef nonnull %L, i32 noundef %inc) #13
+  %call37 = tail call double @lj_lib_checknum(ptr noundef nonnull %L, i32 noundef %inc) #12
   %conv.i = fptosi double %call37 to i64
   %24 = add i64 %conv.i, 2147483648
   %cmp.i = icmp ult i64 %24, 4294967296
@@ -1594,7 +1594,7 @@ if.then.i91:                                      ; preds = %if.end36
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lj_strfmt_putint.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i91
-  %call.i.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 11) #13
+  %call.i.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 11) #12
   br label %lj_strfmt_putint.exit.i
 
 lj_strfmt_putint.exit.i:                          ; preds = %if.then.i.i.i, %if.then.i91
@@ -1636,7 +1636,7 @@ if.then57:                                        ; preds = %if.then44
   br label %while.cond.backedge
 
 if.end61:                                         ; preds = %if.then44, %sw.bb39
-  %call62 = tail call double @lj_lib_checknum(ptr noundef nonnull %L, i32 noundef %inc) #13
+  %call62 = tail call double @lj_lib_checknum(ptr noundef nonnull %L, i32 noundef %inc) #12
   %cmp.i92 = fcmp ult double %call62, 0x43E0000000000000
   %sub.i93 = fadd double %call62, 0xC3F0000000000000
   %k.0.in.i = select i1 %cmp.i92, double %call62, double %sub.i93
@@ -1645,8 +1645,8 @@ if.end61:                                         ; preds = %if.then44, %sw.bb39
   br label %while.cond.backedge
 
 sw.bb64:                                          ; preds = %if.end
-  %call65 = tail call double @lj_lib_checknum(ptr noundef nonnull %L, i32 noundef %inc) #13
-  %call66 = tail call ptr @lj_strfmt_putfnum(ptr noundef %sb, i32 noundef %or118.i, double noundef %call65) #13
+  %call65 = tail call double @lj_lib_checknum(ptr noundef nonnull %L, i32 noundef %inc) #12
+  %call66 = tail call ptr @lj_strfmt_putfnum(ptr noundef %sb, i32 noundef %or118.i, double noundef %call65) #12
   br label %while.cond.backedge
 
 sw.bb67:                                          ; preds = %if.end
@@ -1672,7 +1672,7 @@ land.end83:                                       ; preds = %land.rhs77, %sw.bb6
   br i1 %or.cond.not, label %if.end106, label %land.lhs.true89
 
 land.lhs.true89:                                  ; preds = %land.end83
-  %call90 = tail call ptr @lj_meta_lookup(ptr noundef nonnull %L, ptr noundef nonnull %arrayidx, i32 noundef 18) #13
+  %call90 = tail call ptr @lj_meta_lookup(ptr noundef nonnull %L, ptr noundef nonnull %arrayidx, i32 noundef 18) #12
   %35 = load i64, ptr %call90, align 8
   %cmp91 = icmp eq i64 %35, -1
   br i1 %cmp91, label %land.lhs.true89.if.end106_crit_edge, label %if.then93
@@ -1692,7 +1692,7 @@ if.then93:                                        ; preds = %land.lhs.true89
   store ptr %incdec.ptr96, ptr %top, align 8
   %39 = load i64, ptr %arrayidx, align 8
   store i64 %39, ptr %38, align 8
-  tail call void @lua_call(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 1) #13
+  tail call void @lua_call(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 1) #12
   %40 = load ptr, ptr %base, align 8
   %arrayidx99 = getelementptr inbounds %union.TValue, ptr %40, i64 %idxprom
   %41 = load ptr, ptr %top, align 8
@@ -1735,7 +1735,7 @@ if.then136:                                       ; preds = %land.lhs.true129
 
 if.then142:                                       ; preds = %if.then136
   %add = add nsw i32 %arg.addr.0, 2
-  tail call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef %add, i32 noundef 3742) #14
+  tail call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef %add, i32 noundef 3742) #13
   unreachable
 
 if.end143:                                        ; preds = %if.then136
@@ -1783,7 +1783,7 @@ if.else160:                                       ; preds = %if.end155
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_buf_more.exit.i
 
 if.then.i.i:                                      ; preds = %if.else160
-  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond.i96) #13
+  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond.i96) #12
   br label %lj_buf_more.exit.i
 
 lj_buf_more.exit.i:                               ; preds = %if.then.i.i, %if.else160
@@ -1828,7 +1828,7 @@ strfmt_putfstrlen.exit:                           ; preds = %while.end.i, %if.th
   br label %while.cond.backedge
 
 sw.bb163:                                         ; preds = %if.end
-  %call164 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %L, i32 noundef %inc) #13
+  %call164 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %L, i32 noundef %inc) #12
   %shr.i99 = lshr i32 %sf.3.i, 16
   %and.i100 = and i32 %shr.i99, 255
   %cond.i101 = tail call i32 @llvm.umax.i32(i32 %and.i100, i32 1)
@@ -1842,7 +1842,7 @@ sw.bb163:                                         ; preds = %if.end
   br i1 %cmp.i.i107, label %if.then.i.i120, label %lj_buf_more.exit.i108
 
 if.then.i.i120:                                   ; preds = %sw.bb163
-  %call.i.i121 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond.i101) #13
+  %call.i.i121 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %cond.i101) #12
   br label %lj_buf_more.exit.i108
 
 lj_buf_more.exit.i108:                            ; preds = %if.then.i.i120, %sw.bb163
@@ -1889,7 +1889,7 @@ lj_strfmt_putfchar.exit:                          ; preds = %while.end.i114, %if
 sw.bb166:                                         ; preds = %if.end
   %63 = load i64, ptr %glref, align 8
   %64 = inttoptr i64 %63 to ptr
-  %call167 = tail call ptr @lj_obj_ptr(ptr noundef %64, ptr noundef %arrayidx) #13
+  %call167 = tail call ptr @lj_obj_ptr(ptr noundef %64, ptr noundef %arrayidx) #12
   %65 = load ptr, ptr %e.i.i122, align 8
   %66 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i.i123 = ptrtoint ptr %65 to i64
@@ -1900,7 +1900,7 @@ sw.bb166:                                         ; preds = %if.end
   br i1 %cmp.i.i127, label %if.then.i.i131, label %lj_buf_more.exit.i128
 
 if.then.i.i131:                                   ; preds = %sw.bb166
-  %call.i.i132 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 18) #13
+  %call.i.i132 = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef 18) #12
   br label %lj_buf_more.exit.i128
 
 lj_buf_more.exit.i128:                            ; preds = %if.then.i.i131, %sw.bb166
@@ -1965,26 +1965,26 @@ while.end:                                        ; preds = %retlit.i, %lj_strfm
   ret i32 %retry.addr.0
 }
 
-declare hidden ptr @lj_lib_checkstr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden ptr @lj_lib_checkstr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare hidden ptr @lj_buf_putmem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
-
-; Function Attrs: noreturn
-declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #7
-
-declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare hidden ptr @lj_buf_putmem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_arg(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #6
 
-declare hidden double @lj_lib_checknum(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare hidden ptr @lj_meta_lookup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+; Function Attrs: noreturn
+declare hidden void @lj_err_arg(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @lua_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare hidden double @lj_lib_checknum(ptr noundef, i32 noundef) local_unnamed_addr #5
+
+declare hidden ptr @lj_meta_lookup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+
+declare void @lua_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_obj(ptr noundef %L, ptr noundef %o) local_unnamed_addr #5 {
+define hidden ptr @lj_strfmt_obj(ptr noundef %L, ptr noundef %o) local_unnamed_addr #4 {
 entry:
   %buf = alloca [28 x i8], align 16
   %0 = load i64, ptr %o, align 8
@@ -2002,7 +2002,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then6, label %if.else7
 
 if.then6:                                         ; preds = %if.else
-  %call.i = tail call ptr @lj_strfmt_num(ptr noundef %L, ptr noundef nonnull %o) #13
+  %call.i = tail call ptr @lj_strfmt_num(ptr noundef %L, ptr noundef nonnull %o) #12
   br label %return
 
 if.else7:                                         ; preds = %if.else
@@ -2010,7 +2010,7 @@ if.else7:                                         ; preds = %if.else
   br i1 %cmp8, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else7
-  %call11 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.2, i64 noundef 3) #13
+  %call11 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.2, i64 noundef 3) #12
   br label %return
 
 if.else12:                                        ; preds = %if.else7
@@ -2020,18 +2020,18 @@ if.else12:                                        ; preds = %if.else7
   ]
 
 if.then17:                                        ; preds = %if.else12
-  %call18 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.3, i64 noundef 5) #13
+  %call18 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.3, i64 noundef 5) #12
   br label %return
 
 if.then24:                                        ; preds = %if.else12
-  %call25 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.4, i64 noundef 4) #13
+  %call25 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.4, i64 noundef 4) #12
   br label %return
 
 cond.end:                                         ; preds = %if.else12
   %not = xor i64 %shr, -1
   %arrayidx = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %not
   %2 = load ptr, ptr %arrayidx, align 8
-  %call46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
+  %call46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %conv.i75 = and i64 %call46, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %2, i64 %conv.i75, i1 false)
   %add.ptr.i77 = getelementptr inbounds i8, ptr %buf, i64 %conv.i75
@@ -2063,7 +2063,7 @@ if.else66:                                        ; preds = %land.lhs.true, %con
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %6 = load i64, ptr %glref, align 8
   %7 = inttoptr i64 %6 to ptr
-  %call67 = tail call ptr @lj_obj_ptr(ptr noundef %7, ptr noundef nonnull %o) #13
+  %call67 = tail call ptr @lj_obj_ptr(ptr noundef %7, ptr noundef nonnull %o) #12
   %8 = ptrtoint ptr %call67 to i64
   %cmp.i = icmp eq ptr %call67, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2120,7 +2120,7 @@ if.end:                                           ; preds = %for.end.i, %if.then
   %sub.ptr.lhs.cast = ptrtoint ptr %p.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call71 = call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %sub.ptr.sub) #13
+  %call71 = call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %sub.ptr.sub) #12
   br label %return
 
 return:                                           ; preds = %if.end, %if.then24, %if.then17, %if.then10, %if.then6, %if.then
@@ -2128,12 +2128,12 @@ return:                                           ; preds = %if.end, %if.then24,
   ret ptr %retval.0
 }
 
-declare hidden i32 @lj_lib_checkint(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden i32 @lj_lib_checkint(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare hidden ptr @lj_obj_ptr(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare hidden ptr @lj_obj_ptr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_int(ptr noundef %L, i32 noundef %k) local_unnamed_addr #5 {
+define hidden ptr @lj_strfmt_int(ptr noundef %L, i32 noundef %k) local_unnamed_addr #4 {
 entry:
   %buf = alloca [11 x i8], align 1
   %call = call ptr @lj_strfmt_wint(ptr noundef nonnull %buf, i32 noundef %k)
@@ -2141,34 +2141,34 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv3 = and i64 %sub.ptr.sub, 4294967295
-  %call4 = call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %conv3) #13
+  %call4 = call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %conv3) #12
   ret ptr %call4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_number(ptr noundef %L, ptr noundef %o) local_unnamed_addr #5 {
+define hidden ptr @lj_strfmt_number(ptr noundef %L, ptr noundef %o) local_unnamed_addr #4 {
 entry:
-  %call = tail call ptr @lj_strfmt_num(ptr noundef %L, ptr noundef %o) #13
+  %call = tail call ptr @lj_strfmt_num(ptr noundef %L, ptr noundef %o) #12
   ret ptr %call
 }
 
-declare hidden ptr @lj_strfmt_num(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare hidden ptr @lj_strfmt_num(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_strfmt_char(ptr noundef %L, i32 noundef %c) local_unnamed_addr #5 {
+define hidden ptr @lj_strfmt_char(ptr noundef %L, i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %buf = alloca [1 x i8], align 1
   %conv = trunc i32 %c to i8
   store i8 %conv, ptr %buf, align 1
-  %call = call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef 1) #13
+  %call = call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef 1) #12
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %fmt, ptr nocapture noundef %argp) local_unnamed_addr #5 {
+define hidden nonnull ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %fmt, ptr nocapture noundef %argp) local_unnamed_addr #4 {
 entry:
   %fs = alloca %struct.FormatState, align 8
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
@@ -2181,7 +2181,7 @@ entry:
   %b.i106 = getelementptr inbounds i8, ptr %1, i64 216
   %3 = load ptr, ptr %b.i106, align 8
   store ptr %3, ptr %tmpbuf.i, align 8
-  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #15
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #14
   store ptr %fmt, ptr %fs, align 8
   %idx.ext.i = and i64 %call1, 4294967295
   %add.ptr.i = getelementptr inbounds i8, ptr %fmt, i64 %idx.ext.i
@@ -2216,7 +2216,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 sw.bb:                                            ; preds = %while.body
   %5 = load ptr, ptr %str4, align 8
   %6 = load i32, ptr %len, align 8
-  %call5 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %tmpbuf.i, ptr noundef %5, i32 noundef %6) #13
+  %call5 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %tmpbuf.i, ptr noundef %5, i32 noundef %6) #12
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %while.body
@@ -2293,7 +2293,7 @@ vaarg.in_mem26:                                   ; preds = %sw.bb23
 vaarg.end30:                                      ; preds = %vaarg.in_mem26, %vaarg.in_reg24
   %vaarg.addr31 = phi ptr [ %16, %vaarg.in_reg24 ], [ %overflow_arg_area28, %vaarg.in_mem26 ]
   %18 = load double, ptr %vaarg.addr31, align 8
-  %call32 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %18) #13
+  %call32 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %18) #12
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %while.body
@@ -2320,9 +2320,9 @@ vaarg.end43:                                      ; preds = %vaarg.in_mem39, %va
   %22 = load ptr, ptr %vaarg.addr44, align 8
   %cmp45 = icmp eq ptr %22, null
   %spec.store.select = select i1 %cmp45, ptr @.str.6, ptr %22
-  %call47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #15
+  %call47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #14
   %conv48 = trunc i64 %call47 to i32
-  %call49 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %tmpbuf.i, ptr noundef nonnull %spec.store.select, i32 noundef %conv48) #13
+  %call49 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %tmpbuf.i, ptr noundef nonnull %spec.store.select, i32 noundef %conv48) #12
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %while.body
@@ -2357,7 +2357,7 @@ vaarg.end60:                                      ; preds = %vaarg.in_mem56, %va
   br i1 %cmp.i.i91, label %if.then.i.i98, label %lj_buf_putb.exit100
 
 if.then.i.i98:                                    ; preds = %vaarg.end60
-  %call.i.i99 = tail call ptr @lj_buf_more2(ptr noundef nonnull %tmpbuf.i, i32 noundef 1) #13
+  %call.i.i99 = tail call ptr @lj_buf_more2(ptr noundef nonnull %tmpbuf.i, i32 noundef 1) #12
   br label %lj_buf_putb.exit100
 
 lj_buf_putb.exit100:                              ; preds = %vaarg.end60, %if.then.i.i98
@@ -2400,7 +2400,7 @@ vaarg.end72:                                      ; preds = %vaarg.in_mem68, %va
   br i1 %cmp.i.i51, label %if.then.i.i52, label %lj_buf_more.exit.i
 
 if.then.i.i52:                                    ; preds = %vaarg.end72
-  %call.i.i53 = tail call ptr @lj_buf_more2(ptr noundef nonnull %tmpbuf.i, i32 noundef 18) #13
+  %call.i.i53 = tail call ptr @lj_buf_more2(ptr noundef nonnull %tmpbuf.i, i32 noundef 18) #12
   br label %lj_buf_more.exit.i
 
 lj_buf_more.exit.i:                               ; preds = %if.then.i.i52, %vaarg.end72
@@ -2472,7 +2472,7 @@ sw.default:                                       ; preds = %while.body
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_buf_putb.exit
 
 if.then.i.i:                                      ; preds = %sw.default
-  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %tmpbuf.i, i32 noundef 1) #13
+  %call.i.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %tmpbuf.i, i32 noundef 1) #12
   br label %lj_buf_putb.exit
 
 lj_buf_putb.exit:                                 ; preds = %sw.default, %if.then.i.i
@@ -2499,7 +2499,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %sub.ptr.rhs.cast.i = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %47, i64 noundef %conv2.i) #13
+  %call.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %47, i64 noundef %conv2.i) #12
   %top = getelementptr inbounds i8, ptr %L, i64 40
   %48 = load ptr, ptr %top, align 8
   %49 = ptrtoint ptr %call.i to i64
@@ -2515,7 +2515,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp78.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.end
-  tail call void @lj_state_growstack1(ptr noundef nonnull %L) #13
+  tail call void @lj_state_growstack1(ptr noundef nonnull %L) #12
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.end
@@ -2523,10 +2523,10 @@ land.end:                                         ; preds = %land.rhs, %while.en
   ret ptr %add.ptr
 }
 
-declare hidden void @lj_state_growstack1(ptr noundef) local_unnamed_addr #6
+declare hidden void @lj_state_growstack1(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @lj_strfmt_pushf(ptr noundef %L, ptr noundef %fmt, ...) local_unnamed_addr #5 {
+define hidden nonnull ptr @lj_strfmt_pushf(ptr noundef %L, ptr noundef %fmt, ...) local_unnamed_addr #4 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %argp)
@@ -2535,45 +2535,44 @@ entry:
   ret ptr %call
 }
 
-declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #10
+declare void @llvm.va_start.p0(ptr) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #10
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

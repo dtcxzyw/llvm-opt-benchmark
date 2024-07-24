@@ -47,12 +47,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @create_persistent_script() local_unnamed_addr #0 {
-  %1 = tail call noalias ptr @_emalloc_512() #10
+  %1 = tail call noalias ptr @_emalloc_512() #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %1, i8 0, i64 464, i1 false)
   %2 = getelementptr inbounds i8, ptr %1, i64 248
-  tail call void @_zend_hash_init(ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull @zend_function_dtor, i1 noundef zeroext false) #10
+  tail call void @_zend_hash_init(ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull @zend_function_dtor, i1 noundef zeroext false) #11
   %3 = getelementptr inbounds i8, ptr %1, i64 304
-  tail call void @_zend_hash_init(ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull @destroy_zend_class, i1 noundef zeroext false) #10
+  tail call void @_zend_hash_init(ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull @destroy_zend_class, i1 noundef zeroext false) #11
   ret ptr %1
 }
 
@@ -81,14 +81,14 @@ define hidden void @free_persistent_script(ptr noundef %0, i32 noundef %1) local
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @destroy_op_array(ptr noundef nonnull %7) #10
+  tail call void @destroy_op_array(ptr noundef nonnull %7) #11
   br label %8
 
 8:                                                ; preds = %6, %3
   %9 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @zend_hash_destroy(ptr noundef nonnull %9) #10
+  tail call void @zend_hash_destroy(ptr noundef nonnull %9) #11
   %10 = getelementptr inbounds i8, ptr %0, i64 304
-  tail call void @zend_hash_destroy(ptr noundef nonnull %10) #10
+  tail call void @zend_hash_destroy(ptr noundef nonnull %10) #11
   %11 = load ptr, ptr %0, align 8
   %.not46 = icmp eq ptr %11, null
   br i1 %.not46, label %22, label %12
@@ -110,7 +110,7 @@ define hidden void @free_persistent_script(ptr noundef %0, i32 noundef %1) local
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %16
-  tail call void @_efree(ptr noundef nonnull %11) #10
+  tail call void @_efree(ptr noundef nonnull %11) #11
   br label %22
 
 22:                                               ; preds = %12, %21, %16, %8
@@ -153,11 +153,11 @@ define hidden void @free_persistent_script(ptr noundef %0, i32 noundef %1) local
   br i1 %.not50, label %43, label %42
 
 42:                                               ; preds = %40
-  tail call void @free(ptr noundef nonnull %31) #10
+  tail call void @free(ptr noundef nonnull %31) #11
   br label %44
 
 43:                                               ; preds = %40
-  tail call void @_efree(ptr noundef nonnull %31) #10
+  tail call void @_efree(ptr noundef nonnull %31) #11
   br label %44
 
 44:                                               ; preds = %35, %43, %42, %.lr.ph
@@ -184,15 +184,15 @@ define hidden void @free_persistent_script(ptr noundef %0, i32 noundef %1) local
   br i1 %.not52, label %58, label %57
 
 57:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %46) #10
+  tail call void @free(ptr noundef nonnull %46) #11
   br label %59
 
 58:                                               ; preds = %55
-  tail call void @_efree(ptr noundef nonnull %46) #10
+  tail call void @_efree(ptr noundef nonnull %46) #11
   br label %59
 
 59:                                               ; preds = %50, %58, %57, %44
-  tail call void @_efree(ptr noundef nonnull %29) #10
+  tail call void @_efree(ptr noundef nonnull %29) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %25, align 4
   %61 = zext i32 %60 to i64
@@ -205,12 +205,12 @@ define hidden void @free_persistent_script(ptr noundef %0, i32 noundef %1) local
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %63 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %24, %.preheader ]
-  tail call void @_efree(ptr noundef %63) #10
+  tail call void @_efree(ptr noundef %63) #11
   br label %64
 
 64:                                               ; preds = %._crit_edge, %22
   tail call void @zend_accel_free_delayed_early_binding_list(ptr noundef nonnull %0)
-  tail call void @_efree(ptr noundef nonnull %0) #10
+  tail call void @_efree(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -257,11 +257,11 @@ define hidden void @zend_accel_free_delayed_early_binding_list(ptr nocapture nou
   br i1 %.not39, label %20, label %19
 
 19:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %8) #10
+  tail call void @free(ptr noundef nonnull %8) #11
   br label %21
 
 20:                                               ; preds = %17
-  tail call void @_efree(ptr noundef nonnull %8) #10
+  tail call void @_efree(ptr noundef nonnull %8) #11
   br label %21
 
 21:                                               ; preds = %12, %20, %19, %5
@@ -288,11 +288,11 @@ define hidden void @zend_accel_free_delayed_early_binding_list(ptr nocapture nou
   br i1 %.not41, label %35, label %34
 
 34:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %23) #10
+  tail call void @free(ptr noundef nonnull %23) #11
   br label %36
 
 35:                                               ; preds = %32
-  tail call void @_efree(ptr noundef nonnull %23) #10
+  tail call void @_efree(ptr noundef nonnull %23) #11
   br label %36
 
 36:                                               ; preds = %27, %35, %34, %21
@@ -319,11 +319,11 @@ define hidden void @zend_accel_free_delayed_early_binding_list(ptr nocapture nou
   br i1 %.not43, label %50, label %49
 
 49:                                               ; preds = %47
-  tail call void @free(ptr noundef nonnull %38) #10
+  tail call void @free(ptr noundef nonnull %38) #11
   br label %51
 
 50:                                               ; preds = %47
-  tail call void @_efree(ptr noundef nonnull %38) #10
+  tail call void @_efree(ptr noundef nonnull %38) #11
   br label %51
 
 51:                                               ; preds = %36, %49, %50, %42
@@ -336,7 +336,7 @@ define hidden void @zend_accel_free_delayed_early_binding_list(ptr nocapture nou
 ._crit_edge:                                      ; preds = %51
   %55 = getelementptr inbounds i8, ptr %0, i64 408
   %56 = load ptr, ptr %55, align 8
-  tail call void @_efree(ptr noundef %56) #10
+  tail call void @_efree(ptr noundef %56) #11
   store ptr null, ptr %55, align 8
   store i32 0, ptr %2, align 8
   br label %57
@@ -357,7 +357,7 @@ define hidden void @zend_accel_move_user_functions(ptr noundef %0, i32 noundef %
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
-  tail call void @zend_hash_extend(ptr noundef nonnull %4, i32 noundef %1, i1 noundef zeroext false) #10
+  tail call void @zend_hash_extend(ptr noundef nonnull %4, i32 noundef %1, i1 noundef zeroext false) #11
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -433,7 +433,7 @@ define hidden void @zend_accel_move_user_functions(ptr noundef %0, i32 noundef %
   br i1 %.not64, label %58, label %60
 
 58:                                               ; preds = %55
-  %59 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %37) #10
+  %59 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %37) #11
   br label %60
 
 60:                                               ; preds = %58, %55, %35
@@ -458,7 +458,7 @@ define hidden void @zend_accel_move_user_functions(ptr noundef %0, i32 noundef %
   %75 = load i32, ptr %22, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %22, align 4
-  tail call void @zend_hash_del_bucket(ptr noundef %0, ptr noundef nonnull %.066) #10
+  tail call void @zend_hash_del_bucket(ptr noundef %0, ptr noundef nonnull %.066) #11
   br label %77
 
 77:                                               ; preds = %27, %31, %60, %23
@@ -490,7 +490,7 @@ define hidden void @zend_accel_move_user_classes(ptr noundef %0, i32 noundef %1,
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
-  tail call void @zend_hash_extend(ptr noundef nonnull %4, i32 noundef %1, i1 noundef zeroext false) #10
+  tail call void @zend_hash_extend(ptr noundef nonnull %4, i32 noundef %1, i1 noundef zeroext false) #11
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -566,7 +566,7 @@ define hidden void @zend_accel_move_user_classes(ptr noundef %0, i32 noundef %1,
   br i1 %.not64, label %58, label %60
 
 58:                                               ; preds = %55
-  %59 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %37) #10
+  %59 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %37) #11
   br label %60
 
 60:                                               ; preds = %58, %55, %35
@@ -591,7 +591,7 @@ define hidden void @zend_accel_move_user_classes(ptr noundef %0, i32 noundef %1,
   %75 = load i32, ptr %22, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %22, align 4
-  tail call void @zend_hash_del_bucket(ptr noundef %0, ptr noundef nonnull %.066) #10
+  tail call void @zend_hash_del_bucket(ptr noundef %0, ptr noundef nonnull %.066) #11
   br label %77
 
 77:                                               ; preds = %27, %31, %60, %23
@@ -652,7 +652,7 @@ define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture no
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 5
-  %27 = tail call noalias ptr @_emalloc(i64 noundef %26) #11
+  %27 = tail call noalias ptr @_emalloc(i64 noundef %26) #12
   %28 = getelementptr inbounds i8, ptr %0, i64 408
   store ptr %27, ptr %28, align 8
   %29 = load ptr, ptr %6, align 8
@@ -798,7 +798,7 @@ define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr nocapture
   br i1 %34, label %35, label %.critedge41
 
 35:                                               ; preds = %30
-  %36 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %28, ptr noundef nonnull %24) #10
+  %36 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %28, ptr noundef nonnull %24) #11
   br i1 %36, label %.critedge, label %.critedge41
 
 .critedge41:                                      ; preds = %30, %35
@@ -827,7 +827,7 @@ define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias ptr @_emalloc_256() #10
+  %3 = tail call noalias ptr @_emalloc_256() #11
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %3, ptr noundef nonnull align 8 dereferenceable(240) %4, i64 240, i1 false)
   %.not = icmp eq i32 %1, 0
@@ -842,7 +842,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call void @zend_map_ptr_extend(i64 noundef %8) #10
+  tail call void @zend_map_ptr_extend(i64 noundef %8) #11
   br label %12
 
 12:                                               ; preds = %11, %5
@@ -860,9 +860,9 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %18 = getelementptr inbounds i8, ptr %16, i64 24
   %19 = getelementptr inbounds i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = tail call ptr @zend_mangle_property_name(ptr noundef nonnull @zend_accel_load_script.haltoff, i64 noundef 24, ptr noundef nonnull %18, i64 noundef %20, i1 noundef zeroext false) #10
+  %21 = tail call ptr @zend_mangle_property_name(ptr noundef nonnull @zend_accel_load_script.haltoff, i64 noundef 24, ptr noundef nonnull %18, i64 noundef %20, i1 noundef zeroext false) #11
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
-  %23 = tail call ptr @zend_hash_find(ptr noundef %22, ptr noundef %21) #10
+  %23 = tail call ptr @zend_hash_find(ptr noundef %22, ptr noundef %21) #11
   %.not175 = icmp eq ptr %23, null
   br i1 %.not175, label %24, label %29
 
@@ -871,7 +871,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %26 = getelementptr inbounds i8, ptr %21, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = load i64, ptr %13, align 8
-  tail call void @zend_register_long_constant(ptr noundef nonnull %25, i64 noundef %27, i64 noundef %28, i32 noundef 0, i32 noundef 0) #10
+  tail call void @zend_register_long_constant(ptr noundef nonnull %25, i64 noundef %27, i64 noundef %28, i32 noundef 0, i32 noundef 0) #11
   br label %29
 
 29:                                               ; preds = %24, %17
@@ -891,7 +891,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %33
-  tail call void @_efree(ptr noundef nonnull %21) #10
+  tail call void @_efree(ptr noundef nonnull %21) #11
   br label %39
 
 39:                                               ; preds = %12, %15, %33, %38, %29, %2
@@ -909,7 +909,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %48 = getelementptr inbounds i8, ptr %0, i64 272
   %49 = load i32, ptr %48, align 8
   %50 = add i32 %49, %47
-  tail call void @zend_hash_extend(ptr noundef %45, i32 noundef %50, i1 noundef zeroext false) #10
+  tail call void @zend_hash_extend(ptr noundef %45, i32 noundef %50, i1 noundef zeroext false) #11
   %51 = getelementptr inbounds i8, ptr %0, i64 264
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %48, align 8
@@ -931,7 +931,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %.0169202 = phi ptr [ %52, %.lr.ph ], [ %101, %76 ]
   %61 = getelementptr inbounds i8, ptr %.0169202, i64 24
   %62 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
-  %63 = tail call ptr @zend_hash_find_known_hash(ptr noundef nonnull %45, ptr noundef nonnull %62) #10
+  %63 = tail call ptr @zend_hash_find_known_hash(ptr noundef nonnull %45, ptr noundef nonnull %62) #11
   %.not188 = icmp eq ptr %63, null
   br i1 %.not188, label %76, label %64
 
@@ -941,7 +941,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %67 = getelementptr inbounds i8, ptr %65, i64 152
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call ptr @zend_set_compiled_filename(ptr noundef %68) #10
+  %69 = tail call ptr @zend_set_compiled_filename(ptr noundef %68) #11
   %70 = getelementptr inbounds i8, ptr %65, i64 88
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 24
@@ -1005,14 +1005,14 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = load i32, ptr %114, align 8
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %108, ptr noundef nonnull %111, i32 noundef %115) #12
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %108, ptr noundef nonnull %111, i32 noundef %115) #13
   unreachable
 
 116:                                              ; preds = %102, %64
   %117 = getelementptr inbounds i8, ptr %65, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %119) #12
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %119) #13
   unreachable
 
 120:                                              ; preds = %42
@@ -1028,7 +1028,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %.069.i = phi ptr [ %52, %.lr.ph.i ], [ %171, %170 ]
   %125 = getelementptr inbounds i8, ptr %.069.i, i64 24
   %126 = load ptr, ptr %125, align 8, !nonnull !4, !noundef !4
-  %127 = tail call ptr @zend_hash_find_known_hash(ptr noundef nonnull %45, ptr noundef nonnull %126) #10
+  %127 = tail call ptr @zend_hash_find_known_hash(ptr noundef nonnull %45, ptr noundef nonnull %126) #11
   %.not64.i = icmp eq ptr %127, null
   br i1 %.not64.i, label %140, label %128
 
@@ -1038,7 +1038,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %131 = getelementptr inbounds i8, ptr %129, i64 152
   %132 = load ptr, ptr %131, align 8
-  %133 = tail call ptr @zend_set_compiled_filename(ptr noundef %132) #10
+  %133 = tail call ptr @zend_set_compiled_filename(ptr noundef %132) #11
   %134 = getelementptr inbounds i8, ptr %129, i64 88
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 24
@@ -1089,7 +1089,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 
 168:                                              ; preds = %140
   %169 = load ptr, ptr %.069.i, align 8
-  tail call void @_zend_observer_function_declared_notify(ptr noundef %169, ptr noundef nonnull %165) #10
+  tail call void @_zend_observer_function_declared_notify(ptr noundef %169, ptr noundef nonnull %165) #11
   br label %170
 
 170:                                              ; preds = %168, %140
@@ -1114,14 +1114,14 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 24
   %185 = load i32, ptr %184, align 8
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %178, ptr noundef nonnull %181, i32 noundef %185) #12
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %178, ptr noundef nonnull %181, i32 noundef %185) #13
   unreachable
 
 186:                                              ; preds = %172, %128
   %187 = getelementptr inbounds i8, ptr %129, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %189) #12
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull %189) #13
   unreachable
 
 .sink.split:                                      ; preds = %76, %170, %120, %56
@@ -1144,7 +1144,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %200 = getelementptr inbounds i8, ptr %0, i64 328
   %201 = load i32, ptr %200, align 8
   %202 = add i32 %201, %199
-  tail call void @zend_hash_extend(ptr noundef %197, i32 noundef %202, i1 noundef zeroext false) #10
+  tail call void @zend_hash_extend(ptr noundef %197, i32 noundef %202, i1 noundef zeroext false) #11
   %203 = getelementptr inbounds i8, ptr %0, i64 320
   %204 = load ptr, ptr %203, align 8
   %205 = load i32, ptr %200, align 8
@@ -1166,7 +1166,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %.0204 = phi ptr [ %204, %.lr.ph206 ], [ %286, %285 ]
   %213 = getelementptr inbounds i8, ptr %.0204, i64 24
   %214 = load ptr, ptr %213, align 8, !nonnull !4, !noundef !4
-  %215 = tail call ptr @zend_hash_find_known_hash(ptr noundef %197, ptr noundef nonnull %214) #10
+  %215 = tail call ptr @zend_hash_find_known_hash(ptr noundef %197, ptr noundef nonnull %214) #11
   %.not182 = icmp eq ptr %215, null
   br i1 %.not182, label %242, label %216
 
@@ -1200,15 +1200,15 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %233 = getelementptr inbounds i8, ptr %228, i64 496
   %234 = load ptr, ptr %233, align 8
-  %235 = tail call ptr @zend_set_compiled_filename(ptr noundef %234) #10
+  %235 = tail call ptr @zend_set_compiled_filename(ptr noundef %234) #11
   %236 = getelementptr inbounds i8, ptr %228, i64 504
   %237 = load i32, ptr %236, align 8
   store i32 %237, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %238 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %228, i1 noundef zeroext false) #10
+  %238 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %228, i1 noundef zeroext false) #11
   %239 = getelementptr inbounds i8, ptr %228, i64 8
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %238, ptr noundef nonnull %241) #12
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %238, ptr noundef nonnull %241) #13
   unreachable
 
 242:                                              ; preds = %212
@@ -1292,7 +1292,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %.076.i = phi ptr [ %204, %.lr.ph.i190 ], [ %367, %366 ]
   %292 = getelementptr inbounds i8, ptr %.076.i, i64 24
   %293 = load ptr, ptr %292, align 8, !nonnull !4, !noundef !4
-  %294 = tail call ptr @zend_hash_find_known_hash(ptr noundef %197, ptr noundef nonnull %293) #10
+  %294 = tail call ptr @zend_hash_find_known_hash(ptr noundef %197, ptr noundef nonnull %293) #11
   %.not69.i = icmp eq ptr %294, null
   br i1 %.not69.i, label %321, label %295
 
@@ -1326,15 +1326,15 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %312 = getelementptr inbounds i8, ptr %307, i64 496
   %313 = load ptr, ptr %312, align 8
-  %314 = tail call ptr @zend_set_compiled_filename(ptr noundef %313) #10
+  %314 = tail call ptr @zend_set_compiled_filename(ptr noundef %313) #11
   %315 = getelementptr inbounds i8, ptr %307, i64 504
   %316 = load i32, ptr %315, align 8
   store i32 %316, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %317 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %307, i1 noundef zeroext false) #10
+  %317 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %307, i1 noundef zeroext false) #11
   %318 = getelementptr inbounds i8, ptr %307, i64 8
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %317, ptr noundef nonnull %320) #12
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %317, ptr noundef nonnull %320) #13
   unreachable
 
 321:                                              ; preds = %291
@@ -1403,7 +1403,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 
 364:                                              ; preds = %359, %353
   %365 = phi ptr [ %350, %353 ], [ %.pre.i, %359 ]
-  tail call void @_zend_observer_class_linked_notify(ptr noundef nonnull %322, ptr noundef %365) #10
+  tail call void @_zend_observer_class_linked_notify(ptr noundef nonnull %322, ptr noundef %365) #11
   br label %366
 
 366:                                              ; preds = %364, %349, %321, %306, %303, %299
@@ -1435,7 +1435,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %379 = getelementptr inbounds i8, ptr %3, i64 76
   %380 = load i32, ptr %379, align 4
   %381 = sext i32 %380 to i64
-  %382 = tail call noalias ptr @_emalloc(i64 noundef %381) #11
+  %382 = tail call noalias ptr @_emalloc(i64 noundef %381) #12
   store ptr %382, ptr %373, align 8
   %383 = sext i32 %380 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %382, i8 0, i64 %383, i1 false)
@@ -1458,7 +1458,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %391 = getelementptr inbounds %struct._zend_early_binding, ptr %390, i64 %indvars.iv.i
   %392 = load ptr, ptr %391, align 8
   %393 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
-  %394 = tail call ptr @zend_hash_find_known_hash(ptr noundef %393, ptr noundef %392) #10
+  %394 = tail call ptr @zend_hash_find_known_hash(ptr noundef %393, ptr noundef %392) #11
   %.not101.i = icmp eq ptr %394, null
   br i1 %.not101.i, label %395, label %.thread112.i
 
@@ -1466,7 +1466,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %396 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   %397 = getelementptr inbounds i8, ptr %391, i64 8
   %398 = load ptr, ptr %397, align 8
-  %399 = tail call ptr @zend_hash_find_known_hash(ptr noundef %396, ptr noundef %398) #10
+  %399 = tail call ptr @zend_hash_find_known_hash(ptr noundef %396, ptr noundef %398) #11
   %.not103.i = icmp eq ptr %399, null
   br i1 %.not103.i, label %.thread112.i, label %400
 
@@ -1482,7 +1482,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %406 = getelementptr inbounds i8, ptr %391, i64 16
   %407 = load ptr, ptr %406, align 8
   %408 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
-  %409 = tail call ptr @zend_hash_find_known_hash(ptr noundef %408, ptr noundef %407) #10
+  %409 = tail call ptr @zend_hash_find_known_hash(ptr noundef %408, ptr noundef %407) #11
   %.not105.i = icmp eq ptr %409, null
   br i1 %.not105.i, label %412, label %410
 
@@ -1499,7 +1499,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 .thread.i:                                        ; preds = %412, %410, %400
   %413 = phi ptr [ null, %412 ], [ %411, %410 ], [ null, %400 ]
   %414 = load ptr, ptr %391, align 8
-  %415 = tail call ptr @zend_try_early_bind(ptr noundef nonnull %401, ptr noundef %413, ptr noundef %414, ptr noundef nonnull %399) #10
+  %415 = tail call ptr @zend_try_early_bind(ptr noundef nonnull %401, ptr noundef %413, ptr noundef %414, ptr noundef nonnull %399) #11
   %.not108.i = icmp eq ptr %415, null
   br i1 %.not108.i, label %.thread112.i, label %416
 
@@ -1548,7 +1548,7 @@ declare ptr @zend_mangle_property_name(ptr noundef, i64 noundef, ptr noundef, i6
 
 declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = and i32 %0, 65535
   %5 = lshr i32 %0, 16
@@ -1701,7 +1701,7 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr #5 {
+define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 424
@@ -2029,10 +2029,10 @@ zend_adler32.exit92:                              ; preds = %._crit_edge.i56, %.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
 declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #1
 
@@ -2047,7 +2047,7 @@ declare void @_zend_observer_function_declared_notify(ptr noundef, ptr noundef) 
 declare ptr @zend_set_compiled_filename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #8
+declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 declare void @_zend_observer_class_linked_notify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2056,24 +2056,25 @@ declare ptr @zend_get_object_type_case(ptr noundef, i1 noundef zeroext) local_un
 declare ptr @zend_try_early_bind(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #9
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8>, <16 x i8>) #9
+declare <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8>, <16 x i8>) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { noreturn nounwind }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

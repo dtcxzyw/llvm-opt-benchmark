@@ -441,8 +441,8 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %this) #54
-  %1 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #54, !srcloc !5
+  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %this) #51
+  %1 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #51, !srcloc !5
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %1, 2
   %and.i = lshr i32 %asmresult2.i.i, 17
   %spec.select.i = and i32 %and.i, 8
@@ -454,7 +454,7 @@ entry:
   br i1 %cmp.not.i, label %if.end8.i, label %_ZN7simdutf8internalL30detect_supported_architecturesEv.exit
 
 if.end8.i:                                        ; preds = %entry
-  %3 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #54, !srcloc !6
+  %3 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #51, !srcloc !6
   %asmresult.i19.i = extractvalue { i32, i32 } %3, 0
   %conv.i.i = zext i32 %asmresult.i19.i to i64
   %and9.i = and i64 %conv.i.i, 4
@@ -462,7 +462,7 @@ if.end8.i:                                        ; preds = %entry
   br i1 %cmp10.i, label %_ZN7simdutf8internalL30detect_supported_architecturesEv.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %4 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #54, !srcloc !5
+  %4 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #51, !srcloc !5
   %asmresult1.i22.i = extractvalue { i32, i32, i32, i32 } %4, 1
   %and13.i = lshr i32 %asmresult1.i22.i, 3
   %5 = and i32 %and13.i, 4
@@ -595,7 +595,7 @@ if.end:                                           ; preds = %land.lhs.true56.i.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %10 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %input, i64 noundef %length) #51
   br i1 %call2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
@@ -608,7 +608,7 @@ if.then6:                                         ; preds = %if.end4
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 72
   %11 = load ptr, ptr %vfn8, align 8
-  %call9 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %input, i64 noundef %div10) #54
+  %call9 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %input, i64 noundef %div10) #51
   br i1 %call9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then6, %if.end4
@@ -621,7 +621,7 @@ if.then15:                                        ; preds = %if.end12
   %vtable17 = load ptr, ptr %this, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 104
   %12 = load ptr, ptr %vfn18, align 8
-  %call19 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %input, i64 noundef %div1611) #54
+  %call19 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %input, i64 noundef %div1611) #51
   br i1 %call19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.then15, %if.end12
@@ -731,25 +731,25 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
-  %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
+  %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 11))
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
-  %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #51
+  %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 47))
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #51
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_description.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_description.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #51
   %_required_instruction_sets.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %_required_instruction_sets.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf8internal26unsupported_implementationE, i64 16), ptr %this, align 8
   ret void
 }
@@ -759,9 +759,9 @@ define linkonce_odr dso_local void @_ZN7simdutf8internal26unsupported_implementa
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -776,7 +776,7 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, label %init.i
 
@@ -791,7 +791,7 @@ init.i:                                           ; preds = %init.check.i
   store ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 24), align 8
   store ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   br label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit
 
 _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %entry, %init.check.i, %init.i
@@ -808,7 +808,7 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, label %init.i
 
@@ -823,7 +823,7 @@ init.i:                                           ; preds = %init.check.i
   store ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 24), align 8
   store ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   br label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit
 
 _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %entry, %init.check.i, %init.i
@@ -839,7 +839,7 @@ entry:
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, label %init.i
 
@@ -854,7 +854,7 @@ init.i:                                           ; preds = %init.check.i
   store ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 24), align 8
   store ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   br label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit
 
 _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %entry, %init.check.i, %init.i
@@ -868,7 +868,7 @@ _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK7simdutf8internal29available_implementation_list21detect_best_supportedEv(ptr nocapture nonnull readnone align 1 %this) local_unnamed_addr #0 align 2 {
 entry:
-  %0 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #54, !srcloc !5
+  %0 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #51, !srcloc !5
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %0, 2
   %and.i = lshr i32 %asmresult2.i.i, 17
   %spec.select.i = and i32 %and.i, 8
@@ -880,7 +880,7 @@ entry:
   br i1 %cmp.not.i, label %if.end8.i, label %_ZN7simdutf8internalL30detect_supported_architecturesEv.exit
 
 if.end8.i:                                        ; preds = %entry
-  %2 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #54, !srcloc !6
+  %2 = tail call { i32, i32 } asm sideeffect "xgetbv\0A\09", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #51, !srcloc !6
   %asmresult.i19.i = extractvalue { i32, i32 } %2, 0
   %conv.i.i = zext i32 %asmresult.i19.i to i64
   %and9.i = and i64 %conv.i.i, 4
@@ -888,7 +888,7 @@ if.end8.i:                                        ; preds = %entry
   br i1 %cmp10.i, label %_ZN7simdutf8internalL30detect_supported_architecturesEv.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %3 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #54, !srcloc !5
+  %3 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #51, !srcloc !5
   %asmresult1.i22.i = extractvalue { i32, i32, i32, i32 } %3, 1
   %and13.i = lshr i32 %asmresult1.i22.i, 3
   %4 = and i32 %and13.i, 4
@@ -933,7 +933,7 @@ _ZN7simdutf8internalL30detect_supported_architecturesEv.exit: ; preds = %entry, 
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %_ZN7simdutf8internalL30detect_supported_architecturesEv.exit
-  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   %tobool.not.i = icmp eq i32 %23, 0
   br i1 %tobool.not.i, label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit, label %init.i
 
@@ -948,7 +948,7 @@ init.i:                                           ; preds = %init.check.i
   store ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 24), align 8
   store ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   br label %_ZN7simdutf8internalL37get_available_implementation_pointersEv.exit
 
 _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %_ZN7simdutf8internalL30detect_supported_architecturesEv.exit, %init.check.i, %init.i
@@ -969,7 +969,7 @@ for.body:                                         ; preds = %_ZN7simdutf8interna
   %vtable = load ptr, ptr %26, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %27 = load ptr, ptr %vfn, align 8
-  %call5 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(76) %26) #54
+  %call5 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(76) %26) #51
   %and = and i32 %call5, %retval.0.i
   %cmp6 = icmp eq i32 %and, %call5
   br i1 %cmp6, label %return, label %for.cond
@@ -984,7 +984,7 @@ define dso_local noundef ptr @_ZNK7simdutf8internal49detect_best_supported_imple
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str) #54
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str) #51
   %tobool.not = icmp eq ptr %call, null
   %0 = load atomic i8, ptr @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations acquire, align 8
   %guard.uninitialized.i4 = icmp eq i8 %0, 0
@@ -994,24 +994,24 @@ if.then:                                          ; preds = %entry
   br i1 %guard.uninitialized.i4, label %init.check.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, !prof !7
 
 init.check.i:                                     ; preds = %if.then
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #51
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %init.i, %init.check.i, %if.then
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
-  %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #51
+  %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #51
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #51
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %call, ptr noundef nonnull %add.ptr.i)
-  %call4 = call noundef ptr @_ZNK7simdutf8internal29available_implementation_listixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN7simdutf29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
+  %call4 = call noundef ptr @_ZNK7simdutf8internal29available_implementation_listixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN7simdutf29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #51
   %tobool5.not = icmp eq ptr %call4, null
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7simdutf25get_active_implementationEv()
   br i1 %tobool5.not, label %return, label %if.then6
@@ -1024,16 +1024,16 @@ if.end:                                           ; preds = %entry
   br i1 %guard.uninitialized.i4, label %init.check.i5, label %_ZN7simdutf29get_available_implementationsEv.exit8, !prof !7
 
 init.check.i5:                                    ; preds = %if.end
-  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #54
+  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #51
   %tobool.not.i6 = icmp eq i32 %3, 0
   br i1 %tobool.not.i6, label %_ZN7simdutf29get_available_implementationsEv.exit8, label %init.i7
 
 init.i7:                                          ; preds = %init.check.i5
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #51
   br label %_ZN7simdutf29get_available_implementationsEv.exit8
 
 _ZN7simdutf29get_available_implementationsEv.exit8: ; preds = %if.end, %init.check.i5, %init.i7
-  %call14 = tail call noundef ptr @_ZNK7simdutf8internal29available_implementation_list21detect_best_supportedEv(ptr nonnull align 1 poison) #54
+  %call14 = tail call noundef ptr @_ZNK7simdutf8internal29available_implementation_list21detect_best_supportedEv(ptr nonnull align 1 poison) #51
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7simdutf25get_active_implementationEv()
   %4 = ptrtoint ptr %call14 to i64
   br label %return
@@ -1057,12 +1057,12 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf29get_available_implementationsEvE25available_implementations) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -1077,7 +1077,7 @@ entry:
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZNK7simdutf8internal29available_implementation_list5beginEv.exit, !prof !7
 
 init.check.i.i:                                   ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   %tobool.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i, label %_ZNK7simdutf8internal29available_implementation_list5beginEv.exit, label %init.i.i
 
@@ -1092,7 +1092,7 @@ init.i.i:                                         ; preds = %init.check.i.i
   store ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 24), align 8
   store ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   br label %_ZNK7simdutf8internal29available_implementation_list5beginEv.exit
 
 _ZNK7simdutf8internal29available_implementation_list5beginEv.exit: ; preds = %entry, %init.check.i.i, %init.i.i
@@ -1102,7 +1102,7 @@ _ZNK7simdutf8internal29available_implementation_list5beginEv.exit: ; preds = %en
   br i1 %guard.uninitialized.i.i5, label %init.check.i.i6, label %_ZNK7simdutf8internal29available_implementation_list3endEv.exit, !prof !7
 
 init.check.i.i6:                                  ; preds = %_ZNK7simdutf8internal29available_implementation_list5beginEv.exit
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   %tobool.not.i.i7 = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i7, label %_ZNK7simdutf8internal29available_implementation_list3endEv.exit, label %init.i.i8
 
@@ -1117,7 +1117,7 @@ init.i.i8:                                        ; preds = %init.check.i.i6
   store ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr getelementptr inbounds (i8, ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, i64 24), align 8
   store ptr @_ZGRZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers_, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   store i1 true, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #54
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers) #51
   br label %_ZNK7simdutf8internal29available_implementation_list3endEv.exit
 
 _ZNK7simdutf8internal29available_implementation_list3endEv.exit: ; preds = %_ZNK7simdutf8internal29available_implementation_list5beginEv.exit, %init.check.i.i6, %init.i.i8
@@ -1133,16 +1133,16 @@ for.body:                                         ; preds = %_ZNK7simdutf8intern
   %7 = load ptr, ptr %__begin2.015, align 8
   %vtable = load ptr, ptr %7, align 8
   %8 = load ptr, ptr %vtable, align 8
-  %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr %8(ptr noundef nonnull align 8 dereferenceable(76) %7) #54
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #54
-  %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #54
+  %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr %8(ptr noundef nonnull align 8 dereferenceable(76) %7) #51
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #51
+  %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #51
   %cmp.i = icmp eq i64 %call.i, %call1.i
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
-  %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #54
-  %call3.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #54
-  %call4.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #54
+  %call2.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #51
+  %call3.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #51
+  %call4.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %call3) #51
   %cmp.i.i = icmp eq i64 %call4.i, 0
   br i1 %cmp.i.i, label %return, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
@@ -1167,17 +1167,17 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #54
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %__a) #54
+  %call = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #51
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %__a) #51
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #55
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #52
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #54
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #51
   %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
   ret void
@@ -1201,26 +1201,26 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 72), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf8internal49detect_best_supported_implementation_on_first_useE, i64 16), ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, align 8
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #54
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #54
+  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -1229,13 +1229,13 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %guard.uninitialized1, label %init.check2, label %init.end5, !prof !7
 
 init.check2:                                      ; preds = %init.end
-  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE21active_implementation) #54
+  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE21active_implementation) #51
   %tobool3.not = icmp eq i32 %4, 0
   br i1 %tobool3.not, label %init.end5, label %init4
 
 init4:                                            ; preds = %init.check2
   store ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr @_ZZN7simdutf25get_active_implementationEvE21active_implementation, align 8
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE21active_implementation) #54
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE21active_implementation) #51
   br label %init.end5
 
 init.end5:                                        ; preds = %init4, %init.check2, %init.end
@@ -1253,9 +1253,9 @@ define linkonce_odr dso_local void @_ZN7simdutf8internal49detect_best_supported_
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -1268,7 +1268,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
@@ -1281,7 +1281,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
@@ -1294,7 +1294,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
@@ -1307,7 +1307,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
@@ -1320,7 +1320,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #51
   ret i64 %call2.i
 }
 
@@ -1333,7 +1333,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
@@ -1346,7 +1346,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
@@ -1359,7 +1359,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
@@ -1372,7 +1372,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
@@ -1385,7 +1385,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
@@ -1398,7 +1398,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
@@ -1411,7 +1411,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret { i32, i64 } %call2
 }
 
@@ -1424,7 +1424,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
@@ -1437,7 +1437,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
@@ -1450,7 +1450,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 192
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #54
+  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #51
   ret { i32, i64 } %call2.i
 }
 
@@ -1463,7 +1463,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #51
   ret { i32, i64 } %call2
 }
 
@@ -1476,7 +1476,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_output) #51
   ret { i32, i64 } %call2
 }
 
@@ -1489,7 +1489,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf32_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf32_output) #51
   ret i64 %call2
 }
 
@@ -1502,7 +1502,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf32_output) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf32_output) #51
   ret { i32, i64 } %call2
 }
 
@@ -1515,7 +1515,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2.i
 }
 
@@ -1528,7 +1528,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
@@ -1541,7 +1541,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
@@ -1554,7 +1554,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2.i
 }
 
@@ -1567,7 +1567,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
@@ -1580,7 +1580,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
@@ -1593,7 +1593,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
@@ -1606,7 +1606,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
@@ -1619,7 +1619,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_buffer) #51
   ret i64 %call2.i
 }
 
@@ -1632,7 +1632,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_buffer) #51
   ret i64 %call2
 }
 
@@ -1645,7 +1645,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf16_buffer) #51
   ret i64 %call2
 }
 
@@ -1658,7 +1658,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf32_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %utf32_buffer) #51
   ret i64 %call2
 }
 
@@ -1671,7 +1671,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 312
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2.i
 }
 
@@ -1684,7 +1684,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 312
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2
 }
 
@@ -1697,7 +1697,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 264
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret i64 %call2.i
 }
 
@@ -1710,7 +1710,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret i64 %call2
 }
 
@@ -1723,7 +1723,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2.i
 }
 
@@ -1736,7 +1736,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret i64 %call2
 }
 
@@ -1749,7 +1749,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret i64 %call2
 }
 
@@ -1762,7 +1762,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret i64 %call2
 }
 
@@ -1775,7 +1775,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 280
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -1788,7 +1788,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -1801,7 +1801,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 320
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2
 }
 
@@ -1814,7 +1814,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 328
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret { i32, i64 } %call2.i
 }
 
@@ -1827,7 +1827,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -1840,7 +1840,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 280
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret { i32, i64 } %call2.i
 }
 
@@ -1853,7 +1853,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 336
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -1866,7 +1866,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 344
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2.i
 }
 
@@ -1879,7 +1879,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 344
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2
 }
 
@@ -1892,7 +1892,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 296
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_buffer) #51
   ret i64 %call2.i
 }
 
@@ -1905,7 +1905,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2
 }
 
@@ -1918,7 +1918,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 448
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2
 }
 
@@ -1931,7 +1931,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 456
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -1944,7 +1944,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 464
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_buffer) #51
   ret i64 %call2
 }
 
@@ -1957,7 +1957,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 480
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret i64 %call2.i
 }
 
@@ -1970,7 +1970,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 480
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret i64 %call2
 }
 
@@ -1983,7 +1983,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
@@ -1996,7 +1996,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 488
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret i64 %call2
 }
 
@@ -2009,7 +2009,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 496
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret { i32, i64 } %call2.i
 }
 
@@ -2022,7 +2022,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 496
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -2035,7 +2035,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 504
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -2048,7 +2048,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 512
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret i64 %call2.i
 }
 
@@ -2061,7 +2061,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 512
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret i64 %call2
 }
 
@@ -2074,7 +2074,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 520
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_buffer) #51
   ret i64 %call2
 }
 
@@ -2087,7 +2087,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 360
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret i64 %call2.i
 }
 
@@ -2100,7 +2100,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret i64 %call2
 }
 
@@ -2113,7 +2113,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 368
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret i64 %call2
 }
 
@@ -2126,7 +2126,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 376
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2.i = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret { i32, i64 } %call2.i
 }
 
@@ -2139,7 +2139,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 376
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -2152,7 +2152,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2 = tail call { i32, i64 } %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret { i32, i64 } %call2
 }
 
@@ -2165,7 +2165,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 392
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret i64 %call2.i
 }
 
@@ -2178,7 +2178,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret i64 %call2
 }
 
@@ -2191,7 +2191,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 400
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_buffer) #51
   ret i64 %call2
 }
 
@@ -2204,7 +2204,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 528
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %output) #54
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length, ptr noundef %output) #51
   ret void
 }
 
@@ -2217,7 +2217,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 608
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2.i
 }
 
@@ -2230,7 +2230,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 608
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2243,7 +2243,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 616
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2256,7 +2256,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 624
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2269,7 +2269,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 560
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
@@ -2282,7 +2282,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 568
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, i64 noundef %len) #51
   ret i64 %call2
 }
 
@@ -2295,7 +2295,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 552
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, i64 noundef %len) #51
   ret i64 %call2
 }
 
@@ -2308,7 +2308,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 536
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
@@ -2321,7 +2321,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 408
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2.i
 }
 
@@ -2334,7 +2334,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 408
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2347,7 +2347,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 416
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2360,7 +2360,7 @@ entry:
   %vtable.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 592
   %1 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2.i
 }
 
@@ -2373,7 +2373,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 592
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2386,7 +2386,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 600
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2399,7 +2399,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2412,7 +2412,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 472
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2425,7 +2425,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 544
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2438,7 +2438,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 576
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2451,7 +2451,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %input, i64 noundef %length) #51
   ret i64 %call2
 }
 
@@ -2464,7 +2464,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %length) #54
+  %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %length) #51
   ret i32 %call2
 }
 
@@ -2477,7 +2477,7 @@ entry:
   %vtable = load ptr, ptr %atomic-temp.i.0.i.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %length) #54
+  %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(76) %atomic-temp.i.0.i.i, ptr noundef %buf, i64 noundef %length) #51
   ret i32 %call2
 }
 
@@ -2491,19 +2491,19 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf22builtin_implementationEvE12builtin_impl) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf22builtin_implementationEvE12builtin_impl) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN7simdutf29get_available_implementationsEv()
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
-  %call2 = call noundef ptr @_ZNK7simdutf8internal29available_implementation_listixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN7simdutf29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #54
+  %call2 = call noundef ptr @_ZNK7simdutf8internal29available_implementation_listixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN7simdutf29get_available_implementationsEvE25available_implementations, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #51
   store ptr %call2, ptr @_ZZN7simdutf22builtin_implementationEvE12builtin_impl, align 8
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf22builtin_implementationEvE12builtin_impl) #54
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf22builtin_implementationEvE12builtin_impl) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -2662,57 +2662,57 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
-  %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
+  %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 19))
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #54
-  %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #51
+  %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 16))
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #54
-  %call.i4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #51
+  %call.i4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 19))
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #54
-  %call.i7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #51
+  %call.i7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 16))
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #54
-  %call.i10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #51
+  %call.i10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 4))
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #54
-  %call.i13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #51
+  %call.i13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 7))
   br label %return
 
 sw.default:                                       ; preds = %entry
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #54
-  %call.i16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #51
+  %call.i16 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 5))
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
   %ref.tmp11.sink = phi ptr [ %ref.tmp11, %sw.default ], [ %ref.tmp10, %sw.bb9 ], [ %ref.tmp8, %sw.bb7 ], [ %ref.tmp6, %sw.bb5 ], [ %ref.tmp4, %sw.bb3 ], [ %ref.tmp2, %sw.bb1 ], [ %ref.tmp, %sw.bb ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.sink) #54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.sink) #51
   ret void
 }
 
@@ -2930,7 +2930,7 @@ land.lhs.true56.i.i:                              ; preds = %land.lhs.true52.i.i
   br i1 %cmp59.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true56.i.i, %land.lhs.true52.i.i, %land.lhs.true41.i.i, %land.lhs.true37.i.i, %land.lhs.true33.i.i, %land.lhs.true29.i.i, %if.else27.i.i, %entry
-  %call2 = tail call noundef zeroext i1 @_ZNK7simdutf8fallback14implementation13validate_utf8EPKcm(ptr nonnull align 8 poison, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef zeroext i1 @_ZNK7simdutf8fallback14implementation13validate_utf8EPKcm(ptr nonnull align 8 poison, ptr noundef %input, i64 noundef %length) #51
   %spec.select = zext i1 %call2 to i32
   %rem = and i64 %length, 1
   %cmp5 = icmp eq i64 %rem, 0
@@ -3263,7 +3263,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf328validateEPKDim.exit: ; preds = %_ZN7simdu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 align 2 {
 entry:
-  %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr noundef %buf, i64 noundef %len) #54
+  %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call
 }
 
@@ -3703,7 +3703,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3220validate_with_errorsEPKDim.exit: ; preds
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp27.not.i = icmp eq i64 %len, 0
@@ -3785,7 +3785,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114latin1_to_utf87convertEPKcmPc.exit: ; preds = 
   ret i64 %sub.ptr.sub.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %len, 0
@@ -3812,7 +3812,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEm
   ret i64 %sub.ptr.div.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp6.not.i = icmp eq i64 %len, 0
@@ -3840,7 +3840,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEm
   ret i64 %sub.ptr.div.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp5.not.i = icmp eq i64 %len, 0
@@ -3867,7 +3867,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit: ; preds 
   ret i64 %sub.ptr.div.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp35.not.i = icmp eq i64 %len, 0
@@ -3968,7 +3968,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin17convertEPKcmPc.exit: ; preds = 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp51.not.i = icmp eq i64 %len, 0
@@ -4094,7 +4094,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin119convert_with_errorsEPKcmPc.exi
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp33.not.i = icmp eq i64 %len, 0
@@ -4191,14 +4191,14 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit: ; p
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp91.not = icmp eq i64 %len, 0
@@ -4421,14 +4421,14 @@ return:                                           ; preds = %if.else118, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp91.not = icmp eq i64 %len, 0
@@ -4657,14 +4657,14 @@ return:                                           ; preds = %if.else118, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret { i32, i64 } %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp111.not = icmp eq i64 %len, 0
@@ -4899,14 +4899,14 @@ return:                                           ; preds = %if.end172, %if.end1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret { i32, i64 } %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp111.not = icmp eq i64 %len, 0
@@ -5147,14 +5147,14 @@ return:                                           ; preds = %if.end172, %if.end1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE0EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp66.not = icmp eq i64 %len, 0
@@ -5324,14 +5324,14 @@ return:                                           ; preds = %if.else78, %while.e
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannessE1EEEmPKcmPDs(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   %cmp66.not = icmp eq i64 %len, 0
@@ -5507,14 +5507,14 @@ return:                                           ; preds = %if.else78, %while.e
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf327convertEPKcmPDi(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %cmp76.not = icmp eq i64 %len, 0
@@ -5716,14 +5716,14 @@ return:                                           ; preds = %if.else94, %if.end1
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output)
   ret { i32, i64 } %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %cmp96.not = icmp eq i64 %len, 0
@@ -5934,14 +5934,14 @@ return:                                           ; preds = %if.end148, %if.end1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr noundef %input, i64 noundef %size, ptr noundef %utf32_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %cmp51.not = icmp eq i64 %len, 0
@@ -6103,26 +6103,26 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %temp_output = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %cmp.i.i = icmp slt i64 %len, 0
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #51
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #55
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #52
   unreachable
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %temp_output, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %temp_output, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %0 = getelementptr inbounds i8, ptr %temp_output, i64 8
   %cmp.not.i.i.i.i = icmp eq i64 %len, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.thread, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
-  %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %len) #56
+  %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %len) #53
   store ptr %call5.i.i.i.i.i.i, ptr %temp_output, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %len
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %temp_output, i64 16
@@ -6139,14 +6139,14 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
 
 while.end.thread:                                 ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp_output, i8 0, i64 24, i1 false)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %1 = load ptr, ptr %temp_output, align 8
   br label %if.end
 
 cond.end.preheader:                               ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %2 = load ptr, ptr %temp_output, align 8
   br label %cond.end
 
@@ -6188,11 +6188,11 @@ cleanup:                                          ; preds = %cleanupthread-pre-s
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %6) #57
+  call void @_ZdlPv(ptr noundef nonnull %6) #54
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %temp_output) #54
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %temp_output) #51
   ret i64 %retval.0
 }
 
@@ -6209,26 +6209,26 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %temp_output = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %cmp.i.i = icmp slt i64 %len, 0
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #51
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #55
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #52
   unreachable
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %temp_output, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %temp_output, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %0 = getelementptr inbounds i8, ptr %temp_output, i64 8
   %cmp.not.i.i.i.i = icmp eq i64 %len, 0
   br i1 %cmp.not.i.i.i.i, label %while.end.thread, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
-  %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %len) #56
+  %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %len) #53
   store ptr %call5.i.i.i.i.i.i, ptr %temp_output, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %len
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %temp_output, i64 16
@@ -6245,14 +6245,14 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
 
 while.end.thread:                                 ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp_output, i8 0, i64 24, i1 false)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %1 = load ptr, ptr %temp_output, align 8
   br label %if.end
 
 cond.end.preheader:                               ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %0, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #51
   %2 = load ptr, ptr %temp_output, align 8
   br label %cond.end
 
@@ -6295,15 +6295,15 @@ cleanup:                                          ; preds = %cleanupthread-pre-s
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %6) #57
+  call void @_ZdlPv(ptr noundef nonnull %6) #54
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %temp_output) #54
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %temp_output) #51
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp42.not.i = icmp eq i64 %len, 0
@@ -6386,7 +6386,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin119convert_with_errorsILNS_10end
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp42.not.i = icmp eq i64 %len, 0
@@ -6475,7 +6475,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin119convert_with_errorsILNS_10end
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp7.not.i = icmp eq i64 %len, 0
@@ -6501,7 +6501,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin113convert_validILNS_10endiannes
   ret i64 %sub.ptr.sub.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp7.not.i = icmp eq i64 %len, 0
@@ -6528,14 +6528,14 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf16_to_latin113convert_validILNS_10endiannes
   ret i64 %sub.ptr.sub.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE0EEEmPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE0EEEmPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp60.not = icmp eq i64 %len, 0
@@ -6695,14 +6695,14 @@ return:                                           ; preds = %cond.end86, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE1EEEmPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf87convertILNS_10endiannessE1EEEmPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp60.not = icmp eq i64 %len, 0
@@ -6866,14 +6866,14 @@ return:                                           ; preds = %cond.end86, %if.end
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret { i32, i64 } %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp64.not = icmp eq i64 %len, 0
@@ -7036,14 +7036,14 @@ return:                                           ; preds = %cond.end86, %if.end
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret { i32, i64 } %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp64.not = icmp eq i64 %len, 0
@@ -7210,7 +7210,7 @@ return:                                           ; preds = %cond.end86, %if.end
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp58.not.i = icmp eq i64 %len, 0
@@ -7362,7 +7362,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf813convert_validILNS_10endiannessE
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp58.not.i = icmp eq i64 %len, 0
@@ -7518,7 +7518,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf813convert_validILNS_10endiannessE
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp7.not.i = icmp eq i64 %len, 0
@@ -7552,7 +7552,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin17convertEPKDimPc.exit: ; preds 
   ret i64 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
@@ -7621,7 +7621,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin119convert_with_errorsEPKDimPc.e
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 align 2 {
 entry:
   %cmp16.not.i = icmp eq i64 %len, 0
@@ -7674,14 +7674,14 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin113convert_validEPKDimPc.exit: ;
   ret i64 %sub.ptr.sub.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf87convertEPKDimPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef i64 @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf87convertEPKDimPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp44.not = icmp eq i64 %len, 0
@@ -7825,14 +7825,14 @@ return:                                           ; preds = %if.else48, %if.then
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output)
   ret { i32, i64 } %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 {
 entry:
   %cmp47.not = icmp eq i64 %len, 0
@@ -7979,7 +7979,7 @@ return:                                           ; preds = %if.else48, %if.then
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8fallback14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #8 align 2 {
 entry:
   %cmp40.not.i = icmp eq i64 %len, 0
@@ -8108,7 +8108,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf813convert_validEPKDimPc.exit: ; p
   ret i64 %sub.ptr.sub.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
@@ -8170,7 +8170,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmP
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
@@ -8235,7 +8235,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmP
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp23.not.i = icmp eq i64 %len, 0
@@ -8300,7 +8300,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1619convert_with_errorsILNS_10endi
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp23.not.i = icmp eq i64 %len, 0
@@ -8368,7 +8368,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1619convert_with_errorsILNS_10endi
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp17.not.i = icmp eq i64 %len, 0
@@ -8417,7 +8417,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1613convert_validILNS_10endianness
   ret i64 %sub.ptr.div.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 align 2 {
 entry:
   %cmp17.not.i = icmp eq i64 %len, 0
@@ -8469,7 +8469,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf1613convert_validILNS_10endianness
   ret i64 %sub.ptr.div.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp21.not.i = icmp eq i64 %len, 0
@@ -8532,7 +8532,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf327convertILNS_10endiannessE0EEEmP
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp21.not.i = icmp eq i64 %len, 0
@@ -8597,7 +8597,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf327convertILNS_10endiannessE1EEEmP
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp25.not.i = icmp eq i64 %len, 0
@@ -8663,7 +8663,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3219convert_with_errorsILNS_10endi
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8fallback14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp25.not.i = icmp eq i64 %len, 0
@@ -8731,7 +8731,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3219convert_with_errorsILNS_10endi
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp19.not.i = icmp eq i64 %len, 0
@@ -8786,7 +8786,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3213convert_validILNS_10endianness
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8fallback14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 align 2 {
 entry:
   %cmp19.not.i = icmp eq i64 %len, 0
@@ -8843,7 +8843,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_114utf16_to_utf3213convert_validILNS_10endianness
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK7simdutf8fallback14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #8 align 2 {
 entry:
   %cmp.i5.not = icmp eq i64 %length, 0
@@ -9434,7 +9434,7 @@ if.then34:                                        ; preds = %if.else31
   %sub.ptr.rhs.cast38 = ptrtoint ptr %buf.0998 to i64
   %sub.ptr.sub39 = sub i64 %sub.ptr.lhs.cast37, %sub.ptr.rhs.cast38
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub39, 2
-  %call40 = tail call noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nonnull align 8 poison, ptr noundef nonnull %buf.0998, i64 noundef %sub.ptr.div) #54
+  %call40 = tail call noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nonnull align 8 poison, ptr noundef nonnull %buf.0998, i64 noundef %sub.ptr.div) #51
   br i1 %call40, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.then34, %if.else31
@@ -9768,8 +9768,8 @@ return:                                           ; preds = %land.lhs.true56.i.i
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -9847,8 +9847,8 @@ return:                                           ; preds = %if.then, %if.then32
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %len, 15
   %add.ptr.i = getelementptr inbounds i32, ptr %buf, i64 %len
@@ -9929,8 +9929,8 @@ return:                                           ; preds = %return.loopexit, %f
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not808 = icmp slt i64 %len, 64
@@ -10066,8 +10066,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.e
   ret i1 %cmp.i49.not
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not833 = icmp slt i64 %len, 64
@@ -10213,7 +10213,7 @@ return.sink.split:                                ; preds = %_ZN7simdutf7icelake
   %spec.select818 = tail call i64 @llvm.usub.sat.i64(i64 %count.0.lcssa.sink, i64 1)
   %add.ptr24 = getelementptr inbounds i8, ptr %buf, i64 %spec.select818
   %sub25 = sub i64 %len, %spec.select818
-  %call26 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef %buf, ptr noundef %add.ptr24, i64 noundef %sub25) #54
+  %call26 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef %buf, ptr noundef %add.ptr24, i64 noundef %sub25) #51
   %63 = extractvalue { i32, i64 } %call26, 0
   %64 = extractvalue { i32, i64 } %call26, 1
   %add28 = add i64 %64, %spec.select818
@@ -10227,8 +10227,8 @@ return:                                           ; preds = %return.sink.split, 
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr nocapture noundef readonly %start, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #10 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr nocapture noundef readonly %start, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %start, align 1
   %1 = and i8 %0, -64
@@ -10257,7 +10257,7 @@ for.end:                                          ; preds = %for.body, %if.else
   %extra_len.0.lcssa = phi i64 [ %extra_len.07, %for.body ], [ 5, %if.else ]
   %buf.addr.0.lcssa = phi ptr [ %buf.addr.09, %for.body ], [ %scevgep, %if.else ]
   %add = add i64 %extra_len.0.lcssa, %len
-  %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr noundef nonnull %buf.addr.0.lcssa, i64 noundef %add) #54
+  %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr noundef nonnull %buf.addr.0.lcssa, i64 noundef %add) #51
   %4 = extractvalue { i32, i64 } %call, 0
   %5 = extractvalue { i32, i64 } %call, 1
   %sub = sub i64 %5, %extra_len.0.lcssa
@@ -10271,8 +10271,8 @@ return:                                           ; preds = %entry, %for.end
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not77.i = icmp slt i64 %len, 64
@@ -10325,8 +10325,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_114validate_asciiEPKcm.exit: ; preds = %for.end.
   ret i1 %cmp10.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len
   br label %for.cond
@@ -10380,8 +10380,8 @@ return:                                           ; preds = %for.end, %if.then13
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -10464,8 +10464,8 @@ return:                                           ; preds = %if.then, %if.then39
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -10576,8 +10576,8 @@ return:                                           ; preds = %for.end, %if.then43
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
@@ -10693,8 +10693,8 @@ return:                                           ; preds = %for.end, %if.then50
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %len, 15
   %add.ptr = getelementptr inbounds i32, ptr %buf, i64 %len
@@ -10797,7 +10797,7 @@ return:                                           ; preds = %while.end, %if.end4
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not40.i = icmp ult i64 %len, 128
@@ -10997,7 +10997,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_127latin1_to_utf8_avx512_startEPKcmPc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef returned %len, ptr nocapture noundef writeonly %utf16_output) unnamed_addr #12 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef returned %len, ptr nocapture noundef writeonly %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %and.i = and i64 %len, -32
   %cmp14.not.i = icmp eq i64 %and.i, 0
@@ -11036,7 +11036,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiann
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef returned %len, ptr nocapture noundef writeonly %utf16_output) unnamed_addr #12 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef returned %len, ptr nocapture noundef writeonly %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %and.i = and i64 %len, -32
   %cmp17.not.i = icmp eq i64 %and.i, 0
@@ -11079,7 +11079,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_latin1_to_utf16ILNS_10endiann
   ret i64 %len
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %and.i = and i64 %len, -16
@@ -11144,7 +11144,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not336.i = icmp ult i64 %len, 64
@@ -11295,7 +11295,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf8_to_latin1_avx512EPKcmPc.exit: ; preds = 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not336.i = icmp ult i64 %len, 64
@@ -11577,7 +11577,7 @@ return:                                           ; preds = %_ZN7simdutf7icelake
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not300.i = icmp ult i64 %len, 64
@@ -11685,8 +11685,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_127valid_utf8_to_latin1_avx512EPKcmPc.exit: ; pr
   ret i64 %sub.ptr.sub.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -12251,8 +12251,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_133fast_avx512_convert_utf8_to_utf16ILNS_10endia
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7icelake14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -12845,8 +12845,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_133fast_avx512_convert_utf8_to_utf16ILNS_10endia
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -13428,8 +13428,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_145fast_avx512_convert_utf8_to_utf16_with_errors
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %sub.ptr.lhs.cast4.i = ptrtoint ptr %add.ptr.i to i64
@@ -14039,8 +14039,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_145fast_avx512_convert_utf8_to_utf16_with_errors
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not2189.i = icmp slt i64 %len, 128
@@ -14798,8 +14798,8 @@ return:                                           ; preds = %while.body, %if.the
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not2223.i = icmp slt i64 %len, 128
@@ -15619,8 +15619,8 @@ return:                                           ; preds = %while.body, %if.the
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %add.ptr123932411.i = getelementptr inbounds i8, ptr %buf, i64 64
@@ -16220,7 +16220,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32) unnamed_addr #13 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32) unnamed_addr #12 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %add.ptr124062424.i = getelementptr inbounds i8, ptr %buf, i64 64
@@ -16857,7 +16857,7 @@ return:                                           ; preds = %while.body, %if.end
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3230rewind_and_convert_with_errorsEmPKcmPDi(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #8 {
 entry:
   %spec.select = tail call i64 @llvm.umin.i64(i64 %prior_bytes, i64 3)
@@ -16900,8 +16900,8 @@ return:                                           ; preds = %if.end8, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_out) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not1292.i = icmp slt i64 %len, 128
@@ -17338,8 +17338,8 @@ return:                                           ; preds = %while.body, %if.the
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17403,8 +17403,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiann
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17471,8 +17471,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiann
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17593,10 +17593,10 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf16_to_latin1_with_errorsIL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -17724,8 +17724,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf16_to_latin1_with_errorsIL
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -17792,8 +17792,8 @@ _ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ; 
   ret i64 %retval.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -17857,8 +17857,8 @@ _ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ; 
   ret i64 %retval.0.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -18136,8 +18136,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE0EEEmP
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -18429,8 +18429,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_121utf16_to_utf8_avx512iILNS_10endiannessE1EEEmP
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -18724,8 +18724,8 @@ return:                                           ; preds = %_ZN7simdutf7icelake
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i
 
@@ -19033,8 +19033,8 @@ return:                                           ; preds = %_ZN7simdutf7icelake
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #11 align 2 {
 entry:
   br label %while.cond.i.i
 
@@ -19312,15 +19312,15 @@ _ZNK7simdutf7icelake14implementation23convert_utf16le_to_utf8EPKDsmPc.exit: ; pr
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #15 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #14 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -19385,8 +19385,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit:
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -19507,8 +19507,8 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf32_to_latin1_with_errorsEP
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -19574,7 +19574,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #16 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #15 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -19934,7 +19934,7 @@ return:                                           ; preds = %if.else271.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #16 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #15 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20322,14 +20322,14 @@ return:                                           ; preds = %if.end13, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #15 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #16 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #17 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20526,8 +20526,8 @@ return:                                           ; preds = %if.else44.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #17 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20739,8 +20739,8 @@ return:                                           ; preds = %if.else50.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #17 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -20963,8 +20963,8 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #17 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -21202,8 +21202,8 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #17 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -21400,8 +21400,8 @@ _ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ; 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #17 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -21613,8 +21613,8 @@ _ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ; 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -21794,8 +21794,8 @@ return:                                           ; preds = %if.then.i, %if.else
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -21978,8 +21978,8 @@ return:                                           ; preds = %if.then.i, %if.else
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22239,8 +22239,8 @@ return:                                           ; preds = %if.end, %if.else, %
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22505,8 +22505,8 @@ return:                                           ; preds = %if.end, %if.else, %
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22686,8 +22686,8 @@ return:                                           ; preds = %if.then.i, %if.else
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #13 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #11 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %buf, i64 %len
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -22871,7 +22871,7 @@ return:                                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7simdutf7icelake14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #12 align 2 {
+define dso_local void @_ZNK7simdutf7icelake14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #11 align 2 {
 entry:
   %cmp.not16 = icmp ult i64 %length, 32
   br i1 %cmp.not16, label %while.end, label %while.body
@@ -22912,8 +22912,8 @@ if.end:                                           ; preds = %if.then, %while.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -22966,8 +22966,8 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
   ret i64 %add9
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23023,7 +23023,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %div112 = and i64 %length, -64
   %cmp.not132 = icmp ult i64 %length, 64
@@ -23147,7 +23147,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #10 align 2 {
 entry:
   %div112.i = and i64 %len, -64
   %cmp.not132.i = icmp ult i64 %len, 64
@@ -23282,8 +23282,8 @@ entry:
   ret i64 %length
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23365,8 +23365,8 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
   ret i64 %add24
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 31
   %add.ptr = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23451,8 +23451,8 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
   ret i64 %add27
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %length, 31
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23505,8 +23505,8 @@ _ZNK7simdutf7icelake14implementation13count_utf16leEPKDsm.exit: ; preds = %cond.
   ret i64 %add9.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %length, 31
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %length
@@ -23574,7 +23574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.not374 = icmp ult i64 %length, 64
   br i1 %cmp.not374, label %while.end, label %while.body
@@ -23673,7 +23673,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp.not136 = icmp ult i64 %length, 64
   br i1 %cmp.not136, label %for.end, label %for.body
@@ -23726,8 +23726,8 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; preds
   ret i64 %add12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 15
   %add.ptr = getelementptr inbounds i32, ptr %input, i64 %length
@@ -23804,8 +23804,8 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit: ; pre
   ret i64 %add25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 15
   %add.ptr = getelementptr inbounds i32, ptr %input, i64 %length
@@ -23859,7 +23859,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #17 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #10 align 2 {
 entry:
   %div112.i = and i64 %length, -64
   %cmp.not132.i = icmp ult i64 %length, 64
@@ -23982,7 +23982,7 @@ _ZNK7simdutf7icelake14implementation10count_utf8EPKcm.exit: ; preds = %for.body.
   ret i64 %add60.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZNK7simdutf7haswell14implementation16detect_encodingsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input, i64 noundef %length) unnamed_addr #19 align 2 {
 entry:
   %block.i.i.i = alloca [64 x i8], align 16
@@ -24745,7 +24745,7 @@ return:                                           ; preds = %land.lhs.true56.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #20 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -24945,8 +24945,8 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation21generic_validate_utf8EPKcm.e
   ret i1 %tobool.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #21 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -25047,7 +25047,7 @@ if.then.i.i:                                      ; preds = %_ZN7simdutf7haswell
   %spec.select1238.i.i = tail call i64 @llvm.usub.sat.i64(i64 %count.01250.i.i, i64 1)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1238.i.i
   %sub.i.i = sub i64 %len, %spec.select1238.i.i
-  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull readonly %buf, ptr noundef readonly %add.ptr.i.i, i64 noundef %sub.i.i) #54
+  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull readonly %buf, ptr noundef readonly %add.ptr.i.i, i64 noundef %sub.i.i) #51
   %38 = extractvalue { i32, i64 } %call4.i.i, 0
   %39 = extractvalue { i32, i64 } %call4.i.i, 1
   %add.i.i = add i64 %39, %spec.select1238.i.i
@@ -25163,7 +25163,7 @@ if.then12.i.i:                                    ; preds = %_ZN7simdutf7haswell
   %spec.select1239.i.i = tail call i64 @llvm.usub.sat.i64(i64 %reader.sroa.11.0.lcssa.i.i, i64 1)
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1239.i.i
   %sub18.i.i = sub i64 %len, %spec.select1239.i.i
-  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef readonly %buf, ptr noundef readonly %add.ptr17.i.i, i64 noundef %sub18.i.i) #54
+  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef readonly %buf, ptr noundef readonly %add.ptr17.i.i, i64 noundef %sub18.i.i) #51
   %76 = extractvalue { i32, i64 } %call19.i.i, 0
   %77 = extractvalue { i32, i64 } %call19.i.i, 1
   %add21.i.i = add i64 %77, %spec.select1239.i.i
@@ -25179,7 +25179,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation33generic_validate_utf8_with_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #20 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -25233,7 +25233,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation22generic_validate_asciiEPKcm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #20 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #19 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -25407,8 +25407,8 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with_
   ret { i32, i64 } %.fca.1.insert.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25519,8 +25519,8 @@ return:                                           ; preds = %if.else.i, %if.end3
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25636,8 +25636,8 @@ return:                                           ; preds = %if.else.i, %if.end3
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25758,8 +25758,8 @@ return:                                           ; preds = %_ZN7simdutf7haswell
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25885,8 +25885,8 @@ return:                                           ; preds = %_ZN7simdutf7haswell
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -25972,8 +25972,8 @@ return:                                           ; preds = %return.loopexit, %f
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i32, ptr %buf, i64 %len
   br label %while.cond.i
@@ -26052,8 +26052,8 @@ return:                                           ; preds = %_ZN7simdutf7haswell
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not94.i = icmp slt i64 %len, 28
@@ -26218,8 +26218,8 @@ if.end:                                           ; preds = %while.cond.backedge
   ret i64 %converted_chars.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp15.not.i = icmp eq i64 %and.i, 0
@@ -26288,8 +26288,8 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #22 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp18.not.i = icmp eq i64 %and.i, 0
@@ -26363,8 +26363,8 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #24 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %xor.i = and i64 %len, -8
   %cmp9.not.i = icmp eq i64 %xor.i, 0
@@ -26429,7 +26429,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #21 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i431.not = icmp eq i64 %len, 0
@@ -26727,7 +26727,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin121validating_transcoder7convert
   ret i64 %retval.i.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #19 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
@@ -26970,7 +26970,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin121validating_transcoder19conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %latin1_output) unnamed_addr #21 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %input, i64 -1
   %cmp.i89.not = icmp eq i64 %size, 0
@@ -27224,7 +27224,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -27619,7 +27619,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -28043,7 +28043,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convertI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -28469,7 +28469,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -28924,7 +28924,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %surrogate_buffer.i.i = alloca [4 x i32], align 16
@@ -29214,7 +29214,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endianness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #23 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i.i = alloca [4 x i32], align 16
@@ -29532,7 +29532,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endianness
   ret i64 %sub.ptr.div.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf7haswell14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
@@ -29909,7 +29909,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3221validating_transcoder7convertE
   ret i64 %retval.i.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
@@ -30317,7 +30317,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3221validating_transcoder19convert
   ret { i32, i64 } %.fca.1.insert39
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf7haswell14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %cmp.not104.i = icmp ult i64 %size, 80
@@ -30590,7 +30590,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -30658,7 +30658,7 @@ return:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -30727,8 +30727,8 @@ return:                                           ; preds = %while.body.i, %if.t
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -30898,8 +30898,8 @@ return:                                           ; preds = %if.end19, %if.then1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -31075,7 +31075,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -31145,7 +31145,7 @@ _ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #24 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -31212,7 +31212,7 @@ _ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ; 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -31534,7 +31534,7 @@ return:                                           ; preds = %if.else243.i, %if.t
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -31859,7 +31859,7 @@ return:                                           ; preds = %if.else248.i, %if.t
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -32197,7 +32197,7 @@ return:                                           ; preds = %if.end19, %if.then1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -32538,22 +32538,22 @@ return:                                           ; preds = %if.end19, %if.then1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #26 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #25 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
+  ret i64 %call
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #25 align 2 {
+entry:
+  %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #26 align 2 {
-entry:
-  %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
-  ret i64 %call
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #23 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -32912,7 +32912,7 @@ return:                                           ; preds = %if.else271.i, %if.t
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #19 align 2 {
 entry:
   %and.i = and i64 %len, -32
@@ -33002,8 +33002,8 @@ return:                                           ; preds = %for.body.i, %if.the
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #27 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
 entry:
   %cmp20.not.i = icmp eq i64 %len, 0
   br i1 %cmp20.not.i, label %while.end.i, label %while.body.i
@@ -33071,7 +33071,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_115utf32_to_latin119convert_with_errorsEPKDimPc.e
   ret { i32, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #19 align 2 {
 entry:
   %and.i.i = and i64 %len, -32
@@ -33162,7 +33162,7 @@ _ZNK7simdutf7haswell14implementation23convert_utf32_to_latin1EPKDimPc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #23 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -33549,7 +33549,7 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -33730,7 +33730,7 @@ return:                                           ; preds = %if.else33.i, %if.el
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -33916,7 +33916,7 @@ return:                                           ; preds = %if.else38.i, %if.el
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -34111,7 +34111,7 @@ return:                                           ; preds = %if.end19, %if.then1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -34314,12 +34314,12 @@ return:                                           ; preds = %if.end19, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #26 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34516,8 +34516,8 @@ return:                                           ; preds = %if.else44.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34729,8 +34729,8 @@ return:                                           ; preds = %if.else50.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -34953,8 +34953,8 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -35192,8 +35192,8 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -35390,8 +35390,8 @@ _ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ; 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #21 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -35603,7 +35603,7 @@ _ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ; 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
@@ -35784,7 +35784,7 @@ _ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi.exit: ; 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
@@ -35970,8 +35970,8 @@ _ZNK7simdutf7haswell14implementation24convert_utf16be_to_utf32EPKDsmPDi.exit: ; 
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK7simdutf7haswell14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #24 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @_ZNK7simdutf7haswell14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #19 align 2 {
 entry:
   %div.i17 = and i64 %length, -32
   %cmp.i18.not = icmp eq i64 %div.i17, 0
@@ -36019,7 +36019,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %div.i63 = and i64 %length, -32
   %cmp.i70.not = icmp eq i64 %div.i63, 0
@@ -36083,7 +36083,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %div.i63 = and i64 %length, -32
   %cmp.i70.not = icmp eq i64 %div.i63, 0
@@ -36151,7 +36151,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %cmp.i.not46 = icmp ult i64 %length, 64
   br i1 %cmp.i.not46, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -36205,7 +36205,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %cmp.i.not46.i = icmp ult i64 %len, 64
   br i1 %cmp.i.not46.i, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, label %for.body.i.i
@@ -36259,19 +36259,19 @@ _ZNK7simdutf7haswell14implementation10count_utf8EPKcm.exit: ; preds = %for.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #27 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #27 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %div.i122 = and i64 %length, -32
   %cmp.i132.not = icmp eq i64 %div.i122, 0
@@ -36384,7 +36384,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %div.i122 = and i64 %length, -32
   %cmp.i132.not = icmp eq i64 %div.i122, 0
@@ -36502,7 +36502,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %div.i.i63 = and i64 %length, -32
   %cmp.i.i69.not = icmp eq i64 %div.i.i63, 0
@@ -36566,7 +36566,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %div.i.i63 = and i64 %length, -32
   %cmp.i.i69.not = icmp eq i64 %div.i.i63, 0
@@ -36634,13 +36634,13 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #27 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %cmp.i.not91 = icmp ult i64 %length, 64
   br i1 %cmp.i.not91, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i
@@ -36708,13 +36708,13 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #27 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %len) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %len) unnamed_addr #20 align 2 {
 entry:
   %cmp.not47 = icmp ult i64 %len, 32
   br i1 %cmp.not47, label %while.end, label %while.body
@@ -36813,7 +36813,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %cmp.not41 = icmp ult i64 %length, 8
   br i1 %cmp.not41, label %for.end, label %for.body
@@ -36892,7 +36892,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %cmp.not16 = icmp ult i64 %length, 8
   br i1 %cmp.not16, label %for.end, label %for.body
@@ -36946,7 +36946,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #28 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #20 align 2 {
 entry:
   %cmp.i.not46 = icmp ult i64 %length, 64
   br i1 %cmp.i.not46, label %_ZN7simdutf7haswell12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -36999,8 +36999,8 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
   ret i64 %add6.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK7simdutf8westmere14implementation16detect_encodingsEPKcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i32 @_ZNK7simdutf8westmere14implementation16detect_encodingsEPKcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #28 align 2 {
 entry:
   %block.i = alloca [64 x i8], align 16
   %cmp.i.i = icmp ugt i64 %length, 1
@@ -37681,7 +37681,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_120sse_detect_encodingsINS1_15utf8_validation12
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call5 = tail call noundef zeroext i1 @_ZNK7simdutf8westmere14implementation13validate_utf8EPKcm(ptr nonnull align 8 poison, ptr noundef %input, i64 noundef %length) #54
+  %call5 = tail call noundef zeroext i1 @_ZNK7simdutf8westmere14implementation13validate_utf8EPKcm(ptr nonnull align 8 poison, ptr noundef %input, i64 noundef %length) #51
   %. = zext i1 %call5 to i32
   br label %return
 
@@ -37691,7 +37691,7 @@ return:                                           ; preds = %land.lhs.true56.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #31 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation13validate_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -38014,8 +38014,8 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation21generic_validate_utf8EPKcm.
   ret i1 %tobool.i.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #32 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation25validate_utf8_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -38175,7 +38175,7 @@ if.then.i.i:                                      ; preds = %_ZN7simdutf8westmer
   %spec.select1013.i.i = tail call i64 @llvm.usub.sat.i64(i64 %count.01025.i.i, i64 1)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1013.i.i
   %sub.i.i = sub i64 %len, %spec.select1013.i.i
-  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull readonly %buf, ptr noundef readonly %add.ptr.i.i, i64 noundef %sub.i.i) #54
+  %call4.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef nonnull readonly %buf, ptr noundef readonly %add.ptr.i.i, i64 noundef %sub.i.i) #51
   %70 = extractvalue { i32, i64 } %call4.i.i, 0
   %71 = extractvalue { i32, i64 } %call4.i.i, 1
   %add.i.i = add i64 %71, %spec.select1013.i.i
@@ -38355,7 +38355,7 @@ if.then12.i.i:                                    ; preds = %_ZN7simdutf8westmer
   %spec.select1014.i.i = tail call i64 @llvm.usub.sat.i64(i64 %reader.sroa.11.0.lcssa.i.i, i64 1)
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %buf, i64 %spec.select1014.i.i
   %sub18.i.i = sub i64 %len, %spec.select1014.i.i
-  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef readonly %buf, ptr noundef readonly %add.ptr17.i.i, i64 noundef %sub18.i.i) #54
+  %call19.i.i = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef readonly %buf, ptr noundef readonly %add.ptr17.i.i, i64 noundef %sub18.i.i) #51
   %138 = extractvalue { i32, i64 } %call19.i.i, 0
   %139 = extractvalue { i32, i64 } %call19.i.i, 1
   %add21.i.i = add i64 %139, %spec.select1014.i.i
@@ -38371,7 +38371,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation33generic_validate_utf8_with_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #31 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_asciiEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -38445,7 +38445,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation22generic_validate_asciiEPKcm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #31 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_ascii_with_errorsEPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #28 align 2 {
 entry:
   %block.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i.i)
@@ -38631,8 +38631,8 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with
   ret { i32, i64 } %.fca.1.insert.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -38731,8 +38731,8 @@ return:                                           ; preds = %if.else.i, %if.end3
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -38836,8 +38836,8 @@ return:                                           ; preds = %if.else.i, %if.end3
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -38946,8 +38946,8 @@ return:                                           ; preds = %_ZN7simdutf8westmer
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -39061,8 +39061,8 @@ return:                                           ; preds = %_ZN7simdutf8westmer
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -39148,8 +39148,8 @@ return:                                           ; preds = %return.loopexit, %f
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation26validate_utf32_with_errorsEPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i32, ptr %buf, i64 %len
   br label %while.cond.i
@@ -39228,7 +39228,7 @@ return:                                           ; preds = %_ZN7simdutf8westmer
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22convert_latin1_to_utf8EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
@@ -39462,8 +39462,8 @@ if.end:                                           ; preds = %while.cond.backedge
   ret i64 %converted_chars.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #34 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #28 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp11.not.i = icmp eq i64 %and.i, 0
@@ -39531,8 +39531,8 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #34 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation25convert_latin1_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #28 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp11.not.i = icmp eq i64 %and.i, 0
@@ -39601,8 +39601,8 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation23convert_latin1_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %cmp.not13.i = icmp slt i64 %len, 16
@@ -39691,7 +39691,7 @@ return:                                           ; preds = %_ZN7simdutf6scalar1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #34 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22convert_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i306.not = icmp eq i64 %len, 0
@@ -40039,8 +40039,8 @@ _ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin121validating_transcoder7conver
   ret i64 %retval.i.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #28 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i316.not = icmp eq i64 %len, 0
@@ -40332,7 +40332,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin121validating_transcoder19conve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #34 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation28convert_valid_utf8_to_latin1EPKcmPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i83.not = icmp eq i64 %len, 0
@@ -40608,7 +40608,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #31 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -41091,7 +41091,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation23convert_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #31 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -41613,7 +41613,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder7convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #31 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %surrogate_buffer.i = alloca [4 x i32], align 16
@@ -42127,7 +42127,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #31 align 2 {
 entry:
   %basic_buffer.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i = alloca [4 x i32], align 16
@@ -42680,7 +42680,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1621validating_transcoder19conver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16leEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #31 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %surrogate_buffer.i.i = alloca [4 x i32], align 16
@@ -43009,7 +43009,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf8_to_utf16beEPKcmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf16_output) unnamed_addr #31 align 2 {
 entry:
   %basic_buffer.i.i = alloca [4 x i32], align 16
   %basic_buffer_swap.i.i = alloca [4 x i32], align 16
@@ -43376,8 +43376,8 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf1613convert_validILNS_10endiannes
   ret i64 %sub.ptr.div.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation21convert_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i606.not = icmp eq i64 %len, 0
@@ -43866,8 +43866,8 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3221validating_transcoder7convert
   ret i64 %retval.i.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
   %cmp.i632.not = icmp eq i64 %len, 0
@@ -44387,8 +44387,8 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3221validating_transcoder19conver
   ret { i32, i64 } %.fca.1.insert38
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf8_to_utf32EPKcmPDi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %size, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %cmp.not114.i = icmp ult i64 %size, 80
   br i1 %cmp.not114.i, label %_ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit, label %while.body.i
@@ -44724,7 +44724,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #32 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -44787,7 +44787,7 @@ return:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #32 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -44851,7 +44851,7 @@ return:                                           ; preds = %while.body.i, %if.t
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -45017,7 +45017,7 @@ return:                                           ; preds = %if.end19, %if.then1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
@@ -45189,7 +45189,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #32 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -45254,7 +45254,7 @@ _ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #32 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -45317,7 +45317,7 @@ _ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -45625,7 +45625,7 @@ return:                                           ; preds = %if.else148.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -45939,7 +45939,7 @@ return:                                           ; preds = %if.else154.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -46265,7 +46265,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -46597,21 +46597,21 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #36 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #33 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #36 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #33 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #28 align 2 {
 entry:
   %and.i = and i64 %len, -16
   %cmp18.not.i = icmp eq i64 %and.i, 0
@@ -46712,7 +46712,7 @@ return:                                           ; preds = %for.body.i, %if.the
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
 entry:
   %and.i = and i64 %len, -16
@@ -46885,8 +46885,8 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #28 align 2 {
 entry:
   %and.i.i = and i64 %len, -16
   %cmp18.not.i.i = icmp eq i64 %and.i.i, 0
@@ -46988,7 +46988,7 @@ _ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -47347,7 +47347,7 @@ return:                                           ; preds = %if.else199.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #31 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -47743,8 +47743,8 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -47923,8 +47923,8 @@ return:                                           ; preds = %if.else28.i, %if.el
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48108,8 +48108,8 @@ return:                                           ; preds = %if.else31.i, %if.el
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48302,8 +48302,8 @@ return:                                           ; preds = %if.end19, %if.then1
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
@@ -48502,13 +48502,13 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #36 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation27convert_valid_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #33 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
@@ -48709,7 +48709,7 @@ return:                                           ; preds = %if.else34.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
@@ -48925,7 +48925,7 @@ return:                                           ; preds = %if.else40.i, %if.th
   ret i64 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
@@ -49152,7 +49152,7 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
@@ -49394,7 +49394,7 @@ return:                                           ; preds = %if.end13, %if.then6
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
@@ -49595,7 +49595,7 @@ _ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ;
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
@@ -49811,8 +49811,8 @@ _ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ;
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #28 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
@@ -49991,15 +49991,15 @@ _ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi.exit: ;
   ret i64 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #36 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387903) i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #34 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call = tail call noundef i64 @_ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nonnull align 8 poison, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret i64 %call
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK7simdutf8westmere14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #34 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @_ZNK7simdutf8westmere14implementation23change_endianness_utf16EPKDsmPDs(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef writeonly %output) unnamed_addr #28 align 2 {
 entry:
   %div.i23 = and i64 %length, -32
   %cmp.i24.not = icmp eq i64 %div.i23, 0
@@ -50057,7 +50057,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_15utf1623change_endianness_utf16EPKDsmPDs.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %div.i47 = and i64 %length, -32
   %cmp.i58.not = icmp eq i64 %div.i47, 0
@@ -50143,7 +50143,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation13count_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %div.i47 = and i64 %length, -32
   %cmp.i58.not = icmp eq i64 %div.i47, 0
@@ -50237,7 +50237,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation10count_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %cmp.i.not30 = icmp ult i64 %length, 64
   br i1 %cmp.i.not30, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -50305,7 +50305,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23latin1_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %cmp.i.not30.i = icmp ult i64 %len, 64
   br i1 %cmp.i.not30.i, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit.i, label %for.body.i.i
@@ -50373,19 +50373,19 @@ _ZNK7simdutf8westmere14implementation10count_utf8EPKcm.exit: ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #38 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf16Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #35 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #38 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24latin1_length_from_utf32Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #35 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %div.i86 = and i64 %length, -32
   %cmp.i100.not = icmp eq i64 %div.i86, 0
@@ -50552,7 +50552,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf8_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %div.i86 = and i64 %length, -32
   %cmp.i100.not = icmp eq i64 %div.i86, 0
@@ -50728,19 +50728,19 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #38 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf16_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #35 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #38 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24utf32_length_from_latin1Em(ptr nocapture nonnull readnone align 8 %this, i64 noundef returned %length) unnamed_addr #35 align 2 {
 entry:
   ret i64 %length
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %len) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf8_length_from_latin1EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %len) unnamed_addr #29 align 2 {
 entry:
   %cmp.not45 = icmp ult i64 %len, 16
   br i1 %cmp.not45, label %while.end, label %while.body
@@ -50841,7 +50841,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %div.i.i47 = and i64 %length, -32
   %cmp.i.i57.not = icmp eq i64 %div.i.i47, 0
@@ -50927,7 +50927,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25utf32_length_from_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %div.i.i47 = and i64 %length, -32
   %cmp.i.i57.not = icmp eq i64 %div.i.i47, 0
@@ -51021,7 +51021,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf16_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %cmp.i.not57 = icmp ult i64 %length, 64
   br i1 %cmp.i.not57, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit, label %for.body.i
@@ -51113,7 +51113,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_14utf822utf16_length_from_utf8EPKcm.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf8_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %cmp.not29 = icmp ult i64 %length, 4
   br i1 %cmp.not29, label %for.end, label %for.body
@@ -51192,7 +51192,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3222utf8_length_from_utf32EPKDim.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23utf16_length_from_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %cmp.not12 = icmp ult i64 %length, 4
   br i1 %cmp.not12, label %for.end, label %for.body
@@ -51246,7 +51246,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_15utf3223utf16_length_from_utf32EPKDim.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #37 align 2 {
+define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation22utf32_length_from_utf8EPKcm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i64 noundef %length) unnamed_addr #29 align 2 {
 entry:
   %cmp.i.not30 = icmp ult i64 %length, 64
   br i1 %cmp.i.not30, label %_ZN7simdutf8westmere12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit, label %for.body.i
@@ -51342,16 +51342,16 @@ define linkonce_odr dso_local void @_ZN7simdutf14implementationD2Ev(ptr noundef 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description) #51
   %_name = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name) #51
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #55
+  tail call void @llvm.trap() #52
   unreachable
 }
 
@@ -51360,9 +51360,9 @@ define linkonce_odr dso_local void @_ZN7simdutf7icelake14implementationD2Ev(ptr 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -51371,10 +51371,10 @@ define linkonce_odr dso_local void @_ZN7simdutf7icelake14implementationD0Ev(ptr 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #54
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #57
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -51383,9 +51383,9 @@ define linkonce_odr dso_local void @_ZN7simdutf7haswell14implementationD2Ev(ptr 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -51394,10 +51394,10 @@ define linkonce_odr dso_local void @_ZN7simdutf7haswell14implementationD0Ev(ptr 
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #54
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #57
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -51406,9 +51406,9 @@ define linkonce_odr dso_local void @_ZN7simdutf8westmere14implementationD2Ev(ptr
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -51417,10 +51417,10 @@ define linkonce_odr dso_local void @_ZN7simdutf8westmere14implementationD0Ev(ptr
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #54
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #57
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -51429,9 +51429,9 @@ define linkonce_odr dso_local void @_ZN7simdutf8fallback14implementationD2Ev(ptr
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #51
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i) #51
   ret void
 }
 
@@ -51440,10 +51440,10 @@ define linkonce_odr dso_local void @_ZN7simdutf8fallback14implementationD0Ev(ptr
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #54
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #57
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
@@ -51902,17 +51902,17 @@ define linkonce_odr dso_local void @_ZN7simdutf8internal26unsupported_implementa
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #54
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #57
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #39
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN7simdutf8internalL21get_icelake_singletonEv() unnamed_addr #0 {
@@ -51926,26 +51926,26 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
   store i32 122980, ptr getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 72), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf7icelake14implementationE, i64 16), ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf7icelake14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, ptr nonnull @__dso_handle) #54
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton) #54
+  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf7icelake14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -51964,26 +51964,26 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
   store i32 100, ptr getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 72), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf7haswell14implementationE, i64 16), ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf7haswell14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, ptr nonnull @__dso_handle) #54
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton) #54
+  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf7haswell14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -52002,26 +52002,26 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 72), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf8westmere14implementationE, i64 16), ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8westmere14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, ptr nonnull @__dso_handle) #54
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton) #54
+  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8westmere14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -52040,26 +52040,26 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton) #54
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton) #51
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 40), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 72), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #51
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf8fallback14implementationE, i64 16), ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8fallback14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr nonnull @__dso_handle) #54
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton) #54
+  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8fallback14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr nonnull @__dso_handle) #51
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton) #51
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -52075,857 +52075,857 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %0 = load ptr, ptr %vtable, align 8
-  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %0(ptr noundef nonnull align 8 dereferenceable(76) %call) #54
+  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %0(ptr noundef nonnull align 8 dereferenceable(76) %call) #51
   ret ptr %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use11descriptionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %0(ptr noundef nonnull align 8 dereferenceable(76) %call) #54
+  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %0(ptr noundef nonnull align 8 dereferenceable(76) %call) #51
   ret ptr %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use16detect_encodingsEPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %input, i64 noundef %length) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %input, i64 noundef %length) #54
+  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %input, i64 noundef %length) #51
   ret i32 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25required_instruction_setsEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call) #54
+  %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(76) %call) #51
   ret i32 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use13validate_utf8EPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25validate_utf8_with_errorsEPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use14validate_asciiEPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use26validate_ascii_with_errorsEPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use16validate_utf16leEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use16validate_utf16beEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use28validate_utf16le_with_errorsEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use28validate_utf16be_with_errorsEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use14validate_utf32EPKDim(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i1 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use26validate_utf32_with_errorsEPKDim(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use22convert_latin1_to_utf8EPKcmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25convert_latin1_to_utf16leEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25convert_latin1_to_utf16beEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23convert_latin1_to_utf32EPKcmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use22convert_utf8_to_latin1EPKcmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use34convert_utf8_to_latin1_with_errorsEPKcmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use28convert_valid_utf8_to_latin1EPKcmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23convert_utf8_to_utf16leEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23convert_utf8_to_utf16beEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use35convert_utf8_to_utf16le_with_errorsEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use35convert_utf8_to_utf16be_with_errorsEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use21convert_utf8_to_utf32EPKcmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use33convert_utf8_to_utf32_with_errorsEPKcmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use29convert_valid_utf8_to_utf16leEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use29convert_valid_utf8_to_utf16beEPKcmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use27convert_valid_utf8_to_utf32EPKcmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use22utf16_length_from_utf8EPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use22utf32_length_from_utf8EPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25convert_utf16le_to_latin1EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25convert_utf16be_to_latin1EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 280
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use31convert_valid_utf16le_to_latin1EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use31convert_valid_utf16be_to_latin1EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23convert_utf16le_to_utf8EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 312
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23convert_utf16be_to_utf8EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 320
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 336
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use29convert_valid_utf16le_to_utf8EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 344
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use29convert_valid_utf16be_to_utf8EPKDsmPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24convert_utf16le_to_utf32EPKDsmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24convert_utf16be_to_utf32EPKDsmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 368
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 376
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 400
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24utf8_length_from_utf16leEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 408
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24utf8_length_from_utf16beEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 416
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23convert_utf32_to_latin1EPKDimPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 432
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use29convert_valid_utf32_to_latin1EPKDimPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use21convert_utf32_to_utf8EPKDimPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 448
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 456
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use27convert_valid_utf32_to_utf8EPKDimPc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 464
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24utf16_length_from_latin1Em(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 472
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24convert_utf32_to_utf16leEPKDimPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 480
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24convert_utf32_to_utf16beEPKDimPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 488
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 496
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { i32, i64 } @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 504
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call { i32, i64 } %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret { i32, i64 } %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use30convert_valid_utf32_to_utf16leEPKDimPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 512
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use30convert_valid_utf32_to_utf16beEPKDimPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 520
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23change_endianness_utf16EPKDsmPDs(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len, ptr noundef %output) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 528
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %output) #54
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len, ptr noundef %output) #51
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23utf8_length_from_latin1EPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 536
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use22utf8_length_from_utf32EPKDim(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 544
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24latin1_length_from_utf32Em(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 552
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23latin1_length_from_utf8EPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 560
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24latin1_length_from_utf16Em(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 568
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use23utf16_length_from_utf32EPKDim(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 576
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use24utf32_length_from_latin1Em(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 584
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25utf32_length_from_utf16leEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 592
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use25utf32_length_from_utf16beEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 600
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use13count_utf16leEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 608
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use13count_utf16beEPKDsm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 616
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use10count_utf8EPKcm(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 comdat align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #54
+  %call = tail call noundef ptr @_ZNK7simdutf8internal49detect_best_supported_implementation_on_first_use8set_bestEv(ptr nonnull align 8 poison) #51
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 624
   %0 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #54
+  %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(76) %call, ptr noundef %buf, i64 noundef %len) #51
   ret i64 %call2
 }
 
@@ -52934,107 +52934,107 @@ define linkonce_odr dso_local void @_ZN7simdutf8internal49detect_best_supported_
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7simdutf14implementationE, i64 16), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #51
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #54
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #57
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #51
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i32> @llvm.umax.v16i32(<16 x i32>, <16 x i32>) #40
+declare <16 x i32> @llvm.umax.v16i32(<16 x i32>, <16 x i32>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64>, <8 x i64>, <8 x i64>, i32 immarg) #41
+declare <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64>, <8 x i64>, <8 x i64>, i32 immarg) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #41
+declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.usub.sat.v64i8(<64 x i8>, <64 x i8>) #40
+declare <64 x i8> @llvm.usub.sat.v64i8(<64 x i8>, <64 x i8>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <64 x i8> @llvm.masked.load.v64i8.p0(ptr nocapture, i32 immarg, <64 x i1>, <64 x i8>) #42
+declare <64 x i8> @llvm.masked.load.v64i8.p0(ptr nocapture, i32 immarg, <64 x i1>, <64 x i8>) #39
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #40
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <32 x i16> @llvm.masked.load.v32i16.p0(ptr nocapture, i32 immarg, <32 x i1>, <32 x i16>) #42
+declare <32 x i16> @llvm.masked.load.v32i16.p0(ptr nocapture, i32 immarg, <32 x i1>, <32 x i16>) #39
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #41
+declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #40
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <16 x i32> @llvm.masked.load.v16i32.p0(ptr nocapture, i32 immarg, <16 x i1>, <16 x i32>) #42
+declare <16 x i32> @llvm.masked.load.v16i32.p0(ptr nocapture, i32 immarg, <16 x i1>, <16 x i32>) #39
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i16> @llvm.fshl.v32i16(<32 x i16>, <32 x i16>, <32 x i16>) #40
+declare <32 x i16> @llvm.fshl.v32i16(<32 x i16>, <32 x i16>, <32 x i16>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #41
+declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.permvar.qi.512(<64 x i8>, <64 x i8>) #41
+declare <64 x i8> @llvm.x86.avx512.permvar.qi.512(<64 x i8>, <64 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8>, <64 x i8>, <64 x i1>) #41
+declare <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8>, <64 x i8>, <64 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v64i8.p0(<64 x i8>, ptr nocapture, i32 immarg, <64 x i1>) #43
+declare void @llvm.masked.store.v64i8.p0(<64 x i8>, ptr nocapture, i32 immarg, <64 x i1>) #40
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.bzhi.64(i64, i64) #41
+declare i64 @llvm.x86.bmi.bzhi.64(i64, i64) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i8.p0(<16 x i8>, ptr nocapture, i32 immarg, <16 x i1>) #43
+declare void @llvm.masked.store.v16i8.p0(<16 x i8>, ptr nocapture, i32 immarg, <16 x i1>) #40
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i32> @llvm.umax.v8i32(<8 x i32>, <8 x i32>) #40
+declare <8 x i32> @llvm.umax.v8i32(<8 x i32>, <8 x i32>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i16> @llvm.x86.avx2.packusdw(<8 x i32>, <8 x i32>) #41
+declare <16 x i16> @llvm.x86.avx2.packusdw(<8 x i32>, <8 x i32>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx.ptestz.256(<4 x i64>, <4 x i64>) #41
+declare i32 @llvm.x86.avx.ptestz.256(<4 x i64>, <4 x i64>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #41
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #41
+declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8>, <32 x i8>) #41
+declare <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8>, <32 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #41
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v32i16.p0(<32 x i16>, ptr nocapture, i32 immarg, <32 x i1>) #43
+declare void @llvm.masked.store.v32i16.p0(<32 x i16>, ptr nocapture, i32 immarg, <32 x i1>) #40
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #40
+declare i64 @llvm.ctpop.i64(i64) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.ctpop.v8i64(<8 x i64>) #40
+declare <8 x i64> @llvm.ctpop.v8i64(<8 x i64>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i64> @llvm.x86.avx512.psad.bw.512(<64 x i8>, <64 x i8>) #41
+declare <8 x i64> @llvm.x86.avx512.psad.bw.512(<64 x i8>, <64 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #44
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #41
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #40
+declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse41.ptestz(<2 x i64>, <2 x i64>) #41
+declare i32 @llvm.x86.sse41.ptestz(<2 x i64>, <2 x i64>) #38
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin130rewind_and_convert_with_errorsEmPKcmPc(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #8 {
 entry:
   br label %for.body
@@ -53189,32 +53189,32 @@ return:                                           ; preds = %.loopexit, %_ZN7sim
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i64> @llvm.x86.avx2.psad.bw(<32 x i8>, <32 x i8>) #41
+declare <4 x i64> @llvm.x86.avx2.psad.bw(<32 x i8>, <32 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #40
+declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.umax.v4i32(<4 x i32>, <4 x i32>) #40
+declare <4 x i32> @llvm.umax.v4i32(<4 x i32>, <4 x i32>) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse41.packusdw(<4 x i32>, <4 x i32>) #41
+declare <8 x i16> @llvm.x86.sse41.packusdw(<4 x i32>, <4 x i32>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8>, <16 x i8>) #41
+declare <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8>, <16 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8>, <16 x i8>) #41
+declare <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8>, <16 x i8>) #38
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #45
+declare void @llvm.trap() #42
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #46
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #43
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #0 comdat align 2 {
@@ -53228,26 +53228,26 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2) #54
+  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2) #51
   %0 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0) #51
   br label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit
 
 if.else:                                          ; preds = %entry
-  %call.i = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #54
+  %call.i = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #51
   br label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit
 
 _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %if.then, %if.else
-  %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #54
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #54
+  %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #51
   %1 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %1) #54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %1) #51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #47
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #44
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 
@@ -53266,36 +53266,36 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_leng
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #46
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #43
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #48
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #45
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <32 x i8> @llvm.masked.load.v32i8.p0(ptr nocapture, i32 immarg, <32 x i1>, <32 x i8>) #42
+declare <32 x i8> @llvm.masked.load.v32i8.p0(ptr nocapture, i32 immarg, <32 x i1>, <32 x i8>) #39
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx512.ktestc.q(<64 x i1>, <64 x i1>) #41
+declare i32 @llvm.x86.avx512.ktestc.q(<64 x i1>, <64 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx512.ktestz.q(<64 x i1>, <64 x i1>) #41
+declare i32 @llvm.x86.avx512.ktestz.q(<64 x i1>, <64 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pext.64(i64, i64) #41
+declare i64 @llvm.x86.bmi.pext.64(i64, i64) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #40
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #37
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #40
+declare i32 @llvm.ctpop.i32(i32) #37
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE0EEENS_6resultEmPKcmPDs(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   br label %for.body
@@ -53337,7 +53337,7 @@ return:                                           ; preds = %if.end5, %if.then3
   ret { i32, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1630rewind_and_convert_with_errorsILNS_10endiannessE1EEENS_6resultEmPKcmPDs(i64 noundef %prior_bytes, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #8 {
 entry:
   br label %for.body
@@ -53380,98 +53380,98 @@ return:                                           ; preds = %if.end5, %if.then3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32>, <16 x i32>, <16 x i1>) #41
+declare <16 x i32> @llvm.x86.avx512.mask.expand.v16i32(<16 x i32>, <16 x i32>, <16 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16>, <32 x i16>, <32 x i1>) #41
+declare <32 x i16> @llvm.x86.avx512.mask.compress.v32i16(<32 x i16>, <32 x i16>, <32 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i16.p0(<16 x i16>, ptr nocapture, i32 immarg, <16 x i1>) #43
+declare void @llvm.masked.store.v16i16.p0(<16 x i16>, ptr nocapture, i32 immarg, <16 x i1>) #40
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8>, <64 x i8>) #41
+declare <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8>, <64 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16>, <32 x i16>) #41
+declare <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16>, <32 x i16>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32>, <16 x i32>) #41
+declare <16 x i32> @llvm.x86.avx512.psllv.d.512(<16 x i32>, <16 x i32>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32>, <16 x i32>) #41
+declare <16 x i32> @llvm.x86.avx512.psrlv.d.512(<16 x i32>, <16 x i32>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32>, <16 x i32>, <16 x i1>) #41
+declare <16 x i32> @llvm.x86.avx512.mask.compress.v16i32(<16 x i32>, <16 x i32>, <16 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v16i32.p0(<16 x i32>, ptr nocapture, i32 immarg, <16 x i1>) #43
+declare void @llvm.masked.store.v16i32.p0(<16 x i32>, ptr nocapture, i32 immarg, <16 x i1>) #40
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write)
-declare void @llvm.masked.store.v32i8.p0(<32 x i8>, ptr nocapture, i32 immarg, <32 x i1>) #43
+declare void @llvm.masked.store.v32i8.p0(<32 x i8>, ptr nocapture, i32 immarg, <32 x i1>) #40
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx512.ktestz.d(<32 x i1>, <32 x i1>) #41
+declare i32 @llvm.x86.avx512.ktestz.d(<32 x i1>, <32 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.x86.avx512.mask.pmov.wb.mem.512(ptr, <32 x i16>, i32) #49
+declare void @llvm.x86.avx512.mask.pmov.wb.mem.512(ptr, <32 x i16>, i32) #46
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx512.ktestc.d(<32 x i1>, <32 x i1>) #41
+declare i32 @llvm.x86.avx512.ktestc.d(<32 x i1>, <32 x i1>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.pmultishift.qb.512(<64 x i8>, <64 x i8>) #41
+declare <64 x i8> @llvm.x86.avx512.pmultishift.qb.512(<64 x i8>, <64 x i8>) #38
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16>, <16 x i16>) #41
+declare <32 x i8> @llvm.x86.avx2.packuswb(<16 x i16>, <16 x i16>) #38
 
 ; Function Attrs: nounwind uwtable
-define internal void @_GLOBAL__sub_I_simdutf.cpp() #50 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_simdutf.cpp() #47 section ".text.startup" {
 entry:
   tail call void @_ZN7simdutf8internal26unsupported_implementationC2Ev(ptr noundef nonnull align 8 dereferenceable(80) @_ZN7simdutf8internalL21unsupported_singletonE)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8internal26unsupported_implementationD2Ev, ptr nonnull @_ZN7simdutf8internalL21unsupported_singletonE, ptr nonnull @__dso_handle) #54
-  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #54
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #54
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8internal26unsupported_implementationD2Ev, ptr nonnull @_ZN7simdutf8internalL21unsupported_singletonE, ptr nonnull @__dso_handle) #51
+  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #51
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #51
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #51
+declare i64 @llvm.fshl.i64(i64, i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #51
+declare i16 @llvm.bswap.i16(i16) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #51
+declare i32 @llvm.umin.i32(i32, i32) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #51
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ctpop.i16(i16) #51
+declare i16 @llvm.ctpop.i16(i16) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i32> @llvm.fshl.v16i32(<16 x i32>, <16 x i32>, <16 x i32>) #51
+declare <16 x i32> @llvm.fshl.v16i32(<16 x i32>, <16 x i32>, <16 x i32>) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #51
+declare i64 @llvm.umin.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #51
+declare i64 @llvm.usub.sat.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #52
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #52
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #53
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #50
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #51
+declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #51
+declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #48
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -53481,56 +53481,53 @@ attributes #4 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "mi
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vpopcntdq,+bmi,+bmi2,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+lzcnt,+mmx,+pclmul,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #39 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #41 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #42 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #43 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
-attributes #44 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #45 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #46 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #47 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #48 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #49 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #50 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #51 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #52 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #53 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #54 = { nounwind }
-attributes #55 = { noreturn nounwind }
-attributes #56 = { builtin nounwind allocsize(0) }
-attributes #57 = { builtin nounwind }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi,+cmov,+crc32,+cx8,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #36 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #38 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #39 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #40 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
+attributes #41 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #42 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #43 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #44 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #45 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #46 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #47 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #48 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #49 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #50 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #51 = { nounwind }
+attributes #52 = { noreturn nounwind }
+attributes #53 = { builtin nounwind allocsize(0) }
+attributes #54 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

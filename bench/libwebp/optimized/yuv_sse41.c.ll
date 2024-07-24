@@ -379,7 +379,7 @@ define hidden void @WebPInitSamplersSSE41() local_unnamed_addr #1 {
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @YuvToRgbRow_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #2 {
   %.not118 = icmp slt i32 %4, 32
   br i1 %.not118, label %.preheader, label %.lr.ph.preheader
@@ -661,7 +661,7 @@ define internal void @YuvToRgbRow_SSE41(ptr nocapture noundef readonly %0, ptr n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @YuvToBgrRow_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #2 {
   %.not118 = icmp slt i32 %4, 32
   br i1 %.not118, label %.preheader, label %.lr.ph.preheader
@@ -954,7 +954,7 @@ define hidden void @WebPInitConvertARGBToYUVSSE41() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ConvertARGBToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #3 {
+define internal void @ConvertARGBToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = and i32 %2, -16
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %.preheader
@@ -1088,7 +1088,7 @@ define internal void @ConvertARGBToY_SSE41(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ConvertARGBToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+define internal void @ConvertARGBToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #3 {
   %6 = and i32 %3, -32
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -1294,15 +1294,15 @@ define internal void @ConvertARGBToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr 
   %179 = zext nneg i32 %.040.lcssa to i64
   %180 = getelementptr inbounds i32, ptr %0, i64 %179
   %181 = sub nsw i32 %3, %.040.lcssa
-  tail call void @WebPConvertARGBToUV_C(ptr noundef %180, ptr noundef %.0.lcssa, ptr noundef %.039.lcssa, i32 noundef %181, i32 noundef %4) #9
+  tail call void @WebPConvertARGBToUV_C(ptr noundef %180, ptr noundef %.0.lcssa, ptr noundef %.039.lcssa, i32 noundef %181, i32 noundef %4) #7
   br label %182
 
 182:                                              ; preds = %178, %._crit_edge
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ConvertRGB24ToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @ConvertRGB24ToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = alloca [6 x <2 x i64>], align 16
   %5 = and i32 %2, -32
   %6 = icmp sgt i32 %5, 0
@@ -1480,8 +1480,8 @@ define internal void @ConvertRGB24ToY_SSE41(ptr nocapture noundef readonly %0, p
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ConvertBGR24ToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @ConvertBGR24ToY_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %4 = alloca [6 x <2 x i64>], align 16
   %5 = and i32 %2, -32
   %6 = icmp sgt i32 %5, 0
@@ -1660,7 +1660,7 @@ define internal void @ConvertBGR24ToY_SSE41(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ConvertRGBA32ToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal void @ConvertRGBA32ToUV_SSE41(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3 {
   %5 = and i32 %3, -16
   %6 = shl nsw i32 %5, 2
   %7 = sext i32 %6 to i64
@@ -1802,7 +1802,7 @@ define internal void @ConvertRGBA32ToUV_SSE41(ptr noundef %0, ptr noundef %1, pt
 
 127:                                              ; preds = %._crit_edge
   %128 = and i32 %3, 15
-  tail call void @WebPConvertRGBA32ToUV_C(ptr noundef %.0.lcssa, ptr noundef %.026.lcssa, ptr noundef %.027.lcssa, i32 noundef %128) #9
+  tail call void @WebPConvertRGBA32ToUV_C(ptr noundef %.0.lcssa, ptr noundef %.026.lcssa, ptr noundef %.027.lcssa, i32 noundef %128) #7
   br label %129
 
 129:                                              ; preds = %127, %._crit_edge
@@ -1810,40 +1810,38 @@ define internal void @ConvertRGBA32ToUV_SSE41(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #6
+declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16>, <8 x i16>) #7
+declare <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16>, <8 x i16>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.usub.sat.v8i16(<8 x i16>, <8 x i16>) #7
+declare <8 x i16> @llvm.usub.sat.v8i16(<8 x i16>, <8 x i16>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #6
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #6
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #6
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #4
 
-declare void @WebPConvertARGBToUV_C(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @WebPConvertARGBToUV_C(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8>, <16 x i8>) #6
+declare <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8>, <16 x i8>) #4
 
-declare void @WebPConvertRGBA32ToUV_C(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @WebPConvertRGBA32ToUV_C(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
