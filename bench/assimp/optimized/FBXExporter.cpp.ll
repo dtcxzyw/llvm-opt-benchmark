@@ -2003,8 +2003,8 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   store ptr %call5.i.i.i.i1.i, ptr %buffer.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1024
@@ -2344,8 +2344,8 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   store ptr %call5.i.i.i.i1.i, ptr %buffer.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1024
@@ -2727,8 +2727,8 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   store ptr %call5.i.i.i.i1.i, ptr %buffer.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1024
@@ -3273,8 +3273,8 @@ lpad.i64:                                         ; preds = %_ZNSt12_Vector_base
   br label %ehcleanup234
 
 invoke.cont6:                                     ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   store ptr %call5.i.i.i.i1.i, ptr %buffer.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1024
@@ -21540,8 +21540,8 @@ lpad.i765:                                        ; preds = %_ZNSt12_Vector_base
   br label %eh.resume
 
 invoke.cont6:                                     ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   store ptr %call5.i.i.i.i1.i, ptr %buffer.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1024
@@ -30348,22 +30348,22 @@ call5.i.i.i.i.i.noexc3361:                        ; preds = %_ZNKSt6vectorIhSaIh
   store i8 0, ptr %call5.i.i.i.i.i3362, align 1
   %sub.i.i.i23.i.i = add nsw i64 %conv1477, -1
   %cmp.i.i.i.i.i24.i.i = icmp eq i64 %sub.i.i.i23.i.i, 0
-  br i1 %cmp.i.i.i.i.i24.i.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i, label %if.then.i.i.i.i.i.i.i25.i.i
+  br i1 %cmp.i.i.i.i.i24.i.i, label %try.cont.i.i, label %if.then.i.i.i.i.i.i.i25.i.i
 
 if.then.i.i.i.i.i.i.i25.i.i:                      ; preds = %call5.i.i.i.i.i.noexc3361
   %incdec.ptr.i.i.i22.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i3362, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i, i8 0, i64 %sub.i.i.i23.i.i, i1 false)
-  br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i
+  br label %try.cont.i.i
 
-_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i: ; preds = %call5.i.i.i.i.i.noexc3361, %if.then.i.i.i.i.i.i.i25.i.i
+try.cont.i.i:                                     ; preds = %if.then.i.i.i.i.i.i.i25.i.i, %call5.i.i.i.i.i.noexc3361
   store ptr %call5.i.i.i.i.i3362, ptr %tex_data, align 8
   %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i3362, i64 %conv1477
   store ptr %add.ptr36.i.i, ptr %_M_finish.i.i3338, align 8
   store ptr %add.ptr36.i.i, ptr %_M_end_of_storage.i.i3351, align 8
   br label %invoke.cont1482
 
-invoke.cont1482:                                  ; preds = %if.then1480, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i
-  %877 = phi ptr [ %call5.i.i.i.i.i3362, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit33.i.i ], [ null, %if.then1480 ]
+invoke.cont1482:                                  ; preds = %if.then1480, %try.cont.i.i
+  %877 = phi ptr [ %call5.i.i.i.i.i3362, %try.cont.i.i ], [ null, %if.then1480 ]
   %pcData = getelementptr inbounds i8, ptr %848, i64 24
   %878 = load ptr, ptr %pcData, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %877, ptr align 1 %878, i64 %conv1477, i1 false)
@@ -42607,8 +42607,8 @@ lpad.i18:                                         ; preds = %_ZNSt12_Vector_base
   br label %ehcleanup38
 
 invoke.cont14:                                    ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %outstream, i64 32
   store ptr %call5.i.i.i.i1.i, ptr %buffer.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1024

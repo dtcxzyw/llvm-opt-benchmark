@@ -11,106 +11,106 @@ define dso_local noundef ptr @find_executable_path() local_unnamed_addr #0 {
   %1 = alloca [4096 x i8], align 16
   %2 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2)
-  %3 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #6
+  %3 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_executable_path_raw.exit.thread, label %4
 
 get_executable_path_raw.exit.thread:              ; preds = %0
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
-  br label %34
+  br label %33
 
 4:                                                ; preds = %0
-  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
+  %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %6 = trunc i64 %5 to i32
   %.not19.i = icmp sgt i32 %6, 0
   br i1 %.not19.i, label %get_executable_path_raw.exit.thread33, label %get_executable_path_raw.exit
 
 get_executable_path_raw.exit.thread33:            ; preds = %4
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
-  br label %9
+  br label %8
 
 get_executable_path_raw.exit:                     ; preds = %4
-  %sext.i = shl i64 %5, 32
-  %7 = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4294967296 null, ptr nonnull align 1 %3, i64 %7, i1 false)
+  %sext.i.mask = and i64 %5, 4294967295
+  %7 = icmp eq i64 %sext.i.mask, 0
+  call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
-  %8 = icmp slt i32 %6, 0
-  br i1 %8, label %34, label %9
+  br label %8
 
-9:                                                ; preds = %get_executable_path_raw.exit.thread33, %get_executable_path_raw.exit
-  %10 = add i64 %5, 1
-  %11 = and i64 %10, 4294967295
-  %12 = call noalias ptr @malloc(i64 noundef %11) #8
+8:                                                ; preds = %get_executable_path_raw.exit, %get_executable_path_raw.exit.thread33
+  %.015.i35 = phi i32 [ %6, %get_executable_path_raw.exit.thread33 ], [ 0, %get_executable_path_raw.exit ]
+  %9 = add nuw i32 %.015.i35, 1
+  %10 = zext i32 %9 to i64
+  %11 = call noalias ptr @malloc(i64 noundef %10) #9
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1)
-  %13 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #6
-  %.not.i27 = icmp eq ptr %13, null
-  br i1 %.not.i27, label %get_executable_path_raw.exit31, label %14
+  %12 = call ptr @realpath(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #7
+  %.not.i27 = icmp eq ptr %12, null
+  br i1 %.not.i27, label %get_executable_path_raw.exit31, label %13
 
-14:                                               ; preds = %9
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #7
-  %16 = trunc i64 %15 to i32
-  %.not19.i28 = icmp slt i32 %6, %16
-  br i1 %.not19.i28, label %get_executable_path_raw.exit31, label %17
+13:                                               ; preds = %8
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
+  %15 = trunc i64 %14 to i32
+  %.not19.i28 = icmp slt i32 %.015.i35, %15
+  br i1 %.not19.i28, label %get_executable_path_raw.exit31, label %16
 
-17:                                               ; preds = %14
-  %sext.i29 = shl i64 %15, 32
-  %18 = ashr exact i64 %sext.i29, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %13, i64 %18, i1 false)
+16:                                               ; preds = %13
+  %sext.i29 = shl i64 %14, 32
+  %17 = ashr exact i64 %sext.i29, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 1 %12, i64 %17, i1 false)
   br label %get_executable_path_raw.exit31
 
-get_executable_path_raw.exit31:                   ; preds = %9, %14, %17
+get_executable_path_raw.exit31:                   ; preds = %8, %13, %16
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
-  %19 = and i64 %5, 4294967295
-  %20 = getelementptr inbounds i8, ptr %12, i64 %19
-  store i8 0, ptr %20, align 1
-  %.not = icmp eq i32 %6, 0
+  %18 = zext nneg i32 %.015.i35 to i64
+  %19 = getelementptr inbounds i8, ptr %11, i64 %18
+  store i8 0, ptr %19, align 1
+  %.not = icmp eq i32 %.015.i35, 0
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %25
-  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %get_executable_path_raw.exit31 ]
-  %21 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %22, 92
-  br i1 %23, label %24, label %25
+.lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %24
+  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %get_executable_path_raw.exit31 ]
+  %20 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 92
+  br i1 %22, label %23, label %24
 
-24:                                               ; preds = %.lr.ph
-  store i8 47, ptr %21, align 1
-  br label %25
+23:                                               ; preds = %.lr.ph
+  store i8 47, ptr %20, align 1
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %24
+24:                                               ; preds = %.lr.ph, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %18
   br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
 
-.preheader.preheader:                             ; preds = %25, %get_executable_path_raw.exit31
+.preheader.preheader:                             ; preds = %24, %get_executable_path_raw.exit31
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %27
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %27 ], [ %19, %.preheader.preheader ]
-  %26 = icmp sgt i64 %indvars.iv40, 0
-  br i1 %26, label %27, label %33
+.preheader:                                       ; preds = %.preheader.preheader, %26
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %26 ], [ %18, %.preheader.preheader ]
+  %25 = icmp sgt i64 %indvars.iv40, 0
+  br i1 %25, label %26, label %32
 
-27:                                               ; preds = %.preheader
+26:                                               ; preds = %.preheader
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %28 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.next41
-  %29 = load i8, ptr %28, align 1
-  switch i8 %29, label %.preheader [
-    i8 47, label %30
-    i8 92, label %30
+  %27 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.next41
+  %28 = load i8, ptr %27, align 1
+  switch i8 %28, label %.preheader [
+    i8 47, label %29
+    i8 92, label %29
   ], !llvm.loop !9
 
-30:                                               ; preds = %27, %27
-  %31 = and i64 %indvars.iv40, 4294967295
-  %32 = getelementptr inbounds i8, ptr %12, i64 %31
-  store i8 0, ptr %32, align 1
-  br label %34
+29:                                               ; preds = %26, %26
+  %30 = and i64 %indvars.iv40, 4294967295
+  %31 = getelementptr inbounds i8, ptr %11, i64 %30
+  store i8 0, ptr %31, align 1
+  br label %33
 
-33:                                               ; preds = %.preheader
-  store i8 0, ptr %20, align 1
-  br label %34
+32:                                               ; preds = %.preheader
+  store i8 0, ptr %19, align 1
+  br label %33
 
-34:                                               ; preds = %get_executable_path_raw.exit.thread, %get_executable_path_raw.exit, %33, %30
-  %.025 = phi ptr [ %12, %30 ], [ %12, %33 ], [ @.str, %get_executable_path_raw.exit ], [ @.str, %get_executable_path_raw.exit.thread ]
+33:                                               ; preds = %get_executable_path_raw.exit.thread, %32, %29
+  %.025 = phi ptr [ %11, %29 ], [ %11, %32 ], [ @.str, %get_executable_path_raw.exit.thread ]
   ret ptr %.025
 }
 
@@ -132,15 +132,19 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind allocsize(0) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

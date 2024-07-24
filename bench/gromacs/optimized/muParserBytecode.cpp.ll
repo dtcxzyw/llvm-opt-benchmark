@@ -156,11 +156,11 @@ _ZNSt6vectorIN2mu6STokenESaIS1_EE7reserveEm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = tail call noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #20
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %5, ptr %2, align 8
-  store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 1600
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = tail call noalias noundef nonnull dereferenceable(1600) ptr @_Znwm(i64 noundef 1600) #20
+  store ptr %6, ptr %2, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 1600
   store ptr %7, ptr %4, align 8
   ret void
 }

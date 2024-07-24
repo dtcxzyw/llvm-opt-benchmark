@@ -243,16 +243,16 @@ if.end.i.i:                                       ; preds = %_ZN11struct_pack6de
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %if.end.i.i
   %call5.i.i.i.i.i153 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i544) #22
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i unwind label %lpad.i112
+          to label %call5.i.i.i.i.i.noexc unwind label %lpad.i112
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
   store ptr %call5.i.i.i.i.i153, ptr %buffer, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i153, i64 %add.i544
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %.noexc548
 
-.noexc548:                                        ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i, %if.end.i.i
-  %1 = phi ptr [ null, %if.end.i.i ], [ %call5.i.i.i.i.i153, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i ]
+.noexc548:                                        ; preds = %call5.i.i.i.i.i.noexc, %if.end.i.i
+  %1 = phi ptr [ null, %if.end.i.i ], [ %call5.i.i.i.i.i153, %call5.i.i.i.i.i.noexc ]
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %1, i64 %add.i544
   store ptr %add.ptr.i3.i, ptr %_M_finish.i, align 8
   %2 = and i8 %retval.i.i.sroa.10.1, 24
@@ -989,16 +989,16 @@ if.end.i.i390:                                    ; preds = %_ZN11struct_pack6de
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i398: ; preds = %if.end.i.i390
   %call5.i.i.i.i.i412 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i586) #22
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i406 unwind label %lpad.i97
+          to label %call5.i.i.i.i.i.noexc411 unwind label %lpad.i97
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i406: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i398
+call5.i.i.i.i.i.noexc411:                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i398
   store ptr %call5.i.i.i.i.i412, ptr %buffer2, align 8
   %add.ptr21.i.i407 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i412, i64 %add.i586
   store ptr %add.ptr21.i.i407, ptr %_M_end_of_storage.i.i.i391, align 8
   br label %.noexc606
 
-.noexc606:                                        ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i406, %if.end.i.i390
-  %62 = phi ptr [ null, %if.end.i.i390 ], [ %call5.i.i.i.i.i412, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i406 ]
+.noexc606:                                        ; preds = %call5.i.i.i.i.i.noexc411, %if.end.i.i390
+  %62 = phi ptr [ null, %if.end.i.i390 ], [ %call5.i.i.i.i.i412, %call5.i.i.i.i.i.noexc411 ]
   %add.ptr.i3.i396 = getelementptr inbounds i8, ptr %62, i64 %add.i586
   store ptr %add.ptr.i3.i396, ptr %_M_finish.i380, align 8
   %63 = and i8 %retval.i.i551.sroa.10.1, 24
@@ -1133,16 +1133,16 @@ if.end.i.i469:                                    ; preds = %_ZN11struct_pack6de
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i477: ; preds = %if.end.i.i469
   %call5.i.i.i.i.i491 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i734) #22
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i485 unwind label %lpad.i213
+          to label %call5.i.i.i.i.i.noexc490 unwind label %lpad.i213
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i485: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i477
+call5.i.i.i.i.i.noexc490:                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i477
   store ptr %call5.i.i.i.i.i491, ptr %buffer38, align 8
   %add.ptr21.i.i486 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i491, i64 %add.i734
   store ptr %add.ptr21.i.i486, ptr %_M_end_of_storage.i.i.i470, align 8
   br label %.noexc738
 
-.noexc738:                                        ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i485, %if.end.i.i469
-  %72 = phi ptr [ null, %if.end.i.i469 ], [ %call5.i.i.i.i.i491, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i485 ]
+.noexc738:                                        ; preds = %call5.i.i.i.i.i.noexc490, %if.end.i.i469
+  %72 = phi ptr [ null, %if.end.i.i469 ], [ %call5.i.i.i.i.i491, %call5.i.i.i.i.i.noexc490 ]
   %add.ptr.i3.i475 = getelementptr inbounds i8, ptr %72, i64 %add.i734
   store ptr %add.ptr.i3.i475, ptr %_M_finish.i459, align 8
   %73 = and i8 %retval.i851.sroa.10.1, 24
@@ -1309,16 +1309,16 @@ if.end.i.i521:                                    ; preds = %_ZN11struct_pack6de
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i529: ; preds = %if.end.i.i521
   %call5.i.i.i.i.i543 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i645) #22
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i537 unwind label %lpad.i
+          to label %call5.i.i.i.i.i.noexc542 unwind label %lpad.i
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i537: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i529
+call5.i.i.i.i.i.noexc542:                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i529
   store ptr %call5.i.i.i.i.i543, ptr %buffer46, align 8
   %add.ptr21.i.i538 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i543, i64 %add.i645
   store ptr %add.ptr21.i.i538, ptr %_M_end_of_storage.i.i.i522, align 8
   br label %.noexc665
 
-.noexc665:                                        ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i537, %if.end.i.i521
-  %87 = phi ptr [ null, %if.end.i.i521 ], [ %call5.i.i.i.i.i543, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i537 ]
+.noexc665:                                        ; preds = %call5.i.i.i.i.i.noexc542, %if.end.i.i521
+  %87 = phi ptr [ null, %if.end.i.i521 ], [ %call5.i.i.i.i.i543, %call5.i.i.i.i.i.noexc542 ]
   %add.ptr.i3.i527 = getelementptr inbounds i8, ptr %87, i64 %add.i645
   store ptr %add.ptr.i3.i527, ptr %_M_finish.i511, align 8
   %88 = and i8 %retval.i.i610.sroa.10.1, 24
@@ -1814,16 +1814,16 @@ if.end.i.i679:                                    ; preds = %_ZN11struct_pack6de
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i687: ; preds = %if.end.i.i679
   %call5.i.i.i.i.i701 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i750) #22
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i695 unwind label %lpad.i197
+          to label %call5.i.i.i.i.i.noexc700 unwind label %lpad.i197
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i695: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i687
+call5.i.i.i.i.i.noexc700:                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i687
   store ptr %call5.i.i.i.i.i701, ptr %buffer57, align 8
   %add.ptr21.i.i696 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i701, i64 %add.i750
   store ptr %add.ptr21.i.i696, ptr %_M_end_of_storage.i.i.i680, align 8
   br label %.noexc754
 
-.noexc754:                                        ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i695, %if.end.i.i679
-  %144 = phi ptr [ null, %if.end.i.i679 ], [ %call5.i.i.i.i.i701, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i695 ]
+.noexc754:                                        ; preds = %call5.i.i.i.i.i.noexc700, %if.end.i.i679
+  %144 = phi ptr [ null, %if.end.i.i679 ], [ %call5.i.i.i.i.i701, %call5.i.i.i.i.i.noexc700 ]
   %add.ptr.i3.i685 = getelementptr inbounds i8, ptr %144, i64 %add.i750
   store ptr %add.ptr.i3.i685, ptr %_M_finish.i661, align 8
   %145 = and i8 %retval.i802.sroa.10.1, 24
@@ -2141,16 +2141,16 @@ if.end.i.i807:                                    ; preds = %_ZN11struct_pack6de
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i815: ; preds = %if.end.i.i807
   %call5.i.i.i.i.i829 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i767) #22
-          to label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i823 unwind label %lpad.i183
+          to label %call5.i.i.i.i.i.noexc828 unwind label %lpad.i183
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i823: ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i815
+call5.i.i.i.i.i.noexc828:                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i815
   store ptr %call5.i.i.i.i.i829, ptr %buffer71, align 8
   %add.ptr21.i.i824 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i829, i64 %add.i767
   store ptr %add.ptr21.i.i824, ptr %_M_end_of_storage.i.i.i808, align 8
   br label %.noexc771
 
-.noexc771:                                        ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i823, %if.end.i.i807
-  %181 = phi ptr [ null, %if.end.i.i807 ], [ %call5.i.i.i.i.i829, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i823 ]
+.noexc771:                                        ; preds = %call5.i.i.i.i.i.noexc828, %if.end.i.i807
+  %181 = phi ptr [ null, %if.end.i.i807 ], [ %call5.i.i.i.i.i829, %call5.i.i.i.i.i.noexc828 ]
   %add.ptr.i3.i813 = getelementptr inbounds i8, ptr %181, i64 %add.i767
   store ptr %add.ptr.i3.i813, ptr %_M_finish.i789, align 8
   %182 = and i8 %retval.i775.sroa.10.1, 24

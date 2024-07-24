@@ -6023,9 +6023,9 @@ if.end101:                                        ; preds = %if.else.i96, %if.th
 _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i: ; preds = %if.end101
   %mul.i.i.i.i = shl nuw nsw i64 %conv106, 3
   %call5.i.i.i.i113 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
-          to label %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i unwind label %lpad107
+          to label %call5.i.i.i.i.noexc unwind label %lpad107
 
-_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
+call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i
   %_M_finish.i.i108 = getelementptr inbounds i8, ptr %meshes, i64 8
   store ptr %call5.i.i.i.i113, ptr %meshes, align 8
   store ptr %call5.i.i.i.i113, ptr %_M_finish.i.i108, align 8
@@ -6033,7 +6033,7 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZN
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i102, align 8
   br label %invoke.cont108
 
-invoke.cont108:                                   ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i, %if.end101
+invoke.cont108:                                   ; preds = %call5.i.i.i.i.noexc, %if.end101
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %omaterials, i8 0, i64 24, i1 false)
   %50 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %51 = load ptr, ptr %materials, align 8

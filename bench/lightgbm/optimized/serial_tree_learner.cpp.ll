@@ -16652,12 +16652,12 @@ define linkonce_odr void @_ZN8LightGBM26AdvancedFeatureConstraintsC2Ev(ptr nound
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8LightGBM26AdvancedFeatureConstraintsE, i64 16), ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false)
-  %4 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #34
-  store ptr %4, ptr %1, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 256
+  %3 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #34
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %3, ptr %1, align 8
+  store ptr %3, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 256
   store ptr %5, ptr %2, align 8
   %6 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #34
           to label %8 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -16665,7 +16665,7 @@ define linkonce_odr void @_ZN8LightGBM26AdvancedFeatureConstraintsC2Ev(ptr nound
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %.noexc
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #33
   br label %.body
 
 8:                                                ; preds = %.noexc
@@ -16682,12 +16682,12 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %.noexc
           to label %.noexc5 unwind label %28
 
 .noexc5:                                          ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %14, ptr %13, align 8
-  store ptr %14, ptr %15, align 8
+  store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 256
-  store ptr %17, ptr %16, align 8
+  store ptr %17, ptr %15, align 8
   %18 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #34
           to label %20 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i4
 

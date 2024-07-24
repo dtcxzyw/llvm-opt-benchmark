@@ -358,9 +358,9 @@ entry:
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %entry
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i, 2
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
-          to label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i unwind label %lpad.i
+          to label %call5.i.i.i.i.noexc.i unwind label %lpad.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
+call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %work_queue, i64 64
   store ptr %call5.i.i.i.i1.i, ptr %q.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i, align 8
@@ -378,7 +378,7 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %work_queue) #20
   br label %common.resume
 
-_ZN3ue212_GLOBAL__N_19WorkQueueC2Ej.exit:         ; preds = %entry, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i
+_ZN3ue212_GLOBAL__N_19WorkQueueC2Ej.exit:         ; preds = %entry, %call5.i.i.i.i.noexc.i
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u_vi.i)
@@ -2548,9 +2548,9 @@ invoke.cont2:                                     ; preds = %if.end.i.i.i.i131.i
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %invoke.cont2
   %mul.i.i.i.i.i.i46 = shl nuw nsw i64 %conv.i.i45, 2
   %call5.i.i.i.i1.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i46) #21
-          to label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i.i unwind label %lpad.i.i47
+          to label %call5.i.i.i.i.noexc.i.i unwind label %lpad.i.i47
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
+call5.i.i.i.i.noexc.i.i:                          ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %reval_queue.i, i64 64
   store ptr %call5.i.i.i.i1.i.i, ptr %q.i.i, align 8
   store ptr %call5.i.i.i.i1.i.i, ptr %_M_finish.i.i.i.i, align 8
@@ -2564,8 +2564,8 @@ lpad.i.i47:                                       ; preds = %_ZNSt12_Vector_base
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %reval_queue.i) #20
   br label %ehcleanup119.i
 
-_ZN3ue212_GLOBAL__N_19WorkQueueC2Ej.exit.i:       ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i.i, %invoke.cont2
-  %263 = phi ptr [ null, %invoke.cont2 ], [ %call5.i.i.i.i1.i.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i.i ]
+_ZN3ue212_GLOBAL__N_19WorkQueueC2Ej.exit.i:       ; preds = %call5.i.i.i.i.noexc.i.i, %invoke.cont2
+  %263 = phi ptr [ null, %invoke.cont2 ], [ %call5.i.i.i.i1.i.i, %call5.i.i.i.i.noexc.i.i ]
   %264 = getelementptr inbounds i8, ptr %work_queue, i64 24
   %work_queue.val22497.i = load i64, ptr %264, align 8
   %cmp.i.i.i498.i = icmp eq i64 %work_queue.val22497.i, 0

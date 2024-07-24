@@ -3471,12 +3471,12 @@ _ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i: ; preds = %1
           to label %_ZNSt6vectorIPvSaIS0_EE7reserveEm.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorIPvSaIS0_EE7reserveEm.exit:           ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %6, ptr %2, align 8
-  store ptr %6, ptr %7, align 8
+  store ptr %6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 256
-  store ptr %9, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
   %10 = load atomic i8, ptr @_ZGVZN2cv7detailsL13getTlsStorageEvE8instance acquire, align 8
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %23, !prof !10
@@ -3597,12 +3597,12 @@ _ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i:
           to label %_ZNSt6vectorIPvSaIS0_EE7reserveEm.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorIPvSaIS0_EE7reserveEm.exit:           ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %1, align 8
-  store ptr %2, ptr %3, align 8
+  store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 256
-  store ptr %5, ptr %4, align 8
+  store ptr %5, ptr %3, align 8
   %6 = load atomic i8, ptr @_ZGVZN2cv7detailsL13getTlsStorageEvE8instance acquire, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %19, !prof !10
@@ -4029,12 +4029,12 @@ _ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread: ; preds = %21, %_ZNK2cv7d
           to label %29 unwind label %50
 
 29:                                               ; preds = %_ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %28, ptr %27, align 8
-  store ptr %28, ptr %31, align 8
+  store ptr %28, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %28, i64 256
-  store ptr %32, ptr %30, align 8
+  store ptr %32, ptr %31, align 8
   tail call void @_ZN2cv7details14TlsAbstraction7setDataEPv(ptr noundef nonnull align 4 dereferenceable(5) %19, ptr noundef nonnull %27)
   %33 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #26
   %.not.i.i = icmp eq i32 %33, 0
