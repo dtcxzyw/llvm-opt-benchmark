@@ -5,7 +5,7 @@ import os
 
 max_diff_per_file = 500
 max_diff_total = 15000
-max_file_total = 300 - 1
+max_file_total = 200
 
 stats = subprocess.check_output(['git', 'diff', '--numstat']).decode().splitlines()
 diffs = []
